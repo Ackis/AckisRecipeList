@@ -2081,7 +2081,7 @@ function addon:InitTailoring()
 	recipe:AddCustom(42)
 
 	-- Royal Moonshroud Robe -- 67144
-	recipe = AddRecipe(67144, 450, 47606, Q.EPIC, V.WOTLK, 450, 460, 467, 475, "Horde"›)
+	recipe = AddRecipe(67144, 450, 47606, Q.EPIC, V.WOTLK, 450, 460, 467, 475, "Horde")
 	recipe:AddFilters(F.HORDE, F.RAID, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
 	recipe:AddCustom(42)
 
