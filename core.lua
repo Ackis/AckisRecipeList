@@ -1031,8 +1031,7 @@ do
 		-- Make sure we're only updating a profession the character actually knows - this could be a scan from a tradeskill link.
 		local is_linked = _G.IsTradeSkillLinked() or _G.IsTradeSkillGuild()
 
-		if not is_linked and player.professions[current_prof] then
-			player.professions[current_prof] = prof_level
+		if not is_linked then
 			player.has_scanned[current_prof] = true
 		end
 
@@ -1167,45 +1166,7 @@ do
 		-------------------------------------------------------------------------------
 		-- Update the player's reputation levels.
 		-------------------------------------------------------------------------------
-		player["Reputation"] = player["Reputation"] or {}
-
-		table.wipe(header_list)
-
-		-- Number of factions before expansion
-		local num_factions = _G.GetNumFactions()
-
-		-- Expand all the headers, storing those which were collapsed.
-		for i = num_factions, 1, -1 do
-			local name, _, _, _, _, _, _, _, _, isCollapsed = _G.GetFactionInfo(i)
-
-			if isCollapsed then
-				_G.ExpandFactionHeader(i)
-				header_list[name] = true
-			end
-		end
-
-		-- Number of factions with everything expanded
-		num_factions = _G.GetNumFactions()
-
-		-- Get the rep levels
-		for i = 1, num_factions, 1 do
-			local name, _, replevel = _G.GetFactionInfo(i)
-
-			-- If the rep is greater than neutral
-			if replevel > 4 then
-				-- We use levels of 0, 1, 2, 3, 4 internally for reputation levels, make it correspond here
-				player["Reputation"][name] = replevel - 4
-			end
-		end
-
-		-- Collapse the headers again
-		for i = num_factions, 1, -1 do
-			local name = _G.GetFactionInfo(i)
-
-			if header_list[name] then
-				_G.CollapseFactionHeader(i)
-			end
-		end
+		player:UpdateReputations()
 
 		-------------------------------------------------------------------------------
 		-- Everything is ready - display the GUI or dump the list to text.

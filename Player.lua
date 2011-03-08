@@ -38,7 +38,7 @@ local addon	= LibStub("AceAddon-3.0"):GetAddon(MODNAME)
 local BFAC	= LibStub("LibBabble-Faction-3.0"):GetLookupTable()
 local L		= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
 
-local private	= _G.select(2, ...)
+local FOLDER_NAME, private	= ...
 
 ------------------------------------------------------------------------------
 -- Data which is stored regarding a players statistics (luadoc copied from Collectinator, needs updating)
@@ -63,8 +63,8 @@ local F = private.filter_flags
 -- Player methods.
 -------------------------------------------------------------------------------
 function Player:Initialize()
-	self.faction = UnitFactionGroup("player")
-	self.Class = select(2, UnitClass("player"))
+	self.faction = _G.UnitFactionGroup("player")
+	self.Class = _G.select(2, _G.UnitClass("player"))
 	self:SetProfessions()
 
 	-------------------------------------------------------------------------------
@@ -76,6 +76,52 @@ function Player:Initialize()
 		self.has_scanned[profession] = false
 	end
 end
+
+do
+	local headers = {}
+
+	function Player:UpdateReputations()
+		self["Reputation"] = self["Reputation"] or {}
+
+		table.wipe(headers)
+
+		-- Number of factions before expansion
+		local num_factions = _G.GetNumFactions()
+
+		-- Expand all the headers, storing those which were collapsed.
+		for i = num_factions, 1, -1 do
+			local name, _, _, _, _, _, _, _, _, isCollapsed = _G.GetFactionInfo(i)
+
+			if isCollapsed then
+				_G.ExpandFactionHeader(i)
+				headers[name] = true
+			end
+		end
+
+		-- Number of factions with everything expanded
+		num_factions = _G.GetNumFactions()
+
+		-- Get the rep levels
+		for i = 1, num_factions, 1 do
+			local name, _, replevel = _G.GetFactionInfo(i)
+
+			-- If the rep is greater than neutral
+			if replevel > 4 then
+				-- We use levels of 0, 1, 2, 3, 4 internally for reputation levels, make it correspond here
+				self["Reputation"][name] = replevel - 4
+			end
+		end
+
+		-- Collapse the headers again
+		for i = num_factions, 1, -1 do
+			local name = _G.GetFactionInfo(i)
+
+			if headers[name] then
+				_G.CollapseFactionHeader(i)
+			end
+		end
+	end
+end	-- do-block
 
 function Player:HasProperRepLevel(rep_data)
 	if not rep_data then
@@ -132,24 +178,23 @@ do
 	function Player:SetProfessions()
 		if not self.professions then
 			self.professions = {
-				[_G.GetSpellInfo(51304)] = false, -- Alchemy
-				[_G.GetSpellInfo(51300)] = false, -- Blacksmithing
-				[_G.GetSpellInfo(51296)] = false, -- Cooking
-				[_G.GetSpellInfo(51313)] = false, -- Enchanting
-				[_G.GetSpellInfo(51306)] = false, -- Engineering
-				[_G.GetSpellInfo(45542)] = false, -- First Aid
-				[_G.GetSpellInfo(51302)] = false, -- Leatherworking
-				[_G.GetSpellInfo(2656)] = false, -- Smelting
-				[_G.GetSpellInfo(51309)] = false, -- Tailoring
-				[_G.GetSpellInfo(51311)] = false, -- Jewelcrafting
-				[_G.GetSpellInfo(45363)] = false, -- Inscription
-				[private.runeforging_name] = false, -- Runeforging
+				[_G.GetSpellInfo(51304)]	= false, -- Alchemy
+				[_G.GetSpellInfo(51300)]	= false, -- Blacksmithing
+				[_G.GetSpellInfo(51296)]	= false, -- Cooking
+				[_G.GetSpellInfo(51313)]	= false, -- Enchanting
+				[_G.GetSpellInfo(51306)]	= false, -- Engineering
+				[_G.GetSpellInfo(45542)]	= false, -- First Aid
+				[_G.GetSpellInfo(51302)]	= false, -- Leatherworking
+				[_G.GetSpellInfo(2656)]		= false, -- Smelting
+				[_G.GetSpellInfo(51309)]	= false, -- Tailoring
+				[_G.GetSpellInfo(51311)]	= false, -- Jewelcrafting
+				[_G.GetSpellInfo(45363)]	= false, -- Inscription
+				[private.runeforging_name]	= false, -- Runeforging
 			}
 		end
-		local profession_list = self.professions
 
-		for i in pairs(profession_list) do
-			profession_list[i] = false
+		for i in pairs(self.professions) do
+			self.professions[i] = nil
 		end
 		local known = known_professions
 
@@ -162,7 +207,7 @@ do
 				if name == private.mining_name then
 					name = private.professions["Smelting"]
 				end
-				profession_list[name] = true
+				self.professions[name] = rank
 			end
 		end
 	end
