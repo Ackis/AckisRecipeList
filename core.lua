@@ -1024,6 +1024,7 @@ do
 			return
 		end
 		local player = private.Player
+		player:SetProfessions()
 
 		-- Set the current profession level, and update the cached data.
 		private.current_profession_scanlevel = prof_level
