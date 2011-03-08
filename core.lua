@@ -502,8 +502,11 @@ function addon:OnInitialize()
 
 				      if shift_key and not alt_key and not ctrl_key then
 					      addon:Scan(true)
-				      elseif not shift_key and alt_key and not ctrl_key then
+				      elseif alt_key and not shift_key and not ctrl_key then
 					      addon:ClearWaypoints()
+				      elseif ctrl_key and not shift_key and not alt_key then
+					      local current_prof = _G.GetTradeSkillLine()
+					      addon:DumpProfession(current_prof)
 				      elseif not shift_key and not alt_key and not ctrl_key then
 					      if MainPanel and MainPanel:IsVisible() and prev_profession == cur_profession then
 						      MainPanel:Hide()
