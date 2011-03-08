@@ -1043,13 +1043,13 @@ do
 		local specialty = SpecialtyTable[current_prof]
 
 		for index = 1, 25, 1 do
-			local spellName = _G.GetSpellBookItemName(index, _G.BOOKTYPE_SPELL)
+			local spell_name = _G.GetSpellBookItemName(index, _G.BOOKTYPE_SPELL)
 
-			if not spellName or index == 25 then
+			if not spell_name or index == 25 then
 				player["Specialty"] = nil
 				break
-			elseif specialty and specialty[spellName] then
-				player["Specialty"] = specialty[spellName]
+			elseif specialty and specialty[spell_name] then
+				player["Specialty"] = specialty[spell_name]
 				break
 			end
 		end
