@@ -60,7 +60,7 @@ function addon:AddRecipe(spell_id, skill_level, item_id, quality, profession, sp
 
 	if recipe_list[spell_id] then
 		--@alpha@
-		self:Print("Duplicate recipe: "..recipe_list[spell_id].profession.." "..tostring(spell_id).." "..recipe_list[spell_id].name)
+		self:Debug("Duplicate recipe: %d - %s (%s)", spell_id, recipe_list[spell_id].name, recipe_list[spell_id].profession)
 		--@end-alpha@
 		return
 	end
