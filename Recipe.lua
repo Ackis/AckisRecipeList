@@ -150,7 +150,7 @@ do
 			recipe_name = string.gsub(recipe_name, _G.ENSCRIBE .. " ", "")
 		end
 		local has_faction = private.Player:HasProperRepLevel(self.acquire_data[A.REPUTATION])
-		local skill_level = private.Player["ProfessionLevel"]
+		local skill_level = private.current_profession_scanlevel
 		local recipe_level = self.skill_level
 
 		local diff_color

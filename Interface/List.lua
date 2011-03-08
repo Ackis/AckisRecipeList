@@ -585,7 +585,7 @@ function private.InitializeListFrame()
 			end
 
 			-- Display all skill levels?
-			if not general_filters.skill and recipe.skill_level > Player["ProfessionLevel"] then
+			if not general_filters.skill and recipe.skill_level > private.current_profession_scanlevel then
 				return false
 			end
 
@@ -1892,7 +1892,7 @@ do
 		local color_1 = BASIC_COLORS["normal"]
 		local color_2
 
-		local skill_level = Player["ProfessionLevel"]
+		local skill_level = private.current_profession_scanlevel
 		local recipe_level = recipe.skill_level
 		local optimal_level = recipe.optimal_level
 		local medium_level = recipe.medium_level

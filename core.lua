@@ -1029,7 +1029,7 @@ do
 		local player = private.Player
 
 		-- Set the current profession level, and update the cached data.
-		player["ProfessionLevel"] = prof_level
+		private.current_profession_scanlevel = prof_level
 
 		-- Make sure we're only updating a profession the character actually knows - this could be a scan from a tradeskill link.
 		local is_linked = _G.IsTradeSkillLinked() or _G.IsTradeSkillGuild()
