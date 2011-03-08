@@ -911,7 +911,7 @@ function addon:InitializeProfession(profession)
 
 	if func then
 		func(addon)
-		private.profession_init_funcs[profession] = nil
+		PROFESSION_INIT_FUNCS[profession] = nil
 	end
 end
 
