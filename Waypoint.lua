@@ -24,7 +24,7 @@ local pairs, select = _G.pairs, _G.select
 -------------------------------------------------------------------------------
 -- AddOn namespace.
 -------------------------------------------------------------------------------
-local LibStub = LibStub
+local LibStub = _G.LibStub
 
 local MODNAME	= "Ackis Recipe List"
 local addon	= LibStub("AceAddon-3.0"):GetAddon(MODNAME)
@@ -34,9 +34,7 @@ local BZ	= LibStub("LibBabble-Zone-3.0"):GetLookupTable()
 local L		= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
 
 -- Set up the private intra-file namespace.
-local private	= select(2, ...)
-
-local Player	= private.Player
+local FOLDER_NAME, private	= ...
 
 local A = private.acquire_types
 local F = private.filter_flags
@@ -313,28 +311,27 @@ local function GetWaypoint(acquire_type, id_num, recipe)
 	local mapvendor = addon.db.profile.mapvendor
 	local mapmob = addon.db.profile.mapmob
 
-	local player_faction = Player.faction
 	local waypoint
 
 	if acquire_type == A.TRAINER and maptrainer then
 		local trainer = private.trainer_list[id_num]
 		local trainer_faction = trainer.faction
 
-		if trainer_faction == BFAC[player_faction] or trainer_faction == FACTION_NEUTRAL then
+		if trainer_faction == BFAC[private.Player.faction] or trainer_faction == FACTION_NEUTRAL then
 			waypoint = trainer
 		end
 	elseif acquire_type == A.VENDOR and mapvendor then
 		local vendor = private.vendor_list[id_num]
 		local vendor_faction = vendor.faction
 
-		if vendor_faction == BFAC[player_faction] or vendor_faction == FACTION_NEUTRAL then
+		if vendor_faction == BFAC[private.Player.faction] or vendor_faction == FACTION_NEUTRAL then
 			waypoint = vendor
 		end
 	elseif acquire_type == A.REPUTATION and mapvendor then
 		local vendor = private.vendor_list[id_num]
 		local vendor_faction = vendor.faction
 
-		if vendor_faction == BFAC[player_faction] or vendor_faction == FACTION_NEUTRAL then
+		if vendor_faction == BFAC[private.Player.faction] or vendor_faction == FACTION_NEUTRAL then
 			waypoint = vendor
 		end
 	elseif acquire_type == A.MOB_DROP and mapmob then
@@ -343,7 +340,7 @@ local function GetWaypoint(acquire_type, id_num, recipe)
 		local quest = private.quest_list[id_num]
 		local quest_faction = quest.faction
 
-		if quest_faction == BFAC[player_faction] or quest_faction == FACTION_NEUTRAL then
+		if quest_faction == BFAC[private.Player.faction] or quest_faction == FACTION_NEUTRAL then
 			waypoint = quest
 		end
 	elseif acquire_type == A.CUSTOM then
