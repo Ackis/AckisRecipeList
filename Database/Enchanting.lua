@@ -35,7 +35,7 @@ local V = private.game_versions
 --------------------------------------------------------------------------------------------------------------------
 -- Counter and wrapper function
 --------------------------------------------------------------------------------------------------------------------
-local function AddRecipe(spell_id, skill_level, item_id, quality, genesis, optimal_level, medium_level, easy_level, trivial_level, required_faction)
+local function AddRecipe(spell_id, skill_level, item_id, quality, genesis, optimal_level, medium_level, easy_level, trivial_level, UNUSED, required_faction)
 	return addon:AddRecipe(spell_id, skill_level, item_id, quality, 7411, nil, genesis, optimal_level, medium_level, easy_level, trivial_level, required_faction)
 end
 
