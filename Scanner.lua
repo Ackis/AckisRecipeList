@@ -667,8 +667,6 @@ do
 			end
 			return
 		end
-		local targetname = _G.UnitName("target")	-- Get its name
-		local trainer_id = tonumber(string.sub(_G.UnitGUID("target"), -12, -9), 16)	-- Get the NPC ID
 
 		if not _G.IsTradeskillTrainer() then	-- Are we at a trade skill trainer?
 			if not autoscan then
@@ -708,8 +706,11 @@ do
 		table.wipe(output)
 
 		-- Dump out trainer info
+		local trainer_id = tonumber(string.sub(_G.UnitGUID("target"), -12, -9), 16)	-- Get the NPC ID
+		local trainer_name = _G.UnitName("target")	-- Get its name
+
 		table.insert(output, "ARL Version: @project-version@")
-		table.insert(output, L["DATAMINER_TRAINER_INFO"]:format(targetname, trainer_id))
+		table.insert(output, L["DATAMINER_TRAINER_INFO"]:format(trainer_name, trainer_id))
 
 		local teachflag = false
 		local noteachflag = false
