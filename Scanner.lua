@@ -704,8 +704,8 @@ do
 		table.wipe(output)
 
 		-- Dump out trainer info
-		local trainer_id = tonumber(string.sub(_G.UnitGUID("target"), -12, -9), 16)	-- Get the NPC ID
-		local trainer_name = _G.UnitName("target")	-- Get its name
+		local trainer_id = tonumber(string.sub(_G.UnitGUID("target"), -12, -9), 16)
+		local trainer_name = _G.UnitName("target")
 
 		table.insert(output, "ARL Version: @project-version@")
 		table.insert(output, L["DATAMINER_TRAINER_INFO"]:format(trainer_name, trainer_id))
@@ -1222,8 +1222,8 @@ do
 			self:Print(L["DATAMINER_NODB_ERROR"])
 			return
 		end
-		local vendor_name = _G.UnitName("target")		-- Get its name
-		local vendor_id = tonumber(string.sub(_G.UnitGUID("target"), -12, -9), 16)		-- Get the NPC ID
+		local vendor_name = _G.UnitName("target")
+		local vendor_id = tonumber(string.sub(_G.UnitGUID("target"), -12, -9), 16)
 		local added_output = false
 
 		table.wipe(output)
@@ -1232,10 +1232,10 @@ do
 		table.insert(output, L["DATAMINER_VENDOR_INFO"]:format(vendor_name, vendor_id))
 
 		for index = 1, _G.GetMerchantNumItems(), 1 do
-			local name, _, _, _, numAvailable = _G.GetMerchantItemInfo(index)
+			local item_name, _, _, _, supply = _G.GetMerchantItemInfo(index)
 
-			if name then
-				local match_text = string.match(name, "%a+: ")
+			if item_name then
+				local match_text = string.match(item_name, "%a+: ")
 
 				if match_text and RECIPE_TYPES[match_text:lower()] then
 					local item_link = _G.GetMerchantItemLink(index)
@@ -1251,43 +1251,53 @@ do
 						end
 
 						-- Check the database to see if the vendor is listed as an acquire method.
-						local entry = recipe_list[spell_id]
-						local acquire = entry and entry.acquire_data or nil
-						local vendor_data = acquire and acquire[A.VENDOR] or nil
-						local rep_data = acquire and acquire[A.REPUTATION] or nil
-						local found = false
+						local recipe = recipe_list[spell_id]
+						local acquire = recipe and recipe.acquire_data
+						local vendor_data = acquire and acquire[A.VENDOR]
+						local rep_data = acquire and acquire[A.REPUTATION]
+						local found_recipe = false
 
 						if vendor_data then
 							for id_num in pairs(vendor_data) do
 								if id_num == vendor_id then
-									found = true
+									found_recipe = true
 									break
 								end
 							end
 						elseif rep_data then
 							for id_num, info in pairs(rep_data) do
-								if found then
+								if found_recipe then
 									break
 								end
 
 								for rep_level, level_info in pairs(info) do
 									for rep_vendor_id in pairs(level_info) do
 										if rep_vendor_id == vendor_id then
-											found = true
+											found_recipe = true
 										end
 									end
 								end
 							end
 						end
 
-						if not found then
+						if not found_recipe then
+							if supply > -1 then
+								recipe:AddLimitedVendor(vendor_id, supply)
+							else
+								recipe:AddVendor(vendor_id)
+							end
+
+							if not recipe:HasFilter("common1", "VENDOR") then
+								recipe:AddFilters(F.VENDOR)
+								table.insert(output, ("%d: Vendor flag needs to be set."):format(spell_id))
+							end
 							added_output = true
-							table.insert(output, ("Vendor ID missing from \"%s\" %d."):format(entry and entry.name or _G.UNKNOWN, spell_id))
+							table.insert(output, ("Vendor ID missing from \"%s\" %d."):format(recipe and recipe.name or _G.UNKNOWN, spell_id))
 						end
 					else
 						--@debug@
 						added_output = true
-						table.insert(output, ("Spell ID not found for: %s"):format(name))
+						table.insert(output, ("Spell ID not found for: %s"):format(item_name))
 						--@end-debug@
 					end
 				end
