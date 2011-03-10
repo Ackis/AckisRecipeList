@@ -971,15 +971,22 @@ do
 		local easy_level = recipe.easy_level
 		local trivial_level = recipe.trivial_level
 		local required_faction = recipe.required_faction
+		local specialty = recipe.specialty
+
+		local FACTION_FORMAT = "recipe = AddRecipe(%d, %d, %s, Q.%s, V.%s, %d, %d, %d, %d, %s, \"%s\")"
+		local SPECIALTY_FORMAT = "recipe = AddRecipe(%d, %d, %s, Q.%s, V.%s, %d, %d, %d, %d, %s)"
+		local NORMAL_FORMAT = "recipe = AddRecipe(%d, %d, %s, Q.%s, V.%s, %d, %d, %d, %d)"
 
 		if required_faction then
 			table.insert(output,
-				     ("recipe = AddRecipe(%d, %d, %s, Q.%s, V.%s, %d, %d, %d, %d%s, \"%s\")"):format(spell_id, skill_level, tostring(recipe.item_id), Q[recipe.quality], V[genesis],
-													     optimal_level, medium_level, easy_level, trivial_level, specialty, required_faction))
+				FACTION_FORMAT:format(spell_id, skill_level, tostring(recipe.item_id), Q[recipe.quality], V[genesis],optimal_level, medium_level, easy_level, trivial_level, specialty or "nil",
+						required_faction))
+		elseif specialty then
+			table.insert(output,
+				SPECIALTY_FORMAT:format(spell_id, skill_level, tostring(recipe.item_id), Q[recipe.quality], V[genesis], optimal_level, medium_level, easy_level, trivial_level, specialty))
 		else
 			table.insert(output,
-				     ("recipe = AddRecipe(%d, %d, %s, Q.%s, V.%s, %d, %d, %d, %d%s)"):format(spell_id, skill_level, tostring(recipe.item_id), Q[recipe.quality], V[genesis],
-													     optimal_level, medium_level, easy_level, trivial_level, specialty))
+				NORMAL_FORMAT:format(spell_id, skill_level, tostring(recipe.item_id), Q[recipe.quality], V[genesis], optimal_level, medium_level, easy_level, trivial_level))
 		end
 
 		for table_index, bits in ipairs(private.bit_flags) do
