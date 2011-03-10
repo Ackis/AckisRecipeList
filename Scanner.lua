@@ -1293,6 +1293,18 @@ do
 							end
 							added_output = true
 							table.insert(output, ("Vendor ID missing from \"%s\" %d."):format(recipe and recipe.name or _G.UNKNOWN, spell_id))
+						else
+							if private.vendor_list[vendor_id].item_list[spell_id] == true and supply > -1 then
+								recipe:AddLimitedVendor(vendor_id, supply)
+								table.insert(output, ("Limited quantity for \"%s\" (%d) found on vendor %d - listed as unlimited quantity."):format(recipe.name, spell_id, vendor_id))
+								added_output = true
+							end
+
+							if not recipe:HasFilter("common1", "VENDOR") then
+								recipe:AddFilters(F.VENDOR)
+								table.insert(output, ("%d: Vendor flag needs to be set."):format(spell_id))
+								added_output = true
+							end
 						end
 					else
 						--@debug@
