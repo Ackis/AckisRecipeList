@@ -1408,12 +1408,12 @@ function addon:InitEngineering()
 	recipe:AddTrainer(25277, 26907, 26955, 26991, 28697, 33586)
 
 	-- Mechano-Hog -- 60866
-	recipe = AddRecipe(60866, 450, 41508, Q.EPIC, V.WOTLK, 450, 480, 485, 490, "Horde")
+	recipe = AddRecipe(60866, 450, 41508, Q.EPIC, V.WOTLK, 450, 480, 485, 490, nil, "Horde")
 	recipe:AddFilters(F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.WRATHCOMMON1)
 	recipe:AddRepVendor(FAC.HORDE_EXPEDITION, REP.EXALTED, 32565, 32774)
 
 	-- Mekgineer's Chopper -- 60867
-	recipe = AddRecipe(60867, 450, 44413, Q.EPIC, V.WOTLK, 450, 480, 485, 490, "Alliance")
+	recipe = AddRecipe(60867, 450, 44413, Q.EPIC, V.WOTLK, 450, 480, 485, 490, nil, "Alliance")
 	recipe:AddFilters(F.ALLIANCE, F.VENDOR, F.IBOE, F.RBOP, F.WRATHCOMMON1)
 	recipe:AddRepVendor(FAC.ALLIANCE_VANGUARD, REP.EXALTED, 32564, 32773)
 

@@ -2484,62 +2484,62 @@ function addon:InitBlacksmithing()
 	recipe:AddCustom(39)
 
 	-- Breastplate of the White Knight -- 67091
-	recipe = AddRecipe(67091, 450, 47591, Q.EPIC, V.WOTLK, 450, 455, 465, 475, "Alliance")
+	recipe = AddRecipe(67091, 450, 47591, Q.EPIC, V.WOTLK, 450, 455, 465, 475, nil, "Alliance")
 	recipe:AddFilters(F.ALLIANCE, F.RAID, F.IBOE, F.RBOE, F.TANK, F.PLATE)
 	recipe:AddCustom(42)
 
 	-- Saronite Swordbreakers -- 67092
-	recipe = AddRecipe(67092, 450, 47570, Q.EPIC, V.WOTLK, 450, 455, 465, 475, "Alliance")
+	recipe = AddRecipe(67092, 450, 47570, Q.EPIC, V.WOTLK, 450, 455, 465, 475, nil, "Alliance")
 	recipe:AddFilters(F.ALLIANCE, F.RAID, F.IBOE, F.RBOE, F.TANK, F.PLATE)
 	recipe:AddCustom(42)
 
 	-- Titanium Razorplate -- 67093
-	recipe = AddRecipe(67093, 450, 47589, Q.EPIC, V.WOTLK, 450, 455, 465, 475, "Alliance")
+	recipe = AddRecipe(67093, 450, 47589, Q.EPIC, V.WOTLK, 450, 455, 465, 475, nil, "Alliance")
 	recipe:AddFilters(F.ALLIANCE, F.RAID, F.IBOE, F.RBOE, F.DPS, F.PLATE)
 	recipe:AddCustom(42)
 
 	-- Titanium Spikeguards -- 67094
-	recipe = AddRecipe(67094, 450, 47572, Q.EPIC, V.WOTLK, 450, 455, 465, 475, "Alliance")
+	recipe = AddRecipe(67094, 450, 47572, Q.EPIC, V.WOTLK, 450, 455, 465, 475, nil, "Alliance")
 	recipe:AddFilters(F.ALLIANCE, F.RAID, F.IBOE, F.RBOE, F.DPS, F.PLATE)
 	recipe:AddCustom(42)
 
 	-- Sunforged Breastplate
-	recipe = AddRecipe(67095, 450, 47593, Q.EPIC, V.WOTLK, 450, 460, 467, 475, "Alliance")
+	recipe = AddRecipe(67095, 450, 47593, Q.EPIC, V.WOTLK, 450, 460, 467, 475, nil, "Alliance")
 	recipe:AddFilters(F.ALLIANCE, F.RAID, F.IBOE, F.RBOE, F.HEALER, F.PLATE)
 	recipe:AddCustom(42)
 
 	-- Sunforged Bracers -- 67096
-	recipe = AddRecipe(67096, 450, 47574, Q.EPIC, V.WOTLK, 450, 455, 465, 475, "Alliance")
+	recipe = AddRecipe(67096, 450, 47574, Q.EPIC, V.WOTLK, 450, 455, 465, 475, nil, "Alliance")
 	recipe:AddFilters(F.ALLIANCE, F.RAID, F.IBOE, F.RBOE, F.HEALER, F.PLATE)
 	recipe:AddCustom(42)
 
 	-- Breastplate of the White Knight -- 67130
-	recipe = AddRecipe(67130, 450, 47592, Q.EPIC, V.WOTLK, 450, 455, 465, 475, "Horde")
+	recipe = AddRecipe(67130, 450, 47592, Q.EPIC, V.WOTLK, 450, 455, 465, 475, nil, "Horde")
 	recipe:AddFilters(F.HORDE, F.RAID, F.IBOE, F.RBOE, F.TANK, F.PLATE)
 	recipe:AddCustom(42)
 
 	-- Saronite Swordbreakers -- 67131
-	recipe = AddRecipe(67131, 450, 47571, Q.EPIC, V.WOTLK, 450, 455, 465, 475, "Horde")
+	recipe = AddRecipe(67131, 450, 47571, Q.EPIC, V.WOTLK, 450, 455, 465, 475, nil, "Horde")
 	recipe:AddFilters(F.HORDE, F.RAID, F.IBOE, F.RBOE, F.TANK, F.PLATE)
 	recipe:AddCustom(42)
 
 	-- Titanium Razorplate -- 67132
-	recipe = AddRecipe(67132, 450, 47590, Q.EPIC, V.WOTLK, 450, 455, 465, 475, "Horde")
+	recipe = AddRecipe(67132, 450, 47590, Q.EPIC, V.WOTLK, 450, 455, 465, 475, nil, "Horde")
 	recipe:AddFilters(F.HORDE, F.RAID, F.IBOE, F.RBOE, F.DPS, F.PLATE)
 	recipe:AddCustom(42)
 
 	-- Titanium Spikeguards -- 67133
-	recipe = AddRecipe(67133, 450, 47573, Q.EPIC, V.WOTLK, 450, 455, 465, 475, "Horde")
+	recipe = AddRecipe(67133, 450, 47573, Q.EPIC, V.WOTLK, 450, 455, 465, 475, nil, "Horde")
 	recipe:AddFilters(F.HORDE, F.RAID, F.IBOE, F.RBOE, F.DPS, F.PLATE)
 	recipe:AddCustom(42)
 
 	-- Sunforged Breastplate -- 67134
-	recipe = AddRecipe(67134, 450, 47594, Q.EPIC, V.WOTLK, 450, 460, 467, 475, "Horde")
+	recipe = AddRecipe(67134, 450, 47594, Q.EPIC, V.WOTLK, 450, 460, 467, 475, nil, "Horde")
 	recipe:AddFilters(F.HORDE, F.RAID, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.PLATE)
 	recipe:AddCustom(42)
 
 	-- Sunforged Bracers -- 67135
-	recipe = AddRecipe(67135, 450, 47575, Q.EPIC, V.WOTLK, 450, 455, 465, 475, "Horde")
+	recipe = AddRecipe(67135, 450, 47575, Q.EPIC, V.WOTLK, 450, 455, 465, 475, nil, "Horde")
 	recipe:AddFilters(F.HORDE, F.RAID, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.PLATE)
 	recipe:AddCustom(42)
 

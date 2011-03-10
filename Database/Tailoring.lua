@@ -2061,42 +2061,42 @@ function addon:InitTailoring()
 	recipe:AddTrainer(3363, 26914, 26964, 26969, 27001, 28699, 33580, 44783, 45559)
 
 	-- Royal Moonshroud Robe -- 67064
-	recipe = AddRecipe(67064, 450, 47605, Q.EPIC, V.WOTLK, 450, 460, 467, 475, "Alliance")
+	recipe = AddRecipe(67064, 450, 47605, Q.EPIC, V.WOTLK, 450, 460, 467, 475, nil, "Alliance")
 	recipe:AddFilters(F.ALLIANCE, F.RAID, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
 	recipe:AddCustom(42)
 
 	-- Royal Moonshroud Bracers -- 67065
-	recipe = AddRecipe(67065, 450, 47587, Q.EPIC, V.WOTLK, 450, 460, 467, 475, "Alliance")
+	recipe = AddRecipe(67065, 450, 47587, Q.EPIC, V.WOTLK, 450, 460, 467, 475, nil, "Alliance")
 	recipe:AddFilters(F.ALLIANCE, F.RAID, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
 	recipe:AddCustom(42)
 
 	-- Merlin's Robe -- 67066
-	recipe = AddRecipe(67066, 450, 47603, Q.EPIC, V.WOTLK, 450, 460, 467, 475, "Alliance")
+	recipe = AddRecipe(67066, 450, 47603, Q.EPIC, V.WOTLK, 450, 460, 467, 475, nil, "Alliance")
 	recipe:AddFilters(F.ALLIANCE, F.RAID, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
 	recipe:AddCustom(42)
 
 	-- Bejeweled Wizard's Bracers -- 67079
-	recipe = AddRecipe(67079, 450, 47585, Q.EPIC, V.WOTLK, 450, 460, 467, 475, "Alliance")
+	recipe = AddRecipe(67079, 450, 47585, Q.EPIC, V.WOTLK, 450, 460, 467, 475, nil, "Alliance")
 	recipe:AddFilters(F.ALLIANCE, F.RAID, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
 	recipe:AddCustom(42)
 
 	-- Royal Moonshroud Robe -- 67144
-	recipe = AddRecipe(67144, 450, 47606, Q.EPIC, V.WOTLK, 450, 460, 467, 475, "Horde")
+	recipe = AddRecipe(67144, 450, 47606, Q.EPIC, V.WOTLK, 450, 460, 467, 475, nil, "Horde")
 	recipe:AddFilters(F.HORDE, F.RAID, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
 	recipe:AddCustom(42)
 
 	-- Bejeweled Wizard's Bracers -- 67145
-	recipe = AddRecipe(67145, 450, 47586, Q.EPIC, V.WOTLK, 450, 460, 467, 475, "Horde")
+	recipe = AddRecipe(67145, 450, 47586, Q.EPIC, V.WOTLK, 450, 460, 467, 475, nil, "Horde")
 	recipe:AddFilters(F.HORDE, F.RAID, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
 	recipe:AddCustom(42)
 
 	-- Merlin's Robe -- 67146
-	recipe = AddRecipe(67146, 450, 47604, Q.EPIC, V.WOTLK, 450, 460, 467, 475, "Horde")
+	recipe = AddRecipe(67146, 450, 47604, Q.EPIC, V.WOTLK, 450, 460, 467, 475, nil, "Horde")
 	recipe:AddFilters(F.HORDE, F.RAID, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
 	recipe:AddCustom(42)
 
 	-- Royal Moonshroud Bracers -- 67147
-	recipe = AddRecipe(67147, 450, 47588, Q.EPIC, V.WOTLK, 450, 460, 467, 475, "Horde")
+	recipe = AddRecipe(67147, 450, 47588, Q.EPIC, V.WOTLK, 450, 460, 467, 475, nil, "Horde")
 	recipe:AddFilters(F.HORDE, F.RAID, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
 	recipe:AddCustom(42)
 

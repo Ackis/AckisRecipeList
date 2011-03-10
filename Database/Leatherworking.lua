@@ -2553,82 +2553,82 @@ function addon:InitLeatherworking()
 	recipe:AddTrainer(26911, 26961, 26996, 26998, 28700, 33581)
 
 	-- Ensorcelled Nerubian Breastplate -- 67080
-	recipe = AddRecipe(67080, 450, 47597, Q.EPIC, V.WOTLK, 450, 460, 467, 475, "Alliance")
+	recipe = AddRecipe(67080, 450, 47597, Q.EPIC, V.WOTLK, 450, 460, 467, 475, nil, "Alliance")
 	recipe:AddFilters(F.ALLIANCE, F.RAID, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.MAIL)
 	recipe:AddCustom(42)
 
 	-- Black Chitin Bracers -- 67081
-	recipe = AddRecipe(67081, 450, 47579, Q.EPIC, V.WOTLK, 450, 460, 467, 475, "Alliance")
+	recipe = AddRecipe(67081, 450, 47579, Q.EPIC, V.WOTLK, 450, 460, 467, 475, nil, "Alliance")
 	recipe:AddFilters(F.ALLIANCE, F.RAID)
 	recipe:AddCustom(42)
 
 	-- Crusader's Dragonscale Breastplate -- 67082
-	recipe = AddRecipe(67082, 450, 47595, Q.EPIC, V.WOTLK, 450, 460, 467, 475, "Alliance")
+	recipe = AddRecipe(67082, 450, 47595, Q.EPIC, V.WOTLK, 450, 460, 467, 475, nil, "Alliance")
 	recipe:AddFilters(F.ALLIANCE, F.RAID)
 	recipe:AddCustom(42)
 
 	-- Crusader's Dragonscale Bracers -- 67083
-	recipe = AddRecipe(67083, 450, 47576, Q.EPIC, V.WOTLK, 450, 460, 467, 475, "Alliance")
+	recipe = AddRecipe(67083, 450, 47576, Q.EPIC, V.WOTLK, 450, 460, 467, 475, nil, "Alliance")
 	recipe:AddFilters(F.ALLIANCE, F.RAID, F.IBOE, F.RBOE, F.DPS, F.MAIL)
 	recipe:AddCustom(42)
 
 	-- Lunar Eclipse Chestguard -- 67084
-	recipe = AddRecipe(67084, 450, 47602, Q.EPIC, V.WOTLK, 450, 460, 467, 475, "Alliance")
+	recipe = AddRecipe(67084, 450, 47602, Q.EPIC, V.WOTLK, 450, 460, 467, 475, nil, "Alliance")
 	recipe:AddFilters(F.ALLIANCE, F.RAID)
 	recipe:AddCustom(42)
 
 	-- Moonshadow Armguards -- 67085
-	recipe = AddRecipe(67085, 450, 47583, Q.EPIC, V.WOTLK, 450, 460, 467, 475, "Alliance")
+	recipe = AddRecipe(67085, 450, 47583, Q.EPIC, V.WOTLK, 450, 460, 467, 475, nil, "Alliance")
 	recipe:AddFilters(F.ALLIANCE, F.RAID)
 	recipe:AddCustom(42)
 
 	-- Knightbane Carapace -- 67086
-	recipe = AddRecipe(67086, 450, 47599, Q.EPIC, V.WOTLK, 450, 460, 467, 475, "Alliance")
+	recipe = AddRecipe(67086, 450, 47599, Q.EPIC, V.WOTLK, 450, 460, 467, 475, nil, "Alliance")
 	recipe:AddFilters(F.ALLIANCE, F.RAID)
 	recipe:AddCustom(42)
 
 	-- Bracers of Swift Death -- 67087
-	recipe = AddRecipe(67087, 450, 47581, Q.EPIC, V.WOTLK, 450, 460, 467, 475, "Alliance")
+	recipe = AddRecipe(67087, 450, 47581, Q.EPIC, V.WOTLK, 450, 460, 467, 475, nil, "Alliance")
 	recipe:AddFilters(F.ALLIANCE, F.RAID)
 	recipe:AddCustom(42)
 
 	-- Ensorcelled Nerubian Breastplate -- 67136
-	recipe = AddRecipe(67136, 450, 47598, Q.EPIC, V.WOTLK, 450, 460, 467, 475, "Horde")
+	recipe = AddRecipe(67136, 450, 47598, Q.EPIC, V.WOTLK, 450, 460, 467, 475, nil, "Horde")
 	recipe:AddFilters(F.HORDE, F.RAID, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.MAIL)
 	recipe:AddCustom(42)
 
 	-- Black Chitin Bracers -- 67137
-	recipe = AddRecipe(67137, 450, 47580, Q.EPIC, V.WOTLK, 450, 460, 467, 475, "Horde")
+	recipe = AddRecipe(67137, 450, 47580, Q.EPIC, V.WOTLK, 450, 460, 467, 475, nil, "Horde")
 	recipe:AddFilters(F.HORDE, F.RAID, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.MAIL)
 	recipe:AddCustom(42)
 
 	-- Crusader's Dragonscale Breastplate -- 67138
-	recipe = AddRecipe(67138, 450, 47596, Q.EPIC, V.WOTLK, 450, 460, 467, 475, "Horde")
+	recipe = AddRecipe(67138, 450, 47596, Q.EPIC, V.WOTLK, 450, 460, 467, 475, nil, "Horde")
 	recipe:AddFilters(F.HORDE, F.RAID, F.IBOE, F.RBOE, F.DPS, F.MAIL)
 	recipe:AddCustom(42)
 
 	-- Bracers of Swift Death -- 67139
-	recipe = AddRecipe(67139, 450, 47582, Q.EPIC, V.WOTLK, 450, 460, 467, 475, "Horde")
+	recipe = AddRecipe(67139, 450, 47582, Q.EPIC, V.WOTLK, 450, 460, 467, 475, nil, "Horde")
 	recipe:AddFilters(F.HORDE, F.RAID, F.IBOE, F.RBOE, F.DPS, F.LEATHER)
 	recipe:AddCustom(42)
 
 	-- Lunar Eclipse Robes -- 67140
-	recipe = AddRecipe(67140, 450, 47601, Q.EPIC, V.WOTLK, 450, 460, 467, 475, "Horde")
+	recipe = AddRecipe(67140, 450, 47601, Q.EPIC, V.WOTLK, 450, 460, 467, 475, nil, "Horde")
 	recipe:AddFilters(F.HORDE, F.RAID, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.LEATHER)
 	recipe:AddCustom(42)
 
 	-- Moonshadow Armguards -- 67141
-	recipe = AddRecipe(67141, 450, 47584, Q.EPIC, V.WOTLK, 450, 460, 467, 475, "Horde")
+	recipe = AddRecipe(67141, 450, 47584, Q.EPIC, V.WOTLK, 450, 460, 467, 475, nil, "Horde")
 	recipe:AddFilters(F.HORDE, F.RAID, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.LEATHER)
 	recipe:AddCustom(42)
 
 	-- Knightbane Carapace -- 67142
-	recipe = AddRecipe(67142, 450, 47600, Q.EPIC, V.WOTLK, 450, 460, 467, 475, "Horde")
+	recipe = AddRecipe(67142, 450, 47600, Q.EPIC, V.WOTLK, 450, 460, 467, 475, nil, "Horde")
 	recipe:AddFilters(F.HORDE, F.RAID, F.IBOE, F.RBOE, F.DPS, F.LEATHER)
 	recipe:AddCustom(42)
 
 	-- Crusader's Dragonscale Bracers -- 67143
-	recipe = AddRecipe(67143, 450, 47577, Q.EPIC, V.WOTLK, 450, 460, 467, 475, "Horde")
+	recipe = AddRecipe(67143, 450, 47577, Q.EPIC, V.WOTLK, 450, 460, 467, 475, nil, "Horde")
 	recipe:AddFilters(F.HORDE, F.RAID, F.IBOE, F.RBOE, F.DPS, F.MAIL)
 	recipe:AddCustom(42)
 
