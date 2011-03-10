@@ -576,7 +576,7 @@ local ARLDatamineTT = _G.CreateFrame("GameTooltip", "ARLDatamineTT", _G.UIParent
 
 do
 	-- Tables used in all the Scan functions within this do block. -Torhal
-	local info, output = {}, {}
+	local scanned_recipes, output = {}, {}
 
 	--- Function to compare the skill levels of a trainers recipes with those in the ARL database.
 	-- @name AckisRecipeList:ScanSkillLevelData
@@ -605,7 +605,7 @@ do
 		_G.SetTrainerServiceTypeFilter("unavailable", 1)
 		_G.SetTrainerServiceTypeFilter("used", 1)
 
-		table.wipe(info)
+		table.wipe(scanned_recipes)
 
 		-- Get the skill levels from the trainer
 		for i = 1, _G.GetNumTrainerServices(), 1 do
@@ -615,7 +615,7 @@ do
 			if not skilllevel then
 				skilllevel = 0
 			end
-			info[name] = skilllevel
+			scanned_recipes[name] = skilllevel
 		end
 		local found = false
 
@@ -624,10 +624,10 @@ do
 		for i in pairs(recipe_list) do
 			local i_name = recipe_list[i].name
 
-			if info[i_name] and info[i_name] ~= recipe_list[i].skill_level then
+			if scanned_recipes[i_name] and scanned_recipes[i_name] ~= recipe_list[i].skill_level then
 				found = true
-				table.insert(output, L["DATAMINER_SKILLELVEL"]:format(i_name, recipe_list[i].skill_level, info[i_name]))
-				recipe_list[i].skill_level = info[i_name]
+				table.insert(output, L["DATAMINER_SKILLELVEL"]:format(i_name, recipe_list[i].skill_level, scanned_recipes[i_name]))
+				recipe_list[i].skill_level = scanned_recipes[i_name]
 
 				local skill_level = recipe_list[i].skill_level
 				local optimal_level = recipe_list[i].optimal_level
@@ -692,12 +692,12 @@ do
 		if _G.GetNumTrainerServices() == 0 then
 			self:Print("Warning: Trainer is bugged, reporting 0 trainer items.")
 		end
-		table.wipe(info)
+		table.wipe(scanned_recipes)
 
 		-- Get all the names of recipes from the trainer
 		for i = 1, _G.GetNumTrainerServices(), 1 do
 			local name = _G.GetTrainerServiceInfo(i)
-			info[name] = true
+			scanned_recipes[name] = true
 		end
 		table.wipe(teach)
 		table.wipe(noteach)
@@ -726,7 +726,7 @@ do
 				end
 			end
 
-			if info[recipe.name] then
+			if scanned_recipes[recipe.name] then
 				if not found then
 					recipe:AddTrainer(trainer_id)
 					table.insert(teach, spell_id)
@@ -1222,34 +1222,32 @@ do
 			self:Print(L["DATAMINER_NODB_ERROR"])
 			return
 		end
-		local targetname = _G.UnitName("target")		-- Get its name
-		local targetID = tonumber(string.sub(_G.UnitGUID("target"), -12, -9), 16)		-- Get the NPC ID
-		local added = false
+		local vendor_name = _G.UnitName("target")		-- Get its name
+		local vendor_id = tonumber(string.sub(_G.UnitGUID("target"), -12, -9), 16)		-- Get the NPC ID
+		local added_output = false
 
 		table.wipe(output)
 
 		table.insert(output, "ARL Version: @project-version@")
-		table.insert(output, "Vendor Name: "..targetname.." NPC ID: "..targetID)
-		-- Parse all the items on the merchant
-		for i = 1, _G.GetMerchantNumItems(), 1 do
-			local name, _, _, _, numAvailable = _G.GetMerchantItemInfo(i)
+		table.insert(output, L["DATAMINER_VENDOR_INFO"]:format(vendor_name, vendor_id))
+
+		for index = 1, _G.GetMerchantNumItems(), 1 do
+			local name, _, _, _, numAvailable = _G.GetMerchantItemInfo(index)
 
 			if name then
-				-- Lets scan recipes only on vendors
-				local matchtext = string.match(name, "%a+: ")
+				local match_text = string.match(name, "%a+: ")
 
-				-- Check to see if we're dealing with a recipe
-				if matchtext and RECIPE_TYPES[string.lower(matchtext)] then
-					local item_link = _G.GetMerchantItemLink(i)
+				if match_text and RECIPE_TYPES[match_text:lower()] then
+					local item_link = _G.GetMerchantItemLink(index)
 					local item_id = ItemLinkToID(item_link)
 					local spell_id = RECIPE_TO_SPELL_MAP[item_id]
 
 					if spell_id then
-						local ttscantext = addon:TooltipScanRecipe(spell_id, true, true)
+						local scanned_text = addon:TooltipScanRecipe(spell_id, true, true)
 
-						if ttscantext and ttscantext ~= "" then
-							added = true
-							table.insert(output, ttscantext)
+						if scanned_text and scanned_text ~= "" then
+							added_output = true
+							table.insert(output, scanned_text)
 						end
 
 						-- Check the database to see if the vendor is listed as an acquire method.
@@ -1261,7 +1259,7 @@ do
 
 						if vendor_data then
 							for id_num in pairs(vendor_data) do
-								if id_num == targetID then
+								if id_num == vendor_id then
 									found = true
 									break
 								end
@@ -1273,8 +1271,8 @@ do
 								end
 
 								for rep_level, level_info in pairs(info) do
-									for vendor_id in pairs(level_info) do
-										if vendor_id == targetID then
+									for rep_vendor_id in pairs(level_info) do
+										if rep_vendor_id == vendor_id then
 											found = true
 										end
 									end
@@ -1283,20 +1281,20 @@ do
 						end
 
 						if not found then
-							added = true
-							table.insert(output, string.format("Vendor ID missing from \"%s\" %d.", entry and entry.name or _G.UNKNOWN, spell_id))
+							added_output = true
+							table.insert(output, ("Vendor ID missing from \"%s\" %d."):format(entry and entry.name or _G.UNKNOWN, spell_id))
 						end
 					else
 						--@debug@
-						added = true
-						table.insert(output, "Spell ID not found for: " .. name)
+						added_output = true
+						table.insert(output, ("Spell ID not found for: %s"):format(name))
 						--@end-debug@
 					end
 				end
 			end
 		end
 
-		if added then
+		if added_output then
 			self:DisplayTextDump(nil, nil, table.concat(output, "\n"))
 		end
 		ARLDatamineTT:Hide()

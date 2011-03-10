@@ -306,6 +306,8 @@ Trainer ID: %s]=]
 L["DATAMINER_TRAINER_NOTTARGETTED"] = "You must target the trainer when you run this command."
 L["DATAMINER_TRAINER_NOTTEACH"] = "%s (%s) - Extra"
 L["DATAMINER_TRAINER_TEACH"] = "%s (%s) - Missing"
+L["DATAMINER_VENDOR_INFO"] = [=[Vendor Name: %s
+Vendor ID: %s]=]
 L["DATAMINER_VENDOR_NOTTARGETTED"] = "You must target the vendor when you run this command."
 L["DATAMINE_OPTIONS_DESC"] = "Allows you to customize in-game ARL datamining."
 L["DATAMINE_WARNING_DESC"] = "Please note that enabling Auto Load Recipe Database will increase the amount of memory used by ARL.  Enabling Auto Scan Trainers may cause a slight bit of lag when the trainer is opened.  This will be more noticeable on the first scan of a trainer."
