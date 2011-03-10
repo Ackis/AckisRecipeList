@@ -519,15 +519,13 @@ local NO_ROLE_FLAG = {
 	---------------------------------------------------------------------------------------
 }
 
-local function ItemLinkToID(link)
-	if not link then
+local function ItemLinkToID(item_link)
+	local id = item_link:match("item:(%d+)")
+
+	if not id then
 		return
 	end
-	local _, _, id_num = string.find(link,"item:(%d+):")
-
-	if id_num then
-		return tonumber(id_num)
-	end
+	return tonumber(id)
 end
 
 
