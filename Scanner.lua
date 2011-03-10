@@ -959,7 +959,6 @@ do
 			return
 		end
 		local flag_string
-		local specialty = not recipe.specialty and "" or (", "..recipe.specialty)
 		local genesis = private.game_versions[recipe.genesis]
 
 		table.insert(output, ("-- %s -- %d"):format(recipe.name, recipe.spell_id))
