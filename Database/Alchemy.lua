@@ -186,12 +186,14 @@ function addon:InitAlchemy()
 	-- Rage Potion -- 6617
 	recipe = AddRecipe(6617, 60, 5631, Q.COMMON, V.ORIG, 60, 90, 110, 130)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.DPS, F.TANK, F.DRUID, F.WARRIOR)
-	recipe:AddVendor(1685, 3335, 3499)
+	recipe:AddVendor(1685, 3499)
+	recipe:AddLimitedVendor(3335, 2)
 
 	-- Great Rage Potion -- 6618
 	recipe = AddRecipe(6618, 175, 5633, Q.COMMON, V.ORIG, 175, 195, 215, 235)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.DPS, F.TANK, F.DRUID, F.WARRIOR)
-	recipe:AddVendor(3335, 4226)
+	recipe:AddVendor(4226)
+	recipe:AddLimitedVendor(3335, 2)
 
 	-- Free Action Potion -- 6624
 	recipe = AddRecipe(6624, 150, 5634, Q.COMMON, V.ORIG, 150, 175, 195, 215)
