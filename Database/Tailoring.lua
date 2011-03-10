@@ -1627,7 +1627,7 @@ function addon:InitTailoring()
 	recipe = AddRecipe(50647, 245, 38278, Q.COMMON, V.TBC, 245, 250, 255, 260)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.CLOTH)
 	recipe:AddVendor(15165)
-	
+
 	-- Lightweave Embroidery -- 55642
 	recipe = AddRecipe(55642, 420, nil, Q.COMMON, V.WOTLK, 420, 420, 420, 420)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.CLOAK)
@@ -1944,7 +1944,7 @@ function addon:InitTailoring()
 	recipe = AddRecipe(56031, 350, 41512, Q.COMMON, V.WOTLK, 350, 360, 370, 380)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.CLOTH)
 	recipe:AddTrainer(3363, 26914, 26964, 26969, 27001, 28699, 33580, 44783, 45559)
-	
+
 	-- Master's Spellthread -- 56034
 	recipe = AddRecipe(56034, 405, nil, Q.COMMON, V.WOTLK, 405, 405, 405, 405)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
