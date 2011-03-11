@@ -125,6 +125,18 @@ function recipe_prototype:CraftedItemID()
 	return self.crafted_item_id
 end
 
+function recipe_prototype:SetSkillLevels(skill_level, optimal_level, medium_level, easy_level, trivial_level)
+	self.skill_level = skill_level
+	self.optimal_level = optimal_level or skill_level
+	self.medium_level = medium_level or skill_level + 10
+	self.easy_level = easy_level or skill_level + 15
+	self.trivial_level = trivial_level or skill_level + 20
+end
+
+function recipe_prototype:SkillLevels()
+	return self.skill_level, self.optimal_level, self.medium_level, self.easy_level, self.trivial_level
+end
+
 function recipe_prototype:HasState(state_name)
 	return self.state and (bit.band(self.state, SF[state_name]) == SF[state_name]) or false
 end
