@@ -55,7 +55,7 @@ local recipe_meta = {
 -- @param easy_level Level at which recipe is considered green
 -- @param trivial_level Level at which recipe is considered grey
 -- @return Resultant recipe table.
-function addon:AddRecipe(spell_id, skill_level, item_id, quality, profession, specialty, genesis, optimal_level, medium_level, easy_level, trivial_level, required_faction)
+function addon:AddRecipe(spell_id, skill_level, crafted_item_id, quality, profession, specialty, genesis, optimal_level, medium_level, easy_level, trivial_level, required_faction)
 	local recipe_list = private.recipe_list
 
 	if recipe_list[spell_id] then
@@ -68,7 +68,7 @@ function addon:AddRecipe(spell_id, skill_level, item_id, quality, profession, sp
 	local recipe = _G.setmetatable({
 		spell_id = spell_id,
 		skill_level = skill_level,
-		item_id = item_id,
+		crafted_item_id = crafted_item_id,
 		quality = quality,
 		profession = _G.GetSpellInfo(profession),
 		name = _G.GetSpellInfo(spell_id),
