@@ -148,47 +148,47 @@ function addon:InitSmelting()
 	-- Smelt Cobalt -- 49252
 	recipe = AddRecipe(49252, 350, 36916, Q.COMMON, V.WOTLK, 350, 350, 362, 375)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(3357, 26912, 26962, 26976, 26999, 28698)
+	recipe:AddTrainer(3357, 18747, 26912, 26962, 26976, 26999, 28698)
 
 	-- Smelt Saronite -- 49258
 	recipe = AddRecipe(49258, 400, 36913, Q.COMMON, V.WOTLK, 400, 400, 400, 400)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(3357, 26912, 26962, 26976, 26999, 28698)
+	recipe:AddTrainer(3357, 18747, 26912, 26962, 26976, 26999, 28698)
 
 	-- Smelt Titansteel -- 55208
 	recipe = AddRecipe(55208, 450, 37663, Q.COMMON, V.WOTLK, 450, 450, 450, 450)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(3357, 26912, 26962, 26976, 26999, 28698)
+	recipe:AddTrainer(3357, 18747, 26912, 26962, 26976, 26999, 28698)
 
 	-- Smelt Titanium -- 55211
 	recipe = AddRecipe(55211, 450, 41163, Q.COMMON, V.WOTLK, 450, 450, 450, 450)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(3357, 26912, 26962, 26976, 26999, 28698)
+	recipe:AddTrainer(3357, 18747, 26912, 26962, 26976, 26999, 28698)
 
 	-- Enchanted Thorium -- 70524
 	recipe = AddRecipe(70524, 250, 12655, Q.COMMON, V.WOTLK, 250, 250, 255, 260)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(3357, 28698)
+	recipe:AddTrainer(3357, 18747, 28698)
 
 	-- Smelt Pyrite -- 74529
 	recipe = AddRecipe(74529, 525, 51950, Q.COMMON, V.CATA, 525, 525, 525, 525)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(3357, 4254, 5513, 16663)
+	recipe:AddTrainer(3357, 4254, 5513, 16663, 18747)
 
 	-- Smelt Elementium -- 74530
 	recipe = AddRecipe(74530, 475, 52186, Q.COMMON, V.CATA, 475, 475, 475, 500)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(3357, 4254, 5513, 16663)
+	recipe:AddTrainer(3357, 4254, 5513, 16663, 18747)
 
 	-- Smelt Hardened Elementium -- 74537
 	recipe = AddRecipe(74537, 500, 53039, Q.COMMON, V.CATA, 500, 500, 500, 525)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(3357, 4254, 5513, 16663)
+	recipe:AddTrainer(3357, 4254, 5513, 16663, 18747)
 
 	-- Smelt Obsidium -- 84038
 	recipe = AddRecipe(84038, 425, 54849, Q.COMMON, V.CATA, 425, 425, 437, 475)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(3357, 4254, 5513, 16663)
+	recipe:AddTrainer(3357, 4254, 5513, 16663, 18747)
 
 	self.InitSmelting = nil
 end
