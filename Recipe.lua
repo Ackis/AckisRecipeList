@@ -137,6 +137,14 @@ function recipe_prototype:SkillLevels()
 	return self.skill_level, self.optimal_level, self.medium_level, self.easy_level, self.trivial_level
 end
 
+function recipe_prototype:SetSpecialty(spell_id)
+	self.specialty = spell_id
+end
+
+function recipe_prototype:Specialty()
+	return self.specialty
+end
+
 function recipe_prototype:HasState(state_name)
 	return self.state and (bit.band(self.state, SF[state_name]) == SF[state_name]) or false
 end
