@@ -301,7 +301,7 @@ function addon:InitInscription()
 	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30709, 30710, 30711, 30713, 30715, 30716, 30717, 30721, 30722, 33603, 33615, 33679, 46716)
 
 	-- Glyph of Typhoon -- 56965
-	recipe = AddRecipe(56965, 310, 44955, Q.COMMON, V.WOTLK, 310, 320, 325, 330)
+	recipe = AddRecipe(56965, 310, 44922, Q.COMMON, V.WOTLK, 310, 320, 325, 330)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.DRUID)
 	recipe:AddCustom(14)
 
