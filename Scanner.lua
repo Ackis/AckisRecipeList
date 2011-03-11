@@ -962,6 +962,7 @@ do
 	local sorted_data = {}
 	local reverse_map = {}
 
+	-- TODO: Make this a recipe method.
 	local function RecipeDump(id, single)
 		local recipe = private.recipe_list[id or 1]
 
@@ -973,30 +974,31 @@ do
 		local genesis = private.game_versions[recipe.genesis]
 
 		table.insert(output, ("-- %s -- %d"):format(recipe.name, recipe.spell_id))
+		table.insert(output, ("recipe = AddRecipe(%d, V.%s, Q.%s)"):format(recipe.spell_id, V[genesis], Q[recipe.quality]))
 
-		local spell_id = recipe.spell_id
+		local recipe_item_id = private.spell_to_recipe_map[recipe.spell_id] or recipe.recipe_item_id
+
+		if recipe_item_id then
+			table.insert(output, ("recipe:SetRecipeItemID(%d)"):format(recipe_item_id))
+		end
+
+		if recipe.crafted_item_id then
+			table.insert(output, ("recipe:SetCraftedItemID(%d)"):format(recipe.crafted_item_id))
+		end
 		local skill_level = recipe.skill_level
 		local optimal_level = recipe.optimal_level
 		local medium_level = recipe.medium_level
 		local easy_level = recipe.easy_level
 		local trivial_level = recipe.trivial_level
-		local required_faction = recipe.required_faction
-		local specialty = recipe.specialty
 
-		local FACTION_FORMAT = "recipe = AddRecipe(%d, %d, %s, Q.%s, V.%s, %d, %d, %d, %d, %s, \"%s\")"
-		local SPECIALTY_FORMAT = "recipe = AddRecipe(%d, %d, %s, Q.%s, V.%s, %d, %d, %d, %d, %s)"
-		local NORMAL_FORMAT = "recipe = AddRecipe(%d, %d, %s, Q.%s, V.%s, %d, %d, %d, %d)"
+		table.insert(output, ("recipe:SetSkillLevels(%d, %d, %d, %d, %d)"):format(skill_level, optimal_level, medium_level, easy_level, trivial_level))
 
-		if required_faction then
-			table.insert(output,
-				FACTION_FORMAT:format(spell_id, skill_level, tostring(recipe.item_id), Q[recipe.quality], V[genesis],optimal_level, medium_level, easy_level, trivial_level, specialty or "nil",
-						required_faction))
-		elseif specialty then
-			table.insert(output,
-				SPECIALTY_FORMAT:format(spell_id, skill_level, tostring(recipe.item_id), Q[recipe.quality], V[genesis], optimal_level, medium_level, easy_level, trivial_level, specialty))
-		else
-			table.insert(output,
-				NORMAL_FORMAT:format(spell_id, skill_level, tostring(recipe.item_id), Q[recipe.quality], V[genesis], optimal_level, medium_level, easy_level, trivial_level))
+		if recipe.specialty then
+			table.insert(output, ("recipe:SetSpecialty(%d)"):format(recipe.specialty))
+		end
+
+		if recipe.required_faction then
+			table.insert(output, ("recipe:SetRequiredFaction(\"%s\")"):format(recipe.required_faction))
 		end
 
 		for table_index, bits in ipairs(private.bit_flags) do
@@ -1119,10 +1121,6 @@ do
 
 		if flag_string then
 			table.insert(output, ("recipe:AddAcquireData(%s)"):format(flag_string))
-		end
-
-		if recipe.creates_item_id then
-			table.insert(output, ("recipe:SetCreatedItem(%d)"):format(recipe.creates_item_id))
 		end
 		table.insert(output, "")
 	end
