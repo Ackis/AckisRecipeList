@@ -440,6 +440,213 @@ function recipe_prototype:AddRepVendor(faction_id, rep_level, ...)
 		end
 	end
 end
+
+local DUMP_FUNCTION_FORMATS = {
+	[A.ACHIEVEMENT] = "recipe:AddAchievement(%s)",
+	[A.CUSTOM] = "recipe:AddCustom(%s)",
+	[A.SEASONAL] = "recipe:AddSeason(%s)",
+	[A.TRAINER] = "recipe:AddTrainer(%s)",
+	[A.MOB_DROP] = "recipe:AddMobDrop(%s)",
+	[A.WORLD_DROP] = "recipe:AddWorldDrop(%s)",
+	[A.QUEST] = "recipe:AddQuest(%s)",
+}
+
+local sorted_data = {}
+local reverse_map = {}
+
+function recipe_prototype:Dump(output)
+	local genesis = private.game_versions[self.genesis]
+
+	table.insert(output, ("-- %s -- %d"):format(self.name, self.spell_id))
+	table.insert(output, ("recipe = AddRecipe(%d, V.%s, Q.%s)"):format(self.spell_id, private.game_version_names[genesis], private.item_quality_names[self.quality]))
+
+	local recipe_item_id = private.spell_to_recipe_map[self.spell_id] or self.recipe_item_id
+
+	if recipe_item_id then
+		table.insert(output, ("recipe:SetRecipeItemID(%d)"):format(recipe_item_id))
+	end
+
+	if self.crafted_item_id then
+		table.insert(output, ("recipe:SetCraftedItemID(%d)"):format(self.crafted_item_id))
+	end
+	local skill_level = self.skill_level
+	local optimal_level = self.optimal_level
+	local medium_level = self.medium_level
+	local easy_level = self.easy_level
+	local trivial_level = self.trivial_level
+
+	table.insert(output, ("recipe:SetSkillLevels(%d, %d, %d, %d, %d)"):format(skill_level, optimal_level, medium_level, easy_level, trivial_level))
+
+	if self.specialty then
+		table.insert(output, ("recipe:SetSpecialty(%d)"):format(self.specialty))
+	end
+
+	if self.required_faction then
+		table.insert(output, ("recipe:SetRequiredFaction(\"%s\")"):format(self.required_faction))
+	end
+	local flag_string
+
+	for table_index, bits in ipairs(private.bit_flags) do
+		table.wipe(sorted_data)
+		table.wipe(reverse_map)
+
+		for flag_name, flag in pairs(bits) do
+			local bitfield = self.flags[private.flag_members[table_index]]
+
+			if bitfield and bit.band(bitfield, flag) == flag then
+				table.insert(sorted_data, flag)
+				reverse_map[flag] = flag_name
+			end
+		end
+		table.sort(sorted_data)
+
+		for index, flag in ipairs(sorted_data) do
+			local bitfield = self.flags[private.flag_members[table_index]]
+
+			if bitfield and bit.band(bitfield, flag) == flag then
+				if not flag_string then
+					flag_string = ("F.%s"):format(private.filter_strings[private.filter_flags[reverse_map[flag]]])
+				else
+					flag_string = ("%s, F.%s"):format(flag_string, private.filter_strings[private.filter_flags[reverse_map[flag]]])
+				end
+			end
+		end
+	end
+	table.insert(output, ("recipe:AddFilters(%s)"):format(flag_string))
+
+	flag_string = nil
+
+	for acquire_type, acquire_info in pairs(self.acquire_data) do
+		if acquire_type == A.REPUTATION then
+			for rep_id, rep_info in pairs(acquire_info) do
+				local faction_string = private.faction_strings[rep_id]
+
+				if not faction_string then
+					faction_string = rep_id
+					addon:Printf("Recipe %d (%s) - no string for faction %d", self.spell_id, self.name, rep_id)
+				else
+					faction_string = ("FAC.%s"):format(faction_string)
+				end
+
+				for rep_level, level_info in pairs(rep_info) do
+					local rep_string = ("REP.%s"):format(private.rep_level_strings[rep_level or 1])
+					local values
+
+					table.wipe(sorted_data)
+					table.wipe(reverse_map)
+
+					for id_num in pairs(level_info) do
+						table.insert(sorted_data, id_num)
+					end
+					table.sort(sorted_data)
+
+					for index, vendor_id in ipairs(sorted_data) do
+						if values then
+							values = ("%s, %d"):format(values, vendor_id)
+						else
+							values = vendor_id
+						end
+					end
+					table.insert(output, ("recipe:AddRepVendor(%s, %s, %s)"):format(faction_string, rep_string, values))
+				end
+			end
+		elseif acquire_type == A.VENDOR then
+			local values
+			local limited_values
+
+			table.wipe(sorted_data)
+			table.wipe(reverse_map)
+
+			for id_num in pairs(acquire_info) do
+				table.insert(sorted_data, id_num)
+			end
+			table.sort(sorted_data)
+
+			for index, identifier in ipairs(sorted_data) do
+				local saved_id
+
+				if type(identifier) == "string" then
+					saved_id = ("\"%s\""):format(identifier)
+				else
+					saved_id = identifier
+				end
+				local vendor = private.vendor_list[identifier]
+				local quantity = vendor.item_list[self.spell_id]
+
+				if type(quantity) == "number" then
+					if limited_values then
+						limited_values = ("%s, %s, %d"):format(limited_values, saved_id, quantity)
+					else
+						limited_values = ("%s, %d"):format(saved_id, quantity)
+					end
+				else
+					if values then
+						values = ("%s, %s"):format(values, saved_id)
+					else
+						values = saved_id
+					end
+				end
+			end
+
+			if values then
+				table.insert(output, ("recipe:AddVendor(%s)"):format(values))
+			end
+
+			if limited_values then
+				table.insert(output, ("recipe:AddLimitedVendor(%s)"):format(limited_values))
+			end
+		elseif DUMP_FUNCTION_FORMATS[acquire_type] then
+			local values
+
+			table.wipe(sorted_data)
+			table.wipe(reverse_map)
+
+			for id_num in pairs(acquire_info) do
+				table.insert(sorted_data, id_num)
+			end
+			table.sort(sorted_data)
+
+			for index, identifier in ipairs(sorted_data) do
+				local saved_id
+
+				if type(identifier) == "string" then
+					saved_id = ("\"%s\""):format(identifier)
+				else
+					saved_id = identifier
+				end
+
+				if values then
+					values = ("%s, %s"):format(values, saved_id)
+				else
+					values = saved_id
+				end
+			end
+			table.insert(output, (DUMP_FUNCTION_FORMATS[acquire_type]):format(values))
+		else
+			for identifier in pairs(acquire_info) do
+				local saved_id
+
+				if type(identifier) == "string" then
+					saved_id = ("\"%s\""):format(identifier)
+				else
+					saved_id = identifier
+				end
+
+				if flag_string then
+					flag_string = ("%s, A.%s, %s"):format(flag_string, private.acquire_strings[acquire_type], saved_id)
+				else
+					flag_string = ("A.%s, %s"):format(private.acquire_strings[acquire_type], saved_id)
+				end
+			end
+		end
+	end
+
+	if flag_string then
+		table.insert(output, ("recipe:AddAcquireData(%s)"):format(flag_string))
+	end
+	table.insert(output, "")
+end
+
 --- Public API function for retrieving specific information about a recipe.
 -- @name AckisRecipeList:GetRecipeData
 -- @usage AckisRecipeList:GetRecipeData(28972, "profession")
