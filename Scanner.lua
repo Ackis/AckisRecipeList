@@ -520,6 +520,10 @@ local NO_ROLE_FLAG = {
 }
 
 local function ItemLinkToID(item_link)
+	if not item_link then
+		return
+	end
+
 	local id = item_link:match("item:(%d+)")
 
 	if not id then
@@ -695,9 +699,16 @@ do
 		table.wipe(scanned_recipes)
 
 		-- Get all the names of recipes from the trainer
-		for i = 1, _G.GetNumTrainerServices(), 1 do
-			local name = _G.GetTrainerServiceInfo(i)
-			scanned_recipes[name] = true
+		for index = 1, _G.GetNumTrainerServices(), 1 do
+			local item_name = _G.GetTrainerServiceInfo(index)
+			local item_id = ItemLinkToID(_G.GetTrainerServiceItemLink(index))
+			local spell_id = RECIPE_TO_SPELL_MAP[item_id]
+
+			if spell_id then
+				scanned_recipes[spell_id] = item_id
+			elseif item_id then
+				self:Debug("No spell_id found for item_id %d (%s)", item_id, item_name)
+			end
 		end
 		table.wipe(teach)
 		table.wipe(noteach)
@@ -726,7 +737,7 @@ do
 				end
 			end
 
-			if scanned_recipes[recipe.name] then
+			if scanned_recipes[spell_id] then
 				if not found then
 					recipe:AddTrainer(trainer_id)
 					table.insert(teach, spell_id)
@@ -758,8 +769,9 @@ do
 			table.insert(output, "Trainer does not teach the following entries (should be removed):")
 			table.sort(noteach)
 
-			for i in ipairs(noteach) do
-				table.insert(output, L["DATAMINER_TRAINER_NOTTEACH"]:format(noteach[i], recipe_list[noteach[i]].name))
+			for index in ipairs(noteach) do
+				local spell_id = noteach[index]
+				table.insert(output, L["DATAMINER_TRAINER_NOTTEACH"]:format(spell_id, recipe_list[spell_id].name))
 			end
 		end
 		table.insert(output, "Trainer Acquire Scan Complete.")
@@ -1108,6 +1120,10 @@ do
 		if flag_string then
 			table.insert(output, ("recipe:AddAcquireData(%s)"):format(flag_string))
 		end
+
+		if recipe.creates_item_id then
+			table.insert(output, ("recipe:SetCreatedItem(%d)"):format(recipe.creates_item_id))
+		end
 		table.insert(output, "")
 	end
 
@@ -1238,9 +1254,7 @@ do
 				local match_text = string.match(item_name, "%a+: ")
 
 				if match_text and RECIPE_TYPES[match_text:lower()] then
-					local item_link = _G.GetMerchantItemLink(index)
-					local item_id = ItemLinkToID(item_link)
-					local spell_id = RECIPE_TO_SPELL_MAP[item_id]
+					local spell_id = RECIPE_TO_SPELL_MAP[ItemLinkToID(_G.GetMerchantItemLink(index))]
 
 					if spell_id then
 						local scanned_text = addon:TooltipScanRecipe(spell_id, true, true)
