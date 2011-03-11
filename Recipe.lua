@@ -109,6 +109,14 @@ end
 -------------------------------------------------------------------------------
 -- Recipe methods.
 -------------------------------------------------------------------------------
+function recipe_prototype:SetRecipeItemID(item_id)
+	self.recipe_item_id = item_id
+end
+
+function recipe_prototype:RecipeItemID()
+	return self.recipe_item_id
+end
+
 function recipe_prototype:HasState(state_name)
 	return self.state and (bit.band(self.state, SF[state_name]) == SF[state_name]) or false
 end
