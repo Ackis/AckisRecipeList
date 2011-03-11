@@ -13,6 +13,7 @@ local type = _G.type
 -- Libraries
 local bit = _G.bit
 local string = _G.string
+local table = _G.table
 
 -----------------------------------------------------------------------
 -- AddOn namespace.
@@ -20,15 +21,15 @@ local string = _G.string
 local FOLDER_NAME, private = ...
 
 local LibStub = _G.LibStub
-local MODNAME	= "Ackis Recipe List"
+local MODNAME = "Ackis Recipe List"
 local addon = LibStub("AceAddon-3.0"):GetAddon(MODNAME)
 
-local L		= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
-local BZ	= LibStub("LibBabble-Zone-3.0"):GetLookupTable()
-local BFAC 	= LibStub("LibBabble-Faction-3.0"):GetLookupTable()
+local L = LibStub("AceLocale-3.0"):GetLocale(MODNAME)
+local BZ = LibStub("LibBabble-Zone-3.0"):GetLookupTable()
+local BFAC = LibStub("LibBabble-Faction-3.0"):GetLookupTable()
 
-local A		= private.acquire_types
-local SF	= private.recipe_state_flags
+local A = private.acquire_types
+local SF = private.recipe_state_flags
 
 private.num_recipes = {}
 
@@ -37,7 +38,7 @@ private.num_recipes = {}
 -----------------------------------------------------------------------
 local recipe_prototype = {}
 local recipe_meta = {
-    __index = recipe_prototype
+	__index = recipe_prototype
 }
 
 ---Adds a tradeskill recipe into the specified recipe database
@@ -59,7 +60,7 @@ function addon:AddRecipe(spell_id, skill_level, crafted_item_id, quality, profes
 	local recipe_list = private.recipe_list
 
 	if recipe_list[spell_id] then
-		--@alpha@
+	--@alpha@
 		self:Debug("Duplicate recipe: %d - %s (%s)", spell_id, recipe_list[spell_id].name, recipe_list[spell_id].profession)
 		--@end-alpha@
 		return
@@ -247,7 +248,7 @@ do
 end -- do-block
 
 function recipe_prototype:AddFilters(...)
-	local num_flags = select('#',...)
+	local num_flags = select('#', ...)
 
 	for index = 1, num_flags, 1 do
 		local flag = select(index, ...)
@@ -401,18 +402,18 @@ function recipe_prototype:AddRepVendor(faction_id, rep_level, ...)
 		cur_var = cur_var + 1
 
 		if not private.reputation_list[faction_id] then
-			--@alpha@
+		--@alpha@
 			self:Printf("Spell ID %d: Faction ID %d does not exist in the database.", self.spell_id, faction_id)
-			--@end-alpha@
+		--@end-alpha@
 		else
 			if not vendor_id then
-				--@alpha@
+			--@alpha@
 				self:Printf("Spell ID %d: Reputation Vendor ID is nil.", self.spell_id)
-				--@end-alpha@
+			--@end-alpha@
 			elseif not vendor_list[vendor_id] then
-				--@alpha@
+			--@alpha@
 				self:Printf("Spell ID %d: Reputation Vendor ID %d does not exist in the database.", self.spell_id, vendor_id)
-				--@end-alpha@
+			--@end-alpha@
 			else
 				faction[rep_level][vendor_id] = true
 
