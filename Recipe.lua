@@ -88,12 +88,6 @@ function addon:AddRecipe(spell_id, skill_level, item_id, quality, profession, sp
 	end
 	recipe_list[spell_id] = recipe
 
-	local created_item = private.spell_to_recipe_map[spell_id]
-
-	if created_item then
-		recipe.creates_item_id = created_item
-	end
-
 	recipe.required_faction = required_faction
 
 	if required_faction and private.Player.faction ~= BFAC[required_faction] then
