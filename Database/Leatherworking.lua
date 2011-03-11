@@ -1191,9 +1191,8 @@ function addon:InitLeatherworking()
 
 	-- Heavy Knothide Leather -- 32455
 	recipe = AddRecipe(32455, 325, 23793, Q.COMMON, V.TBC, 325, 325, 330, 335)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.VENDOR, F.IBOE, F.RBOE, F.LEATHER)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE, F.LEATHER)
 	recipe:AddTrainer(28700)
-	recipe:AddVendor(16689, 16748, 19196)
 
 	-- Knothide Armor Kit -- 32456
 	recipe = AddRecipe(32456, 300, 25650, Q.COMMON, V.TBC, 300, 310, 325, 340)
