@@ -449,10 +449,8 @@ function recipe_prototype:Dump(output)
 	table.insert(output, ("-- %s -- %d"):format(self.name, self.spell_id))
 	table.insert(output, ("recipe = AddRecipe(%d, V.%s, Q.%s)"):format(self.spell_id, private.game_version_names[genesis], private.item_quality_names[self.quality]))
 
-	local recipe_item_id = private.spell_to_recipe_map[self.spell_id] or self.recipe_item_id
-
-	if recipe_item_id then
-		table.insert(output, ("recipe:SetRecipeItemID(%d)"):format(recipe_item_id))
+	if self.recipe_item_id then
+		table.insert(output, ("recipe:SetRecipeItemID(%d)"):format(self.recipe_item_id))
 	end
 
 	if self.crafted_item_id then

@@ -1733,8 +1733,8 @@ do
 		if location and drop_location ~= location then
 			return
 		end
-		local item_id = private.spell_to_recipe_map[recipe_id]
-		local _, item_level
+		local recipe_item_id = private.recipe_list[recipe_id]:RecipeItemID()
+		local _, recipe_item_level
 
 		if item_id then
 			_, _, _, item_level = GetItemInfo(item_id)

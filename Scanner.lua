@@ -55,15 +55,6 @@ local A = private.acquire_types
 
 local PROFESSIONS = private.professions
 
-local SPELL_TO_RECIPE_MAP = private.spell_to_recipe_map
-local RECIPE_TO_SPELL_MAP = {}
-
-do
-	for spell_id, recipe_id in pairs(SPELL_TO_RECIPE_MAP) do
-		RECIPE_TO_SPELL_MAP[recipe_id] = spell_id
-	end
-end
-
 -------------------------------------------------------------------------------
 -- Look up table of spell IDs for recipes which do not have a player flag
 -- BASICALLY A TEMPORARY STORAGE FOR IDS, SO WE CAN SEE CLEANER SCANS AND WHAT NOT,
@@ -1061,6 +1052,7 @@ local RECIPE_TYPES = {
 -- @return Obtains all the vendor information on tradeskill recipes and attempts to compare the current vendor with the internal database
 do
 	local output = {}
+	local RECIPE_ITEM_TO_SPELL_MAP
 
 	function addon:ScanVendor()
 		if not (_G.UnitExists("target") and (not _G.UnitIsPlayer("target")) and (not _G.UnitIsEnemy("player", "target"))) then	-- Make sure the target exists and is a NPC
@@ -1082,6 +1074,18 @@ do
 		table.insert(output, "ARL Version: @project-version@")
 		table.insert(output, L["DATAMINER_VENDOR_INFO"]:format(vendor_name, vendor_id))
 
+		if not RECIPE_ITEM_TO_SPELL_MAP then
+			RECIPE_ITEM_TO_SPELL_MAP = {}
+
+			for spell_id, recipe in pairs(private.recipe_list) do
+				local recipe_item_id = recipe:RecipeItemID()
+
+				if recipe_item_id then
+					RECIPE_ITEM_TO_SPELL_MAP[recipe_item_id] = spell_id
+				end
+			end
+		end
+
 		for index = 1, _G.GetMerchantNumItems(), 1 do
 			local item_name, _, _, _, supply = _G.GetMerchantItemInfo(index)
 
@@ -1089,7 +1093,7 @@ do
 				local match_text = string.match(item_name, "%a+: ")
 
 				if match_text and RECIPE_TYPES[match_text:lower()] then
-					local spell_id = RECIPE_TO_SPELL_MAP[ItemLinkToID(_G.GetMerchantItemLink(index))]
+					local spell_id = RECIPE_ITEM_TO_SPELL_MAP[ItemLinkToID(_G.GetMerchantItemLink(index))]
 
 					if spell_id then
 						local scanned_text = addon:TooltipScanRecipe(spell_id, true, true)
@@ -1354,12 +1358,12 @@ do
 		end
 		local reverse_lookup = GetReverseLookup(recipe_list)
 
-		local item_id = SPELL_TO_RECIPE_MAP[spell_id]
+		local recipe_item_id = recipe:RecipeItemID()
 
 		table.wipe(scan_data)
 
-		if item_id and not DO_NOT_SCAN[item_id] then
-			local item_name, item_link, item_quality = _G.GetItemInfo(item_id)
+		if recipe_item_id and not DO_NOT_SCAN[recipe_item_id] then
+			local item_name, item_link, item_quality = _G.GetItemInfo(recipe_item_id)
 
 			if item_name then
 				scan_data.quality = item_quality
@@ -1367,12 +1371,12 @@ do
 				ARLDatamineTT:SetHyperlink(item_link)
 				self:ScanToolTip(recipe_name, recipe_list, reverse_lookup, is_vendor)
 			else
-				local querier_string = _G.Querier and string.format(" To fix: /iq %d", item_id) or ""
+				local querier_string = _G.Querier and string.format(" To fix: /iq %d", recipe_item_id) or ""
 
 				table.insert(output, string.format("%s: %d", recipe.name, spell_id))
 				table.insert(output, string.format("    Recipe item not in cache.%s", querier_string))
 			end
-		elseif not item_id then
+		elseif not recipe_item_id then
 			-- We are dealing with a recipe that does not have an item to learn it from.
 			-- Lets check the recipe flags to see if we have a data error and the item should exist
 			if not recipe:HasFilter("common1", "RETIRED") then
