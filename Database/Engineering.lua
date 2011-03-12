@@ -983,7 +983,7 @@ function addon:InitEngineering()
 	recipe:SetCraftedItemID(9318)
 	recipe:SetSkillLevels(150, 150, 150, 162, 175)
 	recipe:AddFilters(F.HORDE, F.VENDOR, F.IBOE, F.RBOE)
-	recipe:AddVendor(3413)
+	recipe:AddLimitedVendor(3413, 1)
 
 	-- Blue Firework -- 23067
 	recipe = AddRecipe(23067, V.ORIG, Q.COMMON)
@@ -1270,7 +1270,8 @@ function addon:InitEngineering()
 	recipe:SetCraftedItemID(22728)
 	recipe:SetSkillLevels(275, 275, 275, 280, 285)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.QUEST, F.IBOE, F.RBOP)
-	recipe:AddVendor(3413, 5175)
+	recipe:AddVendor(5175)
+	recipe:AddLimitedVendor(3413, 1)
 	recipe:AddQuest(9249)
 
 	-- Elemental Blasting Powder -- 30303
