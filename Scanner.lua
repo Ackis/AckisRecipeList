@@ -1079,6 +1079,8 @@ do
 
 				if recipe_item_id then
 					RECIPE_ITEM_TO_SPELL_MAP[recipe_item_id] = spell_id
+				elseif recipe:HasFilter("common1", "VENDOR") then
+					self:Debug("Recipe %d (%s) has Vendor filter flag without a recipe item ID.", spell_id, recipe.name)
 				end
 			end
 		end
