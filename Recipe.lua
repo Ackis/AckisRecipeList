@@ -56,7 +56,7 @@ local recipe_meta = {
 -- @param easy_level Level at which recipe is considered green
 -- @param trivial_level Level at which recipe is considered grey
 -- @return Resultant recipe table.
-function addon:AddRecipe(spell_id, skill_level, crafted_item_id, quality, profession, specialty, genesis, optimal_level, medium_level, easy_level, trivial_level, required_faction)
+function addon:AddRecipe(spell_id, profession, genesis, quality)
 	local recipe_list = private.recipe_list
 
 	if recipe_list[spell_id] then
@@ -68,19 +68,12 @@ function addon:AddRecipe(spell_id, skill_level, crafted_item_id, quality, profes
 
 	local recipe = _G.setmetatable({
 		spell_id = spell_id,
-		skill_level = skill_level,
-		crafted_item_id = crafted_item_id,
-		quality = quality,
 		profession = _G.GetSpellInfo(profession),
+		genesis = private.game_version_names[genesis],
+		quality = quality,
 		name = _G.GetSpellInfo(spell_id),
 		flags = {},
 		acquire_data = {},
-		specialty = specialty, -- Assumption: there will only be 1 speciality for a trade skill
-		genesis = private.game_version_names[genesis],
-		optimal_level = optimal_level or skill_level,
-		medium_level = medium_level or skill_level + 10,
-		easy_level = easy_level or skill_level + 15,
-		trivial_level = trivial_level or skill_level + 20,
 	}, recipe_meta)
 
 	if not recipe.name or recipe.name == "" then
@@ -90,11 +83,6 @@ function addon:AddRecipe(spell_id, skill_level, crafted_item_id, quality, profes
 	recipe_list[spell_id] = recipe
 	private.num_recipes[recipe.profession] = (private.num_recipes[recipe.profession] or 0) + 1
 
-	recipe.required_faction = required_faction
-
-	if required_faction and private.Player.faction ~= BFAC[required_faction] then
-		recipe.is_ignored = true
-	end
 	return recipe
 end
 
