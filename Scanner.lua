@@ -53,8 +53,6 @@ local FOLDER_NAME, private	= ...
 local F = private.filter_flags
 local A = private.acquire_types
 
-local PROFESSIONS = private.professions
-
 -------------------------------------------------------------------------------
 -- Look up table of spell IDs for recipes which do not have a player flag
 -- BASICALLY A TEMPORARY STORAGE FOR IDS, SO WE CAN SEE CLEANER SCANS AND WHAT NOT,
@@ -533,12 +531,11 @@ local function LoadRecipe()
 			addon:InitializeLookups()
 		end
 
-		for idx, prof in pairs(PROFESSIONS) do
+		for index, prof in pairs(private.professions) do
 			addon:InitializeProfession(prof)
 		end
 	end
 	return recipe_list
-
 end
 
 -------------------------------------------------------------------------------

@@ -43,18 +43,11 @@ local recipe_meta = {
 
 ---Adds a tradeskill recipe into the specified recipe database
 -- @name AckisRecipeList:AddRecipe
--- @usage AckisRecipeList:AddRecipe(28927, 305, 23109, Q.UNCOMMON, V.TBC, 305, 305, 325, 345)
+-- @usage AckisRecipeList:AddRecipe(28927, 23109, V.TBC, Q.UNCOMMON)
 -- @param spell_id The [[http://www.wowpedia.org/SpellLink|Spell ID]] of the recipe being added to the database
--- @param skill_level The skill level at which the recipe can be initially learned
--- @param item_id The [[http://www.wowpedia.org/ItemLink|Item ID]] that is created by the recipe, or nil
--- @param quality The quality/rarity of the recipe
 -- @param profession The profession ID that uses the recipe.  See [[API/database-documentation]] for a listing of profession IDs
--- @param specialty The specialty that uses the recipe (ie: goblin engineering) or nil or blank
 -- @param genesis Game version that the recipe was first introduced in, for example, Original, BC, WoTLK, or Cata
--- @param optimal_level Level at which recipe is considered orange
--- @param medium_level Level at which recipe is considered yellow
--- @param easy_level Level at which recipe is considered green
--- @param trivial_level Level at which recipe is considered grey
+-- @param quality The quality/rarity of the recipe
 -- @return Resultant recipe table.
 function addon:AddRecipe(spell_id, profession, genesis, quality)
 	local recipe_list = private.recipe_list
