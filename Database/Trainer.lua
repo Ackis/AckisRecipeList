@@ -162,7 +162,7 @@ function addon:InitTrainer(DB)
 	self:addLookupList(DB, 8736, L["Buzzek Bracketswing"], BZ["Tanaris"], 52.3, 27.7, NEUTRAL)
 	self:addLookupList(DB, 8738, L["Vazario Linkgrease"], BZ["Northern Barrens"], 68.5, 69.2, NEUTRAL)   -- UPDATED
 	self:addLookupList(DB, 9584, L["Jalane Ayrole"], BZ["Stormwind City"], 40.6, 83.9, ALLIANCE)
-	self:addLookupList(DB, 11017, L["Roxxik"], BZ["Orgrimmar"], 76.0, 25.1, HORDE)
+	self:addLookupList(DB, 11017, L["Roxxik"], BZ["Orgrimmar"], 56.85, 56.54, HORDE)	-- UPDATED
 	self:addLookupList(DB, 11025, L["Mukdrak"], BZ["Durotar"], 52.2, 40.8, HORDE)
 	self:addLookupList(DB, 11031, L["Franklin Lloyd"], BZ["Undercity"], 75.9, 73.7, HORDE)
 	self:addLookupList(DB, 11037, L["Jenna Lemkenilli"], BZ["Darkshore"], 38.3, 41.1, ALLIANCE)

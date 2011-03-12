@@ -25,7 +25,7 @@ local L		= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
 local QTip	= LibStub("LibQTip-1.0")
 
 -- Set up the private intra-file namespace.
-local private	= select(2, ...)
+local FOLDER_NAME, private	= ...
 
 local Player	= private.Player
 
@@ -210,21 +210,22 @@ function private.InitializeListFrame()
 		if not clicked_line then
 			return
 		end
+
 		-- First, check if this is a "modified" click, and react appropriately
 		if clicked_line.recipe_id and _G.IsModifierKeyDown() then
 			if _G.IsControlKeyDown() and _G.IsShiftKeyDown() then
 				addon:AddWaypoint(clicked_line.recipe_id, clicked_line.acquire_id, clicked_line.location_id, clicked_line.npc_id)
 			elseif _G.IsShiftKeyDown() then
-				local itemID = private.recipe_list[clicked_line.recipe_id].item_id
+				local crafted_item_id = private.recipe_list[clicked_line.recipe_id]:CraftedItemID()
 
-				if itemID then
-					local _, itemLink = _G.GetItemInfo(itemID)
+				if crafted_item_id then
+					local _, item_link = _G.GetItemInfo(crafted_item_id)
 
-					if itemLink then
+					if item_link then
 						local edit_box = _G.ChatEdit_ChooseBoxForSend()
 
 						_G.ChatEdit_ActivateChat(edit_box)
-						edit_box:Insert(itemLink)
+						edit_box:Insert(item_link)
 					else
 						addon:Print(L["NoItemLink"])
 					end
@@ -235,7 +236,7 @@ function private.InitializeListFrame()
 				local edit_box = _G.ChatEdit_ChooseBoxForSend()
 
 				_G.ChatEdit_ActivateChat(edit_box)
-				edit_box:Insert(GetSpellLink(private.recipe_list[clicked_line.recipe_id].spell_id))
+				edit_box:Insert(_G.GetSpellLink(private.recipe_list[clicked_line.recipe_id].spell_id))
 			elseif _G.IsAltKeyDown() then
 				local exclusion_list = addon.db.profile.exclusionlist
 				local recipe_id = clicked_line.recipe_id
@@ -1733,21 +1734,21 @@ do
 		if location and drop_location ~= location then
 			return
 		end
-		local item_id = private.spell_to_recipe_map[recipe_id]
-		local _, item_level
+		local recipe_item_id = private.recipe_list[recipe_id]:RecipeItemID()
+		local _, recipe_item_level
 
-		if item_id then
-			_, _, _, item_level = GetItemInfo(item_id)
+		if recipe_item_id then
+			_, _, _, recipe_item_level = _G.GetItemInfo(recipe_item_id)
 		end
-		local _, _, _, quality_color = GetItemQualityColor(private.recipe_list[recipe_id].quality)
+		local _, _, _, quality_color = _G.GetItemQualityColor(private.recipe_list[recipe_id].quality)
 		local type_color = string.gsub(quality_color, "|cff", "")
 
 		if type(id_num) == "string" then
-			local location_text = item_level and string.format("%s (%d - %d)", drop_location, item_level - 5, item_level + 5) or drop_location
+			local location_text = recipe_item_level and string.format("%s (%d - %d)", drop_location, recipe_item_level - 5, recipe_item_level + 5) or drop_location
 
 			addline_func(0, -1, false, L["World Drop"], type_color, location_text, CATEGORY_COLORS["location"])
 		else
-			local location_text = item_level and string.format("%s (%d - %d)", _G.UNKNOWN, item_level - 5, item_level + 5) or _G.UNKNOWN
+			local location_text = recipe_item_level and string.format("%s (%d - %d)", _G.UNKNOWN, recipe_item_level - 5, recipe_item_level + 5) or _G.UNKNOWN
 
 			addline_func(0, -1, false, L["World Drop"], type_color, location_text, CATEGORY_COLORS["location"])
 		end
@@ -1755,7 +1756,7 @@ do
 
 	local function Tooltip_AddAchievement(recipe_id, id_num, addline_func)
 		local recipe = private.recipe_list[recipe_id]
-		local _, achievement_name, _, _, _, _, _, achievement_desc = GetAchievementInfo(id_num)
+		local _, achievement_name, _, _, _, _, _, achievement_desc = _G.GetAchievementInfo(id_num)
 
 		-- The recipe is an actual reward from an achievement if flagged - else we're just using the text to describe how to get it.
 		if recipe:HasFilter("common1", "ACHIEVEMENT") then

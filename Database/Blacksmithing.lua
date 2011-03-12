@@ -11,2915 +11,4261 @@ Please see http://www.wowace.com/addons/arl/ for more information.
 ************************************************************************
 This source code is released under All Rights Reserved.
 ************************************************************************
-]]--
+]] --
 
 -------------------------------------------------------------------------------
 -- AddOn namespace.
 -------------------------------------------------------------------------------
-local MODNAME	= "Ackis Recipe List"
-local addon	= LibStub("AceAddon-3.0"):GetAddon(MODNAME)
-local L		= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
+local MODNAME = "Ackis Recipe List"
+local addon = LibStub("AceAddon-3.0"):GetAddon(MODNAME)
+local L = LibStub("AceLocale-3.0"):GetLocale(MODNAME)
 
 local FOLDER_NAME, private = ...
 
 -------------------------------------------------------------------------------
 -- Filter flags. Acquire types, and Reputation levels.
 -------------------------------------------------------------------------------
-local F		= private.filter_flags
-local A		= private.acquire_types
-local Q		= private.item_qualities
-local REP	= private.rep_levels
-local FAC	= private.faction_ids
-local V		= private.game_versions
+local F = private.filter_flags
+local A = private.acquire_types
+local Q = private.item_qualities
+local REP = private.rep_levels
+local FAC = private.faction_ids
+local V = private.game_versions
 
 --------------------------------------------------------------------------------------------------------------------
 -- Counter and wrapper function
 --------------------------------------------------------------------------------------------------------------------
-local function AddRecipe(spell_id, skill_level, item_id, quality, genesis, optimal_level, medium_level, easy_level, trivial_level, specialty, required_faction)
-	return addon:AddRecipe(spell_id, skill_level, item_id, quality, 2018, specialty, genesis, optimal_level, medium_level, easy_level, trivial_level, required_faction)
+local function AddRecipe(spell_id, genesis, quality)
+	return addon:AddRecipe(spell_id, 2018, genesis, quality)
 end
 
 function addon:InitBlacksmithing()
 	local recipe
 
 	-- Rough Sharpening Stone -- 2660
-	recipe = AddRecipe(2660, 1, 2862, Q.COMMON, V.ORIG, 1, 15, 35, 55)
+	recipe = AddRecipe(2660, V.ORIG, Q.COMMON)
+	recipe:SetCraftedItemID(2862)
+	recipe:SetSkillLevels(1, 1, 15, 35, 55)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS)
 	recipe:AddCustom(8)
 
 	-- Copper Chain Belt -- 2661
-	recipe = AddRecipe(2661, 35, 2851, Q.COMMON, V.ORIG, 35, 75, 95, 115)
+	recipe = AddRecipe(2661, V.ORIG, Q.COMMON)
+	recipe:SetCraftedItemID(2851)
+	recipe:SetSkillLevels(35, 35, 75, 95, 115)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.MAIL)
 	recipe:AddTrainer(514, 1241, 2836, 2998, 3136, 3174, 3355, 3478, 3557, 4258, 4596, 5511, 6299, 11177, 11178, 15400, 16583, 16669, 16724, 16823, 17245, 19341, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 33609, 33631, 33675, 44781, 45548)
 
 	-- Copper Chain Pants -- 2662
-	recipe = AddRecipe(2662, 1, 2852, Q.COMMON, V.ORIG, 1, 50, 70, 90)
+	recipe = AddRecipe(2662, V.ORIG, Q.COMMON)
+	recipe:SetCraftedItemID(2852)
+	recipe:SetSkillLevels(1, 1, 50, 70, 90)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.MAIL)
 	recipe:AddTrainer(514, 1241, 2836, 2998, 3136, 3174, 3355, 3478, 3557, 4258, 4596, 5511, 6299, 11177, 11178, 15400, 16583, 16669, 16724, 16823, 17245, 19341, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 33609, 33631, 33675, 44781, 45548)
 
 	-- Copper Bracers -- 2663
-	recipe = AddRecipe(2663, 1, 2853, Q.COMMON, V.ORIG, 1, 20, 40, 60)
+	recipe = AddRecipe(2663, V.ORIG, Q.COMMON)
+	recipe:SetCraftedItemID(2853)
+	recipe:SetSkillLevels(1, 1, 20, 40, 60)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.MAIL)
 	recipe:AddCustom(8)
 
 	-- Runed Copper Bracers -- 2664
-	recipe = AddRecipe(2664, 90, 2854, Q.COMMON, V.ORIG, 90, 115, 127, 140)
+	recipe = AddRecipe(2664, V.ORIG, Q.COMMON)
+	recipe:SetCraftedItemID(2854)
+	recipe:SetSkillLevels(90, 90, 115, 127, 140)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS, F.MAIL)
 	recipe:AddTrainer(514, 1241, 2836, 2998, 3136, 3174, 3355, 3478, 3557, 4258, 4596, 5511, 6299, 11177, 11178, 15400, 16583, 16669, 16724, 16823, 17245, 19341, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 33609, 33631, 33675, 44781, 45548)
 
 	-- Coarse Sharpening Stone -- 2665
-	recipe = AddRecipe(2665, 65, 2863, Q.COMMON, V.ORIG, 65, 65, 72, 80)
+	recipe = AddRecipe(2665, V.ORIG, Q.COMMON)
+	recipe:SetCraftedItemID(2863)
+	recipe:SetSkillLevels(65, 65, 65, 72, 80)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS)
 	recipe:AddTrainer(514, 1241, 2836, 2998, 3136, 3174, 3355, 3478, 3557, 4258, 4596, 5511, 6299, 11177, 11178, 15400, 16583, 16669, 16724, 16823, 17245, 19341, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 33609, 33631, 33675, 44781, 45548)
 
 	-- Runed Copper Belt -- 2666
-	recipe = AddRecipe(2666, 70, 2857, Q.COMMON, V.ORIG, 70, 110, 130, 150)
+	recipe = AddRecipe(2666, V.ORIG, Q.COMMON)
+	recipe:SetCraftedItemID(2857)
+	recipe:SetSkillLevels(70, 70, 110, 130, 150)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS, F.MAIL)
 	recipe:AddTrainer(514, 1241, 2836, 2998, 3136, 3174, 3355, 3478, 3557, 4258, 4596, 5511, 6299, 11177, 11178, 15400, 16583, 16669, 16724, 16823, 17245, 19341, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 33609, 33631, 33675, 44781, 45548)
 
 	-- Runed Copper Breastplate -- 2667
-	recipe = AddRecipe(2667, 80, 2864, Q.UNCOMMON, V.ORIG, 80, 120, 140, 160)
+	recipe = AddRecipe(2667, V.ORIG, Q.UNCOMMON)
+	recipe:SetRecipeItemID(2881)
+	recipe:SetCraftedItemID(2864)
+	recipe:SetSkillLevels(80, 80, 120, 140, 160)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.MAIL)
 	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
 
 	-- Rough Bronze Leggings -- 2668
-	recipe = AddRecipe(2668, 105, 2865, Q.COMMON, V.ORIG, 105, 145, 160, 175)
+	recipe = AddRecipe(2668, V.ORIG, Q.COMMON)
+	recipe:SetCraftedItemID(2865)
+	recipe:SetSkillLevels(105, 105, 145, 160, 175)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS, F.MAIL)
 	recipe:AddTrainer(514, 1241, 2836, 2998, 3136, 3174, 3355, 3478, 3557, 4258, 4596, 5511, 6299, 11177, 11178, 15400, 16583, 16669, 16724, 16823, 17245, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 33609, 33631, 33675, 44781, 45548)
 
 	-- Rough Bronze Cuirass -- 2670
-	recipe = AddRecipe(2670, 105, 2866, Q.COMMON, V.ORIG, 105, 145, 160, 175)
+	recipe = AddRecipe(2670, V.ORIG, Q.COMMON)
+	recipe:SetCraftedItemID(2866)
+	recipe:SetSkillLevels(105, 105, 145, 160, 175)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS, F.MAIL)
 	recipe:AddTrainer(514, 1241, 2836, 2998, 3136, 3174, 3355, 3478, 3557, 4258, 4596, 5511, 6299, 11177, 11178, 15400, 16583, 16669, 16724, 16823, 17245, 19341, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 33609, 33631, 33675, 44781, 45548)
 
 	-- Patterned Bronze Bracers -- 2672
-	recipe = AddRecipe(2672, 120, 2868, Q.COMMON, V.ORIG, 120, 150, 165, 180)
+	recipe = AddRecipe(2672, V.ORIG, Q.COMMON)
+	recipe:SetCraftedItemID(2868)
+	recipe:SetSkillLevels(120, 120, 150, 165, 180)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS, F.MAIL)
 	recipe:AddTrainer(514, 1241, 2836, 2998, 3136, 3174, 3355, 3478, 3557, 4258, 4596, 5511, 6299, 11177, 11178, 15400, 16583, 16669, 16724, 16823, 17245, 19341, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 33609, 33631, 33675, 44781, 45548)
 
 	-- Silvered Bronze Breastplate -- 2673
-	recipe = AddRecipe(2673, 130, 2869, Q.UNCOMMON, V.ORIG, 130, 160, 175, 190)
+	recipe = AddRecipe(2673, V.ORIG, Q.UNCOMMON)
+	recipe:SetRecipeItemID(5578)
+	recipe:SetCraftedItemID(2869)
+	recipe:SetSkillLevels(130, 130, 160, 175, 190)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.MAIL)
 	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
 
 	-- Heavy Sharpening Stone -- 2674
-	recipe = AddRecipe(2674, 125, 2871, Q.COMMON, V.ORIG, 125, 125, 132, 140)
+	recipe = AddRecipe(2674, V.ORIG, Q.COMMON)
+	recipe:SetCraftedItemID(2871)
+	recipe:SetSkillLevels(125, 125, 125, 132, 140)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS)
 	recipe:AddTrainer(514, 1241, 2836, 2998, 3136, 3174, 3355, 3478, 3557, 4258, 4596, 5511, 6299, 11177, 11178, 15400, 16583, 16669, 16724, 16823, 17245, 19341, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 33609, 33631, 33675, 44781, 45548)
 
 	-- Shining Silver Breastplate -- 2675
-	recipe = AddRecipe(2675, 145, 2870, Q.COMMON, V.ORIG, 145, 175, 190, 205)
+	recipe = AddRecipe(2675, V.ORIG, Q.COMMON)
+	recipe:SetCraftedItemID(2870)
+	recipe:SetSkillLevels(145, 145, 175, 190, 205)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS, F.MAIL)
 	recipe:AddTrainer(514, 1241, 2836, 2998, 3136, 3174, 3355, 3478, 3557, 4258, 4596, 5511, 6299, 11177, 11178, 15400, 16583, 16669, 16724, 16823, 17245, 19341, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 33609, 33631, 33675, 44781, 45548)
 
 	-- Copper Mace -- 2737
-	recipe = AddRecipe(2737, 15, 2844, Q.COMMON, V.ORIG, 15, 55, 75, 95)
+	recipe = AddRecipe(2737, V.ORIG, Q.COMMON)
+	recipe:SetCraftedItemID(2844)
+	recipe:SetSkillLevels(15, 15, 55, 75, 95)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.ONE_HAND, F.MACE)
 	recipe:AddTrainer(514, 1241, 2836, 2998, 3136, 3174, 3355, 3478, 3557, 4258, 4596, 5511, 6299, 11177, 11178, 15400, 16583, 16669, 16724, 16823, 17245, 19341, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 33609, 33631, 33675, 44781, 45548)
 
 	-- Copper Axe -- 2738
-	recipe = AddRecipe(2738, 20, 2845, Q.COMMON, V.ORIG, 20, 60, 80, 100)
+	recipe = AddRecipe(2738, V.ORIG, Q.COMMON)
+	recipe:SetCraftedItemID(2845)
+	recipe:SetSkillLevels(20, 20, 60, 80, 100)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.ONE_HAND, F.AXE)
 	recipe:AddTrainer(514, 1241, 2836, 2998, 3136, 3174, 3355, 3478, 3557, 4258, 4596, 5511, 6299, 11177, 11178, 15400, 16583, 16669, 16724, 16823, 17245, 19341, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 33609, 33631, 33675, 44781, 45548)
 
 	-- Copper Shortsword -- 2739
-	recipe = AddRecipe(2739, 25, 2847, Q.COMMON, V.ORIG, 25, 65, 85, 105)
+	recipe = AddRecipe(2739, V.ORIG, Q.COMMON)
+	recipe:SetCraftedItemID(2847)
+	recipe:SetSkillLevels(25, 25, 65, 85, 105)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.ONE_HAND, F.SWORD)
 	recipe:AddTrainer(514, 1241, 2836, 2998, 3136, 3174, 3355, 3478, 3557, 4258, 4596, 5511, 6299, 11177, 11178, 15400, 16583, 16669, 16724, 16823, 17245, 19341, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 33609, 33631, 33675, 44781, 45548)
 
 	-- Bronze Mace -- 2740
-	recipe = AddRecipe(2740, 110, 2848, Q.COMMON, V.ORIG, 110, 140, 155, 170)
+	recipe = AddRecipe(2740, V.ORIG, Q.COMMON)
+	recipe:SetCraftedItemID(2848)
+	recipe:SetSkillLevels(110, 110, 140, 155, 170)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.ONE_HAND, F.MACE)
 	recipe:AddTrainer(514, 1241, 2836, 2998, 3136, 3174, 3355, 3478, 3557, 4258, 4596, 5511, 6299, 11177, 11178, 15400, 16583, 16669, 16724, 16823, 17245, 19341, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 33609, 33631, 33675, 44781, 45548)
 
 	-- Bronze Axe -- 2741
-	recipe = AddRecipe(2741, 115, 2849, Q.COMMON, V.ORIG, 115, 145, 160, 175)
+	recipe = AddRecipe(2741, V.ORIG, Q.COMMON)
+	recipe:SetCraftedItemID(2849)
+	recipe:SetSkillLevels(115, 115, 145, 160, 175)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.ONE_HAND, F.AXE)
 	recipe:AddTrainer(514, 1241, 2836, 2998, 3136, 3174, 3355, 3478, 3557, 4258, 4596, 5511, 6299, 11177, 11178, 15400, 16583, 16669, 16724, 16823, 17245, 19341, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 33609, 33631, 33675, 44781, 45548)
 
 	-- Bronze Shortsword -- 2742
-	recipe = AddRecipe(2742, 120, 2850, Q.COMMON, V.ORIG, 120, 150, 165, 180)
+	recipe = AddRecipe(2742, V.ORIG, Q.COMMON)
+	recipe:SetCraftedItemID(2850)
+	recipe:SetSkillLevels(120, 120, 150, 165, 180)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS, F.ONE_HAND, F.SWORD)
 	recipe:AddTrainer(514, 1241, 2836, 2998, 3136, 3174, 3355, 3478, 3557, 4258, 4596, 5511, 6299, 11177, 11178, 15400, 16583, 16669, 16724, 16823, 17245, 19341, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 33609, 33631, 33675, 44781, 45548)
 
 	-- Rough Weightstone -- 3115
-	recipe = AddRecipe(3115, 1, 3239, Q.COMMON, V.ORIG, 1, 15, 35, 55)
+	recipe = AddRecipe(3115, V.ORIG, Q.COMMON)
+	recipe:SetCraftedItemID(3239)
+	recipe:SetSkillLevels(1, 1, 15, 35, 55)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	recipe:AddCustom(8)
 
 	-- Coarse Weightstone -- 3116
-	recipe = AddRecipe(3116, 65, 3240, Q.COMMON, V.ORIG, 65, 65, 72, 80)
+	recipe = AddRecipe(3116, V.ORIG, Q.COMMON)
+	recipe:SetCraftedItemID(3240)
+	recipe:SetSkillLevels(65, 65, 65, 72, 80)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	recipe:AddTrainer(514, 1241, 2836, 2998, 3136, 3174, 3355, 3478, 3557, 4258, 4596, 5511, 6299, 11177, 11178, 15400, 16583, 16669, 16724, 16823, 17245, 19341, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 33609, 33631, 33675, 44781, 45548)
 
 	-- Heavy Weightstone -- 3117
-	recipe = AddRecipe(3117, 125, 3241, Q.COMMON, V.ORIG, 125, 125, 132, 140)
+	recipe = AddRecipe(3117, V.ORIG, Q.COMMON)
+	recipe:SetCraftedItemID(3241)
+	recipe:SetSkillLevels(125, 125, 125, 132, 140)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	recipe:AddTrainer(514, 1241, 2836, 2998, 3136, 3174, 3355, 3478, 3557, 4258, 4596, 5511, 6299, 11177, 11178, 15400, 16583, 16669, 16724, 16823, 17245, 19341, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 33609, 33631, 33675, 44781, 45548)
 
 	-- Heavy Copper Broadsword -- 3292
-	recipe = AddRecipe(3292, 95, 3487, Q.COMMON, V.ORIG, 95, 135, 155, 175)
+	recipe = AddRecipe(3292, V.ORIG, Q.COMMON)
+	recipe:SetCraftedItemID(3487)
+	recipe:SetSkillLevels(95, 95, 135, 155, 175)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.TWO_HAND, F.SWORD)
 	recipe:AddTrainer(514, 1241, 2836, 2998, 3136, 3174, 3355, 3478, 3557, 4258, 4596, 5511, 6299, 11177, 11178, 15400, 16583, 16669, 16724, 16823, 17245, 19341, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 33609, 33631, 33675, 44781, 45548)
 
 	-- Copper Battle Axe -- 3293
-	recipe = AddRecipe(3293, 35, 3488, Q.COMMON, V.ORIG, 35, 75, 95, 115)
+	recipe = AddRecipe(3293, V.ORIG, Q.COMMON)
+	recipe:SetCraftedItemID(3488)
+	recipe:SetSkillLevels(35, 35, 75, 95, 115)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.TWO_HAND, F.AXE)
 	recipe:AddTrainer(514, 1241, 2836, 2998, 3136, 3174, 3355, 3478, 3557, 4258, 4596, 5511, 6299, 11177, 11178, 15400, 16583, 16669, 16724, 16823, 17245, 19341, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 33609, 33631, 33675, 44781, 45548)
 
 	-- Thick War Axe -- 3294
-	recipe = AddRecipe(3294, 70, 3489, Q.COMMON, V.ORIG, 70, 110, 130, 150)
+	recipe = AddRecipe(3294, V.ORIG, Q.COMMON)
+	recipe:SetCraftedItemID(3489)
+	recipe:SetSkillLevels(70, 70, 110, 130, 150)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS, F.ONE_HAND, F.AXE)
 	recipe:AddTrainer(514, 1241, 2836, 2998, 3136, 3174, 3355, 3478, 3557, 4258, 4596, 5511, 6299, 11177, 11178, 15400, 16583, 16669, 16724, 16823, 17245, 19341, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 33609, 33631, 33675, 44781, 45548)
 
 	-- Deadly Bronze Poniard -- 3295
-	recipe = AddRecipe(3295, 125, 3490, Q.UNCOMMON, V.ORIG, 125, 155, 170, 195)
+	recipe = AddRecipe(3295, V.ORIG, Q.UNCOMMON)
+	recipe:SetRecipeItemID(2883)
+	recipe:SetCraftedItemID(3490)
+	recipe:SetSkillLevels(125, 125, 155, 170, 195)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.ONE_HAND, F.DAGGER)
 	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
 
 	-- Heavy Bronze Mace -- 3296
-	recipe = AddRecipe(3296, 130, 3491, Q.COMMON, V.ORIG, 130, 160, 175, 190)
+	recipe = AddRecipe(3296, V.ORIG, Q.COMMON)
+	recipe:SetCraftedItemID(3491)
+	recipe:SetSkillLevels(130, 130, 160, 175, 190)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS, F.ONE_HAND, F.MACE)
 	recipe:AddTrainer(514, 1241, 2836, 2998, 3136, 3174, 3355, 3478, 3557, 4258, 4596, 5511, 6299, 11177, 11178, 15400, 16583, 16669, 16724, 16823, 17245, 19341, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 33609, 33631, 33675, 44781, 45548)
 
 	-- Mighty Iron Hammer -- 3297
-	recipe = AddRecipe(3297, 145, 3492, Q.UNCOMMON, V.ORIG, 145, 175, 190, 205)
+	recipe = AddRecipe(3297, V.ORIG, Q.UNCOMMON)
+	recipe:SetRecipeItemID(3608)
+	recipe:SetCraftedItemID(3492)
+	recipe:SetSkillLevels(145, 145, 175, 190, 205)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.ONE_HAND, F.MACE)
 	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
 
 	-- Copper Chain Boots -- 3319
-	recipe = AddRecipe(3319, 20, 3469, Q.COMMON, V.ORIG, 20, 60, 80, 100)
+	recipe = AddRecipe(3319, V.ORIG, Q.COMMON)
+	recipe:SetCraftedItemID(3469)
+	recipe:SetSkillLevels(20, 20, 60, 80, 100)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.MAIL)
 	recipe:AddTrainer(514, 1241, 2836, 2998, 3136, 3174, 3355, 3478, 3557, 4258, 4596, 5511, 6299, 11177, 11178, 15400, 16583, 16669, 16724, 16823, 17245, 19341, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 33609, 33631, 33675, 44781, 45548)
 
 	-- Rough Grinding Stone -- 3320
-	recipe = AddRecipe(3320, 25, 3470, Q.COMMON, V.ORIG, 25, 45, 65, 85)
+	recipe = AddRecipe(3320, V.ORIG, Q.COMMON)
+	recipe:SetCraftedItemID(3470)
+	recipe:SetSkillLevels(25, 25, 45, 65, 85)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	recipe:AddTrainer(514, 1241, 2836, 2998, 3136, 3174, 3355, 3478, 3557, 4258, 4596, 5511, 6299, 11177, 11178, 15400, 16583, 16669, 16724, 16823, 17245, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 33609, 33631, 33675, 44781, 45548)
 
 	-- Copper Chain Vest -- 3321
-	recipe = AddRecipe(3321, 35, 3471, Q.UNCOMMON, V.ORIG, 35, 75, 95, 115)
+	recipe = AddRecipe(3321, V.ORIG, Q.UNCOMMON)
+	recipe:SetRecipeItemID(3609)
+	recipe:SetCraftedItemID(3471)
+	recipe:SetSkillLevels(35, 35, 75, 95, 115)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.MAIL)
 	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
 
 	-- Runed Copper Gauntlets -- 3323
-	recipe = AddRecipe(3323, 40, 3472, Q.COMMON, V.ORIG, 40, 80, 100, 120)
+	recipe = AddRecipe(3323, V.ORIG, Q.COMMON)
+	recipe:SetCraftedItemID(3472)
+	recipe:SetSkillLevels(40, 40, 80, 100, 120)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS, F.MAIL)
 	recipe:AddTrainer(514, 1241, 2836, 2998, 3136, 3174, 3355, 3478, 3557, 4258, 4596, 5511, 6299, 11177, 11178, 15400, 16583, 16669, 16724, 16823, 17245, 19341, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 33609, 33631, 33675, 44781, 45548)
 
 	-- Runed Copper Pants -- 3324
-	recipe = AddRecipe(3324, 45, 3473, Q.COMMON, V.ORIG, 45, 85, 105, 125)
+	recipe = AddRecipe(3324, V.ORIG, Q.COMMON)
+	recipe:SetCraftedItemID(3473)
+	recipe:SetSkillLevels(45, 45, 85, 105, 125)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS, F.MAIL)
 	recipe:AddTrainer(514, 1241, 2836, 2998, 3136, 3174, 3355, 3478, 3557, 4258, 4596, 5511, 6299, 11177, 11178, 15400, 16583, 16669, 16724, 16823, 17245, 19341, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 33609, 33631, 33675, 44781, 45548)
 
 	-- Gemmed Copper Gauntlets -- 3325
-	recipe = AddRecipe(3325, 60, 3474, Q.UNCOMMON, V.ORIG, 60, 100, 120, 140)
+	recipe = AddRecipe(3325, V.ORIG, Q.UNCOMMON)
+	recipe:SetRecipeItemID(3610)
+	recipe:SetCraftedItemID(3474)
+	recipe:SetSkillLevels(60, 60, 100, 120, 140)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.MAIL)
 	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
 
 	-- Coarse Grinding Stone -- 3326
-	recipe = AddRecipe(3326, 75, 3478, Q.COMMON, V.ORIG, 75, 75, 87, 100)
+	recipe = AddRecipe(3326, V.ORIG, Q.COMMON)
+	recipe:SetCraftedItemID(3478)
+	recipe:SetSkillLevels(75, 75, 75, 87, 100)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	recipe:AddTrainer(514, 1241, 2836, 2998, 3136, 3174, 3355, 3478, 3557, 4258, 4596, 5511, 6299, 11177, 11178, 15400, 16583, 16669, 16724, 16823, 17245, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 33609, 33631, 33675, 44781, 45548)
 
 	-- Rough Bronze Shoulders -- 3328
-	recipe = AddRecipe(3328, 110, 3480, Q.COMMON, V.ORIG, 110, 140, 155, 170)
+	recipe = AddRecipe(3328, V.ORIG, Q.COMMON)
+	recipe:SetCraftedItemID(3480)
+	recipe:SetSkillLevels(110, 110, 140, 155, 170)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS, F.MAIL)
 	recipe:AddTrainer(514, 1241, 2836, 2998, 3136, 3174, 3355, 3478, 3557, 4258, 4596, 5511, 6299, 11177, 11178, 15400, 16583, 16669, 16724, 16823, 17245, 19341, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 33609, 33631, 33675, 44781, 45548)
 
 	-- Silvered Bronze Shoulders -- 3330
-	recipe = AddRecipe(3330, 125, 3481, Q.UNCOMMON, V.ORIG, 125, 155, 170, 185)
+	recipe = AddRecipe(3330, V.ORIG, Q.UNCOMMON)
+	recipe:SetRecipeItemID(2882)
+	recipe:SetCraftedItemID(3481)
+	recipe:SetSkillLevels(125, 125, 155, 170, 185)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.MAIL)
 	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
 
 	-- Silvered Bronze Boots -- 3331
-	recipe = AddRecipe(3331, 130, 3482, Q.COMMON, V.ORIG, 130, 160, 175, 190)
+	recipe = AddRecipe(3331, V.ORIG, Q.COMMON)
+	recipe:SetCraftedItemID(3482)
+	recipe:SetSkillLevels(130, 130, 160, 175, 190)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS, F.MAIL)
 	recipe:AddTrainer(514, 1241, 2836, 2998, 3136, 3174, 3355, 3478, 3557, 4258, 4596, 5511, 6299, 11177, 11178, 15400, 16583, 16669, 16724, 16823, 17245, 19341, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 33609, 33631, 33675, 44781, 45548)
 
 	-- Silvered Bronze Gauntlets -- 3333
-	recipe = AddRecipe(3333, 135, 3483, Q.COMMON, V.ORIG, 135, 165, 180, 195)
+	recipe = AddRecipe(3333, V.ORIG, Q.COMMON)
+	recipe:SetCraftedItemID(3483)
+	recipe:SetSkillLevels(135, 135, 165, 180, 195)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS, F.MAIL)
 	recipe:AddTrainer(514, 1241, 2836, 2998, 3136, 3174, 3355, 3478, 3557, 4258, 4596, 5511, 6299, 11177, 11178, 15400, 16583, 16669, 16724, 16823, 17245, 19341, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 33609, 33631, 33675, 44781, 45548)
 
 	-- Green Iron Boots -- 3334
-	recipe = AddRecipe(3334, 145, 3484, Q.UNCOMMON, V.ORIG, 145, 175, 190, 205)
+	recipe = AddRecipe(3334, V.ORIG, Q.UNCOMMON)
+	recipe:SetRecipeItemID(3611)
+	recipe:SetCraftedItemID(3484)
+	recipe:SetSkillLevels(145, 145, 175, 190, 205)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.MAIL)
 	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
 
 	-- Green Iron Gauntlets -- 3336
-	recipe = AddRecipe(3336, 150, 3485, Q.UNCOMMON, V.ORIG, 150, 180, 195, 210)
+	recipe = AddRecipe(3336, V.ORIG, Q.UNCOMMON)
+	recipe:SetRecipeItemID(3612)
+	recipe:SetCraftedItemID(3485)
+	recipe:SetSkillLevels(150, 150, 180, 195, 210)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.MAIL)
 	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
 
 	-- Heavy Grinding Stone -- 3337
-	recipe = AddRecipe(3337, 125, 3486, Q.COMMON, V.ORIG, 125, 125, 137, 150)
+	recipe = AddRecipe(3337, V.ORIG, Q.COMMON)
+	recipe:SetCraftedItemID(3486)
+	recipe:SetSkillLevels(125, 125, 125, 137, 150)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	recipe:AddTrainer(514, 1241, 2836, 2998, 3136, 3174, 3355, 3478, 3557, 4258, 4596, 5511, 6299, 11177, 11178, 15400, 16583, 16669, 16724, 16823, 17245, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 33609, 33631, 33675, 44781, 45548)
 
 	-- Big Bronze Knife -- 3491
-	recipe = AddRecipe(3491, 105, 3848, Q.COMMON, V.ORIG, 105, 135, 150, 165)
+	recipe = AddRecipe(3491, V.ORIG, Q.COMMON)
+	recipe:SetCraftedItemID(3848)
+	recipe:SetSkillLevels(105, 105, 135, 150, 165)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.ONE_HAND, F.DAGGER)
 	recipe:AddTrainer(514, 1241, 2836, 2998, 3136, 3174, 3355, 3478, 3557, 4258, 4596, 5511, 6299, 11177, 11178, 15400, 16583, 16669, 16724, 16823, 17245, 19341, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 33609, 33631, 33675, 44781, 45548)
 
 	-- Hardened Iron Shortsword -- 3492
-	recipe = AddRecipe(3492, 160, 3849, Q.COMMON, V.ORIG, 160, 185, 197, 210)
+	recipe = AddRecipe(3492, V.ORIG, Q.COMMON)
+	recipe:SetRecipeItemID(12162)
+	recipe:SetCraftedItemID(3849)
+	recipe:SetSkillLevels(160, 160, 185, 197, 210)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.DPS, F.ONE_HAND, F.SWORD)
 	recipe:AddLimitedVendor(2843, 1, 5512, 1)
 
 	-- Jade Serpentblade -- 3493
-	recipe = AddRecipe(3493, 175, 3850, Q.UNCOMMON, V.ORIG, 175, 200, 212, 225)
+	recipe = AddRecipe(3493, V.ORIG, Q.UNCOMMON)
+	recipe:SetRecipeItemID(3866)
+	recipe:SetCraftedItemID(3850)
+	recipe:SetSkillLevels(175, 175, 200, 212, 225)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.ONE_HAND, F.SWORD)
 	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
 
 	-- Solid Iron Maul -- 3494
-	recipe = AddRecipe(3494, 155, 3851, Q.COMMON, V.ORIG, 155, 180, 192, 205)
+	recipe = AddRecipe(3494, V.ORIG, Q.COMMON)
+	recipe:SetRecipeItemID(10858)
+	recipe:SetCraftedItemID(3851)
+	recipe:SetSkillLevels(155, 155, 180, 192, 205)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.TWO_HAND, F.MACE)
 	recipe:AddLimitedVendor(1471, 1, 8878, 1, 9179, 1, 26081, 1)
 
 	-- Golden Iron Destroyer -- 3495
-	recipe = AddRecipe(3495, 170, 3852, Q.UNCOMMON, V.ORIG, 170, 195, 207, 220)
+	recipe = AddRecipe(3495, V.ORIG, Q.UNCOMMON)
+	recipe:SetRecipeItemID(3867)
+	recipe:SetCraftedItemID(3852)
+	recipe:SetSkillLevels(170, 170, 195, 207, 220)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.TWO_HAND, F.MACE)
 	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
 
 	-- Moonsteel Broadsword -- 3496
-	recipe = AddRecipe(3496, 180, 3853, Q.COMMON, V.ORIG, 180, 205, 217, 230)
+	recipe = AddRecipe(3496, V.ORIG, Q.COMMON)
+	recipe:SetRecipeItemID(12163)
+	recipe:SetCraftedItemID(3853)
+	recipe:SetSkillLevels(180, 180, 205, 217, 230)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.TWO_HAND, F.SWORD)
 	recipe:AddLimitedVendor(2482, 1)
 
 	-- Frost Tiger Blade -- 3497
-	recipe = AddRecipe(3497, 200, 3854, Q.UNCOMMON, V.ORIG, 200, 210, 215, 220)
+	recipe = AddRecipe(3497, V.ORIG, Q.UNCOMMON)
+	recipe:SetRecipeItemID(3868)
+	recipe:SetCraftedItemID(3854)
+	recipe:SetSkillLevels(200, 200, 210, 215, 220)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.TWO_HAND, F.SWORD)
 	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
 
 	-- Massive Iron Axe -- 3498
-	recipe = AddRecipe(3498, 185, 3855, Q.COMMON, V.ORIG, 185, 210, 222, 235)
+	recipe = AddRecipe(3498, V.ORIG, Q.COMMON)
+	recipe:SetRecipeItemID(12164)
+	recipe:SetCraftedItemID(3855)
+	recipe:SetSkillLevels(185, 185, 210, 222, 235)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.DPS, F.TWO_HAND, F.AXE)
 	recipe:AddLimitedVendor(1146, 1, 2483, 1)
 
 	-- Shadow Crescent Axe -- 3500
-	recipe = AddRecipe(3500, 200, 3856, Q.UNCOMMON, V.ORIG, 200, 225, 237, 250)
+	recipe = AddRecipe(3500, V.ORIG, Q.UNCOMMON)
+	recipe:SetRecipeItemID(3869)
+	recipe:SetCraftedItemID(3856)
+	recipe:SetSkillLevels(200, 200, 225, 237, 250)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.TWO_HAND, F.AXE)
 	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
 
 	-- Green Iron Bracers -- 3501
-	recipe = AddRecipe(3501, 165, 3835, Q.COMMON, V.ORIG, 165, 190, 202, 215)
+	recipe = AddRecipe(3501, V.ORIG, Q.COMMON)
+	recipe:SetCraftedItemID(3835)
+	recipe:SetSkillLevels(165, 165, 190, 202, 215)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.MAIL)
 	recipe:AddTrainer(514, 1241, 2836, 2998, 3136, 3174, 3355, 3478, 3557, 4258, 4596, 5511, 6299, 11177, 11178, 15400, 16583, 16669, 16724, 16823, 17245, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 33609, 33631, 33675, 44781, 45548)
 
 	-- Green Iron Helm -- 3502
-	recipe = AddRecipe(3502, 170, 3836, Q.COMMON, V.ORIG, 170, 195, 207, 220)
+	recipe = AddRecipe(3502, V.ORIG, Q.COMMON)
+	recipe:SetCraftedItemID(3836)
+	recipe:SetSkillLevels(170, 170, 195, 207, 220)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS, F.MAIL)
 	recipe:AddTrainer(514, 1241, 2836, 2998, 3136, 3174, 3355, 3478, 3557, 4258, 4596, 5511, 6299, 11177, 11178, 15400, 16583, 16669, 16724, 16823, 17245, 19341, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 33609, 33631, 33675, 44781, 45548)
 
 	-- Golden Scale Coif -- 3503
-	recipe = AddRecipe(3503, 190, 3837, Q.COMMON, V.ORIG, 190, 215, 227, 240)
+	recipe = AddRecipe(3503, V.ORIG, Q.COMMON)
+	recipe:SetRecipeItemID(6047)
+	recipe:SetCraftedItemID(3837)
+	recipe:SetSkillLevels(190, 190, 215, 227, 240)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.DPS, F.MAIL)
 	recipe:AddVendor(5411)
 
 	-- Green Iron Shoulders -- 3504
-	recipe = AddRecipe(3504, 160, 3840, Q.UNCOMMON, V.ORIG, 160, 185, 197, 210)
+	recipe = AddRecipe(3504, V.ORIG, Q.UNCOMMON)
+	recipe:SetRecipeItemID(3870)
+	recipe:SetCraftedItemID(3840)
+	recipe:SetSkillLevels(160, 160, 185, 197, 210)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.MAIL)
 	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
 
 	-- Golden Scale Shoulders -- 3505
-	recipe = AddRecipe(3505, 175, 3841, Q.RARE, V.ORIG, 175, 200, 212, 225)
+	recipe = AddRecipe(3505, V.ORIG, Q.RARE)
+	recipe:SetRecipeItemID(3871)
+	recipe:SetCraftedItemID(3841)
+	recipe:SetSkillLevels(175, 175, 200, 212, 225)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.MAIL)
 	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
 
 	-- Green Iron Leggings -- 3506
-	recipe = AddRecipe(3506, 155, 3842, Q.COMMON, V.ORIG, 155, 180, 192, 205)
+	recipe = AddRecipe(3506, V.ORIG, Q.COMMON)
+	recipe:SetCraftedItemID(3842)
+	recipe:SetSkillLevels(155, 155, 180, 192, 205)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS, F.MAIL)
 	recipe:AddTrainer(514, 1241, 2836, 2998, 3136, 3174, 3355, 3478, 3557, 4258, 4596, 5511, 6299, 11177, 11178, 15400, 16583, 16669, 16724, 16823, 17245, 19341, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 33609, 33631, 33675, 44781, 45548)
 
 	-- Golden Scale Leggings -- 3507
-	recipe = AddRecipe(3507, 170, 3843, Q.UNCOMMON, V.ORIG, 170, 195, 207, 220)
+	recipe = AddRecipe(3507, V.ORIG, Q.UNCOMMON)
+	recipe:SetRecipeItemID(3872)
+	recipe:SetCraftedItemID(3843)
+	recipe:SetSkillLevels(170, 170, 195, 207, 220)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.MAIL)
 	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
 
 	-- Green Iron Hauberk -- 3508
-	recipe = AddRecipe(3508, 180, 3844, Q.COMMON, V.ORIG, 180, 205, 217, 230)
+	recipe = AddRecipe(3508, V.ORIG, Q.COMMON)
+	recipe:SetCraftedItemID(3844)
+	recipe:SetSkillLevels(180, 180, 205, 217, 230)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS, F.MAIL)
 	recipe:AddTrainer(514, 1241, 2836, 2998, 3136, 3174, 3355, 3478, 3557, 4258, 4596, 5511, 6299, 11177, 11178, 15400, 16583, 16669, 16724, 16823, 17245, 19341, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 33609, 33631, 33675, 44781, 45548)
 
 	-- Golden Scale Cuirass -- 3511
-	recipe = AddRecipe(3511, 195, 3845, Q.UNCOMMON, V.ORIG, 195, 220, 232, 245)
+	recipe = AddRecipe(3511, V.ORIG, Q.UNCOMMON)
+	recipe:SetRecipeItemID(3873)
+	recipe:SetCraftedItemID(3845)
+	recipe:SetSkillLevels(195, 195, 220, 232, 245)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.MAIL)
 	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
 
 	-- Polished Steel Boots -- 3513
-	recipe = AddRecipe(3513, 185, 3846, Q.UNCOMMON, V.ORIG, 185, 210, 222, 235)
+	recipe = AddRecipe(3513, V.ORIG, Q.UNCOMMON)
+	recipe:SetRecipeItemID(3874)
+	recipe:SetCraftedItemID(3846)
+	recipe:SetSkillLevels(185, 185, 210, 222, 235)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.MAIL)
 	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
 
 	-- Golden Scale Boots -- 3515
-	recipe = AddRecipe(3515, 200, 3847, Q.RARE, V.ORIG, 200, 210, 215, 220)
+	recipe = AddRecipe(3515, V.ORIG, Q.RARE)
+	recipe:SetRecipeItemID(3875)
+	recipe:SetCraftedItemID(3847)
+	recipe:SetSkillLevels(200, 200, 210, 215, 220)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.MAIL)
 	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
 
 	-- Pearl-handled Dagger -- 6517
-	recipe = AddRecipe(6517, 110, 5540, Q.COMMON, V.ORIG, 110, 140, 155, 170)
+	recipe = AddRecipe(6517, V.ORIG, Q.COMMON)
+	recipe:SetCraftedItemID(5540)
+	recipe:SetSkillLevels(110, 110, 140, 155, 170)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS, F.ONE_HAND, F.DAGGER)
 	recipe:AddTrainer(514, 1241, 2836, 2998, 3136, 3174, 3355, 3478, 3557, 4258, 4596, 5511, 6299, 11177, 11178, 15400, 16583, 16669, 16724, 16823, 17245, 19341, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 33609, 33631, 33675, 44781, 45548)
 
 	-- Iridescent Hammer -- 6518
-	recipe = AddRecipe(6518, 140, 5541, Q.UNCOMMON, V.ORIG, 140, 170, 185, 200)
+	recipe = AddRecipe(6518, V.ORIG, Q.UNCOMMON)
+	recipe:SetRecipeItemID(5543)
+	recipe:SetCraftedItemID(5541)
+	recipe:SetSkillLevels(140, 140, 170, 185, 200)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.ONE_HAND, F.MACE)
 	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
 
 	-- Iron Shield Spike -- 7221
-	recipe = AddRecipe(7221, 150, 6042, Q.UNCOMMON, V.ORIG, 150, 180, 195, 210)
+	recipe = AddRecipe(7221, V.ORIG, Q.UNCOMMON)
+	recipe:SetRecipeItemID(6044)
+	recipe:SetCraftedItemID(6042)
+	recipe:SetSkillLevels(150, 150, 180, 195, 210)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.TANK, F.SHIELD)
 	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
 
 	-- Iron Counterweight -- 7222
-	recipe = AddRecipe(7222, 165, 6043, Q.UNCOMMON, V.ORIG, 165, 190, 202, 215)
+	recipe = AddRecipe(7222, V.ORIG, Q.UNCOMMON)
+	recipe:SetRecipeItemID(6045)
+	recipe:SetCraftedItemID(6043)
+	recipe:SetSkillLevels(165, 165, 190, 202, 215)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.AXE)
 	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
 
 	-- Golden Scale Bracers -- 7223
-	recipe = AddRecipe(7223, 185, 6040, Q.COMMON, V.ORIG, 185, 210, 222, 235)
+	recipe = AddRecipe(7223, V.ORIG, Q.COMMON)
+	recipe:SetCraftedItemID(6040)
+	recipe:SetSkillLevels(185, 185, 210, 222, 235)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS, F.TANK, F.MAIL)
 	recipe:AddTrainer(514, 1241, 2836, 2998, 3136, 3174, 3355, 3478, 3557, 4258, 4596, 5511, 6299, 11177, 11178, 15400, 16583, 16669, 16724, 16823, 17245, 19341, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 33609, 33631, 33675, 44781, 45548)
 
 	-- Steel Weapon Chain -- 7224
-	recipe = AddRecipe(7224, 190, 6041, Q.UNCOMMON, V.ORIG, 190, 215, 227, 240)
+	recipe = AddRecipe(7224, V.ORIG, Q.UNCOMMON)
+	recipe:SetRecipeItemID(6046)
+	recipe:SetCraftedItemID(6041)
+	recipe:SetSkillLevels(190, 190, 215, 227, 240)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
 	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
 
 	-- Heavy Copper Maul -- 7408
-	recipe = AddRecipe(7408, 65, 6214, Q.COMMON, V.ORIG, 65, 105, 125, 145)
+	recipe = AddRecipe(7408, V.ORIG, Q.COMMON)
+	recipe:SetCraftedItemID(6214)
+	recipe:SetSkillLevels(65, 65, 105, 125, 145)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS, F.TWO_HAND, F.MACE)
 	recipe:AddTrainer(514, 1241, 2836, 2998, 3136, 3174, 3355, 3478, 3557, 4258, 4596, 5511, 6299, 11177, 11178, 15400, 16583, 16669, 16724, 16823, 17245, 19341, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 33609, 33631, 33675, 44781, 45548)
 
 	-- Rough Bronze Boots -- 7817
-	recipe = AddRecipe(7817, 95, 6350, Q.COMMON, V.ORIG, 95, 125, 140, 155)
+	recipe = AddRecipe(7817, V.ORIG, Q.COMMON)
+	recipe:SetCraftedItemID(6350)
+	recipe:SetSkillLevels(95, 95, 125, 140, 155)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS, F.MAIL)
 	recipe:AddTrainer(514, 1241, 2836, 2998, 3136, 3174, 3355, 3478, 3557, 4258, 4596, 5511, 6299, 11177, 11178, 15400, 16583, 16669, 16724, 16823, 17245, 19341, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 33609, 33631, 33675, 44781, 45548)
 
 	-- Silver Rod -- 7818
-	recipe = AddRecipe(7818, 100, 6338, Q.COMMON, V.ORIG, 100, 105, 107, 110)
+	recipe = AddRecipe(7818, V.ORIG, Q.COMMON)
+	recipe:SetCraftedItemID(6338)
+	recipe:SetSkillLevels(100, 100, 105, 107, 110)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	recipe:AddTrainer(514, 1241, 2836, 2998, 3136, 3174, 3355, 3478, 3557, 4258, 4596, 5511, 6299, 11177, 11178, 15400, 16583, 16669, 16724, 16823, 17245, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 33609, 33631, 33675, 44781, 45548)
 
 	-- Ironforge Breastplate -- 8367
-	recipe = AddRecipe(8367, 100, 6731, Q.UNCOMMON, V.ORIG, 100, 140, 160, 180)
+	recipe = AddRecipe(8367, V.ORIG, Q.UNCOMMON)
+	recipe:SetRecipeItemID(6735)
+	recipe:SetCraftedItemID(6731)
+	recipe:SetSkillLevels(100, 100, 140, 160, 180)
 	recipe:AddFilters(F.ALLIANCE, F.QUEST, F.IBOE, F.RBOE, F.DPS, F.MAIL)
 	recipe:AddQuest(1618)
 
 	-- Iron Buckle -- 8768
-	recipe = AddRecipe(8768, 150, 7071, Q.COMMON, V.ORIG, 150, 150, 152, 155)
+	recipe = AddRecipe(8768, V.ORIG, Q.COMMON)
+	recipe:SetCraftedItemID(7071)
+	recipe:SetSkillLevels(150, 150, 150, 152, 155)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	recipe:AddTrainer(514, 1241, 2836, 2998, 3136, 3174, 3355, 3478, 3557, 4258, 4596, 5511, 6299, 11177, 11178, 15400, 16583, 16669, 16724, 16823, 17245, 19341, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 33609, 33631, 33675, 44781, 45548)
 
 	-- Copper Dagger -- 8880
-	recipe = AddRecipe(8880, 30, 7166, Q.COMMON, V.ORIG, 30, 70, 90, 110)
+	recipe = AddRecipe(8880, V.ORIG, Q.COMMON)
+	recipe:SetCraftedItemID(7166)
+	recipe:SetSkillLevels(30, 30, 70, 90, 110)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.ONE_HAND, F.DAGGER)
 	recipe:AddTrainer(514, 1241, 2836, 2998, 3136, 3174, 3355, 3478, 3557, 4258, 4596, 5511, 6299, 11177, 11178, 15400, 16583, 16669, 16724, 16823, 17245, 19341, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 33609, 33631, 33675, 44781, 45548)
 
 	-- Barbaric Iron Shoulders -- 9811
-	recipe = AddRecipe(9811, 160, 7913, Q.UNCOMMON, V.ORIG, 160, 185, 197, 210)
+	recipe = AddRecipe(9811, V.ORIG, Q.UNCOMMON)
+	recipe:SetRecipeItemID(7978)
+	recipe:SetCraftedItemID(7913)
+	recipe:SetSkillLevels(160, 160, 185, 197, 210)
 	recipe:AddFilters(F.HORDE, F.QUEST, F.IBOE, F.RBOE, F.DPS, F.MAIL)
 	recipe:AddQuest(2752)
 
 	-- Barbaric Iron Breastplate -- 9813
-	recipe = AddRecipe(9813, 160, 7914, Q.UNCOMMON, V.ORIG, 160, 185, 197, 210)
+	recipe = AddRecipe(9813, V.ORIG, Q.UNCOMMON)
+	recipe:SetRecipeItemID(7979)
+	recipe:SetCraftedItemID(7914)
+	recipe:SetSkillLevels(160, 160, 185, 197, 210)
 	recipe:AddFilters(F.HORDE, F.QUEST, F.IBOP, F.RBOE, F.DPS, F.MAIL)
 	recipe:AddQuest(2751)
 
 	-- Barbaric Iron Helm -- 9814
-	recipe = AddRecipe(9814, 175, 7915, Q.UNCOMMON, V.ORIG, 175, 200, 212, 225)
+	recipe = AddRecipe(9814, V.ORIG, Q.UNCOMMON)
+	recipe:SetRecipeItemID(7980)
+	recipe:SetCraftedItemID(7915)
+	recipe:SetSkillLevels(175, 175, 200, 212, 225)
 	recipe:AddFilters(F.HORDE, F.QUEST, F.IBOE, F.RBOE, F.DPS, F.MAIL)
 	recipe:AddQuest(2754)
 
 	-- Barbaric Iron Boots -- 9818
-	recipe = AddRecipe(9818, 180, 7916, Q.UNCOMMON, V.ORIG, 180, 205, 217, 230)
+	recipe = AddRecipe(9818, V.ORIG, Q.UNCOMMON)
+	recipe:SetRecipeItemID(7981)
+	recipe:SetCraftedItemID(7916)
+	recipe:SetSkillLevels(180, 180, 205, 217, 230)
 	recipe:AddFilters(F.HORDE, F.QUEST, F.IBOE, F.RBOE, F.DPS, F.MAIL)
 	recipe:AddQuest(2753)
 
 	-- Barbaric Iron Gloves -- 9820
-	recipe = AddRecipe(9820, 185, 7917, Q.UNCOMMON, V.ORIG, 185, 210, 222, 235)
+	recipe = AddRecipe(9820, V.ORIG, Q.UNCOMMON)
+	recipe:SetRecipeItemID(7982)
+	recipe:SetCraftedItemID(7917)
+	recipe:SetSkillLevels(185, 185, 210, 222, 235)
 	recipe:AddFilters(F.HORDE, F.QUEST, F.IBOE, F.RBOE, F.DPS, F.MAIL)
 	recipe:AddQuest(2755)
 
 	-- Steel Breastplate -- 9916
-	recipe = AddRecipe(9916, 200, 7963, Q.COMMON, V.ORIG, 200, 225, 237, 250)
+	recipe = AddRecipe(9916, V.ORIG, Q.COMMON)
+	recipe:SetCraftedItemID(7963)
+	recipe:SetSkillLevels(200, 200, 225, 237, 250)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS, F.MAIL)
 	recipe:AddTrainer(514, 1241, 2836, 2998, 3136, 3174, 3355, 3478, 3557, 4258, 4596, 5511, 6299, 11177, 11178, 15400, 16583, 16669, 16724, 16823, 17245, 19341, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 33609, 33631, 33675, 44781, 45548)
 
 	-- Solid Sharpening Stone -- 9918
-	recipe = AddRecipe(9918, 200, 7964, Q.COMMON, V.ORIG, 200, 200, 205, 210)
+	recipe = AddRecipe(9918, V.ORIG, Q.COMMON)
+	recipe:SetCraftedItemID(7964)
+	recipe:SetSkillLevels(200, 200, 200, 205, 210)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS)
 	recipe:AddTrainer(514, 1241, 2836, 2998, 3136, 3174, 3355, 3478, 3557, 4258, 4596, 5511, 6299, 11177, 11178, 16583, 16669, 16724, 16823, 17245, 19341, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 33609, 33631, 33675, 44781, 45548)
 
 	-- Solid Grinding Stone -- 9920
-	recipe = AddRecipe(9920, 200, 7966, Q.COMMON, V.ORIG, 200, 200, 205, 210)
+	recipe = AddRecipe(9920, V.ORIG, Q.COMMON)
+	recipe:SetCraftedItemID(7966)
+	recipe:SetSkillLevels(200, 200, 200, 205, 210)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	recipe:AddTrainer(514, 1241, 2836, 2998, 3136, 3174, 3355, 3478, 3557, 4258, 4596, 5511, 6299, 11177, 11178, 16583, 16669, 16724, 16823, 17245, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 33609, 33631, 33675, 44781, 45548)
 
 	-- Solid Weightstone -- 9921
-	recipe = AddRecipe(9921, 200, 7965, Q.COMMON, V.ORIG, 200, 200, 205, 210)
+	recipe = AddRecipe(9921, V.ORIG, Q.COMMON)
+	recipe:SetCraftedItemID(7965)
+	recipe:SetSkillLevels(200, 200, 200, 205, 210)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	recipe:AddTrainer(514, 1241, 2836, 2998, 3136, 3174, 3355, 3478, 3557, 4258, 4596, 5511, 6299, 11177, 11178, 16583, 16669, 16724, 16823, 17245, 19341, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 33609, 33631, 33675, 44781, 45548)
 
 	-- Heavy Mithril Shoulder -- 9926
-	recipe = AddRecipe(9926, 205, 7918, Q.COMMON, V.ORIG, 205, 225, 235, 245)
+	recipe = AddRecipe(9926, V.ORIG, Q.COMMON)
+	recipe:SetCraftedItemID(7918)
+	recipe:SetSkillLevels(205, 205, 225, 235, 245)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.PLATE)
 	recipe:AddTrainer(514, 1241, 2836, 2998, 3136, 3174, 3355, 3478, 3557, 4258, 4596, 5511, 6299, 11177, 11178, 16583, 16669, 16724, 16823, 17245, 19341, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 33609, 33631, 33675, 44781, 45548)
 
 	-- Heavy Mithril Gauntlet -- 9928
-	recipe = AddRecipe(9928, 205, 7919, Q.COMMON, V.ORIG, 205, 225, 235, 245)
+	recipe = AddRecipe(9928, V.ORIG, Q.COMMON)
+	recipe:SetCraftedItemID(7919)
+	recipe:SetSkillLevels(205, 205, 225, 235, 245)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.PLATE)
 	recipe:AddTrainer(514, 1241, 2836, 2998, 3136, 3174, 3355, 3478, 3557, 4258, 4596, 5511, 6299, 11177, 11178, 16583, 16669, 16724, 16823, 17245, 19341, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 33609, 33631, 33675, 44781, 45548)
 
 	-- Mithril Scale Pants -- 9931
-	recipe = AddRecipe(9931, 210, 7920, Q.COMMON, V.ORIG, 210, 230, 240, 250)
+	recipe = AddRecipe(9931, V.ORIG, Q.COMMON)
+	recipe:SetCraftedItemID(7920)
+	recipe:SetSkillLevels(210, 210, 230, 240, 250)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS, F.MAIL)
 	recipe:AddTrainer(514, 1241, 2836, 2998, 3136, 3174, 3355, 3478, 3557, 4258, 4596, 5511, 6299, 11177, 11178, 16583, 16669, 16724, 16823, 17245, 19341, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 33609, 33631, 33675, 44781, 45548)
 
 	-- Heavy Mithril Pants -- 9933
-	recipe = AddRecipe(9933, 210, 7921, Q.UNCOMMON, V.ORIG, 210, 230, 240, 250)
+	recipe = AddRecipe(9933, V.ORIG, Q.UNCOMMON)
+	recipe:SetRecipeItemID(7975)
+	recipe:SetCraftedItemID(7921)
+	recipe:SetSkillLevels(210, 210, 230, 240, 250)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.PLATE)
 	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
 
 	-- Steel Plate Helm -- 9935
-	recipe = AddRecipe(9935, 215, 7922, Q.COMMON, V.ORIG, 215, 235, 245, 255)
+	recipe = AddRecipe(9935, V.ORIG, Q.COMMON)
+	recipe:SetCraftedItemID(7922)
+	recipe:SetSkillLevels(215, 215, 235, 245, 255)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS, F.PLATE)
 	recipe:AddTrainer(514, 1241, 2836, 2998, 3136, 3174, 3355, 3478, 3557, 4258, 4596, 5511, 6299, 11177, 11178, 16583, 16669, 16724, 16823, 17245, 19341, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 33609, 33631, 33675, 44781, 45548)
 
 	-- Mithril Scale Bracers -- 9937
-	recipe = AddRecipe(9937, 215, 7924, Q.COMMON, V.ORIG, 215, 235, 245, 255)
+	recipe = AddRecipe(9937, V.ORIG, Q.COMMON)
+	recipe:SetRecipeItemID(7995)
+	recipe:SetCraftedItemID(7924)
+	recipe:SetSkillLevels(215, 215, 235, 245, 255)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.DPS, F.MAIL)
 	recipe:AddVendor(8161, 8176)
 
 	-- Mithril Shield Spike -- 9939
-	recipe = AddRecipe(9939, 215, 7967, Q.RARE, V.ORIG, 215, 235, 245, 255)
+	recipe = AddRecipe(9939, V.ORIG, Q.RARE)
+	recipe:SetRecipeItemID(7976)
+	recipe:SetCraftedItemID(7967)
+	recipe:SetSkillLevels(215, 215, 235, 245, 255)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.TANK, F.SHIELD)
 	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
 
 	-- Ornate Mithril Pants -- 9945
-	recipe = AddRecipe(9945, 220, 7926, Q.UNCOMMON, V.ORIG, 220, 240, 250, 260)
+	recipe = AddRecipe(9945, V.ORIG, Q.UNCOMMON)
+	recipe:SetRecipeItemID(7983)
+	recipe:SetCraftedItemID(7926)
+	recipe:SetSkillLevels(220, 220, 240, 250, 260)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.QUEST, F.RETIRED, F.IBOE, F.RBOP, F.TANK, F.PLATE)
 	recipe:AddCustom(48)
 
 	-- Ornate Mithril Gloves -- 9950
-	recipe = AddRecipe(9950, 220, 7927, Q.UNCOMMON, V.ORIG, 220, 240, 250, 260)
+	recipe = AddRecipe(9950, V.ORIG, Q.UNCOMMON)
+	recipe:SetRecipeItemID(7984)
+	recipe:SetCraftedItemID(7927)
+	recipe:SetSkillLevels(220, 220, 240, 250, 260)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.QUEST, F.RETIRED, F.IBOE, F.RBOP, F.PLATE)
 	recipe:AddCustom(48)
 
 	-- Ornate Mithril Shoulder -- 9952
-	recipe = AddRecipe(9952, 225, 7928, Q.UNCOMMON, V.ORIG, 225, 245, 255, 265)
+	recipe = AddRecipe(9952, V.ORIG, Q.UNCOMMON)
+	recipe:SetRecipeItemID(7985)
+	recipe:SetCraftedItemID(7928)
+	recipe:SetSkillLevels(225, 225, 245, 255, 265)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.QUEST, F.RETIRED, F.IBOE, F.RBOP, F.TANK, F.PLATE)
 	recipe:AddCustom(48)
 
 	-- Truesilver Gauntlets -- 9954
-	recipe = AddRecipe(9954, 225, 7938, Q.COMMON, V.ORIG, 225, 245, 255, 265)
+	recipe = AddRecipe(9954, V.ORIG, Q.COMMON)
+	recipe:SetCraftedItemID(7938)
+	recipe:SetSkillLevels(225, 225, 245, 255, 265)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.RETIRED, F.IBOE, F.RBOP, F.DPS, F.PLATE)
 	recipe:AddCustom(48)
 
 	-- Orcish War Leggings -- 9957
-	recipe = AddRecipe(9957, 250, 7929, Q.COMMON, V.ORIG, 250, 250, 260, 270)
+	recipe = AddRecipe(9957, V.ORIG, Q.COMMON)
+	recipe:SetCraftedItemID(7929)
+	recipe:SetSkillLevels(250, 250, 250, 260, 270)
 	recipe:AddFilters(F.HORDE, F.QUEST, F.RETIRED, F.IBOE, F.RBOP, F.DPS, F.MAIL)
 	recipe:AddCustom(48)
 
 	-- Heavy Mithril Breastplate -- 9959
-	recipe = AddRecipe(9959, 230, 7930, Q.COMMON, V.ORIG, 230, 250, 260, 270)
+	recipe = AddRecipe(9959, V.ORIG, Q.COMMON)
+	recipe:SetCraftedItemID(7930)
+	recipe:SetSkillLevels(230, 230, 250, 260, 270)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.PLATE)
 	recipe:AddTrainer(514, 1241, 2836, 2998, 3136, 3174, 3355, 3478, 3557, 4258, 4596, 5511, 6299, 11177, 11178, 15400, 16583, 16724, 16823, 17245, 19341, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 33609, 33631, 33675, 44781, 45548)
 
 	-- Mithril Coif -- 9961
-	recipe = AddRecipe(9961, 230, 7931, Q.COMMON, V.ORIG, 230, 250, 260, 270)
+	recipe = AddRecipe(9961, V.ORIG, Q.COMMON)
+	recipe:SetCraftedItemID(7931)
+	recipe:SetSkillLevels(230, 230, 250, 260, 270)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS, F.MAIL)
 	recipe:AddTrainer(514, 1241, 2836, 2998, 3136, 3174, 3355, 3478, 3557, 4258, 4596, 5511, 6299, 11177, 11178, 15400, 16583, 16724, 16823, 17245, 19341, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 33609, 33631, 33675, 44781, 45548)
 
 	-- Mithril Spurs -- 9964
-	recipe = AddRecipe(9964, 235, 7969, Q.UNCOMMON, V.ORIG, 235, 255, 265, 275)
+	recipe = AddRecipe(9964, V.ORIG, Q.UNCOMMON)
+	recipe:SetRecipeItemID(7989)
+	recipe:SetCraftedItemID(7969)
+	recipe:SetSkillLevels(235, 235, 255, 265, 275)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
 	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
 
 	-- Mithril Scale Shoulders -- 9966
-	recipe = AddRecipe(9966, 235, 7932, Q.RARE, V.ORIG, 235, 255, 265, 275)
+	recipe = AddRecipe(9966, V.ORIG, Q.RARE)
+	recipe:SetRecipeItemID(7991)
+	recipe:SetCraftedItemID(7932)
+	recipe:SetSkillLevels(235, 235, 255, 265, 275)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.MAIL)
 	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
 
 	-- Heavy Mithril Boots -- 9968
-	recipe = AddRecipe(9968, 235, 7933, Q.COMMON, V.ORIG, 235, 255, 265, 275)
+	recipe = AddRecipe(9968, V.ORIG, Q.COMMON)
+	recipe:SetCraftedItemID(7933)
+	recipe:SetSkillLevels(235, 235, 255, 265, 275)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS, F.PLATE)
 	recipe:AddTrainer(514, 1241, 2836, 2998, 3136, 3174, 3355, 3478, 3557, 4258, 4596, 5511, 6299, 11177, 11178, 15400, 16583, 16724, 16823, 17245, 19341, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 33609, 33631, 33675, 44781, 45548)
 
 	-- Heavy Mithril Helm -- 9970
-	recipe = AddRecipe(9970, 245, 7934, Q.UNCOMMON, V.ORIG, 245, 255, 265, 275)
+	recipe = AddRecipe(9970, V.ORIG, Q.UNCOMMON)
+	recipe:SetRecipeItemID(7990)
+	recipe:SetCraftedItemID(7934)
+	recipe:SetSkillLevels(245, 245, 255, 265, 275)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.PLATE)
 	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
 
 	-- Ornate Mithril Breastplate -- 9972
-	recipe = AddRecipe(9972, 260, 7935, Q.UNCOMMON, V.ORIG, 260, 260, 270, 280)
+	recipe = AddRecipe(9972, V.ORIG, Q.UNCOMMON)
+	recipe:SetCraftedItemID(7935)
+	recipe:SetSkillLevels(260, 260, 260, 270, 280)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.QUEST, F.RETIRED, F.IBOE, F.RBOP, F.TANK, F.PLATE)
 	recipe:AddCustom(48)
 
 	-- Truesilver Breastplate -- 9974
-	recipe = AddRecipe(9974, 245, 7939, Q.COMMON, V.ORIG, 245, 265, 275, 285)
+	recipe = AddRecipe(9974, V.ORIG, Q.COMMON)
+	recipe:SetCraftedItemID(7939)
+	recipe:SetSkillLevels(245, 245, 265, 275, 285)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.RETIRED, F.IBOE, F.RBOP, F.PLATE)
 	recipe:AddCustom(48)
 
 	-- Ornate Mithril Boots -- 9979
-	recipe = AddRecipe(9979, 265, 7936, Q.UNCOMMON, V.ORIG, 265, 265, 275, 285)
+	recipe = AddRecipe(9979, V.ORIG, Q.UNCOMMON)
+	recipe:SetCraftedItemID(7936)
+	recipe:SetSkillLevels(265, 265, 265, 275, 285)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.QUEST, F.RETIRED, F.IBOE, F.RBOP, F.TANK, F.PLATE)
 	recipe:AddCustom(48)
 
 	-- Ornate Mithril Helm -- 9980
-	recipe = AddRecipe(9980, 265, 7937, Q.UNCOMMON, V.ORIG, 265, 265, 275, 285)
+	recipe = AddRecipe(9980, V.ORIG, Q.UNCOMMON)
+	recipe:SetCraftedItemID(7937)
+	recipe:SetSkillLevels(265, 265, 265, 275, 285)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.QUEST, F.RETIRED, F.IBOE, F.RBOP, F.DPS, F.PLATE)
 	recipe:AddCustom(48)
 
 	-- Copper Claymore -- 9983
-	recipe = AddRecipe(9983, 30, 7955, Q.COMMON, V.ORIG, 30, 70, 90, 110)
+	recipe = AddRecipe(9983, V.ORIG, Q.COMMON)
+	recipe:SetCraftedItemID(7955)
+	recipe:SetSkillLevels(30, 30, 70, 90, 110)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.TWO_HAND, F.SWORD)
 	recipe:AddTrainer(514, 1241, 2836, 2998, 3136, 3174, 3355, 3478, 3557, 4258, 4596, 5511, 6299, 11177, 11178, 15400, 16583, 16669, 16724, 16823, 17245, 19341, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 33609, 33631, 33675, 44781, 45548)
 
 	-- Bronze Warhammer -- 9985
-	recipe = AddRecipe(9985, 125, 7956, Q.COMMON, V.ORIG, 125, 155, 170, 185)
+	recipe = AddRecipe(9985, V.ORIG, Q.COMMON)
+	recipe:SetCraftedItemID(7956)
+	recipe:SetSkillLevels(125, 125, 155, 170, 185)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS, F.TWO_HAND, F.MACE)
 	recipe:AddTrainer(514, 1241, 2836, 2998, 3136, 3174, 3355, 3478, 3557, 4258, 4596, 5511, 6299, 11177, 11178, 15400, 16583, 16669, 16724, 16823, 17245, 19341, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 33609, 33631, 33675, 44781, 45548)
 
 	-- Bronze Greatsword -- 9986
-	recipe = AddRecipe(9986, 130, 7957, Q.COMMON, V.ORIG, 130, 160, 175, 190)
+	recipe = AddRecipe(9986, V.ORIG, Q.COMMON)
+	recipe:SetCraftedItemID(7957)
+	recipe:SetSkillLevels(130, 130, 160, 175, 190)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS, F.TWO_HAND, F.SWORD)
 	recipe:AddTrainer(514, 1241, 2836, 2998, 3136, 3174, 3355, 3478, 3557, 4258, 4596, 5511, 6299, 11177, 11178, 15400, 16583, 16669, 16724, 16823, 17245, 19341, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 33609, 33631, 33675, 44781, 45548)
 
 	-- Bronze Battle Axe -- 9987
-	recipe = AddRecipe(9987, 135, 7958, Q.COMMON, V.ORIG, 135, 165, 180, 195)
+	recipe = AddRecipe(9987, V.ORIG, Q.COMMON)
+	recipe:SetCraftedItemID(7958)
+	recipe:SetSkillLevels(135, 135, 165, 180, 195)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS, F.TWO_HAND, F.AXE)
 	recipe:AddTrainer(514, 1241, 2836, 2998, 3136, 3174, 3355, 3478, 3557, 4258, 4596, 5511, 6299, 11177, 11178, 15400, 16583, 16669, 16724, 16823, 17245, 19341, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 33609, 33631, 33675, 44781, 45548)
 
 	-- Heavy Mithril Axe -- 9993
-	recipe = AddRecipe(9993, 210, 7941, Q.COMMON, V.ORIG, 210, 235, 247, 260)
+	recipe = AddRecipe(9993, V.ORIG, Q.COMMON)
+	recipe:SetCraftedItemID(7941)
+	recipe:SetSkillLevels(210, 210, 235, 247, 260)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS, F.ONE_HAND, F.AXE)
 	recipe:AddTrainer(514, 1241, 2836, 2998, 3136, 3174, 3355, 3478, 3557, 4258, 4596, 5511, 6299, 11177, 11178, 15400, 16583, 16669, 16724, 16823, 17245, 19341, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 33609, 33631, 33675, 44781, 45548)
 
 	-- Blue Glittering Axe -- 9995
-	recipe = AddRecipe(9995, 220, 7942, Q.UNCOMMON, V.ORIG, 220, 245, 257, 270)
+	recipe = AddRecipe(9995, V.ORIG, Q.UNCOMMON)
+	recipe:SetRecipeItemID(7992)
+	recipe:SetCraftedItemID(7942)
+	recipe:SetSkillLevels(220, 220, 245, 257, 270)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.ONE_HAND, F.AXE)
 	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
 
 	-- Wicked Mithril Blade -- 9997
-	recipe = AddRecipe(9997, 225, 7943, Q.UNCOMMON, V.ORIG, 225, 250, 262, 275)
+	recipe = AddRecipe(9997, V.ORIG, Q.UNCOMMON)
+	recipe:SetRecipeItemID(8029)
+	recipe:SetCraftedItemID(7943)
+	recipe:SetSkillLevels(225, 225, 250, 262, 275)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOP, F.DPS, F.ONE_HAND, F.SWORD)
 	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
 
 	-- Big Black Mace -- 10001
-	recipe = AddRecipe(10001, 230, 7945, Q.COMMON, V.ORIG, 230, 255, 267, 280)
+	recipe = AddRecipe(10001, V.ORIG, Q.COMMON)
+	recipe:SetCraftedItemID(7945)
+	recipe:SetSkillLevels(230, 230, 255, 267, 280)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS, F.ONE_HAND, F.MACE)
 	recipe:AddTrainer(514, 1241, 2836, 2998, 3136, 3174, 3355, 3478, 3557, 4258, 4596, 5511, 6299, 11177, 11178, 15400, 16583, 16724, 16823, 17245, 19341, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 33609, 33631, 33675, 44781, 45548)
 
 	-- The Shatterer -- 10003
-	recipe = AddRecipe(10003, 235, 7954, Q.COMMON, V.ORIG, 235, 260, 272, 285)
+	recipe = AddRecipe(10003, V.ORIG, Q.COMMON)
+	recipe:SetCraftedItemID(7954)
+	recipe:SetSkillLevels(235, 235, 260, 272, 285)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.RETIRED, F.IBOE, F.RBOP, F.ONE_HAND, F.MACE)
 	recipe:AddCustom(48)
 
 	-- Dazzling Mithril Rapier -- 10005
-	recipe = AddRecipe(10005, 240, 7944, Q.UNCOMMON, V.ORIG, 240, 265, 277, 290)
+	recipe = AddRecipe(10005, V.ORIG, Q.UNCOMMON)
+	recipe:SetRecipeItemID(7993)
+	recipe:SetCraftedItemID(7944)
+	recipe:SetSkillLevels(240, 240, 265, 277, 290)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.ONE_HAND, F.SWORD)
 	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
 
 	-- Phantom Blade -- 10007
-	recipe = AddRecipe(10007, 245, 7961, Q.COMMON, V.ORIG, 245, 270, 282, 295)
+	recipe = AddRecipe(10007, V.ORIG, Q.COMMON)
+	recipe:SetCraftedItemID(7961)
+	recipe:SetSkillLevels(245, 245, 270, 282, 295)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.RETIRED, F.IBOE, F.RBOP, F.ONE_HAND, F.SWORD)
 	recipe:AddCustom(48)
 
 	-- Runed Mithril Hammer -- 10009
-	recipe = AddRecipe(10009, 245, 7946, Q.RARE, V.ORIG, 245, 270, 282, 295)
+	recipe = AddRecipe(10009, V.ORIG, Q.RARE)
+	recipe:SetRecipeItemID(8028)
+	recipe:SetCraftedItemID(7946)
+	recipe:SetSkillLevels(245, 245, 270, 282, 295)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.ONE_HAND, F.MACE)
 	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
 
 	-- Blight -- 10011
-	recipe = AddRecipe(10011, 250, 7959, Q.COMMON, V.ORIG, 250, 275, 287, 300)
+	recipe = AddRecipe(10011, V.ORIG, Q.COMMON)
+	recipe:SetCraftedItemID(7959)
+	recipe:SetSkillLevels(250, 250, 275, 287, 300)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.RETIRED, F.IBOE, F.RBOP, F.TWO_HAND, F.POLEARM)
 	recipe:AddCustom(48)
 
 	-- Ebon Shiv -- 10013
-	recipe = AddRecipe(10013, 255, 7947, Q.COMMON, V.ORIG, 255, 280, 292, 305)
+	recipe = AddRecipe(10013, V.ORIG, Q.COMMON)
+	recipe:SetRecipeItemID(8030)
+	recipe:SetCraftedItemID(7947)
+	recipe:SetSkillLevels(255, 255, 280, 292, 305)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.ONE_HAND, F.DAGGER)
 	recipe:AddVendor(11278)
 
 	-- Truesilver Champion -- 10015
-	recipe = AddRecipe(10015, 260, 7960, Q.COMMON, V.ORIG, 260, 285, 297, 310)
+	recipe = AddRecipe(10015, V.ORIG, Q.COMMON)
+	recipe:SetCraftedItemID(7960)
+	recipe:SetSkillLevels(260, 260, 285, 297, 310)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.RETIRED, F.IBOE, F.RBOP, F.TWO_HAND, F.SWORD)
 	recipe:AddCustom(48)
 
 	-- Inlaid Mithril Cylinder -- 11454
-	recipe = AddRecipe(11454, 200, 9060, Q.COMMON, V.ORIG, 200, 225, 237, 250)
+	recipe = AddRecipe(11454, V.ORIG, Q.COMMON)
+	recipe:SetRecipeItemID(10713)
+	recipe:SetCraftedItemID(9060)
+	recipe:SetSkillLevels(200, 200, 225, 237, 250)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE)
 	recipe:AddCustom(9)
 
 	-- Golden Scale Gauntlets -- 11643
-	recipe = AddRecipe(11643, 205, 9366, Q.UNCOMMON, V.ORIG, 205, 225, 235, 245)
+	recipe = AddRecipe(11643, V.ORIG, Q.UNCOMMON)
+	recipe:SetRecipeItemID(9367)
+	recipe:SetCraftedItemID(9366)
+	recipe:SetSkillLevels(205, 205, 225, 235, 245)
 	recipe:AddFilters(F.ALLIANCE, F.QUEST, F.RETIRED, F.IBOE, F.RBOE, F.DPS, F.MAIL)
 	recipe:AddCustom(48)
 
 	-- Silvered Bronze Leggings -- 12259
-	recipe = AddRecipe(12259, 155, 10423, Q.UNCOMMON, V.ORIG, 155, 180, 192, 205)
+	recipe = AddRecipe(12259, V.ORIG, Q.UNCOMMON)
+	recipe:SetRecipeItemID(10424)
+	recipe:SetCraftedItemID(10423)
+	recipe:SetSkillLevels(155, 155, 180, 192, 205)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.MAIL)
 	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
 
 	-- Rough Copper Vest -- 12260
-	recipe = AddRecipe(12260, 1, 10421, Q.COMMON, V.ORIG, 1, 15, 35, 55)
+	recipe = AddRecipe(12260, V.ORIG, Q.COMMON)
+	recipe:SetCraftedItemID(10421)
+	recipe:SetSkillLevels(1, 1, 15, 35, 55)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.MAIL)
 	recipe:AddCustom(8)
 
 	-- Golden Rod -- 14379
-	recipe = AddRecipe(14379, 150, 11128, Q.COMMON, V.ORIG, 150, 155, 157, 160)
+	recipe = AddRecipe(14379, V.ORIG, Q.COMMON)
+	recipe:SetCraftedItemID(11128)
+	recipe:SetSkillLevels(150, 150, 155, 157, 160)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	recipe:AddTrainer(514, 1241, 2836, 2998, 3136, 3174, 3355, 3478, 3557, 4258, 4596, 5511, 6299, 11177, 11178, 15400, 16583, 16669, 16724, 16823, 17245, 19341, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 33609, 33631, 33675, 44781, 45548)
 
 	-- Truesilver Rod -- 14380
-	recipe = AddRecipe(14380, 200, 11144, Q.COMMON, V.ORIG, 200, 205, 207, 210)
+	recipe = AddRecipe(14380, V.ORIG, Q.COMMON)
+	recipe:SetCraftedItemID(11144)
+	recipe:SetSkillLevels(200, 200, 205, 207, 210)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	recipe:AddTrainer(514, 1241, 2836, 2998, 3136, 3174, 3355, 3478, 3557, 4258, 4596, 5511, 6299, 11177, 11178, 15400, 16583, 16669, 16724, 16823, 17245, 19341, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 33609, 33631, 33675, 44781, 45548)
 
 	-- Dark Iron Pulverizer -- 15292
-	recipe = AddRecipe(15292, 265, 11608, Q.RARE, V.ORIG, 265, 285, 295, 305)
+	recipe = AddRecipe(15292, V.ORIG, Q.RARE)
+	recipe:SetRecipeItemID(11610)
+	recipe:SetCraftedItemID(11608)
+	recipe:SetSkillLevels(265, 265, 285, 295, 305)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.INSTANCE, F.MOB_DROP, F.IBOE, F.RBOE, F.TWO_HAND, F.MACE)
 	recipe:AddMobDrop(9028)
 
 	-- Dark Iron Mail -- 15293
-	recipe = AddRecipe(15293, 270, 11606, Q.UNCOMMON, V.ORIG, 270, 290, 300, 310)
+	recipe = AddRecipe(15293, V.ORIG, Q.UNCOMMON)
+	recipe:SetRecipeItemID(11614)
+	recipe:SetCraftedItemID(11606)
+	recipe:SetSkillLevels(270, 270, 290, 300, 310)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.INSTANCE, F.IBOE, F.RBOP, F.MAIL)
 	recipe:AddCustom(25)
 
 	-- Dark Iron Sunderer -- 15294
-	recipe = AddRecipe(15294, 275, 11607, Q.RARE, V.ORIG, 275, 295, 305, 315)
+	recipe = AddRecipe(15294, V.ORIG, Q.RARE)
+	recipe:SetRecipeItemID(11611)
+	recipe:SetCraftedItemID(11607)
+	recipe:SetSkillLevels(275, 275, 295, 305, 315)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.INSTANCE, F.MOB_DROP, F.IBOE, F.RBOE, F.TWO_HAND, F.AXE)
 	recipe:AddMobDrop(9554, 10043)
 
 	-- Dark Iron Shoulders -- 15295
-	recipe = AddRecipe(15295, 280, 11605, Q.UNCOMMON, V.ORIG, 280, 300, 310, 320)
+	recipe = AddRecipe(15295, V.ORIG, Q.UNCOMMON)
+	recipe:SetRecipeItemID(11615)
+	recipe:SetCraftedItemID(11605)
+	recipe:SetSkillLevels(280, 280, 300, 310, 320)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.INSTANCE, F.IBOE, F.RBOP, F.PLATE)
 	recipe:AddCustom(25)
 
 	-- Dark Iron Plate -- 15296
-	recipe = AddRecipe(15296, 285, 11604, Q.RARE, V.ORIG, 285, 305, 315, 325)
+	recipe = AddRecipe(15296, V.ORIG, Q.RARE)
+	recipe:SetRecipeItemID(11612)
+	recipe:SetCraftedItemID(11604)
+	recipe:SetSkillLevels(285, 285, 305, 315, 325)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.INSTANCE, F.MOB_DROP, F.IBOP, F.RBOE, F.PLATE)
 	recipe:AddMobDrop(9543)
 
 	-- Glinting Steel Dagger -- 15972
-	recipe = AddRecipe(15972, 180, 12259, Q.COMMON, V.ORIG, 180, 205, 217, 230)
+	recipe = AddRecipe(15972, V.ORIG, Q.COMMON)
+	recipe:SetCraftedItemID(12259)
+	recipe:SetSkillLevels(180, 180, 205, 217, 230)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS, F.ONE_HAND, F.DAGGER)
 	recipe:AddTrainer(514, 1241, 2836, 2998, 3136, 3174, 3355, 3478, 3557, 4258, 4596, 5511, 6299, 11177, 11178, 15400, 16583, 16669, 16724, 16823, 17245, 19341, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 33609, 33631, 33675, 44781, 45548)
 
 	-- Searing Golden Blade -- 15973
-	recipe = AddRecipe(15973, 190, 12260, Q.UNCOMMON, V.ORIG, 190, 215, 227, 240)
+	recipe = AddRecipe(15973, V.ORIG, Q.UNCOMMON)
+	recipe:SetRecipeItemID(12261)
+	recipe:SetCraftedItemID(12260)
+	recipe:SetSkillLevels(190, 190, 215, 227, 240)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.ONE_HAND, F.DAGGER)
 	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
 
 	-- Dense Grinding Stone -- 16639
-	recipe = AddRecipe(16639, 250, 12644, Q.COMMON, V.ORIG, 250, 255, 257, 260)
+	recipe = AddRecipe(16639, V.ORIG, Q.COMMON)
+	recipe:SetCraftedItemID(12644)
+	recipe:SetSkillLevels(250, 250, 255, 257, 260)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	recipe:AddTrainer(514, 1241, 2836, 2998, 3136, 3174, 3355, 3478, 3557, 4258, 4596, 5511, 6299, 11177, 11178, 15400, 16583, 16724, 16823, 17245, 19341, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 33609, 33631, 33675, 44781, 45548)
 
 	-- Dense Weightstone -- 16640
-	recipe = AddRecipe(16640, 250, 12643, Q.COMMON, V.ORIG, 250, 255, 257, 260)
+	recipe = AddRecipe(16640, V.ORIG, Q.COMMON)
+	recipe:SetCraftedItemID(12643)
+	recipe:SetSkillLevels(250, 250, 255, 257, 260)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	recipe:AddTrainer(514, 1241, 2836, 2998, 3136, 3174, 3355, 3478, 3557, 4258, 4596, 5511, 6299, 11177, 11178, 15400, 16583, 16724, 16823, 17245, 19341, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 33609, 33631, 33675, 44781, 45548)
 
 	-- Dense Sharpening Stone -- 16641
-	recipe = AddRecipe(16641, 250, 12404, Q.COMMON, V.ORIG, 250, 255, 257, 260)
+	recipe = AddRecipe(16641, V.ORIG, Q.COMMON)
+	recipe:SetCraftedItemID(12404)
+	recipe:SetSkillLevels(250, 250, 255, 257, 260)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS)
 	recipe:AddTrainer(514, 1241, 2836, 2998, 3136, 3174, 3355, 3478, 3557, 4258, 4596, 5511, 6299, 11177, 11178, 15400, 16583, 16724, 16823, 17245, 19341, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 33609, 33631, 33675, 44781, 45548)
 
 	-- Thorium Armor -- 16642
-	recipe = AddRecipe(16642, 250, 12405, Q.COMMON, V.ORIG, 250, 270, 280, 290)
+	recipe = AddRecipe(16642, V.ORIG, Q.COMMON)
+	recipe:SetRecipeItemID(12682)
+	recipe:SetCraftedItemID(12405)
+	recipe:SetSkillLevels(250, 250, 270, 280, 290)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.PLATE)
 	recipe:AddTrainer(514, 1241, 2836, 2998, 3136, 3174, 3355, 3478, 3557, 4258, 4596, 5511, 6299, 11177, 11178, 15400, 16724, 16823, 17245, 33609, 33631, 33675, 44781, 45548)
 	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
 
 	-- Thorium Belt -- 16643
-	recipe = AddRecipe(16643, 250, 12406, Q.COMMON, V.ORIG, 250, 270, 280, 290)
+	recipe = AddRecipe(16643, V.ORIG, Q.COMMON)
+	recipe:SetRecipeItemID(12683)
+	recipe:SetCraftedItemID(12406)
+	recipe:SetSkillLevels(250, 250, 270, 280, 290)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.PLATE)
 	recipe:AddTrainer(514, 1241, 2836, 2998, 3136, 3174, 3355, 3478, 3557, 4258, 4596, 5511, 6299, 11177, 11178, 15400, 16724, 16823, 17245, 33609, 33631, 33675, 44781, 45548)
 	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
 
 	-- Thorium Bracers -- 16644
-	recipe = AddRecipe(16644, 255, 12408, Q.COMMON, V.ORIG, 255, 275, 285, 295)
+	recipe = AddRecipe(16644, V.ORIG, Q.COMMON)
+	recipe:SetRecipeItemID(12684)
+	recipe:SetCraftedItemID(12408)
+	recipe:SetSkillLevels(255, 255, 275, 285, 295)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.PLATE)
 	recipe:AddTrainer(514, 1241, 2836, 2998, 3136, 3174, 3355, 3478, 3557, 4258, 4596, 5511, 6299, 11177, 11178, 15400, 16724, 16823, 17245, 33609, 33631, 33675, 44781, 45548)
 	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
 
 	-- Radiant Belt -- 16645
-	recipe = AddRecipe(16645, 260, 12416, Q.UNCOMMON, V.ORIG, 260, 280, 290, 300)
+	recipe = AddRecipe(16645, V.ORIG, Q.UNCOMMON)
+	recipe:SetRecipeItemID(12685)
+	recipe:SetCraftedItemID(12416)
+	recipe:SetSkillLevels(260, 260, 280, 290, 300)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.MAIL)
 	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
 
 	-- Imperial Plate Shoulders -- 16646
-	recipe = AddRecipe(16646, 265, 12428, Q.UNCOMMON, V.ORIG, 265, 285, 295, 305)
+	recipe = AddRecipe(16646, V.ORIG, Q.UNCOMMON)
+	recipe:SetRecipeItemID(12687)
+	recipe:SetCraftedItemID(12428)
+	recipe:SetSkillLevels(265, 265, 285, 295, 305)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS, F.PLATE)
 	recipe:AddTrainer(514, 1241, 2836, 2998, 3136, 3174, 3355, 3478, 4258, 4596, 5164, 5511, 7230, 11146, 11177, 11178, 16583, 16669, 16724, 16823, 20124, 20125, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29505, 29506, 29924, 33591, 33609, 37072, 44781, 45548)
 
 	-- Imperial Plate Belt -- 16647
-	recipe = AddRecipe(16647, 265, 12424, Q.UNCOMMON, V.ORIG, 265, 285, 295, 305)
+	recipe = AddRecipe(16647, V.ORIG, Q.UNCOMMON)
+	recipe:SetRecipeItemID(12688)
+	recipe:SetCraftedItemID(12424)
+	recipe:SetSkillLevels(265, 265, 285, 295, 305)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS, F.PLATE)
 	recipe:AddTrainer(514, 1241, 2836, 2998, 3136, 3174, 3355, 3478, 4258, 4596, 5164, 5511, 7230, 11146, 11177, 11178, 16583, 16669, 16724, 16823, 20124, 20125, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29505, 29506, 29924, 33591, 33609, 37072, 44781, 45548)
 
 	-- Radiant Breastplate -- 16648
-	recipe = AddRecipe(16648, 270, 12415, Q.UNCOMMON, V.ORIG, 270, 290, 300, 310)
+	recipe = AddRecipe(16648, V.ORIG, Q.UNCOMMON)
+	recipe:SetRecipeItemID(12689)
+	recipe:SetCraftedItemID(12415)
+	recipe:SetSkillLevels(270, 270, 290, 300, 310)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.MAIL)
 	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
 
 	-- Imperial Plate Bracers -- 16649
-	recipe = AddRecipe(16649, 270, 12425, Q.UNCOMMON, V.ORIG, 270, 290, 300, 310)
+	recipe = AddRecipe(16649, V.ORIG, Q.UNCOMMON)
+	recipe:SetRecipeItemID(12690)
+	recipe:SetCraftedItemID(12425)
+	recipe:SetSkillLevels(270, 270, 290, 300, 310)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS, F.PLATE)
 	recipe:AddTrainer(514, 1241, 2836, 2998, 3136, 3174, 3355, 3478, 4258, 4596, 5164, 5511, 7230, 11146, 11177, 11178, 16583, 16669, 16724, 16823, 20124, 20125, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29505, 29506, 29924, 33591, 33609, 37072, 44781, 45548)
 
 	-- Wildthorn Mail -- 16650
-	recipe = AddRecipe(16650, 270, 12624, Q.UNCOMMON, V.ORIG, 270, 290, 300, 310)
+	recipe = AddRecipe(16650, V.ORIG, Q.UNCOMMON)
+	recipe:SetRecipeItemID(12691)
+	recipe:SetCraftedItemID(12624)
+	recipe:SetSkillLevels(270, 270, 290, 300, 310)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.MAIL)
 	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
 
 	-- Thorium Shield Spike -- 16651
-	recipe = AddRecipe(16651, 275, 12645, Q.UNCOMMON, V.ORIG, 275, 295, 305, 315)
+	recipe = AddRecipe(16651, V.ORIG, Q.UNCOMMON)
+	recipe:SetRecipeItemID(12692)
+	recipe:SetCraftedItemID(12645)
+	recipe:SetSkillLevels(275, 275, 295, 305, 315)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.TANK)
 	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
 
 	-- Thorium Boots -- 16652
-	recipe = AddRecipe(16652, 280, 12409, Q.COMMON, V.ORIG, 280, 300, 310, 320)
+	recipe = AddRecipe(16652, V.ORIG, Q.COMMON)
+	recipe:SetRecipeItemID(12693)
+	recipe:SetCraftedItemID(12409)
+	recipe:SetSkillLevels(280, 280, 300, 310, 320)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.PLATE)
 	recipe:AddTrainer(514, 1241, 2836, 2998, 3136, 3174, 3355, 3478, 3557, 4258, 4596, 5511, 6299, 11177, 11178, 15400, 16724, 16823, 17245, 33609, 33631, 33675, 44781, 45548)
 	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
 
 	-- Thorium Helm -- 16653
-	recipe = AddRecipe(16653, 280, 12410, Q.COMMON, V.ORIG, 280, 300, 310, 320)
+	recipe = AddRecipe(16653, V.ORIG, Q.COMMON)
+	recipe:SetRecipeItemID(12694)
+	recipe:SetCraftedItemID(12410)
+	recipe:SetSkillLevels(280, 280, 300, 310, 320)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.PLATE)
 	recipe:AddTrainer(514, 1241, 2836, 2998, 3136, 3174, 3355, 3478, 3557, 4258, 4596, 5511, 6299, 11177, 11178, 15400, 16724, 16823, 17245, 33609, 33631, 33675, 44781, 45548)
 	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
 
 	-- Radiant Gloves -- 16654
-	recipe = AddRecipe(16654, 285, 12418, Q.UNCOMMON, V.ORIG, 285, 305, 315, 325)
+	recipe = AddRecipe(16654, V.ORIG, Q.UNCOMMON)
+	recipe:SetRecipeItemID(12695)
+	recipe:SetCraftedItemID(12418)
+	recipe:SetSkillLevels(285, 285, 305, 315, 325)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.MAIL)
 	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
 
 	-- Fiery Plate Gauntlets -- 16655
-	recipe = AddRecipe(16655, 290, 12631, Q.RARE, V.ORIG, 290, 310, 320, 330)
+	recipe = AddRecipe(16655, V.ORIG, Q.RARE)
+	recipe:SetRecipeItemID(12699)
+	recipe:SetCraftedItemID(12631)
+	recipe:SetSkillLevels(290, 290, 310, 320, 330)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.QUEST, F.RETIRED, F.IBOE, F.RBOP, F.PLATE)
 	recipe:AddCustom(48)
 
 	-- Radiant Boots -- 16656
-	recipe = AddRecipe(16656, 290, 12419, Q.UNCOMMON, V.ORIG, 290, 310, 320, 330)
+	recipe = AddRecipe(16656, V.ORIG, Q.UNCOMMON)
+	recipe:SetRecipeItemID(12697)
+	recipe:SetCraftedItemID(12419)
+	recipe:SetSkillLevels(290, 290, 310, 320, 330)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.MAIL)
 	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
 
 	-- Imperial Plate Boots -- 16657
-	recipe = AddRecipe(16657, 295, 12426, Q.UNCOMMON, V.ORIG, 295, 315, 325, 335)
+	recipe = AddRecipe(16657, V.ORIG, Q.UNCOMMON)
+	recipe:SetRecipeItemID(12700)
+	recipe:SetCraftedItemID(12426)
+	recipe:SetSkillLevels(295, 295, 315, 325, 335)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS, F.PLATE)
 	recipe:AddTrainer(514, 1241, 2836, 2998, 3136, 3174, 3355, 3478, 4258, 4596, 5164, 5511, 7230, 11146, 11177, 11178, 16583, 16669, 16724, 16823, 20124, 20125, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29505, 29506, 29924, 33591, 33609, 37072, 44781, 45548)
 
 	-- Imperial Plate Helm -- 16658
-	recipe = AddRecipe(16658, 295, 12427, Q.UNCOMMON, V.ORIG, 295, 315, 325, 335)
+	recipe = AddRecipe(16658, V.ORIG, Q.UNCOMMON)
+	recipe:SetRecipeItemID(12701)
+	recipe:SetCraftedItemID(12427)
+	recipe:SetSkillLevels(295, 295, 315, 325, 335)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS, F.PLATE)
 	recipe:AddTrainer(514, 1241, 2836, 2998, 3136, 3174, 3355, 3478, 4258, 4596, 5164, 5511, 7230, 11146, 11177, 11178, 16583, 16669, 16724, 16823, 20124, 20125, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29505, 29506, 29924, 33591, 33609, 37072, 44781, 45548)
 
 	-- Radiant Circlet -- 16659
-	recipe = AddRecipe(16659, 295, 12417, Q.UNCOMMON, V.ORIG, 295, 315, 325, 335)
+	recipe = AddRecipe(16659, V.ORIG, Q.UNCOMMON)
+	recipe:SetRecipeItemID(12702)
+	recipe:SetCraftedItemID(12417)
+	recipe:SetSkillLevels(295, 295, 315, 325, 335)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.MAIL)
 	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
 
 	-- Dawnbringer Shoulders -- 16660
-	recipe = AddRecipe(16660, 290, 12625, Q.RARE, V.ORIG, 290, 310, 320, 330)
+	recipe = AddRecipe(16660, V.ORIG, Q.RARE)
+	recipe:SetRecipeItemID(12698)
+	recipe:SetCraftedItemID(12625)
+	recipe:SetSkillLevels(290, 290, 310, 320, 330)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.PLATE)
 	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
 
 	-- Storm Gauntlets -- 16661
-	recipe = AddRecipe(16661, 295, 12632, Q.RARE, V.ORIG, 295, 315, 325, 335)
+	recipe = AddRecipe(16661, V.ORIG, Q.RARE)
+	recipe:SetRecipeItemID(12703)
+	recipe:SetCraftedItemID(12632)
+	recipe:SetSkillLevels(295, 295, 315, 325, 335)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.MAIL)
 	recipe:AddVendor(11278)
 	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
 
 	-- Thorium Leggings -- 16662
-	recipe = AddRecipe(16662, 300, 12414, Q.COMMON, V.ORIG, 300, 320, 330, 340)
+	recipe = AddRecipe(16662, V.ORIG, Q.COMMON)
+	recipe:SetRecipeItemID(12704)
+	recipe:SetCraftedItemID(12414)
+	recipe:SetSkillLevels(300, 300, 320, 330, 340)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.PLATE)
 	recipe:AddTrainer(514, 1241, 2836, 2998, 3136, 3174, 3355, 3478, 3557, 4258, 4596, 5511, 6299, 11177, 11178, 15400, 16724, 16823, 17245, 33609, 33631, 33675, 44781, 45548)
 	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
 
 	-- Imperial Plate Chest -- 16663
-	recipe = AddRecipe(16663, 300, 12422, Q.UNCOMMON, V.ORIG, 300, 320, 330, 340)
+	recipe = AddRecipe(16663, V.ORIG, Q.UNCOMMON)
+	recipe:SetRecipeItemID(12705)
+	recipe:SetCraftedItemID(12422)
+	recipe:SetSkillLevels(300, 300, 320, 330, 340)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS, F.PLATE)
 	recipe:AddTrainer(514, 1241, 2836, 2998, 3136, 3174, 3355, 3478, 4258, 4596, 5164, 5511, 7230, 11146, 11177, 11178, 16583, 16669, 16724, 16823, 20124, 20125, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29505, 29506, 29924, 33591, 33609, 37072, 44781, 45548)
 
 	-- Runic Plate Shoulders -- 16664
-	recipe = AddRecipe(16664, 300, 12610, Q.UNCOMMON, V.ORIG, 300, 320, 330, 340)
+	recipe = AddRecipe(16664, V.ORIG, Q.UNCOMMON)
+	recipe:SetRecipeItemID(12706)
+	recipe:SetCraftedItemID(12610)
+	recipe:SetSkillLevels(300, 300, 320, 330, 340)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOE, F.RBOP, F.PLATE)
 	recipe:AddMobDrop(4366)
 
 	-- Runic Plate Boots -- 16665
-	recipe = AddRecipe(16665, 300, 12611, Q.UNCOMMON, V.ORIG, 300, 320, 330, 340)
+	recipe = AddRecipe(16665, V.ORIG, Q.UNCOMMON)
+	recipe:SetRecipeItemID(12707)
+	recipe:SetCraftedItemID(12611)
+	recipe:SetSkillLevels(300, 300, 320, 330, 340)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOE, F.RBOP, F.PLATE)
 	recipe:AddMobDrop(1836)
 
 	-- Demon Forged Breastplate -- 16667
-	recipe = AddRecipe(16667, 285, 12628, Q.RARE, V.ORIG, 285, 305, 315, 325)
+	recipe = AddRecipe(16667, V.ORIG, Q.RARE)
+	recipe:SetRecipeItemID(12696)
+	recipe:SetCraftedItemID(12628)
+	recipe:SetSkillLevels(285, 285, 305, 315, 325)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.QUEST, F.RETIRED, F.IBOE, F.RBOP, F.PLATE)
 	recipe:AddCustom(48)
 
 	-- Whitesoul Helm -- 16724
-	recipe = AddRecipe(16724, 300, 12633, Q.RARE, V.ORIG, 300, 320, 330, 340)
+	recipe = AddRecipe(16724, V.ORIG, Q.RARE)
+	recipe:SetRecipeItemID(12711)
+	recipe:SetCraftedItemID(12633)
+	recipe:SetSkillLevels(300, 300, 320, 330, 340)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.PLATE)
 	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
 
 	-- Radiant Leggings -- 16725
-	recipe = AddRecipe(16725, 300, 12420, Q.UNCOMMON, V.ORIG, 300, 320, 330, 340)
+	recipe = AddRecipe(16725, V.ORIG, Q.UNCOMMON)
+	recipe:SetRecipeItemID(12713)
+	recipe:SetCraftedItemID(12420)
+	recipe:SetSkillLevels(300, 300, 320, 330, 340)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.MAIL)
 	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
 
 	-- Runic Plate Helm -- 16726
-	recipe = AddRecipe(16726, 300, 12612, Q.UNCOMMON, V.ORIG, 300, 320, 330, 340)
+	recipe = AddRecipe(16726, V.ORIG, Q.UNCOMMON)
+	recipe:SetRecipeItemID(12714)
+	recipe:SetCraftedItemID(12612)
+	recipe:SetSkillLevels(300, 300, 320, 330, 340)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOE, F.RBOP, F.PLATE)
 	recipe:AddMobDrop(4364)
 
 	-- Helm of the Great Chief -- 16728
-	recipe = AddRecipe(16728, 300, 12636, Q.RARE, V.ORIG, 300, 320, 330, 340)
+	recipe = AddRecipe(16728, V.ORIG, Q.RARE)
+	recipe:SetRecipeItemID(12716)
+	recipe:SetCraftedItemID(12636)
+	recipe:SetSkillLevels(300, 300, 320, 330, 340)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.MAIL)
 	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
 
 	-- Lionheart Helm -- 16729
-	recipe = AddRecipe(16729, 300, 12640, Q.EPIC, V.ORIG, 300, 320, 330, 340)
+	recipe = AddRecipe(16729, V.ORIG, Q.EPIC)
+	recipe:SetRecipeItemID(12717)
+	recipe:SetCraftedItemID(12640)
+	recipe:SetSkillLevels(300, 300, 320, 330, 340)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.PLATE)
 	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
 
 	-- Imperial Plate Leggings -- 16730
-	recipe = AddRecipe(16730, 300, 12429, Q.UNCOMMON, V.ORIG, 300, 320, 330, 340)
+	recipe = AddRecipe(16730, V.ORIG, Q.UNCOMMON)
+	recipe:SetRecipeItemID(12715)
+	recipe:SetCraftedItemID(12429)
+	recipe:SetSkillLevels(300, 300, 320, 330, 340)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS, F.PLATE)
 	recipe:AddTrainer(514, 1241, 2836, 2998, 3136, 3174, 3355, 3478, 4258, 4596, 5164, 5511, 7230, 11146, 11177, 11178, 16583, 16669, 16724, 16823, 20124, 20125, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29505, 29506, 29924, 33591, 33609, 37072, 44781, 45548)
 
 	-- Runic Breastplate -- 16731
-	recipe = AddRecipe(16731, 300, 12613, Q.UNCOMMON, V.ORIG, 300, 320, 330, 340)
+	recipe = AddRecipe(16731, V.ORIG, Q.UNCOMMON)
+	recipe:SetRecipeItemID(12718)
+	recipe:SetCraftedItemID(12613)
+	recipe:SetSkillLevels(300, 300, 320, 330, 340)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOE, F.RBOP, F.PLATE)
 	recipe:AddMobDrop(4368, 16072)
 
 	-- Runic Plate Leggings -- 16732
-	recipe = AddRecipe(16732, 300, 12614, Q.UNCOMMON, V.ORIG, 300, 320, 330, 340)
+	recipe = AddRecipe(16732, V.ORIG, Q.UNCOMMON)
+	recipe:SetRecipeItemID(12719)
+	recipe:SetCraftedItemID(12614)
+	recipe:SetSkillLevels(300, 300, 320, 330, 340)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOE, F.RBOP, F.PLATE)
 	recipe:AddMobDrop(1885)
 
 	-- Stronghold Gauntlets -- 16741
-	recipe = AddRecipe(16741, 300, 12639, Q.EPIC, V.ORIG, 300, 320, 330, 340)
+	recipe = AddRecipe(16741, V.ORIG, Q.EPIC)
+	recipe:SetRecipeItemID(12720)
+	recipe:SetCraftedItemID(12639)
+	recipe:SetSkillLevels(300, 300, 320, 330, 340)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.TANK, F.PLATE)
 	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
 
 	-- Enchanted Thorium Helm -- 16742
-	recipe = AddRecipe(16742, 300, 12620, Q.RARE, V.ORIG, 300, 320, 330, 340)
+	recipe = AddRecipe(16742, V.ORIG, Q.RARE)
+	recipe:SetRecipeItemID(12725)
+	recipe:SetCraftedItemID(12620)
+	recipe:SetSkillLevels(300, 300, 320, 330, 340)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.QUEST, F.IBOE, F.RBOP, F.TANK, F.PLATE)
 	recipe:AddQuest(7651)
 
 	-- Enchanted Thorium Leggings -- 16744
-	recipe = AddRecipe(16744, 300, 12619, Q.RARE, V.ORIG, 300, 320, 330, 340)
+	recipe = AddRecipe(16744, V.ORIG, Q.RARE)
+	recipe:SetRecipeItemID(12726)
+	recipe:SetCraftedItemID(12619)
+	recipe:SetSkillLevels(300, 300, 320, 330, 340)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.QUEST, F.IBOE, F.RBOP, F.TANK, F.PLATE)
 	recipe:AddQuest(7650)
 
 	-- Enchanted Thorium Breastplate -- 16745
-	recipe = AddRecipe(16745, 300, 12618, Q.RARE, V.ORIG, 300, 320, 330, 340)
+	recipe = AddRecipe(16745, V.ORIG, Q.RARE)
+	recipe:SetRecipeItemID(12727)
+	recipe:SetCraftedItemID(12618)
+	recipe:SetSkillLevels(300, 300, 320, 330, 340)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.QUEST, F.IBOE, F.RBOP, F.TANK, F.PLATE)
 	recipe:AddQuest(7649)
 
 	-- Invulnerable Mail -- 16746
-	recipe = AddRecipe(16746, 300, 12641, Q.EPIC, V.ORIG, 300, 320, 330, 340)
+	recipe = AddRecipe(16746, V.ORIG, Q.EPIC)
+	recipe:SetRecipeItemID(12728)
+	recipe:SetCraftedItemID(12641)
+	recipe:SetSkillLevels(300, 300, 320, 330, 340)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.TANK, F.MAIL)
 	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
 
 	-- Ornate Thorium Handaxe -- 16969
-	recipe = AddRecipe(16969, 275, 12773, Q.COMMON, V.ORIG, 275, 300, 312, 325)
+	recipe = AddRecipe(16969, V.ORIG, Q.COMMON)
+	recipe:SetRecipeItemID(12819)
+	recipe:SetCraftedItemID(12773)
+	recipe:SetSkillLevels(275, 275, 300, 312, 325)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.VENDOR, F.IBOP, F.RBOP, F.DPS, F.ONE_HAND, F.AXE)
 	recipe:AddTrainer(514, 1241, 2836, 2998, 3136, 3174, 3355, 3478, 3557, 4258, 4596, 5511, 6299, 11177, 11178, 15400, 16724, 16823, 17245, 33609, 33631, 33675, 44781, 45548)
 	recipe:AddVendor(11278)
 
 	-- Dawn's Edge -- 16970
-	recipe = AddRecipe(16970, 275, 12774, Q.RARE, V.ORIG, 275, 300, 312, 325)
+	recipe = AddRecipe(16970, V.ORIG, Q.RARE)
+	recipe:SetRecipeItemID(12821)
+	recipe:SetCraftedItemID(12774)
+	recipe:SetSkillLevels(275, 275, 300, 312, 325)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.QUEST, F.RETIRED, F.IBOE, F.RBOE, F.ONE_HAND, F.AXE)
 	recipe:AddCustom(48)
 
 	-- Huge Thorium Battleaxe -- 16971
-	recipe = AddRecipe(16971, 280, 12775, Q.COMMON, V.ORIG, 280, 305, 317, 330)
+	recipe = AddRecipe(16971, V.ORIG, Q.COMMON)
+	recipe:SetRecipeItemID(12823)
+	recipe:SetCraftedItemID(12775)
+	recipe:SetSkillLevels(280, 280, 305, 317, 330)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.TWO_HAND, F.AXE)
 	recipe:AddTrainer(514, 1241, 2836, 2998, 3136, 3174, 3355, 3478, 3557, 4258, 4596, 5511, 6299, 11177, 11178, 15400, 16724, 16823, 17245, 33609, 33631, 33675, 44781, 45548)
 	recipe:AddVendor(11278)
 
 	-- Enchanted Battlehammer -- 16973
-	recipe = AddRecipe(16973, 280, 12776, Q.UNCOMMON, V.ORIG, 280, 305, 317, 330)
+	recipe = AddRecipe(16973, V.ORIG, Q.UNCOMMON)
+	recipe:SetRecipeItemID(12824)
+	recipe:SetCraftedItemID(12776)
+	recipe:SetSkillLevels(280, 280, 305, 317, 330)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.QUEST, F.RETIRED, F.IBOE, F.RBOE, F.TANK, F.TWO_HAND, F.MACE)
 	recipe:AddCustom(48)
 
 	-- Blazing Rapier -- 16978
-	recipe = AddRecipe(16978, 280, 12777, Q.UNCOMMON, V.ORIG, 280, 305, 317, 330)
+	recipe = AddRecipe(16978, V.ORIG, Q.UNCOMMON)
+	recipe:SetRecipeItemID(12825)
+	recipe:SetCraftedItemID(12777)
+	recipe:SetSkillLevels(280, 280, 305, 317, 330)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.QUEST, F.RETIRED, F.IBOE, F.RBOE, F.ONE_HAND, F.SWORD)
 	recipe:AddCustom(48)
 
 	-- Serenity -- 16983
-	recipe = AddRecipe(16983, 285, 12781, Q.UNCOMMON, V.ORIG, 285, 310, 322, 335)
+	recipe = AddRecipe(16983, V.ORIG, Q.UNCOMMON)
+	recipe:SetRecipeItemID(12827)
+	recipe:SetCraftedItemID(12781)
+	recipe:SetSkillLevels(285, 285, 310, 322, 335)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.INSTANCE, F.IBOE, F.RBOE, F.ONE_HAND, F.MACE)
 	recipe:AddCustom(31)
 
 	-- Volcanic Hammer -- 16984
-	recipe = AddRecipe(16984, 290, 12792, Q.UNCOMMON, V.ORIG, 290, 315, 327, 340)
+	recipe = AddRecipe(16984, V.ORIG, Q.UNCOMMON)
+	recipe:SetRecipeItemID(12828)
+	recipe:SetCraftedItemID(12792)
+	recipe:SetSkillLevels(290, 290, 315, 327, 340)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOE, F.RBOE, F.ONE_HAND, F.MACE)
 	recipe:AddMobDrop(10119)
 
 	-- Corruption -- 16985
-	recipe = AddRecipe(16985, 290, 12782, Q.COMMON, V.ORIG, 290, 315, 327, 340)
+	recipe = AddRecipe(16985, V.ORIG, Q.COMMON)
+	recipe:SetRecipeItemID(12830)
+	recipe:SetCraftedItemID(12782)
+	recipe:SetSkillLevels(290, 290, 315, 327, 340)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.INSTANCE, F.IBOP, F.RBOE, F.DPS, F.HEALER, F.CASTER, F.TWO_HAND, F.SWORD)
 	recipe:AddCustom(31)
 
 	-- Hammer of the Titans -- 16988
-	recipe = AddRecipe(16988, 300, 12796, Q.RARE, V.ORIG, 300, 320, 330, 340)
+	recipe = AddRecipe(16988, V.ORIG, Q.RARE)
+	recipe:SetRecipeItemID(12833)
+	recipe:SetCraftedItemID(12796)
+	recipe:SetSkillLevels(300, 300, 320, 330, 340)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.INSTANCE, F.MOB_DROP, F.IBOE, F.RBOE, F.DPS, F.TWO_HAND, F.MACE)
 	recipe:AddMobDrop(10438)
 
 	-- Arcanite Champion -- 16990
-	recipe = AddRecipe(16990, 300, 12790, Q.RARE, V.ORIG, 300, 320, 330, 340)
+	recipe = AddRecipe(16990, V.ORIG, Q.RARE)
+	recipe:SetRecipeItemID(12834)
+	recipe:SetCraftedItemID(12790)
+	recipe:SetSkillLevels(300, 300, 320, 330, 340)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.INSTANCE, F.MOB_DROP, F.IBOE, F.RBOE, F.DPS, F.TWO_HAND, F.SWORD)
 	recipe:AddMobDrop(10899)
 
 	-- Annihilator -- 16991
-	recipe = AddRecipe(16991, 300, 12798, Q.RARE, V.ORIG, 300, 320, 330, 340)
+	recipe = AddRecipe(16991, V.ORIG, Q.RARE)
+	recipe:SetRecipeItemID(12835)
+	recipe:SetCraftedItemID(12798)
+	recipe:SetSkillLevels(300, 300, 320, 330, 340)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.INSTANCE, F.MOB_DROP, F.IBOE, F.RBOE, F.ONE_HAND, F.AXE)
 	recipe:AddMobDrop(9736)
 
 	-- Frostguard -- 16992
-	recipe = AddRecipe(16992, 300, 12797, Q.RARE, V.ORIG, 300, 320, 330, 340)
+	recipe = AddRecipe(16992, V.ORIG, Q.RARE)
+	recipe:SetRecipeItemID(12836)
+	recipe:SetCraftedItemID(12797)
+	recipe:SetSkillLevels(300, 300, 320, 330, 340)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOE, F.RBOE, F.ONE_HAND, F.SWORD)
 	recipe:AddMobDrop(1844)
 
 	-- Masterwork Stormhammer -- 16993
-	recipe = AddRecipe(16993, 300, 12794, Q.RARE, V.ORIG, 300, 320, 330, 340)
+	recipe = AddRecipe(16993, V.ORIG, Q.RARE)
+	recipe:SetRecipeItemID(12837)
+	recipe:SetCraftedItemID(12794)
+	recipe:SetSkillLevels(300, 300, 320, 330, 340)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.INSTANCE, F.MOB_DROP, F.IBOE, F.RBOE, F.ONE_HAND, F.MACE)
 	recipe:AddMobDrop(10899)
 
 	-- Arcanite Reaper -- 16994
-	recipe = AddRecipe(16994, 300, 12784, Q.RARE, V.ORIG, 300, 320, 330, 340)
+	recipe = AddRecipe(16994, V.ORIG, Q.RARE)
+	recipe:SetRecipeItemID(12838)
+	recipe:SetCraftedItemID(12784)
+	recipe:SetSkillLevels(300, 300, 320, 330, 340)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.INSTANCE, F.MOB_DROP, F.IBOE, F.RBOE, F.DPS, F.TWO_HAND, F.AXE)
 	recipe:AddMobDrop(9596)
 
 	-- Heartseeker -- 16995
-	recipe = AddRecipe(16995, 300, 12783, Q.RARE, V.ORIG, 300, 320, 330, 340)
+	recipe = AddRecipe(16995, V.ORIG, Q.RARE)
+	recipe:SetRecipeItemID(12839)
+	recipe:SetCraftedItemID(12783)
+	recipe:SetSkillLevels(300, 300, 320, 330, 340)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.INSTANCE, F.MOB_DROP, F.IBOE, F.RBOE, F.DPS, F.ONE_HAND, F.DAGGER)
 	recipe:AddMobDrop(10997)
 
 	-- Silver Skeleton Key -- 19666
-	recipe = AddRecipe(19666, 100, 15869, Q.COMMON, V.ORIG, 100, 100, 110, 120)
+	recipe = AddRecipe(19666, V.ORIG, Q.COMMON)
+	recipe:SetCraftedItemID(15869)
+	recipe:SetSkillLevels(100, 100, 100, 110, 120)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	recipe:AddTrainer(514, 1241, 2836, 2998, 3136, 3174, 3355, 3478, 3557, 4258, 4596, 5511, 6299, 11177, 11178, 15400, 16583, 16669, 16724, 16823, 17245, 19341, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 33609, 33631, 33675, 44781, 45548)
 
 	-- Golden Skeleton Key -- 19667
-	recipe = AddRecipe(19667, 150, 15870, Q.COMMON, V.ORIG, 150, 150, 160, 170)
+	recipe = AddRecipe(19667, V.ORIG, Q.COMMON)
+	recipe:SetCraftedItemID(15870)
+	recipe:SetSkillLevels(150, 150, 150, 160, 170)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	recipe:AddTrainer(514, 1241, 2836, 2998, 3136, 3174, 3355, 3478, 3557, 4258, 4596, 5511, 6299, 11177, 11178, 15400, 16583, 16669, 16724, 16823, 17245, 19341, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 33609, 33631, 33675, 44781, 45548)
 
 	-- Truesilver Skeleton Key -- 19668
-	recipe = AddRecipe(19668, 200, 15871, Q.COMMON, V.ORIG, 200, 200, 210, 220)
+	recipe = AddRecipe(19668, V.ORIG, Q.COMMON)
+	recipe:SetCraftedItemID(15871)
+	recipe:SetSkillLevels(200, 200, 200, 210, 220)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	recipe:AddTrainer(514, 1241, 2836, 2998, 3136, 3174, 3355, 3478, 3557, 4258, 4596, 5511, 6299, 11177, 11178, 15400, 16583, 16669, 16724, 16823, 17245, 19341, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 33609, 33631, 33675, 44781, 45548)
 
 	-- Arcanite Skeleton Key -- 19669
-	recipe = AddRecipe(19669, 275, 15872, Q.COMMON, V.ORIG, 275, 275, 280, 285)
+	recipe = AddRecipe(19669, V.ORIG, Q.COMMON)
+	recipe:SetCraftedItemID(15872)
+	recipe:SetSkillLevels(275, 275, 275, 280, 285)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	recipe:AddTrainer(514, 1241, 2836, 2998, 3136, 3174, 3355, 3478, 3557, 4258, 4596, 5511, 6299, 11177, 11178, 15400, 16583, 16724, 16823, 17245, 19341, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 33609, 33631, 33675, 44781, 45548)
 
 	-- Arcanite Rod -- 20201
-	recipe = AddRecipe(20201, 275, 16206, Q.COMMON, V.ORIG, 275, 275, 280, 285)
+	recipe = AddRecipe(20201, V.ORIG, Q.COMMON)
+	recipe:SetCraftedItemID(16206)
+	recipe:SetSkillLevels(275, 275, 275, 280, 285)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	recipe:AddTrainer(514, 1241, 2836, 2998, 3136, 3174, 3355, 3478, 3557, 4258, 4596, 5511, 6299, 11177, 11178, 15400, 16583, 16724, 16823, 17245, 19341, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 33609, 33631, 33675, 44781, 45548)
 
 	-- Fiery Chain Girdle -- 20872
-	recipe = AddRecipe(20872, 295, 16989, Q.RARE, V.ORIG, 295, 315, 325, 335)
+	recipe = AddRecipe(20872, V.ORIG, Q.RARE)
+	recipe:SetRecipeItemID(17049)
+	recipe:SetCraftedItemID(16989)
+	recipe:SetSkillLevels(295, 295, 315, 325, 335)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.THORIUM_BROTHERHOOD, F.MAIL)
 	recipe:AddRepVendor(FAC.THORIUM_BROTHERHOOD, REP.HONORED, 12944)
 
 	-- Fiery Chain Shoulders -- 20873
-	recipe = AddRecipe(20873, 300, 16988, Q.RARE, V.ORIG, 300, 320, 330, 340)
+	recipe = AddRecipe(20873, V.ORIG, Q.RARE)
+	recipe:SetRecipeItemID(17053)
+	recipe:SetCraftedItemID(16988)
+	recipe:SetSkillLevels(300, 300, 320, 330, 340)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.THORIUM_BROTHERHOOD, F.MAIL)
 	recipe:AddRepVendor(FAC.THORIUM_BROTHERHOOD, REP.REVERED, 12944)
 
 	-- Dark Iron Bracers -- 20874
-	recipe = AddRecipe(20874, 295, 17014, Q.RARE, V.ORIG, 295, 315, 325, 335)
+	recipe = AddRecipe(20874, V.ORIG, Q.RARE)
+	recipe:SetRecipeItemID(17051)
+	recipe:SetCraftedItemID(17014)
+	recipe:SetSkillLevels(295, 295, 315, 325, 335)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.THORIUM_BROTHERHOOD, F.PLATE)
 	recipe:AddRepVendor(FAC.THORIUM_BROTHERHOOD, REP.FRIENDLY, 12944)
 
 	-- Dark Iron Leggings -- 20876
-	recipe = AddRecipe(20876, 300, 17013, Q.RARE, V.ORIG, 300, 320, 330, 340)
+	recipe = AddRecipe(20876, V.ORIG, Q.RARE)
+	recipe:SetRecipeItemID(17052)
+	recipe:SetCraftedItemID(17013)
+	recipe:SetSkillLevels(300, 300, 320, 330, 340)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.THORIUM_BROTHERHOOD, F.PLATE)
 	recipe:AddRepVendor(FAC.THORIUM_BROTHERHOOD, REP.REVERED, 12944)
 
 	-- Dark Iron Reaver -- 20890
-	recipe = AddRecipe(20890, 300, 17015, Q.RARE, V.ORIG, 300, 320, 330, 340)
+	recipe = AddRecipe(20890, V.ORIG, Q.RARE)
+	recipe:SetRecipeItemID(17059)
+	recipe:SetCraftedItemID(17015)
+	recipe:SetSkillLevels(300, 300, 320, 330, 340)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.THORIUM_BROTHERHOOD, F.ONE_HAND, F.SWORD)
 	recipe:AddRepVendor(FAC.THORIUM_BROTHERHOOD, REP.HONORED, 12944)
 
 	-- Dark Iron Destroyer -- 20897
-	recipe = AddRecipe(20897, 300, 17016, Q.RARE, V.ORIG, 300, 320, 330, 340)
+	recipe = AddRecipe(20897, V.ORIG, Q.RARE)
+	recipe:SetRecipeItemID(17060)
+	recipe:SetCraftedItemID(17016)
+	recipe:SetSkillLevels(300, 300, 320, 330, 340)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.THORIUM_BROTHERHOOD, F.ONE_HAND, F.AXE)
 	recipe:AddRepVendor(FAC.THORIUM_BROTHERHOOD, REP.HONORED, 12944)
 
 	-- Sulfuron Hammer -- 21161
-	recipe = AddRecipe(21161, 300, 17193, Q.EPIC, V.ORIG, 300, 325, 337, 350)
+	recipe = AddRecipe(21161, V.ORIG, Q.EPIC)
+	recipe:SetRecipeItemID(18592)
+	recipe:SetCraftedItemID(17193)
+	recipe:SetSkillLevels(300, 300, 325, 337, 350)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.QUEST, F.IBOE, F.RBOE, F.TWO_HAND, F.MACE)
 	recipe:AddQuest(7604)
 
 	-- Edge of Winter -- 21913
-	recipe = AddRecipe(21913, 190, 17704, Q.UNCOMMON, V.ORIG, 190, 215, 227, 240)
+	recipe = AddRecipe(21913, V.ORIG, Q.UNCOMMON)
+	recipe:SetRecipeItemID(17706)
+	recipe:SetCraftedItemID(17704)
+	recipe:SetSkillLevels(190, 190, 215, 227, 240)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.SEASONAL, F.IBOE, F.RBOE, F.ONE_HAND, F.AXE)
 	recipe:AddSeason(1)
 
 	-- Elemental Sharpening Stone -- 22757
-	recipe = AddRecipe(22757, 300, 18262, Q.RARE, V.ORIG, 300, 300, 310, 320)
+	recipe = AddRecipe(22757, V.ORIG, Q.RARE)
+	recipe:SetRecipeItemID(18264)
+	recipe:SetCraftedItemID(18262)
+	recipe:SetSkillLevels(300, 300, 300, 310, 320)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOP)
 	recipe:AddCustom(26)
 
 	-- Heavy Timbermaw Belt -- 23628
-	recipe = AddRecipe(23628, 290, 19043, Q.COMMON, V.ORIG, 290, 310, 320, 330)
+	recipe = AddRecipe(23628, V.ORIG, Q.COMMON)
+	recipe:SetRecipeItemID(19202)
+	recipe:SetCraftedItemID(19043)
+	recipe:SetSkillLevels(290, 290, 310, 320, 330)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.TIMBERMAW_HOLD, F.MAIL)
 	recipe:AddRepVendor(FAC.TIMBERMAW_HOLD, REP.HONORED, 11557)
 
 	-- Heavy Timbermaw Boots -- 23629
-	recipe = AddRecipe(23629, 300, 19048, Q.COMMON, V.ORIG, 300, 320, 330, 340)
+	recipe = AddRecipe(23629, V.ORIG, Q.COMMON)
+	recipe:SetRecipeItemID(19204)
+	recipe:SetCraftedItemID(19048)
+	recipe:SetSkillLevels(300, 300, 320, 330, 340)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.TIMBERMAW_HOLD, F.MAIL)
 	recipe:AddRepVendor(FAC.TIMBERMAW_HOLD, REP.REVERED, 11557)
 
 	-- Girdle of the Dawn -- 23632
-	recipe = AddRecipe(23632, 290, 19051, Q.COMMON, V.ORIG, 290, 310, 320, 330)
+	recipe = AddRecipe(23632, V.ORIG, Q.COMMON)
+	recipe:SetRecipeItemID(19203)
+	recipe:SetCraftedItemID(19051)
+	recipe:SetSkillLevels(290, 290, 310, 320, 330)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.ARGENTDAWN, F.PLATE)
 	recipe:AddRepVendor(FAC.ARGENTDAWN, REP.HONORED, 10856, 10857, 11536)
 
 	-- Gloves of the Dawn -- 23633
-	recipe = AddRecipe(23633, 300, 19057, Q.COMMON, V.ORIG, 300, 320, 330, 340)
+	recipe = AddRecipe(23633, V.ORIG, Q.COMMON)
+	recipe:SetRecipeItemID(19205)
+	recipe:SetCraftedItemID(19057)
+	recipe:SetSkillLevels(300, 300, 320, 330, 340)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.ARGENTDAWN, F.PLATE)
 	recipe:AddRepVendor(FAC.ARGENTDAWN, REP.REVERED, 10856, 10857, 11536)
 
 	-- Dark Iron Helm -- 23636
-	recipe = AddRecipe(23636, 300, 19148, Q.COMMON, V.ORIG, 300, 320, 330, 340)
+	recipe = AddRecipe(23636, V.ORIG, Q.COMMON)
+	recipe:SetRecipeItemID(19206)
+	recipe:SetCraftedItemID(19148)
+	recipe:SetSkillLevels(300, 300, 320, 330, 340)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.THORIUM_BROTHERHOOD, F.PLATE)
 	recipe:AddRepVendor(FAC.THORIUM_BROTHERHOOD, REP.HONORED, 12944)
 
 	-- Dark Iron Gauntlets -- 23637
-	recipe = AddRecipe(23637, 300, 19164, Q.COMMON, V.ORIG, 300, 320, 330, 340)
+	recipe = AddRecipe(23637, V.ORIG, Q.COMMON)
+	recipe:SetRecipeItemID(19207)
+	recipe:SetCraftedItemID(19164)
+	recipe:SetSkillLevels(300, 300, 320, 330, 340)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.THORIUM_BROTHERHOOD, F.PLATE)
 	recipe:AddRepVendor(FAC.THORIUM_BROTHERHOOD, REP.REVERED, 12944)
 
 	-- Black Amnesty -- 23638
-	recipe = AddRecipe(23638, 300, 19166, Q.COMMON, V.ORIG, 300, 320, 330, 340)
+	recipe = AddRecipe(23638, V.ORIG, Q.COMMON)
+	recipe:SetRecipeItemID(19208)
+	recipe:SetCraftedItemID(19166)
+	recipe:SetSkillLevels(300, 300, 320, 330, 340)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.THORIUM_BROTHERHOOD, F.ONE_HAND, F.DAGGER)
 	recipe:AddRepVendor(FAC.THORIUM_BROTHERHOOD, REP.REVERED, 12944)
 
 	-- Blackfury -- 23639
-	recipe = AddRecipe(23639, 300, 19167, Q.COMMON, V.ORIG, 300, 320, 330, 340)
+	recipe = AddRecipe(23639, V.ORIG, Q.COMMON)
+	recipe:SetRecipeItemID(19209)
+	recipe:SetCraftedItemID(19167)
+	recipe:SetSkillLevels(300, 300, 320, 330, 340)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.THORIUM_BROTHERHOOD, F.TWO_HAND, F.POLEARM)
 	recipe:AddRepVendor(FAC.THORIUM_BROTHERHOOD, REP.REVERED, 12944)
 
 	-- Ebon Hand -- 23650
-	recipe = AddRecipe(23650, 300, 19170, Q.COMMON, V.ORIG, 300, 320, 330, 340)
+	recipe = AddRecipe(23650, V.ORIG, Q.COMMON)
+	recipe:SetRecipeItemID(19210)
+	recipe:SetCraftedItemID(19170)
+	recipe:SetSkillLevels(300, 300, 320, 330, 340)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.THORIUM_BROTHERHOOD, F.ONE_HAND, F.MACE)
 	recipe:AddRepVendor(FAC.THORIUM_BROTHERHOOD, REP.EXALTED, 12944)
 
 	-- Blackguard -- 23652
-	recipe = AddRecipe(23652, 300, 19168, Q.COMMON, V.ORIG, 300, 320, 330, 340)
+	recipe = AddRecipe(23652, V.ORIG, Q.COMMON)
+	recipe:SetRecipeItemID(19211)
+	recipe:SetCraftedItemID(19168)
+	recipe:SetSkillLevels(300, 300, 320, 330, 340)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.TANK, F.THORIUM_BROTHERHOOD, F.ONE_HAND, F.SWORD)
 	recipe:AddRepVendor(FAC.THORIUM_BROTHERHOOD, REP.EXALTED, 12944)
 
 	-- Nightfall -- 23653
-	recipe = AddRecipe(23653, 300, 19169, Q.COMMON, V.ORIG, 300, 320, 330, 340)
+	recipe = AddRecipe(23653, V.ORIG, Q.COMMON)
+	recipe:SetRecipeItemID(19212)
+	recipe:SetCraftedItemID(19169)
+	recipe:SetSkillLevels(300, 300, 320, 330, 340)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.THORIUM_BROTHERHOOD, F.TWO_HAND, F.AXE)
 	recipe:AddRepVendor(FAC.THORIUM_BROTHERHOOD, REP.EXALTED, 12944)
 
 	-- Bloodsoul Breastplate -- 24136
-	recipe = AddRecipe(24136, 300, 19690, Q.COMMON, V.ORIG, 300, 320, 330, 340)
+	recipe = AddRecipe(24136, V.ORIG, Q.COMMON)
+	recipe:SetRecipeItemID(19776)
+	recipe:SetCraftedItemID(19690)
+	recipe:SetSkillLevels(300, 300, 320, 330, 340)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.RETIRED, F.IBOE, F.RBOP, F.DPS, F.HEALER, F.CASTER, F.MAIL)
 	recipe:AddCustom(48)
 
 	-- Bloodsoul Shoulders -- 24137
-	recipe = AddRecipe(24137, 300, 19691, Q.COMMON, V.ORIG, 300, 320, 330, 340)
+	recipe = AddRecipe(24137, V.ORIG, Q.COMMON)
+	recipe:SetRecipeItemID(19777)
+	recipe:SetCraftedItemID(19691)
+	recipe:SetSkillLevels(300, 300, 320, 330, 340)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.RETIRED, F.IBOE, F.RBOP, F.DPS, F.HEALER, F.CASTER, F.MAIL)
 	recipe:AddCustom(48)
 
 	-- Bloodsoul Gauntlets -- 24138
-	recipe = AddRecipe(24138, 300, 19692, Q.COMMON, V.ORIG, 300, 320, 330, 340)
+	recipe = AddRecipe(24138, V.ORIG, Q.COMMON)
+	recipe:SetRecipeItemID(19778)
+	recipe:SetCraftedItemID(19692)
+	recipe:SetSkillLevels(300, 300, 320, 330, 340)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.RETIRED, F.IBOE, F.RBOP, F.DPS, F.HEALER, F.CASTER, F.MAIL)
 	recipe:AddCustom(48)
 
 	-- Darksoul Breastplate -- 24139
-	recipe = AddRecipe(24139, 300, 19693, Q.COMMON, V.ORIG, 300, 320, 330, 340)
+	recipe = AddRecipe(24139, V.ORIG, Q.COMMON)
+	recipe:SetRecipeItemID(19779)
+	recipe:SetCraftedItemID(19693)
+	recipe:SetSkillLevels(300, 300, 320, 330, 340)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.RETIRED, F.IBOE, F.RBOP, F.TANK, F.PLATE)
 	recipe:AddCustom(48)
 
 	-- Darksoul Leggings -- 24140
-	recipe = AddRecipe(24140, 300, 19694, Q.COMMON, V.ORIG, 300, 320, 330, 340)
+	recipe = AddRecipe(24140, V.ORIG, Q.COMMON)
+	recipe:SetRecipeItemID(19780)
+	recipe:SetCraftedItemID(19694)
+	recipe:SetSkillLevels(300, 300, 320, 330, 340)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.RETIRED, F.IBOE, F.RBOP, F.TANK, F.PLATE)
 	recipe:AddCustom(48)
 
 	-- Darksoul Shoulders -- 24141
-	recipe = AddRecipe(24141, 300, 19695, Q.COMMON, V.ORIG, 300, 320, 330, 340)
+	recipe = AddRecipe(24141, V.ORIG, Q.COMMON)
+	recipe:SetRecipeItemID(19781)
+	recipe:SetCraftedItemID(19695)
+	recipe:SetSkillLevels(300, 300, 320, 330, 340)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.RETIRED, F.IBOE, F.RBOP, F.TANK, F.PLATE)
 	recipe:AddCustom(48)
 
 	-- Dark Iron Boots -- 24399
-	recipe = AddRecipe(24399, 300, 20039, Q.COMMON, V.ORIG, 300, 320, 330, 340)
+	recipe = AddRecipe(24399, V.ORIG, Q.COMMON)
+	recipe:SetRecipeItemID(20040)
+	recipe:SetCraftedItemID(20039)
+	recipe:SetSkillLevels(300, 300, 320, 330, 340)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.THORIUM_BROTHERHOOD, F.PLATE)
 	recipe:AddRepVendor(FAC.THORIUM_BROTHERHOOD, REP.EXALTED, 12944)
 
 	-- Darkrune Gauntlets -- 24912
-	recipe = AddRecipe(24912, 300, 20549, Q.RARE, V.ORIG, 300, 320, 330, 340)
+	recipe = AddRecipe(24912, V.ORIG, Q.RARE)
+	recipe:SetRecipeItemID(20553)
+	recipe:SetCraftedItemID(20549)
+	recipe:SetSkillLevels(300, 300, 320, 330, 340)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.QUEST, F.IBOE, F.RBOE, F.TANK, F.PLATE)
 	recipe:AddQuest(8323)
 
 	-- Darkrune Helm -- 24913
-	recipe = AddRecipe(24913, 300, 20551, Q.RARE, V.ORIG, 300, 320, 330, 340)
+	recipe = AddRecipe(24913, V.ORIG, Q.RARE)
+	recipe:SetRecipeItemID(20555)
+	recipe:SetCraftedItemID(20551)
+	recipe:SetSkillLevels(300, 300, 320, 330, 340)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.QUEST, F.IBOE, F.RBOE, F.PLATE)
 	recipe:AddQuest(8323)
 
 	-- Darkrune Breastplate -- 24914
-	recipe = AddRecipe(24914, 300, 20550, Q.RARE, V.ORIG, 300, 320, 330, 340)
+	recipe = AddRecipe(24914, V.ORIG, Q.RARE)
+	recipe:SetRecipeItemID(20554)
+	recipe:SetCraftedItemID(20550)
+	recipe:SetSkillLevels(300, 300, 320, 330, 340)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.QUEST, F.IBOE, F.RBOE, F.TANK, F.PLATE)
 	recipe:AddQuest(8323)
 
 	-- Heavy Obsidian Belt -- 27585
-	recipe = AddRecipe(27585, 300, 22197, Q.COMMON, V.ORIG, 300, 320, 330, 340)
+	recipe = AddRecipe(27585, V.ORIG, Q.COMMON)
+	recipe:SetRecipeItemID(22209)
+	recipe:SetCraftedItemID(22197)
+	recipe:SetSkillLevels(300, 300, 320, 330, 340)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.CENARION_CIRCLE, F.PLATE)
 	recipe:AddRepVendor(FAC.CENARION_CIRCLE, REP.FRIENDLY, 15176)
 
 	-- Jagged Obsidian Shield -- 27586
-	recipe = AddRecipe(27586, 300, 22198, Q.COMMON, V.ORIG, 300, 320, 330, 340)
+	recipe = AddRecipe(27586, V.ORIG, Q.COMMON)
+	recipe:SetRecipeItemID(22219)
+	recipe:SetCraftedItemID(22198)
+	recipe:SetSkillLevels(300, 300, 320, 330, 340)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.TANK, F.CENARION_CIRCLE, F.SHIELD, F.ONE_HAND)
 	recipe:AddRepVendor(FAC.CENARION_CIRCLE, REP.REVERED, 15471)
 
 	-- Thick Obsidian Breastplate -- 27587
-	recipe = AddRecipe(27587, 300, 22196, Q.RARE, V.ORIG, 300, 320, 330, 340)
+	recipe = AddRecipe(27587, V.ORIG, Q.RARE)
+	recipe:SetRecipeItemID(22222)
+	recipe:SetCraftedItemID(22196)
+	recipe:SetSkillLevels(300, 300, 320, 330, 340)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.MOB_DROP, F.IBOE, F.RBOE, F.DPS, F.PLATE)
 	recipe:AddMobDrop(15263)
 
 	-- Light Obsidian Belt -- 27588
-	recipe = AddRecipe(27588, 300, 22195, Q.COMMON, V.ORIG, 300, 320, 330, 340)
+	recipe = AddRecipe(27588, V.ORIG, Q.COMMON)
+	recipe:SetRecipeItemID(22214)
+	recipe:SetCraftedItemID(22195)
+	recipe:SetSkillLevels(300, 300, 320, 330, 340)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.CENARION_CIRCLE, F.MAIL)
 	recipe:AddRepVendor(FAC.CENARION_CIRCLE, REP.HONORED, 15176)
 
 	-- Black Grasp of the Destroyer -- 27589
-	recipe = AddRecipe(27589, 300, 22194, Q.RARE, V.ORIG, 300, 320, 330, 340)
+	recipe = AddRecipe(27589, V.ORIG, Q.RARE)
+	recipe:SetRecipeItemID(22220)
+	recipe:SetCraftedItemID(22194)
+	recipe:SetSkillLevels(300, 300, 320, 330, 340)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.MOB_DROP, F.IBOE, F.RBOE, F.DPS, F.MAIL)
 	recipe:AddMobDrop(15340)
 
 	-- Obsidian Mail Tunic -- 27590
-	recipe = AddRecipe(27590, 300, 22191, Q.COMMON, V.ORIG, 300, 320, 330, 340)
+	recipe = AddRecipe(27590, V.ORIG, Q.COMMON)
+	recipe:SetRecipeItemID(22221)
+	recipe:SetCraftedItemID(22191)
+	recipe:SetSkillLevels(300, 300, 320, 330, 340)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.CENARION_CIRCLE, F.MAIL)
 	recipe:AddRepVendor(FAC.CENARION_CIRCLE, REP.EXALTED, 15471)
 
 	-- Titanic Leggings -- 27829
-	recipe = AddRecipe(27829, 300, 22385, Q.EPIC, V.ORIG, 300, 320, 330, 340)
+	recipe = AddRecipe(27829, V.ORIG, Q.EPIC)
+	recipe:SetRecipeItemID(22388)
+	recipe:SetCraftedItemID(22385)
+	recipe:SetSkillLevels(300, 300, 320, 330, 340)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.PLATE)
 	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
 
 	-- Persuader -- 27830
-	recipe = AddRecipe(27830, 300, 22384, Q.EPIC, V.ORIG, 300, 320, 330, 340)
+	recipe = AddRecipe(27830, V.ORIG, Q.EPIC)
+	recipe:SetRecipeItemID(22390)
+	recipe:SetCraftedItemID(22384)
+	recipe:SetSkillLevels(300, 300, 320, 330, 340)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.ONE_HAND, F.MACE)
 	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
 
 	-- Sageblade -- 27832
-	recipe = AddRecipe(27832, 300, 22383, Q.EPIC, V.ORIG, 300, 320, 330, 340)
+	recipe = AddRecipe(27832, V.ORIG, Q.EPIC)
+	recipe:SetRecipeItemID(22389)
+	recipe:SetCraftedItemID(22383)
+	recipe:SetSkillLevels(300, 300, 320, 330, 340)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.ONE_HAND, F.SWORD)
 	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
 
 	-- Icebane Breastplate -- 28242
-	recipe = AddRecipe(28242, 300, 22669, Q.EPIC, V.ORIG, 300, 320, 330, 340)
+	recipe = AddRecipe(28242, V.ORIG, Q.EPIC)
+	recipe:SetCraftedItemID(22669)
+	recipe:SetSkillLevels(300, 300, 320, 330, 340)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.RETIRED, F.IBOE, F.RBOP, F.TANK, F.PLATE)
 	recipe:AddCustom(41)
 
 	-- Icebane Gauntlets -- 28243
-	recipe = AddRecipe(28243, 300, 22670, Q.EPIC, V.ORIG, 300, 320, 330, 340)
+	recipe = AddRecipe(28243, V.ORIG, Q.EPIC)
+	recipe:SetCraftedItemID(22670)
+	recipe:SetSkillLevels(300, 300, 320, 330, 340)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.RETIRED, F.IBOE, F.RBOP, F.TANK, F.PLATE)
 	recipe:AddCustom(41)
 
 	-- Icebane Bracers -- 28244
-	recipe = AddRecipe(28244, 300, 22671, Q.EPIC, V.ORIG, 300, 320, 330, 340)
+	recipe = AddRecipe(28244, V.ORIG, Q.EPIC)
+	recipe:SetCraftedItemID(22671)
+	recipe:SetSkillLevels(300, 300, 320, 330, 340)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.RETIRED, F.IBOE, F.RBOP, F.TANK, F.PLATE)
 	recipe:AddCustom(41)
 
 	-- Ironvine Breastplate -- 28461
-	recipe = AddRecipe(28461, 300, 22762, Q.COMMON, V.ORIG, 300, 320, 330, 340)
+	recipe = AddRecipe(28461, V.ORIG, Q.COMMON)
+	recipe:SetRecipeItemID(22766)
+	recipe:SetCraftedItemID(22762)
+	recipe:SetSkillLevels(300, 300, 320, 330, 340)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.TANK, F.CENARION_CIRCLE, F.PLATE)
 	recipe:AddRepVendor(FAC.CENARION_CIRCLE, REP.REVERED, 15176)
 
 	-- Ironvine Gloves -- 28462
-	recipe = AddRecipe(28462, 300, 22763, Q.COMMON, V.ORIG, 300, 320, 330, 340)
+	recipe = AddRecipe(28462, V.ORIG, Q.COMMON)
+	recipe:SetRecipeItemID(22767)
+	recipe:SetCraftedItemID(22763)
+	recipe:SetSkillLevels(300, 300, 320, 330, 340)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.TANK, F.CENARION_CIRCLE, F.PLATE)
 	recipe:AddRepVendor(FAC.CENARION_CIRCLE, REP.HONORED, 15176)
 
 	-- Ironvine Belt -- 28463
-	recipe = AddRecipe(28463, 300, 22764, Q.COMMON, V.ORIG, 300, 320, 330, 340)
+	recipe = AddRecipe(28463, V.ORIG, Q.COMMON)
+	recipe:SetRecipeItemID(22768)
+	recipe:SetCraftedItemID(22764)
+	recipe:SetSkillLevels(300, 300, 320, 330, 340)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.TANK, F.CENARION_CIRCLE, F.PLATE)
 	recipe:AddRepVendor(FAC.CENARION_CIRCLE, REP.FRIENDLY, 15176)
 
 	-- Fel Iron Plate Gloves -- 29545
-	recipe = AddRecipe(29545, 300, 23482, Q.COMMON, V.TBC, 300, 310, 320, 330)
+	recipe = AddRecipe(29545, V.TBC, Q.COMMON)
+	recipe:SetCraftedItemID(23482)
+	recipe:SetSkillLevels(300, 300, 310, 320, 330)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS, F.PLATE)
 	recipe:AddTrainer(3355, 11177, 11178, 16583, 16823, 19341, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 33609, 33631, 33675, 44781, 45548)
 
 	-- Fel Iron Plate Belt -- 29547
-	recipe = AddRecipe(29547, 305, 23484, Q.COMMON, V.TBC, 305, 315, 325, 335)
+	recipe = AddRecipe(29547, V.TBC, Q.COMMON)
+	recipe:SetCraftedItemID(23484)
+	recipe:SetSkillLevels(305, 305, 315, 325, 335)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS, F.PLATE)
 	recipe:AddTrainer(3355, 11177, 11178, 16583, 16823, 19341, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 33609, 33631, 33675, 44781, 45548)
 
 	-- Fel Iron Plate Boots -- 29548
-	recipe = AddRecipe(29548, 315, 23487, Q.COMMON, V.TBC, 315, 325, 335, 345)
+	recipe = AddRecipe(29548, V.TBC, Q.COMMON)
+	recipe:SetCraftedItemID(23487)
+	recipe:SetSkillLevels(315, 315, 325, 335, 345)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS, F.PLATE)
 	recipe:AddTrainer(3355, 11177, 11178, 16583, 16823, 19341, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 33609, 33631, 33675, 44781, 45548)
 
 	-- Fel Iron Plate Pants -- 29549
-	recipe = AddRecipe(29549, 315, 23488, Q.COMMON, V.TBC, 315, 325, 335, 345)
+	recipe = AddRecipe(29549, V.TBC, Q.COMMON)
+	recipe:SetCraftedItemID(23488)
+	recipe:SetSkillLevels(315, 315, 325, 335, 345)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS, F.PLATE)
 	recipe:AddTrainer(3355, 11177, 11178, 16583, 16823, 19341, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 33609, 33631, 33675, 44781, 45548)
 
 	-- Fel Iron Breastplate -- 29550
-	recipe = AddRecipe(29550, 325, 23489, Q.COMMON, V.TBC, 325, 335, 345, 355)
+	recipe = AddRecipe(29550, V.TBC, Q.COMMON)
+	recipe:SetCraftedItemID(23489)
+	recipe:SetSkillLevels(325, 325, 335, 345, 355)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS, F.PLATE)
 	recipe:AddTrainer(3355, 11177, 11178, 16583, 16823, 19341, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 33609, 33631, 33675, 44781, 45548)
 
 	-- Fel Iron Chain Coif -- 29551
-	recipe = AddRecipe(29551, 300, 23493, Q.COMMON, V.TBC, 300, 320, 330, 340)
+	recipe = AddRecipe(29551, V.TBC, Q.COMMON)
+	recipe:SetCraftedItemID(23493)
+	recipe:SetSkillLevels(300, 300, 320, 330, 340)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS, F.MAIL)
 	recipe:AddTrainer(3355, 11177, 11178, 16583, 16823, 19341, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 33609, 33631, 33675, 44781, 45548)
 
 	-- Fel Iron Chain Gloves -- 29552
-	recipe = AddRecipe(29552, 310, 23491, Q.COMMON, V.TBC, 310, 320, 330, 340)
+	recipe = AddRecipe(29552, V.TBC, Q.COMMON)
+	recipe:SetCraftedItemID(23491)
+	recipe:SetSkillLevels(310, 310, 320, 330, 340)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS, F.MAIL)
 	recipe:AddTrainer(3355, 11177, 11178, 16583, 16823, 19341, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 33609, 33631, 33675, 44781, 45548)
 
 	-- Fel Iron Chain Bracers -- 29553
-	recipe = AddRecipe(29553, 315, 23494, Q.COMMON, V.TBC, 315, 325, 335, 345)
+	recipe = AddRecipe(29553, V.TBC, Q.COMMON)
+	recipe:SetCraftedItemID(23494)
+	recipe:SetSkillLevels(315, 315, 325, 335, 345)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS, F.MAIL)
 	recipe:AddTrainer(3355, 11177, 11178, 16583, 16823, 19341, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 33609, 33631, 33675, 44781, 45548)
 
 	-- Fel Iron Chain Tunic -- 29556
-	recipe = AddRecipe(29556, 320, 23490, Q.COMMON, V.TBC, 320, 330, 340, 350)
+	recipe = AddRecipe(29556, V.TBC, Q.COMMON)
+	recipe:SetCraftedItemID(23490)
+	recipe:SetSkillLevels(320, 320, 330, 340, 350)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS, F.MAIL)
 	recipe:AddTrainer(3355, 11177, 11178, 16583, 16823, 19341, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 33609, 33631, 33675, 44781, 45548)
 
 	-- Fel Iron Hatchet -- 29557
-	recipe = AddRecipe(29557, 310, 23497, Q.COMMON, V.TBC, 310, 320, 330, 340)
+	recipe = AddRecipe(29557, V.TBC, Q.COMMON)
+	recipe:SetCraftedItemID(23497)
+	recipe:SetSkillLevels(310, 310, 320, 330, 340)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS, F.ONE_HAND, F.AXE)
 	recipe:AddTrainer(3355, 11177, 11178, 16583, 16823, 19341, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 33609, 33631, 33675, 44781, 45548)
 
 	-- Fel Iron Hammer -- 29558
-	recipe = AddRecipe(29558, 315, 23498, Q.COMMON, V.TBC, 315, 325, 335, 345)
+	recipe = AddRecipe(29558, V.TBC, Q.COMMON)
+	recipe:SetCraftedItemID(23498)
+	recipe:SetSkillLevels(315, 315, 325, 335, 345)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.ONE_HAND, F.MACE)
 	recipe:AddTrainer(3355, 11177, 11178, 16583, 16823, 19341, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 33609, 33631, 33675, 44781, 45548)
 
 	-- Fel Iron Greatsword -- 29565
-	recipe = AddRecipe(29565, 320, 23499, Q.COMMON, V.TBC, 320, 330, 340, 350)
+	recipe = AddRecipe(29565, V.TBC, Q.COMMON)
+	recipe:SetCraftedItemID(23499)
+	recipe:SetSkillLevels(320, 320, 330, 340, 350)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS, F.TWO_HAND, F.SWORD)
 	recipe:AddTrainer(3355, 11177, 11178, 16583, 16823, 19341, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 33609, 33631, 33675, 44781, 45548)
 
 	-- Adamantite Maul -- 29566
-	recipe = AddRecipe(29566, 325, 23502, Q.COMMON, V.TBC, 325, 335, 345, 355)
+	recipe = AddRecipe(29566, V.TBC, Q.COMMON)
+	recipe:SetRecipeItemID(23590)
+	recipe:SetCraftedItemID(23502)
+	recipe:SetSkillLevels(325, 325, 335, 345, 355)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.DPS, F.TWO_HAND, F.MACE)
 	recipe:AddVendor(16670, 16713, 19662)
 
 	-- Adamantite Cleaver -- 29568
-	recipe = AddRecipe(29568, 330, 23503, Q.COMMON, V.TBC, 330, 340, 350, 360)
+	recipe = AddRecipe(29568, V.TBC, Q.COMMON)
+	recipe:SetRecipeItemID(23591)
+	recipe:SetCraftedItemID(23503)
+	recipe:SetSkillLevels(330, 330, 340, 350, 360)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.DPS, F.TWO_HAND, F.AXE)
 	recipe:AddVendor(16670, 16713, 19662)
 
 	-- Adamantite Dagger -- 29569
-	recipe = AddRecipe(29569, 330, 23504, Q.COMMON, V.TBC, 330, 340, 350, 360)
+	recipe = AddRecipe(29569, V.TBC, Q.COMMON)
+	recipe:SetRecipeItemID(23592)
+	recipe:SetCraftedItemID(23504)
+	recipe:SetSkillLevels(330, 330, 340, 350, 360)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.ONE_HAND, F.DAGGER)
 	recipe:AddVendor(16670, 16713, 19662)
 
 	-- Adamantite Rapier -- 29571
-	recipe = AddRecipe(29571, 335, 23505, Q.COMMON, V.TBC, 335, 345, 355, 365)
+	recipe = AddRecipe(29571, V.TBC, Q.COMMON)
+	recipe:SetRecipeItemID(23593)
+	recipe:SetCraftedItemID(23505)
+	recipe:SetSkillLevels(335, 335, 345, 355, 365)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.TANK, F.ONE_HAND, F.SWORD)
 	recipe:AddVendor(16670, 16713, 19662)
 
 	-- Adamantite Plate Bracers -- 29603
-	recipe = AddRecipe(29603, 335, 23506, Q.COMMON, V.TBC, 335, 345, 355, 365)
+	recipe = AddRecipe(29603, V.TBC, Q.COMMON)
+	recipe:SetRecipeItemID(23594)
+	recipe:SetCraftedItemID(23506)
+	recipe:SetSkillLevels(335, 335, 345, 355, 365)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.DPS, F.PLATE)
 	recipe:AddVendor(19342, 19694)
 
 	-- Adamantite Plate Gloves -- 29605
-	recipe = AddRecipe(29605, 335, 23508, Q.COMMON, V.TBC, 335, 345, 355, 365)
+	recipe = AddRecipe(29605, V.TBC, Q.COMMON)
+	recipe:SetRecipeItemID(23595)
+	recipe:SetCraftedItemID(23508)
+	recipe:SetSkillLevels(335, 335, 345, 355, 365)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.DPS, F.PLATE)
 	recipe:AddVendor(19342, 19694)
 
 	-- Adamantite Breastplate -- 29606
-	recipe = AddRecipe(29606, 340, 23507, Q.COMMON, V.TBC, 340, 350, 360, 370)
+	recipe = AddRecipe(29606, V.TBC, Q.COMMON)
+	recipe:SetRecipeItemID(23596)
+	recipe:SetCraftedItemID(23507)
+	recipe:SetSkillLevels(340, 340, 350, 360, 370)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.DPS, F.PLATE)
 	recipe:AddVendor(19342, 19694)
 
 	-- Enchanted Adamantite Belt -- 29608
-	recipe = AddRecipe(29608, 355, 23510, Q.COMMON, V.TBC, 355, 365, 375, 385)
+	recipe = AddRecipe(29608, V.TBC, Q.COMMON)
+	recipe:SetRecipeItemID(23597)
+	recipe:SetCraftedItemID(23510)
+	recipe:SetSkillLevels(355, 355, 365, 375, 385)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.TANK, F.SCRYER, F.PLATE)
 	recipe:AddRepVendor(FAC.SCRYER, REP.FRIENDLY, 19331)
 
 	-- Enchanted Adamantite Breastplate -- 29610
-	recipe = AddRecipe(29610, 360, 23509, Q.COMMON, V.TBC, 360, 370, 380, 390)
+	recipe = AddRecipe(29610, V.TBC, Q.COMMON)
+	recipe:SetRecipeItemID(23599)
+	recipe:SetCraftedItemID(23509)
+	recipe:SetSkillLevels(360, 360, 370, 380, 390)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.TANK, F.SCRYER, F.PLATE)
 	recipe:AddRepVendor(FAC.SCRYER, REP.REVERED, 19331)
 
 	-- Enchanted Adamantite Boots -- 29611
-	recipe = AddRecipe(29611, 355, 23511, Q.COMMON, V.TBC, 355, 365, 375, 385)
+	recipe = AddRecipe(29611, V.TBC, Q.COMMON)
+	recipe:SetRecipeItemID(23598)
+	recipe:SetCraftedItemID(23511)
+	recipe:SetSkillLevels(355, 355, 365, 375, 385)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.TANK, F.SCRYER, F.PLATE)
 	recipe:AddRepVendor(FAC.SCRYER, REP.HONORED, 19331)
 
 	-- Enchanted Adamantite Leggings -- 29613
-	recipe = AddRecipe(29613, 365, 23512, Q.COMMON, V.TBC, 365, 375, 385, 395)
+	recipe = AddRecipe(29613, V.TBC, Q.COMMON)
+	recipe:SetRecipeItemID(23600)
+	recipe:SetCraftedItemID(23512)
+	recipe:SetSkillLevels(365, 365, 375, 385, 395)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.TANK, F.SCRYER, F.PLATE)
 	recipe:AddRepVendor(FAC.SCRYER, REP.EXALTED, 19331)
 
 	-- Flamebane Bracers -- 29614
-	recipe = AddRecipe(29614, 350, 23515, Q.COMMON, V.TBC, 350, 360, 370, 380)
+	recipe = AddRecipe(29614, V.TBC, Q.COMMON)
+	recipe:SetRecipeItemID(23601)
+	recipe:SetCraftedItemID(23515)
+	recipe:SetSkillLevels(350, 350, 360, 370, 380)
 	recipe:AddFilters(F.ALLIANCE, F.VENDOR, F.IBOE, F.RBOP, F.TANK, F.ALDOR, F.PLATE)
 	recipe:AddRepVendor(FAC.ALDOR, REP.FRIENDLY, 19321)
 
 	-- Flamebane Helm -- 29615
-	recipe = AddRecipe(29615, 355, 23516, Q.COMMON, V.TBC, 355, 365, 375, 385)
+	recipe = AddRecipe(29615, V.TBC, Q.COMMON)
+	recipe:SetRecipeItemID(23602)
+	recipe:SetCraftedItemID(23516)
+	recipe:SetSkillLevels(355, 355, 365, 375, 385)
 	recipe:AddFilters(F.ALLIANCE, F.VENDOR, F.IBOE, F.RBOP, F.TANK, F.ALDOR, F.PLATE)
 	recipe:AddRepVendor(FAC.ALDOR, REP.EXALTED, 19321)
 
 	-- Flamebane Gloves -- 29616
-	recipe = AddRecipe(29616, 360, 23514, Q.COMMON, V.TBC, 360, 370, 380, 390)
+	recipe = AddRecipe(29616, V.TBC, Q.COMMON)
+	recipe:SetRecipeItemID(23603)
+	recipe:SetCraftedItemID(23514)
+	recipe:SetSkillLevels(360, 360, 370, 380, 390)
 	recipe:AddFilters(F.ALLIANCE, F.VENDOR, F.IBOE, F.RBOP, F.TANK, F.ALDOR, F.PLATE)
 	recipe:AddRepVendor(FAC.ALDOR, REP.HONORED, 19321)
 
 	-- Flamebane Breastplate -- 29617
-	recipe = AddRecipe(29617, 365, 23513, Q.COMMON, V.TBC, 365, 375, 385, 395)
+	recipe = AddRecipe(29617, V.TBC, Q.COMMON)
+	recipe:SetRecipeItemID(23604)
+	recipe:SetCraftedItemID(23513)
+	recipe:SetSkillLevels(365, 365, 375, 385, 395)
 	recipe:AddFilters(F.ALLIANCE, F.VENDOR, F.IBOE, F.RBOP, F.TANK, F.ALDOR, F.PLATE)
 	recipe:AddRepVendor(FAC.ALDOR, REP.REVERED, 19321)
 
 	-- Felsteel Gloves -- 29619
-	recipe = AddRecipe(29619, 360, 23517, Q.RARE, V.TBC, 360, 370, 380, 390)
+	recipe = AddRecipe(29619, V.TBC, Q.RARE)
+	recipe:SetRecipeItemID(23605)
+	recipe:SetCraftedItemID(23517)
+	recipe:SetSkillLevels(360, 360, 370, 380, 390)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.INSTANCE, F.MOB_DROP, F.IBOE, F.RBOP, F.TANK, F.PLATE)
 	recipe:AddMobDrop(18497)
 
 	-- Felsteel Leggings -- 29620
-	recipe = AddRecipe(29620, 360, 23518, Q.RARE, V.TBC, 360, 370, 380, 390)
+	recipe = AddRecipe(29620, V.TBC, Q.RARE)
+	recipe:SetRecipeItemID(23606)
+	recipe:SetCraftedItemID(23518)
+	recipe:SetSkillLevels(360, 360, 370, 380, 390)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.INSTANCE, F.MOB_DROP, F.IBOE, F.RBOP, F.TANK, F.PLATE)
 	recipe:AddMobDrop(20900)
 
 	-- Felsteel Helm -- 29621
-	recipe = AddRecipe(29621, 365, 23519, Q.RARE, V.TBC, 365, 375, 385, 395)
+	recipe = AddRecipe(29621, V.TBC, Q.RARE)
+	recipe:SetRecipeItemID(23607)
+	recipe:SetCraftedItemID(23519)
+	recipe:SetSkillLevels(365, 365, 375, 385, 395)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.INSTANCE, F.MOB_DROP, F.IBOE, F.RBOP, F.TANK, F.PLATE)
 	recipe:AddMobDrop(18830)
 
 	-- Gauntlets of the Iron Tower -- 29622
-	recipe = AddRecipe(29622, 365, 23532, Q.EPIC, V.TBC, 365, 375, 385, 395)
+	recipe = AddRecipe(29622, V.TBC, Q.EPIC)
+	recipe:SetRecipeItemID(23621)
+	recipe:SetCraftedItemID(23532)
+	recipe:SetSkillLevels(365, 365, 375, 385, 395)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.TANK, F.PLATE)
 	recipe:AddWorldDrop("Outland")
 
 	-- Khorium Belt -- 29628
-	recipe = AddRecipe(29628, 360, 23524, Q.RARE, V.TBC, 360, 370, 380, 390)
+	recipe = AddRecipe(29628, V.TBC, Q.RARE)
+	recipe:SetRecipeItemID(23608)
+	recipe:SetCraftedItemID(23524)
+	recipe:SetSkillLevels(360, 360, 370, 380, 390)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.PLATE)
 	recipe:AddMobDrop(18203)
 
 	-- Khorium Pants -- 29629
-	recipe = AddRecipe(29629, 360, 23523, Q.RARE, V.TBC, 360, 370, 380, 390)
+	recipe = AddRecipe(29629, V.TBC, Q.RARE)
+	recipe:SetRecipeItemID(23609)
+	recipe:SetCraftedItemID(23523)
+	recipe:SetSkillLevels(360, 360, 370, 380, 390)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.PLATE)
 	recipe:AddMobDrop(20878)
 
 	-- Khorium Boots -- 29630
-	recipe = AddRecipe(29630, 365, 23525, Q.RARE, V.TBC, 365, 375, 385, 395)
+	recipe = AddRecipe(29630, V.TBC, Q.RARE)
+	recipe:SetRecipeItemID(23610)
+	recipe:SetCraftedItemID(23525)
+	recipe:SetSkillLevels(365, 365, 375, 385, 395)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.PLATE)
 	recipe:AddMobDrop(18873)
 
 	-- Ragesteel Gloves -- 29642
-	recipe = AddRecipe(29642, 365, 23520, Q.RARE, V.TBC, 365, 375, 385, 395)
+	recipe = AddRecipe(29642, V.TBC, Q.RARE)
+	recipe:SetRecipeItemID(23611)
+	recipe:SetCraftedItemID(23520)
+	recipe:SetSkillLevels(365, 365, 375, 385, 395)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOE, F.RBOP, F.DPS, F.PLATE)
 	recipe:AddMobDrop(17136)
 
 	-- Ragesteel Helm -- 29643
-	recipe = AddRecipe(29643, 365, 23521, Q.RARE, V.TBC, 365, 375, 385, 395)
+	recipe = AddRecipe(29643, V.TBC, Q.RARE)
+	recipe:SetRecipeItemID(23612)
+	recipe:SetCraftedItemID(23521)
+	recipe:SetSkillLevels(365, 365, 375, 385, 395)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOE, F.RBOP, F.DPS, F.PLATE)
 	recipe:AddMobDrop(16952)
 
 	-- Ragesteel Breastplate -- 29645
-	recipe = AddRecipe(29645, 370, 23522, Q.RARE, V.TBC, 370, 380, 390, 400)
+	recipe = AddRecipe(29645, V.TBC, Q.RARE)
+	recipe:SetRecipeItemID(23613)
+	recipe:SetCraftedItemID(23522)
+	recipe:SetSkillLevels(370, 370, 380, 390, 400)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOE, F.RBOP, F.DPS, F.PLATE)
 	recipe:AddMobDrop(21454, 23305, 23324)
 
 	-- Swiftsteel Gloves -- 29648
-	recipe = AddRecipe(29648, 370, 23526, Q.RARE, V.TBC, 370, 380, 390, 400)
+	recipe = AddRecipe(29648, V.TBC, Q.RARE)
+	recipe:SetRecipeItemID(23615)
+	recipe:SetCraftedItemID(23526)
+	recipe:SetSkillLevels(370, 370, 380, 390, 400)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.INSTANCE, F.MOB_DROP, F.IBOE, F.RBOP, F.DPS, F.HEALER, F.CASTER, F.MAIL)
 	recipe:AddMobDrop(18314)
 
 	-- Earthpeace Breastplate -- 29649
-	recipe = AddRecipe(29649, 370, 23527, Q.RARE, V.TBC, 370, 380, 390, 400)
+	recipe = AddRecipe(29649, V.TBC, Q.RARE)
+	recipe:SetRecipeItemID(23617)
+	recipe:SetCraftedItemID(23527)
+	recipe:SetSkillLevels(370, 370, 380, 390, 400)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.INSTANCE, F.MOB_DROP, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.MAIL)
 	recipe:AddMobDrop(17975)
 
 	-- Fel Sharpening Stone -- 29654
-	recipe = AddRecipe(29654, 300, 23528, Q.COMMON, V.TBC, 300, 300, 305, 310)
+	recipe = AddRecipe(29654, V.TBC, Q.COMMON)
+	recipe:SetCraftedItemID(23528)
+	recipe:SetSkillLevels(300, 300, 300, 305, 310)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS)
 	recipe:AddTrainer(3355, 11177, 11178, 16583, 16823, 19341, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 33609, 33631, 33675, 44781, 45548)
 
 	-- Adamantite Sharpening Stone -- 29656
-	recipe = AddRecipe(29656, 350, 23529, Q.COMMON, V.TBC, 350, 350, 355, 360)
+	recipe = AddRecipe(29656, V.TBC, Q.COMMON)
+	recipe:SetRecipeItemID(23618)
+	recipe:SetCraftedItemID(23529)
+	recipe:SetSkillLevels(350, 350, 350, 355, 360)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.CENARION_EXPEDITION)
 	recipe:AddRepVendor(FAC.CENARION_EXPEDITION, REP.HONORED, 17904)
 
 	-- Felsteel Shield Spike -- 29657
-	recipe = AddRecipe(29657, 360, 23530, Q.COMMON, V.TBC, 360, 370, 380, 390)
+	recipe = AddRecipe(29657, V.TBC, Q.COMMON)
+	recipe:SetRecipeItemID(24002)
+	recipe:SetCraftedItemID(23530)
+	recipe:SetSkillLevels(360, 360, 370, 380, 390)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.TANK, F.HELLFIRE)
 	recipe:AddRepVendor(FAC.HONOR_HOLD, REP.EXALTED, 17657)
 	recipe:AddRepVendor(FAC.THRALLMAR, REP.EXALTED, 17585)
 
 	-- Felfury Gauntlets -- 29658
-	recipe = AddRecipe(29658, 365, 23531, Q.EPIC, V.TBC, 365, 375, 385, 395)
+	recipe = AddRecipe(29658, V.TBC, Q.EPIC)
+	recipe:SetRecipeItemID(23620)
+	recipe:SetCraftedItemID(23531)
+	recipe:SetSkillLevels(365, 365, 375, 385, 395)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.MAIL)
 	recipe:AddWorldDrop("Outland")
 
 	-- Steelgrip Gauntlets -- 29662
-	recipe = AddRecipe(29662, 365, 23533, Q.EPIC, V.TBC, 365, 375, 385, 395)
+	recipe = AddRecipe(29662, V.TBC, Q.EPIC)
+	recipe:SetRecipeItemID(23622)
+	recipe:SetCraftedItemID(23533)
+	recipe:SetSkillLevels(365, 365, 375, 385, 395)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.PLATE)
 	recipe:AddWorldDrop("Outland")
 
 	-- Storm Helm -- 29663
-	recipe = AddRecipe(29663, 365, 23534, Q.EPIC, V.TBC, 365, 375, 385, 395)
+	recipe = AddRecipe(29663, V.TBC, Q.EPIC)
+	recipe:SetRecipeItemID(23623)
+	recipe:SetCraftedItemID(23534)
+	recipe:SetSkillLevels(365, 365, 375, 385, 395)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.HEALER, F.CASTER, F.MAIL)
 	recipe:AddWorldDrop("Outland")
 
 	-- Helm of the Stalwart Defender -- 29664
-	recipe = AddRecipe(29664, 365, 23535, Q.EPIC, V.TBC, 365, 375, 385, 395)
+	recipe = AddRecipe(29664, V.TBC, Q.EPIC)
+	recipe:SetRecipeItemID(23624)
+	recipe:SetCraftedItemID(23535)
+	recipe:SetSkillLevels(365, 365, 375, 385, 395)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.TANK, F.PLATE)
 	recipe:AddWorldDrop("Outland")
 
 	-- Oathkeeper's Helm -- 29668
-	recipe = AddRecipe(29668, 365, 23536, Q.EPIC, V.TBC, 365, 375, 385, 395)
+	recipe = AddRecipe(29668, V.TBC, Q.EPIC)
+	recipe:SetRecipeItemID(23625)
+	recipe:SetCraftedItemID(23536)
+	recipe:SetSkillLevels(365, 365, 375, 385, 395)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.TANK, F.PLATE)
 	recipe:AddWorldDrop("Outland")
 
 	-- Black Felsteel Bracers -- 29669
-	recipe = AddRecipe(29669, 365, 23537, Q.EPIC, V.TBC, 365, 375, 385, 395)
+	recipe = AddRecipe(29669, V.TBC, Q.EPIC)
+	recipe:SetRecipeItemID(23626)
+	recipe:SetCraftedItemID(23537)
+	recipe:SetSkillLevels(365, 365, 375, 385, 395)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.PLATE)
 	recipe:AddWorldDrop("Outland")
 
 	-- Bracers of the Green Fortress -- 29671
-	recipe = AddRecipe(29671, 365, 23538, Q.EPIC, V.TBC, 365, 375, 385, 395)
+	recipe = AddRecipe(29671, V.TBC, Q.EPIC)
+	recipe:SetRecipeItemID(23627)
+	recipe:SetCraftedItemID(23538)
+	recipe:SetSkillLevels(365, 365, 375, 385, 395)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.TANK, F.PLATE)
 	recipe:AddWorldDrop("Outland")
 
 	-- Blessed Bracers -- 29672
-	recipe = AddRecipe(29672, 365, 23539, Q.EPIC, V.TBC, 365, 375, 385, 395)
+	recipe = AddRecipe(29672, V.TBC, Q.EPIC)
+	recipe:SetRecipeItemID(23628)
+	recipe:SetCraftedItemID(23539)
+	recipe:SetSkillLevels(365, 365, 375, 385, 395)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.PLATE)
 	recipe:AddWorldDrop("Outland")
 
 	-- Felsteel Longblade -- 29692
-	recipe = AddRecipe(29692, 365, 23540, Q.EPIC, V.TBC, 365, 375, 385, 395)
+	recipe = AddRecipe(29692, V.TBC, Q.EPIC)
+	recipe:SetRecipeItemID(23629)
+	recipe:SetCraftedItemID(23540)
+	recipe:SetSkillLevels(365, 365, 375, 385, 395)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.ONE_HAND, F.SWORD)
 	recipe:AddWorldDrop("Outland")
 
 	-- Khorium Champion -- 29693
-	recipe = AddRecipe(29693, 365, 23541, Q.EPIC, V.TBC, 365, 375, 385, 395)
+	recipe = AddRecipe(29693, V.TBC, Q.EPIC)
+	recipe:SetRecipeItemID(23630)
+	recipe:SetCraftedItemID(23541)
+	recipe:SetSkillLevels(365, 365, 375, 385, 395)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.TWO_HAND, F.SWORD)
 	recipe:AddWorldDrop("Outland")
 
 	-- Fel Edged Battleaxe -- 29694
-	recipe = AddRecipe(29694, 365, 23542, Q.EPIC, V.TBC, 365, 375, 385, 395)
+	recipe = AddRecipe(29694, V.TBC, Q.EPIC)
+	recipe:SetRecipeItemID(23631)
+	recipe:SetCraftedItemID(23542)
+	recipe:SetSkillLevels(365, 365, 375, 385, 395)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.ONE_HAND, F.AXE)
 	recipe:AddWorldDrop("Outland")
 
 	-- Felsteel Reaper -- 29695
-	recipe = AddRecipe(29695, 365, 23543, Q.EPIC, V.TBC, 365, 375, 385, 395)
+	recipe = AddRecipe(29695, V.TBC, Q.EPIC)
+	recipe:SetRecipeItemID(23632)
+	recipe:SetCraftedItemID(23543)
+	recipe:SetSkillLevels(365, 365, 375, 385, 395)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.TWO_HAND, F.AXE)
 	recipe:AddWorldDrop("Outland")
 
 	-- Runic Hammer -- 29696
-	recipe = AddRecipe(29696, 365, 23544, Q.EPIC, V.TBC, 365, 375, 385, 395)
+	recipe = AddRecipe(29696, V.TBC, Q.EPIC)
+	recipe:SetRecipeItemID(23633)
+	recipe:SetCraftedItemID(23544)
+	recipe:SetSkillLevels(365, 365, 375, 385, 395)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.ONE_HAND, F.MACE)
 	recipe:AddWorldDrop("Outland")
 
 	-- Fel Hardened Maul -- 29697
-	recipe = AddRecipe(29697, 365, 23546, Q.EPIC, V.TBC, 365, 375, 385, 395)
+	recipe = AddRecipe(29697, V.TBC, Q.EPIC)
+	recipe:SetRecipeItemID(23634)
+	recipe:SetCraftedItemID(23546)
+	recipe:SetSkillLevels(365, 365, 375, 385, 395)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.TWO_HAND, F.MACE)
 	recipe:AddWorldDrop("Outland")
 
 	-- Eternium Runed Blade -- 29698
-	recipe = AddRecipe(29698, 365, 23554, Q.EPIC, V.TBC, 365, 375, 385, 395)
+	recipe = AddRecipe(29698, V.TBC, Q.EPIC)
+	recipe:SetRecipeItemID(23635)
+	recipe:SetCraftedItemID(23554)
+	recipe:SetSkillLevels(365, 365, 375, 385, 395)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.ONE_HAND, F.DAGGER)
 	recipe:AddWorldDrop("Outland")
 
 	-- Dirge -- 29699
-	recipe = AddRecipe(29699, 365, 23555, Q.EPIC, V.TBC, 365, 375, 385, 395)
+	recipe = AddRecipe(29699, V.TBC, Q.EPIC)
+	recipe:SetRecipeItemID(23636)
+	recipe:SetCraftedItemID(23555)
+	recipe:SetSkillLevels(365, 365, 375, 385, 395)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.ONE_HAND, F.DAGGER)
 	recipe:AddWorldDrop("Outland")
 
 	-- Hand of Eternity -- 29700
-	recipe = AddRecipe(29700, 365, 23556, Q.EPIC, V.TBC, 365, 375, 385, 395)
+	recipe = AddRecipe(29700, V.TBC, Q.EPIC)
+	recipe:SetRecipeItemID(23637)
+	recipe:SetCraftedItemID(23556)
+	recipe:SetSkillLevels(365, 365, 375, 385, 395)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.ONE_HAND, F.MACE)
 	recipe:AddWorldDrop("Outland")
 
 	-- Lesser Ward of Shielding -- 29728
-	recipe = AddRecipe(29728, 340, 23575, Q.COMMON, V.TBC, 340, 340, 345, 350)
+	recipe = AddRecipe(29728, V.TBC, Q.COMMON)
+	recipe:SetRecipeItemID(23638)
+	recipe:SetCraftedItemID(23575)
+	recipe:SetSkillLevels(340, 340, 340, 345, 350)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE)
 	recipe:AddVendor(16583, 19373)
 
 	-- Greater Ward of Shielding -- 29729
-	recipe = AddRecipe(29729, 375, 23576, Q.RARE, V.TBC, 375, 375, 375, 375)
+	recipe = AddRecipe(29729, V.TBC, Q.RARE)
+	recipe:SetRecipeItemID(23639)
+	recipe:SetCraftedItemID(23576)
+	recipe:SetSkillLevels(375, 375, 375, 375, 375)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOE, F.RBOP)
 	recipe:AddMobDrop(18853)
 
 	-- Lesser Rune of Warding -- 32284
-	recipe = AddRecipe(32284, 325, 23559, Q.COMMON, V.TBC, 325, 325, 330, 335)
+	recipe = AddRecipe(32284, V.TBC, Q.COMMON)
+	recipe:SetCraftedItemID(23559)
+	recipe:SetSkillLevels(325, 325, 325, 330, 335)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	recipe:AddTrainer(3355, 11177, 11178, 16583, 16823, 19341, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 33609, 33631, 44781, 45548)
 
 	-- Greater Rune of Warding -- 32285
-	recipe = AddRecipe(32285, 350, 25521, Q.COMMON, V.TBC, 350, 350, 355, 360)
+	recipe = AddRecipe(32285, V.TBC, Q.COMMON)
+	recipe:SetRecipeItemID(25526)
+	recipe:SetCraftedItemID(25521)
+	recipe:SetSkillLevels(350, 350, 350, 355, 360)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.CENARION_EXPEDITION)
 	recipe:AddRepVendor(FAC.CENARION_EXPEDITION, REP.HONORED, 17904)
 
 	-- Fel Iron Rod -- 32655
-	recipe = AddRecipe(32655, 300, 25843, Q.COMMON, V.TBC, 300, 300, 305, 310)
+	recipe = AddRecipe(32655, V.TBC, Q.COMMON)
+	recipe:SetCraftedItemID(25843)
+	recipe:SetSkillLevels(300, 300, 300, 305, 310)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	recipe:AddTrainer(3355, 11177, 11178, 16583, 16823, 19341, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 33609, 33631, 33675, 44781, 45548)
 
 	-- Adamantite Rod -- 32656
-	recipe = AddRecipe(32656, 350, 25844, Q.COMMON, V.TBC, 350, 350, 355, 360)
+	recipe = AddRecipe(32656, V.TBC, Q.COMMON)
+	recipe:SetRecipeItemID(25846)
+	recipe:SetCraftedItemID(25844)
+	recipe:SetSkillLevels(350, 350, 350, 355, 360)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE)
 	recipe:AddVendor(19662)
 
 	-- Eternium Rod -- 32657
-	recipe = AddRecipe(32657, 360, 25845, Q.COMMON, V.TBC, 360, 365, 370, 375)
+	recipe = AddRecipe(32657, V.TBC, Q.COMMON)
+	recipe:SetRecipeItemID(25847)
+	recipe:SetCraftedItemID(25845)
+	recipe:SetSkillLevels(360, 360, 365, 370, 375)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE)
 	recipe:AddVendor(16583, 19373)
 
 	-- Nether Chain Shirt -- 34529
-	recipe = AddRecipe(34529, 350, 23563, Q.COMMON, V.TBC, 350, 360, 370, 380)
+	recipe = AddRecipe(34529, V.TBC, Q.COMMON)
+	recipe:SetCraftedItemID(23563)
+	recipe:SetSkillLevels(350, 350, 360, 370, 380)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.RETIRED, F.IBOP, F.RBOP, F.DPS, F.HEALER, F.CASTER, F.MAIL)
 	recipe:AddCustom(48)
 
 	-- Twisting Nether Chain Shirt -- 34530
-	recipe = AddRecipe(34530, 375, 23564, Q.COMMON, V.TBC, 375, 385, 395, 405)
+	recipe = AddRecipe(34530, V.TBC, Q.COMMON)
+	recipe:SetCraftedItemID(23564)
+	recipe:SetSkillLevels(375, 375, 385, 395, 405)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.RETIRED, F.IBOP, F.RBOP, F.DPS, F.MAIL)
 	recipe:AddCustom(48)
 
 	-- Breastplate of Kings -- 34533
-	recipe = AddRecipe(34533, 350, 28483, Q.COMMON, V.TBC, 350, 360, 370, 380)
+	recipe = AddRecipe(34533, V.TBC, Q.COMMON)
+	recipe:SetCraftedItemID(28483)
+	recipe:SetSkillLevels(350, 350, 360, 370, 380)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.RETIRED, F.IBOP, F.RBOP, F.DPS, F.PLATE)
 	recipe:AddCustom(48)
 
 	-- Bulwark of Kings -- 34534
-	recipe = AddRecipe(34534, 375, 28484, Q.COMMON, V.TBC, 375, 385, 395, 405)
+	recipe = AddRecipe(34534, V.TBC, Q.COMMON)
+	recipe:SetCraftedItemID(28484)
+	recipe:SetSkillLevels(375, 375, 385, 395, 405)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.RETIRED, F.IBOP, F.RBOP, F.DPS, F.PLATE)
 	recipe:AddCustom(48)
 
 	-- Fireguard -- 34535
-	recipe = AddRecipe(34535, 350, 28425, Q.COMMON, V.TBC, 350, 360, 370, 380)
+	recipe = AddRecipe(34535, V.TBC, Q.COMMON)
+	recipe:SetCraftedItemID(28425)
+	recipe:SetSkillLevels(350, 350, 360, 370, 380)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.RETIRED, F.IBOP, F.RBOP, F.DPS, F.ONE_HAND, F.SWORD)
 	recipe:AddCustom(48)
 
 	-- Blazeguard -- 34537
-	recipe = AddRecipe(34537, 375, 28426, Q.COMMON, V.TBC, 375, 385, 395, 405)
+	recipe = AddRecipe(34537, V.TBC, Q.COMMON)
+	recipe:SetCraftedItemID(28426)
+	recipe:SetSkillLevels(375, 375, 385, 395, 405)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.RETIRED, F.IBOP, F.RBOP, F.DPS, F.ONE_HAND, F.SWORD)
 	recipe:AddCustom(48)
 
 	-- Lionheart Blade -- 34538
-	recipe = AddRecipe(34538, 350, 28428, Q.COMMON, V.TBC, 350, 360, 370, 380)
+	recipe = AddRecipe(34538, V.TBC, Q.COMMON)
+	recipe:SetCraftedItemID(28428)
+	recipe:SetSkillLevels(350, 350, 360, 370, 380)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.RETIRED, F.IBOP, F.RBOP, F.DPS, F.TWO_HAND, F.SWORD)
 	recipe:AddCustom(48)
 
 	-- Lionheart Champion -- 34540
-	recipe = AddRecipe(34540, 375, 28429, Q.COMMON, V.TBC, 375, 385, 395, 405)
+	recipe = AddRecipe(34540, V.TBC, Q.COMMON)
+	recipe:SetCraftedItemID(28429)
+	recipe:SetSkillLevels(375, 375, 385, 395, 405)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.RETIRED, F.IBOP, F.RBOP, F.DPS, F.TWO_HAND, F.SWORD)
 	recipe:AddCustom(48)
 
 	-- The Planar Edge -- 34541
-	recipe = AddRecipe(34541, 350, 28431, Q.COMMON, V.TBC, 350, 360, 370, 380)
+	recipe = AddRecipe(34541, V.TBC, Q.COMMON)
+	recipe:SetCraftedItemID(28431)
+	recipe:SetSkillLevels(350, 350, 360, 370, 380)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.RETIRED, F.IBOP, F.RBOP, F.DPS, F.ONE_HAND, F.AXE)
 	recipe:AddCustom(48)
 
 	-- Black Planar Edge -- 34542
-	recipe = AddRecipe(34542, 375, 28432, Q.COMMON, V.TBC, 375, 385, 395, 405)
+	recipe = AddRecipe(34542, V.TBC, Q.COMMON)
+	recipe:SetCraftedItemID(28432)
+	recipe:SetSkillLevels(375, 375, 385, 395, 405)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.RETIRED, F.IBOP, F.RBOP, F.DPS, F.ONE_HAND, F.AXE)
 	recipe:AddCustom(48)
 
 	-- Lunar Crescent -- 34543
-	recipe = AddRecipe(34543, 350, 28434, Q.COMMON, V.TBC, 350, 360, 370, 380)
+	recipe = AddRecipe(34543, V.TBC, Q.COMMON)
+	recipe:SetCraftedItemID(28434)
+	recipe:SetSkillLevels(350, 350, 360, 370, 380)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.RETIRED, F.IBOP, F.RBOP, F.DPS, F.TWO_HAND, F.AXE)
 	recipe:AddCustom(48)
 
 	-- Mooncleaver -- 34544
-	recipe = AddRecipe(34544, 375, 28435, Q.COMMON, V.TBC, 375, 385, 395, 405)
+	recipe = AddRecipe(34544, V.TBC, Q.COMMON)
+	recipe:SetCraftedItemID(28435)
+	recipe:SetSkillLevels(375, 375, 385, 395, 405)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.RETIRED, F.IBOP, F.RBOP, F.DPS, F.TWO_HAND, F.AXE)
 	recipe:AddCustom(48)
 
 	-- Drakefist Hammer -- 34545
-	recipe = AddRecipe(34545, 350, 28437, Q.COMMON, V.TBC, 350, 360, 370, 380)
+	recipe = AddRecipe(34545, V.TBC, Q.COMMON)
+	recipe:SetCraftedItemID(28437)
+	recipe:SetSkillLevels(350, 350, 360, 370, 380)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.RETIRED, F.IBOP, F.RBOP, F.ONE_HAND, F.MACE)
 	recipe:AddCustom(48)
 
 	-- Dragonmaw -- 34546
-	recipe = AddRecipe(34546, 375, 28438, Q.COMMON, V.TBC, 375, 385, 395, 405)
+	recipe = AddRecipe(34546, V.TBC, Q.COMMON)
+	recipe:SetCraftedItemID(28438)
+	recipe:SetSkillLevels(375, 375, 385, 395, 405)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.RETIRED, F.IBOP, F.RBOP, F.ONE_HAND, F.MACE)
 	recipe:AddCustom(48)
 
 	-- Thunder -- 34547
-	recipe = AddRecipe(34547, 350, 28440, Q.COMMON, V.TBC, 350, 360, 370, 380)
+	recipe = AddRecipe(34547, V.TBC, Q.COMMON)
+	recipe:SetCraftedItemID(28440)
+	recipe:SetSkillLevels(350, 350, 360, 370, 380)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.RETIRED, F.IBOP, F.RBOP, F.DPS, F.TWO_HAND, F.MACE)
 	recipe:AddCustom(48)
 
 	-- Deep Thunder -- 34548
-	recipe = AddRecipe(34548, 375, 28441, Q.COMMON, V.TBC, 375, 385, 395, 405)
+	recipe = AddRecipe(34548, V.TBC, Q.COMMON)
+	recipe:SetCraftedItemID(28441)
+	recipe:SetSkillLevels(375, 375, 385, 395, 405)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.RETIRED, F.IBOP, F.RBOP, F.DPS, F.TWO_HAND, F.MACE)
 	recipe:AddCustom(48)
 
 	-- Fel Weightstone -- 34607
-	recipe = AddRecipe(34607, 300, 28420, Q.COMMON, V.TBC, 300, 300, 305, 310)
+	recipe = AddRecipe(34607, V.TBC, Q.COMMON)
+	recipe:SetCraftedItemID(28420)
+	recipe:SetSkillLevels(300, 300, 300, 305, 310)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS)
 	recipe:AddTrainer(3355, 11177, 11178, 16583, 16823, 19341, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 33609, 33631, 33675, 44781, 45548)
 
 	-- Adamantite Weightstone -- 34608
-	recipe = AddRecipe(34608, 350, 28421, Q.COMMON, V.TBC, 350, 350, 355, 360)
+	recipe = AddRecipe(34608, V.TBC, Q.COMMON)
+	recipe:SetRecipeItemID(28632)
+	recipe:SetCraftedItemID(28421)
+	recipe:SetSkillLevels(350, 350, 350, 355, 360)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.CENARION_EXPEDITION)
 	recipe:AddRepVendor(FAC.CENARION_EXPEDITION, REP.HONORED, 17904)
 
 	-- Thick Bronze Darts -- 34979
-	recipe = AddRecipe(34979, 100, 29201, Q.COMMON, V.TBC, 100, 130, 145, 160)
+	recipe = AddRecipe(34979, V.TBC, Q.COMMON)
+	recipe:SetCraftedItemID(29201)
+	recipe:SetSkillLevels(100, 100, 130, 145, 160)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS, F.THROWN)
 	recipe:AddTrainer(514, 1241, 2836, 2998, 3136, 3174, 3355, 3478, 3557, 4258, 4596, 5511, 6299, 11177, 11178, 15400, 16583, 16669, 16724, 16823, 17245, 19341, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 33609, 33631, 33675, 44781, 45548)
 
 	-- Whirling Steel Axes -- 34981
-	recipe = AddRecipe(34981, 200, 29202, Q.COMMON, V.TBC, 200, 220, 230, 240)
+	recipe = AddRecipe(34981, V.TBC, Q.COMMON)
+	recipe:SetCraftedItemID(29202)
+	recipe:SetSkillLevels(200, 200, 220, 230, 240)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS, F.THROWN)
 	recipe:AddTrainer(514, 1241, 2836, 2998, 3136, 3174, 3355, 3478, 3557, 4258, 4596, 5511, 6299, 11177, 11178, 15400, 16583, 16669, 16724, 16823, 17245, 19341, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 33609, 33631, 33675, 44781, 45548)
 
 	-- Enchanted Thorium Blades -- 34982
-	recipe = AddRecipe(34982, 300, 29203, Q.COMMON, V.TBC, 300, 320, 330, 340)
+	recipe = AddRecipe(34982, V.TBC, Q.COMMON)
+	recipe:SetCraftedItemID(29203)
+	recipe:SetSkillLevels(300, 300, 320, 330, 340)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS, F.THROWN)
 	recipe:AddTrainer(514, 1241, 2836, 2998, 3136, 3174, 3355, 3478, 3557, 4258, 4596, 5511, 6299, 11177, 11178, 15400, 16583, 16724, 16823, 17245, 19341, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 33609, 33631, 33675, 44781, 45548)
 
 	-- Felsteel Whisper Knives -- 34983
-	recipe = AddRecipe(34983, 350, 29204, Q.COMMON, V.TBC, 350, 360, 370, 380)
+	recipe = AddRecipe(34983, V.TBC, Q.COMMON)
+	recipe:SetCraftedItemID(29204)
+	recipe:SetSkillLevels(350, 350, 360, 370, 380)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS, F.THROWN)
 	recipe:AddTrainer(3355, 11177, 11178, 16583, 16823, 19341, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 33609, 33631, 33675, 44781, 45548)
 
 	-- Earthforged Leggings -- 36122
-	recipe = AddRecipe(36122, 260, 30069, Q.COMMON, V.TBC, 260, 280, 290, 300)
+	recipe = AddRecipe(36122, V.TBC, Q.COMMON)
+	recipe:SetCraftedItemID(30069)
+	recipe:SetSkillLevels(260, 260, 280, 290, 300)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.RETIRED, F.IBOP, F.RBOP, F.DPS, F.PLATE)
 	recipe:AddCustom(48)
 
 	-- Windforged Leggings -- 36124
-	recipe = AddRecipe(36124, 260, 30070, Q.COMMON, V.TBC, 260, 280, 290, 300)
+	recipe = AddRecipe(36124, V.TBC, Q.COMMON)
+	recipe:SetCraftedItemID(30070)
+	recipe:SetSkillLevels(260, 260, 280, 290, 300)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.RETIRED, F.IBOP, F.RBOP, F.DPS, F.MAIL)
 	recipe:AddCustom(48)
 
 	-- Light Earthforged Blade -- 36125
-	recipe = AddRecipe(36125, 260, 30071, Q.COMMON, V.TBC, 260, 280, 290, 300)
+	recipe = AddRecipe(36125, V.TBC, Q.COMMON)
+	recipe:SetCraftedItemID(30071)
+	recipe:SetSkillLevels(260, 260, 280, 290, 300)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.RETIRED, F.IBOP, F.RBOP, F.ONE_HAND, F.SWORD)
 	recipe:AddCustom(48)
 
 	-- Light Skyforged Axe -- 36126
-	recipe = AddRecipe(36126, 260, 30072, Q.COMMON, V.TBC, 260, 280, 290, 300)
+	recipe = AddRecipe(36126, V.TBC, Q.COMMON)
+	recipe:SetCraftedItemID(30072)
+	recipe:SetSkillLevels(260, 260, 280, 290, 300)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.RETIRED, F.IBOP, F.RBOP, F.ONE_HAND, F.AXE)
 	recipe:AddCustom(48)
 
 	-- Light Emberforged Hammer -- 36128
-	recipe = AddRecipe(36128, 260, 30073, Q.COMMON, V.TBC, 260, 280, 290, 300)
+	recipe = AddRecipe(36128, V.TBC, Q.COMMON)
+	recipe:SetCraftedItemID(30073)
+	recipe:SetSkillLevels(260, 260, 280, 290, 300)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.RETIRED, F.IBOP, F.RBOP, F.DPS, F.ONE_HAND, F.MACE)
 	recipe:AddCustom(48)
 
 	-- Heavy Earthforged Breastplate -- 36129
-	recipe = AddRecipe(36129, 330, 30074, Q.COMMON, V.TBC, 330, 340, 350, 360)
+	recipe = AddRecipe(36129, V.TBC, Q.COMMON)
+	recipe:SetCraftedItemID(30074)
+	recipe:SetSkillLevels(330, 330, 340, 350, 360)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.RETIRED, F.IBOP, F.RBOP, F.TANK, F.PLATE)
 	recipe:AddCustom(48)
 
 	-- Stormforged Hauberk -- 36130
-	recipe = AddRecipe(36130, 330, 30076, Q.COMMON, V.TBC, 330, 340, 350, 360)
+	recipe = AddRecipe(36130, V.TBC, Q.COMMON)
+	recipe:SetCraftedItemID(30076)
+	recipe:SetSkillLevels(330, 330, 340, 350, 360)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.RETIRED, F.IBOP, F.RBOP, F.DPS, F.MAIL)
 	recipe:AddCustom(48)
 
 	-- Windforged Rapier -- 36131
-	recipe = AddRecipe(36131, 330, 30077, Q.COMMON, V.TBC, 330, 340, 350, 360)
+	recipe = AddRecipe(36131, V.TBC, Q.COMMON)
+	recipe:SetCraftedItemID(30077)
+	recipe:SetSkillLevels(330, 330, 340, 350, 360)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.RETIRED, F.IBOP, F.RBOP, F.ONE_HAND, F.SWORD)
 	recipe:AddCustom(48)
 
 	-- Stoneforged Claymore -- 36133
-	recipe = AddRecipe(36133, 330, 30086, Q.COMMON, V.TBC, 330, 340, 350, 360)
+	recipe = AddRecipe(36133, V.TBC, Q.COMMON)
+	recipe:SetCraftedItemID(30086)
+	recipe:SetSkillLevels(330, 330, 340, 350, 360)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.RETIRED, F.IBOP, F.RBOP, F.DPS, F.TWO_HAND, F.SWORD)
 	recipe:AddCustom(48)
 
 	-- Stormforged Axe -- 36134
-	recipe = AddRecipe(36134, 330, 30087, Q.COMMON, V.TBC, 330, 340, 350, 360)
+	recipe = AddRecipe(36134, V.TBC, Q.COMMON)
+	recipe:SetCraftedItemID(30087)
+	recipe:SetSkillLevels(330, 330, 340, 350, 360)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.RETIRED, F.IBOP, F.RBOP, F.DPS, F.ONE_HAND, F.AXE)
 	recipe:AddCustom(48)
 
 	-- Skyforged Great Axe -- 36135
-	recipe = AddRecipe(36135, 330, 30088, Q.COMMON, V.TBC, 330, 340, 350, 360)
+	recipe = AddRecipe(36135, V.TBC, Q.COMMON)
+	recipe:SetCraftedItemID(30088)
+	recipe:SetSkillLevels(330, 330, 340, 350, 360)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.RETIRED, F.IBOP, F.RBOP, F.DPS, F.TWO_HAND, F.AXE)
 	recipe:AddCustom(48)
 
 	-- Lavaforged Warhammer -- 36136
-	recipe = AddRecipe(36136, 330, 30089, Q.COMMON, V.TBC, 330, 340, 350, 360)
+	recipe = AddRecipe(36136, V.TBC, Q.COMMON)
+	recipe:SetCraftedItemID(30089)
+	recipe:SetSkillLevels(330, 330, 340, 350, 360)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.RETIRED, F.IBOP, F.RBOP, F.DPS, F.ONE_HAND, F.MACE)
 	recipe:AddCustom(48)
 
 	-- Great Earthforged Hammer -- 36137
-	recipe = AddRecipe(36137, 330, 30093, Q.COMMON, V.TBC, 330, 340, 350, 360)
+	recipe = AddRecipe(36137, V.TBC, Q.COMMON)
+	recipe:SetCraftedItemID(30093)
+	recipe:SetSkillLevels(330, 330, 340, 350, 360)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.RETIRED, F.IBOP, F.RBOP, F.DPS, F.TWO_HAND, F.MACE)
 	recipe:AddCustom(48)
 
 	-- Embrace of the Twisting Nether -- 36256
-	recipe = AddRecipe(36256, 375, 23565, Q.COMMON, V.TBC, 375, 385, 395, 405)
+	recipe = AddRecipe(36256, V.TBC, Q.COMMON)
+	recipe:SetCraftedItemID(23565)
+	recipe:SetSkillLevels(375, 375, 385, 395, 405)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.RETIRED, F.IBOP, F.RBOP, F.DPS, F.MAIL)
 	recipe:AddCustom(48)
 
 	-- Bulwark of the Ancient Kings -- 36257
-	recipe = AddRecipe(36257, 375, 28485, Q.COMMON, V.TBC, 375, 385, 395, 405)
+	recipe = AddRecipe(36257, V.TBC, Q.COMMON)
+	recipe:SetCraftedItemID(28485)
+	recipe:SetSkillLevels(375, 375, 385, 395, 405)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.RETIRED, F.IBOP, F.RBOP, F.DPS, F.PLATE)
 	recipe:AddCustom(48)
 
 	-- Blazefury -- 36258
-	recipe = AddRecipe(36258, 375, 28427, Q.COMMON, V.TBC, 375, 385, 395, 405)
+	recipe = AddRecipe(36258, V.TBC, Q.COMMON)
+	recipe:SetCraftedItemID(28427)
+	recipe:SetSkillLevels(375, 375, 385, 395, 405)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.RETIRED, F.IBOP, F.RBOP, F.DPS, F.ONE_HAND, F.SWORD)
 	recipe:AddCustom(48)
 
 	-- Lionheart Executioner -- 36259
-	recipe = AddRecipe(36259, 375, 28430, Q.COMMON, V.TBC, 375, 385, 395, 405)
+	recipe = AddRecipe(36259, V.TBC, Q.COMMON)
+	recipe:SetCraftedItemID(28430)
+	recipe:SetSkillLevels(375, 375, 385, 395, 405)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.RETIRED, F.IBOP, F.RBOP, F.DPS, F.TWO_HAND, F.SWORD)
 	recipe:AddCustom(48)
 
 	-- Wicked Edge of the Planes -- 36260
-	recipe = AddRecipe(36260, 375, 28433, Q.COMMON, V.TBC, 375, 385, 395, 405)
+	recipe = AddRecipe(36260, V.TBC, Q.COMMON)
+	recipe:SetCraftedItemID(28433)
+	recipe:SetSkillLevels(375, 375, 385, 395, 405)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.RETIRED, F.IBOP, F.RBOP, F.DPS, F.ONE_HAND, F.AXE)
 	recipe:AddCustom(48)
 
 	-- Bloodmoon -- 36261
-	recipe = AddRecipe(36261, 375, 28436, Q.COMMON, V.TBC, 375, 385, 395, 405)
+	recipe = AddRecipe(36261, V.TBC, Q.COMMON)
+	recipe:SetCraftedItemID(28436)
+	recipe:SetSkillLevels(375, 375, 385, 395, 405)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.RETIRED, F.IBOP, F.RBOP, F.DPS, F.TWO_HAND, F.AXE)
 	recipe:AddCustom(48)
 
 	-- Dragonstrike -- 36262
-	recipe = AddRecipe(36262, 375, 28439, Q.COMMON, V.TBC, 375, 385, 395, 405)
+	recipe = AddRecipe(36262, V.TBC, Q.COMMON)
+	recipe:SetCraftedItemID(28439)
+	recipe:SetSkillLevels(375, 375, 385, 395, 405)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.RETIRED, F.IBOP, F.RBOP, F.ONE_HAND, F.MACE)
 	recipe:AddCustom(48)
 
 	-- Stormherald -- 36263
-	recipe = AddRecipe(36263, 375, 28442, Q.COMMON, V.TBC, 375, 385, 395, 405)
+	recipe = AddRecipe(36263, V.TBC, Q.COMMON)
+	recipe:SetCraftedItemID(28442)
+	recipe:SetSkillLevels(375, 375, 385, 395, 405)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.RETIRED, F.IBOP, F.RBOP, F.DPS, F.TWO_HAND, F.MACE)
 	recipe:AddCustom(48)
 
 	-- Belt of the Guardian -- 36389
-	recipe = AddRecipe(36389, 375, 30034, Q.EPIC, V.TBC, 375, 385, 395, 405)
+	recipe = AddRecipe(36389, V.TBC, Q.EPIC)
+	recipe:SetRecipeItemID(30321)
+	recipe:SetCraftedItemID(30034)
+	recipe:SetSkillLevels(375, 375, 385, 395, 405)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOP, F.TANK, F.PLATE)
 	recipe:AddCustom(37, 43)
 
 	-- Red Belt of Battle -- 36390
-	recipe = AddRecipe(36390, 375, 30032, Q.EPIC, V.TBC, 375, 385, 395, 405)
+	recipe = AddRecipe(36390, V.TBC, Q.EPIC)
+	recipe:SetRecipeItemID(30322)
+	recipe:SetCraftedItemID(30032)
+	recipe:SetSkillLevels(375, 375, 385, 395, 405)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOP, F.DPS, F.PLATE)
 	recipe:AddCustom(37, 43)
 
 	-- Boots of the Protector -- 36391
-	recipe = AddRecipe(36391, 375, 30033, Q.EPIC, V.TBC, 375, 385, 395, 405)
+	recipe = AddRecipe(36391, V.TBC, Q.EPIC)
+	recipe:SetRecipeItemID(30323)
+	recipe:SetCraftedItemID(30033)
+	recipe:SetSkillLevels(375, 375, 385, 395, 405)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOP, F.RBOE, F.TANK, F.PLATE)
 	recipe:AddCustom(37, 43)
 
 	-- Red Havoc Boots -- 36392
-	recipe = AddRecipe(36392, 375, 30031, Q.EPIC, V.TBC, 375, 385, 395, 405)
+	recipe = AddRecipe(36392, V.TBC, Q.EPIC)
+	recipe:SetRecipeItemID(30324)
+	recipe:SetCraftedItemID(30031)
+	recipe:SetSkillLevels(375, 375, 385, 395, 405)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOP, F.RBOP, F.TANK, F.PLATE)
 	recipe:AddCustom(37, 43)
 
 	-- Wildguard Breastplate -- 38473
-	recipe = AddRecipe(38473, 375, 31364, Q.EPIC, V.TBC, 375, 385, 395, 405)
+	recipe = AddRecipe(38473, V.TBC, Q.EPIC)
+	recipe:SetRecipeItemID(31390)
+	recipe:SetCraftedItemID(31364)
+	recipe:SetSkillLevels(375, 375, 385, 395, 405)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.TANK, F.CENARION_EXPEDITION, F.PLATE)
 	recipe:AddRepVendor(FAC.CENARION_EXPEDITION, REP.EXALTED, 17904)
 
 	-- Wildguard Leggings -- 38475
-	recipe = AddRecipe(38475, 375, 31367, Q.EPIC, V.TBC, 375, 385, 395, 405)
+	recipe = AddRecipe(38475, V.TBC, Q.EPIC)
+	recipe:SetRecipeItemID(31391)
+	recipe:SetCraftedItemID(31367)
+	recipe:SetSkillLevels(375, 375, 385, 395, 405)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.CENARION_EXPEDITION, F.PLATE)
 	recipe:AddRepVendor(FAC.CENARION_EXPEDITION, REP.REVERED, 17904)
 
 	-- Wildguard Helm -- 38476
-	recipe = AddRecipe(38476, 375, 31368, Q.EPIC, V.TBC, 375, 385, 395, 405)
+	recipe = AddRecipe(38476, V.TBC, Q.EPIC)
+	recipe:SetRecipeItemID(31392)
+	recipe:SetCraftedItemID(31368)
+	recipe:SetSkillLevels(375, 375, 385, 395, 405)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.TANK, F.CENARION_EXPEDITION, F.PLATE)
 	recipe:AddRepVendor(FAC.CENARION_EXPEDITION, REP.REVERED, 17904)
 
 	-- Iceguard Breastplate -- 38477
-	recipe = AddRecipe(38477, 375, 31369, Q.EPIC, V.TBC, 375, 385, 395, 405)
+	recipe = AddRecipe(38477, V.TBC, Q.EPIC)
+	recipe:SetRecipeItemID(31393)
+	recipe:SetCraftedItemID(31369)
+	recipe:SetSkillLevels(375, 375, 385, 395, 405)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.TANK, F.VIOLETEYE, F.PLATE)
 	recipe:AddRepVendor(FAC.VIOLETEYE, REP.HONORED, 16388)
 
 	-- Iceguard Leggings -- 38478
-	recipe = AddRecipe(38478, 375, 31370, Q.EPIC, V.TBC, 375, 385, 395, 405)
+	recipe = AddRecipe(38478, V.TBC, Q.EPIC)
+	recipe:SetRecipeItemID(31394)
+	recipe:SetCraftedItemID(31370)
+	recipe:SetSkillLevels(375, 375, 385, 395, 405)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.VIOLETEYE, F.PLATE)
 	recipe:AddRepVendor(FAC.VIOLETEYE, REP.REVERED, 16388)
 
 	-- Iceguard Helm -- 38479
-	recipe = AddRecipe(38479, 375, 31371, Q.EPIC, V.TBC, 375, 385, 395, 405)
+	recipe = AddRecipe(38479, V.TBC, Q.EPIC)
+	recipe:SetRecipeItemID(31395)
+	recipe:SetCraftedItemID(31371)
+	recipe:SetSkillLevels(375, 375, 385, 395, 405)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.TANK, F.VIOLETEYE, F.PLATE)
 	recipe:AddRepVendor(FAC.VIOLETEYE, REP.HONORED, 16388)
 
 	-- Shadesteel Sabots -- 40033
-	recipe = AddRecipe(40033, 375, 32402, Q.COMMON, V.TBC, 375, 385, 395, 405)
+	recipe = AddRecipe(40033, V.TBC, Q.COMMON)
+	recipe:SetRecipeItemID(32441)
+	recipe:SetCraftedItemID(32402)
+	recipe:SetSkillLevels(375, 375, 385, 395, 405)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.ASHTONGUE, F.PLATE)
 	recipe:AddRepVendor(FAC.ASHTONGUE, REP.HONORED, 23159)
 
 	-- Shadesteel Bracers -- 40034
-	recipe = AddRecipe(40034, 375, 32403, Q.COMMON, V.TBC, 375, 385, 395, 405)
+	recipe = AddRecipe(40034, V.TBC, Q.COMMON)
+	recipe:SetRecipeItemID(32442)
+	recipe:SetCraftedItemID(32403)
+	recipe:SetSkillLevels(375, 375, 385, 395, 405)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.ASHTONGUE, F.PLATE)
 	recipe:AddRepVendor(FAC.ASHTONGUE, REP.FRIENDLY, 23159)
 
 	-- Shadesteel Greaves -- 40035
-	recipe = AddRecipe(40035, 375, 32404, Q.COMMON, V.TBC, 375, 385, 395, 405)
+	recipe = AddRecipe(40035, V.TBC, Q.COMMON)
+	recipe:SetRecipeItemID(32443)
+	recipe:SetCraftedItemID(32404)
+	recipe:SetSkillLevels(375, 375, 385, 395, 405)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.ASHTONGUE, F.PLATE)
 	recipe:AddRepVendor(FAC.ASHTONGUE, REP.HONORED, 23159)
 
 	-- Shadesteel Girdle -- 40036
-	recipe = AddRecipe(40036, 375, 32401, Q.COMMON, V.TBC, 375, 385, 395, 405)
+	recipe = AddRecipe(40036, V.TBC, Q.COMMON)
+	recipe:SetRecipeItemID(32444)
+	recipe:SetCraftedItemID(32401)
+	recipe:SetSkillLevels(375, 375, 385, 395, 405)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.ASHTONGUE, F.PLATE)
 	recipe:AddRepVendor(FAC.ASHTONGUE, REP.FRIENDLY, 23159)
 
 	-- Swiftsteel Bracers -- 41132
-	recipe = AddRecipe(41132, 375, 32568, Q.EPIC, V.TBC, 375, 385, 395, 405)
+	recipe = AddRecipe(41132, V.TBC, Q.EPIC)
+	recipe:SetRecipeItemID(32736)
+	recipe:SetCraftedItemID(32568)
+	recipe:SetSkillLevels(375, 375, 385, 395, 405)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOP, F.DPS, F.PLATE)
 	recipe:AddCustom(27, 34)
 
 	-- Swiftsteel Shoulders -- 41133
-	recipe = AddRecipe(41133, 375, 32570, Q.EPIC, V.TBC, 375, 385, 395, 405)
+	recipe = AddRecipe(41133, V.TBC, Q.EPIC)
+	recipe:SetRecipeItemID(32737)
+	recipe:SetCraftedItemID(32570)
+	recipe:SetSkillLevels(375, 375, 385, 395, 405)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOP, F.RBOE, F.DPS, F.PLATE)
 	recipe:AddCustom(34)
 
 	-- Dawnsteel Bracers -- 41134
-	recipe = AddRecipe(41134, 375, 32571, Q.EPIC, V.TBC, 375, 385, 395, 405)
+	recipe = AddRecipe(41134, V.TBC, Q.EPIC)
+	recipe:SetRecipeItemID(32738)
+	recipe:SetCraftedItemID(32571)
+	recipe:SetSkillLevels(375, 375, 385, 395, 405)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.PLATE)
 	recipe:AddCustom(34)
 
 	-- Dawnsteel Shoulders -- 41135
-	recipe = AddRecipe(41135, 375, 32573, Q.EPIC, V.TBC, 375, 385, 395, 405)
+	recipe = AddRecipe(41135, V.TBC, Q.EPIC)
+	recipe:SetRecipeItemID(32739)
+	recipe:SetCraftedItemID(32573)
+	recipe:SetSkillLevels(375, 375, 385, 395, 405)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOP, F.RBOE, F.HEALER, F.CASTER, F.PLATE)
 	recipe:AddCustom(27, 34)
 
 	-- Ragesteel Shoulders -- 42662
-	recipe = AddRecipe(42662, 365, 33173, Q.RARE, V.TBC, 365, 375, 385, 395)
+	recipe = AddRecipe(42662, V.TBC, Q.RARE)
+	recipe:SetCraftedItemID(33173)
+	recipe:SetSkillLevels(365, 365, 375, 385, 395)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOE, F.RBOP, F.DPS, F.PLATE)
 	recipe:AddMobDrop(21050, 21059, 21060, 21061)
 
 	-- Adamantite Weapon Chain -- 42688
-	recipe = AddRecipe(42688, 335, 33185, Q.UNCOMMON, V.TBC, 335, 345, 350, 355)
+	recipe = AddRecipe(42688, V.TBC, Q.UNCOMMON)
+	recipe:SetRecipeItemID(35296)
+	recipe:SetCraftedItemID(33185)
+	recipe:SetSkillLevels(335, 335, 345, 350, 355)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOE, F.RBOP, F.TANK)
 	recipe:AddMobDrop(24664)
 
 	-- Heavy Copper Longsword -- 43549
-	recipe = AddRecipe(43549, 35, 33791, Q.UNCOMMON, V.TBC, 35, 75, 95, 115)
+	recipe = AddRecipe(43549, V.TBC, Q.UNCOMMON)
+	recipe:SetRecipeItemID(33792)
+	recipe:SetCraftedItemID(33791)
+	recipe:SetSkillLevels(35, 35, 75, 95, 115)
 	recipe:AddFilters(F.ALLIANCE, F.QUEST, F.IBOE, F.RBOE, F.DPS, F.ONE_HAND, F.SWORD)
 	recipe:AddQuest(1578)
 
 	-- Hammer of Righteous Might -- 43846
-	recipe = AddRecipe(43846, 365, 32854, Q.EPIC, V.TBC, 365, 375, 385, 395)
+	recipe = AddRecipe(43846, V.TBC, Q.EPIC)
+	recipe:SetRecipeItemID(33954)
+	recipe:SetCraftedItemID(32854)
+	recipe:SetSkillLevels(365, 365, 375, 385, 395)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.TWO_HAND, F.MACE)
 	recipe:AddWorldDrop("Outland")
 
 	-- Sunblessed Gauntlets -- 46140
-	recipe = AddRecipe(46140, 365, 34380, Q.EPIC, V.TBC, 365, 375, 392, 410)
+	recipe = AddRecipe(46140, V.TBC, Q.EPIC)
+	recipe:SetRecipeItemID(35208)
+	recipe:SetCraftedItemID(34380)
+	recipe:SetSkillLevels(365, 365, 375, 392, 410)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.PLATE)
 	recipe:AddCustom(24)
 
 	-- Hard Khorium Battlefists -- 46141
-	recipe = AddRecipe(46141, 365, 34378, Q.EPIC, V.TBC, 365, 375, 392, 410)
+	recipe = AddRecipe(46141, V.TBC, Q.EPIC)
+	recipe:SetRecipeItemID(35209)
+	recipe:SetCraftedItemID(34378)
+	recipe:SetSkillLevels(365, 365, 375, 392, 410)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOP, F.DPS, F.PLATE)
 	recipe:AddCustom(24)
 
 	-- Sunblessed Breastplate -- 46142
-	recipe = AddRecipe(46142, 365, 34379, Q.EPIC, V.TBC, 365, 375, 392, 410)
+	recipe = AddRecipe(46142, V.TBC, Q.EPIC)
+	recipe:SetRecipeItemID(35210)
+	recipe:SetCraftedItemID(34379)
+	recipe:SetSkillLevels(365, 365, 375, 392, 410)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOP, F.RBOE, F.HEALER, F.CASTER, F.PLATE)
 	recipe:AddCustom(24)
 
 	-- Hard Khorium Battleplate -- 46144
-	recipe = AddRecipe(46144, 365, 34377, Q.EPIC, V.TBC, 365, 375, 392, 410)
+	recipe = AddRecipe(46144, V.TBC, Q.EPIC)
+	recipe:SetRecipeItemID(35211)
+	recipe:SetCraftedItemID(34377)
+	recipe:SetSkillLevels(365, 365, 375, 392, 410)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOP, F.RBOE, F.DPS, F.PLATE)
 	recipe:AddCustom(24)
 
 	-- Cobalt Legplates -- 52567
-	recipe = AddRecipe(52567, 370, 39086, Q.COMMON, V.WOTLK, 370, 375, 380, 385)
+	recipe = AddRecipe(52567, V.WOTLK, Q.COMMON)
+	recipe:SetCraftedItemID(39086)
+	recipe:SetSkillLevels(370, 370, 375, 380, 385)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.TANK, F.PLATE)
 	recipe:AddTrainer(3355, 11177, 11178, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 44781, 45548)
 
 	-- Cobalt Belt -- 52568
-	recipe = AddRecipe(52568, 350, 39087, Q.COMMON, V.WOTLK, 350, 360, 370, 380)
+	recipe = AddRecipe(52568, V.WOTLK, Q.COMMON)
+	recipe:SetCraftedItemID(39087)
+	recipe:SetSkillLevels(350, 350, 360, 370, 380)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.TANK, F.PLATE)
 	recipe:AddTrainer(3355, 11177, 11178, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 44781, 45548)
 
 	-- Cobalt Boots -- 52569
-	recipe = AddRecipe(52569, 350, 39088, Q.COMMON, V.WOTLK, 350, 360, 370, 380)
+	recipe = AddRecipe(52569, V.WOTLK, Q.COMMON)
+	recipe:SetCraftedItemID(39088)
+	recipe:SetSkillLevels(350, 350, 360, 370, 380)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.TANK, F.PLATE)
 	recipe:AddTrainer(3355, 11177, 11178, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 44781, 45548)
 
 	-- Cobalt Chestpiece -- 52570
-	recipe = AddRecipe(52570, 375, 39085, Q.COMMON, V.WOTLK, 375, 380, 385, 390)
+	recipe = AddRecipe(52570, V.WOTLK, Q.COMMON)
+	recipe:SetCraftedItemID(39085)
+	recipe:SetSkillLevels(375, 375, 380, 385, 390)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.TANK, F.PLATE)
 	recipe:AddTrainer(3355, 11177, 11178, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 44781, 45548)
 
 	-- Cobalt Helm -- 52571
-	recipe = AddRecipe(52571, 370, 39084, Q.COMMON, V.WOTLK, 370, 375, 380, 385)
+	recipe = AddRecipe(52571, V.WOTLK, Q.COMMON)
+	recipe:SetCraftedItemID(39084)
+	recipe:SetSkillLevels(370, 370, 375, 380, 385)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.TANK, F.PLATE)
 	recipe:AddTrainer(3355, 11177, 11178, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 44781, 45548)
 
 	-- Cobalt Shoulders -- 52572
-	recipe = AddRecipe(52572, 360, 39083, Q.COMMON, V.WOTLK, 360, 370, 375, 380)
+	recipe = AddRecipe(52572, V.WOTLK, Q.COMMON)
+	recipe:SetCraftedItemID(39083)
+	recipe:SetSkillLevels(360, 360, 370, 375, 380)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.TANK, F.PLATE)
 	recipe:AddTrainer(3355, 11177, 11178, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 44781, 45548)
 
 	-- Cobalt Triangle Shield -- 54550
-	recipe = AddRecipe(54550, 360, 40668, Q.COMMON, V.WOTLK, 360, 370, 375, 380)
+	recipe = AddRecipe(54550, V.WOTLK, Q.COMMON)
+	recipe:SetCraftedItemID(40668)
+	recipe:SetSkillLevels(360, 360, 370, 375, 380)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.TANK, F.SHIELD, F.ONE_HAND)
 	recipe:AddTrainer(3355, 11177, 11178, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 44781, 45548)
 
 	-- Tempered Saronite Belt -- 54551
-	recipe = AddRecipe(54551, 395, 40669, Q.COMMON, V.WOTLK, 395, 400, 405, 410)
+	recipe = AddRecipe(54551, V.WOTLK, Q.COMMON)
+	recipe:SetCraftedItemID(40669)
+	recipe:SetSkillLevels(395, 395, 400, 405, 410)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.TANK, F.PLATE)
 	recipe:AddTrainer(3355, 11177, 11178, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 44781, 45548)
 
 	-- Tempered Saronite Boots -- 54552
-	recipe = AddRecipe(54552, 400, 40671, Q.COMMON, V.WOTLK, 400, 405, 410, 415)
+	recipe = AddRecipe(54552, V.WOTLK, Q.COMMON)
+	recipe:SetCraftedItemID(40671)
+	recipe:SetSkillLevels(400, 400, 405, 410, 415)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.TANK, F.PLATE)
 	recipe:AddTrainer(3355, 11177, 11178, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 44781, 45548)
 
 	-- Tempered Saronite Breastplate -- 54553
-	recipe = AddRecipe(54553, 400, 40672, Q.COMMON, V.WOTLK, 400, 405, 410, 415)
+	recipe = AddRecipe(54553, V.WOTLK, Q.COMMON)
+	recipe:SetCraftedItemID(40672)
+	recipe:SetSkillLevels(400, 400, 405, 410, 415)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.TANK, F.PLATE)
 	recipe:AddTrainer(3355, 11177, 11178, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 44781, 45548)
 
 	-- Tempered Saronite Legplates -- 54554
-	recipe = AddRecipe(54554, 395, 40674, Q.COMMON, V.WOTLK, 395, 400, 405, 410)
+	recipe = AddRecipe(54554, V.WOTLK, Q.COMMON)
+	recipe:SetCraftedItemID(40674)
+	recipe:SetSkillLevels(395, 395, 400, 405, 410)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.TANK, F.PLATE)
 	recipe:AddTrainer(3355, 11177, 11178, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 44781, 45548)
 
 	-- Tempered Saronite Helm -- 54555
-	recipe = AddRecipe(54555, 405, 40673, Q.COMMON, V.WOTLK, 405, 410, 415, 420)
+	recipe = AddRecipe(54555, V.WOTLK, Q.COMMON)
+	recipe:SetCraftedItemID(40673)
+	recipe:SetSkillLevels(405, 405, 410, 415, 420)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.TANK, F.PLATE)
 	recipe:AddTrainer(3355, 11177, 11178, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 44781, 45548)
 
 	-- Tempered Saronite Shoulders -- 54556
-	recipe = AddRecipe(54556, 405, 40675, Q.COMMON, V.WOTLK, 405, 410, 415, 420)
+	recipe = AddRecipe(54556, V.WOTLK, Q.COMMON)
+	recipe:SetCraftedItemID(40675)
+	recipe:SetSkillLevels(405, 405, 410, 415, 420)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.TANK, F.PLATE)
 	recipe:AddTrainer(3355, 11177, 11178, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 44781, 45548)
 
 	-- Saronite Defender -- 54557
-	recipe = AddRecipe(54557, 390, 40670, Q.COMMON, V.WOTLK, 390, 395, 400, 405)
+	recipe = AddRecipe(54557, V.WOTLK, Q.COMMON)
+	recipe:SetCraftedItemID(40670)
+	recipe:SetSkillLevels(390, 390, 395, 400, 405)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.TANK, F.SHIELD, F.ONE_HAND)
 	recipe:AddTrainer(3355, 11177, 11178, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 44781, 45548)
 
 	-- Spiked Cobalt Helm -- 54917
-	recipe = AddRecipe(54917, 375, 40942, Q.COMMON, V.WOTLK, 375, 380, 385, 390)
+	recipe = AddRecipe(54917, V.WOTLK, Q.COMMON)
+	recipe:SetCraftedItemID(40942)
+	recipe:SetSkillLevels(375, 375, 380, 385, 390)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS, F.PLATE)
 	recipe:AddTrainer(3355, 11177, 11178, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 44781, 45548)
 
 	-- Spiked Cobalt Boots -- 54918
-	recipe = AddRecipe(54918, 380, 40949, Q.COMMON, V.WOTLK, 380, 385, 390, 395)
+	recipe = AddRecipe(54918, V.WOTLK, Q.COMMON)
+	recipe:SetCraftedItemID(40949)
+	recipe:SetSkillLevels(380, 380, 385, 390, 395)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS, F.PLATE)
 	recipe:AddTrainer(3355, 11177, 11178, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 44781, 45548)
 
 	-- Spiked Cobalt Shoulders -- 54941
-	recipe = AddRecipe(54941, 385, 40950, Q.COMMON, V.WOTLK, 385, 390, 395, 400)
+	recipe = AddRecipe(54941, V.WOTLK, Q.COMMON)
+	recipe:SetCraftedItemID(40950)
+	recipe:SetSkillLevels(385, 385, 390, 395, 400)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS, F.PLATE)
 	recipe:AddTrainer(3355, 11177, 11178, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 44781, 45548)
 
 	-- Spiked Cobalt Chestpiece -- 54944
-	recipe = AddRecipe(54944, 385, 40951, Q.COMMON, V.WOTLK, 385, 390, 395, 400)
+	recipe = AddRecipe(54944, V.WOTLK, Q.COMMON)
+	recipe:SetCraftedItemID(40951)
+	recipe:SetSkillLevels(385, 385, 390, 395, 400)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS, F.PLATE)
 	recipe:AddTrainer(3355, 11177, 11178, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 44781, 45548)
 
 	-- Spiked Cobalt Gauntlets -- 54945
-	recipe = AddRecipe(54945, 390, 40952, Q.COMMON, V.WOTLK, 390, 395, 400, 405)
+	recipe = AddRecipe(54945, V.WOTLK, Q.COMMON)
+	recipe:SetCraftedItemID(40952)
+	recipe:SetSkillLevels(390, 390, 395, 400, 405)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS, F.PLATE)
 	recipe:AddTrainer(3355, 11177, 11178, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 44781, 45548)
 
 	-- Spiked Cobalt Belt -- 54946
-	recipe = AddRecipe(54946, 395, 40953, Q.COMMON, V.WOTLK, 395, 400, 405, 410)
+	recipe = AddRecipe(54946, V.WOTLK, Q.COMMON)
+	recipe:SetCraftedItemID(40953)
+	recipe:SetSkillLevels(395, 395, 400, 405, 410)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS, F.PLATE)
 	recipe:AddTrainer(3355, 11177, 11178, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 44781, 45548)
 
 	-- Spiked Cobalt Legplates -- 54947
-	recipe = AddRecipe(54947, 395, 40943, Q.COMMON, V.WOTLK, 395, 400, 405, 410)
+	recipe = AddRecipe(54947, V.WOTLK, Q.COMMON)
+	recipe:SetCraftedItemID(40943)
+	recipe:SetSkillLevels(395, 395, 400, 405, 410)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS, F.PLATE)
 	recipe:AddTrainer(3355, 11177, 11178, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 44781, 45548)
 
 	-- Spiked Cobalt Bracers -- 54948
-	recipe = AddRecipe(54948, 400, 40954, Q.COMMON, V.WOTLK, 400, 405, 410, 415)
+	recipe = AddRecipe(54948, V.WOTLK, Q.COMMON)
+	recipe:SetCraftedItemID(40954)
+	recipe:SetSkillLevels(400, 400, 405, 410, 415)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS, F.PLATE)
 	recipe:AddTrainer(3355, 11177, 11178, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 44781, 45548)
 
 	-- Horned Cobalt Helm -- 54949
-	recipe = AddRecipe(54949, 400, 40955, Q.COMMON, V.WOTLK, 400, 405, 410, 415)
+	recipe = AddRecipe(54949, V.WOTLK, Q.COMMON)
+	recipe:SetCraftedItemID(40955)
+	recipe:SetSkillLevels(400, 400, 405, 410, 415)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS, F.PLATE)
 	recipe:AddTrainer(3355, 11177, 11178, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 44781, 45548)
 
 	-- Reinforced Cobalt Shoulders -- 54978
-	recipe = AddRecipe(54978, 375, 40956, Q.UNCOMMON, V.WOTLK, 375, 395, 400, 405)
+	recipe = AddRecipe(54978, V.WOTLK, Q.UNCOMMON)
+	recipe:SetRecipeItemID(41124)
+	recipe:SetCraftedItemID(40956)
+	recipe:SetSkillLevels(375, 375, 395, 400, 405)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOE, F.RBOP, F.DPS, F.PLATE)
 	recipe:AddMobDrop(27333)
 
 	-- Reinforced Cobalt Helm -- 54979
-	recipe = AddRecipe(54979, 375, 40957, Q.UNCOMMON, V.WOTLK, 375, 405, 410, 415)
+	recipe = AddRecipe(54979, V.WOTLK, Q.UNCOMMON)
+	recipe:SetRecipeItemID(41123)
+	recipe:SetCraftedItemID(40957)
+	recipe:SetSkillLevels(375, 375, 405, 410, 415)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOE, F.RBOP, F.DPS, F.PLATE)
 	recipe:AddMobDrop(26270)
 
 	-- Reinforced Cobalt Legplates -- 54980
-	recipe = AddRecipe(54980, 375, 40958, Q.UNCOMMON, V.WOTLK, 375, 410, 415, 420)
+	recipe = AddRecipe(54980, V.WOTLK, Q.UNCOMMON)
+	recipe:SetRecipeItemID(41120)
+	recipe:SetCraftedItemID(40958)
+	recipe:SetSkillLevels(375, 375, 410, 415, 420)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOE, F.RBOP, F.DPS, F.PLATE)
 	recipe:AddMobDrop(29235)
 
 	-- Reinforced Cobalt Chestpiece -- 54981
-	recipe = AddRecipe(54981, 375, 40959, Q.UNCOMMON, V.WOTLK, 375, 415, 420, 425)
+	recipe = AddRecipe(54981, V.WOTLK, Q.UNCOMMON)
+	recipe:SetRecipeItemID(41122)
+	recipe:SetCraftedItemID(40959)
+	recipe:SetSkillLevels(375, 375, 415, 420, 425)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOE, F.RBOP, F.DPS, F.PLATE)
 	recipe:AddMobDrop(28123)
 
 	-- Saronite Protector -- 55013
-	recipe = AddRecipe(55013, 390, 41117, Q.COMMON, V.WOTLK, 390, 395, 400, 405)
+	recipe = AddRecipe(55013, V.WOTLK, Q.COMMON)
+	recipe:SetCraftedItemID(41117)
+	recipe:SetSkillLevels(390, 390, 395, 400, 405)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.SHIELD, F.ONE_HAND)
 	recipe:AddTrainer(3355, 11177, 11178, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 44781, 45548)
 
 	-- Saronite Bulwark -- 55014
-	recipe = AddRecipe(55014, 410, 41113, Q.COMMON, V.WOTLK, 410, 415, 420, 425)
+	recipe = AddRecipe(55014, V.WOTLK, Q.COMMON)
+	recipe:SetCraftedItemID(41113)
+	recipe:SetSkillLevels(410, 410, 415, 420, 425)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.TANK, F.SHIELD, F.ONE_HAND)
 	recipe:AddTrainer(3355, 11177, 11178, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 44781, 45548)
 
 	-- Tempered Saronite Gauntlets -- 55015
-	recipe = AddRecipe(55015, 415, 41114, Q.COMMON, V.WOTLK, 415, 420, 425, 430)
+	recipe = AddRecipe(55015, V.WOTLK, Q.COMMON)
+	recipe:SetCraftedItemID(41114)
+	recipe:SetSkillLevels(415, 415, 420, 425, 430)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.TANK, F.PLATE)
 	recipe:AddTrainer(3355, 11177, 11178, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 44781, 45548)
 
 	-- Tempered Saronite Bracers -- 55017
-	recipe = AddRecipe(55017, 410, 41116, Q.COMMON, V.WOTLK, 410, 415, 420, 425)
+	recipe = AddRecipe(55017, V.WOTLK, Q.COMMON)
+	recipe:SetCraftedItemID(41116)
+	recipe:SetSkillLevels(410, 410, 415, 420, 425)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.TANK, F.PLATE)
 	recipe:AddTrainer(3355, 11177, 11178, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 44781, 45548)
 
 	-- Brilliant Saronite Legplates -- 55055
-	recipe = AddRecipe(55055, 395, 41126, Q.COMMON, V.WOTLK, 395, 400, 405, 410)
+	recipe = AddRecipe(55055, V.WOTLK, Q.COMMON)
+	recipe:SetCraftedItemID(41126)
+	recipe:SetSkillLevels(395, 395, 400, 405, 410)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.PLATE)
 	recipe:AddTrainer(3355, 11177, 11178, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 44781, 45548)
 
 	-- Brilliant Saronite Gauntlets -- 55056
-	recipe = AddRecipe(55056, 400, 41127, Q.COMMON, V.WOTLK, 400, 405, 410, 415)
+	recipe = AddRecipe(55056, V.WOTLK, Q.COMMON)
+	recipe:SetCraftedItemID(41127)
+	recipe:SetSkillLevels(400, 400, 405, 410, 415)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.PLATE)
 	recipe:AddTrainer(3355, 11177, 11178, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 44781, 45548)
 
 	-- Brilliant Saronite Boots -- 55057
-	recipe = AddRecipe(55057, 405, 41128, Q.COMMON, V.WOTLK, 405, 410, 415, 420)
+	recipe = AddRecipe(55057, V.WOTLK, Q.COMMON)
+	recipe:SetCraftedItemID(41128)
+	recipe:SetSkillLevels(405, 405, 410, 415, 420)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.PLATE)
 	recipe:AddTrainer(3355, 11177, 11178, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 44781, 45548)
 
 	-- Brilliant Saronite Breastplate -- 55058
-	recipe = AddRecipe(55058, 415, 41129, Q.COMMON, V.WOTLK, 415, 420, 425, 430)
+	recipe = AddRecipe(55058, V.WOTLK, Q.COMMON)
+	recipe:SetCraftedItemID(41129)
+	recipe:SetSkillLevels(415, 415, 420, 425, 430)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.PLATE)
 	recipe:AddTrainer(3355, 11177, 11178, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 44781, 45548)
 
 	-- Honed Cobalt Cleaver -- 55174
-	recipe = AddRecipe(55174, 390, 41181, Q.COMMON, V.WOTLK, 390, 395, 400, 405)
+	recipe = AddRecipe(55174, V.WOTLK, Q.COMMON)
+	recipe:SetCraftedItemID(41181)
+	recipe:SetSkillLevels(390, 390, 395, 400, 405)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS, F.TWO_HAND, F.AXE)
 	recipe:AddTrainer(3355, 11177, 11178, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 44781, 45548)
 
 	-- Savage Cobalt Slicer -- 55177
-	recipe = AddRecipe(55177, 395, 41182, Q.COMMON, V.WOTLK, 395, 400, 405, 410)
+	recipe = AddRecipe(55177, V.WOTLK, Q.COMMON)
+	recipe:SetCraftedItemID(41182)
+	recipe:SetSkillLevels(395, 395, 400, 405, 410)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS, F.ONE_HAND, F.SWORD)
 	recipe:AddTrainer(3355, 11177, 11178, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 44781, 45548)
 
 	-- Saronite Ambusher -- 55179
-	recipe = AddRecipe(55179, 400, 41183, Q.COMMON, V.WOTLK, 400, 405, 410, 415)
+	recipe = AddRecipe(55179, V.WOTLK, Q.COMMON)
+	recipe:SetCraftedItemID(41183)
+	recipe:SetSkillLevels(400, 400, 405, 410, 415)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS, F.ONE_HAND, F.DAGGER)
 	recipe:AddTrainer(3355, 11177, 11178, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 44781, 45548)
 
 	-- Saronite Shiv -- 55181
-	recipe = AddRecipe(55181, 405, 41184, Q.COMMON, V.WOTLK, 405, 410, 415, 420)
+	recipe = AddRecipe(55181, V.WOTLK, Q.COMMON)
+	recipe:SetCraftedItemID(41184)
+	recipe:SetSkillLevels(405, 405, 410, 415, 420)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS, F.TANK, F.ONE_HAND, F.DAGGER)
 	recipe:AddTrainer(3355, 11177, 11178, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 44781, 45548)
 
 	-- Furious Saronite Beatstick -- 55182
-	recipe = AddRecipe(55182, 410, 41185, Q.COMMON, V.WOTLK, 410, 415, 420, 425)
+	recipe = AddRecipe(55182, V.WOTLK, Q.COMMON)
+	recipe:SetCraftedItemID(41185)
+	recipe:SetSkillLevels(410, 410, 415, 420, 425)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS, F.ONE_HAND, F.MACE)
 	recipe:AddTrainer(3355, 11177, 11178, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 44781, 45548)
 
 	-- Corroded Saronite Edge -- 55183
-	recipe = AddRecipe(55183, 415, 41186, Q.COMMON, V.WOTLK, 415, 420, 425, 430)
+	recipe = AddRecipe(55183, V.WOTLK, Q.COMMON)
+	recipe:SetCraftedItemID(41186)
+	recipe:SetSkillLevels(415, 415, 420, 425, 430)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.RETIRED, F.IBOP, F.RBOP, F.DPS, F.ONE_HAND, F.SWORD)
 	recipe:AddCustom(48)
 
 	-- Corroded Saronite Woundbringer -- 55184
-	recipe = AddRecipe(55184, 415, 41187, Q.COMMON, V.WOTLK, 415, 420, 425, 430)
+	recipe = AddRecipe(55184, V.WOTLK, Q.COMMON)
+	recipe:SetCraftedItemID(41187)
+	recipe:SetSkillLevels(415, 415, 420, 425, 430)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.RETIRED, F.IBOP, F.RBOP, F.DPS, F.ONE_HAND, F.SWORD)
 	recipe:AddCustom(48)
 
 	-- Saronite Mindcrusher -- 55185
-	recipe = AddRecipe(55185, 415, 41188, Q.COMMON, V.WOTLK, 415, 420, 425, 430)
+	recipe = AddRecipe(55185, V.WOTLK, Q.COMMON)
+	recipe:SetCraftedItemID(41188)
+	recipe:SetSkillLevels(415, 415, 420, 425, 430)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.RETIRED, F.IBOP, F.RBOP, F.DPS, F.TWO_HAND, F.MACE)
 	recipe:AddTrainer(3355, 11177, 11178, 44781, 45548)
 
 	-- Chestplate of Conquest -- 55186
-	recipe = AddRecipe(55186, 415, 41189, Q.COMMON, V.WOTLK, 415, 420, 425, 430)
+	recipe = AddRecipe(55186, V.WOTLK, Q.COMMON)
+	recipe:SetCraftedItemID(41189)
+	recipe:SetSkillLevels(415, 415, 420, 425, 430)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.RETIRED, F.IBOP, F.RBOP, F.DPS, F.PLATE)
 	recipe:AddCustom(48)
 
 	-- Legplates of Conquest -- 55187
-	recipe = AddRecipe(55187, 415, 41190, Q.COMMON, V.WOTLK, 415, 420, 425, 430)
+	recipe = AddRecipe(55187, V.WOTLK, Q.COMMON)
+	recipe:SetCraftedItemID(41190)
+	recipe:SetSkillLevels(415, 415, 420, 425, 430)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.RETIRED, F.IBOP, F.RBOP, F.DPS, F.PLATE)
 	recipe:AddCustom(48)
 
 	-- Sturdy Cobalt Quickblade -- 55200
-	recipe = AddRecipe(55200, 380, 41239, Q.COMMON, V.WOTLK, 380, 385, 390, 395)
+	recipe = AddRecipe(55200, V.WOTLK, Q.COMMON)
+	recipe:SetCraftedItemID(41239)
+	recipe:SetSkillLevels(380, 380, 385, 390, 395)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS, F.ONE_HAND, F.SWORD)
 	recipe:AddTrainer(3355, 11177, 11178, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 44781, 45548)
 
 	-- Cobalt Tenderizer -- 55201
-	recipe = AddRecipe(55201, 380, 41240, Q.COMMON, V.WOTLK, 380, 385, 390, 395)
+	recipe = AddRecipe(55201, V.WOTLK, Q.COMMON)
+	recipe:SetCraftedItemID(41240)
+	recipe:SetSkillLevels(380, 380, 385, 390, 395)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS, F.ONE_HAND, F.MACE)
 	recipe:AddTrainer(3355, 11177, 11178, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 44781, 45548)
 
 	-- Sure-fire Shuriken -- 55202
-	recipe = AddRecipe(55202, 385, 41241, Q.COMMON, V.WOTLK, 385, 390, 395, 400)
+	recipe = AddRecipe(55202, V.WOTLK, Q.COMMON)
+	recipe:SetCraftedItemID(41241)
+	recipe:SetSkillLevels(385, 385, 390, 395, 400)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.THROWN)
 	recipe:AddTrainer(3355, 11177, 11178, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 44781, 45548)
 
 	-- Forged Cobalt Claymore -- 55203
-	recipe = AddRecipe(55203, 385, 41242, Q.COMMON, V.WOTLK, 385, 390, 395, 400)
+	recipe = AddRecipe(55203, V.WOTLK, Q.COMMON)
+	recipe:SetCraftedItemID(41242)
+	recipe:SetSkillLevels(385, 385, 390, 395, 400)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS, F.TWO_HAND, F.SWORD)
 	recipe:AddTrainer(3355, 11177, 11178, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 44781, 45548)
 
 	-- Notched Cobalt War Axe -- 55204
-	recipe = AddRecipe(55204, 390, 41243, Q.COMMON, V.WOTLK, 390, 395, 400, 405)
+	recipe = AddRecipe(55204, V.WOTLK, Q.COMMON)
+	recipe:SetCraftedItemID(41243)
+	recipe:SetSkillLevels(390, 390, 395, 400, 405)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS, F.ONE_HAND, F.AXE)
 	recipe:AddTrainer(3355, 11177, 11178, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 44781, 45548)
 
 	-- Deadly Saronite Dirk -- 55206
-	recipe = AddRecipe(55206, 405, 41245, Q.COMMON, V.WOTLK, 405, 415, 420, 425)
+	recipe = AddRecipe(55206, V.WOTLK, Q.COMMON)
+	recipe:SetCraftedItemID(41245)
+	recipe:SetSkillLevels(405, 405, 415, 420, 425)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS, F.TANK, F.THROWN)
 	recipe:AddTrainer(3355, 11177, 11178, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 44781, 45548)
 
 	-- Vengeance Bindings -- 55298
-	recipe = AddRecipe(55298, 420, 41355, Q.COMMON, V.WOTLK, 420, 425, 430, 435)
+	recipe = AddRecipe(55298, V.WOTLK, Q.COMMON)
+	recipe:SetCraftedItemID(41355)
+	recipe:SetSkillLevels(420, 420, 425, 430, 435)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS, F.PLATE)
 	recipe:AddTrainer(3355, 11177, 11178, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 44781, 45548)
 
 	-- Righteous Gauntlets -- 55300
-	recipe = AddRecipe(55300, 420, 41356, Q.COMMON, V.WOTLK, 420, 430, 440, 450)
+	recipe = AddRecipe(55300, V.WOTLK, Q.COMMON)
+	recipe:SetCraftedItemID(41356)
+	recipe:SetSkillLevels(420, 420, 430, 440, 450)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.PLATE)
 	recipe:AddTrainer(3355, 11177, 11178, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 44781, 45548)
 
 	-- Daunting Handguards -- 55301
-	recipe = AddRecipe(55301, 420, 41357, Q.COMMON, V.WOTLK, 420, 430, 440, 450)
+	recipe = AddRecipe(55301, V.WOTLK, Q.COMMON)
+	recipe:SetCraftedItemID(41357)
+	recipe:SetSkillLevels(420, 420, 430, 440, 450)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.TANK, F.PLATE)
 	recipe:AddTrainer(3355, 11177, 11178, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 44781, 45548)
 
 	-- Helm of Command -- 55302
-	recipe = AddRecipe(55302, 425, 41344, Q.COMMON, V.WOTLK, 425, 435, 445, 455)
+	recipe = AddRecipe(55302, V.WOTLK, Q.COMMON)
+	recipe:SetCraftedItemID(41344)
+	recipe:SetSkillLevels(425, 425, 435, 445, 455)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS, F.PLATE)
 	recipe:AddTrainer(3355, 11177, 11178, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 44781, 45548)
 
 	-- Daunting Legplates -- 55303
-	recipe = AddRecipe(55303, 425, 41345, Q.COMMON, V.WOTLK, 425, 435, 445, 455)
+	recipe = AddRecipe(55303, V.WOTLK, Q.COMMON)
+	recipe:SetCraftedItemID(41345)
+	recipe:SetSkillLevels(425, 425, 435, 445, 455)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.TANK, F.PLATE)
 	recipe:AddTrainer(3355, 11177, 11178, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 44781, 45548)
 
 	-- Righteous Greaves -- 55304
-	recipe = AddRecipe(55304, 425, 41346, Q.COMMON, V.WOTLK, 425, 435, 445, 455)
+	recipe = AddRecipe(55304, V.WOTLK, Q.COMMON)
+	recipe:SetCraftedItemID(41346)
+	recipe:SetSkillLevels(425, 425, 435, 445, 455)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.PLATE)
 	recipe:AddTrainer(3355, 11177, 11178, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 44781, 45548)
 
 	-- Savage Saronite Bracers -- 55305
-	recipe = AddRecipe(55305, 420, 41354, Q.COMMON, V.WOTLK, 420, 425, 430, 435)
+	recipe = AddRecipe(55305, V.WOTLK, Q.COMMON)
+	recipe:SetCraftedItemID(41354)
+	recipe:SetSkillLevels(420, 420, 425, 430, 435)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS, F.PLATE)
 	recipe:AddTrainer(3355, 11177, 11178, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 44781, 45548)
 
 	-- Savage Saronite Pauldrons -- 55306
-	recipe = AddRecipe(55306, 420, 41351, Q.COMMON, V.WOTLK, 420, 430, 440, 450)
+	recipe = AddRecipe(55306, V.WOTLK, Q.COMMON)
+	recipe:SetCraftedItemID(41351)
+	recipe:SetSkillLevels(420, 420, 430, 440, 450)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS, F.PLATE)
 	recipe:AddTrainer(3355, 11177, 11178, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 44781, 45548)
 
 	-- Savage Saronite Waistguard -- 55307
-	recipe = AddRecipe(55307, 420, 41352, Q.COMMON, V.WOTLK, 420, 430, 440, 450)
+	recipe = AddRecipe(55307, V.WOTLK, Q.COMMON)
+	recipe:SetCraftedItemID(41352)
+	recipe:SetSkillLevels(420, 420, 430, 440, 450)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS, F.PLATE)
 	recipe:AddTrainer(3355, 11177, 11178, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 44781, 45548)
 
 	-- Savage Saronite Walkers -- 55308
-	recipe = AddRecipe(55308, 420, 41348, Q.COMMON, V.WOTLK, 420, 430, 440, 450)
+	recipe = AddRecipe(55308, V.WOTLK, Q.COMMON)
+	recipe:SetCraftedItemID(41348)
+	recipe:SetSkillLevels(420, 420, 430, 440, 450)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS, F.PLATE)
 	recipe:AddTrainer(3355, 11177, 11178, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 44781, 45548)
 
 	-- Savage Saronite Gauntlets -- 55309
-	recipe = AddRecipe(55309, 420, 41349, Q.COMMON, V.WOTLK, 420, 430, 440, 450)
+	recipe = AddRecipe(55309, V.WOTLK, Q.COMMON)
+	recipe:SetCraftedItemID(41349)
+	recipe:SetSkillLevels(420, 420, 430, 440, 450)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS, F.PLATE)
 	recipe:AddTrainer(3355, 11177, 11178, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 44781, 45548)
 
 	-- Savage Saronite Legplates -- 55310
-	recipe = AddRecipe(55310, 425, 41347, Q.COMMON, V.WOTLK, 425, 435, 445, 455)
+	recipe = AddRecipe(55310, V.WOTLK, Q.COMMON)
+	recipe:SetCraftedItemID(41347)
+	recipe:SetSkillLevels(425, 425, 435, 445, 455)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS, F.PLATE)
 	recipe:AddTrainer(3355, 11177, 11178, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 44781, 45548)
 
 	-- Savage Saronite Hauberk -- 55311
-	recipe = AddRecipe(55311, 425, 41353, Q.COMMON, V.WOTLK, 425, 435, 445, 455)
+	recipe = AddRecipe(55311, V.WOTLK, Q.COMMON)
+	recipe:SetCraftedItemID(41353)
+	recipe:SetSkillLevels(425, 425, 435, 445, 455)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS, F.PLATE)
 	recipe:AddTrainer(3355, 11177, 11178, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 44781, 45548)
 
 	-- Savage Saronite Skullshield -- 55312
-	recipe = AddRecipe(55312, 425, 41350, Q.COMMON, V.WOTLK, 425, 435, 445, 455)
+	recipe = AddRecipe(55312, V.WOTLK, Q.COMMON)
+	recipe:SetCraftedItemID(41350)
+	recipe:SetSkillLevels(425, 425, 435, 445, 455)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS, F.PLATE)
 	recipe:AddTrainer(3355, 11177, 11178, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 44781, 45548)
 
 	-- Titansteel Destroyer -- 55369
-	recipe = AddRecipe(55369, 440, 41257, Q.COMMON, V.WOTLK, 440, 450, 460, 470)
+	recipe = AddRecipe(55369, V.WOTLK, Q.COMMON)
+	recipe:SetCraftedItemID(41257)
+	recipe:SetSkillLevels(440, 440, 450, 460, 470)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS, F.TWO_HAND, F.MACE)
 	recipe:AddTrainer(3355, 11177, 11178, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 44781, 45548)
 
 	-- Titansteel Bonecrusher -- 55370
-	recipe = AddRecipe(55370, 440, 41383, Q.COMMON, V.WOTLK, 440, 450, 460, 470)
+	recipe = AddRecipe(55370, V.WOTLK, Q.COMMON)
+	recipe:SetCraftedItemID(41383)
+	recipe:SetSkillLevels(440, 440, 450, 460, 470)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS, F.TANK, F.ONE_HAND, F.MACE)
 	recipe:AddTrainer(3355, 11177, 11178, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 44781, 45548)
 
 	-- Titansteel Guardian -- 55371
-	recipe = AddRecipe(55371, 440, 41384, Q.COMMON, V.WOTLK, 440, 450, 460, 470)
+	recipe = AddRecipe(55371, V.WOTLK, Q.COMMON)
+	recipe:SetCraftedItemID(41384)
+	recipe:SetSkillLevels(440, 440, 450, 460, 470)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.ONE_HAND, F.MACE)
 	recipe:AddTrainer(3355, 11177, 11178, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 44781, 45548)
 
 	-- Spiked Titansteel Helm -- 55372
-	recipe = AddRecipe(55372, 440, 41386, Q.COMMON, V.WOTLK, 440, 450, 460, 470)
+	recipe = AddRecipe(55372, V.WOTLK, Q.COMMON)
+	recipe:SetCraftedItemID(41386)
+	recipe:SetSkillLevels(440, 440, 450, 460, 470)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS, F.PLATE)
 	recipe:AddTrainer(3355, 11177, 11178, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 44781, 45548)
 
 	-- Tempered Titansteel Helm -- 55373
-	recipe = AddRecipe(55373, 440, 41387, Q.COMMON, V.WOTLK, 440, 450, 460, 470)
+	recipe = AddRecipe(55373, V.WOTLK, Q.COMMON)
+	recipe:SetCraftedItemID(41387)
+	recipe:SetSkillLevels(440, 440, 450, 460, 470)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.TANK, F.PLATE)
 	recipe:AddTrainer(3355, 11177, 11178, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 44781, 45548)
 
 	-- Brilliant Titansteel Helm -- 55374
-	recipe = AddRecipe(55374, 440, 41388, Q.COMMON, V.WOTLK, 440, 450, 460, 470)
+	recipe = AddRecipe(55374, V.WOTLK, Q.COMMON)
+	recipe:SetCraftedItemID(41388)
+	recipe:SetSkillLevels(440, 440, 450, 460, 470)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.PLATE)
 	recipe:AddTrainer(3355, 11177, 11178, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 44781, 45548)
 
 	-- Spiked Titansteel Treads -- 55375
-	recipe = AddRecipe(55375, 440, 41391, Q.COMMON, V.WOTLK, 440, 450, 460, 470)
+	recipe = AddRecipe(55375, V.WOTLK, Q.COMMON)
+	recipe:SetCraftedItemID(41391)
+	recipe:SetSkillLevels(440, 440, 450, 460, 470)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS, F.PLATE)
 	recipe:AddTrainer(3355, 11177, 11178, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 44781, 45548)
 
 	-- Tempered Titansteel Treads -- 55376
-	recipe = AddRecipe(55376, 440, 41392, Q.COMMON, V.WOTLK, 440, 450, 460, 470)
+	recipe = AddRecipe(55376, V.WOTLK, Q.COMMON)
+	recipe:SetCraftedItemID(41392)
+	recipe:SetSkillLevels(440, 440, 450, 460, 470)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.TANK, F.PLATE)
 	recipe:AddTrainer(3355, 11177, 11178, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 44781, 45548)
 
 	-- Brilliant Titansteel Treads -- 55377
-	recipe = AddRecipe(55377, 440, 41394, Q.COMMON, V.WOTLK, 440, 450, 460, 470)
+	recipe = AddRecipe(55377, V.WOTLK, Q.COMMON)
+	recipe:SetCraftedItemID(41394)
+	recipe:SetSkillLevels(440, 440, 450, 460, 470)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.PLATE)
 	recipe:AddTrainer(3355, 11177, 11178, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 44781, 45548)
 
 	-- Socket Bracer -- 55628
-	recipe = AddRecipe(55628, 400, nil, Q.COMMON, V.WOTLK, 400, 400, 400, 400)
+	recipe = AddRecipe(55628, V.WOTLK, Q.COMMON)
+	recipe:SetSkillLevels(400, 400, 400, 400, 400)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	recipe:AddTrainer(3355, 11177, 11178, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 44781, 45548)
 
 	-- Socket Gloves -- 55641
-	recipe = AddRecipe(55641, 400, nil, Q.COMMON, V.WOTLK, 400, 400, 400, 400)
+	recipe = AddRecipe(55641, V.WOTLK, Q.COMMON)
+	recipe:SetSkillLevels(400, 400, 400, 400, 400)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	recipe:AddTrainer(3355, 11177, 11178, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 44781, 45548)
 
 	-- Eternal Belt Buckle -- 55656
-	recipe = AddRecipe(55656, 415, 41611, Q.COMMON, V.WOTLK, 415, 420, 425, 430)
+	recipe = AddRecipe(55656, V.WOTLK, Q.COMMON)
+	recipe:SetCraftedItemID(41611)
+	recipe:SetSkillLevels(415, 415, 420, 425, 430)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	recipe:AddTrainer(3355, 11177, 11178, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 44781, 45548)
 
 	-- Titanium Rod -- 55732
-	recipe = AddRecipe(55732, 420, 41745, Q.COMMON, V.WOTLK, 420, 425, 430, 435)
+	recipe = AddRecipe(55732, V.WOTLK, Q.COMMON)
+	recipe:SetCraftedItemID(41745)
+	recipe:SetSkillLevels(420, 420, 425, 430, 435)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	recipe:AddTrainer(3355, 11177, 11178, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 44781, 45548)
 
 	-- Cobalt Bracers -- 55834
-	recipe = AddRecipe(55834, 360, 41974, Q.COMMON, V.WOTLK, 360, 370, 375, 380)
+	recipe = AddRecipe(55834, V.WOTLK, Q.COMMON)
+	recipe:SetCraftedItemID(41974)
+	recipe:SetSkillLevels(360, 360, 370, 375, 380)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.TANK, F.PLATE)
 	recipe:AddTrainer(3355, 11177, 11178, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 44781, 45548)
 
 	-- Cobalt Gauntlets -- 55835
-	recipe = AddRecipe(55835, 370, 41975, Q.COMMON, V.WOTLK, 370, 380, 385, 390)
+	recipe = AddRecipe(55835, V.WOTLK, Q.COMMON)
+	recipe:SetCraftedItemID(41975)
+	recipe:SetSkillLevels(370, 370, 380, 385, 390)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.TANK, F.PLATE)
 	recipe:AddTrainer(3355, 11177, 11178, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 44781, 45548)
 
 	-- Titanium Weapon Chain -- 55839
-	recipe = AddRecipe(55839, 420, 41976, Q.COMMON, V.WOTLK, 420, 425, 430, 435)
+	recipe = AddRecipe(55839, V.WOTLK, Q.COMMON)
+	recipe:SetCraftedItemID(41976)
+	recipe:SetSkillLevels(420, 420, 425, 430, 435)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	recipe:AddTrainer(3355, 11177, 11178, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 44781, 45548)
 
 	-- Titansteel Shanker -- 56234
-	recipe = AddRecipe(56234, 440, 42435, Q.COMMON, V.WOTLK, 440, 450, 460, 470)
+	recipe = AddRecipe(56234, V.WOTLK, Q.COMMON)
+	recipe:SetCraftedItemID(42435)
+	recipe:SetSkillLevels(440, 440, 450, 460, 470)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS, F.ONE_HAND, F.DAGGER)
 	recipe:AddTrainer(3355, 11177, 11178, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 44781, 45548)
 
 	-- Cudgel of Saronite Justice -- 56280
-	recipe = AddRecipe(56280, 410, 42443, Q.COMMON, V.WOTLK, 410, 415, 420, 425)
+	recipe = AddRecipe(56280, V.WOTLK, Q.COMMON)
+	recipe:SetCraftedItemID(42443)
+	recipe:SetSkillLevels(410, 410, 415, 420, 425)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.ONE_HAND, F.MACE)
 	recipe:AddTrainer(3355, 11177, 11178, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 44781, 45548)
 
 	-- Titanium Shield Spike -- 56357
-	recipe = AddRecipe(56357, 420, 42500, Q.COMMON, V.WOTLK, 420, 425, 430, 435)
+	recipe = AddRecipe(56357, V.WOTLK, Q.COMMON)
+	recipe:SetCraftedItemID(42500)
+	recipe:SetSkillLevels(420, 420, 425, 430, 435)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.TANK, F.SHIELD)
 	recipe:AddTrainer(3355, 11177, 11178, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 44781, 45548)
 
 	-- Titansteel Shield Wall -- 56400
-	recipe = AddRecipe(56400, 440, 42508, Q.COMMON, V.WOTLK, 440, 450, 460, 470)
+	recipe = AddRecipe(56400, V.WOTLK, Q.COMMON)
+	recipe:SetCraftedItemID(42508)
+	recipe:SetSkillLevels(440, 440, 450, 460, 470)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.TANK, F.SHIELD, F.ONE_HAND)
 	recipe:AddTrainer(3355, 11177, 11178, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 44781, 45548)
 
 	-- Ornate Saronite Bracers -- 56549
-	recipe = AddRecipe(56549, 420, 42723, Q.COMMON, V.WOTLK, 420, 425, 430, 435)
+	recipe = AddRecipe(56549, V.WOTLK, Q.COMMON)
+	recipe:SetCraftedItemID(42723)
+	recipe:SetSkillLevels(420, 420, 425, 430, 435)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.PLATE)
 	recipe:AddTrainer(3355, 11177, 11178, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 44781, 45548)
 
 	-- Ornate Saronite Pauldrons -- 56550
-	recipe = AddRecipe(56550, 420, 42727, Q.COMMON, V.WOTLK, 420, 430, 440, 450)
+	recipe = AddRecipe(56550, V.WOTLK, Q.COMMON)
+	recipe:SetCraftedItemID(42727)
+	recipe:SetSkillLevels(420, 420, 430, 440, 450)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.PLATE)
 	recipe:AddTrainer(3355, 11177, 11178, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 44781, 45548)
 
 	-- Ornate Saronite Waistguard -- 56551
-	recipe = AddRecipe(56551, 420, 42729, Q.COMMON, V.WOTLK, 420, 430, 440, 450)
+	recipe = AddRecipe(56551, V.WOTLK, Q.COMMON)
+	recipe:SetCraftedItemID(42729)
+	recipe:SetSkillLevels(420, 420, 430, 440, 450)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.PLATE)
 	recipe:AddTrainer(3355, 11177, 11178, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 44781, 45548)
 
 	-- Ornate Saronite Walkers -- 56552
-	recipe = AddRecipe(56552, 420, 42730, Q.COMMON, V.WOTLK, 420, 430, 440, 450)
+	recipe = AddRecipe(56552, V.WOTLK, Q.COMMON)
+	recipe:SetCraftedItemID(42730)
+	recipe:SetSkillLevels(420, 420, 430, 440, 450)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.PLATE)
 	recipe:AddTrainer(3355, 11177, 11178, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 44781, 45548)
 
 	-- Ornate Saronite Gauntlets -- 56553
-	recipe = AddRecipe(56553, 420, 42724, Q.COMMON, V.WOTLK, 420, 430, 440, 450)
+	recipe = AddRecipe(56553, V.WOTLK, Q.COMMON)
+	recipe:SetCraftedItemID(42724)
+	recipe:SetSkillLevels(420, 420, 430, 440, 450)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.PLATE)
 	recipe:AddTrainer(3355, 11177, 11178, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 44781, 45548)
 
 	-- Ornate Saronite Legplates -- 56554
-	recipe = AddRecipe(56554, 425, 42726, Q.COMMON, V.WOTLK, 425, 435, 445, 455)
+	recipe = AddRecipe(56554, V.WOTLK, Q.COMMON)
+	recipe:SetCraftedItemID(42726)
+	recipe:SetSkillLevels(425, 425, 435, 445, 455)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.PLATE)
 	recipe:AddTrainer(3355, 11177, 11178, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 44781, 45548)
 
 	-- Ornate Saronite Hauberk -- 56555
-	recipe = AddRecipe(56555, 425, 42725, Q.COMMON, V.WOTLK, 425, 435, 445, 455)
+	recipe = AddRecipe(56555, V.WOTLK, Q.COMMON)
+	recipe:SetCraftedItemID(42725)
+	recipe:SetSkillLevels(425, 425, 435, 445, 455)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.PLATE)
 	recipe:AddTrainer(3355, 11177, 11178, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 44781, 45548)
 
 	-- Ornate Saronite Skullshield -- 56556
-	recipe = AddRecipe(56556, 425, 42728, Q.COMMON, V.WOTLK, 425, 435, 445, 455)
+	recipe = AddRecipe(56556, V.WOTLK, Q.COMMON)
+	recipe:SetCraftedItemID(42728)
+	recipe:SetSkillLevels(425, 425, 435, 445, 455)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.PLATE)
 	recipe:AddTrainer(3355, 11177, 11178, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 44781, 45548)
 
 	-- Cobalt Skeleton Key -- 59405
-	recipe = AddRecipe(59405, 350, 43854, Q.COMMON, V.WOTLK, 350, 360, 365, 370)
+	recipe = AddRecipe(59405, V.WOTLK, Q.COMMON)
+	recipe:SetCraftedItemID(43854)
+	recipe:SetSkillLevels(350, 350, 360, 365, 370)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	recipe:AddTrainer(3355, 11177, 11178, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 44781, 45548)
 
 	-- Titanium Skeleton Key -- 59406
-	recipe = AddRecipe(59406, 430, 43853, Q.COMMON, V.WOTLK, 430, 435, 440, 445)
+	recipe = AddRecipe(59406, V.WOTLK, Q.COMMON)
+	recipe:SetCraftedItemID(43853)
+	recipe:SetSkillLevels(430, 430, 435, 440, 445)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	recipe:AddTrainer(3355, 11177, 11178, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 44781, 45548)
 
 	-- Brilliant Saronite Belt -- 59436
-	recipe = AddRecipe(59436, 395, 43860, Q.COMMON, V.WOTLK, 395, 400, 405, 410)
+	recipe = AddRecipe(59436, V.WOTLK, Q.COMMON)
+	recipe:SetCraftedItemID(43860)
+	recipe:SetSkillLevels(395, 395, 400, 405, 410)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.PLATE)
 	recipe:AddTrainer(3355, 11177, 11178, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 44781, 45548)
 
 	-- Brilliant Saronite Bracers -- 59438
-	recipe = AddRecipe(59438, 400, 43864, Q.COMMON, V.WOTLK, 400, 405, 410, 415)
+	recipe = AddRecipe(59438, V.WOTLK, Q.COMMON)
+	recipe:SetCraftedItemID(43864)
+	recipe:SetSkillLevels(400, 400, 405, 410, 415)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.PLATE)
 	recipe:AddTrainer(3355, 11177, 11178, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 44781, 45548)
 
 	-- Brilliant Saronite Pauldrons -- 59440
-	recipe = AddRecipe(59440, 405, 43865, Q.COMMON, V.WOTLK, 405, 410, 415, 420)
+	recipe = AddRecipe(59440, V.WOTLK, Q.COMMON)
+	recipe:SetCraftedItemID(43865)
+	recipe:SetSkillLevels(405, 405, 410, 415, 420)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.PLATE)
 	recipe:AddTrainer(3355, 11177, 11178, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 44781, 45548)
 
 	-- Brilliant Saronite Helm -- 59441
-	recipe = AddRecipe(59441, 415, 43870, Q.COMMON, V.WOTLK, 415, 420, 425, 430)
+	recipe = AddRecipe(59441, V.WOTLK, Q.COMMON)
+	recipe:SetCraftedItemID(43870)
+	recipe:SetSkillLevels(415, 415, 420, 425, 430)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.PLATE)
 	recipe:AddTrainer(3355, 11177, 11178, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 44781, 45548)
 
 	-- Saronite Spellblade -- 59442
-	recipe = AddRecipe(59442, 410, 43871, Q.COMMON, V.WOTLK, 410, 415, 420, 425)
+	recipe = AddRecipe(59442, V.WOTLK, Q.COMMON)
+	recipe:SetCraftedItemID(43871)
+	recipe:SetSkillLevels(410, 410, 415, 420, 425)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.ONE_HAND, F.SWORD)
 	recipe:AddTrainer(3355, 11177, 11178, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 44781, 45548)
 
 	-- Icebane Chestguard -- 61008
-	recipe = AddRecipe(61008, 425, 43586, Q.COMMON, V.WOTLK, 425, 435, 445, 455)
+	recipe = AddRecipe(61008, V.WOTLK, Q.COMMON)
+	recipe:SetCraftedItemID(43586)
+	recipe:SetSkillLevels(425, 425, 435, 445, 455)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.PLATE)
 	recipe:AddTrainer(3355, 11177, 11178, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 44781, 45548)
 
 	-- Icebane Girdle -- 61009
-	recipe = AddRecipe(61009, 420, 43587, Q.COMMON, V.WOTLK, 420, 430, 440, 450)
+	recipe = AddRecipe(61009, V.WOTLK, Q.COMMON)
+	recipe:SetCraftedItemID(43587)
+	recipe:SetSkillLevels(420, 420, 430, 440, 450)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.PLATE)
 	recipe:AddTrainer(3355, 11177, 11178, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 44781, 45548)
 
 	-- Icebane Treads -- 61010
-	recipe = AddRecipe(61010, 420, 43588, Q.COMMON, V.WOTLK, 420, 430, 440, 450)
+	recipe = AddRecipe(61010, V.WOTLK, Q.COMMON)
+	recipe:SetCraftedItemID(43588)
+	recipe:SetSkillLevels(420, 420, 430, 440, 450)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.PLATE)
 	recipe:AddTrainer(3355, 11177, 11178, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 44781, 45548)
 
 	-- Titanium Plating -- 62202
-	recipe = AddRecipe(62202, 450, 44936, Q.RARE, V.WOTLK, 450, 455, 460, 465)
+	recipe = AddRecipe(62202, V.WOTLK, Q.RARE)
+	recipe:SetRecipeItemID(44938)
+	recipe:SetCraftedItemID(44936)
+	recipe:SetSkillLevels(450, 450, 455, 460, 465)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.TANK, F.WRATHCOMMON1, F.SHIELD)
 	recipe:AddRepVendor(FAC.HORDE_EXPEDITION, REP.EXALTED, 32565, 32774)
 	recipe:AddRepVendor(FAC.ALLIANCE_VANGUARD, REP.EXALTED, 32564, 32773)
 
 	-- Titansteel Spellblade -- 63182
-	recipe = AddRecipe(63182, 440, 45085, Q.COMMON, V.WOTLK, 440, 450, 460, 470)
+	recipe = AddRecipe(63182, V.WOTLK, Q.COMMON)
+	recipe:SetCraftedItemID(45085)
+	recipe:SetSkillLevels(440, 440, 450, 460, 470)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.ONE_HAND, F.DAGGER)
 	recipe:AddTrainer(3355, 11177, 11178, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 44781, 45548)
 
 	-- Belt of the Titans -- 63187
-	recipe = AddRecipe(63187, 450, 45088, Q.EPIC, V.WOTLK, 450, 455, 465, 475)
+	recipe = AddRecipe(63187, V.WOTLK, Q.EPIC)
+	recipe:SetRecipeItemID(45088)
+	recipe:SetCraftedItemID(45088)
+	recipe:SetSkillLevels(450, 450, 455, 465, 475)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOE, F.DPS, F.PLATE)
 	recipe:AddCustom(39)
 
 	-- Battlelord's Plate Boots -- 63188
-	recipe = AddRecipe(63188, 450, 45089, Q.EPIC, V.WOTLK, 450, 455, 465, 475)
+	recipe = AddRecipe(63188, V.WOTLK, Q.EPIC)
+	recipe:SetRecipeItemID(45089)
+	recipe:SetCraftedItemID(45089)
+	recipe:SetSkillLevels(450, 450, 455, 465, 475)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOE, F.DPS, F.PLATE)
 	recipe:AddCustom(39)
 
 	-- Plate Girdle of Righteousness -- 63189
-	recipe = AddRecipe(63189, 450, 45090, Q.EPIC, V.WOTLK, 450, 455, 465, 475)
+	recipe = AddRecipe(63189, V.WOTLK, Q.EPIC)
+	recipe:SetRecipeItemID(45090)
+	recipe:SetCraftedItemID(45090)
+	recipe:SetSkillLevels(450, 450, 455, 465, 475)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.PLATE)
 	recipe:AddCustom(39)
 
 	-- Treads of Destiny -- 63190
-	recipe = AddRecipe(63190, 450, 45091, Q.EPIC, V.WOTLK, 450, 455, 465, 475)
+	recipe = AddRecipe(63190, V.WOTLK, Q.EPIC)
+	recipe:SetRecipeItemID(45091)
+	recipe:SetCraftedItemID(45091)
+	recipe:SetSkillLevels(450, 450, 455, 465, 475)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.PLATE)
 	recipe:AddCustom(39)
 
 	-- Indestructible Plate Girdle -- 63191
-	recipe = AddRecipe(63191, 450, 45092, Q.EPIC, V.WOTLK, 450, 455, 465, 475)
+	recipe = AddRecipe(63191, V.WOTLK, Q.EPIC)
+	recipe:SetRecipeItemID(45092)
+	recipe:SetCraftedItemID(45092)
+	recipe:SetSkillLevels(450, 450, 455, 465, 475)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOE, F.TANK, F.PLATE)
 	recipe:AddCustom(39)
 
 	-- Spiked Deathdealers -- 63192
-	recipe = AddRecipe(63192, 450, 45093, Q.EPIC, V.WOTLK, 450, 455, 465, 475)
+	recipe = AddRecipe(63192, V.WOTLK, Q.EPIC)
+	recipe:SetRecipeItemID(45093)
+	recipe:SetCraftedItemID(45093)
+	recipe:SetSkillLevels(450, 450, 455, 465, 475)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOE, F.TANK, F.PLATE)
 	recipe:AddCustom(39)
 
 	-- Breastplate of the White Knight -- 67091
-	recipe = AddRecipe(67091, 450, 47591, Q.EPIC, V.WOTLK, 450, 455, 465, 475, nil, "Alliance")
+	recipe = AddRecipe(67091, V.WOTLK, Q.EPIC)
+	recipe:SetRecipeItemID(47622)
+	recipe:SetCraftedItemID(47591)
+	recipe:SetSkillLevels(450, 450, 455, 465, 475)
+	recipe:SetRequiredFaction("Alliance")
 	recipe:AddFilters(F.ALLIANCE, F.RAID, F.IBOE, F.RBOE, F.TANK, F.PLATE)
 	recipe:AddCustom(42)
 
 	-- Saronite Swordbreakers -- 67092
-	recipe = AddRecipe(67092, 450, 47570, Q.EPIC, V.WOTLK, 450, 455, 465, 475, nil, "Alliance")
+	recipe = AddRecipe(67092, V.WOTLK, Q.EPIC)
+	recipe:SetRecipeItemID(47623)
+	recipe:SetCraftedItemID(47570)
+	recipe:SetSkillLevels(450, 450, 455, 465, 475)
+	recipe:SetRequiredFaction("Alliance")
 	recipe:AddFilters(F.ALLIANCE, F.RAID, F.IBOE, F.RBOE, F.TANK, F.PLATE)
 	recipe:AddCustom(42)
 
 	-- Titanium Razorplate -- 67093
-	recipe = AddRecipe(67093, 450, 47589, Q.EPIC, V.WOTLK, 450, 455, 465, 475, nil, "Alliance")
+	recipe = AddRecipe(67093, V.WOTLK, Q.EPIC)
+	recipe:SetRecipeItemID(47624)
+	recipe:SetCraftedItemID(47589)
+	recipe:SetSkillLevels(450, 450, 455, 465, 475)
+	recipe:SetRequiredFaction("Alliance")
 	recipe:AddFilters(F.ALLIANCE, F.RAID, F.IBOE, F.RBOE, F.DPS, F.PLATE)
 	recipe:AddCustom(42)
 
 	-- Titanium Spikeguards -- 67094
-	recipe = AddRecipe(67094, 450, 47572, Q.EPIC, V.WOTLK, 450, 455, 465, 475, nil, "Alliance")
+	recipe = AddRecipe(67094, V.WOTLK, Q.EPIC)
+	recipe:SetRecipeItemID(47625)
+	recipe:SetCraftedItemID(47572)
+	recipe:SetSkillLevels(450, 450, 455, 465, 475)
+	recipe:SetRequiredFaction("Alliance")
 	recipe:AddFilters(F.ALLIANCE, F.RAID, F.IBOE, F.RBOE, F.DPS, F.PLATE)
 	recipe:AddCustom(42)
 
 	-- Sunforged Breastplate -- 67095
-	recipe = AddRecipe(67095, 450, 47593, Q.EPIC, V.WOTLK, 450, 460, 467, 475, nil, "Alliance")
+	recipe = AddRecipe(67095, V.WOTLK, Q.EPIC)
+	recipe:SetRecipeItemID(47626)
+	recipe:SetCraftedItemID(47593)
+	recipe:SetSkillLevels(450, 450, 460, 467, 475)
+	recipe:SetRequiredFaction("Alliance")
 	recipe:AddFilters(F.ALLIANCE, F.RAID, F.IBOE, F.RBOE, F.HEALER, F.PLATE)
 	recipe:AddCustom(42)
 
 	-- Sunforged Bracers -- 67096
-	recipe = AddRecipe(67096, 450, 47574, Q.EPIC, V.WOTLK, 450, 455, 465, 475, nil, "Alliance")
+	recipe = AddRecipe(67096, V.WOTLK, Q.EPIC)
+	recipe:SetRecipeItemID(47627)
+	recipe:SetCraftedItemID(47574)
+	recipe:SetSkillLevels(450, 450, 455, 465, 475)
+	recipe:SetRequiredFaction("Alliance")
 	recipe:AddFilters(F.ALLIANCE, F.RAID, F.IBOE, F.RBOE, F.HEALER, F.PLATE)
 	recipe:AddCustom(42)
 
 	-- Breastplate of the White Knight -- 67130
-	recipe = AddRecipe(67130, 450, 47592, Q.EPIC, V.WOTLK, 450, 455, 465, 475, nil, "Horde")
+	recipe = AddRecipe(67130, V.WOTLK, Q.EPIC)
+	recipe:SetRecipeItemID(47640)
+	recipe:SetCraftedItemID(47592)
+	recipe:SetSkillLevels(450, 450, 455, 465, 475)
+	recipe:SetRequiredFaction("Horde")
 	recipe:AddFilters(F.HORDE, F.RAID, F.IBOE, F.RBOE, F.TANK, F.PLATE)
 	recipe:AddCustom(42)
 
 	-- Saronite Swordbreakers -- 67131
-	recipe = AddRecipe(67131, 450, 47571, Q.EPIC, V.WOTLK, 450, 455, 465, 475, nil, "Horde")
+	recipe = AddRecipe(67131, V.WOTLK, Q.EPIC)
+	recipe:SetRecipeItemID(47641)
+	recipe:SetCraftedItemID(47571)
+	recipe:SetSkillLevels(450, 450, 455, 465, 475)
+	recipe:SetRequiredFaction("Horde")
 	recipe:AddFilters(F.HORDE, F.RAID, F.IBOE, F.RBOE, F.TANK, F.PLATE)
 	recipe:AddCustom(42)
 
 	-- Titanium Razorplate -- 67132
-	recipe = AddRecipe(67132, 450, 47590, Q.EPIC, V.WOTLK, 450, 455, 465, 475, nil, "Horde")
+	recipe = AddRecipe(67132, V.WOTLK, Q.EPIC)
+	recipe:SetRecipeItemID(47644)
+	recipe:SetCraftedItemID(47590)
+	recipe:SetSkillLevels(450, 450, 455, 465, 475)
+	recipe:SetRequiredFaction("Horde")
 	recipe:AddFilters(F.HORDE, F.RAID, F.IBOE, F.RBOE, F.DPS, F.PLATE)
 	recipe:AddCustom(42)
 
 	-- Titanium Spikeguards -- 67133
-	recipe = AddRecipe(67133, 450, 47573, Q.EPIC, V.WOTLK, 450, 455, 465, 475, nil, "Horde")
+	recipe = AddRecipe(67133, V.WOTLK, Q.EPIC)
+	recipe:SetRecipeItemID(47645)
+	recipe:SetCraftedItemID(47573)
+	recipe:SetSkillLevels(450, 450, 455, 465, 475)
+	recipe:SetRequiredFaction("Horde")
 	recipe:AddFilters(F.HORDE, F.RAID, F.IBOE, F.RBOE, F.DPS, F.PLATE)
 	recipe:AddCustom(42)
 
 	-- Sunforged Breastplate -- 67134
-	recipe = AddRecipe(67134, 450, 47594, Q.EPIC, V.WOTLK, 450, 460, 467, 475, nil, "Horde")
+	recipe = AddRecipe(67134, V.WOTLK, Q.EPIC)
+	recipe:SetRecipeItemID(47643)
+	recipe:SetCraftedItemID(47594)
+	recipe:SetSkillLevels(450, 450, 460, 467, 475)
+	recipe:SetRequiredFaction("Horde")
 	recipe:AddFilters(F.HORDE, F.RAID, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.PLATE)
 	recipe:AddCustom(42)
 
 	-- Sunforged Bracers -- 67135
-	recipe = AddRecipe(67135, 450, 47575, Q.EPIC, V.WOTLK, 450, 455, 465, 475, nil, "Horde")
+	recipe = AddRecipe(67135, V.WOTLK, Q.EPIC)
+	recipe:SetRecipeItemID(47642)
+	recipe:SetCraftedItemID(47575)
+	recipe:SetSkillLevels(450, 450, 455, 465, 475)
+	recipe:SetRequiredFaction("Horde")
 	recipe:AddFilters(F.HORDE, F.RAID, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.PLATE)
 	recipe:AddCustom(42)
 
 	-- Puresteel Legplates -- 70562
-	recipe = AddRecipe(70562, 450, 49902, Q.EPIC, V.WOTLK, 450, 475, 487, 500)
+	recipe = AddRecipe(70562, V.WOTLK, Q.EPIC)
+	recipe:SetRecipeItemID(49969)
+	recipe:SetCraftedItemID(49902)
+	recipe:SetSkillLevels(450, 450, 475, 487, 500)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.ASHEN_VERDICT, F.PLATE)
 	recipe:AddRepVendor(FAC.ASHEN_VERDICT, REP.REVERED, 37687)
 
 	-- Protectors of Life -- 70563
-	recipe = AddRecipe(70563, 450, 49905, Q.EPIC, V.WOTLK, 450, 475, 487, 500)
+	recipe = AddRecipe(70563, V.WOTLK, Q.EPIC)
+	recipe:SetRecipeItemID(49970)
+	recipe:SetCraftedItemID(49905)
+	recipe:SetSkillLevels(450, 450, 475, 487, 500)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.ASHEN_VERDICT, F.PLATE)
 	recipe:AddRepVendor(FAC.ASHEN_VERDICT, REP.HONORED, 37687)
 
 	-- Legplates of Painful Death -- 70565
-	recipe = AddRecipe(70565, 450, 49903, Q.EPIC, V.WOTLK, 450, 475, 487, 500)
+	recipe = AddRecipe(70565, V.WOTLK, Q.EPIC)
+	recipe:SetRecipeItemID(49971)
+	recipe:SetCraftedItemID(49903)
+	recipe:SetSkillLevels(450, 450, 475, 487, 500)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.ASHEN_VERDICT, F.PLATE)
 	recipe:AddRepVendor(FAC.ASHEN_VERDICT, REP.REVERED, 37687)
 
 	-- Hellfrozen Bonegrinders -- 70566
-	recipe = AddRecipe(70566, 450, 49906, Q.EPIC, V.WOTLK, 450, 475, 487, 500)
+	recipe = AddRecipe(70566, V.WOTLK, Q.EPIC)
+	recipe:SetRecipeItemID(49972)
+	recipe:SetCraftedItemID(49906)
+	recipe:SetSkillLevels(450, 450, 475, 487, 500)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.ASHEN_VERDICT, F.PLATE)
 	recipe:AddRepVendor(FAC.ASHEN_VERDICT, REP.HONORED, 37687)
 
 	-- Pillars of Might -- 70567
-	recipe = AddRecipe(70567, 450, 49904, Q.EPIC, V.WOTLK, 450, 475, 487, 500)
+	recipe = AddRecipe(70567, V.WOTLK, Q.EPIC)
+	recipe:SetRecipeItemID(49973)
+	recipe:SetCraftedItemID(49904)
+	recipe:SetSkillLevels(450, 450, 475, 487, 500)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.TANK, F.ASHEN_VERDICT, F.PLATE)
 	recipe:AddRepVendor(FAC.ASHEN_VERDICT, REP.REVERED, 37687)
 
 	-- Boots of Kingly Upheaval -- 70568
-	recipe = AddRecipe(70568, 450, 49907, Q.EPIC, V.WOTLK, 450, 475, 487, 500)
+	recipe = AddRecipe(70568, V.WOTLK, Q.EPIC)
+	recipe:SetRecipeItemID(49974)
+	recipe:SetCraftedItemID(49907)
+	recipe:SetSkillLevels(450, 450, 475, 487, 500)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.TANK, F.ASHEN_VERDICT, F.PLATE)
 	recipe:AddRepVendor(FAC.ASHEN_VERDICT, REP.HONORED, 37687)
 
 	-- Folded Obsidium -- 76178
-	recipe = AddRecipe(76178, 425, nil, Q.COMMON, V.CATA, 425, 450, 452, 455)
+	recipe = AddRecipe(76178, V.CATA, Q.COMMON)
+	recipe:SetSkillLevels(425, 425, 450, 452, 455)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	recipe:AddTrainer(3136, 3355, 4258, 5164, 11146, 11177, 11178, 16669, 16823, 26564, 26981, 26988, 28694, 29505, 44781, 45548)
 
 	-- Hardened Obsidium Bracers -- 76179
-	recipe = AddRecipe(76179, 440, nil, Q.COMMON, V.CATA, 440, 460, 462, 465)
+	recipe = AddRecipe(76179, V.CATA, Q.COMMON)
+	recipe:SetSkillLevels(440, 440, 460, 462, 465)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	recipe:AddTrainer(3136, 3355, 4258, 5164, 11146, 11177, 11178, 16669, 16823, 26564, 26981, 26988, 28694, 29505, 44781, 45548)
 
 	-- Hardened Obsidium Gauntlets -- 76180
-	recipe = AddRecipe(76180, 450, nil, Q.COMMON, V.CATA, 450, 460, 465, 470)
+	recipe = AddRecipe(76180, V.CATA, Q.COMMON)
+	recipe:SetSkillLevels(450, 450, 460, 465, 470)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	recipe:AddTrainer(3136, 3355, 4258, 5164, 11146, 11177, 11178, 16669, 16823, 26564, 26981, 26988, 28694, 29505, 44781, 45548)
 
 	-- Hardened Obsidium Belt -- 76181
-	recipe = AddRecipe(76181, 460, nil, Q.COMMON, V.CATA, 460, 470, 475, 480)
+	recipe = AddRecipe(76181, V.CATA, Q.COMMON)
+	recipe:SetSkillLevels(460, 460, 470, 475, 480)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	recipe:AddTrainer(3136, 3355, 4258, 5164, 11146, 11177, 11178, 16669, 16823, 26564, 26981, 26988, 28694, 29505, 44781, 45548)
 
 	-- Hardened Obsidium Boots -- 76182
-	recipe = AddRecipe(76182, 470, nil, Q.COMMON, V.CATA, 470, 480, 485, 490)
+	recipe = AddRecipe(76182, V.CATA, Q.COMMON)
+	recipe:SetSkillLevels(470, 470, 480, 485, 490)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	recipe:AddTrainer(3136, 3355, 4258, 5164, 11146, 11177, 11178, 16669, 16823, 26564, 26981, 26988, 28694, 29505, 44781, 45548)
 
 	-- Hardened Obsidium Shoulders -- 76258
-	recipe = AddRecipe(76258, 480, nil, Q.COMMON, V.CATA, 480, 490, 495, 500)
+	recipe = AddRecipe(76258, V.CATA, Q.COMMON)
+	recipe:SetSkillLevels(480, 480, 490, 495, 500)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	recipe:AddTrainer(3136, 3355, 4258, 5164, 11146, 11177, 11178, 16669, 16823, 26564, 26981, 26988, 28694, 29505, 44781, 45548)
 
 	-- Hardened Obsidium Legguards -- 76259
-	recipe = AddRecipe(76259, 490, nil, Q.COMMON, V.CATA, 490, 500, 505, 510)
+	recipe = AddRecipe(76259, V.CATA, Q.COMMON)
+	recipe:SetSkillLevels(490, 490, 500, 505, 510)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	recipe:AddTrainer(3136, 3355, 4258, 5164, 11146, 11177, 11178, 16669, 16823, 26564, 26981, 26988, 28694, 29505, 44781, 45548)
 
 	-- Hardened Obsidium Helm -- 76260
-	recipe = AddRecipe(76260, 490, nil, Q.COMMON, V.CATA, 490, 500, 505, 510)
+	recipe = AddRecipe(76260, V.CATA, Q.COMMON)
+	recipe:SetSkillLevels(490, 490, 500, 505, 510)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	recipe:AddTrainer(3136, 3355, 4258, 5164, 11146, 11177, 11178, 16669, 16823, 26564, 26981, 26988, 28694, 29505, 44781, 45548)
 
 	-- Hardened Obsidium Breastplate -- 76261
-	recipe = AddRecipe(76261, 500, nil, Q.COMMON, V.CATA, 500, 510, 515, 520)
+	recipe = AddRecipe(76261, V.CATA, Q.COMMON)
+	recipe:SetSkillLevels(500, 500, 510, 515, 520)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	recipe:AddTrainer(3136, 3355, 4258, 5164, 11146, 11177, 11178, 16669, 16823, 26564, 26981, 26988, 28694, 29505, 44781, 45548)
 
 	-- Redsteel Bracers -- 76262
-	recipe = AddRecipe(76262, 440, nil, Q.COMMON, V.CATA, 440, 450, 455, 460)
+	recipe = AddRecipe(76262, V.CATA, Q.COMMON)
+	recipe:SetSkillLevels(440, 440, 450, 455, 460)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	recipe:AddTrainer(3136, 3355, 4258, 5164, 11146, 11177, 11178, 16669, 16823, 26564, 26981, 26988, 28694, 29505, 44781, 45548)
 
 	-- Redsteel Gauntlets -- 76263
-	recipe = AddRecipe(76263, 450, nil, Q.COMMON, V.CATA, 450, 460, 465, 470)
+	recipe = AddRecipe(76263, V.CATA, Q.COMMON)
+	recipe:SetSkillLevels(450, 450, 460, 465, 470)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	recipe:AddTrainer(3136, 3355, 4258, 5164, 11146, 11177, 11178, 16669, 16823, 26564, 26981, 26988, 28694, 29505, 44781, 45548)
 
 	-- Redsteel Belt -- 76264
-	recipe = AddRecipe(76264, 460, nil, Q.COMMON, V.CATA, 460, 470, 475, 480)
+	recipe = AddRecipe(76264, V.CATA, Q.COMMON)
+	recipe:SetSkillLevels(460, 460, 470, 475, 480)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	recipe:AddTrainer(3136, 3355, 4258, 5164, 11146, 11177, 11178, 16669, 16823, 26564, 26981, 26988, 28694, 29505, 44781, 45548)
 
 	-- Redsteel Boots -- 76265
-	recipe = AddRecipe(76265, 470, nil, Q.COMMON, V.CATA, 470, 480, 485, 490)
+	recipe = AddRecipe(76265, V.CATA, Q.COMMON)
+	recipe:SetSkillLevels(470, 470, 480, 485, 490)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	recipe:AddTrainer(3136, 3355, 4258, 5164, 11146, 11177, 11178, 16669, 16823, 26564, 26981, 26988, 28694, 29505, 44781, 45548)
 
 	-- Redsteel Shoulders -- 76266
-	recipe = AddRecipe(76266, 480, nil, Q.COMMON, V.CATA, 480, 490, 495, 500)
+	recipe = AddRecipe(76266, V.CATA, Q.COMMON)
+	recipe:SetSkillLevels(480, 480, 490, 495, 500)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	recipe:AddTrainer(3136, 3355, 4258, 5164, 11146, 11177, 11178, 16669, 16823, 26564, 26981, 26988, 28694, 29505, 44781, 45548)
 
 	-- Redsteel Legguards -- 76267
-	recipe = AddRecipe(76267, 490, nil, Q.COMMON, V.CATA, 490, 500, 505, 510)
+	recipe = AddRecipe(76267, V.CATA, Q.COMMON)
+	recipe:SetSkillLevels(490, 490, 500, 505, 510)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	recipe:AddTrainer(3136, 3355, 4258, 5164, 11146, 11177, 11178, 16669, 16823, 26564, 26981, 26988, 28694, 29505, 44781, 45548)
 
 	-- Redsteel Helm -- 76269
-	recipe = AddRecipe(76269, 500, nil, Q.COMMON, V.CATA, 500, 510, 515, 520)
+	recipe = AddRecipe(76269, V.CATA, Q.COMMON)
+	recipe:SetSkillLevels(500, 500, 510, 515, 520)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	recipe:AddTrainer(3136, 3355, 4258, 5164, 11146, 11177, 11178, 16669, 16823, 26564, 26981, 26988, 28694, 29505, 44781, 45548)
 
 	-- Redsteel Breastplate -- 76270
-	recipe = AddRecipe(76270, 500, nil, Q.COMMON, V.CATA, 500, 510, 515, 520)
+	recipe = AddRecipe(76270, V.CATA, Q.COMMON)
+	recipe:SetSkillLevels(500, 500, 510, 515, 520)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	recipe:AddTrainer(3136, 3355, 4258, 5164, 11146, 11177, 11178, 16669, 16823, 26564, 26981, 26988, 28694, 29505, 44781, 45548)
 
 	-- Stormforged Bracers -- 76280
-	recipe = AddRecipe(76280, 440, nil, Q.COMMON, V.CATA, 440, 450, 455, 460)
+	recipe = AddRecipe(76280, V.CATA, Q.COMMON)
+	recipe:SetSkillLevels(440, 440, 450, 455, 460)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	recipe:AddTrainer(3136, 3355, 4258, 5164, 11146, 11177, 11178, 16669, 16823, 26564, 26981, 26988, 28694, 29505, 44781, 45548)
 
 	-- Stormforged Gauntlets -- 76281
-	recipe = AddRecipe(76281, 450, nil, Q.COMMON, V.CATA, 450, 460, 465, 470)
+	recipe = AddRecipe(76281, V.CATA, Q.COMMON)
+	recipe:SetSkillLevels(450, 450, 460, 465, 470)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	recipe:AddTrainer(3136, 3355, 4258, 5164, 11146, 11177, 11178, 16669, 16823, 26564, 26981, 26988, 28694, 29505, 44781, 45548)
 
 	-- Stormforged Belt -- 76283
-	recipe = AddRecipe(76283, 460, nil, Q.COMMON, V.CATA, 460, 470, 475, 480)
+	recipe = AddRecipe(76283, V.CATA, Q.COMMON)
+	recipe:SetSkillLevels(460, 460, 470, 475, 480)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	recipe:AddTrainer(3136, 3355, 4258, 5164, 11146, 11177, 11178, 16669, 16823, 26564, 26981, 26988, 28694, 29505, 44781, 45548)
 
 	-- Stormforged Boots -- 76285
-	recipe = AddRecipe(76285, 470, nil, Q.COMMON, V.CATA, 470, 480, 485, 490)
+	recipe = AddRecipe(76285, V.CATA, Q.COMMON)
+	recipe:SetSkillLevels(470, 470, 480, 485, 490)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	recipe:AddTrainer(3136, 3355, 4258, 5164, 11146, 11177, 11178, 16669, 16823, 26564, 26981, 26988, 28694, 29505, 44781, 45548)
 
 	-- Stormforged Shoulders -- 76286
-	recipe = AddRecipe(76286, 480, nil, Q.COMMON, V.CATA, 480, 490, 495, 500)
+	recipe = AddRecipe(76286, V.CATA, Q.COMMON)
+	recipe:SetSkillLevels(480, 480, 490, 495, 500)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	recipe:AddTrainer(3136, 3355, 4258, 5164, 11146, 11177, 11178, 16669, 16823, 26564, 26981, 26988, 28694, 29505, 44781, 45548)
 
 	-- Stormforged Legguards -- 76287
-	recipe = AddRecipe(76287, 480, nil, Q.COMMON, V.CATA, 480, 490, 495, 500)
+	recipe = AddRecipe(76287, V.CATA, Q.COMMON)
+	recipe:SetSkillLevels(480, 480, 490, 495, 500)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	recipe:AddTrainer(3136, 3355, 4258, 5164, 11146, 11177, 11178, 16669, 16823, 26564, 26981, 26988, 28694, 29505, 44781, 45548)
 
 	-- Stormforged Helm -- 76288
-	recipe = AddRecipe(76288, 490, nil, Q.COMMON, V.CATA, 490, 500, 505, 510)
+	recipe = AddRecipe(76288, V.CATA, Q.COMMON)
+	recipe:SetSkillLevels(490, 490, 500, 505, 510)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	recipe:AddTrainer(3136, 3355, 4258, 5164, 11146, 11177, 11178, 16669, 16823, 26564, 26981, 26988, 28694, 29505, 44781, 45548)
 
 	-- Stormforged Breastplate -- 76289
-	recipe = AddRecipe(76289, 500, nil, Q.COMMON, V.CATA, 500, 510, 515, 520)
+	recipe = AddRecipe(76289, V.CATA, Q.COMMON)
+	recipe:SetSkillLevels(500, 500, 510, 515, 520)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	recipe:AddTrainer(3136, 3355, 4258, 5164, 11146, 11177, 11178, 16669, 16823, 26564, 26981, 26988, 28694, 29505, 44781, 45548)
 
 	-- Hardened Obsidium Shield -- 76291
-	recipe = AddRecipe(76291, 450, nil, Q.COMMON, V.CATA, 450, 460, 465, 470)
+	recipe = AddRecipe(76291, V.CATA, Q.COMMON)
+	recipe:SetSkillLevels(450, 450, 460, 465, 470)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	recipe:AddTrainer(3136, 3355, 4258, 5164, 11146, 11177, 11178, 16669, 16823, 26564, 26981, 26988, 28694, 29505, 44781, 45548)
 
 	-- Stormforged Shield -- 76293
-	recipe = AddRecipe(76293, 470, nil, Q.COMMON, V.CATA, 470, 480, 485, 490)
+	recipe = AddRecipe(76293, V.CATA, Q.COMMON)
+	recipe:SetSkillLevels(470, 470, 480, 485, 490)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	recipe:AddTrainer(3136, 3355, 4258, 5164, 11146, 11177, 11178, 16669, 16823, 26564, 26981, 26988, 28694, 29505, 44781, 45548)
 
 	-- Decapitator's Razor -- 76433
-	recipe = AddRecipe(76433, 460, nil, Q.COMMON, V.CATA, 460, 470, 475, 480)
+	recipe = AddRecipe(76433, V.CATA, Q.COMMON)
+	recipe:SetSkillLevels(460, 460, 470, 475, 480)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	recipe:AddTrainer(3136, 3355, 4258, 5164, 11146, 11177, 11178, 16669, 16823, 26564, 26981, 26988, 28694, 29505, 44781, 45548)
 
 	-- Cold-Forged Shank -- 76434
-	recipe = AddRecipe(76434, 470, nil, Q.COMMON, V.CATA, 470, 480, 485, 490)
+	recipe = AddRecipe(76434, V.CATA, Q.COMMON)
+	recipe:SetSkillLevels(470, 470, 480, 485, 490)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	recipe:AddTrainer(3136, 3355, 4258, 5164, 11146, 11177, 11178, 16669, 16823, 26564, 26981, 26988, 28694, 29505, 44781, 45548)
 
 	-- Fire-Etched Dagger -- 76435
-	recipe = AddRecipe(76435, 480, nil, Q.COMMON, V.CATA, 480, 490, 495, 500)
+	recipe = AddRecipe(76435, V.CATA, Q.COMMON)
+	recipe:SetSkillLevels(480, 480, 490, 495, 500)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	recipe:AddTrainer(3136, 3355, 4258, 5164, 11146, 11177, 11178, 16669, 16823, 26564, 26981, 26988, 28694, 29505, 44781, 45548)
 
 	-- Lifeforce Hammer -- 76436
-	recipe = AddRecipe(76436, 480, nil, Q.COMMON, V.CATA, 480, 490, 495, 500)
+	recipe = AddRecipe(76436, V.CATA, Q.COMMON)
+	recipe:SetSkillLevels(480, 480, 490, 495, 500)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	recipe:AddTrainer(3136, 3355, 4258, 5164, 11146, 11177, 11178, 16669, 16823, 26564, 26981, 26988, 28694, 29505, 44781, 45548)
 
 	-- Obsidium Executioner -- 76437
-	recipe = AddRecipe(76437, 480, nil, Q.COMMON, V.CATA, 480, 490, 495, 500)
+	recipe = AddRecipe(76437, V.CATA, Q.COMMON)
+	recipe:SetSkillLevels(480, 480, 490, 495, 500)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	recipe:AddTrainer(3136, 3355, 4258, 5164, 11146, 11177, 11178, 16669, 16823, 26564, 26981, 26988, 28694, 29505, 44781, 45548)
 
 	-- Obsidium Skeleton Key -- 76438
-	recipe = AddRecipe(76438, 475, nil, Q.COMMON, V.CATA, 475, 485, 490, 495)
+	recipe = AddRecipe(76438, V.CATA, Q.COMMON)
+	recipe:SetSkillLevels(475, 475, 485, 490, 495)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	recipe:AddTrainer(3136, 3355, 4258, 5164, 11146, 11177, 11178, 16669, 16823, 26564, 26981, 26988, 28694, 29505, 44781, 45548)
 
 	-- Ebonsteel Belt Buckle -- 76439
-	recipe = AddRecipe(76439, 525, nil, Q.COMMON, V.CATA, 525, 525, 525, 525)
+	recipe = AddRecipe(76439, V.CATA, Q.COMMON)
+	recipe:SetSkillLevels(525, 525, 525, 525, 525)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	recipe:AddVendor(50375, 50382)
 
 	-- Pyrium Shield Spike -- 76440
-	recipe = AddRecipe(76440, 525, nil, Q.COMMON, V.CATA, 525, 530, 535, 540)
+	recipe = AddRecipe(76440, V.CATA, Q.COMMON)
+	recipe:SetSkillLevels(525, 525, 530, 535, 540)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	recipe:AddVendor(50375, 50382)
 
 	-- Elementium Shield Spike -- 76441
-	recipe = AddRecipe(76441, 490, nil, Q.COMMON, V.CATA, 490, 500, 505, 510)
+	recipe = AddRecipe(76441, V.CATA, Q.COMMON)
+	recipe:SetSkillLevels(490, 490, 500, 505, 510)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	recipe:AddTrainer(3136, 3355, 4258, 5164, 11146, 11177, 11178, 16669, 16823, 26564, 26981, 26988, 28694, 29505, 44781, 45548)
 
 	-- Pyrium Weapon Chain -- 76442
-	recipe = AddRecipe(76442, 500, nil, Q.COMMON, V.CATA, 500, 505, 510, 515)
+	recipe = AddRecipe(76442, V.CATA, Q.COMMON)
+	recipe:SetSkillLevels(500, 500, 505, 510, 515)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	recipe:AddVendor(50375, 50382)
 
 	-- Hardened Elementium Hauberk -- 76443
-	recipe = AddRecipe(76443, 515, nil, Q.COMMON, V.CATA, 515, 515, 515, 525)
+	recipe = AddRecipe(76443, V.CATA, Q.COMMON)
+	recipe:SetSkillLevels(515, 515, 515, 515, 525)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	recipe:AddVendor(50375, 50382)
 
 	-- Hardened Elementium Girdle -- 76444
-	recipe = AddRecipe(76444, 510, nil, Q.COMMON, V.CATA, 510, 520, 522, 525)
+	recipe = AddRecipe(76444, V.CATA, Q.COMMON)
+	recipe:SetSkillLevels(510, 510, 520, 522, 525)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	recipe:AddVendor(50375, 50382)
 
 	-- Elementium Deathplate -- 76445
-	recipe = AddRecipe(76445, 515, nil, Q.COMMON, V.CATA, 515, 515, 515, 525)
+	recipe = AddRecipe(76445, V.CATA, Q.COMMON)
+	recipe:SetSkillLevels(515, 515, 515, 515, 525)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	recipe:AddVendor(50375, 50382)
 
 	-- Elementium Girdle of Pain -- 76446
-	recipe = AddRecipe(76446, 510, nil, Q.COMMON, V.CATA, 510, 520, 522, 525)
+	recipe = AddRecipe(76446, V.CATA, Q.COMMON)
+	recipe:SetSkillLevels(510, 510, 520, 522, 525)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	recipe:AddVendor(50375, 50382)
 
 	-- Light Elementium Chestguard -- 76447
-	recipe = AddRecipe(76447, 515, nil, Q.COMMON, V.CATA, 515, 515, 515, 525)
+	recipe = AddRecipe(76447, V.CATA, Q.COMMON)
+	recipe:SetSkillLevels(515, 515, 515, 515, 525)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	recipe:AddVendor(50375, 50382)
 
 	-- Light Elementium Belt -- 76448
-	recipe = AddRecipe(76448, 510, nil, Q.COMMON, V.CATA, 510, 520, 522, 525)
+	recipe = AddRecipe(76448, V.CATA, Q.COMMON)
+	recipe:SetSkillLevels(510, 510, 520, 522, 525)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	recipe:AddVendor(50375, 50382)
 
 	-- Elementium Spellblade -- 76449
-	recipe = AddRecipe(76449, 520, nil, Q.COMMON, V.CATA, 520, 520, 520, 525)
+	recipe = AddRecipe(76449, V.CATA, Q.COMMON)
+	recipe:SetSkillLevels(520, 520, 520, 520, 525)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	recipe:AddVendor(50375, 50382)
 
 	-- Elementium Hammer -- 76450
-	recipe = AddRecipe(76450, 515, nil, Q.COMMON, V.CATA, 515, 515, 515, 525)
+	recipe = AddRecipe(76450, V.CATA, Q.COMMON)
+	recipe:SetSkillLevels(515, 515, 515, 515, 525)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	recipe:AddVendor(50375, 50382)
 
 	-- Elementium Poleaxe -- 76451
-	recipe = AddRecipe(76451, 520, nil, Q.COMMON, V.CATA, 520, 520, 520, 525)
+	recipe = AddRecipe(76451, V.CATA, Q.COMMON)
+	recipe:SetSkillLevels(520, 520, 520, 520, 525)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	recipe:AddVendor(50375, 50382)
 
 	-- Elementium Bonesplitter -- 76452
-	recipe = AddRecipe(76452, 515, nil, Q.COMMON, V.CATA, 515, 515, 515, 525)
+	recipe = AddRecipe(76452, V.CATA, Q.COMMON)
+	recipe:SetSkillLevels(515, 515, 515, 515, 525)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	recipe:AddVendor(50375, 50382)
 
 	-- Elementium Shank -- 76453
-	recipe = AddRecipe(76453, 520, nil, Q.COMMON, V.CATA, 520, 520, 520, 525)
+	recipe = AddRecipe(76453, V.CATA, Q.COMMON)
+	recipe:SetSkillLevels(520, 520, 520, 520, 525)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	recipe:AddVendor(50375, 50382)
 
 	-- Elementium Earthguard -- 76454
-	recipe = AddRecipe(76454, 520, nil, Q.COMMON, V.CATA, 520, 520, 520, 525)
+	recipe = AddRecipe(76454, V.CATA, Q.COMMON)
+	recipe:SetSkillLevels(520, 520, 520, 520, 525)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	recipe:AddVendor(50375, 50382)
 
 	-- Elementium Stormshield -- 76455
-	recipe = AddRecipe(76455, 520, nil, Q.COMMON, V.CATA, 520, 520, 520, 525)
+	recipe = AddRecipe(76455, V.CATA, Q.COMMON)
+	recipe:SetSkillLevels(520, 520, 520, 520, 525)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	recipe:AddVendor(50375, 50382)
 
 	-- Bloodied Pyrium Bracers -- 76456
-	recipe = AddRecipe(76456, 500, nil, Q.COMMON, V.CATA, 500, 510, 512, 515)
+	recipe = AddRecipe(76456, V.CATA, Q.COMMON)
+	recipe:SetSkillLevels(500, 500, 510, 512, 515)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	recipe:AddVendor(50375, 50382)
 
 	-- Bloodied Pyrium Gauntlets -- 76457
-	recipe = AddRecipe(76457, 505, nil, Q.COMMON, V.CATA, 505, 515, 517, 520)
+	recipe = AddRecipe(76457, V.CATA, Q.COMMON)
+	recipe:SetSkillLevels(505, 505, 515, 517, 520)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	recipe:AddVendor(50375, 50382)
 
 	-- Bloodied Pyrium Belt -- 76458
-	recipe = AddRecipe(76458, 510, nil, Q.COMMON, V.CATA, 510, 520, 522, 525)
+	recipe = AddRecipe(76458, V.CATA, Q.COMMON)
+	recipe:SetSkillLevels(510, 510, 520, 522, 525)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	recipe:AddVendor(50375, 50382)
 
 	-- Bloodied Pyrium Boots -- 76459
-	recipe = AddRecipe(76459, 515, nil, Q.COMMON, V.CATA, 515, 525, 527, 530)
+	recipe = AddRecipe(76459, V.CATA, Q.COMMON)
+	recipe:SetSkillLevels(515, 515, 525, 527, 530)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	recipe:AddVendor(50375, 50382)
 
 	-- Bloodied Pyrium Shoulders -- 76461
-	recipe = AddRecipe(76461, 520, nil, Q.COMMON, V.CATA, 520, 530, 532, 535)
+	recipe = AddRecipe(76461, V.CATA, Q.COMMON)
+	recipe:SetSkillLevels(520, 520, 530, 532, 535)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	recipe:AddVendor(50375, 50382)
 
 	-- Bloodied Pyrium Legguards -- 76462
-	recipe = AddRecipe(76462, 525, nil, Q.COMMON, V.CATA, 525, 535, 537, 540)
+	recipe = AddRecipe(76462, V.CATA, Q.COMMON)
+	recipe:SetSkillLevels(525, 525, 535, 537, 540)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	recipe:AddVendor(50375, 50382)
 
 	-- Bloodied Pyrium Helm -- 76463
-	recipe = AddRecipe(76463, 525, nil, Q.COMMON, V.CATA, 525, 535, 537, 540)
+	recipe = AddRecipe(76463, V.CATA, Q.COMMON)
+	recipe:SetSkillLevels(525, 525, 535, 537, 540)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	recipe:AddVendor(50375, 50382)
 
 	-- Bloodied Pyrium Breastplate -- 76464
-	recipe = AddRecipe(76464, 525, nil, Q.COMMON, V.CATA, 525, 535, 537, 540)
+	recipe = AddRecipe(76464, V.CATA, Q.COMMON)
+	recipe:SetSkillLevels(525, 525, 535, 537, 540)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	recipe:AddVendor(50375, 50382)
 
 	-- Ornate Pyrium Bracers -- 76465
-	recipe = AddRecipe(76465, 500, nil, Q.COMMON, V.CATA, 500, 510, 512, 515)
+	recipe = AddRecipe(76465, V.CATA, Q.COMMON)
+	recipe:SetSkillLevels(500, 500, 510, 512, 515)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	recipe:AddVendor(50375, 50382)
 
 	-- Ornate Pyrium Gauntlets -- 76466
-	recipe = AddRecipe(76466, 505, nil, Q.COMMON, V.CATA, 505, 515, 517, 520)
+	recipe = AddRecipe(76466, V.CATA, Q.COMMON)
+	recipe:SetSkillLevels(505, 505, 515, 517, 520)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	recipe:AddVendor(50375, 50382)
 
 	-- Ornate Pyrium Belt -- 76467
-	recipe = AddRecipe(76467, 510, nil, Q.COMMON, V.CATA, 510, 520, 522, 525)
+	recipe = AddRecipe(76467, V.CATA, Q.COMMON)
+	recipe:SetSkillLevels(510, 510, 520, 522, 525)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	recipe:AddVendor(50375, 50382)
 
 	-- Ornate Pyrium Boots -- 76468
-	recipe = AddRecipe(76468, 515, nil, Q.COMMON, V.CATA, 515, 525, 527, 530)
+	recipe = AddRecipe(76468, V.CATA, Q.COMMON)
+	recipe:SetSkillLevels(515, 515, 525, 527, 530)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	recipe:AddVendor(50375, 50382)
 
 	-- Ornate Pyrium Shoulders -- 76469
-	recipe = AddRecipe(76469, 520, nil, Q.COMMON, V.CATA, 520, 530, 532, 535)
+	recipe = AddRecipe(76469, V.CATA, Q.COMMON)
+	recipe:SetSkillLevels(520, 520, 530, 532, 535)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	recipe:AddVendor(50375, 50382)
 
 	-- Ornate Pyrium Legguards -- 76470
-	recipe = AddRecipe(76470, 525, nil, Q.COMMON, V.CATA, 525, 535, 537, 540)
+	recipe = AddRecipe(76470, V.CATA, Q.COMMON)
+	recipe:SetSkillLevels(525, 525, 535, 537, 540)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	recipe:AddVendor(50375, 50382)
 
 	-- Ornate Pyrium Helm -- 76471
-	recipe = AddRecipe(76471, 525, nil, Q.COMMON, V.CATA, 525, 535, 537, 540)
+	recipe = AddRecipe(76471, V.CATA, Q.COMMON)
+	recipe:SetSkillLevels(525, 525, 535, 537, 540)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	recipe:AddVendor(50375, 50382)
 
 	-- Ornate Pyrium Breastplate -- 76472
-	recipe = AddRecipe(76472, 525, nil, Q.COMMON, V.CATA, 525, 535, 537, 540)
+	recipe = AddRecipe(76472, V.CATA, Q.COMMON)
+	recipe:SetSkillLevels(525, 525, 535, 537, 540)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	recipe:AddVendor(50375, 50382)
 
 	-- Obsidium Bladespear -- 76474
-	recipe = AddRecipe(76474, 470, nil, Q.COMMON, V.CATA, 470, 480, 485, 490)
+	recipe = AddRecipe(76474, V.CATA, Q.COMMON)
+	recipe:SetSkillLevels(470, 470, 480, 485, 490)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	recipe:AddTrainer(3136, 3355, 4258, 5164, 11146, 11177, 11178, 16669, 16823, 26564, 26981, 26988, 28694, 29505, 44781, 45548)
 
 	-- Elementium Rod -- 92375
-	recipe = AddRecipe(92375, 475, nil, Q.COMMON, V.CATA, 475, 480, 485, 490)
+	recipe = AddRecipe(92375, V.CATA, Q.COMMON)
+	recipe:SetSkillLevels(475, 475, 480, 485, 490)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	recipe:AddTrainer(3136, 3355, 4258, 5164, 11146, 11177, 11178, 16669, 16823, 26564, 26981, 26988, 28694, 29505, 44781, 45548)
 
 	-- Elementium Gutslicer -- 94718
-	recipe = AddRecipe(94718, 515, nil, Q.COMMON, V.CATA, 515, 515, 515, 525)
+	recipe = AddRecipe(94718, V.CATA, Q.COMMON)
+	recipe:SetSkillLevels(515, 515, 515, 515, 525)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	recipe:AddVendor(50375, 50382)
 
 	-- Forged Elementium Mindcrusher -- 94732
-	recipe = AddRecipe(94732, 520, nil, Q.COMMON, V.CATA, 520, 520, 520, 525)
+	recipe = AddRecipe(94732, V.CATA, Q.COMMON)
+	recipe:SetSkillLevels(520, 520, 520, 520, 525)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	recipe:AddVendor(50375, 50382)
 

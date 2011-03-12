@@ -53,17 +53,6 @@ local FOLDER_NAME, private	= ...
 local F = private.filter_flags
 local A = private.acquire_types
 
-local PROFESSIONS = private.professions
-
-local SPELL_TO_RECIPE_MAP = private.spell_to_recipe_map
-local RECIPE_TO_SPELL_MAP = {}
-
-do
-	for spell_id, recipe_id in pairs(SPELL_TO_RECIPE_MAP) do
-		RECIPE_TO_SPELL_MAP[recipe_id] = spell_id
-	end
-end
-
 -------------------------------------------------------------------------------
 -- Look up table of spell IDs for recipes which do not have a player flag
 -- BASICALLY A TEMPORARY STORAGE FOR IDS, SO WE CAN SEE CLEANER SCANS AND WHAT NOT,
@@ -520,6 +509,10 @@ local NO_ROLE_FLAG = {
 }
 
 local function ItemLinkToID(item_link)
+	if not item_link then
+		return
+	end
+
 	local id = item_link:match("item:(%d+)")
 
 	if not id then
@@ -538,12 +531,11 @@ local function LoadRecipe()
 			addon:InitializeLookups()
 		end
 
-		for idx, prof in pairs(PROFESSIONS) do
+		for index, prof in pairs(private.professions) do
 			addon:InitializeProfession(prof)
 		end
 	end
 	return recipe_list
-
 end
 
 -------------------------------------------------------------------------------
@@ -651,7 +643,8 @@ do
 		_G.SetTrainerServiceTypeFilter("used", used or 0)
 	end
 
-	local teach, noteach = {}, {}
+	local missing_spell_ids, extra_spell_ids = {}, {}
+	local scanned_items = {}
 
 	--- Function to compare which recipes are available from a trainer and compare with the internal ARL database.
 	-- @name AckisRecipeList:ScanTrainerData
@@ -666,7 +659,7 @@ do
 			return
 		end
 
-		if not _G.IsTradeskillTrainer() then	-- Are we at a trade skill trainer?
+		if not _G.IsTradeskillTrainer() then
 			if not autoscan then
 				self:Print(L["DATAMINER_SKILLLEVEL_ERROR"])
 			end
@@ -692,15 +685,22 @@ do
 		if _G.GetNumTrainerServices() == 0 then
 			self:Print("Warning: Trainer is bugged, reporting 0 trainer items.")
 		end
+		table.wipe(scanned_items)
 		table.wipe(scanned_recipes)
 
 		-- Get all the names of recipes from the trainer
-		for i = 1, _G.GetNumTrainerServices(), 1 do
-			local name = _G.GetTrainerServiceInfo(i)
-			scanned_recipes[name] = true
+		for index = 1, _G.GetNumTrainerServices(), 1 do
+			local item_name = _G.GetTrainerServiceInfo(index)
+			local item_id = ItemLinkToID(_G.GetTrainerServiceItemLink(index))
+
+			if item_id then
+				scanned_items[item_id] = true
+			else
+				scanned_recipes[item_name] = true
+			end
 		end
-		table.wipe(teach)
-		table.wipe(noteach)
+		table.wipe(missing_spell_ids)
+		table.wipe(extra_spell_ids)
 		table.wipe(output)
 
 		-- Dump out trainer info
@@ -710,62 +710,72 @@ do
 		table.insert(output, "ARL Version: @project-version@")
 		table.insert(output, L["DATAMINER_TRAINER_INFO"]:format(trainer_name, trainer_id))
 
-		local teachflag = false
-		local noteachflag = false
+		local current_profession
 
 		for spell_id, recipe in pairs(recipe_list) do
 			local train_data = recipe.acquire_data[A.TRAINER]
-			local found = false
+			local matching_trainer = false
 
 			if train_data then
 				for id_num in pairs(train_data) do
 					if id_num == trainer_id then
-						found = true
+						matching_trainer = true
 						break
 					end
 				end
 			end
+			local matching_item = scanned_items[recipe:CraftedItemID()]
+			local matching_recipe = scanned_recipes[recipe.name]
 
-			if scanned_recipes[recipe.name] then
-				if not found then
+			if matching_item or matching_recipe then
+				current_profession = recipe.profession
+
+				if not matching_trainer then
 					recipe:AddTrainer(trainer_id)
-					table.insert(teach, spell_id)
-					teachflag = true
+					table.insert(missing_spell_ids, spell_id)
 
 					if not recipe:HasFilter("common1", "TRAINER") then
 						recipe:AddFilters(F.TRAINER)
-						table.insert(output, spell_id..": Trainer flag needs to be set.")
+
+						if matching_item then
+							table.insert(output, ("Added trainer flag to recipe with spell ID %d. (matching crafted item ID %d)"):format(spell_id, recipe:CraftedItemID()))
+						elseif matching_recipe then
+							table.insert(output, ("Added trainer flag to recipe with spell ID %d. (matching recipe name \"%s\")"):format(spell_id, recipe.name))
+						end
 					end
 				end
-			else
-				if found then
-					noteachflag = true
-					table.insert(noteach, spell_id)
-				end
+			elseif matching_trainer then
+				table.insert(extra_spell_ids, spell_id)
+			end
+		end
+		local found_missing = #missing_spell_ids > 0
+		local found_extra = #extra_spell_ids > 0
+
+		if found_missing then
+			table.insert(output, "\nTrainer is missing from the following entries:")
+			table.sort(missing_spell_ids)
+
+			for index in ipairs(missing_spell_ids) do
+				local spell_id = missing_spell_ids[index]
+				table.insert(output, L["DATAMINER_TRAINER_TEACH"]:format(spell_id, recipe_list[spell_id].name))
 			end
 		end
 
-		if teachflag then
-			table.insert(output, "Trainer is missing from the following entries:")
-			table.sort(teach)
+		if found_extra then
+			table.insert(output, "\nRecipes which are either missing crafted item IDs or are wrongly assigned to the trainer:")
+			table.sort(extra_spell_ids)
 
-			for i in ipairs(teach) do
-				table.insert(output, L["DATAMINER_TRAINER_TEACH"]:format(teach[i], recipe_list[teach[i]].name))
+			for index in ipairs(extra_spell_ids) do
+				local spell_id = extra_spell_ids[index]
+				table.insert(output, L["DATAMINER_TRAINER_NOTTEACH"]:format(spell_id, recipe_list[spell_id].name))
 			end
 		end
 
-		if noteachflag then
-			table.insert(output, "Trainer does not teach the following entries (should be removed):")
-			table.sort(noteach)
-
-			for i in ipairs(noteach) do
-				table.insert(output, L["DATAMINER_TRAINER_NOTTEACH"]:format(noteach[i], recipe_list[noteach[i]].name))
+		if found_missing or found_extra then
+			if current_profession == private.professions.Engineering then
+				table.insert(output, "\nSome goggles may be listed as extra. These goggles ONLY show up for the classes who can make them, so they may be false positives.")
 			end
-		end
-		table.insert(output, "Trainer Acquire Scan Complete.")
-		table.insert(output, "If this is an engineering scan, some goggles may be listed as extra. These goggles ONLY show up for the classes who can make them, so they may be false positives.")
 
-		if teachflag or noteachflag then
 			self:DisplayTextDump(nil, nil, table.concat(output, "\n"))
 		end
 		-- Reset the filters to what they were before
@@ -930,26 +940,6 @@ do
 		end
 	end
 
-	local FILTER_STRINGS = private.filter_strings
-	local ACQUIRE_STRINGS = private.acquire_strings
-	local REP_LEVELS = private.rep_level_strings
-	local FACTION_NAMES = private.faction_strings
-	local Q = private.item_quality_names
-	local V = private.game_version_names
-
-	local FUNCTION_FORMATS = {
-		[A.ACHIEVEMENT]	= "recipe:AddAchievement(%s)",
-		[A.CUSTOM]	= "recipe:AddCustom(%s)",
-		[A.SEASONAL]	= "recipe:AddSeason(%s)",
-		[A.TRAINER]	= "recipe:AddTrainer(%s)",
-		[A.MOB_DROP]	= "recipe:AddMobDrop(%s)",
-		[A.WORLD_DROP]	= "recipe:AddWorldDrop(%s)",
-		[A.QUEST]	= "recipe:AddQuest(%s)",
-	}
-
-	local sorted_data = {}
-	local reverse_map = {}
-
 	local function RecipeDump(id, single)
 		local recipe = private.recipe_list[id or 1]
 
@@ -957,158 +947,7 @@ do
 			addon:Print("Invalid recipe ID.")
 			return
 		end
-		local flag_string
-		local genesis = private.game_versions[recipe.genesis]
-
-		table.insert(output, ("-- %s -- %d"):format(recipe.name, recipe.spell_id))
-
-		local spell_id = recipe.spell_id
-		local skill_level = recipe.skill_level
-		local optimal_level = recipe.optimal_level
-		local medium_level = recipe.medium_level
-		local easy_level = recipe.easy_level
-		local trivial_level = recipe.trivial_level
-		local required_faction = recipe.required_faction
-		local specialty = recipe.specialty
-
-		local FACTION_FORMAT = "recipe = AddRecipe(%d, %d, %s, Q.%s, V.%s, %d, %d, %d, %d, %s, \"%s\")"
-		local SPECIALTY_FORMAT = "recipe = AddRecipe(%d, %d, %s, Q.%s, V.%s, %d, %d, %d, %d, %s)"
-		local NORMAL_FORMAT = "recipe = AddRecipe(%d, %d, %s, Q.%s, V.%s, %d, %d, %d, %d)"
-
-		if required_faction then
-			table.insert(output,
-				FACTION_FORMAT:format(spell_id, skill_level, tostring(recipe.item_id), Q[recipe.quality], V[genesis],optimal_level, medium_level, easy_level, trivial_level, specialty or "nil",
-						required_faction))
-		elseif specialty then
-			table.insert(output,
-				SPECIALTY_FORMAT:format(spell_id, skill_level, tostring(recipe.item_id), Q[recipe.quality], V[genesis], optimal_level, medium_level, easy_level, trivial_level, specialty))
-		else
-			table.insert(output,
-				NORMAL_FORMAT:format(spell_id, skill_level, tostring(recipe.item_id), Q[recipe.quality], V[genesis], optimal_level, medium_level, easy_level, trivial_level))
-		end
-
-		for table_index, bits in ipairs(private.bit_flags) do
-			table.wipe(sorted_data)
-			table.wipe(reverse_map)
-
-			for flag_name, flag in pairs(bits) do
-				local bitfield = recipe.flags[private.flag_members[table_index]]
-
-				if bitfield and bit.band(bitfield, flag) == flag then
-					table.insert(sorted_data, flag)
-					reverse_map[flag] = flag_name
-				end
-			end
-			table.sort(sorted_data)
-
-			for index, flag in ipairs(sorted_data) do
-				local bitfield = recipe.flags[private.flag_members[table_index]]
-
-				if bitfield and bit.band(bitfield, flag) == flag then
-					if not flag_string then
-						flag_string = ("F.%s"):format(FILTER_STRINGS[private.filter_flags[reverse_map[flag]]])
-					else
-						flag_string = ("%s, F.%s"):format(flag_string, FILTER_STRINGS[private.filter_flags[reverse_map[flag]]])
-					end
-				end
-			end
-		end
-		table.insert(output, ("recipe:AddFilters(%s)"):format(flag_string))
-
-		flag_string = nil
-
-		for acquire_type, acquire_info in pairs(recipe.acquire_data) do
-			if acquire_type == A.REPUTATION then
-				for rep_id, rep_info in pairs(acquire_info) do
-					local faction_string = FACTION_NAMES[rep_id]
-
-					if not faction_string then
-						faction_string = rep_id
-						addon:Printf("Recipe %d (%s) - no string for faction %d", recipe.spell_id, recipe.name, rep_id)
-					else
-						faction_string = ("FAC.%s"):format(faction_string)
-					end
-
-					for rep_level, level_info in pairs(rep_info) do
-						local rep_string = ("REP.%s"):format(REP_LEVELS[rep_level or 1])
-						local values
-
-						table.wipe(sorted_data)
-						table.wipe(reverse_map)
-
-						for id_num in pairs(level_info) do
-							table.insert(sorted_data, id_num)
-						end
-						table.sort(sorted_data)
-
-						for index, vendor_id in ipairs(sorted_data) do
-							values = values and (values..", "..vendor_id) or vendor_id
-						end
-						table.insert(output, ("recipe:AddRepVendor(%s, %s, %s)"):format(faction_string, rep_string, values))
-					end
-				end
-			elseif acquire_type == A.VENDOR then
-				local values
-				local limited_values
-
-				table.wipe(sorted_data)
-				table.wipe(reverse_map)
-
-				for id_num in pairs(acquire_info) do
-					table.insert(sorted_data, id_num)
-				end
-				table.sort(sorted_data)
-
-				for index, id_num in ipairs(sorted_data) do
-					local vendor = private.vendor_list[id_num]
-					local quantity = vendor.item_list[recipe.spell_id]
-					local saved_id = (type(id_num) == "string" and ("\""..id_num.."\"") or id_num)
-
-					if type(quantity) == "number" then
-						limited_values = limited_values and (limited_values..", "..saved_id..", "..quantity) or (saved_id..", "..quantity)
-					else
-						values = values and (values..", "..saved_id) or saved_id
-					end
-				end
-
-				if values then
-					table.insert(output, ("recipe:AddVendor(%s)"):format(values))
-				end
-
-				if limited_values then
-					table.insert(output, ("recipe:AddLimitedVendor(%s)"):format(limited_values))
-				end
-			elseif FUNCTION_FORMATS[acquire_type] then
-				local values
-
-				table.wipe(sorted_data)
-				table.wipe(reverse_map)
-
-				for id_num in pairs(acquire_info) do
-					table.insert(sorted_data, id_num)
-				end
-				table.sort(sorted_data)
-
-				for index, id_num in ipairs(sorted_data) do
-					local saved_id = (type(id_num) == "string" and ("\""..id_num.."\"") or id_num)
-					values = values and (values..", "..saved_id) or saved_id
-				end
-				table.insert(output, (FUNCTION_FORMATS[acquire_type]):format(values))
-			else
-				for id_num in pairs(acquire_info) do
-					if not flag_string then
-						flag_string = "A."..ACQUIRE_STRINGS[acquire_type]..", "..(type(id_num) == "string" and ("\""..id_num.."\"") or id_num)
-					else
-						flag_string = ("%s, A.%s, %s"):format(flag_string, ACQUIRE_STRINGS[acquire_type], (type(id_num) == "string" and ("\""..id_num.."\"") or id_num))
-					end
-				end
-			end
-		end
-
-		if flag_string then
-			table.insert(output, ("recipe:AddAcquireData(%s)"):format(flag_string))
-		end
-		table.insert(output, "")
+		recipe:Dump(output)
 	end
 
 	local function ProfessionDump(prof_name)
@@ -1210,6 +1049,7 @@ local RECIPE_TYPES = {
 -- @return Obtains all the vendor information on tradeskill recipes and attempts to compare the current vendor with the internal database
 do
 	local output = {}
+	local RECIPE_ITEM_TO_SPELL_MAP
 
 	function addon:ScanVendor()
 		if not (_G.UnitExists("target") and (not _G.UnitIsPlayer("target")) and (not _G.UnitIsEnemy("player", "target"))) then	-- Make sure the target exists and is a NPC
@@ -1231,6 +1071,20 @@ do
 		table.insert(output, "ARL Version: @project-version@")
 		table.insert(output, L["DATAMINER_VENDOR_INFO"]:format(vendor_name, vendor_id))
 
+		if not RECIPE_ITEM_TO_SPELL_MAP then
+			RECIPE_ITEM_TO_SPELL_MAP = {}
+
+			for spell_id, recipe in pairs(private.recipe_list) do
+				local recipe_item_id = recipe:RecipeItemID()
+
+				if recipe_item_id then
+					RECIPE_ITEM_TO_SPELL_MAP[recipe_item_id] = spell_id
+				elseif recipe:HasFilter("common1", "VENDOR") then
+					self:Debug("Recipe %d (%s) has Vendor filter flag without a recipe item ID.", spell_id, recipe.name)
+				end
+			end
+		end
+
 		for index = 1, _G.GetMerchantNumItems(), 1 do
 			local item_name, _, _, _, supply = _G.GetMerchantItemInfo(index)
 
@@ -1238,9 +1092,7 @@ do
 				local match_text = string.match(item_name, "%a+: ")
 
 				if match_text and RECIPE_TYPES[match_text:lower()] then
-					local item_link = _G.GetMerchantItemLink(index)
-					local item_id = ItemLinkToID(item_link)
-					local spell_id = RECIPE_TO_SPELL_MAP[item_id]
+					local spell_id = RECIPE_ITEM_TO_SPELL_MAP[ItemLinkToID(_G.GetMerchantItemLink(index))]
 
 					if spell_id then
 						local scanned_text = addon:TooltipScanRecipe(spell_id, true, true)
@@ -1505,12 +1357,12 @@ do
 		end
 		local reverse_lookup = GetReverseLookup(recipe_list)
 
-		local item_id = SPELL_TO_RECIPE_MAP[spell_id]
+		local recipe_item_id = recipe:RecipeItemID()
 
 		table.wipe(scan_data)
 
-		if item_id and not DO_NOT_SCAN[item_id] then
-			local item_name, item_link, item_quality = _G.GetItemInfo(item_id)
+		if recipe_item_id and not DO_NOT_SCAN[recipe_item_id] then
+			local item_name, item_link, item_quality = _G.GetItemInfo(recipe_item_id)
 
 			if item_name then
 				scan_data.quality = item_quality
@@ -1518,12 +1370,12 @@ do
 				ARLDatamineTT:SetHyperlink(item_link)
 				self:ScanToolTip(recipe_name, recipe_list, reverse_lookup, is_vendor)
 			else
-				local querier_string = _G.Querier and string.format(" To fix: /iq %d", item_id) or ""
+				local querier_string = _G.Querier and string.format(" To fix: /iq %d", recipe_item_id) or ""
 
 				table.insert(output, string.format("%s: %d", recipe.name, spell_id))
 				table.insert(output, string.format("    Recipe item not in cache.%s", querier_string))
 			end
-		elseif not item_id then
+		elseif not recipe_item_id then
 			-- We are dealing with a recipe that does not have an item to learn it from.
 			-- Lets check the recipe flags to see if we have a data error and the item should exist
 			if not recipe:HasFilter("common1", "RETIRED") then
