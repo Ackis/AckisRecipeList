@@ -655,7 +655,8 @@ do
 		_G.SetTrainerServiceTypeFilter("used", used or 0)
 	end
 
-	local teach, noteach = {}, {}
+	local missing_spell_ids, extra_spell_ids = {}, {}
+	local scanned_items = {}
 
 	--- Function to compare which recipes are available from a trainer and compare with the internal ARL database.
 	-- @name AckisRecipeList:ScanTrainerData
@@ -670,7 +671,7 @@ do
 			return
 		end
 
-		if not _G.IsTradeskillTrainer() then	-- Are we at a trade skill trainer?
+		if not _G.IsTradeskillTrainer() then
 			if not autoscan then
 				self:Print(L["DATAMINER_SKILLLEVEL_ERROR"])
 			end
@@ -696,22 +697,22 @@ do
 		if _G.GetNumTrainerServices() == 0 then
 			self:Print("Warning: Trainer is bugged, reporting 0 trainer items.")
 		end
+		table.wipe(scanned_items)
 		table.wipe(scanned_recipes)
 
 		-- Get all the names of recipes from the trainer
 		for index = 1, _G.GetNumTrainerServices(), 1 do
 			local item_name = _G.GetTrainerServiceInfo(index)
 			local item_id = ItemLinkToID(_G.GetTrainerServiceItemLink(index))
-			local spell_id = RECIPE_TO_SPELL_MAP[item_id]
 
-			if spell_id then
-				scanned_recipes[spell_id] = item_id
-			elseif item_id then
-				self:Debug("No spell_id found for item_id %d (%s)", item_id, item_name)
+			if item_id then
+				scanned_items[item_id] = true
+			else
+				scanned_recipes[item_name] = true
 			end
 		end
-		table.wipe(teach)
-		table.wipe(noteach)
+		table.wipe(missing_spell_ids)
+		table.wipe(extra_spell_ids)
 		table.wipe(output)
 
 		-- Dump out trainer info
@@ -721,63 +722,72 @@ do
 		table.insert(output, "ARL Version: @project-version@")
 		table.insert(output, L["DATAMINER_TRAINER_INFO"]:format(trainer_name, trainer_id))
 
-		local teachflag = false
-		local noteachflag = false
+		local current_profession
 
 		for spell_id, recipe in pairs(recipe_list) do
 			local train_data = recipe.acquire_data[A.TRAINER]
-			local found = false
+			local matching_trainer = false
 
 			if train_data then
 				for id_num in pairs(train_data) do
 					if id_num == trainer_id then
-						found = true
+						matching_trainer = true
 						break
 					end
 				end
 			end
+			local matching_item = scanned_items[recipe:CraftedItemID()]
+			local matching_recipe = scanned_recipes[recipe.name]
 
-			if scanned_recipes[spell_id] then
-				if not found then
+			if matching_item or matching_recipe then
+				current_profession = recipe.profession
+
+				if not matching_trainer then
 					recipe:AddTrainer(trainer_id)
-					table.insert(teach, spell_id)
-					teachflag = true
+					table.insert(missing_spell_ids, spell_id)
 
 					if not recipe:HasFilter("common1", "TRAINER") then
 						recipe:AddFilters(F.TRAINER)
-						table.insert(output, spell_id..": Trainer flag needs to be set.")
+
+						if matching_item then
+							table.insert(output, ("Added trainer flag to recipe with spell ID %d. (matching crafted item ID %d)"):format(spell_id, recipe:CraftedItemID()))
+						elseif matching_recipe then
+							table.insert(output, ("Added trainer flag to recipe with spell ID %d. (matching recipe name \"%s\")"):format(spell_id, recipe.name))
+						end
 					end
 				end
-			else
-				if found then
-					noteachflag = true
-					table.insert(noteach, spell_id)
-				end
+			elseif matching_trainer then
+				table.insert(extra_spell_ids, spell_id)
+			end
+		end
+		local found_missing = #missing_spell_ids > 0
+		local found_extra = #extra_spell_ids > 0
+
+		if found_missing then
+			table.insert(output, "\nTrainer is missing from the following entries:")
+			table.sort(missing_spell_ids)
+
+			for index in ipairs(missing_spell_ids) do
+				local spell_id = missing_spell_ids[index]
+				table.insert(output, L["DATAMINER_TRAINER_TEACH"]:format(spell_id, recipe_list[spell_id].name))
 			end
 		end
 
-		if teachflag then
-			table.insert(output, "Trainer is missing from the following entries:")
-			table.sort(teach)
+		if found_extra then
+			table.insert(output, "\nRecipes which are either missing crafted item IDs or are wrongly assigned to the trainer:")
+			table.sort(extra_spell_ids)
 
-			for i in ipairs(teach) do
-				table.insert(output, L["DATAMINER_TRAINER_TEACH"]:format(teach[i], recipe_list[teach[i]].name))
-			end
-		end
-
-		if noteachflag then
-			table.insert(output, "Trainer does not teach the following entries (should be removed):")
-			table.sort(noteach)
-
-			for index in ipairs(noteach) do
-				local spell_id = noteach[index]
+			for index in ipairs(extra_spell_ids) do
+				local spell_id = extra_spell_ids[index]
 				table.insert(output, L["DATAMINER_TRAINER_NOTTEACH"]:format(spell_id, recipe_list[spell_id].name))
 			end
 		end
-		table.insert(output, "Trainer Acquire Scan Complete.")
-		table.insert(output, "If this is an engineering scan, some goggles may be listed as extra. These goggles ONLY show up for the classes who can make them, so they may be false positives.")
 
-		if teachflag or noteachflag then
+		if found_missing or found_extra then
+			if current_profession == private.professions.Engineering then
+				table.insert(output, "\nSome goggles may be listed as extra. These goggles ONLY show up for the classes who can make them, so they may be false positives.")
+			end
+
 			self:DisplayTextDump(nil, nil, table.concat(output, "\n"))
 		end
 		-- Reset the filters to what they were before
