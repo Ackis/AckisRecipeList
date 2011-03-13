@@ -1096,7 +1096,8 @@ do
 				local match_text = string.match(item_name, "%a+: ")
 
 				if match_text and RECIPE_TYPES[match_text:lower()] then
-					local spell_id = RECIPE_ITEM_TO_SPELL_MAP[ItemLinkToID(_G.GetMerchantItemLink(index))]
+					local item_id = ItemLinkToID(_G.GetMerchantItemLink(index))
+					local spell_id = RECIPE_ITEM_TO_SPELL_MAP[item_id]
 
 					if spell_id then
 						local scanned_text = addon:TooltipScanRecipe(spell_id, true, true)
@@ -1169,9 +1170,16 @@ do
 							end
 						end
 					else
+						for spell_id, recipe in pairs(private.recipe_list) do
+							local recipe_type, match_text = (":"):split(item_name, 2)
+
+							if recipe.name == match_text:trim() then
+								recipe:SetRecipeItemID(item_id)
+							end
+						end
 						--@debug@
 						added_output = true
-						table.insert(output, ("Spell ID not found for: %s"):format(item_name))
+						table.insert(output, ("Spell ID not found for recipe item %d (%s)"):format(item_id, item_name))
 						--@end-debug@
 					end
 				end
