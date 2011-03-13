@@ -3686,7 +3686,7 @@ function addon:InitJewelcrafting()
 
 	-- Reckless Hessonite -- 73266
 	recipe = AddRecipe(73266, V.CATA, Q.COMMON)
-	recipe:SetCraftedItemID(68741)
+	recipe:SetCraftedItemID(52113)
 	recipe:SetSkillLevels(425, 425, 435, 440, 445)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	recipe:AddTrainer(18751, 18774, 19063, 19775, 19778, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 44582, 46675)
