@@ -627,6 +627,18 @@ function recipe_prototype:Dump(output)
 	table.insert(output, "")
 end
 
+function recipe_prototype:DumpTrainers(registry)
+	local trainer_data = self.acquire_data[A.TRAINER]
+
+	if not trainer_data then
+		return
+	end
+
+	for identifier in pairs(trainer_data) do
+		registry[identifier] = true
+	end
+end
+
 --- Public API function for retrieving specific information about a recipe.
 -- @name AckisRecipeList:GetRecipeData
 -- @usage AckisRecipeList:GetRecipeData(28972, "profession")

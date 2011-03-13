@@ -38,7 +38,11 @@ do
 		lookup_list[identifier] = entry
 
 		if faction then
-			entry.faction = FACTION_NAMES[faction + 1]
+			if _G.type(faction) == "string" then
+				entry.faction = faction
+			else
+				entry.faction = FACTION_NAMES[faction + 1]
+			end
 		end
 
 		if coord_x and coord_y then
@@ -54,7 +58,8 @@ do
 		if faction and lookup_list == private.mob_list then
 			addon:Debug("Mob %d (%s) has been assigned to faction %s.", identifier, name, lookup_list[identifier].faction)
 		end
-	--@end-alpha@
+		--@end-alpha@
+		return entry
 	end
 end -- do
 

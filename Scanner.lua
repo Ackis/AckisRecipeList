@@ -372,9 +372,6 @@ function addon:GenerateLinks()
 
 end
 
--------------------------------------------------------------------------------
---- Scans the items in the specified profession
--------------------------------------------------------------------------------
 do
 	local ORDERED_PROFESSIONS = private.ordered_professions
 
@@ -397,6 +394,9 @@ do
 		table.sort(sorted_recipes, Sort_AscID)
 	end
 
+	-------------------------------------------------------------------------------
+	--- Scans the items in the specified profession
+	-------------------------------------------------------------------------------
 	local function ProfessionScan(prof_name)
 		local master_list = LoadRecipe()
 
@@ -482,6 +482,9 @@ do
 		recipe:Dump(output)
 	end
 
+	-------------------------------------------------------------------------------
+	--- Dumps the items in the specified profession
+	-------------------------------------------------------------------------------
 	local function ProfessionDump(prof_name)
 		local master_list = LoadRecipe()
 
@@ -542,6 +545,88 @@ do
 		else
 			for idx, name in ipairs(ORDERED_PROFESSIONS) do
 				ProfessionDump(name:lower())
+			end
+		end
+	end
+
+	-------------------------------------------------------------------------------
+	--- Dumps the trainers for the specified recipe/profession
+	-------------------------------------------------------------------------------
+	local trainer_registry = {}
+	local sorted_data = {}
+
+	local function ProfessionTrainerDump(prof_name)
+		local master_list = LoadRecipe()
+
+		if not master_list then
+			addon:Print(L["DATAMINE_NODB_ERROR"])
+			return
+		end
+		table.wipe(recipe_list)
+
+		if prof_name == private.professions["Smelting"]:lower() then
+			prof_name = private.mining_name:lower()
+		end
+		for i in pairs(master_list) do
+			local prof = master_list[i].profession:lower()
+
+			if prof and prof == prof_name then
+				recipe_list[i] = master_list[i]
+			end
+		end
+		SortRecipesByID()
+		table.wipe(output)
+		table.wipe(trainer_registry)
+		table.wipe(sorted_data)
+
+		for index, spell_id in ipairs(addon.sorted_recipes) do
+			private.recipe_list[spell_id]:DumpTrainers(trainer_registry)
+		end
+
+		for identifier in pairs(trainer_registry) do
+			table.insert(sorted_data, identifier)
+		end
+		table.sort(sorted_data)
+
+		for index, identifier in ipairs(sorted_data) do
+			local trainer = private.trainer_list[identifier]
+			local trainer_name
+
+			if trainer.spell_id then
+				table.insert(output, ("AddTrainer(%s, %s, \"%s\", %s, %s, \"%s\")"):format(identifier, trainer.spell_id, trainer.location, trainer.coord_x, trainer.coord_y, trainer.faction))
+			else
+				table.insert(output, ("AddTrainer(%s, \"%s\", \"%s\", %s, %s, \"%s\")"):format(identifier, trainer.name, trainer.location, trainer.coord_x, trainer.coord_y, trainer.faction))
+			end
+		end
+		addon:DisplayTextDump(nil, nil, table.concat(output, "\n"))
+	end
+
+	function addon:DumpTrainers(prof_name)
+		if type(prof_name) == "number" then
+			prof_name = _G.GetSpellInfo(prof_name)
+		end
+
+		local found = false
+		prof_name = string.lower(prof_name)
+
+		local scan_all = prof_name == "all"
+
+		if not scan_all then
+			for idx, name in ipairs(ORDERED_PROFESSIONS) do
+				if prof_name == name:lower() then
+					found = true
+					break
+				end
+			end
+
+			if not found then
+				self:Print(L["DATAMINER_NODB_ERROR"])
+				return
+			end
+			ProfessionTrainerDump(prof_name)
+		else
+			for idx, name in ipairs(ORDERED_PROFESSIONS) do
+				ProfessionTrainerDump(name:lower())
 			end
 		end
 	end
