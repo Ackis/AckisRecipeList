@@ -2374,7 +2374,7 @@ function addon:InitTailoring()
 	recipe:SetCraftedItemID(32587)
 	recipe:SetSkillLevels(375, 375, 385, 390, 395)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOP, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
-	recipe:AddCustom("HYJAL_RANDOM", "BT_RANDOM")
+	recipe:AddCustom("BT_RANDOM", "HYJAL_RANDOM")
 
 	-- Swiftheal Wraps -- 41207
 	recipe = AddRecipe(41207, V.TBC, Q.EPIC)
@@ -2382,7 +2382,7 @@ function addon:InitTailoring()
 	recipe:SetCraftedItemID(32584)
 	recipe:SetSkillLevels(375, 375, 385, 390, 395)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.CLOTH)
-	recipe:AddCustom("HYJAL_RANDOM", "BT_RANDOM")
+	recipe:AddCustom("BT_RANDOM", "HYJAL_RANDOM")
 
 	-- Swiftheal Mantle -- 41208
 	recipe = AddRecipe(41208, V.TBC, Q.EPIC)
@@ -3194,7 +3194,7 @@ function addon:InitTailoring()
 	recipe:SetCraftedItemID(53643)
 	recipe:SetSkillLevels(425, 425, 440, 445, 450)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(1346, 3363, 4159, 4576, 5153, 9584, 16640, 28699, 33613, 44783, 45559)
+	recipe:AddTrainer(1346, 3363, 4159, 4576, 5153, 9584, 16640, 28699, 33580, 33613, 44783, 45559)
 
 	-- Dream of Skywall -- 75141
 	recipe = AddRecipe(75141, V.CATA, Q.COMMON)
@@ -3235,31 +3235,31 @@ function addon:InitTailoring()
 	recipe = AddRecipe(75154, V.CATA, Q.COMMON)
 	recipe:SetSkillLevels(475, 475, 475, 475, 475)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(1346, 3363, 4159, 4576, 5153, 9584, 16640, 28699, 33613, 44783, 45559)
+	recipe:AddTrainer(1346, 3363, 4159, 4576, 5153, 9584, 16640, 28699, 33580, 33613, 44783, 45559)
 
 	-- Sanctified Spellthread -- 75155
 	recipe = AddRecipe(75155, V.CATA, Q.COMMON)
 	recipe:SetSkillLevels(475, 475, 475, 475, 475)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(1346, 3363, 4159, 4576, 5153, 9584, 16640, 28699, 33613, 44783, 45559)
+	recipe:AddTrainer(1346, 3363, 4159, 4576, 5153, 9584, 16640, 28699, 33580, 33613, 44783, 45559)
 
 	-- Lightweave Embroidery -- 75172
 	recipe = AddRecipe(75172, V.CATA, Q.COMMON)
 	recipe:SetSkillLevels(500, 500, 500, 500, 500)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(1346, 3363, 4159, 4576, 5153, 9584, 16640, 28699, 33613, 44783, 45559)
+	recipe:AddTrainer(1346, 3363, 4159, 4576, 5153, 9584, 16640, 28699, 33580, 33613, 44783, 45559)
 
 	-- Darkglow Embroidery -- 75175
 	recipe = AddRecipe(75175, V.CATA, Q.COMMON)
 	recipe:SetSkillLevels(500, 500, 500, 500, 500)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(1346, 3363, 4159, 4576, 5153, 9584, 16640, 28699, 33613, 44783, 45559)
+	recipe:AddTrainer(1346, 3363, 4159, 4576, 5153, 9584, 16640, 28699, 33580, 33613, 44783, 45559)
 
 	-- Swordguard Embroidery -- 75178
 	recipe = AddRecipe(75178, V.CATA, Q.COMMON)
 	recipe:SetSkillLevels(500, 500, 500, 500, 500)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(1346, 3363, 4159, 4576, 5153, 9584, 16640, 28699, 33613, 44783, 45559)
+	recipe:AddTrainer(1346, 3363, 4159, 4576, 5153, 9584, 16640, 28699, 33580, 33613, 44783, 45559)
 
 	-- Embersilk Net -- 75247
 	recipe = AddRecipe(75247, V.CATA, Q.COMMON)
@@ -3406,7 +3406,7 @@ function addon:InitTailoring()
 	recipe:SetCraftedItemID(54486)
 	recipe:SetSkillLevels(485, 485, 500, 502, 505)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(1346, 3363, 4159, 4576, 5153, 9584, 16640, 28699, 33613, 44783, 45559)
+	recipe:AddTrainer(1346, 3363, 4159, 4576, 5153, 9584, 16640, 28699, 33580, 33613, 44783, 45559)
 
 	-- Hyjal Expedition Bag -- 75268
 	recipe = AddRecipe(75268, V.CATA, Q.COMMON)
