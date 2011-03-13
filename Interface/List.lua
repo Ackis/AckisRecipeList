@@ -423,6 +423,7 @@ function private.InitializeListFrame()
 		local armor_filters	= filter_db.item.armor
 		local weapon_filters	= filter_db.item.weapon
 		local obtain_filters	= filter_db.obtain
+		local general_filters	= filter_db.general
 
 		local V = private.game_versions
 		local EXPANSION_FILTERS = {
@@ -504,6 +505,7 @@ function private.InitializeListFrame()
 			["mobdrop"]	= { flag = COMMON1.MOB_DROP,	index = 1,	sv_root = obtain_filters },
 			["discovery"]	= { flag = COMMON1.DISC,	index = 1,	sv_root = obtain_filters },
 			["achievement"]	= { flag = COMMON1.ACHIEVEMENT,	index = 1,	sv_root = obtain_filters },
+			["retired"]	= { flag = COMMON1.RETIRED,	index = 1,	sv_root = general_filters },
 		}
 
 		local REP1 = private.rep_flags_word1
@@ -599,14 +601,8 @@ function private.InitializeListFrame()
 				end
 			end
 
-			-- Display retired recipes?
-			if not general_filters.retired and bit.band(recipe.flags.common1, COMMON1.RETIRED) == COMMON1.RETIRED then
-				return false
-			end
-			local game_version = private.game_versions[recipe.genesis]
-
 			-- Expansion filters.
-			if not obtain_filters[EXPANSION_FILTERS[game_version]] then
+			if not obtain_filters[EXPANSION_FILTERS[private.game_versions[recipe.genesis]]] then
 				return false
 			end
 			local quality_filters = filter_db.quality
