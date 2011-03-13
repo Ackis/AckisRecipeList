@@ -909,7 +909,7 @@ function addon:InitCooking()
 	recipe:SetSkillLevels(300, 300, 320, 330, 340)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.QUEST, F.IBOE, F.RBOP)
 	recipe:AddQuest(11377, 11379, 11380, 11381, 13100, 13101, 13102, 13103, 13107, 13112, 13113, 13114, 13115, 13116)
-	recipe:AddCustom("DAILY_COOKING_MEAT", "DAILY_COOKING_FISH", "DAILY_COOKING_DAL")
+	recipe:AddCustom("DAILY_COOKING_DAL", "DAILY_COOKING_FISH", "DAILY_COOKING_MEAT")
 
 	-- Broiled Bloodfin -- 43761
 	recipe = AddRecipe(43761, V.TBC, Q.UNCOMMON)
@@ -936,7 +936,7 @@ function addon:InitCooking()
 	recipe:SetSkillLevels(300, 300, 345, 355, 365)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.QUEST, F.IBOE, F.RBOP, F.DPS, F.HUNTER)
 	recipe:AddQuest(11377, 11379, 11380, 11381)
-	recipe:AddCustom("DAILY_COOKING_MEAT", "DAILY_COOKING_FISH")
+	recipe:AddCustom("DAILY_COOKING_FISH", "DAILY_COOKING_MEAT")
 
 	-- Delicious Chocolate Cake -- 43779
 	recipe = AddRecipe(43779, V.TBC, Q.RARE)
@@ -945,7 +945,7 @@ function addon:InitCooking()
 	recipe:SetSkillLevels(1, 1, 50, 62, 75)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.QUEST, F.IBOE, F.RBOP)
 	recipe:AddQuest(11377, 11379, 11380, 11381, 13100, 13101, 13102, 13103, 13107, 13112, 13113, 13114, 13115, 13116)
-	recipe:AddCustom("DAILY_COOKING_MEAT", "DAILY_COOKING_FISH", "DAILY_COOKING_DAL")
+	recipe:AddCustom("DAILY_COOKING_DAL", "DAILY_COOKING_FISH", "DAILY_COOKING_MEAT")
 
 	-- Hot Apple Cider -- 45022
 	recipe = AddRecipe(45022, V.WOTLK, Q.COMMON)
@@ -1133,7 +1133,7 @@ function addon:InitCooking()
 	recipe:SetSkillLevels(100, 100, 100, 105, 110)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.QUEST, F.IBOE, F.RBOP)
 	recipe:AddQuest(11666, 11667, 11668, 11669, 13100, 13101, 13102, 13103, 13107, 13112, 13113, 13114, 13115, 13116)
-	recipe:AddCustom("DAILY_FISHING_SHATT", "DAILY_COOKING_DAL")
+	recipe:AddCustom("DAILY_COOKING_DAL", "DAILY_FISHING_SHATT")
 
 	-- Charred Bear Kabobs -- 46684
 	recipe = AddRecipe(46684, V.WOTLK, Q.COMMON)
