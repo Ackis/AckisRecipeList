@@ -162,7 +162,7 @@ function addon:InitEnchanting()
 	recipe:SetCraftedItemID(6339)
 	recipe:SetSkillLevels(100, 100, 130, 150, 170)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 5695, 7949, 11072, 11073, 11074, 16160, 16633, 16725, 18753, 18773, 19251, 19252, 19540, 33610, 33633, 33676)
+	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 5695, 7949, 11072, 11073, 11074, 16160, 16633, 16725, 18753, 18773, 19251, 19252, 19540, 33583, 33610, 33633, 33676)
 
 	-- Enchant Chest - Health -- 7857
 	recipe = AddRecipe(7857, V.ORIG, Q.COMMON)
@@ -318,7 +318,7 @@ function addon:InitEnchanting()
 	recipe:SetCraftedItemID(11130)
 	recipe:SetSkillLevels(150, 150, 175, 195, 215)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 5695, 7949, 11072, 11073, 11074, 16160, 16633, 16725, 18753, 18773, 19251, 19252, 19540, 33610, 33633, 33676)
+	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 5695, 7949, 11072, 11073, 11074, 16160, 16633, 16725, 18753, 18773, 19251, 19252, 19540, 33583, 33610, 33633, 33676)
 
 	-- Enchant Shield - Lesser Stamina -- 13631
 	recipe = AddRecipe(13631, V.ORIG, Q.COMMON)
@@ -451,7 +451,7 @@ function addon:InitEnchanting()
 	recipe:SetCraftedItemID(11145)
 	recipe:SetSkillLevels(200, 200, 220, 240, 260)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 5695, 7949, 11072, 11073, 11074, 16160, 16633, 16725, 18753, 18773, 19251, 19252, 19540, 33610, 33633, 33676)
+	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 5695, 7949, 11072, 11073, 11074, 16160, 16633, 16725, 18753, 18773, 19251, 19252, 19540, 33583, 33610, 33633, 33676)
 
 	-- Enchant Cloak - Greater Defense -- 13746
 	recipe = AddRecipe(13746, V.ORIG, Q.COMMON)
@@ -631,28 +631,28 @@ function addon:InitEnchanting()
 	recipe:SetCraftedItemID(11287)
 	recipe:SetSkillLevels(10, 10, 75, 95, 115)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.WAND)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 5695, 7949, 11072, 11073, 11074, 16160, 16633, 16725, 18753, 18773, 19251, 19252, 19540, 33610, 33633, 33676)
+	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 5695, 7949, 11072, 11073, 11074, 16160, 16633, 16725, 18753, 18773, 19251, 19252, 19540, 33583, 33610, 33633, 33676)
 
 	-- Greater Magic Wand -- 14807
 	recipe = AddRecipe(14807, V.ORIG, Q.COMMON)
 	recipe:SetCraftedItemID(11288)
 	recipe:SetSkillLevels(70, 70, 110, 130, 150)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.WAND)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 5695, 7949, 11072, 11073, 11074, 16160, 16633, 16725, 18753, 18773, 19251, 19252, 19540, 33610, 33633, 33676)
+	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 5695, 7949, 11072, 11073, 11074, 16160, 16633, 16725, 18753, 18773, 19251, 19252, 19540, 33583, 33610, 33633, 33676)
 
 	-- Lesser Mystic Wand -- 14809
 	recipe = AddRecipe(14809, V.ORIG, Q.COMMON)
 	recipe:SetCraftedItemID(11289)
 	recipe:SetSkillLevels(155, 155, 175, 195, 215)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.WAND)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 5695, 7949, 11072, 11073, 11074, 16160, 16633, 16725, 18753, 18773, 19251, 19252, 19540, 33610, 33633, 33676)
+	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 5695, 7949, 11072, 11073, 11074, 16160, 16633, 16725, 18753, 18773, 19251, 19252, 19540, 33583, 33610, 33633, 33676)
 
 	-- Greater Mystic Wand -- 14810
 	recipe = AddRecipe(14810, V.ORIG, Q.COMMON)
 	recipe:SetCraftedItemID(11290)
 	recipe:SetSkillLevels(175, 175, 195, 215, 235)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.WAND)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 5695, 7949, 11072, 11073, 11074, 16160, 16633, 16725, 18753, 18773, 19251, 19252, 19540, 33610, 33633, 33676)
+	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 5695, 7949, 11072, 11073, 11074, 16160, 16633, 16725, 18753, 18773, 19251, 19252, 19540, 33583, 33610, 33633, 33676)
 
 	-- Smoking Heart of the Mountain -- 15596
 	recipe = AddRecipe(15596, V.ORIG, Q.UNCOMMON)
@@ -667,14 +667,14 @@ function addon:InitEnchanting()
 	recipe:SetCraftedItemID(12655)
 	recipe:SetSkillLevels(250, 250, 250, 255, 260)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 5695, 7949, 11072, 11073, 11074, 16160, 16633, 16725, 18747, 18753, 18773, 19251, 19252, 19540, 33610, 33633, 33676)
+	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 5695, 7949, 11072, 11073, 11074, 16160, 16633, 16725, 18747, 18753, 18773, 19251, 19252, 19540, 33583, 33610, 33633, 33676)
 
 	-- Enchanted Leather -- 17181
 	recipe = AddRecipe(17181, V.ORIG, Q.COMMON)
 	recipe:SetCraftedItemID(12810)
 	recipe:SetSkillLevels(250, 250, 250, 255, 260)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.LEATHER)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 5695, 7949, 11072, 11073, 11074, 16160, 16633, 16725, 18753, 18773, 19251, 19252, 19540, 33610, 33633, 33676)
+	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 5695, 7949, 11072, 11073, 11074, 16160, 16633, 16725, 18753, 18773, 19251, 19252, 19540, 33583, 33610, 33633, 33676)
 
 	-- Enchant Bracer - Greater Intellect -- 20008
 	recipe = AddRecipe(20008, V.ORIG, Q.COMMON)
@@ -1329,21 +1329,21 @@ function addon:InitEnchanting()
 	recipe:SetCraftedItemID(22460)
 	recipe:SetSkillLevels(325, 325, 325, 330, 335)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(3345, 18753, 18773, 19252, 19540, 33610, 33633, 33676)
+	recipe:AddTrainer(3345, 18753, 18773, 19252, 19540, 33583, 33610, 33633, 33676)
 
 	-- Void Sphere -- 28028
 	recipe = AddRecipe(28028, V.TBC, Q.COMMON)
 	recipe:SetCraftedItemID(22459)
 	recipe:SetSkillLevels(350, 350, 370, 375, 380)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(3345, 18753, 18773, 19252, 19540, 33610, 33633, 33676)
+	recipe:AddTrainer(3345, 18753, 18773, 19252, 19540, 33583, 33610, 33633, 33676)
 
 	-- Runed Fel Iron Rod -- 32664
 	recipe = AddRecipe(32664, V.TBC, Q.COMMON)
 	recipe:SetCraftedItemID(22461)
 	recipe:SetSkillLevels(300, 300, 310, 325, 340)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP)
-	recipe:AddTrainer(3345, 18753, 18773, 19252, 19540, 33610, 33633, 33676)
+	recipe:AddTrainer(3345, 18753, 18773, 19252, 19540, 33583, 33610, 33633, 33676)
 
 	-- Runed Adamantite Rod -- 32665
 	recipe = AddRecipe(32665, V.TBC, Q.COMMON)
@@ -1490,16 +1490,16 @@ function addon:InitEnchanting()
 	-- Nexus Transformation -- 42613
 	recipe = AddRecipe(42613, V.TBC, Q.COMMON)
 	recipe:SetCraftedItemID(22448)
-	recipe:SetSkillLevels(300, 300, 300, 300, 305)
+	recipe:SetSkillLevels(335, 335, 345, 350, 355)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(3345, 18753, 18773, 19252, 19540, 33610, 33633, 33676)
+	recipe:AddTrainer(3345, 18753, 18773, 19252, 19540, 33583, 33610, 33633, 33676)
 
 	-- Small Prismatic Shard -- 42615
 	recipe = AddRecipe(42615, V.TBC, Q.COMMON)
 	recipe:SetCraftedItemID(22448)
 	recipe:SetSkillLevels(335, 335, 335, 335, 335)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(3345, 18753, 18773, 19252, 19540, 33610, 33633, 33676)
+	recipe:AddTrainer(3345, 18753, 18773, 19252, 19540, 33583, 33610, 33633, 33676)
 
 	-- Enchant Weapon - Greater Agility -- 42620
 	recipe = AddRecipe(42620, V.TBC, Q.COMMON)
@@ -2024,7 +2024,7 @@ function addon:InitEnchanting()
 	recipe:SetCraftedItemID(49640)
 	recipe:SetSkillLevels(445, 445, 445, 447, 450)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(3345, 26906, 26954, 26980, 26990, 28693, 33583, 33633)
+	recipe:AddTrainer(3345, 26906, 26954, 26980, 26990, 28693, 33633)
 
 	-- Enchant Gloves - Angler -- 71692
 	recipe = AddRecipe(71692, V.WOTLK, Q.UNCOMMON)
