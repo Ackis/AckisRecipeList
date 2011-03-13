@@ -1375,19 +1375,14 @@ do
 				table.insert(output, string.format("%s: %d", recipe.name, spell_id))
 				table.insert(output, string.format("    Recipe item not in cache.%s", querier_string))
 			end
-		elseif not recipe_item_id then
+		elseif not recipe_item_id and not recipe:HasFilter("common1", "RETIRED") then
 			-- We are dealing with a recipe that does not have an item to learn it from.
 			-- Lets check the recipe flags to see if we have a data error and the item should exist
-			if not recipe:HasFilter("common1", "RETIRED") then
-				if (recipe:HasFilter("common1", "VENDOR") or recipe:HasFilter("common1", "INSTANCE") or recipe:HasFilter("common1", "RAID")) then
-					table.insert(output, string.format("%s: %d", recipe.name, spell_id))
-					table.insert(output, "    No match found in the SPELL_TO_RECIPE_MAP table.")
-				elseif recipe:HasFilter("common1", "TRAINER") and recipe.quality ~= private.item_qualities["COMMON"] then
-					local QS = private.item_quality_names
-
-					table.insert(output, string.format("%s: %d", recipe.name, spell_id))
-					table.insert(output, string.format("    Wrong quality: Q.%s - should be Q.COMMON.", QS[recipe.quality]))
-				end
+			if recipe:HasFilter("common1", "VENDOR") or recipe:HasFilter("common1", "INSTANCE") or recipe:HasFilter("common1", "RAID") then
+				table.insert(output, string.format("Recipe %d (%s) is missing a recipe item ID.", spell_id, recipe.name))
+			elseif recipe:HasFilter("common1", "TRAINER") and recipe.quality ~= private.item_qualities["COMMON"] then
+				table.insert(output, string.format("%s: %d", recipe.name, spell_id))
+				table.insert(output, string.format("    Wrong quality: Q.%s - should be Q.COMMON.", private.item_quality_names[recipe.quality]))
 			end
 		end
 		ARLDatamineTT:Hide()
