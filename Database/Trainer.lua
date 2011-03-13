@@ -81,8 +81,8 @@ function addon:InitTrainer(DB)
 	self:addLookupList(DB, 3290, L["Deek Fizzlebizz"], BZ["Loch Modan"], 45.9, 13.6, ALLIANCE)
 	self:addLookupList(DB, 3345, L["Godan"], BZ["Orgrimmar"], 53.8, 38.5, HORDE)
 	self:addLookupList(DB, 3347, L["Yelmak"], BZ["Orgrimmar"], 56.7, 33.2, HORDE)
-	self:addLookupList(DB, 3355, L["Saru Steelfury"], BZ["Orgrimmar"], 82.1, 23.0, HORDE) -- UPDATED
-	self:addLookupList(DB, 3357, L["Makaru"], BZ["Orgrimmar"], 73.1, 26.5, HORDE)
+	self:addLookupList(DB, 3355, L["Saru Steelfury"], BZ["Orgrimmar"], 76.50, 34.53, HORDE) -- UPDATED
+	self:addLookupList(DB, 3357, L["Makaru"], BZ["Orgrimmar"], 72.31, 34.91, HORDE) -- UPDATED
 	self:addLookupList(DB, 3363, L["Magar"], BZ["Orgrimmar"], 63.5, 50.0, HORDE)
 	self:addLookupList(DB, 3365, L["Karolek"], BZ["Orgrimmar"], 62.8, 44.5, HORDE)
 	self:addLookupList(DB, 3373, L["Arnok"], BZ["Orgrimmar"], 34.1, 84.4, HORDE)
@@ -143,8 +143,8 @@ function addon:InitTrainer(DB)
 	self:addLookupList(DB, 6286, L["Zarrin"], BZ["Teldrassil"], 57.1, 61.3, ALLIANCE)
 	self:addLookupList(DB, 6297, L["Kurdram Stonehammer"], BZ["Darkshore"], 38.2, 41.1, ALLIANCE)
 	self:addLookupList(DB, 6299, L["Delfrum Flintbeard"], BZ["Darkshore"], 38.2, 41.0, ALLIANCE)
-	self:addLookupList(DB, 7230, L["Shayis Steelfury"], BZ["Orgrimmar"], 80.3, 23.2, HORDE)
-	self:addLookupList(DB, 7231, L["Kelgruk Bloodaxe"], BZ["Orgrimmar"], 81.9, 18.3, HORDE)
+	self:addLookupList(DB, 7230, L["Shayis Steelfury"], BZ["Orgrimmar"], 75.91, 37.10, HORDE) -- UPDATED
+	self:addLookupList(DB, 7231, L["Kelgruk Bloodaxe"], BZ["Orgrimmar"], 76.34, 37.08, HORDE) -- UPDATED
 	self:addLookupList(DB, 7406, L["Oglethorpe Obnoticus"], BZ["The Cape of Stranglethorn"], 43.0, 72.1, NEUTRAL)   -- UPDATED
 	self:addLookupList(DB, 7866, L["Peter Galen"], BZ["Azshara"], 37.5, 65.5, ALLIANCE)
 	self:addLookupList(DB, 7867, L["Thorkaf Dragoneye"], BZ["Badlands"], 62.6, 57.6, HORDE)
@@ -173,8 +173,8 @@ function addon:InitTrainer(DB)
 	self:addLookupList(DB, 11097, L["Drakk Stonehand"], BZ["The Hinterlands"], 13.4, 43.4, ALLIANCE)
 	self:addLookupList(DB, 11098, L["Hahrana Ironhide"], BZ["Feralas"], 74.4, 43.1, HORDE)
 	self:addLookupList(DB, 11146, L["Ironus Coldsteel"], BZ["Ironforge"], 50.5, 43.3, ALLIANCE)
-	self:addLookupList(DB, 11177, L["Okothos Ironrager"], BZ["Orgrimmar"], 79.8, 23.8, HORDE) -- UPDATED
-	self:addLookupList(DB, 11178, L["Borgosh Corebender"], BZ["Orgrimmar"], 79.7, 23.7, HORDE)
+	self:addLookupList(DB, 11177, L["Okothos Ironrager"], BZ["Orgrimmar"], 75.35, 34.04, HORDE) -- UPDATED
+	self:addLookupList(DB, 11178, L["Borgosh Corebender"], BZ["Orgrimmar"], 75.89, 33.61, HORDE) -- UPDATED
 	self:addLookupList(DB, 11557, L["Meilosh"], BZ["Felwood"], 65.7, 2.9, HORDE)
 	self:addLookupList(DB, 12920, L["Doctor Gregory Victor"], BZ["Arathi Highlands"], 73.4, 36.8, HORDE)
 	self:addLookupList(DB, 12939, L["Doctor Gustaf VanHowzen"], BZ["Dustwallow Marsh"], 68.18, 47.94, ALLIANCE)
@@ -388,7 +388,7 @@ function addon:InitTrainer(DB)
 	self:addLookupList(DB, 45550, L["Zarbo Porkpatty"], BZ["Orgrimmar"], 39.0, 85.8, NEUTRAL)
 	self:addLookupList(DB, 45559, L["Nivi Weavewell"], BZ["Orgrimmar"], 41.1, 79.7, HORDE)
 	self:addLookupList(DB, 46357, L["Gonto"], BZ["Orgrimmar"], 44.57, 78.61, HORDE)
-	self:addLookupList(DB, 46675, L["Lugrah"], BZ["Orgrimmar"], 72.5, 34.5, HORDE)
+	self:addLookupList(DB, 46675, L["Lugrah"], BZ["Orgrimmar"], 72.49, 34.31, HORDE) -- UPDATED
 	self:addLookupList(DB, 46709, L["Arugi"], BZ["Orgrimmar"], 56.5, 61.5, HORDE) -- UPDATED
 	self:addLookupList(DB, 46716, L["Nerog"], BZ["Orgrimmar"], 55.2, 56.7, HORDE)
 	self:addLookupList(DB, 47405, L["The Chef"], BZ["Tirisfal Glades"], 61.2, 52.6, HORDE)

@@ -102,10 +102,10 @@ function addon:InitVendor(DB)
 	AddVendor(3085,		L["Gloria Femmel"],			BZ["Redridge Mountains"],	26.7, 43.5, ALLIANCE)
 	AddVendor(3134,		L["Kzixx"],				BZ["Duskwood"],			81.9, 19.9, NEUTRAL)
 	AddVendor(3178,		L["Stuart Fleming"],			BZ["Wetlands"],			 8.1, 58.4, ALLIANCE)
-	AddVendor(3333,		L["Shankys"],				BZ["Orgrimmar"],		66.6, 41.6, HORDE) -- UPDATED
+	AddVendor(3333,		L["Shankys"],				BZ["Orgrimmar"],		66.74, 41.86, HORDE) -- UPDATED
 	AddVendor(3335,		L["Hagrus"],				BZ["Orgrimmar"],		46.0, 45.9, HORDE)
 	AddVendor(3346,		L["Kithas"],				BZ["Orgrimmar"],		53.7, 38.0, HORDE)
-	AddVendor(3348,		L["Kor'geld"],				BZ["Orgrimmar"],		56.1, 35.8, HORDE)
+	AddVendor(3348,		L["Kor'geld"],				BZ["Orgrimmar"],		55.23, 45.83, HORDE) -- UPDATED
 	AddVendor(3364,		L["Borya"],				BZ["Orgrimmar"],		63.0, 51.2, HORDE)
 	AddVendor(3366,		L["Tamar"],				BZ["Orgrimmar"],		63.0, 45.3, HORDE)
 	AddVendor(3367,		L["Felika"],				BZ["Orgrimmar"],		60.5, 50.7, HORDE)
