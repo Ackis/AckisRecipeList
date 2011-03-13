@@ -45,7 +45,7 @@ function addon:InitSmelting()
 	recipe:SetCraftedItemID(2840)
 	recipe:SetSkillLevels(1, 1, 25, 47, 70)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddCustom(8)
+	recipe:AddCustom("DEFAULT_RECIPE")
 
 	-- Smelt Silver -- 2658
 	recipe = AddRecipe(2658, V.ORIG, Q.COMMON)
@@ -187,7 +187,7 @@ function addon:InitSmelting()
 	recipe:SetCraftedItemID(35128)
 	recipe:SetSkillLevels(375, 375, 375, 375, 375)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOP)
-	recipe:AddCustom(24)
+	recipe:AddCustom("SUNWELL_RANDOM")
 
 	-- Smelt Cobalt -- 49252
 	recipe = AddRecipe(49252, V.WOTLK, Q.COMMON)

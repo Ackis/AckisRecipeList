@@ -272,7 +272,7 @@ function recipe_prototype:AddAcquireData(acquire_type, type_string, unit_list, .
 
 	while cur_var <= num_vars do
 		local location, affiliation
-		local id_num = select(cur_var, ...)
+		local identifier = select(cur_var, ...)
 		cur_var = cur_var + 1
 
 		-- A quantity of true means unlimited - normal vendor item.
@@ -282,15 +282,15 @@ function recipe_prototype:AddAcquireData(acquire_type, type_string, unit_list, .
 			quantity = select(cur_var, ...)
 			cur_var = cur_var + 1
 		end
-		acquire[id_num] = true
+		acquire[identifier] = true
 
-		if unit_list and not unit_list[id_num] then
-			addon:Debug("Spell ID %d: %s ID %d does not exist in the database.", self.spell_id, type_string, id_num)
+		if unit_list and not unit_list[identifier] then
+			addon:Debug("Spell ID %d: %s ID %s does not exist in the database.", self.spell_id, type_string, identifier)
 		else
 			if not unit_list then
-				local id_type = type(id_num)
+				local id_type = type(identifier)
 
-				location = id_type == "string" and BZ[id_num] or nil
+				location = id_type == "string" and BZ[identifier] or nil
 
 				if location then
 					affiliation = "world_drop"
@@ -300,7 +300,7 @@ function recipe_prototype:AddAcquireData(acquire_type, type_string, unit_list, .
 					end
 				end
 			else
-				local unit = unit_list[id_num]
+				local unit = unit_list[identifier]
 
 				affiliation = unit.faction
 				location = unit.location

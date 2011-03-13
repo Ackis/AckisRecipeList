@@ -47,7 +47,7 @@ function addon:InitJewelcrafting()
 	recipe:SetCraftedItemID(20816)
 	recipe:SetSkillLevels(1, 1, 20, 35, 50)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddCustom(8)
+	recipe:AddCustom("DEFAULT_RECIPE")
 
 	-- Bronze Setting -- 25278
 	recipe = AddRecipe(25278, V.TBC, Q.COMMON)
@@ -148,7 +148,7 @@ function addon:InitJewelcrafting()
 	recipe:SetCraftedItemID(20906)
 	recipe:SetSkillLevels(1, 1, 30, 45, 60)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.RING)
-	recipe:AddCustom(8)
+	recipe:AddCustom("DEFAULT_RECIPE")
 
 	-- Barbaric Iron Collar -- 25498
 	recipe = AddRecipe(25498, V.TBC, Q.COMMON)
@@ -442,7 +442,7 @@ function addon:InitJewelcrafting()
 	recipe:SetCraftedItemID(21931)
 	recipe:SetSkillLevels(1, 1, 30, 45, 60)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.RING)
-	recipe:AddCustom(8)
+	recipe:AddCustom("DEFAULT_RECIPE")
 
 	-- Heavy Copper Ring -- 26926
 	recipe = AddRecipe(26926, V.TBC, Q.COMMON)
@@ -1051,7 +1051,7 @@ function addon:InitJewelcrafting()
 	recipe:SetCraftedItemID(25498)
 	recipe:SetSkillLevels(1, 1, 30, 40, 50)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP)
-	recipe:AddCustom(8)
+	recipe:AddCustom("DEFAULT_RECIPE")
 
 	-- Coarse Stone Statue -- 32801
 	recipe = AddRecipe(32801, V.TBC, Q.COMMON)
@@ -1268,7 +1268,7 @@ function addon:InitJewelcrafting()
 	recipe:SetCraftedItemID(31866)
 	recipe:SetSkillLevels(325, 325, 325, 340, 355)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	recipe:AddCustom(35)
+	recipe:AddCustom("Custom35")
 
 	-- Deadly Flame Spessarite -- 39467
 	recipe = AddRecipe(39467, V.TBC, Q.UNCOMMON)
@@ -1276,7 +1276,7 @@ function addon:InitJewelcrafting()
 	recipe:SetCraftedItemID(31869)
 	recipe:SetSkillLevels(325, 325, 325, 340, 355)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOE, F.RBOE, F.DPS)
-	recipe:AddCustom(35)
+	recipe:AddCustom("Custom35")
 
 	-- Veiled Nightseye -- 39470
 	recipe = AddRecipe(39470, V.TBC, Q.RARE)
@@ -1337,7 +1337,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(375, 375, 375, 380, 385)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.RAID, F.IBOE, F.RBOP, F.TANK, F.SHATTEREDSUN)
 	recipe:AddRepVendor(FAC.SHATTEREDSUN, REP.EXALTED, 25950, 27666)
-	recipe:AddCustom(27)
+	recipe:AddCustom("HYJAL_RANDOM")
 
 	-- Solid Empyrean Sapphire -- 39715
 	recipe = AddRecipe(39715, V.TBC, Q.COMMON)
@@ -1364,7 +1364,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(375, 375, 375, 380, 385)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.RAID, F.IBOE, F.RBOP, F.CASTER, F.SHATTEREDSUN)
 	recipe:AddRepVendor(FAC.SHATTEREDSUN, REP.EXALTED, 25950, 27666)
-	recipe:AddCustom(27)
+	recipe:AddCustom("HYJAL_RANDOM")
 
 	-- Smooth Lionseye -- 39720
 	recipe = AddRecipe(39720, V.TBC, Q.COMMON)
@@ -1391,7 +1391,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(375, 375, 375, 380, 385)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.RAID, F.IBOE, F.RBOP, F.SHATTEREDSUN)
 	recipe:AddRepVendor(FAC.SHATTEREDSUN, REP.EXALTED, 25950, 27666)
-	recipe:AddCustom(27)
+	recipe:AddCustom("HYJAL_RANDOM")
 
 	-- Sovereign Shadowsong Amethyst -- 39727
 	recipe = AddRecipe(39727, V.TBC, Q.COMMON)
@@ -1400,7 +1400,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(375, 375, 375, 380, 385)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.RAID, F.IBOE, F.RBOP, F.DPS, F.SHATTEREDSUN)
 	recipe:AddRepVendor(FAC.SHATTEREDSUN, REP.EXALTED, 25950, 27666)
-	recipe:AddCustom(27)
+	recipe:AddCustom("HYJAL_RANDOM")
 
 	-- Shifting Shadowsong Amethyst -- 39728
 	recipe = AddRecipe(39728, V.TBC, Q.COMMON)
@@ -1409,7 +1409,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(375, 375, 375, 380, 385)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.RAID, F.IBOE, F.RBOP, F.DPS, F.SHATTEREDSUN)
 	recipe:AddRepVendor(FAC.SHATTEREDSUN, REP.EXALTED, 25950, 27666)
-	recipe:AddCustom(27)
+	recipe:AddCustom("HYJAL_RANDOM")
 
 	-- Timeless Shadowsong Amethyst -- 39731
 	recipe = AddRecipe(39731, V.TBC, Q.COMMON)
@@ -1427,7 +1427,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(375, 375, 375, 380, 385)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.RAID, F.IBOE, F.RBOP, F.DPS, F.SHATTEREDSUN)
 	recipe:AddRepVendor(FAC.SHATTEREDSUN, REP.EXALTED, 25950, 27666)
-	recipe:AddCustom(27)
+	recipe:AddCustom("HYJAL_RANDOM")
 
 	-- Potent Pyrestone -- 39734
 	recipe = AddRecipe(39734, V.TBC, Q.COMMON)
@@ -1454,7 +1454,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(375, 375, 375, 380, 385)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.RAID, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.SHATTEREDSUN)
 	recipe:AddRepVendor(FAC.SHATTEREDSUN, REP.EXALTED, 25950, 27666)
-	recipe:AddCustom(27)
+	recipe:AddCustom("HYJAL_RANDOM")
 
 	-- Deadly Pyrestone -- 39738
 	recipe = AddRecipe(39738, V.TBC, Q.COMMON)
@@ -1637,7 +1637,7 @@ function addon:InitJewelcrafting()
 	recipe:SetCraftedItemID(34362)
 	recipe:SetSkillLevels(365, 365, 375, 380, 385)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.RING)
-	recipe:AddCustom(24)
+	recipe:AddCustom("SUNWELL_RANDOM")
 
 	-- Ring of Flowing Life -- 46123
 	recipe = AddRecipe(46123, V.TBC, Q.EPIC)
@@ -1645,7 +1645,7 @@ function addon:InitJewelcrafting()
 	recipe:SetCraftedItemID(34363)
 	recipe:SetSkillLevels(365, 365, 375, 380, 385)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.RING)
-	recipe:AddCustom(24)
+	recipe:AddCustom("SUNWELL_RANDOM")
 
 	-- Hard Khorium Band -- 46124
 	recipe = AddRecipe(46124, V.TBC, Q.EPIC)
@@ -1653,7 +1653,7 @@ function addon:InitJewelcrafting()
 	recipe:SetCraftedItemID(34361)
 	recipe:SetSkillLevels(365, 365, 375, 380, 385)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOP, F.DPS, F.RING)
-	recipe:AddCustom(24)
+	recipe:AddCustom("SUNWELL_RANDOM")
 
 	-- Pendant of Sunfire -- 46125
 	recipe = AddRecipe(46125, V.TBC, Q.EPIC)
@@ -1661,7 +1661,7 @@ function addon:InitJewelcrafting()
 	recipe:SetCraftedItemID(34359)
 	recipe:SetSkillLevels(365, 365, 375, 380, 385)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOP, F.RBOE, F.HEALER, F.CASTER, F.NECK)
-	recipe:AddCustom(24)
+	recipe:AddCustom("SUNWELL_RANDOM")
 
 	-- Amulet of Flowing Life -- 46126
 	recipe = AddRecipe(46126, V.TBC, Q.EPIC)
@@ -1669,7 +1669,7 @@ function addon:InitJewelcrafting()
 	recipe:SetCraftedItemID(34360)
 	recipe:SetSkillLevels(365, 365, 375, 380, 385)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOP, F.RBOE, F.HEALER, F.CASTER, F.NECK)
-	recipe:AddCustom(24)
+	recipe:AddCustom("SUNWELL_RANDOM")
 
 	-- Hard Khorium Choker -- 46127
 	recipe = AddRecipe(46127, V.TBC, Q.EPIC)
@@ -1677,7 +1677,7 @@ function addon:InitJewelcrafting()
 	recipe:SetCraftedItemID(34358)
 	recipe:SetSkillLevels(365, 365, 375, 380, 385)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOP, F.RBOE, F.DPS, F.NECK)
-	recipe:AddCustom(24)
+	recipe:AddCustom("SUNWELL_RANDOM")
 
 	-- Quick Dawnstone -- 46403
 	recipe = AddRecipe(46403, V.TBC, Q.RARE)

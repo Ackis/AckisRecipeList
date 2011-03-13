@@ -48,14 +48,14 @@ function addon:InitEngineering()
 	recipe:SetCraftedItemID(4357)
 	recipe:SetSkillLevels(1, 1, 20, 30, 40)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddCustom(8)
+	recipe:AddCustom("DEFAULT_RECIPE")
 
 	-- Rough Dynamite -- 3919
 	recipe = AddRecipe(3919, V.ORIG, Q.COMMON)
 	recipe:SetCraftedItemID(4358)
 	recipe:SetSkillLevels(1, 1, 30, 45, 60)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddCustom(8)
+	recipe:AddCustom("DEFAULT_RECIPE")
 
 	-- Handful of Copper Bolts -- 3922
 	recipe = AddRecipe(3922, V.ORIG, Q.COMMON)
@@ -266,7 +266,7 @@ function addon:InitEngineering()
 	recipe:SetCraftedItemID(4386)
 	recipe:SetSkillLevels(155, 155, 175, 185, 195)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.RETIRED, F.IBOE, F.RBOE)
-	recipe:AddCustom(48)
+	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Iron Strut -- 3958
 	recipe = AddRecipe(3958, V.ORIG, Q.COMMON)
@@ -590,7 +590,7 @@ function addon:InitEngineering()
 	recipe:SetCraftedItemID(10506)
 	recipe:SetSkillLevels(230, 230, 250, 260, 270)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.RETIRED, F.IBOE, F.RBOE, F.CLOTH)
-	recipe:AddCustom(48)
+	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Rose Colored Goggles -- 12618
 	recipe = AddRecipe(12618, V.ORIG, Q.COMMON)
@@ -794,7 +794,7 @@ function addon:InitEngineering()
 	recipe:SetCraftedItemID(11825)
 	recipe:SetSkillLevels(205, 205, 205, 205, 205)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.INSTANCE, F.IBOE, F.RBOP)
-	recipe:AddCustom(16)
+	recipe:AddCustom("ENG_GNOMER")
 
 	-- Lil' Smoky -- 15633
 	recipe = AddRecipe(15633, V.ORIG, Q.UNCOMMON)
@@ -802,7 +802,7 @@ function addon:InitEngineering()
 	recipe:SetCraftedItemID(11826)
 	recipe:SetSkillLevels(205, 205, 205, 205, 205)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.INSTANCE, F.IBOE, F.RBOP)
-	recipe:AddCustom(16)
+	recipe:AddCustom("ENG_GNOMER")
 
 	-- Salt Shaker -- 19567
 	recipe = AddRecipe(19567, V.ORIG, Q.COMMON)
@@ -951,7 +951,7 @@ function addon:InitEngineering()
 	recipe:SetCraftedItemID(18232)
 	recipe:SetSkillLevels(300, 300, 320, 330, 340)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.INSTANCE, F.IBOE, F.RBOP)
-	recipe:AddCustom(17)
+	recipe:AddCustom("ENG_FLOOR_ITEM_BRD")
 
 	-- Biznicks 247x128 Accurascope -- 22793
 	recipe = AddRecipe(22793, V.ORIG, Q.RARE)
@@ -959,7 +959,7 @@ function addon:InitEngineering()
 	recipe:SetCraftedItemID(18283)
 	recipe:SetSkillLevels(300, 300, 320, 330, 340)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOP, F.DPS)
-	recipe:AddCustom(26)
+	recipe:AddCustom("MC_RANDOM")
 
 	-- Core Marksman Rifle -- 22795
 	recipe = AddRecipe(22795, V.ORIG, Q.RARE)
@@ -967,7 +967,7 @@ function addon:InitEngineering()
 	recipe:SetCraftedItemID(18282)
 	recipe:SetSkillLevels(300, 300, 320, 330, 340)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOP, F.DPS, F.GUN)
-	recipe:AddCustom(26)
+	recipe:AddCustom("MC_RANDOM")
 
 	-- Force Reactive Disk -- 22797
 	recipe = AddRecipe(22797, V.ORIG, Q.RARE)
@@ -975,7 +975,7 @@ function addon:InitEngineering()
 	recipe:SetCraftedItemID(18168)
 	recipe:SetSkillLevels(300, 300, 320, 330, 340)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOP, F.TANK, F.SHIELD, F.ONE_HAND)
-	recipe:AddCustom(26)
+	recipe:AddCustom("MC_RANDOM")
 
 	-- Red Firework -- 23066
 	recipe = AddRecipe(23066, V.ORIG, Q.COMMON)
@@ -1047,7 +1047,7 @@ function addon:InitEngineering()
 	recipe:SetCraftedItemID(18637)
 	recipe:SetSkillLevels(275, 275, 285, 290, 295)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.INSTANCE, F.IBOE, F.RBOE, F.TRINKET)
-	recipe:AddCustom(32)
+	recipe:AddCustom("DM_TRIBUTE")
 
 	-- Powerful Seaforium Charge -- 23080
 	recipe = AddRecipe(23080, V.ORIG, Q.COMMON)
@@ -1121,7 +1121,7 @@ function addon:InitEngineering()
 	recipe:SetCraftedItemID(19999)
 	recipe:SetSkillLevels(300, 300, 320, 330, 340)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.RETIRED, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.CLOTH)
-	recipe:AddCustom(48)
+	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Bloodvine Lens -- 24357
 	recipe = AddRecipe(24357, V.ORIG, Q.COMMON)
@@ -1129,7 +1129,7 @@ function addon:InitEngineering()
 	recipe:SetCraftedItemID(19998)
 	recipe:SetSkillLevels(300, 300, 320, 330, 340)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.RETIRED, F.IBOE, F.RBOP, F.LEATHER)
-	recipe:AddCustom(48)
+	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Tranquil Mechanical Yeti -- 26011
 	recipe = AddRecipe(26011, V.ORIG, Q.COMMON)
@@ -1721,7 +1721,7 @@ function addon:InitEngineering()
 	recipe:SetSkillLevels(335, 335, 335, 345, 355)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOE, F.RBOP)
 	recipe:AddMobDrop(19707)
-	recipe:AddCustom(46)
+	recipe:AddCustom("BUGGED")
 
 	-- Flying Machine -- 44155
 	recipe = AddRecipe(44155, V.TBC, Q.COMMON)
@@ -1751,7 +1751,7 @@ function addon:InitEngineering()
 	recipe:SetCraftedItemID(35183)
 	recipe:SetSkillLevels(375, 375, 390, 410, 430)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOP, F.RBOP, F.DRUID, F.LEATHER)
-	recipe:AddCustom(24)
+	recipe:AddCustom("SUNWELL_RANDOM")
 
 	-- Justicebringer 3000 Specs -- 46107
 	recipe = AddRecipe(46107, V.TBC, Q.EPIC)
@@ -1759,7 +1759,7 @@ function addon:InitEngineering()
 	recipe:SetCraftedItemID(35185)
 	recipe:SetSkillLevels(375, 375, 390, 410, 430)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOP, F.RBOP, F.PALADIN, F.PLATE)
-	recipe:AddCustom(24)
+	recipe:AddCustom("SUNWELL_RANDOM")
 
 	-- Powerheal 9000 Lens -- 46108
 	recipe = AddRecipe(46108, V.TBC, Q.EPIC)
@@ -1767,7 +1767,7 @@ function addon:InitEngineering()
 	recipe:SetCraftedItemID(35181)
 	recipe:SetSkillLevels(375, 375, 390, 410, 430)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOP, F.RBOP, F.PRIEST, F.CLOTH)
-	recipe:AddCustom(24)
+	recipe:AddCustom("SUNWELL_RANDOM")
 
 	-- Hyper-Magnified Moon Specs -- 46109
 	recipe = AddRecipe(46109, V.TBC, Q.EPIC)
@@ -1775,7 +1775,7 @@ function addon:InitEngineering()
 	recipe:SetCraftedItemID(35182)
 	recipe:SetSkillLevels(375, 375, 390, 410, 430)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOP, F.RBOP, F.DRUID, F.LEATHER)
-	recipe:AddCustom(24)
+	recipe:AddCustom("SUNWELL_RANDOM")
 
 	-- Primal-Attuned Goggles -- 46110
 	recipe = AddRecipe(46110, V.TBC, Q.EPIC)
@@ -1783,7 +1783,7 @@ function addon:InitEngineering()
 	recipe:SetCraftedItemID(35184)
 	recipe:SetSkillLevels(375, 375, 390, 410, 430)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOP, F.RBOP, F.SHAMAN, F.MAIL)
-	recipe:AddCustom(24)
+	recipe:AddCustom("SUNWELL_RANDOM")
 
 	-- Annihilator Holo-Gogs -- 46111
 	recipe = AddRecipe(46111, V.TBC, Q.EPIC)
@@ -1791,7 +1791,7 @@ function addon:InitEngineering()
 	recipe:SetCraftedItemID(34847)
 	recipe:SetSkillLevels(375, 375, 390, 410, 430)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOP, F.RBOP, F.MAGE, F.PRIEST, F.WARLOCK, F.CLOTH)
-	recipe:AddCustom(24)
+	recipe:AddCustom("SUNWELL_RANDOM")
 
 	-- Lightning Etched Specs -- 46112
 	recipe = AddRecipe(46112, V.TBC, Q.EPIC)
@@ -1799,7 +1799,7 @@ function addon:InitEngineering()
 	recipe:SetCraftedItemID(34355)
 	recipe:SetSkillLevels(375, 375, 390, 410, 430)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOP, F.RBOP, F.SHAMAN, F.MAIL)
-	recipe:AddCustom(24)
+	recipe:AddCustom("SUNWELL_RANDOM")
 
 	-- Surestrike Goggles v3.0 -- 46113
 	recipe = AddRecipe(46113, V.TBC, Q.EPIC)
@@ -1807,7 +1807,7 @@ function addon:InitEngineering()
 	recipe:SetCraftedItemID(34356)
 	recipe:SetSkillLevels(375, 375, 390, 410, 430)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOP, F.RBOP, F.HUNTER, F.SHAMAN, F.MAIL)
-	recipe:AddCustom(24)
+	recipe:AddCustom("SUNWELL_RANDOM")
 
 	-- Mayhem Projection Goggles -- 46114
 	recipe = AddRecipe(46114, V.TBC, Q.EPIC)
@@ -1815,7 +1815,7 @@ function addon:InitEngineering()
 	recipe:SetCraftedItemID(34354)
 	recipe:SetSkillLevels(375, 375, 390, 410, 430)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOP, F.RBOP, F.DPS, F.DK, F.PALADIN, F.WARRIOR, F.PLATE)
-	recipe:AddCustom(24)
+	recipe:AddCustom("SUNWELL_RANDOM")
 
 	-- Hard Khorium Goggles -- 46115
 	recipe = AddRecipe(46115, V.TBC, Q.EPIC)
@@ -1823,7 +1823,7 @@ function addon:InitEngineering()
 	recipe:SetCraftedItemID(34357)
 	recipe:SetSkillLevels(375, 375, 390, 410, 430)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOP, F.RBOP, F.TANK, F.PALADIN, F.WARRIOR, F.PLATE)
-	recipe:AddCustom(24)
+	recipe:AddCustom("SUNWELL_RANDOM")
 
 	-- Quad Deathblow X44 Goggles -- 46116
 	recipe = AddRecipe(46116, V.TBC, Q.EPIC)
@@ -1831,7 +1831,7 @@ function addon:InitEngineering()
 	recipe:SetCraftedItemID(34353)
 	recipe:SetSkillLevels(375, 375, 390, 410, 430)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOP, F.RBOP, F.DRUID, F.ROGUE, F.LEATHER)
-	recipe:AddCustom(24)
+	recipe:AddCustom("SUNWELL_RANDOM")
 
 	-- Rocket Boots Xtreme Lite -- 46697
 	recipe = AddRecipe(46697, V.TBC, Q.RARE)
@@ -2249,31 +2249,31 @@ function addon:InitEngineering()
 	recipe = AddRecipe(82175, V.CATA, Q.COMMON)
 	recipe:SetSkillLevels(425, 425, 425, 437, 450)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOP, F.RBOP)
-	recipe:AddCustom(51)
+	recipe:AddCustom("ENG_DISC")
 
 	-- Quickflip Deflection Plates -- 82177
 	recipe = AddRecipe(82177, V.CATA, Q.COMMON)
 	recipe:SetSkillLevels(425, 425, 425, 437, 450)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOP, F.RBOP)
-	recipe:AddCustom(51)
+	recipe:AddCustom("ENG_DISC")
 
 	-- Tazik Shocker -- 82180
 	recipe = AddRecipe(82180, V.CATA, Q.COMMON)
 	recipe:SetSkillLevels(425, 425, 425, 437, 450)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOP, F.RBOP)
-	recipe:AddCustom(51)
+	recipe:AddCustom("ENG_DISC")
 
 	-- Spinal Healing Injector -- 82200
 	recipe = AddRecipe(82200, V.CATA, Q.COMMON)
 	recipe:SetSkillLevels(425, 425, 425, 437, 450)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOP, F.RBOP)
-	recipe:AddCustom(51)
+	recipe:AddCustom("ENG_DISC")
 
 	-- Z50 Mana Gulper -- 82201
 	recipe = AddRecipe(82201, V.CATA, Q.COMMON)
 	recipe:SetSkillLevels(425, 425, 425, 437, 450)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOP, F.RBOP)
-	recipe:AddCustom(51)
+	recipe:AddCustom("ENG_DISC")
 
 	-- Handful of Obsidium Bolts -- 84403
 	recipe = AddRecipe(84403, V.CATA, Q.COMMON)
@@ -2379,19 +2379,19 @@ function addon:InitEngineering()
 	recipe = AddRecipe(84424, V.CATA, Q.COMMON)
 	recipe:SetSkillLevels(425, 425, 425, 437, 450)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOP, F.RBOP)
-	recipe:AddCustom(51)
+	recipe:AddCustom("ENG_DISC")
 
 	-- Cardboard Assassin -- 84425
 	recipe = AddRecipe(84425, V.CATA, Q.COMMON)
 	recipe:SetSkillLevels(425, 425, 425, 437, 450)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOP, F.RBOP)
-	recipe:AddCustom(51)
+	recipe:AddCustom("ENG_DISC")
 
 	-- Grounded Plasma Shield -- 84427
 	recipe = AddRecipe(84427, V.CATA, Q.COMMON)
 	recipe:SetSkillLevels(425, 425, 425, 437, 450)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOP, F.RBOP)
-	recipe:AddCustom(51)
+	recipe:AddCustom("ENG_DISC")
 
 	-- Gnomish X-Ray Scope -- 84428
 	recipe = AddRecipe(84428, V.CATA, Q.COMMON)

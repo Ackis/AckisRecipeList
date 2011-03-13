@@ -46,7 +46,7 @@ function addon:InitEnchanting()
 	recipe = AddRecipe(7418, V.ORIG, Q.COMMON)
 	recipe:SetSkillLevels(1, 1, 70, 90, 110)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddCustom(8)
+	recipe:AddCustom("DEFAULT_RECIPE")
 
 	-- Enchant Chest - Minor Health -- 7420
 	recipe = AddRecipe(7420, V.ORIG, Q.COMMON)
@@ -59,7 +59,7 @@ function addon:InitEnchanting()
 	recipe:SetCraftedItemID(6218)
 	recipe:SetSkillLevels(1, 1, 5, 7, 10)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP)
-	recipe:AddCustom(8)
+	recipe:AddCustom("DEFAULT_RECIPE")
 
 	-- Enchant Chest - Minor Absorption -- 7426
 	recipe = AddRecipe(7426, V.ORIG, Q.COMMON)
@@ -71,7 +71,7 @@ function addon:InitEnchanting()
 	recipe = AddRecipe(7428, V.ORIG, Q.COMMON)
 	recipe:SetSkillLevels(1, 1, 80, 100, 120)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.TANK)
-	recipe:AddCustom(8)
+	recipe:AddCustom("DEFAULT_RECIPE")
 
 	-- Enchant Chest - Minor Mana -- 7443
 	recipe = AddRecipe(7443, V.ORIG, Q.UNCOMMON)
@@ -522,7 +522,7 @@ function addon:InitEnchanting()
 	recipe:SetRecipeItemID(11206)
 	recipe:SetSkillLevels(225, 225, 245, 265, 285)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.RETIRED, F.IBOE, F.RBOE, F.DPS, F.CLOAK)
-	recipe:AddCustom(48)
+	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Enchant Gloves - Strength -- 13887
 	recipe = AddRecipe(13887, V.ORIG, Q.COMMON)
@@ -862,14 +862,14 @@ function addon:InitEnchanting()
 	recipe:SetRecipeItemID(18259)
 	recipe:SetSkillLevels(300, 300, 310, 325, 340)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.ONE_HAND, F.TWO_HAND)
-	recipe:AddCustom(26)
+	recipe:AddCustom("MC_RANDOM")
 
 	-- Enchant Weapon - Healing Power -- 22750
 	recipe = AddRecipe(22750, V.ORIG, Q.RARE)
 	recipe:SetRecipeItemID(18260)
 	recipe:SetSkillLevels(300, 300, 310, 325, 340)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.ONE_HAND, F.TWO_HAND)
-	recipe:AddCustom(26)
+	recipe:AddCustom("MC_RANDOM")
 
 	-- Enchant Weapon - Strength -- 23799
 	recipe = AddRecipe(23799, V.ORIG, Q.COMMON)
@@ -926,28 +926,28 @@ function addon:InitEnchanting()
 	recipe:SetRecipeItemID(20727)
 	recipe:SetSkillLevels(300, 300, 310, 325, 340)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
-	recipe:AddCustom(22)
+	recipe:AddCustom("AQ40_RANDOM_BOP")
 
 	-- Enchant Gloves - Frost Power -- 25074
 	recipe = AddRecipe(25074, V.ORIG, Q.RARE)
 	recipe:SetRecipeItemID(20728)
 	recipe:SetSkillLevels(300, 300, 310, 325, 340)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
-	recipe:AddCustom(22)
+	recipe:AddCustom("AQ40_RANDOM_BOP")
 
 	-- Enchant Gloves - Fire Power -- 25078
 	recipe = AddRecipe(25078, V.ORIG, Q.RARE)
 	recipe:SetRecipeItemID(20729)
 	recipe:SetSkillLevels(300, 300, 310, 325, 340)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
-	recipe:AddCustom(22)
+	recipe:AddCustom("AQ40_RANDOM_BOP")
 
 	-- Enchant Gloves - Healing Power -- 25079
 	recipe = AddRecipe(25079, V.ORIG, Q.RARE)
 	recipe:SetRecipeItemID(20730)
 	recipe:SetSkillLevels(300, 300, 310, 325, 340)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
-	recipe:AddCustom(22)
+	recipe:AddCustom("AQ40_RANDOM_BOP")
 
 	-- Enchant Gloves - Superior Agility -- 25080
 	recipe = AddRecipe(25080, V.TBC, Q.RARE)
@@ -955,7 +955,7 @@ function addon:InitEnchanting()
 	recipe:SetSkillLevels(300, 300, 310, 325, 340)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.RAID, F.IBOE, F.RBOP, F.DPS, F.KOT)
 	recipe:AddRepVendor(FAC.KEEPERS_OF_TIME, REP.EXALTED, 21643)
-	recipe:AddCustom(22)
+	recipe:AddCustom("AQ40_RANDOM_BOP")
 
 	-- Enchant Cloak - Greater Fire Resistance -- 25081
 	recipe = AddRecipe(25081, V.ORIG, Q.COMMON)
@@ -977,7 +977,7 @@ function addon:InitEnchanting()
 	recipe:SetSkillLevels(300, 300, 310, 325, 340)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.RAID, F.IBOE, F.RBOE, F.CENARION_EXPEDITION, F.CLOAK)
 	recipe:AddRepVendor(FAC.CENARION_EXPEDITION, REP.EXALTED, 17904)
-	recipe:AddCustom(22)
+	recipe:AddCustom("AQ40_RANDOM_BOP")
 
 	-- Enchant Cloak - Subtlety -- 25084
 	recipe = AddRecipe(25084, V.TBC, Q.RARE)
@@ -994,7 +994,7 @@ function addon:InitEnchanting()
 	recipe:SetSkillLevels(300, 300, 310, 325, 340)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.RAID, F.IBOE, F.RBOP, F.TANK, F.LOWERCITY, F.CLOAK)
 	recipe:AddRepVendor(FAC.LOWERCITY, REP.EXALTED, 21655)
-	recipe:AddCustom(22)
+	recipe:AddCustom("AQ40_RANDOM_BOP")
 
 	-- Minor Wizard Oil -- 25124
 	recipe = AddRecipe(25124, V.ORIG, Q.COMMON)
@@ -1042,7 +1042,7 @@ function addon:InitEnchanting()
 	recipe:SetCraftedItemID(20749)
 	recipe:SetSkillLevels(300, 300, 310, 320, 330)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.RETIRED, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
-	recipe:AddCustom(48)
+	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Brilliant Mana Oil -- 25130
 	recipe = AddRecipe(25130, V.ORIG, Q.COMMON)
@@ -1050,7 +1050,7 @@ function addon:InitEnchanting()
 	recipe:SetCraftedItemID(20748)
 	recipe:SetSkillLevels(300, 300, 310, 320, 330)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.RETIRED, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
-	recipe:AddCustom(48)
+	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Enchant 2H Weapon - Agility -- 27837
 	recipe = AddRecipe(27837, V.ORIG, Q.COMMON)
@@ -1514,7 +1514,7 @@ function addon:InitEnchanting()
 	recipe:SetCraftedItemID(33307)
 	recipe:SetSkillLevels(375, 375, 380, 385, 390)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOP, F.DPS, F.ONE_HAND, F.TWO_HAND)
-	recipe:AddCustom(29)
+	recipe:AddCustom("ZA_RANDOM")
 
 	-- Enchant Shield - Resilience -- 44383
 	recipe = AddRecipe(44383, V.TBC, Q.COMMON)
@@ -2010,14 +2010,14 @@ function addon:InitEnchanting()
 	recipe:SetRecipeItemID(46027)
 	recipe:SetSkillLevels(450, 450, 455, 460, 465)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOP, F.TANK, F.ONE_HAND, F.TWO_HAND)
-	recipe:AddCustom(39)
+	recipe:AddCustom("ULDUAR_RANDOM")
 
 	-- Enchant Weapon - Blood Draining -- 64579
 	recipe = AddRecipe(64579, V.WOTLK, Q.EPIC)
 	recipe:SetRecipeItemID(46348)
 	recipe:SetSkillLevels(450, 450, 455, 460, 465)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOP, F.ONE_HAND, F.TWO_HAND)
-	recipe:AddCustom(39)
+	recipe:AddCustom("ULDUAR_RANDOM")
 
 	-- Abyssal Shatter -- 69412
 	recipe = AddRecipe(69412, V.WOTLK, Q.COMMON)

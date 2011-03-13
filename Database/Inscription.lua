@@ -50,21 +50,21 @@ function addon:InitInscription()
 	recipe:SetCraftedItemID(1180)
 	recipe:SetSkillLevels(1, 1, 35, 40, 45)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddCustom(8)
+	recipe:AddCustom("DEFAULT_RECIPE")
 
 	-- Scroll of Intellect -- 48114
 	recipe = AddRecipe(48114, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(955)
 	recipe:SetSkillLevels(1, 1, 35, 40, 45)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddCustom(8)
+	recipe:AddCustom("DEFAULT_RECIPE")
 
 	-- Scroll of Spirit -- 48116
 	recipe = AddRecipe(48116, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(1181)
 	recipe:SetSkillLevels(1, 1, 35, 40, 45)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
-	recipe:AddCustom(8)
+	recipe:AddCustom("DEFAULT_RECIPE")
 
 	-- Glyph of Entangling Roots -- 48121
 	recipe = AddRecipe(48121, V.WOTLK, Q.COMMON)
@@ -239,7 +239,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItemID(37101)
 	recipe:SetSkillLevels(1, 1, 15, 22, 30)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddCustom(8)
+	recipe:AddCustom("DEFAULT_RECIPE")
 
 	-- Enchanting Vellum -- 52739
 	recipe = AddRecipe(52739, V.WOTLK, Q.COMMON)
@@ -274,7 +274,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItemID(40899)
 	recipe:SetSkillLevels(385, 385, 390, 397, 405)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.DRUID)
-	recipe:AddCustom(15)
+	recipe:AddCustom("DISCOVERY_INSC_NORTHREND")
 
 	-- Glyph of Healing Touch -- 56945
 	recipe = AddRecipe(56945, V.WOTLK, Q.COMMON)
@@ -288,14 +288,14 @@ function addon:InitInscription()
 	recipe:SetCraftedItemID(40920)
 	recipe:SetSkillLevels(385, 385, 390, 397, 405)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.DRUID)
-	recipe:AddCustom(15)
+	recipe:AddCustom("DISCOVERY_INSC_NORTHREND")
 
 	-- Glyph of Innervate -- 56947
 	recipe = AddRecipe(56947, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(40908)
 	recipe:SetSkillLevels(385, 385, 390, 397, 405)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.DRUID)
-	recipe:AddCustom(15)
+	recipe:AddCustom("DISCOVERY_INSC_NORTHREND")
 
 	-- Glyph of Insect Swarm -- 56948
 	recipe = AddRecipe(56948, V.WOTLK, Q.COMMON)
@@ -309,14 +309,14 @@ function addon:InitInscription()
 	recipe:SetCraftedItemID(40915)
 	recipe:SetSkillLevels(385, 385, 390, 397, 405)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.HEALER, F.DRUID)
-	recipe:AddCustom(15)
+	recipe:AddCustom("DISCOVERY_INSC_NORTHREND")
 
 	-- Glyph of Mangle -- 56950
 	recipe = AddRecipe(56950, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(40900)
 	recipe:SetSkillLevels(385, 385, 390, 397, 405)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.DRUID)
-	recipe:AddCustom(15)
+	recipe:AddCustom("DISCOVERY_INSC_NORTHREND")
 
 	-- Glyph of Moonfire -- 56951
 	recipe = AddRecipe(56951, V.WOTLK, Q.COMMON)
@@ -344,7 +344,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItemID(40912)
 	recipe:SetSkillLevels(385, 385, 390, 397, 405)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.HEALER, F.DRUID)
-	recipe:AddCustom(15)
+	recipe:AddCustom("DISCOVERY_INSC_NORTHREND")
 
 	-- Glyph of Rejuvenation -- 56955
 	recipe = AddRecipe(56955, V.WOTLK, Q.COMMON)
@@ -372,7 +372,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItemID(40921)
 	recipe:SetSkillLevels(385, 385, 390, 397, 405)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.CASTER, F.DRUID)
-	recipe:AddCustom(15)
+	recipe:AddCustom("DISCOVERY_INSC_NORTHREND")
 
 	-- Glyph of Starfire -- 56959
 	recipe = AddRecipe(56959, V.WOTLK, Q.COMMON)
@@ -386,7 +386,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItemID(40906)
 	recipe:SetSkillLevels(385, 385, 390, 397, 405)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.HEALER, F.DRUID)
-	recipe:AddCustom(15)
+	recipe:AddCustom("DISCOVERY_INSC_NORTHREND")
 
 	-- Glyph of Maul -- 56961
 	recipe = AddRecipe(56961, V.WOTLK, Q.COMMON)
@@ -407,7 +407,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItemID(44922)
 	recipe:SetSkillLevels(310, 310, 320, 325, 330)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.DRUID)
-	recipe:AddCustom(14)
+	recipe:AddCustom("DISCOVERY_INSC_MINOR")
 
 	-- Glyph of Arcane Missiles -- 56971
 	recipe = AddRecipe(56971, V.WOTLK, Q.COMMON)
@@ -442,7 +442,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItemID(42739)
 	recipe:SetSkillLevels(385, 385, 390, 397, 405)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.CASTER, F.MAGE)
-	recipe:AddCustom(15)
+	recipe:AddCustom("DISCOVERY_INSC_NORTHREND")
 
 	-- Glyph of Frost Nova -- 56976
 	recipe = AddRecipe(56976, V.WOTLK, Q.COMMON)
@@ -456,7 +456,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItemID(42742)
 	recipe:SetSkillLevels(385, 385, 390, 397, 405)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.CASTER, F.MAGE)
-	recipe:AddCustom(15)
+	recipe:AddCustom("DISCOVERY_INSC_NORTHREND")
 
 	-- Glyph of Pyroblast -- 56978
 	recipe = AddRecipe(56978, V.WOTLK, Q.COMMON)
@@ -491,7 +491,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItemID(42748)
 	recipe:SetSkillLevels(385, 385, 390, 397, 405)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.CASTER, F.MAGE)
-	recipe:AddCustom(15)
+	recipe:AddCustom("DISCOVERY_INSC_NORTHREND")
 
 	-- Glyph of Mage Armor -- 56984
 	recipe = AddRecipe(56984, V.WOTLK, Q.COMMON)
@@ -505,7 +505,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItemID(42751)
 	recipe:SetSkillLevels(385, 385, 390, 397, 405)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.CASTER, F.MAGE)
-	recipe:AddCustom(15)
+	recipe:AddCustom("DISCOVERY_INSC_NORTHREND")
 
 	-- Glyph of Polymorph -- 56987
 	recipe = AddRecipe(56987, V.WOTLK, Q.COMMON)
@@ -519,21 +519,21 @@ function addon:InitInscription()
 	recipe:SetCraftedItemID(42753)
 	recipe:SetSkillLevels(385, 385, 390, 397, 405)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.CASTER, F.MAGE)
-	recipe:AddCustom(15)
+	recipe:AddCustom("DISCOVERY_INSC_NORTHREND")
 
 	-- Glyph of Dragon's Breath -- 56989
 	recipe = AddRecipe(56989, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(42754)
 	recipe:SetSkillLevels(385, 385, 390, 397, 405)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.CASTER, F.MAGE)
-	recipe:AddCustom(15)
+	recipe:AddCustom("DISCOVERY_INSC_NORTHREND")
 
 	-- Glyph of Blast Wave -- 56990
 	recipe = AddRecipe(56990, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(44920)
 	recipe:SetSkillLevels(310, 310, 355, 360, 365)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.MAGE)
-	recipe:AddCustom(14)
+	recipe:AddCustom("DISCOVERY_INSC_MINOR")
 
 	-- Glyph of Arcane Blast -- 56991
 	recipe = AddRecipe(56991, V.WOTLK, Q.COMMON)
@@ -561,7 +561,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItemID(42899)
 	recipe:SetSkillLevels(385, 385, 390, 397, 405)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.DPS, F.HUNTER)
-	recipe:AddCustom(15)
+	recipe:AddCustom("DISCOVERY_INSC_NORTHREND")
 
 	-- Glyph of Mending -- 56997
 	recipe = AddRecipe(56997, V.WOTLK, Q.COMMON)
@@ -575,14 +575,14 @@ function addon:InitInscription()
 	recipe:SetCraftedItemID(42901)
 	recipe:SetSkillLevels(385, 385, 390, 397, 405)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.DPS, F.HUNTER)
-	recipe:AddCustom(15)
+	recipe:AddCustom("DISCOVERY_INSC_NORTHREND")
 
 	-- Glyph of Bestial Wrath -- 56999
 	recipe = AddRecipe(56999, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(42902)
 	recipe:SetSkillLevels(385, 385, 390, 397, 405)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.DPS, F.HUNTER)
-	recipe:AddCustom(15)
+	recipe:AddCustom("DISCOVERY_INSC_NORTHREND")
 
 	-- Glyph of Deterrence -- 57000
 	recipe = AddRecipe(57000, V.WOTLK, Q.COMMON)
@@ -659,35 +659,35 @@ function addon:InitInscription()
 	recipe:SetCraftedItemID(42913)
 	recipe:SetSkillLevels(385, 385, 390, 397, 405)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.DPS, F.HUNTER)
-	recipe:AddCustom(15)
+	recipe:AddCustom("DISCOVERY_INSC_NORTHREND")
 
 	-- Glyph of Steady Shot -- 57011
 	recipe = AddRecipe(57011, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(42914)
 	recipe:SetSkillLevels(385, 385, 390, 397, 405)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.DPS, F.HUNTER)
-	recipe:AddCustom(15)
+	recipe:AddCustom("DISCOVERY_INSC_NORTHREND")
 
 	-- Glyph of Kill Command -- 57012
 	recipe = AddRecipe(57012, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(42915)
 	recipe:SetSkillLevels(385, 385, 390, 397, 405)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.DPS, F.HUNTER)
-	recipe:AddCustom(15)
+	recipe:AddCustom("DISCOVERY_INSC_NORTHREND")
 
 	-- Glyph of Wyvern Sting -- 57014
 	recipe = AddRecipe(57014, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(42917)
 	recipe:SetSkillLevels(385, 385, 390, 397, 405)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.DPS, F.HUNTER)
-	recipe:AddCustom(15)
+	recipe:AddCustom("DISCOVERY_INSC_NORTHREND")
 
 	-- Glyph of Focused Shield -- 57019
 	recipe = AddRecipe(57019, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(41101)
 	recipe:SetSkillLevels(385, 385, 390, 397, 405)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.PALADIN)
-	recipe:AddCustom(15)
+	recipe:AddCustom("DISCOVERY_INSC_NORTHREND")
 
 	-- Glyph of Cleansing -- 57020
 	recipe = AddRecipe(57020, V.WOTLK, Q.COMMON)
@@ -701,7 +701,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItemID(41107)
 	recipe:SetSkillLevels(385, 385, 390, 397, 405)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.PALADIN)
-	recipe:AddCustom(15)
+	recipe:AddCustom("DISCOVERY_INSC_NORTHREND")
 
 	-- Glyph of Divine Protection -- 57022
 	recipe = AddRecipe(57022, V.WOTLK, Q.COMMON)
@@ -750,7 +750,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItemID(41097)
 	recipe:SetSkillLevels(385, 385, 390, 397, 405)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.PALADIN)
-	recipe:AddCustom(15)
+	recipe:AddCustom("DISCOVERY_INSC_NORTHREND")
 
 	-- Glyph of Divine Favor -- 57029
 	recipe = AddRecipe(57029, V.WOTLK, Q.COMMON)
@@ -778,7 +778,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItemID(41100)
 	recipe:SetSkillLevels(155, 155, 160, 165, 170)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.TANK, F.PALADIN)
-	recipe:AddCustom(14)
+	recipe:AddCustom("DISCOVERY_INSC_MINOR")
 
 	-- Glyph of Rebuke -- 57033
 	recipe = AddRecipe(57033, V.WOTLK, Q.COMMON)
@@ -792,14 +792,14 @@ function addon:InitInscription()
 	recipe:SetCraftedItemID(41110)
 	recipe:SetSkillLevels(385, 385, 390, 397, 405)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.PALADIN)
-	recipe:AddCustom(15)
+	recipe:AddCustom("DISCOVERY_INSC_NORTHREND")
 
 	-- Glyph of Light of Dawn -- 57035
 	recipe = AddRecipe(57035, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(41109)
 	recipe:SetSkillLevels(385, 385, 390, 397, 405)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.PALADIN)
-	recipe:AddCustom(15)
+	recipe:AddCustom("DISCOVERY_INSC_NORTHREND")
 
 	-- Glyph of Turn Evil -- 57036
 	recipe = AddRecipe(57036, V.WOTLK, Q.COMMON)
@@ -813,7 +813,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItemID(42954)
 	recipe:SetSkillLevels(385, 385, 390, 397, 405)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.DPS, F.ROGUE)
-	recipe:AddCustom(15)
+	recipe:AddCustom("DISCOVERY_INSC_NORTHREND")
 
 	-- Glyph of Ambush -- 57113
 	recipe = AddRecipe(57113, V.WOTLK, Q.COMMON)
@@ -834,21 +834,21 @@ function addon:InitInscription()
 	recipe:SetCraftedItemID(42957)
 	recipe:SetSkillLevels(385, 385, 390, 397, 405)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.DPS, F.ROGUE)
-	recipe:AddCustom(15)
+	recipe:AddCustom("DISCOVERY_INSC_NORTHREND")
 
 	-- Glyph of Crippling Poison -- 57116
 	recipe = AddRecipe(57116, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(42958)
 	recipe:SetSkillLevels(385, 385, 390, 397, 405)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.DPS, F.ROGUE)
-	recipe:AddCustom(15)
+	recipe:AddCustom("DISCOVERY_INSC_NORTHREND")
 
 	-- Glyph of Deadly Throw -- 57117
 	recipe = AddRecipe(57117, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(42959)
 	recipe:SetSkillLevels(385, 385, 390, 397, 405)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.DPS, F.ROGUE)
-	recipe:AddCustom(15)
+	recipe:AddCustom("DISCOVERY_INSC_NORTHREND")
 
 	-- Glyph of Evasion -- 57119
 	recipe = AddRecipe(57119, V.WOTLK, Q.COMMON)
@@ -890,7 +890,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItemID(42965)
 	recipe:SetSkillLevels(385, 385, 390, 397, 405)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.DPS, F.ROGUE)
-	recipe:AddCustom(15)
+	recipe:AddCustom("DISCOVERY_INSC_NORTHREND")
 
 	-- Glyph of Gouge -- 57125
 	recipe = AddRecipe(57125, V.WOTLK, Q.COMMON)
@@ -904,21 +904,21 @@ function addon:InitInscription()
 	recipe:SetCraftedItemID(42967)
 	recipe:SetSkillLevels(385, 385, 390, 397, 405)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.DPS, F.ROGUE)
-	recipe:AddCustom(15)
+	recipe:AddCustom("DISCOVERY_INSC_NORTHREND")
 
 	-- Glyph of Preparation -- 57127
 	recipe = AddRecipe(57127, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(42968)
 	recipe:SetSkillLevels(385, 385, 390, 397, 405)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.DPS, F.ROGUE)
-	recipe:AddCustom(15)
+	recipe:AddCustom("DISCOVERY_INSC_NORTHREND")
 
 	-- Glyph of Rupture -- 57128
 	recipe = AddRecipe(57128, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(42969)
 	recipe:SetSkillLevels(385, 385, 390, 397, 405)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.DPS, F.ROGUE)
-	recipe:AddCustom(15)
+	recipe:AddCustom("DISCOVERY_INSC_NORTHREND")
 
 	-- Glyph of Sap -- 57129
 	recipe = AddRecipe(57129, V.WOTLK, Q.COMMON)
@@ -932,7 +932,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItemID(42971)
 	recipe:SetSkillLevels(385, 385, 390, 397, 405)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.DPS, F.ROGUE)
-	recipe:AddCustom(15)
+	recipe:AddCustom("DISCOVERY_INSC_NORTHREND")
 
 	-- Glyph of Sinister Strike -- 57131
 	recipe = AddRecipe(57131, V.WOTLK, Q.COMMON)
@@ -960,14 +960,14 @@ function addon:InitInscription()
 	recipe:SetCraftedItemID(43425)
 	recipe:SetSkillLevels(385, 385, 390, 397, 405)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.TANK, F.WARRIOR)
-	recipe:AddCustom(15)
+	recipe:AddCustom("DISCOVERY_INSC_NORTHREND")
 
 	-- Glyph of Bloody Healing -- 57153
 	recipe = AddRecipe(57153, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(43412)
 	recipe:SetSkillLevels(385, 385, 390, 397, 405)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.WARRIOR)
-	recipe:AddCustom(15)
+	recipe:AddCustom("DISCOVERY_INSC_NORTHREND")
 
 	-- Glyph of Cleaving -- 57154
 	recipe = AddRecipe(57154, V.WOTLK, Q.COMMON)
@@ -981,7 +981,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItemID(43415)
 	recipe:SetSkillLevels(385, 385, 390, 397, 405)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.WARRIOR)
-	recipe:AddCustom(15)
+	recipe:AddCustom("DISCOVERY_INSC_NORTHREND")
 
 	-- Glyph of Bloodthirst -- 57156
 	recipe = AddRecipe(57156, V.WOTLK, Q.COMMON)
@@ -1009,14 +1009,14 @@ function addon:InitInscription()
 	recipe:SetCraftedItemID(43419)
 	recipe:SetSkillLevels(385, 385, 390, 397, 405)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.WARRIOR)
-	recipe:AddCustom(15)
+	recipe:AddCustom("DISCOVERY_INSC_NORTHREND")
 
 	-- Glyph of Mortal Strike -- 57160
 	recipe = AddRecipe(57160, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(43421)
 	recipe:SetSkillLevels(385, 385, 390, 397, 405)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.WARRIOR)
-	recipe:AddCustom(15)
+	recipe:AddCustom("DISCOVERY_INSC_NORTHREND")
 
 	-- Glyph of Overpower -- 57161
 	recipe = AddRecipe(57161, V.WOTLK, Q.COMMON)
@@ -1044,7 +1044,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItemID(43430)
 	recipe:SetSkillLevels(385, 385, 390, 397, 405)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.WARRIOR)
-	recipe:AddCustom(15)
+	recipe:AddCustom("DISCOVERY_INSC_NORTHREND")
 
 	-- Glyph of Revenge -- 57165
 	recipe = AddRecipe(57165, V.WOTLK, Q.COMMON)
@@ -1072,7 +1072,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItemID(43431)
 	recipe:SetSkillLevels(385, 385, 390, 397, 405)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.WARRIOR)
-	recipe:AddCustom(15)
+	recipe:AddCustom("DISCOVERY_INSC_NORTHREND")
 
 	-- Glyph of Raging Blow -- 57172
 	recipe = AddRecipe(57172, V.WOTLK, Q.COMMON)
@@ -1086,7 +1086,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItemID(42396)
 	recipe:SetSkillLevels(385, 385, 390, 397, 405)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.HEALER, F.PRIEST)
-	recipe:AddCustom(15)
+	recipe:AddCustom("DISCOVERY_INSC_NORTHREND")
 
 	-- Glyph of Dispel Magic -- 57183
 	recipe = AddRecipe(57183, V.WOTLK, Q.COMMON)
@@ -1135,21 +1135,21 @@ function addon:InitInscription()
 	recipe:SetCraftedItemID(42403)
 	recipe:SetSkillLevels(385, 385, 390, 397, 405)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.HEALER, F.PRIEST)
-	recipe:AddCustom(15)
+	recipe:AddCustom("DISCOVERY_INSC_NORTHREND")
 
 	-- Glyph of Mass Dispel -- 57190
 	recipe = AddRecipe(57190, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(42404)
 	recipe:SetSkillLevels(385, 385, 390, 397, 405)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.PRIEST)
-	recipe:AddCustom(15)
+	recipe:AddCustom("DISCOVERY_INSC_NORTHREND")
 
 	-- Glyph of Psychic Horror -- 57191
 	recipe = AddRecipe(57191, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(42405)
 	recipe:SetSkillLevels(385, 385, 390, 397, 405)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.PRIEST)
-	recipe:AddCustom(15)
+	recipe:AddCustom("DISCOVERY_INSC_NORTHREND")
 
 	-- Glyph of Shadow Word: Pain -- 57192
 	recipe = AddRecipe(57192, V.WOTLK, Q.COMMON)
@@ -1163,7 +1163,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItemID(42407)
 	recipe:SetSkillLevels(385, 385, 390, 397, 405)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.PRIEST)
-	recipe:AddCustom(15)
+	recipe:AddCustom("DISCOVERY_INSC_NORTHREND")
 
 	-- Glyph of Power Word: Shield -- 57194
 	recipe = AddRecipe(57194, V.WOTLK, Q.COMMON)
@@ -1177,7 +1177,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItemID(42409)
 	recipe:SetSkillLevels(385, 385, 390, 397, 405)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.HEALER, F.PRIEST)
-	recipe:AddCustom(15)
+	recipe:AddCustom("DISCOVERY_INSC_NORTHREND")
 
 	-- Glyph of Psychic Scream -- 57196
 	recipe = AddRecipe(57196, V.WOTLK, Q.COMMON)
@@ -1205,7 +1205,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItemID(42414)
 	recipe:SetSkillLevels(385, 385, 390, 397, 405)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.CASTER, F.PRIEST)
-	recipe:AddCustom(15)
+	recipe:AddCustom("DISCOVERY_INSC_NORTHREND")
 
 	-- Glyph of Mind Flay -- 57200
 	recipe = AddRecipe(57200, V.WOTLK, Q.COMMON)
@@ -1226,28 +1226,28 @@ function addon:InitInscription()
 	recipe:SetCraftedItemID(42417)
 	recipe:SetSkillLevels(385, 385, 390, 397, 405)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.HEALER, F.PRIEST)
-	recipe:AddCustom(15)
+	recipe:AddCustom("DISCOVERY_INSC_NORTHREND")
 
 	-- Glyph of Anti-Magic Shell -- 57207
 	recipe = AddRecipe(57207, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(43533)
 	recipe:SetSkillLevels(385, 385, 390, 397, 405)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.DK)
-	recipe:AddCustom(15)
+	recipe:AddCustom("DISCOVERY_INSC_NORTHREND")
 
 	-- Glyph of Heart Strike -- 57208
 	recipe = AddRecipe(57208, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(43534)
 	recipe:SetSkillLevels(385, 385, 390, 397, 405)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.DK)
-	recipe:AddCustom(15)
+	recipe:AddCustom("DISCOVERY_INSC_NORTHREND")
 
 	-- Glyph of Blood Tap -- 57209
 	recipe = AddRecipe(57209, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(43535)
 	recipe:SetSkillLevels(320, 320, 330, 335, 340)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.DK)
-	recipe:AddCustom(14)
+	recipe:AddCustom("DISCOVERY_INSC_MINOR")
 
 	-- Glyph of Bone Shield -- 57210
 	recipe = AddRecipe(57210, V.WOTLK, Q.COMMON)
@@ -1261,7 +1261,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItemID(43537)
 	recipe:SetSkillLevels(385, 385, 390, 397, 405)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.DK)
-	recipe:AddCustom(15)
+	recipe:AddCustom("DISCOVERY_INSC_NORTHREND")
 
 	-- Glyph of Death Grip -- 57213
 	recipe = AddRecipe(57213, V.WOTLK, Q.COMMON)
@@ -1275,14 +1275,14 @@ function addon:InitInscription()
 	recipe:SetCraftedItemID(43542)
 	recipe:SetSkillLevels(385, 385, 390, 397, 405)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.DK)
-	recipe:AddCustom(15)
+	recipe:AddCustom("DISCOVERY_INSC_NORTHREND")
 
 	-- Glyph of Death's Embrace -- 57215
 	recipe = AddRecipe(57215, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(43539)
 	recipe:SetSkillLevels(300, 300, 305, 310, 315)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.DK)
-	recipe:AddCustom(14)
+	recipe:AddCustom("DISCOVERY_INSC_MINOR")
 
 	-- Glyph of Frost Strike -- 57216
 	recipe = AddRecipe(57216, V.WOTLK, Q.COMMON)
@@ -1296,7 +1296,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItemID(43544)
 	recipe:SetSkillLevels(320, 320, 330, 335, 340)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.DK)
-	recipe:AddCustom(14)
+	recipe:AddCustom("DISCOVERY_INSC_MINOR")
 
 	-- Glyph of Icy Touch -- 57219
 	recipe = AddRecipe(57219, V.WOTLK, Q.COMMON)
@@ -1310,7 +1310,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItemID(43547)
 	recipe:SetSkillLevels(385, 385, 390, 397, 405)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.DK)
-	recipe:AddCustom(15)
+	recipe:AddCustom("DISCOVERY_INSC_NORTHREND")
 
 	-- Glyph of Pestilence -- 57221
 	recipe = AddRecipe(57221, V.WOTLK, Q.COMMON)
@@ -1331,7 +1331,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItemID(43550)
 	recipe:SetSkillLevels(385, 385, 390, 397, 405)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.DK)
-	recipe:AddCustom(15)
+	recipe:AddCustom("DISCOVERY_INSC_NORTHREND")
 
 	-- Glyph of Scourge Strike -- 57224
 	recipe = AddRecipe(57224, V.WOTLK, Q.COMMON)
@@ -1366,49 +1366,49 @@ function addon:InitInscription()
 	recipe:SetCraftedItemID(43673)
 	recipe:SetSkillLevels(300, 300, 305, 310, 315)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.DK)
-	recipe:AddCustom(14)
+	recipe:AddCustom("DISCOVERY_INSC_MINOR")
 
 	-- Glyph of Path of Frost -- 57229
 	recipe = AddRecipe(57229, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(43671)
 	recipe:SetSkillLevels(300, 300, 305, 310, 315)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.DK)
-	recipe:AddCustom(14)
+	recipe:AddCustom("DISCOVERY_INSC_MINOR")
 
 	-- Glyph of Resilient Grip -- 57230
 	recipe = AddRecipe(57230, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(43672)
 	recipe:SetSkillLevels(300, 300, 305, 310, 315)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.DK)
-	recipe:AddCustom(14)
+	recipe:AddCustom("DISCOVERY_INSC_MINOR")
 
 	-- Glyph of Chain Heal -- 57232
 	recipe = AddRecipe(57232, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(41517)
 	recipe:SetSkillLevels(385, 385, 390, 397, 405)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.HEALER, F.SHAMAN)
-	recipe:AddCustom(15)
+	recipe:AddCustom("DISCOVERY_INSC_NORTHREND")
 
 	-- Glyph of Chain Lightning -- 57233
 	recipe = AddRecipe(57233, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(41518)
 	recipe:SetSkillLevels(385, 385, 390, 397, 405)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.CASTER, F.SHAMAN)
-	recipe:AddCustom(15)
+	recipe:AddCustom("DISCOVERY_INSC_NORTHREND")
 
 	-- Glyph of Lava Burst -- 57234
 	recipe = AddRecipe(57234, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(41524)
 	recipe:SetSkillLevels(385, 385, 390, 395, 400)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.SHAMAN)
-	recipe:AddCustom(15)
+	recipe:AddCustom("DISCOVERY_INSC_NORTHREND")
 
 	-- Glyph of Shocking -- 57235
 	recipe = AddRecipe(57235, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(41526)
 	recipe:SetSkillLevels(385, 385, 390, 397, 405)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.SHAMAN)
-	recipe:AddCustom(15)
+	recipe:AddCustom("DISCOVERY_INSC_NORTHREND")
 
 	-- Glyph of Earthliving Weapon -- 57236
 	recipe = AddRecipe(57236, V.WOTLK, Q.COMMON)
@@ -1422,7 +1422,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItemID(41529)
 	recipe:SetSkillLevels(385, 385, 390, 397, 405)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.SHAMAN)
-	recipe:AddCustom(15)
+	recipe:AddCustom("DISCOVERY_INSC_NORTHREND")
 
 	-- Glyph of Fire Nova -- 57238
 	recipe = AddRecipe(57238, V.WOTLK, Q.COMMON)
@@ -1464,7 +1464,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItemID(41534)
 	recipe:SetSkillLevels(385, 385, 390, 397, 405)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.HEALER, F.SHAMAN)
-	recipe:AddCustom(15)
+	recipe:AddCustom("DISCOVERY_INSC_NORTHREND")
 
 	-- Glyph of Totemic Recall -- 57244
 	recipe = AddRecipe(57244, V.WOTLK, Q.COMMON)
@@ -1492,7 +1492,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItemID(41538)
 	recipe:SetSkillLevels(385, 385, 390, 397, 405)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.SHAMAN)
-	recipe:AddCustom(15)
+	recipe:AddCustom("DISCOVERY_INSC_NORTHREND")
 
 	-- Glyph of Stormstrike -- 57248
 	recipe = AddRecipe(57248, V.WOTLK, Q.COMMON)
@@ -1513,7 +1513,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItemID(41552)
 	recipe:SetSkillLevels(385, 385, 390, 397, 405)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.SHAMAN)
-	recipe:AddCustom(15)
+	recipe:AddCustom("DISCOVERY_INSC_NORTHREND")
 
 	-- Glyph of Water Shield -- 57251
 	recipe = AddRecipe(57251, V.WOTLK, Q.COMMON)
@@ -1534,7 +1534,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItemID(44923)
 	recipe:SetSkillLevels(355, 355, 355, 360, 365)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.SHAMAN)
-	recipe:AddCustom(14)
+	recipe:AddCustom("DISCOVERY_INSC_MINOR")
 
 	-- Glyph of Incinerate -- 57257
 	recipe = AddRecipe(57257, V.WOTLK, Q.COMMON)
@@ -1548,7 +1548,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItemID(42454)
 	recipe:SetSkillLevels(385, 385, 390, 397, 405)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.CASTER, F.WARLOCK)
-	recipe:AddCustom(15)
+	recipe:AddCustom("DISCOVERY_INSC_NORTHREND")
 
 	-- Glyph of Corruption -- 57259
 	recipe = AddRecipe(57259, V.WOTLK, Q.COMMON)
@@ -1562,14 +1562,14 @@ function addon:InitInscription()
 	recipe:SetCraftedItemID(42456)
 	recipe:SetSkillLevels(385, 385, 390, 397, 405)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.CASTER, F.WARLOCK)
-	recipe:AddCustom(15)
+	recipe:AddCustom("DISCOVERY_INSC_NORTHREND")
 
 	-- Glyph of Death Coil -- 57261
 	recipe = AddRecipe(57261, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(42457)
 	recipe:SetSkillLevels(275, 275, 285, 290, 295)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.CASTER, F.WARLOCK)
-	recipe:AddCustom(15)
+	recipe:AddCustom("DISCOVERY_INSC_NORTHREND")
 
 	-- Glyph of Fear -- 57262
 	recipe = AddRecipe(57262, V.WOTLK, Q.COMMON)
@@ -1583,14 +1583,14 @@ function addon:InitInscription()
 	recipe:SetCraftedItemID(42459)
 	recipe:SetSkillLevels(385, 385, 390, 397, 405)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.CASTER, F.WARLOCK)
-	recipe:AddCustom(15)
+	recipe:AddCustom("DISCOVERY_INSC_NORTHREND")
 
 	-- Glyph of Felhunter -- 57264
 	recipe = AddRecipe(57264, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(42460)
 	recipe:SetSkillLevels(385, 385, 390, 397, 405)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.CASTER, F.WARLOCK)
-	recipe:AddCustom(15)
+	recipe:AddCustom("DISCOVERY_INSC_NORTHREND")
 
 	-- Glyph of Health Funnel -- 57265
 	recipe = AddRecipe(57265, V.WOTLK, Q.COMMON)
@@ -1611,14 +1611,14 @@ function addon:InitInscription()
 	recipe:SetCraftedItemID(42463)
 	recipe:SetSkillLevels(385, 385, 390, 397, 405)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.CASTER, F.WARLOCK)
-	recipe:AddCustom(15)
+	recipe:AddCustom("DISCOVERY_INSC_NORTHREND")
 
 	-- Glyph of Immolate -- 57268
 	recipe = AddRecipe(57268, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(42464)
 	recipe:SetSkillLevels(385, 385, 390, 397, 405)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.CASTER, F.WARLOCK)
-	recipe:AddCustom(15)
+	recipe:AddCustom("DISCOVERY_INSC_NORTHREND")
 
 	-- Glyph of Imp -- 57269
 	recipe = AddRecipe(57269, V.WOTLK, Q.COMMON)
@@ -1667,7 +1667,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItemID(42472)
 	recipe:SetSkillLevels(385, 385, 390, 397, 405)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.CASTER, F.WARLOCK)
-	recipe:AddCustom(15)
+	recipe:AddCustom("DISCOVERY_INSC_NORTHREND")
 
 	-- Glyph of Voidwalker -- 57277
 	recipe = AddRecipe(57277, V.WOTLK, Q.COMMON)
@@ -1772,322 +1772,322 @@ function addon:InitInscription()
 	recipe:SetCraftedItemID(43316)
 	recipe:SetSkillLevels(75, 75, 105, 110, 115)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.DRUID)
-	recipe:AddCustom(14)
+	recipe:AddCustom("DISCOVERY_INSC_MINOR")
 
 	-- Glyph of Challenging Roar -- 58287
 	recipe = AddRecipe(58287, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(43334)
 	recipe:SetSkillLevels(150, 150, 155, 160, 165)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.DRUID)
-	recipe:AddCustom(14)
+	recipe:AddCustom("DISCOVERY_INSC_MINOR")
 
 	-- Glyph of Unburdened Rebirth -- 58288
 	recipe = AddRecipe(58288, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(43331)
 	recipe:SetSkillLevels(95, 95, 105, 110, 115)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.DRUID)
-	recipe:AddCustom(14)
+	recipe:AddCustom("DISCOVERY_INSC_MINOR")
 
 	-- Glyph of Thorns -- 58289
 	recipe = AddRecipe(58289, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(43332)
 	recipe:SetSkillLevels(75, 75, 80, 85, 90)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.DRUID)
-	recipe:AddCustom(14)
+	recipe:AddCustom("DISCOVERY_INSC_MINOR")
 
 	-- Glyph of Mark of the Wild -- 58296
 	recipe = AddRecipe(58296, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(43335)
 	recipe:SetSkillLevels(75, 75, 80, 85, 90)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.DRUID)
-	recipe:AddCustom(14)
+	recipe:AddCustom("DISCOVERY_INSC_MINOR")
 
 	-- Glyph of Aspect of the Pack -- 58297
 	recipe = AddRecipe(58297, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(43355)
 	recipe:SetSkillLevels(195, 195, 205, 210, 215)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.DPS, F.HUNTER)
-	recipe:AddCustom(14)
+	recipe:AddCustom("DISCOVERY_INSC_MINOR")
 
 	-- Glyph of Scare Beast -- 58298
 	recipe = AddRecipe(58298, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(43356)
 	recipe:SetSkillLevels(75, 75, 80, 85, 90)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.DPS, F.HUNTER)
-	recipe:AddCustom(14)
+	recipe:AddCustom("DISCOVERY_INSC_MINOR")
 
 	-- Glyph of Revive Pet -- 58299
 	recipe = AddRecipe(58299, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(43338)
 	recipe:SetSkillLevels(75, 75, 80, 85, 90)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.DPS, F.HUNTER)
-	recipe:AddCustom(14)
+	recipe:AddCustom("DISCOVERY_INSC_MINOR")
 
 	-- Glyph of Mend Pet -- 58301
 	recipe = AddRecipe(58301, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(43350)
 	recipe:SetSkillLevels(75, 75, 80, 85, 90)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.DPS, F.HUNTER)
-	recipe:AddCustom(14)
+	recipe:AddCustom("DISCOVERY_INSC_MINOR")
 
 	-- Glyph of Feign Death -- 58302
 	recipe = AddRecipe(58302, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(43351)
 	recipe:SetSkillLevels(150, 150, 155, 160, 165)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.DPS, F.HUNTER)
-	recipe:AddCustom(14)
+	recipe:AddCustom("DISCOVERY_INSC_MINOR")
 
 	-- Glyph of Arcane Intellect -- 58303
 	recipe = AddRecipe(58303, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(43339)
 	recipe:SetSkillLevels(75, 75, 80, 85, 90)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.CASTER, F.MAGE)
-	recipe:AddCustom(14)
+	recipe:AddCustom("DISCOVERY_INSC_MINOR")
 
 	-- Glyph of Conjuring -- 58306
 	recipe = AddRecipe(58306, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(43359)
 	recipe:SetSkillLevels(75, 75, 80, 85, 90)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.CASTER, F.MAGE)
-	recipe:AddCustom(14)
+	recipe:AddCustom("DISCOVERY_INSC_MINOR")
 
 	-- Glyph of the Monkey -- 58307
 	recipe = AddRecipe(58307, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(43360)
 	recipe:SetSkillLevels(120, 120, 130, 135, 140)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.CASTER, F.MAGE)
-	recipe:AddCustom(14)
+	recipe:AddCustom("DISCOVERY_INSC_MINOR")
 
 	-- Glyph of Slow Fall -- 58308
 	recipe = AddRecipe(58308, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(43364)
 	recipe:SetSkillLevels(75, 75, 80, 85, 90)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.CASTER, F.MAGE)
-	recipe:AddCustom(14)
+	recipe:AddCustom("DISCOVERY_INSC_MINOR")
 
 	-- Glyph of the Penguin -- 58310
 	recipe = AddRecipe(58310, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(43361)
 	recipe:SetSkillLevels(75, 75, 80, 85, 90)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.CASTER, F.MAGE)
-	recipe:AddCustom(14)
+	recipe:AddCustom("DISCOVERY_INSC_MINOR")
 
 	-- Glyph of Blessing of Kings -- 58311
 	recipe = AddRecipe(58311, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(43365)
 	recipe:SetSkillLevels(95, 95, 105, 110, 115)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.PALADIN)
-	recipe:AddCustom(14)
+	recipe:AddCustom("DISCOVERY_INSC_MINOR")
 
 	-- Glyph of Insight -- 58312
 	recipe = AddRecipe(58312, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(43366)
 	recipe:SetSkillLevels(75, 75, 80, 85, 90)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.PALADIN)
-	recipe:AddCustom(14)
+	recipe:AddCustom("DISCOVERY_INSC_MINOR")
 
 	-- Glyph of Lay on Hands -- 58313
 	recipe = AddRecipe(58313, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(43367)
 	recipe:SetSkillLevels(75, 75, 80, 85, 90)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.PALADIN)
-	recipe:AddCustom(15)
+	recipe:AddCustom("DISCOVERY_INSC_NORTHREND")
 
 	-- Glyph of Blessing of Might -- 58314
 	recipe = AddRecipe(58314, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(43340)
 	recipe:SetSkillLevels(75, 75, 80, 85, 90)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.PALADIN)
-	recipe:AddCustom(14)
+	recipe:AddCustom("DISCOVERY_INSC_MINOR")
 
 	-- Glyph of Truth -- 58315
 	recipe = AddRecipe(58315, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(43368)
 	recipe:SetSkillLevels(95, 95, 105, 110, 115)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.PALADIN)
-	recipe:AddCustom(14)
+	recipe:AddCustom("DISCOVERY_INSC_MINOR")
 
 	-- Glyph of Justice -- 58316
 	recipe = AddRecipe(58316, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(43369)
 	recipe:SetSkillLevels(150, 150, 155, 160, 165)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.PALADIN)
-	recipe:AddCustom(14)
+	recipe:AddCustom("DISCOVERY_INSC_MINOR")
 
 	-- Glyph of Fading -- 58317
 	recipe = AddRecipe(58317, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(43342)
 	recipe:SetSkillLevels(75, 75, 80, 85, 90)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.PRIEST)
-	recipe:AddCustom(14)
+	recipe:AddCustom("DISCOVERY_INSC_MINOR")
 
 	-- Glyph of Fortitude -- 58318
 	recipe = AddRecipe(58318, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(43371)
 	recipe:SetSkillLevels(75, 75, 80, 85, 90)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.PRIEST)
-	recipe:AddCustom(14)
+	recipe:AddCustom("DISCOVERY_INSC_MINOR")
 
 	-- Glyph of Levitate -- 58319
 	recipe = AddRecipe(58319, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(43370)
 	recipe:SetSkillLevels(170, 170, 180, 185, 190)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.PRIEST)
-	recipe:AddCustom(14)
+	recipe:AddCustom("DISCOVERY_INSC_MINOR")
 
 	-- Glyph of Shackle Undead -- 58320
 	recipe = AddRecipe(58320, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(43373)
 	recipe:SetSkillLevels(95, 95, 105, 110, 115)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.PRIEST)
-	recipe:AddCustom(14)
+	recipe:AddCustom("DISCOVERY_INSC_MINOR")
 
 	-- Glyph of Shadow Protection -- 58321
 	recipe = AddRecipe(58321, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(43372)
 	recipe:SetSkillLevels(150, 150, 155, 160, 165)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.PRIEST)
-	recipe:AddCustom(14)
+	recipe:AddCustom("DISCOVERY_INSC_MINOR")
 
 	-- Glyph of Shadowfiend -- 58322
 	recipe = AddRecipe(58322, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(43374)
 	recipe:SetSkillLevels(345, 345, 355, 360, 365)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.PRIEST)
-	recipe:AddCustom(14)
+	recipe:AddCustom("DISCOVERY_INSC_MINOR")
 
 	-- Glyph of Blurred Speed -- 58323
 	recipe = AddRecipe(58323, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(43379)
 	recipe:SetSkillLevels(75, 75, 80, 85, 90)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.DPS, F.ROGUE)
-	recipe:AddCustom(14)
+	recipe:AddCustom("DISCOVERY_INSC_MINOR")
 
 	-- Glyph of Distract -- 58324
 	recipe = AddRecipe(58324, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(43376)
 	recipe:SetSkillLevels(120, 120, 130, 135, 140)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.DPS, F.ROGUE)
-	recipe:AddCustom(14)
+	recipe:AddCustom("DISCOVERY_INSC_MINOR")
 
 	-- Glyph of Pick Lock -- 58325
 	recipe = AddRecipe(58325, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(43377)
 	recipe:SetSkillLevels(95, 95, 105, 110, 115)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.DPS, F.ROGUE)
-	recipe:AddCustom(14)
+	recipe:AddCustom("DISCOVERY_INSC_MINOR")
 
 	-- Glyph of Pick Pocket -- 58326
 	recipe = AddRecipe(58326, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(43343)
 	recipe:SetSkillLevels(75, 75, 80, 85, 90)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.DPS, F.ROGUE)
-	recipe:AddCustom(14)
+	recipe:AddCustom("DISCOVERY_INSC_MINOR")
 
 	-- Glyph of Safe Fall -- 58327
 	recipe = AddRecipe(58327, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(43378)
 	recipe:SetSkillLevels(195, 195, 205, 210, 215)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.DPS, F.ROGUE)
-	recipe:AddCustom(14)
+	recipe:AddCustom("DISCOVERY_INSC_MINOR")
 
 	-- Glyph of Poisons -- 58328
 	recipe = AddRecipe(58328, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(43380)
 	recipe:SetSkillLevels(120, 120, 130, 135, 140)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.DPS, F.ROGUE)
-	recipe:AddCustom(14)
+	recipe:AddCustom("DISCOVERY_INSC_MINOR")
 
 	-- Glyph of Astral Recall -- 58329
 	recipe = AddRecipe(58329, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(43381)
 	recipe:SetSkillLevels(150, 150, 155, 160, 165)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.DPS, F.HEALER, F.CASTER, F.SHAMAN)
-	recipe:AddCustom(14)
+	recipe:AddCustom("DISCOVERY_INSC_MINOR")
 
 	-- Glyph of Renewed Life -- 58330
 	recipe = AddRecipe(58330, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(43385)
 	recipe:SetSkillLevels(150, 150, 155, 160, 165)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.SHAMAN)
-	recipe:AddCustom(14)
+	recipe:AddCustom("DISCOVERY_INSC_MINOR")
 
 	-- Glyph of Water Breathing -- 58331
 	recipe = AddRecipe(58331, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(43344)
 	recipe:SetSkillLevels(120, 120, 130, 135, 140)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.SHAMAN)
-	recipe:AddCustom(14)
+	recipe:AddCustom("DISCOVERY_INSC_MINOR")
 
 	-- Glyph of the Arctic Wolf -- 58332
 	recipe = AddRecipe(58332, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(43386)
 	recipe:SetSkillLevels(95, 95, 105, 110, 115)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.SHAMAN)
-	recipe:AddCustom(14)
+	recipe:AddCustom("DISCOVERY_INSC_MINOR")
 
 	-- Glyph of Water Walking -- 58333
 	recipe = AddRecipe(58333, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(43388)
 	recipe:SetSkillLevels(150, 150, 155, 160, 165)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.SHAMAN)
-	recipe:AddCustom(14)
+	recipe:AddCustom("DISCOVERY_INSC_MINOR")
 
 	-- Glyph of Unending Breath -- 58336
 	recipe = AddRecipe(58336, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(43389)
 	recipe:SetSkillLevels(95, 95, 105, 110, 115)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.WARLOCK)
-	recipe:AddCustom(14)
+	recipe:AddCustom("DISCOVERY_INSC_MINOR")
 
 	-- Glyph of Drain Soul -- 58337
 	recipe = AddRecipe(58337, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(43390)
 	recipe:SetSkillLevels(75, 75, 80, 85, 90)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.CASTER, F.WARLOCK)
-	recipe:AddCustom(14)
+	recipe:AddCustom("DISCOVERY_INSC_MINOR")
 
 	-- Glyph of Curse of Exhaustion -- 58338
 	recipe = AddRecipe(58338, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(43392)
 	recipe:SetSkillLevels(150, 150, 155, 160, 165)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.CASTER, F.WARLOCK)
-	recipe:AddCustom(14)
+	recipe:AddCustom("DISCOVERY_INSC_MINOR")
 
 	-- Glyph of Enslave Demon -- 58339
 	recipe = AddRecipe(58339, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(43393)
 	recipe:SetSkillLevels(150, 150, 155, 160, 165)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.CASTER, F.WARLOCK)
-	recipe:AddCustom(14)
+	recipe:AddCustom("DISCOVERY_INSC_MINOR")
 
 	-- Glyph of Eye of Kilrogg -- 58340
 	recipe = AddRecipe(58340, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(43391)
 	recipe:SetSkillLevels(120, 120, 130, 135, 140)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.CASTER, F.WARLOCK)
-	recipe:AddCustom(14)
+	recipe:AddCustom("DISCOVERY_INSC_MINOR")
 
 	-- Glyph of Ritual of Souls -- 58341
 	recipe = AddRecipe(58341, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(43394)
 	recipe:SetSkillLevels(345, 345, 355, 360, 365)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.CASTER, F.WARLOCK)
-	recipe:AddCustom(14)
+	recipe:AddCustom("DISCOVERY_INSC_MINOR")
 
 	-- Glyph of Battle -- 58342
 	recipe = AddRecipe(58342, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(43395)
 	recipe:SetSkillLevels(75, 75, 80, 85, 90)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.WARRIOR)
-	recipe:AddCustom(14)
+	recipe:AddCustom("DISCOVERY_INSC_MINOR")
 
 	-- Glyph of Berserker Rage -- 58343
 	recipe = AddRecipe(58343, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(43396)
 	recipe:SetSkillLevels(75, 75, 80, 85, 90)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.WARRIOR)
-	recipe:AddCustom(14)
+	recipe:AddCustom("DISCOVERY_INSC_MINOR")
 
 	-- Glyph of Long Charge -- 58344
 	recipe = AddRecipe(58344, V.WOTLK, Q.COMMON)
@@ -2095,14 +2095,14 @@ function addon:InitInscription()
 	recipe:SetSkillLevels(80, 80, 90, 95, 100)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.DISC, F.IBOE, F.RBOP, F.WARRIOR)
 	recipe:AddTrainer(30706, 46716)
-	recipe:AddCustom(14)
+	recipe:AddCustom("DISCOVERY_INSC_MINOR")
 
 	-- Glyph of Demoralizing Shout -- 58345
 	recipe = AddRecipe(58345, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(43398)
 	recipe:SetSkillLevels(95, 95, 105, 110, 115)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.WARRIOR)
-	recipe:AddCustom(14)
+	recipe:AddCustom("DISCOVERY_INSC_MINOR")
 
 	-- Glyph of Thunder Clap -- 58346
 	recipe = AddRecipe(58346, V.WOTLK, Q.COMMON)
@@ -2110,14 +2110,14 @@ function addon:InitInscription()
 	recipe:SetSkillLevels(80, 80, 90, 95, 100)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.DISC, F.IBOE, F.RBOP, F.WARRIOR)
 	recipe:AddTrainer(30706, 46716)
-	recipe:AddCustom(14)
+	recipe:AddCustom("DISCOVERY_INSC_MINOR")
 
 	-- Glyph of Enduring Victory -- 58347
 	recipe = AddRecipe(58347, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(43400)
 	recipe:SetSkillLevels(320, 320, 330, 335, 340)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.WARRIOR)
-	recipe:AddCustom(14)
+	recipe:AddCustom("DISCOVERY_INSC_MINOR")
 
 	-- Scroll of Agility -- 58472
 	recipe = AddRecipe(58472, V.WOTLK, Q.COMMON)
@@ -2243,7 +2243,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItemID(43674)
 	recipe:SetSkillLevels(150, 150, 155, 160, 165)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.DRUID)
-	recipe:AddCustom(14)
+	recipe:AddCustom("DISCOVERY_INSC_MINOR")
 
 	-- Glyph of Ghost Wolf -- 59326
 	recipe = AddRecipe(59326, V.WOTLK, Q.COMMON)
@@ -2251,7 +2251,7 @@ function addon:InitInscription()
 	recipe:SetSkillLevels(100, 100, 110, 115, 120)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.DISC, F.IBOE, F.RBOP, F.SHAMAN)
 	recipe:AddTrainer(30706, 46716)
-	recipe:AddCustom(14)
+	recipe:AddCustom("DISCOVERY_INSC_MINOR")
 
 	-- Glyph of Rune Tap -- 59338
 	recipe = AddRecipe(59338, V.WOTLK, Q.COMMON)
@@ -2407,21 +2407,21 @@ function addon:InitInscription()
 	recipe:SetCraftedItemID(43867)
 	recipe:SetSkillLevels(385, 385, 390, 397, 405)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.PALADIN)
-	recipe:AddCustom(15)
+	recipe:AddCustom("DISCOVERY_INSC_NORTHREND")
 
 	-- Glyph of Dazing Shield -- 59560
 	recipe = AddRecipe(59560, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(43868)
 	recipe:SetSkillLevels(385, 385, 390, 397, 405)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.PALADIN)
-	recipe:AddCustom(15)
+	recipe:AddCustom("DISCOVERY_INSC_NORTHREND")
 
 	-- Glyph of Seal of Truth -- 59561
 	recipe = AddRecipe(59561, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(43869)
 	recipe:SetSkillLevels(385, 385, 390, 397, 405)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.DPS, F.PALADIN)
-	recipe:AddCustom(15)
+	recipe:AddCustom("DISCOVERY_INSC_NORTHREND")
 
 	-- Scroll of Recall II -- 60336
 	recipe = AddRecipe(60336, V.WOTLK, Q.COMMON)
@@ -2478,7 +2478,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItemID(44684)
 	recipe:SetSkillLevels(385, 385, 390, 397, 405)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.MAGE)
-	recipe:AddCustom(15)
+	recipe:AddCustom("DISCOVERY_INSC_NORTHREND")
 
 	-- Glyph of Focus -- 62162
 	recipe = AddRecipe(62162, V.WOTLK, Q.COMMON)
@@ -2506,84 +2506,84 @@ function addon:InitInscription()
 	recipe:SetCraftedItemID(45735)
 	recipe:SetSkillLevels(425, 425, 430, 435, 440)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.HUNTER)
-	recipe:AddCustom(40)
+	recipe:AddCustom("DISCOVERY_INSC_BOOK")
 
 	-- Glyph of Stoneclaw Totem -- 64247
 	recipe = AddRecipe(64247, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(45778)
 	recipe:SetSkillLevels(425, 425, 430, 435, 440)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.SHAMAN)
-	recipe:AddCustom(40)
+	recipe:AddCustom("DISCOVERY_INSC_BOOK")
 
 	-- Glyph of Life Tap -- 64248
 	recipe = AddRecipe(64248, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(45785)
 	recipe:SetSkillLevels(425, 425, 430, 435, 440)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.CASTER, F.WARLOCK)
-	recipe:AddCustom(40)
+	recipe:AddCustom("DISCOVERY_INSC_BOOK")
 
 	-- Glyph of Scatter Shot -- 64249
 	recipe = AddRecipe(64249, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(45734)
 	recipe:SetSkillLevels(425, 425, 430, 435, 440)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.HUNTER)
-	recipe:AddCustom(40)
+	recipe:AddCustom("DISCOVERY_INSC_BOOK")
 
 	-- Glyph of Soul Link -- 64250
 	recipe = AddRecipe(64250, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(45789)
 	recipe:SetSkillLevels(425, 425, 430, 435, 440)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.WARLOCK)
-	recipe:AddCustom(40)
+	recipe:AddCustom("DISCOVERY_INSC_BOOK")
 
 	-- Glyph of Salvation -- 64251
 	recipe = AddRecipe(64251, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(45747)
 	recipe:SetSkillLevels(425, 425, 430, 435, 440)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.PALADIN)
-	recipe:AddCustom(40)
+	recipe:AddCustom("DISCOVERY_INSC_BOOK")
 
 	-- Glyph of Shield Wall -- 64252
 	recipe = AddRecipe(64252, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(45797)
 	recipe:SetSkillLevels(425, 425, 430, 435, 440)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.WARRIOR)
-	recipe:AddCustom(40)
+	recipe:AddCustom("DISCOVERY_INSC_BOOK")
 
 	-- Glyph of Master's Call -- 64253
 	recipe = AddRecipe(64253, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(45733)
 	recipe:SetSkillLevels(425, 425, 430, 435, 440)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.HUNTER)
-	recipe:AddCustom(40)
+	recipe:AddCustom("DISCOVERY_INSC_BOOK")
 
 	-- Glyph of Holy Shock -- 64254
 	recipe = AddRecipe(64254, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(45746)
 	recipe:SetSkillLevels(425, 425, 430, 435, 440)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.PALADIN)
-	recipe:AddCustom(40)
+	recipe:AddCustom("DISCOVERY_INSC_BOOK")
 
 	-- Glyph of Furious Sundering -- 64255
 	recipe = AddRecipe(64255, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(45793)
 	recipe:SetSkillLevels(425, 425, 430, 435, 440)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.WARRIOR)
-	recipe:AddCustom(14)
+	recipe:AddCustom("DISCOVERY_INSC_MINOR")
 
 	-- Glyph of Barkskin -- 64256
 	recipe = AddRecipe(64256, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(45623)
 	recipe:SetSkillLevels(425, 425, 430, 435, 440)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.DRUID)
-	recipe:AddCustom(40)
+	recipe:AddCustom("DISCOVERY_INSC_BOOK")
 
 	-- Glyph of Ice Barrier -- 64257
 	recipe = AddRecipe(64257, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(45740)
 	recipe:SetSkillLevels(425, 425, 430, 435, 440)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.MAGE)
-	recipe:AddCustom(40)
+	recipe:AddCustom("DISCOVERY_INSC_BOOK")
 
 	-- Glyph of Monsoon -- 64258
 	recipe = AddRecipe(64258, V.WOTLK, Q.COMMON)
@@ -2632,301 +2632,301 @@ function addon:InitInscription()
 	recipe:SetCraftedItemID(45601)
 	recipe:SetSkillLevels(425, 425, 430, 435, 440)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.DRUID)
-	recipe:AddCustom(40)
+	recipe:AddCustom("DISCOVERY_INSC_BOOK")
 
 	-- Glyph of Wild Growth -- 64270
 	recipe = AddRecipe(64270, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(45602)
 	recipe:SetSkillLevels(425, 425, 430, 435, 440)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.DRUID)
-	recipe:AddCustom(40)
+	recipe:AddCustom("DISCOVERY_INSC_BOOK")
 
 	-- Glyph of Chimera Shot -- 64271
 	recipe = AddRecipe(64271, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(45625)
 	recipe:SetSkillLevels(425, 425, 430, 435, 440)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.HUNTER)
-	recipe:AddCustom(40)
+	recipe:AddCustom("DISCOVERY_INSC_BOOK")
 
 	-- Glyph of Explosive Shot -- 64273
 	recipe = AddRecipe(64273, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(45731)
 	recipe:SetSkillLevels(425, 425, 430, 435, 440)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.HUNTER)
-	recipe:AddCustom(40)
+	recipe:AddCustom("DISCOVERY_INSC_BOOK")
 
 	-- Glyph of Deep Freeze -- 64274
 	recipe = AddRecipe(64274, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(45736)
 	recipe:SetSkillLevels(425, 425, 430, 435, 440)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.MAGE)
-	recipe:AddCustom(40)
+	recipe:AddCustom("DISCOVERY_INSC_BOOK")
 
 	-- Glyph of Slow -- 64275
 	recipe = AddRecipe(64275, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(45737)
 	recipe:SetSkillLevels(425, 425, 430, 435, 440)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.MAGE)
-	recipe:AddCustom(40)
+	recipe:AddCustom("DISCOVERY_INSC_BOOK")
 
 	-- Glyph of Arcane Barrage -- 64276
 	recipe = AddRecipe(64276, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(45738)
 	recipe:SetSkillLevels(425, 425, 430, 435, 440)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.MAGE)
-	recipe:AddCustom(40)
+	recipe:AddCustom("DISCOVERY_INSC_BOOK")
 
 	-- Glyph of Beacon of Light -- 64277
 	recipe = AddRecipe(64277, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(45741)
 	recipe:SetSkillLevels(425, 425, 430, 435, 440)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.PALADIN)
-	recipe:AddCustom(40)
+	recipe:AddCustom("DISCOVERY_INSC_BOOK")
 
 	-- Glyph of Hammer of the Righteous -- 64278
 	recipe = AddRecipe(64278, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(45742)
 	recipe:SetSkillLevels(425, 425, 430, 435, 440)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.PALADIN)
-	recipe:AddCustom(40)
+	recipe:AddCustom("DISCOVERY_INSC_BOOK")
 
 	-- Glyph of Templar's Verdict -- 64279
 	recipe = AddRecipe(64279, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(45743)
 	recipe:SetSkillLevels(425, 425, 430, 435, 440)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.PALADIN)
-	recipe:AddCustom(40)
+	recipe:AddCustom("DISCOVERY_INSC_BOOK")
 
 	-- Glyph of Dispersion -- 64280
 	recipe = AddRecipe(64280, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(45753)
 	recipe:SetSkillLevels(425, 425, 430, 435, 440)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.PRIEST)
-	recipe:AddCustom(40)
+	recipe:AddCustom("DISCOVERY_INSC_BOOK")
 
 	-- Glyph of Guardian Spirit -- 64281
 	recipe = AddRecipe(64281, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(45755)
 	recipe:SetSkillLevels(425, 425, 430, 435, 440)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.PRIEST)
-	recipe:AddCustom(40)
+	recipe:AddCustom("DISCOVERY_INSC_BOOK")
 
 	-- Glyph of Penance -- 64282
 	recipe = AddRecipe(64282, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(45756)
 	recipe:SetSkillLevels(425, 425, 430, 435, 440)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.PRIEST)
-	recipe:AddCustom(40)
+	recipe:AddCustom("DISCOVERY_INSC_BOOK")
 
 	-- Glyph of Divine Accuracy -- 64283
 	recipe = AddRecipe(64283, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(45758)
 	recipe:SetSkillLevels(425, 425, 430, 435, 440)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.PRIEST)
-	recipe:AddCustom(40)
+	recipe:AddCustom("DISCOVERY_INSC_BOOK")
 
 	-- Glyph of Vendetta -- 64284
 	recipe = AddRecipe(64284, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(45761)
 	recipe:SetSkillLevels(425, 425, 430, 435, 440)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.ROGUE)
-	recipe:AddCustom(40)
+	recipe:AddCustom("DISCOVERY_INSC_BOOK")
 
 	-- Glyph of Killing Spree -- 64285
 	recipe = AddRecipe(64285, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(45762)
 	recipe:SetSkillLevels(425, 425, 430, 435, 440)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.ROGUE)
-	recipe:AddCustom(40)
+	recipe:AddCustom("DISCOVERY_INSC_BOOK")
 
 	-- Glyph of Shadow Dance -- 64286
 	recipe = AddRecipe(64286, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(45764)
 	recipe:SetSkillLevels(425, 425, 430, 435, 440)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.ROGUE)
-	recipe:AddCustom(40)
+	recipe:AddCustom("DISCOVERY_INSC_BOOK")
 
 	-- Glyph of Thunder -- 64287
 	recipe = AddRecipe(64287, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(45770)
 	recipe:SetSkillLevels(425, 425, 430, 435, 440)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.SHAMAN)
-	recipe:AddCustom(40)
+	recipe:AddCustom("DISCOVERY_INSC_BOOK")
 
 	-- Glyph of Feral Spirit -- 64288
 	recipe = AddRecipe(64288, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(45771)
 	recipe:SetSkillLevels(425, 425, 430, 435, 440)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.SHAMAN)
-	recipe:AddCustom(40)
+	recipe:AddCustom("DISCOVERY_INSC_BOOK")
 
 	-- Glyph of Riptide -- 64289
 	recipe = AddRecipe(64289, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(45772)
 	recipe:SetSkillLevels(425, 425, 430, 435, 440)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.SHAMAN)
-	recipe:AddCustom(40)
+	recipe:AddCustom("DISCOVERY_INSC_BOOK")
 
 	-- Glyph of Haunt -- 64291
 	recipe = AddRecipe(64291, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(45779)
 	recipe:SetSkillLevels(425, 425, 430, 435, 440)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.WARLOCK)
-	recipe:AddCustom(40)
+	recipe:AddCustom("DISCOVERY_INSC_BOOK")
 
 	-- Glyph of Chaos Bolt -- 64294
 	recipe = AddRecipe(64294, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(45781)
 	recipe:SetSkillLevels(425, 425, 430, 435, 440)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.WARLOCK)
-	recipe:AddCustom(40)
+	recipe:AddCustom("DISCOVERY_INSC_BOOK")
 
 	-- Glyph of Bladestorm -- 64295
 	recipe = AddRecipe(64295, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(45790)
 	recipe:SetSkillLevels(425, 425, 430, 435, 440)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.WARRIOR)
-	recipe:AddCustom(40)
+	recipe:AddCustom("DISCOVERY_INSC_BOOK")
 
 	-- Glyph of Shockwave -- 64296
 	recipe = AddRecipe(64296, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(45792)
 	recipe:SetSkillLevels(425, 425, 430, 435, 440)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.WARRIOR)
-	recipe:AddCustom(40)
+	recipe:AddCustom("DISCOVERY_INSC_BOOK")
 
 	-- Glyph of Dancing Rune Weapon -- 64297
 	recipe = AddRecipe(64297, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(45799)
 	recipe:SetSkillLevels(425, 425, 430, 435, 440)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.DK)
-	recipe:AddCustom(40)
+	recipe:AddCustom("DISCOVERY_INSC_BOOK")
 
 	-- Glyph of Hungering Cold -- 64298
 	recipe = AddRecipe(64298, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(45800)
 	recipe:SetSkillLevels(425, 425, 430, 435, 440)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.DK)
-	recipe:AddCustom(40)
+	recipe:AddCustom("DISCOVERY_INSC_BOOK")
 
 	-- Glyph of Howling Blast -- 64300
 	recipe = AddRecipe(64300, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(45806)
 	recipe:SetSkillLevels(425, 425, 430, 435, 440)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.DK)
-	recipe:AddCustom(40)
+	recipe:AddCustom("DISCOVERY_INSC_BOOK")
 
 	-- Glyph of Spell Reflection -- 64302
 	recipe = AddRecipe(64302, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(45795)
 	recipe:SetSkillLevels(425, 425, 430, 435, 440)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.WARRIOR)
-	recipe:AddCustom(40)
+	recipe:AddCustom("DISCOVERY_INSC_BOOK")
 
 	-- Glyph of Cloak of Shadows -- 64303
 	recipe = AddRecipe(64303, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(45769)
 	recipe:SetSkillLevels(425, 425, 430, 435, 440)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.ROGUE)
-	recipe:AddCustom(40)
+	recipe:AddCustom("DISCOVERY_INSC_BOOK")
 
 	-- Glyph of Kill Shot -- 64304
 	recipe = AddRecipe(64304, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(45732)
 	recipe:SetSkillLevels(425, 425, 430, 435, 440)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.HUNTER)
-	recipe:AddCustom(40)
+	recipe:AddCustom("DISCOVERY_INSC_BOOK")
 
 	-- Glyph of Divine Plea -- 64305
 	recipe = AddRecipe(64305, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(45745)
 	recipe:SetSkillLevels(425, 425, 430, 435, 440)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.PALADIN)
-	recipe:AddCustom(40)
+	recipe:AddCustom("DISCOVERY_INSC_BOOK")
 
 	-- Glyph of Savage Roar -- 64307
 	recipe = AddRecipe(64307, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(45604)
 	recipe:SetSkillLevels(425, 425, 430, 435, 440)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.DRUID)
-	recipe:AddCustom(40)
+	recipe:AddCustom("DISCOVERY_INSC_BOOK")
 
 	-- Glyph of Shield of the Righteous -- 64308
 	recipe = AddRecipe(64308, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(45744)
 	recipe:SetSkillLevels(425, 425, 430, 435, 440)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.PALADIN)
-	recipe:AddCustom(40)
+	recipe:AddCustom("DISCOVERY_INSC_BOOK")
 
 	-- Glyph of Spirit Tap -- 64309
 	recipe = AddRecipe(64309, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(45757)
 	recipe:SetSkillLevels(425, 425, 430, 435, 440)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.PRIEST)
-	recipe:AddCustom(40)
+	recipe:AddCustom("DISCOVERY_INSC_BOOK")
 
 	-- Glyph of Tricks of the Trade -- 64310
 	recipe = AddRecipe(64310, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(45767)
 	recipe:SetSkillLevels(425, 425, 430, 435, 440)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.ROGUE)
-	recipe:AddCustom(40)
+	recipe:AddCustom("DISCOVERY_INSC_BOOK")
 
 	-- Glyph of Shadowflame -- 64311
 	recipe = AddRecipe(64311, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(45783)
 	recipe:SetSkillLevels(425, 425, 430, 435, 440)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.WARLOCK)
-	recipe:AddCustom(40)
+	recipe:AddCustom("DISCOVERY_INSC_BOOK")
 
 	-- Glyph of Intimidating Shout -- 64312
 	recipe = AddRecipe(64312, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(45794)
 	recipe:SetSkillLevels(425, 425, 430, 435, 440)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.WARRIOR)
-	recipe:AddCustom(40)
+	recipe:AddCustom("DISCOVERY_INSC_BOOK")
 
 	-- Glyph of Starsurge -- 64313
 	recipe = AddRecipe(64313, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(45603)
 	recipe:SetSkillLevels(425, 425, 430, 435, 440)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.DRUID)
-	recipe:AddCustom(40)
+	recipe:AddCustom("DISCOVERY_INSC_BOOK")
 
 	-- Glyph of Mirror Image -- 64314
 	recipe = AddRecipe(64314, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(45739)
 	recipe:SetSkillLevels(425, 425, 430, 435, 440)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.MAGE)
-	recipe:AddCustom(40)
+	recipe:AddCustom("DISCOVERY_INSC_BOOK")
 
 	-- Glyph of Fan of Knives -- 64315
 	recipe = AddRecipe(64315, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(45766)
 	recipe:SetSkillLevels(425, 425, 430, 435, 440)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.ROGUE)
-	recipe:AddCustom(40)
+	recipe:AddCustom("DISCOVERY_INSC_BOOK")
 
 	-- Glyph of Hex -- 64316
 	recipe = AddRecipe(64316, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(45777)
 	recipe:SetSkillLevels(425, 425, 430, 435, 440)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.SHAMAN)
-	recipe:AddCustom(40)
+	recipe:AddCustom("DISCOVERY_INSC_BOOK")
 
 	-- Glyph of Demonic Circle -- 64317
 	recipe = AddRecipe(64317, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(45782)
 	recipe:SetSkillLevels(425, 425, 430, 435, 440)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.WARLOCK)
-	recipe:AddCustom(40)
+	recipe:AddCustom("DISCOVERY_INSC_BOOK")
 
 	-- Glyph of Metamorphosis -- 64318
 	recipe = AddRecipe(64318, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(45780)
 	recipe:SetSkillLevels(425, 425, 430, 435, 440)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.WARLOCK)
-	recipe:AddCustom(40)
+	recipe:AddCustom("DISCOVERY_INSC_BOOK")
 
 	-- Glyph of Ferocious Bite -- 67600
 	recipe = AddRecipe(67600, V.WOTLK, Q.COMMON)
@@ -2940,7 +2940,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItemID(49084)
 	recipe:SetSkillLevels(355, 355, 355, 360, 365)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.WARRIOR)
-	recipe:AddCustom(14)
+	recipe:AddCustom("DISCOVERY_INSC_MINOR")
 
 	-- Runescroll of Fortitude -- 69385
 	recipe = AddRecipe(69385, V.WOTLK, Q.COMMON)
@@ -3064,14 +3064,14 @@ function addon:InitInscription()
 	recipe:SetCraftedItemID(62239)
 	recipe:SetSkillLevels(480, 480, 480, 480, 490)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOP)
-	recipe:AddCustom(49)
+	recipe:AddCustom("VASHJ'IR_RANDOM_INSC")
 
 	-- Origami Rock -- 86645
 	recipe = AddRecipe(86645, V.CATA, Q.COMMON)
 	recipe:SetCraftedItemID(62238)
 	recipe:SetSkillLevels(490, 490, 490, 490, 500)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOP)
-	recipe:AddCustom(50)
+	recipe:AddCustom("DEEPHOLM_RANDOM_INSC")
 
 	-- Etched Horn -- 86647
 	recipe = AddRecipe(86647, V.CATA, Q.COMMON)
@@ -3213,7 +3213,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItemID(63539)
 	recipe:SetSkillLevels(390, 390, 390, 397, 405)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOE, F.CASTER, F.MAGE)
-	recipe:AddCustom(15)
+	recipe:AddCustom("DISCOVERY_INSC_NORTHREND")
 
 	-- Glyph of Tiger's Fury -- 94401
 	recipe = AddRecipe(94401, V.CATA, Q.COMMON)
@@ -3262,28 +3262,28 @@ function addon:InitInscription()
 	recipe:SetCraftedItemID(63420)
 	recipe:SetSkillLevels(430, 430, 430, 435, 440)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOE, F.ROGUE)
-	recipe:AddCustom(40)
+	recipe:AddCustom("DISCOVERY_INSC_BOOK")
 
 	-- Glyph of the Treant -- 95215
 	recipe = AddRecipe(95215, V.CATA, Q.COMMON)
 	recipe:SetCraftedItemID(68039)
 	recipe:SetSkillLevels(155, 155, 155, 160, 165)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOE, F.DRUID)
-	recipe:AddCustom(14)
+	recipe:AddCustom("DISCOVERY_INSC_MINOR")
 
 	-- Glyph of Armors -- 95710
 	recipe = AddRecipe(95710, V.CATA, Q.COMMON)
 	recipe:SetCraftedItemID(63416)
 	recipe:SetSkillLevels(155, 155, 155, 160, 165)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOE, F.MAGE)
-	recipe:AddCustom(14)
+	recipe:AddCustom("DISCOVERY_INSC_MINOR")
 
 	-- Glyph of the Long Word -- 95825
 	recipe = AddRecipe(95825, V.CATA, Q.COMMON)
 	recipe:SetCraftedItemID(66918)
 	recipe:SetSkillLevels(390, 390, 390, 397, 405)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOE, F.PALADIN)
-	recipe:AddCustom(15)
+	recipe:AddCustom("DISCOVERY_INSC_NORTHREND")
 
 	-- Glyph of Dark Succor -- 96284
 	recipe = AddRecipe(96284, V.CATA, Q.COMMON)

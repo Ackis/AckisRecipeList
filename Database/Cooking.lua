@@ -47,7 +47,7 @@ function addon:InitCooking()
 	recipe:SetCraftedItemID(2679)
 	recipe:SetSkillLevels(1, 1, 45, 65, 85)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddCustom(8)
+	recipe:AddCustom("DEFAULT_RECIPE")
 
 	-- Spiced Wolf Meat -- 2539
 	recipe = AddRecipe(2539, V.ORIG, Q.COMMON)
@@ -61,7 +61,7 @@ function addon:InitCooking()
 	recipe:SetCraftedItemID(2681)
 	recipe:SetSkillLevels(1, 1, 45, 65, 85)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddCustom(8)
+	recipe:AddCustom("DEFAULT_RECIPE")
 
 	-- Coyote Steak -- 2541
 	recipe = AddRecipe(2541, V.ORIG, Q.COMMON)
@@ -217,7 +217,7 @@ function addon:InitCooking()
 	recipe:SetCraftedItemID(3728)
 	recipe:SetSkillLevels(150, 150, 190, 210, 230)
 	recipe:AddFilters(F.ALLIANCE, F.QUEST, F.RETIRED, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	recipe:AddCustom(48)
+	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Soothing Turtle Bisque -- 3400
 	recipe = AddRecipe(3400, V.ORIG, Q.COMMON)
@@ -225,7 +225,7 @@ function addon:InitCooking()
 	recipe:SetCraftedItemID(3729)
 	recipe:SetSkillLevels(175, 175, 215, 235, 255)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.QUEST, F.RETIRED, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	recipe:AddCustom(48)
+	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Barbecued Buzzard Wing -- 4094
 	recipe = AddRecipe(4094, V.ORIG, Q.COMMON)
@@ -243,7 +243,7 @@ function addon:InitCooking()
 	recipe:SetCraftedItemID(5472)
 	recipe:SetSkillLevels(10, 10, 50, 70, 90)
 	recipe:AddFilters(F.ALLIANCE, F.QUEST, F.RETIRED, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	recipe:AddCustom(48)
+	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Scorpid Surprise -- 6413
 	recipe = AddRecipe(6413, V.ORIG, Q.COMMON)
@@ -267,7 +267,7 @@ function addon:InitCooking()
 	recipe:SetCraftedItemID(5476)
 	recipe:SetSkillLevels(50, 50, 90, 110, 130)
 	recipe:AddFilters(F.ALLIANCE, F.VENDOR, F.RETIRED, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	recipe:AddCustom(48)
+	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Strider Stew -- 6416
 	recipe = AddRecipe(6416, V.ORIG, Q.COMMON)
@@ -283,7 +283,7 @@ function addon:InitCooking()
 	recipe:SetCraftedItemID(44977)
 	recipe:SetSkillLevels(90, 90, 130, 150, 170)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.RETIRED, F.IBOE, F.RBOP)
-	recipe:AddCustom(48)
+	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Crispy Lizard Tail -- 6418
 	recipe = AddRecipe(6418, V.ORIG, Q.COMMON)
@@ -400,7 +400,7 @@ function addon:InitCooking()
 	recipe:SetCraftedItemID(6888)
 	recipe:SetSkillLevels(1, 1, 45, 65, 85)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
-	recipe:AddCustom(8)
+	recipe:AddCustom("DEFAULT_RECIPE")
 
 	-- Smoked Bear Meat -- 8607
 	recipe = AddRecipe(8607, V.ORIG, Q.COMMON)
@@ -423,7 +423,7 @@ function addon:InitCooking()
 	recipe:SetCraftedItemID(10841)
 	recipe:SetSkillLevels(175, 175, 175, 190, 205)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.INSTANCE, F.IBOE, F.RBOP)
-	recipe:AddCustom(13)
+	recipe:AddCustom("HENRY_STERN_RFD")
 
 	-- Lean Wolf Steak -- 15853
 	recipe = AddRecipe(15853, V.ORIG, Q.COMMON)
@@ -602,7 +602,7 @@ function addon:InitCooking()
 	recipe:SetCraftedItemID(16766)
 	recipe:SetSkillLevels(225, 225, 250, 262, 275)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.RETIRED, F.IBOE, F.RBOE)
-	recipe:AddCustom(48)
+	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Mithril Head Trout -- 20916
 	recipe = AddRecipe(20916, V.ORIG, Q.COMMON)
@@ -674,7 +674,7 @@ function addon:InitCooking()
 	recipe:SetCraftedItemID(21023)
 	recipe:SetSkillLevels(300, 300, 325, 337, 350)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.QUEST, F.RETIRED, F.IBOE, F.RBOE)
-	recipe:AddCustom(48)
+	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Smoked Sagefish -- 25704
 	recipe = AddRecipe(25704, V.ORIG, Q.COMMON)
@@ -900,7 +900,7 @@ function addon:InitCooking()
 	recipe:SetSkillLevels(325, 325, 335, 345, 355)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.QUEST, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
 	recipe:AddQuest(11377, 11379, 11380, 11381)
-	recipe:AddCustom(6)
+	recipe:AddCustom("DAILY_COOKING_FISH")
 
 	-- Stormchops -- 43758
 	recipe = AddRecipe(43758, V.TBC, Q.RARE)
@@ -909,7 +909,7 @@ function addon:InitCooking()
 	recipe:SetSkillLevels(300, 300, 320, 330, 340)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.QUEST, F.IBOE, F.RBOP)
 	recipe:AddQuest(11377, 11379, 11380, 11381, 13100, 13101, 13102, 13103, 13107, 13112, 13113, 13114, 13115, 13116)
-	recipe:AddCustom(5, 6, 38)
+	recipe:AddCustom("DAILY_COOKING_MEAT", "DAILY_COOKING_FISH", "DAILY_COOKING_DAL")
 
 	-- Broiled Bloodfin -- 43761
 	recipe = AddRecipe(43761, V.TBC, Q.UNCOMMON)
@@ -918,7 +918,7 @@ function addon:InitCooking()
 	recipe:SetSkillLevels(300, 300, 320, 330, 340)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.QUEST, F.IBOE, F.RBOP)
 	recipe:AddQuest(11377, 11379, 11380, 11381)
-	recipe:AddCustom(6)
+	recipe:AddCustom("DAILY_COOKING_FISH")
 
 	-- Spicy Hot Talbuk -- 43765
 	recipe = AddRecipe(43765, V.TBC, Q.UNCOMMON)
@@ -927,7 +927,7 @@ function addon:InitCooking()
 	recipe:SetSkillLevels(325, 325, 335, 345, 355)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.QUEST, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
 	recipe:AddQuest(11377, 11379, 11380, 11381)
-	recipe:AddCustom(5)
+	recipe:AddCustom("DAILY_COOKING_MEAT")
 
 	-- Kibler's Bits -- 43772
 	recipe = AddRecipe(43772, V.TBC, Q.UNCOMMON)
@@ -936,7 +936,7 @@ function addon:InitCooking()
 	recipe:SetSkillLevels(300, 300, 345, 355, 365)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.QUEST, F.IBOE, F.RBOP, F.DPS, F.HUNTER)
 	recipe:AddQuest(11377, 11379, 11380, 11381)
-	recipe:AddCustom(5, 6)
+	recipe:AddCustom("DAILY_COOKING_MEAT", "DAILY_COOKING_FISH")
 
 	-- Delicious Chocolate Cake -- 43779
 	recipe = AddRecipe(43779, V.TBC, Q.RARE)
@@ -945,7 +945,7 @@ function addon:InitCooking()
 	recipe:SetSkillLevels(1, 1, 50, 62, 75)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.QUEST, F.IBOE, F.RBOP)
 	recipe:AddQuest(11377, 11379, 11380, 11381, 13100, 13101, 13102, 13103, 13107, 13112, 13113, 13114, 13115, 13116)
-	recipe:AddCustom(5, 6, 38)
+	recipe:AddCustom("DAILY_COOKING_MEAT", "DAILY_COOKING_FISH", "DAILY_COOKING_DAL")
 
 	-- Hot Apple Cider -- 45022
 	recipe = AddRecipe(45022, V.WOTLK, Q.COMMON)
@@ -1133,7 +1133,7 @@ function addon:InitCooking()
 	recipe:SetSkillLevels(100, 100, 100, 105, 110)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.QUEST, F.IBOE, F.RBOP)
 	recipe:AddQuest(11666, 11667, 11668, 11669, 13100, 13101, 13102, 13103, 13107, 13112, 13113, 13114, 13115, 13116)
-	recipe:AddCustom(7, 38)
+	recipe:AddCustom("DAILY_FISHING_SHATT", "DAILY_COOKING_DAL")
 
 	-- Charred Bear Kabobs -- 46684
 	recipe = AddRecipe(46684, V.WOTLK, Q.COMMON)
@@ -1158,7 +1158,7 @@ function addon:InitCooking()
 	recipe:SetSkillLevels(375, 375, 375, 387, 400)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.QUEST, F.IBOE, F.RBOP)
 	recipe:AddQuest(13571)
-	recipe:AddCustom(36)
+	recipe:AddCustom("Custom36")
 
 	-- Northern Stew -- 57421
 	recipe = AddRecipe(57421, V.WOTLK, Q.COMMON)

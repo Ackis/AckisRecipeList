@@ -47,7 +47,7 @@ function addon:InitFirstAid()
 	recipe:SetCraftedItemID(1251)
 	recipe:SetSkillLevels(1, 1, 30, 45, 60)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddCustom(8)
+	recipe:AddCustom("DEFAULT_RECIPE")
 
 	-- Heavy Linen Bandage -- 3276
 	recipe = AddRecipe(3276, V.ORIG, Q.COMMON)

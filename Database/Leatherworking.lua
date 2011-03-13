@@ -48,14 +48,14 @@ function addon:InitLeatherworking()
 	recipe:SetCraftedItemID(2302)
 	recipe:SetSkillLevels(1, 1, 40, 55, 70)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.LEATHER)
-	recipe:AddCustom(8)
+	recipe:AddCustom("DEFAULT_RECIPE")
 
 	-- Light Armor Kit -- 2152
 	recipe = AddRecipe(2152, V.ORIG, Q.COMMON)
 	recipe:SetCraftedItemID(2304)
 	recipe:SetSkillLevels(1, 1, 30, 45, 60)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddCustom(8)
+	recipe:AddCustom("DEFAULT_RECIPE")
 
 	-- Handstitched Leather Pants -- 2153
 	recipe = AddRecipe(2153, V.ORIG, Q.COMMON)
@@ -157,7 +157,7 @@ function addon:InitLeatherworking()
 	recipe:SetCraftedItemID(2318)
 	recipe:SetSkillLevels(1, 1, 20, 30, 40)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.LEATHER)
-	recipe:AddCustom(8)
+	recipe:AddCustom("DEFAULT_RECIPE")
 
 	-- Handstitched Leather Belt -- 3753
 	recipe = AddRecipe(3753, V.ORIG, Q.COMMON)
@@ -431,7 +431,7 @@ function addon:InitLeatherworking()
 	recipe:SetCraftedItemID(5957)
 	recipe:SetSkillLevels(1, 1, 40, 55, 70)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.LEATHER)
-	recipe:AddCustom(8)
+	recipe:AddCustom("DEFAULT_RECIPE")
 
 	-- Fine Leather Pants -- 7133
 	recipe = AddRecipe(7133, V.ORIG, Q.UNCOMMON)
@@ -491,7 +491,7 @@ function addon:InitLeatherworking()
 	recipe:SetCraftedItemID(6466)
 	recipe:SetSkillLevels(90, 90, 120, 135, 150)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR)
-	recipe:AddCustom(48)
+	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Deviate Scale Gloves -- 7954
 	recipe = AddRecipe(7954, V.ORIG, Q.COMMON)
@@ -499,7 +499,7 @@ function addon:InitLeatherworking()
 	recipe:SetCraftedItemID(6467)
 	recipe:SetSkillLevels(105, 105, 130, 142, 155)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR)
-	recipe:AddCustom(48)
+	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Deviate Scale Belt -- 7955
 	recipe = AddRecipe(7955, V.ORIG, Q.UNCOMMON)
@@ -507,7 +507,7 @@ function addon:InitLeatherworking()
 	recipe:SetCraftedItemID(6468)
 	recipe:SetSkillLevels(115, 115, 140, 152, 165)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.QUEST, F.RETIRED, F.IBOE, F.RBOE, F.DPS, F.LEATHER)
-	recipe:AddCustom(48)
+	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Moonglow Vest -- 8322
 	recipe = AddRecipe(8322, V.ORIG, Q.UNCOMMON)
@@ -522,14 +522,14 @@ function addon:InitLeatherworking()
 	recipe:SetCraftedItemID(7276)
 	recipe:SetSkillLevels(1, 1, 40, 55, 70)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.CLOAK)
-	recipe:AddCustom(8)
+	recipe:AddCustom("DEFAULT_RECIPE")
 
 	-- Handstitched Leather Bracers -- 9059
 	recipe = AddRecipe(9059, V.ORIG, Q.COMMON)
 	recipe:SetCraftedItemID(7277)
 	recipe:SetSkillLevels(1, 1, 40, 55, 70)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.LEATHER)
-	recipe:AddCustom(8)
+	recipe:AddCustom("DEFAULT_RECIPE")
 
 	-- Rugged Leather Pants -- 9064
 	recipe = AddRecipe(9064, V.ORIG, Q.UNCOMMON)
@@ -871,7 +871,7 @@ function addon:InitLeatherworking()
 	recipe:SetCraftedItemID(8207)
 	recipe:SetSkillLevels(240, 240, 260, 270, 280)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.RETIRED, F.IBOE, F.RBOE, F.DPS, F.MAIL)
-	recipe:AddCustom(48)
+	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Wild Leather Boots -- 10566
 	recipe = AddRecipe(10566, V.ORIG, Q.UNCOMMON)
@@ -895,7 +895,7 @@ function addon:InitLeatherworking()
 	recipe:SetCraftedItemID(8208)
 	recipe:SetSkillLevels(250, 250, 270, 280, 290)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.RETIRED, F.IBOE, F.RBOE, F.DPS, F.MAIL)
-	recipe:AddCustom(48)
+	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Wild Leather Leggings -- 10572
 	recipe = AddRecipe(10572, V.ORIG, Q.UNCOMMON)
@@ -1008,7 +1008,7 @@ function addon:InitLeatherworking()
 	recipe:SetCraftedItemID(15074)
 	recipe:SetSkillLevels(265, 265, 285, 295, 305)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.RETIRED, F.IBOE, F.RBOE, F.LEATHER)
-	recipe:AddCustom(48)
+	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Red Dragonscale Breastplate -- 19054
 	recipe = AddRecipe(19054, V.ORIG, Q.RARE)
@@ -1176,7 +1176,7 @@ function addon:InitLeatherworking()
 	recipe:SetCraftedItemID(15048)
 	recipe:SetSkillLevels(285, 285, 305, 315, 325)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.RETIRED, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.MAIL)
-	recipe:AddCustom(48)
+	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Living Leggings -- 19078
 	recipe = AddRecipe(19078, V.ORIG, Q.RARE)
@@ -1192,7 +1192,7 @@ function addon:InitLeatherworking()
 	recipe:SetCraftedItemID(15056)
 	recipe:SetSkillLevels(285, 285, 305, 315, 325)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.RETIRED, F.IBOE, F.RBOE, F.DPS, F.TANK, F.LEATHER)
-	recipe:AddCustom(48)
+	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Warbear Woolies -- 19080
 	recipe = AddRecipe(19080, V.ORIG, Q.COMMON)
@@ -1272,7 +1272,7 @@ function addon:InitLeatherworking()
 	recipe:SetCraftedItemID(15049)
 	recipe:SetSkillLevels(295, 295, 315, 325, 335)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.RETIRED, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.MAIL)
-	recipe:AddCustom(48)
+	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Stormshroud Shoulders -- 19090
 	recipe = AddRecipe(19090, V.ORIG, Q.RARE)
@@ -1280,7 +1280,7 @@ function addon:InitLeatherworking()
 	recipe:SetCraftedItemID(15058)
 	recipe:SetSkillLevels(295, 295, 315, 325, 335)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.RETIRED, F.IBOE, F.RBOE, F.DPS, F.TANK, F.LEATHER)
-	recipe:AddCustom(48)
+	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Runic Leather Pants -- 19091
 	recipe = AddRecipe(19091, V.ORIG, Q.COMMON)
@@ -1305,7 +1305,7 @@ function addon:InitLeatherworking()
 	recipe:SetSkillLevels(300, 300, 320, 330, 340)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.QUEST, F.IBOE, F.RBOP, F.CLOAK)
 	recipe:AddQuest(7493, 7497)
-	recipe:AddCustom(10)
+	recipe:AddCustom("ONYXIA_HEAD_QUEST")
 
 	-- Black Dragonscale Shoulders -- 19094
 	recipe = AddRecipe(19094, V.ORIG, Q.RARE)
@@ -1461,7 +1461,7 @@ function addon:InitLeatherworking()
 	recipe:SetCraftedItemID(18251)
 	recipe:SetSkillLevels(300, 300, 320, 330, 340)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOP, F.TANK)
-	recipe:AddCustom(26)
+	recipe:AddCustom("MC_RANDOM")
 
 	-- Gordok Ogre Suit -- 22815
 	recipe = AddRecipe(22815, V.ORIG, Q.COMMON)
@@ -1476,7 +1476,7 @@ function addon:InitLeatherworking()
 	recipe:SetCraftedItemID(18504)
 	recipe:SetSkillLevels(300, 300, 320, 330, 340)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.INSTANCE, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.LEATHER)
-	recipe:AddCustom(23)
+	recipe:AddCustom("DM_CACHE")
 
 	-- Mongoose Boots -- 22922
 	recipe = AddRecipe(22922, V.ORIG, Q.RARE)
@@ -1484,7 +1484,7 @@ function addon:InitLeatherworking()
 	recipe:SetCraftedItemID(18506)
 	recipe:SetSkillLevels(300, 300, 320, 330, 340)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.INSTANCE, F.IBOE, F.RBOP, F.DPS, F.LEATHER)
-	recipe:AddCustom(23)
+	recipe:AddCustom("DM_CACHE")
 
 	-- Swift Flight Bracers -- 22923
 	recipe = AddRecipe(22923, V.ORIG, Q.RARE)
@@ -1492,7 +1492,7 @@ function addon:InitLeatherworking()
 	recipe:SetCraftedItemID(18508)
 	recipe:SetSkillLevels(300, 300, 320, 330, 340)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.INSTANCE, F.IBOE, F.RBOP, F.DPS, F.MAIL)
-	recipe:AddCustom(23)
+	recipe:AddCustom("DM_CACHE")
 
 	-- Chromatic Cloak -- 22926
 	recipe = AddRecipe(22926, V.ORIG, Q.EPIC)
@@ -1500,7 +1500,7 @@ function addon:InitLeatherworking()
 	recipe:SetCraftedItemID(18509)
 	recipe:SetSkillLevels(300, 300, 320, 330, 340)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.INSTANCE, F.IBOE, F.RBOE, F.CLOAK)
-	recipe:AddCustom(23)
+	recipe:AddCustom("DM_CACHE")
 
 	-- Hide of the Wild -- 22927
 	recipe = AddRecipe(22927, V.ORIG, Q.EPIC)
@@ -1508,7 +1508,7 @@ function addon:InitLeatherworking()
 	recipe:SetCraftedItemID(18510)
 	recipe:SetSkillLevels(300, 300, 320, 330, 340)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.INSTANCE, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOAK)
-	recipe:AddCustom(23)
+	recipe:AddCustom("DM_CACHE")
 
 	-- Shifting Cloak -- 22928
 	recipe = AddRecipe(22928, V.ORIG, Q.EPIC)
@@ -1516,7 +1516,7 @@ function addon:InitLeatherworking()
 	recipe:SetCraftedItemID(18511)
 	recipe:SetSkillLevels(300, 300, 320, 330, 340)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.INSTANCE, F.IBOE, F.RBOE, F.TANK, F.CLOAK)
-	recipe:AddCustom(23)
+	recipe:AddCustom("DM_CACHE")
 
 	-- Heavy Leather Ball -- 23190
 	recipe = AddRecipe(23190, V.ORIG, Q.COMMON)
@@ -1604,7 +1604,7 @@ function addon:InitLeatherworking()
 	recipe:SetCraftedItemID(19685)
 	recipe:SetSkillLevels(300, 300, 320, 330, 340)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.RETIRED, F.IBOE, F.RBOP, F.DPS, F.LEATHER)
-	recipe:AddCustom(48)
+	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Primal Batskin Gloves -- 24122
 	recipe = AddRecipe(24122, V.ORIG, Q.COMMON)
@@ -1612,7 +1612,7 @@ function addon:InitLeatherworking()
 	recipe:SetCraftedItemID(19686)
 	recipe:SetSkillLevels(300, 300, 320, 330, 340)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.RETIRED, F.IBOE, F.RBOP, F.DPS, F.LEATHER)
-	recipe:AddCustom(48)
+	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Primal Batskin Bracers -- 24123
 	recipe = AddRecipe(24123, V.ORIG, Q.COMMON)
@@ -1620,7 +1620,7 @@ function addon:InitLeatherworking()
 	recipe:SetCraftedItemID(19687)
 	recipe:SetSkillLevels(300, 300, 320, 330, 340)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.RETIRED, F.IBOE, F.RBOP, F.DPS, F.LEATHER)
-	recipe:AddCustom(48)
+	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Blood Tiger Breastplate -- 24124
 	recipe = AddRecipe(24124, V.ORIG, Q.COMMON)
@@ -1628,7 +1628,7 @@ function addon:InitLeatherworking()
 	recipe:SetCraftedItemID(19688)
 	recipe:SetSkillLevels(300, 300, 320, 330, 340)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.RETIRED, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.LEATHER)
-	recipe:AddCustom(48)
+	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Blood Tiger Shoulders -- 24125
 	recipe = AddRecipe(24125, V.ORIG, Q.COMMON)
@@ -1636,7 +1636,7 @@ function addon:InitLeatherworking()
 	recipe:SetCraftedItemID(19689)
 	recipe:SetSkillLevels(300, 300, 320, 330, 340)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.RETIRED, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.LEATHER)
-	recipe:AddCustom(48)
+	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Blue Dragonscale Leggings -- 24654
 	recipe = AddRecipe(24654, V.ORIG, Q.COMMON)
@@ -1729,42 +1729,42 @@ function addon:InitLeatherworking()
 	recipe:SetCraftedItemID(22661)
 	recipe:SetSkillLevels(300, 300, 320, 330, 340)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.RAID, F.RETIRED, F.IBOE, F.RBOP, F.DPS, F.LEATHER)
-	recipe:AddCustom(41)
+	recipe:AddCustom("Custom41")
 
 	-- Polar Gloves -- 28220
 	recipe = AddRecipe(28220, V.ORIG, Q.EPIC)
 	recipe:SetCraftedItemID(22662)
 	recipe:SetSkillLevels(300, 300, 320, 330, 340)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.RAID, F.RETIRED, F.IBOE, F.RBOP, F.DPS, F.LEATHER)
-	recipe:AddCustom(41)
+	recipe:AddCustom("Custom41")
 
 	-- Polar Bracers -- 28221
 	recipe = AddRecipe(28221, V.ORIG, Q.EPIC)
 	recipe:SetCraftedItemID(22663)
 	recipe:SetSkillLevels(300, 300, 320, 330, 340)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.RAID, F.RETIRED, F.IBOE, F.RBOP, F.DPS, F.LEATHER)
-	recipe:AddCustom(41)
+	recipe:AddCustom("Custom41")
 
 	-- Icy Scale Breastplate -- 28222
 	recipe = AddRecipe(28222, V.ORIG, Q.EPIC)
 	recipe:SetCraftedItemID(22664)
 	recipe:SetSkillLevels(300, 300, 320, 330, 340)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.RAID, F.RETIRED, F.IBOE, F.RBOP, F.DPS, F.MAIL)
-	recipe:AddCustom(41)
+	recipe:AddCustom("Custom41")
 
 	-- Icy Scale Gauntlets -- 28223
 	recipe = AddRecipe(28223, V.ORIG, Q.EPIC)
 	recipe:SetCraftedItemID(22666)
 	recipe:SetSkillLevels(300, 300, 320, 330, 340)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.RAID, F.RETIRED, F.IBOE, F.RBOP, F.DPS, F.MAIL)
-	recipe:AddCustom(41)
+	recipe:AddCustom("Custom41")
 
 	-- Icy Scale Bracers -- 28224
 	recipe = AddRecipe(28224, V.ORIG, Q.EPIC)
 	recipe:SetCraftedItemID(22665)
 	recipe:SetSkillLevels(300, 300, 320, 330, 340)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.RAID, F.RETIRED, F.IBOE, F.RBOP, F.DPS, F.MAIL)
-	recipe:AddCustom(41)
+	recipe:AddCustom("Custom41")
 
 	-- Bramblewood Helm -- 28472
 	recipe = AddRecipe(28472, V.ORIG, Q.COMMON)
@@ -2407,84 +2407,84 @@ function addon:InitLeatherworking()
 	recipe:SetCraftedItemID(29515)
 	recipe:SetSkillLevels(375, 375, 385, 395, 405)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.RETIRED, F.IBOP, F.RBOP, F.DPS, F.MAIL)
-	recipe:AddCustom(48)
+	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Ebon Netherscale Belt -- 35576
 	recipe = AddRecipe(35576, V.TBC, Q.COMMON)
 	recipe:SetCraftedItemID(29516)
 	recipe:SetSkillLevels(375, 375, 385, 395, 405)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.RETIRED, F.IBOP, F.RBOP, F.DPS, F.MAIL)
-	recipe:AddCustom(48)
+	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Ebon Netherscale Bracers -- 35577
 	recipe = AddRecipe(35577, V.TBC, Q.COMMON)
 	recipe:SetCraftedItemID(29517)
 	recipe:SetSkillLevels(375, 375, 385, 395, 405)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.RETIRED, F.IBOP, F.RBOP, F.DPS, F.MAIL)
-	recipe:AddCustom(48)
+	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Netherstrike Breastplate -- 35580
 	recipe = AddRecipe(35580, V.TBC, Q.COMMON)
 	recipe:SetCraftedItemID(29519)
 	recipe:SetSkillLevels(375, 375, 385, 395, 405)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.RETIRED, F.IBOP, F.RBOP, F.HEALER, F.CASTER, F.MAIL)
-	recipe:AddCustom(48)
+	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Netherstrike Belt -- 35582
 	recipe = AddRecipe(35582, V.TBC, Q.COMMON)
 	recipe:SetCraftedItemID(29520)
 	recipe:SetSkillLevels(375, 375, 385, 395, 405)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.RETIRED, F.IBOP, F.RBOP, F.HEALER, F.CASTER, F.MAIL)
-	recipe:AddCustom(48)
+	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Netherstrike Bracers -- 35584
 	recipe = AddRecipe(35584, V.TBC, Q.COMMON)
 	recipe:SetCraftedItemID(29521)
 	recipe:SetSkillLevels(375, 375, 385, 395, 405)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.RETIRED, F.IBOP, F.RBOP, F.HEALER, F.CASTER, F.MAIL)
-	recipe:AddCustom(48)
+	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Windhawk Hauberk -- 35585
 	recipe = AddRecipe(35585, V.TBC, Q.COMMON)
 	recipe:SetCraftedItemID(29522)
 	recipe:SetSkillLevels(375, 375, 385, 395, 405)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.RETIRED, F.IBOP, F.RBOP, F.HEALER, F.CASTER, F.LEATHER)
-	recipe:AddCustom(48)
+	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Windhawk Belt -- 35587
 	recipe = AddRecipe(35587, V.TBC, Q.COMMON)
 	recipe:SetCraftedItemID(29524)
 	recipe:SetSkillLevels(375, 375, 385, 395, 405)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.RETIRED, F.IBOP, F.RBOP, F.HEALER, F.CASTER, F.LEATHER)
-	recipe:AddCustom(48)
+	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Windhawk Bracers -- 35588
 	recipe = AddRecipe(35588, V.TBC, Q.COMMON)
 	recipe:SetCraftedItemID(29523)
 	recipe:SetSkillLevels(375, 375, 385, 395, 405)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.RETIRED, F.IBOP, F.RBOP, F.HEALER, F.CASTER, F.LEATHER)
-	recipe:AddCustom(48)
+	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Primalstrike Vest -- 35589
 	recipe = AddRecipe(35589, V.TBC, Q.COMMON)
 	recipe:SetCraftedItemID(29525)
 	recipe:SetSkillLevels(375, 375, 385, 395, 405)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.RETIRED, F.IBOP, F.RBOP, F.DPS, F.LEATHER)
-	recipe:AddCustom(48)
+	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Primalstrike Belt -- 35590
 	recipe = AddRecipe(35590, V.TBC, Q.COMMON)
 	recipe:SetCraftedItemID(29526)
 	recipe:SetSkillLevels(375, 375, 385, 395, 405)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.RETIRED, F.IBOP, F.RBOP, F.DPS, F.LEATHER)
-	recipe:AddCustom(48)
+	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Primalstrike Bracers -- 35591
 	recipe = AddRecipe(35591, V.TBC, Q.COMMON)
 	recipe:SetCraftedItemID(29527)
 	recipe:SetSkillLevels(375, 375, 385, 395, 405)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.RETIRED, F.IBOP, F.RBOP, F.DPS, F.LEATHER)
-	recipe:AddCustom(48)
+	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Blackstorm Leggings -- 36074
 	recipe = AddRecipe(36074, V.TBC, Q.COMMON)
@@ -2534,7 +2534,7 @@ function addon:InitLeatherworking()
 	recipe:SetCraftedItemID(30042)
 	recipe:SetSkillLevels(375, 375, 385, 395, 405)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOP, F.DPS, F.LEATHER)
-	recipe:AddCustom(37, 43)
+	recipe:AddCustom("SSC_RANDOM", "TK_RANDOM")
 
 	-- Belt of Deep Shadow -- 36351
 	recipe = AddRecipe(36351, V.TBC, Q.EPIC)
@@ -2542,7 +2542,7 @@ function addon:InitLeatherworking()
 	recipe:SetCraftedItemID(30040)
 	recipe:SetSkillLevels(375, 375, 385, 395, 405)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOP, F.DPS, F.LEATHER)
-	recipe:AddCustom(37, 43)
+	recipe:AddCustom("SSC_RANDOM", "TK_RANDOM")
 
 	-- Belt of the Black Eagle -- 36352
 	recipe = AddRecipe(36352, V.TBC, Q.EPIC)
@@ -2550,7 +2550,7 @@ function addon:InitLeatherworking()
 	recipe:SetCraftedItemID(30046)
 	recipe:SetSkillLevels(375, 375, 385, 395, 405)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOP, F.DPS, F.HEALER, F.CASTER, F.MAIL)
-	recipe:AddCustom(37, 43)
+	recipe:AddCustom("SSC_RANDOM", "TK_RANDOM")
 
 	-- Monsoon Belt -- 36353
 	recipe = AddRecipe(36353, V.TBC, Q.EPIC)
@@ -2558,7 +2558,7 @@ function addon:InitLeatherworking()
 	recipe:SetCraftedItemID(30044)
 	recipe:SetSkillLevels(375, 375, 385, 395, 405)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.MAIL)
-	recipe:AddCustom(37, 43)
+	recipe:AddCustom("SSC_RANDOM", "TK_RANDOM")
 
 	-- Boots of Natural Grace -- 36355
 	recipe = AddRecipe(36355, V.TBC, Q.EPIC)
@@ -2566,7 +2566,7 @@ function addon:InitLeatherworking()
 	recipe:SetCraftedItemID(30041)
 	recipe:SetSkillLevels(375, 375, 385, 395, 405)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOP, F.RBOE, F.DPS, F.HEALER, F.CASTER, F.LEATHER)
-	recipe:AddCustom(37, 43)
+	recipe:AddCustom("SSC_RANDOM", "TK_RANDOM")
 
 	-- Boots of Utter Darkness -- 36357
 	recipe = AddRecipe(36357, V.TBC, Q.EPIC)
@@ -2574,7 +2574,7 @@ function addon:InitLeatherworking()
 	recipe:SetCraftedItemID(30039)
 	recipe:SetSkillLevels(375, 375, 385, 395, 405)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOP, F.RBOE, F.DPS, F.LEATHER)
-	recipe:AddCustom(37, 43)
+	recipe:AddCustom("SSC_RANDOM", "TK_RANDOM")
 
 	-- Boots of the Crimson Hawk -- 36358
 	recipe = AddRecipe(36358, V.TBC, Q.EPIC)
@@ -2582,7 +2582,7 @@ function addon:InitLeatherworking()
 	recipe:SetCraftedItemID(30045)
 	recipe:SetSkillLevels(375, 375, 385, 395, 405)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOP, F.RBOE, F.DPS, F.HEALER, F.CASTER, F.MAIL)
-	recipe:AddCustom(37, 43)
+	recipe:AddCustom("SSC_RANDOM", "TK_RANDOM")
 
 	-- Hurricane Boots -- 36359
 	recipe = AddRecipe(36359, V.TBC, Q.EPIC)
@@ -2590,7 +2590,7 @@ function addon:InitLeatherworking()
 	recipe:SetCraftedItemID(30043)
 	recipe:SetSkillLevels(375, 375, 385, 395, 405)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOP, F.RBOE, F.HEALER, F.CASTER, F.MAIL)
-	recipe:AddCustom(37, 43)
+	recipe:AddCustom("SSC_RANDOM", "TK_RANDOM")
 
 	-- Boots of Shackled Souls -- 39997
 	recipe = AddRecipe(39997, V.TBC, Q.COMMON)
@@ -2654,7 +2654,7 @@ function addon:InitLeatherworking()
 	recipe:SetCraftedItemID(32582)
 	recipe:SetSkillLevels(375, 375, 385, 395, 405)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.LEATHER)
-	recipe:AddCustom(34)
+	recipe:AddCustom("BT_RANDOM")
 
 	-- Shoulderpads of Renewed Life -- 41157
 	recipe = AddRecipe(41157, V.TBC, Q.EPIC)
@@ -2662,7 +2662,7 @@ function addon:InitLeatherworking()
 	recipe:SetCraftedItemID(32583)
 	recipe:SetSkillLevels(375, 375, 385, 395, 405)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOP, F.RBOE, F.HEALER, F.CASTER, F.LEATHER)
-	recipe:AddCustom(27, 34)
+	recipe:AddCustom("HYJAL_RANDOM", "BT_RANDOM")
 
 	-- Swiftstrike Bracers -- 41158
 	recipe = AddRecipe(41158, V.TBC, Q.EPIC)
@@ -2670,7 +2670,7 @@ function addon:InitLeatherworking()
 	recipe:SetCraftedItemID(32580)
 	recipe:SetSkillLevels(375, 375, 385, 395, 405)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOE, F.DPS, F.LEATHER)
-	recipe:AddCustom(27, 34)
+	recipe:AddCustom("HYJAL_RANDOM", "BT_RANDOM")
 
 	-- Swiftstrike Shoulders -- 41160
 	recipe = AddRecipe(41160, V.TBC, Q.EPIC)
@@ -2678,7 +2678,7 @@ function addon:InitLeatherworking()
 	recipe:SetCraftedItemID(32581)
 	recipe:SetSkillLevels(375, 375, 385, 395, 405)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOP, F.RBOE, F.DPS, F.LEATHER)
-	recipe:AddCustom(34)
+	recipe:AddCustom("BT_RANDOM")
 
 	-- Bindings of Lightning Reflexes -- 41161
 	recipe = AddRecipe(41161, V.TBC, Q.EPIC)
@@ -2686,7 +2686,7 @@ function addon:InitLeatherworking()
 	recipe:SetCraftedItemID(32574)
 	recipe:SetSkillLevels(375, 375, 385, 395, 405)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOE, F.DPS, F.MAIL)
-	recipe:AddCustom(27, 34)
+	recipe:AddCustom("HYJAL_RANDOM", "BT_RANDOM")
 
 	-- Shoulders of Lightning Reflexes -- 41162
 	recipe = AddRecipe(41162, V.TBC, Q.EPIC)
@@ -2694,7 +2694,7 @@ function addon:InitLeatherworking()
 	recipe:SetCraftedItemID(32575)
 	recipe:SetSkillLevels(375, 375, 385, 395, 405)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOP, F.RBOE, F.DPS, F.MAIL)
-	recipe:AddCustom(34)
+	recipe:AddCustom("BT_RANDOM")
 
 	-- Living Earth Bindings -- 41163
 	recipe = AddRecipe(41163, V.TBC, Q.EPIC)
@@ -2702,7 +2702,7 @@ function addon:InitLeatherworking()
 	recipe:SetCraftedItemID(32577)
 	recipe:SetSkillLevels(375, 375, 385, 395, 405)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.MAIL)
-	recipe:AddCustom(34)
+	recipe:AddCustom("BT_RANDOM")
 
 	-- Living Earth Shoulders -- 41164
 	recipe = AddRecipe(41164, V.TBC, Q.EPIC)
@@ -2710,7 +2710,7 @@ function addon:InitLeatherworking()
 	recipe:SetCraftedItemID(32579)
 	recipe:SetSkillLevels(375, 375, 385, 395, 405)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOP, F.RBOE, F.HEALER, F.CASTER, F.MAIL)
-	recipe:AddCustom(27, 34)
+	recipe:AddCustom("HYJAL_RANDOM", "BT_RANDOM")
 
 	-- Cloak of Darkness -- 42546
 	recipe = AddRecipe(42546, V.TBC, Q.RARE)
@@ -2734,7 +2734,7 @@ function addon:InitLeatherworking()
 	recipe:SetCraftedItemID(34105)
 	recipe:SetSkillLevels(350, 350, 360, 370, 380)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.RETIRED, F.IBOE, F.RBOP, F.LOWERCITY)
-	recipe:AddCustom(48)
+	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Glove Reinforcements -- 44770
 	recipe = AddRecipe(44770, V.TBC, Q.COMMON)
@@ -2780,7 +2780,7 @@ function addon:InitLeatherworking()
 	recipe:SetCraftedItemID(34372)
 	recipe:SetSkillLevels(365, 365, 375, 392, 410)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.LEATHER)
-	recipe:AddCustom(24)
+	recipe:AddCustom("SUNWELL_RANDOM")
 
 	-- Fletcher's Gloves of the Phoenix -- 46133
 	recipe = AddRecipe(46133, V.TBC, Q.EPIC)
@@ -2788,7 +2788,7 @@ function addon:InitLeatherworking()
 	recipe:SetCraftedItemID(34374)
 	recipe:SetSkillLevels(365, 365, 375, 392, 410)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOP, F.DPS, F.MAIL)
-	recipe:AddCustom(24)
+	recipe:AddCustom("SUNWELL_RANDOM")
 
 	-- Gloves of Immortal Dusk -- 46134
 	recipe = AddRecipe(46134, V.TBC, Q.EPIC)
@@ -2796,7 +2796,7 @@ function addon:InitLeatherworking()
 	recipe:SetCraftedItemID(34370)
 	recipe:SetSkillLevels(365, 365, 375, 392, 410)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOP, F.DPS, F.LEATHER)
-	recipe:AddCustom(24)
+	recipe:AddCustom("SUNWELL_RANDOM")
 
 	-- Sun-Drenched Scale Gloves -- 46135
 	recipe = AddRecipe(46135, V.TBC, Q.EPIC)
@@ -2804,7 +2804,7 @@ function addon:InitLeatherworking()
 	recipe:SetCraftedItemID(34376)
 	recipe:SetSkillLevels(365, 365, 375, 392, 410)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.MAIL)
-	recipe:AddCustom(24)
+	recipe:AddCustom("SUNWELL_RANDOM")
 
 	-- Leather Chestguard of the Sun -- 46136
 	recipe = AddRecipe(46136, V.TBC, Q.EPIC)
@@ -2812,7 +2812,7 @@ function addon:InitLeatherworking()
 	recipe:SetCraftedItemID(34371)
 	recipe:SetSkillLevels(365, 365, 375, 392, 410)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOP, F.RBOE, F.HEALER, F.CASTER, F.LEATHER)
-	recipe:AddCustom(24)
+	recipe:AddCustom("SUNWELL_RANDOM")
 
 	-- Embrace of the Phoenix -- 46137
 	recipe = AddRecipe(46137, V.TBC, Q.EPIC)
@@ -2820,7 +2820,7 @@ function addon:InitLeatherworking()
 	recipe:SetCraftedItemID(34373)
 	recipe:SetSkillLevels(365, 365, 375, 392, 410)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOP, F.RBOE, F.DPS, F.MAIL)
-	recipe:AddCustom(24)
+	recipe:AddCustom("SUNWELL_RANDOM")
 
 	-- Carapace of Sun and Shadow -- 46138
 	recipe = AddRecipe(46138, V.TBC, Q.EPIC)
@@ -2828,7 +2828,7 @@ function addon:InitLeatherworking()
 	recipe:SetCraftedItemID(34369)
 	recipe:SetSkillLevels(365, 365, 375, 392, 410)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOP, F.RBOE, F.DPS, F.LEATHER)
-	recipe:AddCustom(24)
+	recipe:AddCustom("SUNWELL_RANDOM")
 
 	-- Sun-Drenched Scale Chestguard -- 46139
 	recipe = AddRecipe(46139, V.TBC, Q.EPIC)
@@ -2836,7 +2836,7 @@ function addon:InitLeatherworking()
 	recipe:SetCraftedItemID(34375)
 	recipe:SetSkillLevels(365, 365, 375, 392, 410)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOP, F.RBOE, F.HEALER, F.CASTER, F.MAIL)
-	recipe:AddCustom(24)
+	recipe:AddCustom("SUNWELL_RANDOM")
 
 	-- Heavy Borean Leather -- 50936
 	recipe = AddRecipe(50936, V.WOTLK, Q.COMMON)
@@ -3786,7 +3786,7 @@ function addon:InitLeatherworking()
 	recipe:SetCraftedItemID(45553)
 	recipe:SetSkillLevels(450, 450, 455, 465, 475)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOE, F.DPS, F.HEALER, F.CASTER, F.MAIL)
-	recipe:AddCustom(39)
+	recipe:AddCustom("ULDUAR_RANDOM")
 
 	-- Boots of Living Scale -- 63195
 	recipe = AddRecipe(63195, V.WOTLK, Q.EPIC)
@@ -3794,7 +3794,7 @@ function addon:InitLeatherworking()
 	recipe:SetCraftedItemID(45095)
 	recipe:SetSkillLevels(450, 450, 455, 465, 475)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOE, F.DPS, F.MAIL)
-	recipe:AddCustom(39)
+	recipe:AddCustom("ULDUAR_RANDOM")
 
 	-- Blue Belt of Chaos -- 63196
 	recipe = AddRecipe(63196, V.WOTLK, Q.EPIC)
@@ -3802,7 +3802,7 @@ function addon:InitLeatherworking()
 	recipe:SetCraftedItemID(45096)
 	recipe:SetSkillLevels(450, 450, 455, 465, 475)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.MAIL)
-	recipe:AddCustom(39)
+	recipe:AddCustom("ULDUAR_RANDOM")
 
 	-- Lightning Grounded Boots -- 63197
 	recipe = AddRecipe(63197, V.WOTLK, Q.EPIC)
@@ -3810,7 +3810,7 @@ function addon:InitLeatherworking()
 	recipe:SetCraftedItemID(45097)
 	recipe:SetSkillLevels(450, 450, 455, 465, 475)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.MAIL)
-	recipe:AddCustom(39)
+	recipe:AddCustom("ULDUAR_RANDOM")
 
 	-- Death-warmed Belt -- 63198
 	recipe = AddRecipe(63198, V.WOTLK, Q.EPIC)
@@ -3818,7 +3818,7 @@ function addon:InitLeatherworking()
 	recipe:SetCraftedItemID(45098)
 	recipe:SetSkillLevels(450, 450, 455, 465, 475)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOE, F.DPS, F.LEATHER)
-	recipe:AddCustom(39)
+	recipe:AddCustom("ULDUAR_RANDOM")
 
 	-- Footpads of Silence -- 63199
 	recipe = AddRecipe(63199, V.WOTLK, Q.EPIC)
@@ -3826,7 +3826,7 @@ function addon:InitLeatherworking()
 	recipe:SetCraftedItemID(45099)
 	recipe:SetSkillLevels(450, 450, 455, 465, 475)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOE, F.DPS, F.LEATHER)
-	recipe:AddCustom(39)
+	recipe:AddCustom("ULDUAR_RANDOM")
 
 	-- Belt of Arctic Life -- 63200
 	recipe = AddRecipe(63200, V.WOTLK, Q.EPIC)
@@ -3834,7 +3834,7 @@ function addon:InitLeatherworking()
 	recipe:SetCraftedItemID(45100)
 	recipe:SetSkillLevels(450, 450, 455, 465, 475)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.LEATHER)
-	recipe:AddCustom(39)
+	recipe:AddCustom("ULDUAR_RANDOM")
 
 	-- Boots of Wintry Endurance -- 63201
 	recipe = AddRecipe(63201, V.WOTLK, Q.EPIC)
@@ -3842,7 +3842,7 @@ function addon:InitLeatherworking()
 	recipe:SetCraftedItemID(45101)
 	recipe:SetSkillLevels(450, 450, 455, 465, 475)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.LEATHER)
-	recipe:AddCustom(39)
+	recipe:AddCustom("ULDUAR_RANDOM")
 
 	-- Borean Leather -- 64661
 	recipe = AddRecipe(64661, V.WOTLK, Q.COMMON)
@@ -3857,7 +3857,7 @@ function addon:InitLeatherworking()
 	recipe:SetSkillLevels(450, 450, 460, 467, 475)
 	recipe:SetRequiredFaction("Alliance")
 	recipe:AddFilters(F.ALLIANCE, F.RAID, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.MAIL)
-	recipe:AddCustom(42)
+	recipe:AddCustom("TOC25_RANDOM")
 
 	-- Black Chitin Bracers -- 67081
 	recipe = AddRecipe(67081, V.WOTLK, Q.EPIC)
@@ -3865,7 +3865,7 @@ function addon:InitLeatherworking()
 	recipe:SetSkillLevels(450, 450, 460, 467, 475)
 	recipe:SetRequiredFaction("Alliance")
 	recipe:AddFilters(F.ALLIANCE, F.RAID)
-	recipe:AddCustom(42)
+	recipe:AddCustom("TOC25_RANDOM")
 
 	-- Crusader's Dragonscale Breastplate -- 67082
 	recipe = AddRecipe(67082, V.WOTLK, Q.EPIC)
@@ -3873,7 +3873,7 @@ function addon:InitLeatherworking()
 	recipe:SetSkillLevels(450, 450, 460, 467, 475)
 	recipe:SetRequiredFaction("Alliance")
 	recipe:AddFilters(F.ALLIANCE, F.RAID)
-	recipe:AddCustom(42)
+	recipe:AddCustom("TOC25_RANDOM")
 
 	-- Crusader's Dragonscale Bracers -- 67083
 	recipe = AddRecipe(67083, V.WOTLK, Q.EPIC)
@@ -3881,7 +3881,7 @@ function addon:InitLeatherworking()
 	recipe:SetSkillLevels(450, 450, 460, 467, 475)
 	recipe:SetRequiredFaction("Alliance")
 	recipe:AddFilters(F.ALLIANCE, F.RAID, F.IBOE, F.RBOE, F.DPS, F.MAIL)
-	recipe:AddCustom(42)
+	recipe:AddCustom("TOC25_RANDOM")
 
 	-- Lunar Eclipse Robes -- 67084
 	recipe = AddRecipe(67084, V.WOTLK, Q.EPIC)
@@ -3889,7 +3889,7 @@ function addon:InitLeatherworking()
 	recipe:SetSkillLevels(450, 450, 460, 467, 475)
 	recipe:SetRequiredFaction("Alliance")
 	recipe:AddFilters(F.ALLIANCE, F.RAID)
-	recipe:AddCustom(42)
+	recipe:AddCustom("TOC25_RANDOM")
 
 	-- Moonshadow Armguards -- 67085
 	recipe = AddRecipe(67085, V.WOTLK, Q.EPIC)
@@ -3897,7 +3897,7 @@ function addon:InitLeatherworking()
 	recipe:SetSkillLevels(450, 450, 460, 467, 475)
 	recipe:SetRequiredFaction("Alliance")
 	recipe:AddFilters(F.ALLIANCE, F.RAID)
-	recipe:AddCustom(42)
+	recipe:AddCustom("TOC25_RANDOM")
 
 	-- Knightbane Carapace -- 67086
 	recipe = AddRecipe(67086, V.WOTLK, Q.EPIC)
@@ -3905,7 +3905,7 @@ function addon:InitLeatherworking()
 	recipe:SetSkillLevels(450, 450, 460, 467, 475)
 	recipe:SetRequiredFaction("Alliance")
 	recipe:AddFilters(F.ALLIANCE, F.RAID)
-	recipe:AddCustom(42)
+	recipe:AddCustom("TOC25_RANDOM")
 
 	-- Bracers of Swift Death -- 67087
 	recipe = AddRecipe(67087, V.WOTLK, Q.EPIC)
@@ -3913,7 +3913,7 @@ function addon:InitLeatherworking()
 	recipe:SetSkillLevels(450, 450, 460, 467, 475)
 	recipe:SetRequiredFaction("Alliance")
 	recipe:AddFilters(F.ALLIANCE, F.RAID)
-	recipe:AddCustom(42)
+	recipe:AddCustom("TOC25_RANDOM")
 
 	-- Ensorcelled Nerubian Breastplate -- 67136
 	recipe = AddRecipe(67136, V.WOTLK, Q.EPIC)
@@ -3922,7 +3922,7 @@ function addon:InitLeatherworking()
 	recipe:SetSkillLevels(450, 450, 460, 467, 475)
 	recipe:SetRequiredFaction("Horde")
 	recipe:AddFilters(F.HORDE, F.RAID, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.MAIL)
-	recipe:AddCustom(42)
+	recipe:AddCustom("TOC25_RANDOM")
 
 	-- Black Chitin Bracers -- 67137
 	recipe = AddRecipe(67137, V.WOTLK, Q.EPIC)
@@ -3931,7 +3931,7 @@ function addon:InitLeatherworking()
 	recipe:SetSkillLevels(450, 450, 460, 467, 475)
 	recipe:SetRequiredFaction("Horde")
 	recipe:AddFilters(F.HORDE, F.RAID, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.MAIL)
-	recipe:AddCustom(42)
+	recipe:AddCustom("TOC25_RANDOM")
 
 	-- Crusader's Dragonscale Breastplate -- 67138
 	recipe = AddRecipe(67138, V.WOTLK, Q.EPIC)
@@ -3940,7 +3940,7 @@ function addon:InitLeatherworking()
 	recipe:SetSkillLevels(450, 450, 460, 467, 475)
 	recipe:SetRequiredFaction("Horde")
 	recipe:AddFilters(F.HORDE, F.RAID, F.IBOE, F.RBOE, F.DPS, F.MAIL)
-	recipe:AddCustom(42)
+	recipe:AddCustom("TOC25_RANDOM")
 
 	-- Bracers of Swift Death -- 67139
 	recipe = AddRecipe(67139, V.WOTLK, Q.EPIC)
@@ -3949,7 +3949,7 @@ function addon:InitLeatherworking()
 	recipe:SetSkillLevels(450, 450, 460, 467, 475)
 	recipe:SetRequiredFaction("Horde")
 	recipe:AddFilters(F.HORDE, F.RAID, F.IBOE, F.RBOE, F.DPS, F.LEATHER)
-	recipe:AddCustom(42)
+	recipe:AddCustom("TOC25_RANDOM")
 
 	-- Lunar Eclipse Robes -- 67140
 	recipe = AddRecipe(67140, V.WOTLK, Q.EPIC)
@@ -3958,7 +3958,7 @@ function addon:InitLeatherworking()
 	recipe:SetSkillLevels(450, 450, 460, 467, 475)
 	recipe:SetRequiredFaction("Horde")
 	recipe:AddFilters(F.HORDE, F.RAID, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.LEATHER)
-	recipe:AddCustom(42)
+	recipe:AddCustom("TOC25_RANDOM")
 
 	-- Moonshadow Armguards -- 67141
 	recipe = AddRecipe(67141, V.WOTLK, Q.EPIC)
@@ -3967,7 +3967,7 @@ function addon:InitLeatherworking()
 	recipe:SetSkillLevels(450, 450, 460, 467, 475)
 	recipe:SetRequiredFaction("Horde")
 	recipe:AddFilters(F.HORDE, F.RAID, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.LEATHER)
-	recipe:AddCustom(42)
+	recipe:AddCustom("TOC25_RANDOM")
 
 	-- Knightbane Carapace -- 67142
 	recipe = AddRecipe(67142, V.WOTLK, Q.EPIC)
@@ -3976,7 +3976,7 @@ function addon:InitLeatherworking()
 	recipe:SetSkillLevels(450, 450, 460, 467, 475)
 	recipe:SetRequiredFaction("Horde")
 	recipe:AddFilters(F.HORDE, F.RAID, F.IBOE, F.RBOE, F.DPS, F.LEATHER)
-	recipe:AddCustom(42)
+	recipe:AddCustom("TOC25_RANDOM")
 
 	-- Crusader's Dragonscale Bracers -- 67143
 	recipe = AddRecipe(67143, V.WOTLK, Q.EPIC)
@@ -3985,7 +3985,7 @@ function addon:InitLeatherworking()
 	recipe:SetSkillLevels(450, 450, 460, 467, 475)
 	recipe:SetRequiredFaction("Horde")
 	recipe:AddFilters(F.HORDE, F.RAID, F.IBOE, F.RBOE, F.DPS, F.MAIL)
-	recipe:AddCustom(42)
+	recipe:AddCustom("TOC25_RANDOM")
 
 	-- Drums of Forgotten Kings -- 69386
 	recipe = AddRecipe(69386, V.WOTLK, Q.COMMON)

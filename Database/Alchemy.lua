@@ -47,14 +47,14 @@ function addon:InitAlchemy()
 	recipe:SetCraftedItemID(2454)
 	recipe:SetSkillLevels(1, 1, 55, 75, 95)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS)
-	recipe:AddCustom(8)
+	recipe:AddCustom("DEFAULT_RECIPE")
 
 	-- Minor Healing Potion -- 2330
 	recipe = AddRecipe(2330, V.ORIG, Q.COMMON)
 	recipe:SetCraftedItemID(118)
 	recipe:SetSkillLevels(1, 1, 55, 75, 95)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddCustom(8)
+	recipe:AddCustom("DEFAULT_RECIPE")
 
 	-- Minor Mana Potion -- 2331
 	recipe = AddRecipe(2331, V.ORIG, Q.COMMON)
@@ -243,7 +243,7 @@ function addon:InitAlchemy()
 	recipe:SetCraftedItemID(4596)
 	recipe:SetSkillLevels(50, 50, 80, 100, 120)
 	recipe:AddFilters(F.HORDE, F.RETIRED, F.IBOE, F.RBOE)
-	recipe:AddCustom(48)
+	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Lesser Stoneshield Potion -- 4942
 	recipe = AddRecipe(4942, V.ORIG, Q.COMMON)
@@ -251,7 +251,7 @@ function addon:InitAlchemy()
 	recipe:SetCraftedItemID(4623)
 	recipe:SetSkillLevels(215, 215, 230, 250, 270)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOE, F.RBOE)
-	recipe:AddCustom(48)
+	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Rage Potion -- 6617
 	recipe = AddRecipe(6617, V.ORIG, Q.COMMON)
@@ -298,7 +298,7 @@ function addon:InitAlchemy()
 	recipe:SetCraftedItemID(5997)
 	recipe:SetSkillLevels(1, 1, 55, 75, 95)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.TANK)
-	recipe:AddCustom(8)
+	recipe:AddCustom("DEFAULT_RECIPE")
 
 	-- Holy Protection Potion -- 7255
 	recipe = AddRecipe(7255, V.ORIG, Q.COMMON)
@@ -409,7 +409,7 @@ function addon:InitAlchemy()
 	recipe:SetCraftedItemID(9030)
 	recipe:SetSkillLevels(210, 210, 225, 245, 265)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOE, F.RBOP)
-	recipe:AddCustom(48)
+	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Magic Resistance Potion -- 11453
 	recipe = AddRecipe(11453, V.ORIG, Q.UNCOMMON)
@@ -425,7 +425,7 @@ function addon:InitAlchemy()
 	recipe:SetCraftedItemID(9061)
 	recipe:SetSkillLevels(210, 210, 225, 245, 265)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddCustom(9)
+	recipe:AddCustom("CRAFTED_ENGINEERS")
 
 	-- Superior Healing Potion -- 11457
 	recipe = AddRecipe(11457, V.ORIG, Q.COMMON)
@@ -712,7 +712,7 @@ function addon:InitAlchemy()
 	recipe:SetCraftedItemID(13452)
 	recipe:SetSkillLevels(280, 280, 295, 315, 335)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOE, F.RBOE, F.DPS)
-	recipe:AddCustom(48)
+	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Purification Potion -- 17572
 	recipe = AddRecipe(17572, V.ORIG, Q.COMMON)
@@ -760,7 +760,7 @@ function addon:InitAlchemy()
 	recipe:SetCraftedItemID(13461)
 	recipe:SetSkillLevels(290, 290, 305, 325, 345)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOE, F.RBOE)
-	recipe:AddCustom(48)
+	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Greater Shadow Protection Potion -- 17578
 	recipe = AddRecipe(17578, V.ORIG, Q.UNCOMMON)
@@ -845,7 +845,7 @@ function addon:InitAlchemy()
 	recipe:SetCraftedItemID(18253)
 	recipe:SetSkillLevels(300, 300, 310, 320, 330)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOE)
-	recipe:AddCustom(26)
+	recipe:AddCustom("MC_RANDOM")
 
 	-- Elixir of Greater Water Breathing -- 22808
 	recipe = AddRecipe(22808, V.ORIG, Q.COMMON)
@@ -859,7 +859,7 @@ function addon:InitAlchemy()
 	recipe:SetCraftedItemID(19931)
 	recipe:SetSkillLevels(300, 300, 315, 322, 330)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOE, F.RBOP)
-	recipe:AddCustom(48)
+	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Mageblood Elixir -- 24365
 	recipe = AddRecipe(24365, V.ORIG, Q.COMMON)
@@ -867,7 +867,7 @@ function addon:InitAlchemy()
 	recipe:SetCraftedItemID(20007)
 	recipe:SetSkillLevels(275, 275, 290, 310, 330)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
-	recipe:AddCustom(48)
+	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Greater Dreamless Sleep Potion -- 24366
 	recipe = AddRecipe(24366, V.ORIG, Q.COMMON)
@@ -875,7 +875,7 @@ function addon:InitAlchemy()
 	recipe:SetCraftedItemID(20002)
 	recipe:SetSkillLevels(275, 275, 290, 310, 330)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOE, F.RBOP)
-	recipe:AddCustom(48)
+	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Living Action Potion -- 24367
 	recipe = AddRecipe(24367, V.ORIG, Q.COMMON)
@@ -883,7 +883,7 @@ function addon:InitAlchemy()
 	recipe:SetCraftedItemID(20008)
 	recipe:SetSkillLevels(285, 285, 300, 320, 340)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOE, F.RBOP)
-	recipe:AddCustom(48)
+	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Mighty Troll's Blood Elixir -- 24368
 	recipe = AddRecipe(24368, V.ORIG, Q.COMMON)
@@ -891,7 +891,7 @@ function addon:InitAlchemy()
 	recipe:SetCraftedItemID(20004)
 	recipe:SetSkillLevels(290, 290, 305, 325, 345)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOE, F.RBOP)
-	recipe:AddCustom(48)
+	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Transmute: Elemental Fire -- 25146
 	recipe = AddRecipe(25146, V.ORIG, Q.COMMON)
@@ -1162,84 +1162,84 @@ function addon:InitAlchemy()
 	recipe:SetCraftedItemID(21885)
 	recipe:SetSkillLevels(375, 375, 375, 377, 380)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP)
-	recipe:AddCustom(3)
+	recipe:AddCustom("DISCOVERY_ALCH_XMUTE")
 
 	-- Transmute: Primal Water to Shadow -- 28581
 	recipe = AddRecipe(28581, V.TBC, Q.UNCOMMON)
 	recipe:SetCraftedItemID(22456)
 	recipe:SetSkillLevels(375, 375, 375, 377, 380)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP)
-	recipe:AddCustom(3)
+	recipe:AddCustom("DISCOVERY_ALCH_XMUTE")
 
 	-- Transmute: Primal Mana to Fire -- 28582
 	recipe = AddRecipe(28582, V.TBC, Q.UNCOMMON)
 	recipe:SetCraftedItemID(21884)
 	recipe:SetSkillLevels(375, 375, 375, 377, 380)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP)
-	recipe:AddCustom(3)
+	recipe:AddCustom("DISCOVERY_ALCH_XMUTE")
 
 	-- Transmute: Primal Fire to Mana -- 28583
 	recipe = AddRecipe(28583, V.TBC, Q.UNCOMMON)
 	recipe:SetCraftedItemID(22457)
 	recipe:SetSkillLevels(375, 375, 375, 377, 380)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP)
-	recipe:AddCustom(3)
+	recipe:AddCustom("DISCOVERY_ALCH_XMUTE")
 
 	-- Transmute: Primal Life to Earth -- 28584
 	recipe = AddRecipe(28584, V.TBC, Q.UNCOMMON)
 	recipe:SetCraftedItemID(22452)
 	recipe:SetSkillLevels(375, 375, 375, 377, 380)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP)
-	recipe:AddCustom(3)
+	recipe:AddCustom("DISCOVERY_ALCH_XMUTE")
 
 	-- Transmute: Primal Earth to Life -- 28585
 	recipe = AddRecipe(28585, V.TBC, Q.UNCOMMON)
 	recipe:SetCraftedItemID(21886)
 	recipe:SetSkillLevels(375, 375, 375, 377, 380)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP)
-	recipe:AddCustom(3)
+	recipe:AddCustom("DISCOVERY_ALCH_XMUTE")
 
 	-- Super Rejuvenation Potion -- 28586
 	recipe = AddRecipe(28586, V.TBC, Q.COMMON)
 	recipe:SetCraftedItemID(22850)
 	recipe:SetSkillLevels(375, 375, 375, 377, 380)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP)
-	recipe:AddCustom(2)
+	recipe:AddCustom("DISCOVERY_ALCH_POTION")
 
 	-- Flask of Fortification -- 28587
 	recipe = AddRecipe(28587, V.TBC, Q.COMMON)
 	recipe:SetCraftedItemID(22851)
 	recipe:SetSkillLevels(375, 375, 375, 377, 380)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.TANK)
-	recipe:AddCustom(1)
+	recipe:AddCustom("DISCOVERY_ALCH_ELIXIRFLASK")
 
 	-- Flask of Mighty Restoration -- 28588
 	recipe = AddRecipe(28588, V.TBC, Q.COMMON)
 	recipe:SetCraftedItemID(22853)
 	recipe:SetSkillLevels(375, 375, 375, 377, 380)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP)
-	recipe:AddCustom(1)
+	recipe:AddCustom("DISCOVERY_ALCH_ELIXIRFLASK")
 
 	-- Flask of Relentless Assault -- 28589
 	recipe = AddRecipe(28589, V.TBC, Q.COMMON)
 	recipe:SetCraftedItemID(22854)
 	recipe:SetSkillLevels(375, 375, 375, 377, 380)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.DPS)
-	recipe:AddCustom(1)
+	recipe:AddCustom("DISCOVERY_ALCH_ELIXIRFLASK")
 
 	-- Flask of Blinding Light -- 28590
 	recipe = AddRecipe(28590, V.TBC, Q.COMMON)
 	recipe:SetCraftedItemID(22861)
 	recipe:SetSkillLevels(375, 375, 375, 377, 380)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
-	recipe:AddCustom(1)
+	recipe:AddCustom("DISCOVERY_ALCH_ELIXIRFLASK")
 
 	-- Flask of Pure Death -- 28591
 	recipe = AddRecipe(28591, V.TBC, Q.COMMON)
 	recipe:SetCraftedItemID(22866)
 	recipe:SetSkillLevels(375, 375, 375, 377, 380)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
-	recipe:AddCustom(1)
+	recipe:AddCustom("DISCOVERY_ALCH_ELIXIRFLASK")
 
 	-- Transmute: Primal Might -- 29688
 	recipe = AddRecipe(29688, V.TBC, Q.UNCOMMON)
@@ -1367,35 +1367,35 @@ function addon:InitAlchemy()
 	recipe:SetCraftedItemID(32839)
 	recipe:SetSkillLevels(360, 360, 360, 370, 380)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP)
-	recipe:AddCustom(4)
+	recipe:AddCustom("DISCOVERY_ALCH_PROT")
 
 	-- Cauldron of Major Fire Protection -- 41500
 	recipe = AddRecipe(41500, V.TBC, Q.COMMON)
 	recipe:SetCraftedItemID(32849)
 	recipe:SetSkillLevels(360, 360, 360, 370, 380)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP)
-	recipe:AddCustom(4)
+	recipe:AddCustom("DISCOVERY_ALCH_PROT")
 
 	-- Cauldron of Major Frost Protection -- 41501
 	recipe = AddRecipe(41501, V.TBC, Q.COMMON)
 	recipe:SetCraftedItemID(32850)
 	recipe:SetSkillLevels(360, 360, 360, 370, 380)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP)
-	recipe:AddCustom(4)
+	recipe:AddCustom("DISCOVERY_ALCH_PROT")
 
 	-- Cauldron of Major Nature Protection -- 41502
 	recipe = AddRecipe(41502, V.TBC, Q.COMMON)
 	recipe:SetCraftedItemID(32851)
 	recipe:SetSkillLevels(360, 360, 360, 370, 380)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP)
-	recipe:AddCustom(4)
+	recipe:AddCustom("DISCOVERY_ALCH_PROT")
 
 	-- Cauldron of Major Shadow Protection -- 41503
 	recipe = AddRecipe(41503, V.TBC, Q.COMMON)
 	recipe:SetCraftedItemID(32852)
 	recipe:SetSkillLevels(360, 360, 360, 370, 380)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP)
-	recipe:AddCustom(4)
+	recipe:AddCustom("DISCOVERY_ALCH_PROT")
 
 	-- Flask of Chromatic Wonder -- 42736
 	recipe = AddRecipe(42736, V.TBC, Q.UNCOMMON)
@@ -1449,84 +1449,84 @@ function addon:InitAlchemy()
 	recipe:SetCraftedItemID(35627)
 	recipe:SetSkillLevels(405, 405, 405, 415, 425)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP)
-	recipe:AddCustom(19)
+	recipe:AddCustom("DISCOVERY_ALCH_NORTHREND_XMUTE")
 
 	-- Transmute: Eternal Life to Fire -- 53773
 	recipe = AddRecipe(53773, V.WOTLK, Q.UNCOMMON)
 	recipe:SetCraftedItemID(36860)
 	recipe:SetSkillLevels(405, 405, 405, 415, 425)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP)
-	recipe:AddCustom(19)
+	recipe:AddCustom("DISCOVERY_ALCH_NORTHREND_XMUTE")
 
 	-- Transmute: Eternal Fire to Water -- 53774
 	recipe = AddRecipe(53774, V.WOTLK, Q.UNCOMMON)
 	recipe:SetCraftedItemID(35622)
 	recipe:SetSkillLevels(405, 405, 405, 415, 425)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP)
-	recipe:AddCustom(19)
+	recipe:AddCustom("DISCOVERY_ALCH_NORTHREND_XMUTE")
 
 	-- Transmute: Eternal Fire to Life -- 53775
 	recipe = AddRecipe(53775, V.WOTLK, Q.UNCOMMON)
 	recipe:SetCraftedItemID(35625)
 	recipe:SetSkillLevels(405, 405, 405, 415, 425)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP)
-	recipe:AddCustom(19)
+	recipe:AddCustom("DISCOVERY_ALCH_NORTHREND_XMUTE")
 
 	-- Transmute: Eternal Air to Water -- 53776
 	recipe = AddRecipe(53776, V.WOTLK, Q.UNCOMMON)
 	recipe:SetCraftedItemID(35622)
 	recipe:SetSkillLevels(405, 405, 405, 415, 425)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP)
-	recipe:AddCustom(19)
+	recipe:AddCustom("DISCOVERY_ALCH_NORTHREND_XMUTE")
 
 	-- Transmute: Eternal Air to Earth -- 53777
 	recipe = AddRecipe(53777, V.WOTLK, Q.UNCOMMON)
 	recipe:SetCraftedItemID(35624)
 	recipe:SetSkillLevels(405, 405, 405, 415, 425)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP)
-	recipe:AddCustom(19)
+	recipe:AddCustom("DISCOVERY_ALCH_NORTHREND_XMUTE")
 
 	-- Transmute: Eternal Shadow to Earth -- 53779
 	recipe = AddRecipe(53779, V.WOTLK, Q.UNCOMMON)
 	recipe:SetCraftedItemID(35624)
 	recipe:SetSkillLevels(405, 405, 405, 415, 425)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP)
-	recipe:AddCustom(19)
+	recipe:AddCustom("DISCOVERY_ALCH_NORTHREND_XMUTE")
 
 	-- Transmute: Eternal Shadow to Life -- 53780
 	recipe = AddRecipe(53780, V.WOTLK, Q.UNCOMMON)
 	recipe:SetCraftedItemID(35625)
 	recipe:SetSkillLevels(405, 405, 405, 415, 425)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP)
-	recipe:AddCustom(19)
+	recipe:AddCustom("DISCOVERY_ALCH_NORTHREND_XMUTE")
 
 	-- Transmute: Eternal Earth to Air -- 53781
 	recipe = AddRecipe(53781, V.WOTLK, Q.UNCOMMON)
 	recipe:SetCraftedItemID(35623)
 	recipe:SetSkillLevels(405, 405, 405, 415, 425)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP)
-	recipe:AddCustom(19)
+	recipe:AddCustom("DISCOVERY_ALCH_NORTHREND_XMUTE")
 
 	-- Transmute: Eternal Earth to Shadow -- 53782
 	recipe = AddRecipe(53782, V.WOTLK, Q.UNCOMMON)
 	recipe:SetCraftedItemID(35627)
 	recipe:SetSkillLevels(405, 405, 405, 415, 425)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP)
-	recipe:AddCustom(19)
+	recipe:AddCustom("DISCOVERY_ALCH_NORTHREND_XMUTE")
 
 	-- Transmute: Eternal Water to Air -- 53783
 	recipe = AddRecipe(53783, V.WOTLK, Q.UNCOMMON)
 	recipe:SetCraftedItemID(35623)
 	recipe:SetSkillLevels(405, 405, 405, 415, 425)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP)
-	recipe:AddCustom(19)
+	recipe:AddCustom("DISCOVERY_ALCH_NORTHREND_XMUTE")
 
 	-- Transmute: Eternal Water to Fire -- 53784
 	recipe = AddRecipe(53784, V.WOTLK, Q.UNCOMMON)
 	recipe:SetCraftedItemID(36860)
 	recipe:SetSkillLevels(405, 405, 405, 415, 425)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP)
-	recipe:AddCustom(19)
+	recipe:AddCustom("DISCOVERY_ALCH_NORTHREND_XMUTE")
 
 	-- Pygmy Oil -- 53812
 	recipe = AddRecipe(53812, V.WOTLK, Q.COMMON)
@@ -1603,7 +1603,7 @@ function addon:InitAlchemy()
 	recipe:SetCraftedItemID(40077)
 	recipe:SetSkillLevels(400, 400, 410, 415, 420)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP)
-	recipe:AddCustom(18)
+	recipe:AddCustom("DISCOVERY_ALCH_NORTHREND_RESEARCH")
 
 	-- Elixir of Mighty Fortitude -- 53898
 	recipe = AddRecipe(53898, V.WOTLK, Q.COMMON)
@@ -1652,7 +1652,7 @@ function addon:InitAlchemy()
 	recipe:SetCraftedItemID(40087)
 	recipe:SetSkillLevels(400, 400, 410, 415, 420)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP)
-	recipe:AddCustom(18)
+	recipe:AddCustom("DISCOVERY_ALCH_NORTHREND_RESEARCH")
 
 	-- Indestructible Potion -- 53905
 	recipe = AddRecipe(53905, V.WOTLK, Q.COMMON)
@@ -1720,28 +1720,28 @@ function addon:InitAlchemy()
 	recipe:SetCraftedItemID(40097)
 	recipe:SetSkillLevels(400, 400, 410, 415, 420)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP)
-	recipe:AddCustom(18)
+	recipe:AddCustom("DISCOVERY_ALCH_NORTHREND_RESEARCH")
 
 	-- Potion of Speed -- 54221
 	recipe = AddRecipe(54221, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(40211)
 	recipe:SetSkillLevels(400, 400, 410, 415, 420)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP)
-	recipe:AddCustom(18)
+	recipe:AddCustom("DISCOVERY_ALCH_NORTHREND_RESEARCH")
 
 	-- Potion of Wild Magic -- 54222
 	recipe = AddRecipe(54222, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(40212)
 	recipe:SetSkillLevels(400, 400, 410, 415, 420)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
-	recipe:AddCustom(18)
+	recipe:AddCustom("DISCOVERY_ALCH_NORTHREND_RESEARCH")
 
 	-- Elixir of Mighty Mageblood -- 56519
 	recipe = AddRecipe(56519, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(40109)
 	recipe:SetSkillLevels(400, 400, 410, 415, 420)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP)
-	recipe:AddCustom(18)
+	recipe:AddCustom("DISCOVERY_ALCH_NORTHREND_RESEARCH")
 
 	-- Transmute: Skyflare Diamond -- 57425
 	recipe = AddRecipe(57425, V.WOTLK, Q.COMMON)
@@ -1783,42 +1783,42 @@ function addon:InitAlchemy()
 	recipe:SetCraftedItemID(44325)
 	recipe:SetSkillLevels(400, 400, 415, 422, 430)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP)
-	recipe:AddCustom(18)
+	recipe:AddCustom("DISCOVERY_ALCH_NORTHREND_RESEARCH")
 
 	-- Elixir of Deadly Strikes -- 60355
 	recipe = AddRecipe(60355, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(44327)
 	recipe:SetSkillLevels(400, 400, 410, 415, 420)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP)
-	recipe:AddCustom(18)
+	recipe:AddCustom("DISCOVERY_ALCH_NORTHREND_RESEARCH")
 
 	-- Elixir of Mighty Defense -- 60356
 	recipe = AddRecipe(60356, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(44328)
 	recipe:SetSkillLevels(400, 400, 410, 415, 420)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.TANK)
-	recipe:AddCustom(18)
+	recipe:AddCustom("DISCOVERY_ALCH_NORTHREND_RESEARCH")
 
 	-- Elixir of Expertise -- 60357
 	recipe = AddRecipe(60357, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(44329)
 	recipe:SetSkillLevels(400, 400, 410, 415, 420)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.DPS)
-	recipe:AddCustom(18)
+	recipe:AddCustom("DISCOVERY_ALCH_NORTHREND_RESEARCH")
 
 	-- Elixir of Armor Piercing -- 60365
 	recipe = AddRecipe(60365, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(44330)
 	recipe:SetSkillLevels(400, 400, 410, 415, 420)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.DPS)
-	recipe:AddCustom(18)
+	recipe:AddCustom("DISCOVERY_ALCH_NORTHREND_RESEARCH")
 
 	-- Elixir of Lightning Speed -- 60366
 	recipe = AddRecipe(60366, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(44331)
 	recipe:SetSkillLevels(400, 400, 410, 415, 420)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP)
-	recipe:AddCustom(18)
+	recipe:AddCustom("DISCOVERY_ALCH_NORTHREND_RESEARCH")
 
 	-- Elixir of Mighty Thoughts -- 60367
 	recipe = AddRecipe(60367, V.WOTLK, Q.COMMON)
@@ -1873,7 +1873,7 @@ function addon:InitAlchemy()
 	recipe:SetCraftedItemID(8827)
 	recipe:SetSkillLevels(400, 400, 410, 415, 420)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP)
-	recipe:AddCustom(18)
+	recipe:AddCustom("DISCOVERY_ALCH_NORTHREND_RESEARCH")
 
 	-- Elixir of Minor Accuracy -- 63732
 	recipe = AddRecipe(63732, V.WOTLK, Q.COMMON)
@@ -2215,7 +2215,7 @@ function addon:InitAlchemy()
 	recipe:SetCraftedItemID(65891)
 	recipe:SetSkillLevels(525, 525, 525, 530, 535)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOP)
-	recipe:AddCustom(47)
+	recipe:AddCustom("ARCH_DROP")
 
 	-- Draught of War -- 93935
 	recipe = AddRecipe(93935, V.CATA, Q.COMMON)

@@ -61,7 +61,7 @@ function addon:InitTailoring()
 	recipe:SetCraftedItemID(2570)
 	recipe:SetSkillLevels(1, 1, 35, 47, 60)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.CLOAK)
-	recipe:AddCustom(8)
+	recipe:AddCustom("DEFAULT_RECIPE")
 
 	-- Red Linen Robe -- 2389
 	recipe = AddRecipe(2389, V.ORIG, Q.UNCOMMON)
@@ -154,7 +154,7 @@ function addon:InitTailoring()
 	recipe:SetCraftedItemID(2996)
 	recipe:SetSkillLevels(1, 1, 25, 37, 50)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.CLOTH)
-	recipe:AddCustom(8)
+	recipe:AddCustom("DEFAULT_RECIPE")
 
 	-- Bolt of Woolen Cloth -- 2964
 	recipe = AddRecipe(2964, V.ORIG, Q.COMMON)
@@ -445,7 +445,7 @@ function addon:InitTailoring()
 	recipe:SetCraftedItemID(4344)
 	recipe:SetSkillLevels(1, 1, 35, 47, 60)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddCustom(8)
+	recipe:AddCustom("DEFAULT_RECIPE")
 
 	-- Pearl-clasped Cloak -- 6521
 	recipe = AddRecipe(6521, V.ORIG, Q.COMMON)
@@ -762,7 +762,7 @@ function addon:InitTailoring()
 	recipe:SetCraftedItemID(10045)
 	recipe:SetSkillLevels(1, 1, 35, 47, 60)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.CLOTH)
-	recipe:AddCustom(8)
+	recipe:AddCustom("DEFAULT_RECIPE")
 
 	-- Simple Linen Boots -- 12045
 	recipe = AddRecipe(12045, V.ORIG, Q.COMMON)
@@ -1013,7 +1013,7 @@ function addon:InitTailoring()
 	recipe:SetCraftedItemID(10025)
 	recipe:SetSkillLevels(245, 245, 260, 275, 290)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.QUEST, F.RETIRED, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
-	recipe:AddCustom(48)
+	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Cindercloth Boots -- 12088
 	recipe = AddRecipe(12088, V.ORIG, Q.COMMON)
@@ -1260,7 +1260,7 @@ function addon:InitTailoring()
 	recipe:SetCraftedItemID(14136)
 	recipe:SetSkillLevels(285, 285, 300, 315, 330)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.RETIRED, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.CLOTH)
-	recipe:AddCustom(48)
+	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Felcloth Boots -- 18437
 	recipe = AddRecipe(18437, V.ORIG, Q.COMMON)
@@ -1479,7 +1479,7 @@ function addon:InitTailoring()
 	recipe:SetCraftedItemID(18263)
 	recipe:SetSkillLevels(300, 300, 320, 335, 350)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
-	recipe:AddCustom(26)
+	recipe:AddCustom("MC_RANDOM")
 
 	-- Gordok Ogre Suit -- 22813
 	recipe = AddRecipe(22813, V.ORIG, Q.COMMON)
@@ -1494,7 +1494,7 @@ function addon:InitTailoring()
 	recipe:SetCraftedItemID(18405)
 	recipe:SetSkillLevels(300, 300, 315, 330, 345)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.INSTANCE, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
-	recipe:AddCustom(23)
+	recipe:AddCustom("DM_CACHE")
 
 	-- Felcloth Gloves -- 22867
 	recipe = AddRecipe(22867, V.ORIG, Q.RARE)
@@ -1502,7 +1502,7 @@ function addon:InitTailoring()
 	recipe:SetCraftedItemID(18407)
 	recipe:SetSkillLevels(300, 300, 315, 330, 345)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.INSTANCE, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.CLOTH)
-	recipe:AddCustom(23)
+	recipe:AddCustom("DM_CACHE")
 
 	-- Inferno Gloves -- 22868
 	recipe = AddRecipe(22868, V.ORIG, Q.RARE)
@@ -1510,7 +1510,7 @@ function addon:InitTailoring()
 	recipe:SetCraftedItemID(18408)
 	recipe:SetSkillLevels(300, 300, 315, 330, 345)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.INSTANCE, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.CLOTH)
-	recipe:AddCustom(23)
+	recipe:AddCustom("DM_CACHE")
 
 	-- Mooncloth Gloves -- 22869
 	recipe = AddRecipe(22869, V.ORIG, Q.RARE)
@@ -1518,7 +1518,7 @@ function addon:InitTailoring()
 	recipe:SetCraftedItemID(18409)
 	recipe:SetSkillLevels(300, 300, 315, 330, 345)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.INSTANCE, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.CLOTH)
-	recipe:AddCustom(23)
+	recipe:AddCustom("DM_CACHE")
 
 	-- Cloak of Warding -- 22870
 	recipe = AddRecipe(22870, V.ORIG, Q.RARE)
@@ -1526,7 +1526,7 @@ function addon:InitTailoring()
 	recipe:SetCraftedItemID(18413)
 	recipe:SetSkillLevels(300, 300, 315, 330, 345)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.INSTANCE, F.IBOE, F.RBOP, F.TANK, F.CLOAK)
-	recipe:AddCustom(23)
+	recipe:AddCustom("DM_CACHE")
 
 	-- Mooncloth Robe -- 22902
 	recipe = AddRecipe(22902, V.ORIG, Q.COMMON)
@@ -1590,7 +1590,7 @@ function addon:InitTailoring()
 	recipe:SetCraftedItemID(19682)
 	recipe:SetSkillLevels(300, 300, 315, 330, 345)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.RETIRED, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.CLOTH)
-	recipe:AddCustom(48)
+	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Bloodvine Leggings -- 24092
 	recipe = AddRecipe(24092, V.ORIG, Q.COMMON)
@@ -1598,7 +1598,7 @@ function addon:InitTailoring()
 	recipe:SetCraftedItemID(19683)
 	recipe:SetSkillLevels(300, 300, 315, 330, 345)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.RETIRED, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.CLOTH)
-	recipe:AddCustom(48)
+	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Bloodvine Boots -- 24093
 	recipe = AddRecipe(24093, V.ORIG, Q.COMMON)
@@ -1606,7 +1606,7 @@ function addon:InitTailoring()
 	recipe:SetCraftedItemID(19684)
 	recipe:SetSkillLevels(300, 300, 315, 330, 345)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.RETIRED, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.CLOTH)
-	recipe:AddCustom(48)
+	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Runed Stygian Leggings -- 24901
 	recipe = AddRecipe(24901, V.ORIG, Q.RARE)
@@ -1646,7 +1646,7 @@ function addon:InitTailoring()
 	recipe:SetSkillLevels(280, 280, 300, 315, 330)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.INSTANCE, F.IBOE, F.RBOP, F.WARLOCK)
 	recipe:AddMobDrop(10503)
-	recipe:AddCustom(30)
+	recipe:AddCustom("SCHOLO_BOOK_SPAWN")
 
 	-- Core Felcloth Bag -- 26087
 	recipe = AddRecipe(26087, V.ORIG, Q.RARE)
@@ -1654,7 +1654,7 @@ function addon:InitTailoring()
 	recipe:SetCraftedItemID(21342)
 	recipe:SetSkillLevels(300, 300, 315, 330, 345)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOE, F.WARLOCK)
-	recipe:AddCustom(26)
+	recipe:AddCustom("MC_RANDOM")
 
 	-- Festival Dress -- 26403
 	recipe = AddRecipe(26403, V.ORIG, Q.UNCOMMON)
@@ -1994,28 +1994,28 @@ function addon:InitTailoring()
 	recipe:SetCraftedItemID(22654)
 	recipe:SetSkillLevels(300, 300, 315, 330, 345)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.RAID, F.RETIRED, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.CLOTH)
-	recipe:AddCustom(41)
+	recipe:AddCustom("Custom41")
 
 	-- Glacial Vest -- 28207
 	recipe = AddRecipe(28207, V.ORIG, Q.EPIC)
 	recipe:SetCraftedItemID(22652)
 	recipe:SetSkillLevels(300, 300, 315, 330, 345)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.RAID, F.RETIRED, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.CLOTH)
-	recipe:AddCustom(41)
+	recipe:AddCustom("Custom41")
 
 	-- Glacial Cloak -- 28208
 	recipe = AddRecipe(28208, V.ORIG, Q.EPIC)
 	recipe:SetCraftedItemID(22658)
 	recipe:SetSkillLevels(300, 300, 315, 330, 345)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.RAID, F.RETIRED, F.IBOE, F.RBOP, F.CLOAK)
-	recipe:AddCustom(41)
+	recipe:AddCustom("Custom41")
 
 	-- Glacial Wrists -- 28209
 	recipe = AddRecipe(28209, V.ORIG, Q.EPIC)
 	recipe:SetCraftedItemID(22655)
 	recipe:SetSkillLevels(300, 300, 315, 330, 345)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.RAID, F.RETIRED, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.CLOTH)
-	recipe:AddCustom(41)
+	recipe:AddCustom("Custom41")
 
 	-- Gaea's Embrace -- 28210
 	recipe = AddRecipe(28210, V.ORIG, Q.COMMON)
@@ -2254,7 +2254,7 @@ function addon:InitTailoring()
 	recipe:SetCraftedItemID(30038)
 	recipe:SetSkillLevels(375, 375, 385, 390, 395)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.CLOTH)
-	recipe:AddCustom(37, 43)
+	recipe:AddCustom("SSC_RANDOM", "TK_RANDOM")
 
 	-- Belt of the Long Road -- 36316
 	recipe = AddRecipe(36316, V.TBC, Q.EPIC)
@@ -2262,7 +2262,7 @@ function addon:InitTailoring()
 	recipe:SetCraftedItemID(30036)
 	recipe:SetSkillLevels(375, 375, 385, 390, 395)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
-	recipe:AddCustom(37, 43)
+	recipe:AddCustom("SSC_RANDOM", "TK_RANDOM")
 
 	-- Boots of Blasting -- 36317
 	recipe = AddRecipe(36317, V.TBC, Q.EPIC)
@@ -2270,7 +2270,7 @@ function addon:InitTailoring()
 	recipe:SetCraftedItemID(30037)
 	recipe:SetSkillLevels(375, 375, 385, 390, 395)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOP, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
-	recipe:AddCustom(37, 43)
+	recipe:AddCustom("SSC_RANDOM", "TK_RANDOM")
 
 	-- Boots of the Long Road -- 36318
 	recipe = AddRecipe(36318, V.TBC, Q.EPIC)
@@ -2278,7 +2278,7 @@ function addon:InitTailoring()
 	recipe:SetCraftedItemID(30035)
 	recipe:SetSkillLevels(375, 375, 385, 390, 395)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOP, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
-	recipe:AddCustom(37, 43)
+	recipe:AddCustom("SSC_RANDOM", "TK_RANDOM")
 
 	-- Shadowcloth -- 36686
 	recipe = AddRecipe(36686, V.TBC, Q.COMMON)
@@ -2366,7 +2366,7 @@ function addon:InitTailoring()
 	recipe:SetCraftedItemID(32586)
 	recipe:SetSkillLevels(375, 375, 385, 390, 395)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.CLOTH)
-	recipe:AddCustom(34)
+	recipe:AddCustom("BT_RANDOM")
 
 	-- Mantle of Nimble Thought -- 41206
 	recipe = AddRecipe(41206, V.TBC, Q.EPIC)
@@ -2374,7 +2374,7 @@ function addon:InitTailoring()
 	recipe:SetCraftedItemID(32587)
 	recipe:SetSkillLevels(375, 375, 385, 390, 395)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOP, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
-	recipe:AddCustom(27, 34)
+	recipe:AddCustom("HYJAL_RANDOM", "BT_RANDOM")
 
 	-- Swiftheal Wraps -- 41207
 	recipe = AddRecipe(41207, V.TBC, Q.EPIC)
@@ -2382,7 +2382,7 @@ function addon:InitTailoring()
 	recipe:SetCraftedItemID(32584)
 	recipe:SetSkillLevels(375, 375, 385, 390, 395)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.CLOTH)
-	recipe:AddCustom(27, 34)
+	recipe:AddCustom("HYJAL_RANDOM", "BT_RANDOM")
 
 	-- Swiftheal Mantle -- 41208
 	recipe = AddRecipe(41208, V.TBC, Q.EPIC)
@@ -2390,7 +2390,7 @@ function addon:InitTailoring()
 	recipe:SetCraftedItemID(32585)
 	recipe:SetSkillLevels(375, 375, 385, 390, 395)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOP, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
-	recipe:AddCustom(34)
+	recipe:AddCustom("BT_RANDOM")
 
 	-- Green Winter Clothes -- 44950
 	recipe = AddRecipe(44950, V.TBC, Q.UNCOMMON)
@@ -2416,7 +2416,7 @@ function addon:InitTailoring()
 	recipe:SetCraftedItemID(34366)
 	recipe:SetSkillLevels(365, 365, 375, 392, 410)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.CLOTH)
-	recipe:AddCustom(24)
+	recipe:AddCustom("SUNWELL_RANDOM")
 
 	-- Hands of Eternal Light -- 46129
 	recipe = AddRecipe(46129, V.TBC, Q.EPIC)
@@ -2424,7 +2424,7 @@ function addon:InitTailoring()
 	recipe:SetCraftedItemID(34367)
 	recipe:SetSkillLevels(365, 365, 375, 392, 410)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
-	recipe:AddCustom(24)
+	recipe:AddCustom("SUNWELL_RANDOM")
 
 	-- Sunfire Robe -- 46130
 	recipe = AddRecipe(46130, V.TBC, Q.EPIC)
@@ -2432,7 +2432,7 @@ function addon:InitTailoring()
 	recipe:SetCraftedItemID(34364)
 	recipe:SetSkillLevels(365, 365, 375, 392, 410)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOP, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
-	recipe:AddCustom(24)
+	recipe:AddCustom("SUNWELL_RANDOM")
 
 	-- Robe of Eternal Light -- 46131
 	recipe = AddRecipe(46131, V.TBC, Q.EPIC)
@@ -2440,7 +2440,7 @@ function addon:InitTailoring()
 	recipe:SetCraftedItemID(34365)
 	recipe:SetSkillLevels(365, 365, 375, 392, 410)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOP, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
-	recipe:AddCustom(24)
+	recipe:AddCustom("SUNWELL_RANDOM")
 
 	-- Dress Shoes -- 49677
 	recipe = AddRecipe(49677, V.TBC, Q.COMMON)
@@ -2817,7 +2817,7 @@ function addon:InitTailoring()
 	recipe:SetSkillLevels(420, 420, 435, 445, 455)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.CLOAK)
 	recipe:AddTrainer(26914, 28699)
-	recipe:AddCustom(45)
+	recipe:AddCustom("Custom45")
 
 	-- Deathchill Cloak -- 56017
 	recipe = AddRecipe(56017, V.WOTLK, Q.COMMON)
@@ -2825,7 +2825,7 @@ function addon:InitTailoring()
 	recipe:SetSkillLevels(420, 420, 435, 445, 455)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.CLOAK)
 	recipe:AddTrainer(26914, 28699)
-	recipe:AddCustom(44)
+	recipe:AddCustom("Custom44")
 
 	-- Hat of Wintry Doom -- 56018
 	recipe = AddRecipe(56018, V.WOTLK, Q.COMMON)
@@ -3034,7 +3034,7 @@ function addon:InitTailoring()
 	recipe:SetCraftedItemID(45102)
 	recipe:SetSkillLevels(450, 450, 455, 460, 465)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
-	recipe:AddCustom(39)
+	recipe:AddCustom("ULDUAR_RANDOM")
 
 	-- Spellslinger's Slippers -- 63204
 	recipe = AddRecipe(63204, V.WOTLK, Q.EPIC)
@@ -3042,7 +3042,7 @@ function addon:InitTailoring()
 	recipe:SetCraftedItemID(45566)
 	recipe:SetSkillLevels(450, 450, 455, 460, 465)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
-	recipe:AddCustom(39)
+	recipe:AddCustom("ULDUAR_RANDOM")
 
 	-- Cord of the White Dawn -- 63205
 	recipe = AddRecipe(63205, V.WOTLK, Q.EPIC)
@@ -3050,7 +3050,7 @@ function addon:InitTailoring()
 	recipe:SetCraftedItemID(45104)
 	recipe:SetSkillLevels(450, 450, 455, 460, 465)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
-	recipe:AddCustom(39)
+	recipe:AddCustom("ULDUAR_RANDOM")
 
 	-- Savior's Slippers -- 63206
 	recipe = AddRecipe(63206, V.WOTLK, Q.EPIC)
@@ -3058,7 +3058,7 @@ function addon:InitTailoring()
 	recipe:SetCraftedItemID(45567)
 	recipe:SetSkillLevels(450, 450, 455, 460, 465)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
-	recipe:AddCustom(39)
+	recipe:AddCustom("ULDUAR_RANDOM")
 
 	-- Spidersilk Drape -- 63742
 	recipe = AddRecipe(63742, V.WOTLK, Q.COMMON)
@@ -3095,7 +3095,7 @@ function addon:InitTailoring()
 	recipe:SetSkillLevels(450, 450, 460, 467, 475)
 	recipe:SetRequiredFaction("Alliance")
 	recipe:AddFilters(F.ALLIANCE, F.RAID, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
-	recipe:AddCustom(42)
+	recipe:AddCustom("TOC25_RANDOM")
 
 	-- Royal Moonshroud Bracers -- 67065
 	recipe = AddRecipe(67065, V.WOTLK, Q.EPIC)
@@ -3103,7 +3103,7 @@ function addon:InitTailoring()
 	recipe:SetSkillLevels(450, 450, 460, 467, 475)
 	recipe:SetRequiredFaction("Alliance")
 	recipe:AddFilters(F.ALLIANCE, F.RAID, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
-	recipe:AddCustom(42)
+	recipe:AddCustom("TOC25_RANDOM")
 
 	-- Merlin's Robe -- 67066
 	recipe = AddRecipe(67066, V.WOTLK, Q.EPIC)
@@ -3111,7 +3111,7 @@ function addon:InitTailoring()
 	recipe:SetSkillLevels(450, 450, 460, 467, 475)
 	recipe:SetRequiredFaction("Alliance")
 	recipe:AddFilters(F.ALLIANCE, F.RAID, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
-	recipe:AddCustom(42)
+	recipe:AddCustom("TOC25_RANDOM")
 
 	-- Bejeweled Wizard's Bracers -- 67079
 	recipe = AddRecipe(67079, V.WOTLK, Q.EPIC)
@@ -3119,7 +3119,7 @@ function addon:InitTailoring()
 	recipe:SetSkillLevels(450, 450, 460, 467, 475)
 	recipe:SetRequiredFaction("Alliance")
 	recipe:AddFilters(F.ALLIANCE, F.RAID, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
-	recipe:AddCustom(42)
+	recipe:AddCustom("TOC25_RANDOM")
 
 	-- Royal Moonshroud Robe -- 67144
 	recipe = AddRecipe(67144, V.WOTLK, Q.EPIC)
@@ -3128,7 +3128,7 @@ function addon:InitTailoring()
 	recipe:SetSkillLevels(450, 450, 460, 467, 475)
 	recipe:SetRequiredFaction("Horde")
 	recipe:AddFilters(F.HORDE, F.RAID, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
-	recipe:AddCustom(42)
+	recipe:AddCustom("TOC25_RANDOM")
 
 	-- Bejeweled Wizard's Bracers -- 67145
 	recipe = AddRecipe(67145, V.WOTLK, Q.EPIC)
@@ -3137,7 +3137,7 @@ function addon:InitTailoring()
 	recipe:SetSkillLevels(450, 450, 460, 467, 475)
 	recipe:SetRequiredFaction("Horde")
 	recipe:AddFilters(F.HORDE, F.RAID, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
-	recipe:AddCustom(42)
+	recipe:AddCustom("TOC25_RANDOM")
 
 	-- Merlin's Robe -- 67146
 	recipe = AddRecipe(67146, V.WOTLK, Q.EPIC)
@@ -3146,7 +3146,7 @@ function addon:InitTailoring()
 	recipe:SetSkillLevels(450, 450, 460, 467, 475)
 	recipe:SetRequiredFaction("Horde")
 	recipe:AddFilters(F.HORDE, F.RAID, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
-	recipe:AddCustom(42)
+	recipe:AddCustom("TOC25_RANDOM")
 
 	-- Royal Moonshroud Bracers -- 67147
 	recipe = AddRecipe(67147, V.WOTLK, Q.EPIC)
@@ -3155,7 +3155,7 @@ function addon:InitTailoring()
 	recipe:SetSkillLevels(450, 450, 460, 467, 475)
 	recipe:SetRequiredFaction("Horde")
 	recipe:AddFilters(F.HORDE, F.RAID, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
-	recipe:AddCustom(42)
+	recipe:AddCustom("TOC25_RANDOM")
 
 	-- Leggings of Woven Death -- 70550
 	recipe = AddRecipe(70550, V.WOTLK, Q.EPIC)
