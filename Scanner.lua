@@ -748,6 +748,13 @@ do
 						end
 					end
 				elseif matching_trainer then
+					if not recipe:CraftedItemID() then
+						for item_id in pairs(scanned_items) do
+							if recipe.name == _G.GetItemInfo(item_id) then
+								recipe:SetCraftedItemID(item_id)
+							end
+						end
+					end
 					table.insert(extra_spell_ids, spell_id)
 				end
 			end
