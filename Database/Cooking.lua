@@ -1429,6 +1429,7 @@ function addon:InitCooking()
 
 	-- Baked Rockfish -- 88003
 	recipe = AddRecipe(88003, V.CATA, Q.UNCOMMON)
+	recipe:SetRecipeItemID(65426)
 	recipe:SetCraftedItemID(62661)
 	recipe:SetSkillLevels(500, 500, 515, 520, 525)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
@@ -1436,6 +1437,7 @@ function addon:InitCooking()
 
 	-- Basilisk Liverdog -- 88004
 	recipe = AddRecipe(88004, V.CATA, Q.UNCOMMON)
+	recipe:SetRecipeItemID(65427)
 	recipe:SetCraftedItemID(62665)
 	recipe:SetSkillLevels(500, 500, 515, 520, 525)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
@@ -1443,6 +1445,7 @@ function addon:InitCooking()
 
 	-- Beer-Basted Crocolisk -- 88005
 	recipe = AddRecipe(88005, V.CATA, Q.UNCOMMON)
+	recipe:SetRecipeItemID(65429)
 	recipe:SetCraftedItemID(62670)
 	recipe:SetSkillLevels(500, 500, 515, 520, 525)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
@@ -1464,6 +1467,7 @@ function addon:InitCooking()
 
 	-- Broiled Mountain Trout -- 88012
 	recipe = AddRecipe(88012, V.CATA, Q.UNCOMMON)
+	recipe:SetRecipeItemID(65411)
 	recipe:SetCraftedItemID(62655)
 	recipe:SetSkillLevels(450, 450, 465, 477, 490)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
@@ -1471,6 +1475,7 @@ function addon:InitCooking()
 
 	-- Chocolate Cookie -- 88013
 	recipe = AddRecipe(88013, V.CATA, Q.UNCOMMON)
+	recipe:SetRecipeItemID(65431)
 	recipe:SetCraftedItemID(62680)
 	recipe:SetSkillLevels(505, 505, 510, 512, 515)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
@@ -1478,6 +1483,7 @@ function addon:InitCooking()
 
 	-- Crocolisk Au Gratin -- 88014
 	recipe = AddRecipe(88014, V.CATA, Q.UNCOMMON)
+	recipe:SetRecipeItemID(65430)
 	recipe:SetCraftedItemID(62664)
 	recipe:SetSkillLevels(500, 500, 515, 520, 525)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
@@ -1492,6 +1498,7 @@ function addon:InitCooking()
 
 	-- Delicious Sagefish Tail -- 88016
 	recipe = AddRecipe(88016, V.CATA, Q.UNCOMMON)
+	recipe:SetRecipeItemID(65422)
 	recipe:SetCraftedItemID(62666)
 	recipe:SetSkillLevels(500, 500, 515, 520, 525)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
@@ -1499,12 +1506,14 @@ function addon:InitCooking()
 
 	-- Feathered Lure -- 88017
 	recipe = AddRecipe(88017, V.CATA, Q.UNCOMMON)
+	recipe:SetRecipeItemID(65408)
 	recipe:SetSkillLevels(450, 450, 450, 455, 470)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	recipe:AddVendor(49701, 49737)
 
 	-- Fish Fry -- 88018
 	recipe = AddRecipe(88018, V.CATA, Q.UNCOMMON)
+	recipe:SetRecipeItemID(65423)
 	recipe:SetCraftedItemID(62677)
 	recipe:SetSkillLevels(500, 500, 500, 500, 510)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
@@ -1512,6 +1521,7 @@ function addon:InitCooking()
 
 	-- Fortune Cookie -- 88019
 	recipe = AddRecipe(88019, V.CATA, Q.UNCOMMON)
+	recipe:SetRecipeItemID(65432)
 	recipe:SetCraftedItemID(62649)
 	recipe:SetSkillLevels(525, 525, 525, 525, 525)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
@@ -1519,6 +1529,7 @@ function addon:InitCooking()
 
 	-- Grilled Dragon -- 88020
 	recipe = AddRecipe(88020, V.CATA, Q.UNCOMMON)
+	recipe:SetRecipeItemID(65428)
 	recipe:SetCraftedItemID(62662)
 	recipe:SetSkillLevels(500, 500, 515, 520, 525)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
@@ -1526,6 +1537,7 @@ function addon:InitCooking()
 
 	-- Hearty Seafood Soup -- 88021
 	recipe = AddRecipe(88021, V.CATA, Q.UNCOMMON)
+	recipe:SetRecipeItemID(65418)
 	recipe:SetCraftedItemID(62659)
 	recipe:SetSkillLevels(475, 475, 490, 497, 505)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
@@ -1533,6 +1545,7 @@ function addon:InitCooking()
 
 	-- Highland Spirits -- 88022
 	recipe = AddRecipe(88022, V.CATA, Q.UNCOMMON)
+	recipe:SetRecipeItemID(65415)
 	recipe:SetCraftedItemID(62674)
 	recipe:SetSkillLevels(450, 450, 455, 460, 465)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
@@ -1540,6 +1553,7 @@ function addon:InitCooking()
 
 	-- Lavascale Fillet -- 88024
 	recipe = AddRecipe(88024, V.CATA, Q.UNCOMMON)
+	recipe:SetRecipeItemID(65407)
 	recipe:SetCraftedItemID(62654)
 	recipe:SetSkillLevels(450, 450, 465, 477, 490)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
@@ -1547,6 +1561,7 @@ function addon:InitCooking()
 
 	-- Lavascale Minestrone -- 88025
 	recipe = AddRecipe(88025, V.CATA, Q.UNCOMMON)
+	recipe:SetRecipeItemID(65409)
 	recipe:SetCraftedItemID(62663)
 	recipe:SetSkillLevels(500, 500, 515, 520, 525)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
@@ -1554,6 +1569,7 @@ function addon:InitCooking()
 
 	-- Lightly Fried Lurker -- 88028
 	recipe = AddRecipe(88028, V.CATA, Q.UNCOMMON)
+	recipe:SetRecipeItemID(65412)
 	recipe:SetCraftedItemID(62651)
 	recipe:SetSkillLevels(450, 450, 465, 477, 490)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
@@ -1561,6 +1577,7 @@ function addon:InitCooking()
 
 	-- Lurker Lunch -- 88030
 	recipe = AddRecipe(88030, V.CATA, Q.UNCOMMON)
+	recipe:SetRecipeItemID(65416)
 	recipe:SetCraftedItemID(62657)
 	recipe:SetSkillLevels(450, 450, 465, 477, 490)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
@@ -1568,6 +1585,7 @@ function addon:InitCooking()
 
 	-- Mushroom Sauce Mudfish -- 88031
 	recipe = AddRecipe(88031, V.CATA, Q.UNCOMMON)
+	recipe:SetRecipeItemID(65420)
 	recipe:SetCraftedItemID(62667)
 	recipe:SetSkillLevels(500, 500, 515, 520, 525)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
@@ -1575,6 +1593,7 @@ function addon:InitCooking()
 
 	-- Pickled Guppy -- 88033
 	recipe = AddRecipe(88033, V.CATA, Q.UNCOMMON)
+	recipe:SetRecipeItemID(65417)
 	recipe:SetCraftedItemID(62660)
 	recipe:SetSkillLevels(475, 475, 490, 497, 505)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
@@ -1582,6 +1601,7 @@ function addon:InitCooking()
 
 	-- Blackbelly Sushi -- 88034
 	recipe = AddRecipe(88034, V.CATA, Q.UNCOMMON)
+	recipe:SetRecipeItemID(65424)
 	recipe:SetCraftedItemID(62668)
 	recipe:SetSkillLevels(500, 500, 515, 520, 525)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
@@ -1589,6 +1609,7 @@ function addon:InitCooking()
 
 	-- Salted Eye -- 88035
 	recipe = AddRecipe(88035, V.CATA, Q.UNCOMMON)
+	recipe:SetRecipeItemID(65410)
 	recipe:SetCraftedItemID(62653)
 	recipe:SetSkillLevels(450, 450, 465, 477, 490)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
@@ -1603,6 +1624,7 @@ function addon:InitCooking()
 
 	-- Seasoned Crab -- 88037
 	recipe = AddRecipe(88037, V.CATA, Q.UNCOMMON)
+	recipe:SetRecipeItemID(65413)
 	recipe:SetCraftedItemID(62652)
 	recipe:SetSkillLevels(450, 450, 465, 477, 490)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
@@ -1610,6 +1632,7 @@ function addon:InitCooking()
 
 	-- Severed Sagefish Head -- 88039
 	recipe = AddRecipe(88039, V.CATA, Q.UNCOMMON)
+	recipe:SetRecipeItemID(65421)
 	recipe:SetCraftedItemID(62671)
 	recipe:SetSkillLevels(500, 500, 515, 520, 525)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
@@ -1617,6 +1640,7 @@ function addon:InitCooking()
 
 	-- Skewered Eel -- 88042
 	recipe = AddRecipe(88042, V.CATA, Q.UNCOMMON)
+	recipe:SetRecipeItemID(65425)
 	recipe:SetCraftedItemID(62669)
 	recipe:SetSkillLevels(500, 500, 515, 520, 525)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
@@ -1624,6 +1648,7 @@ function addon:InitCooking()
 
 	-- South Island Iced Tea -- 88044
 	recipe = AddRecipe(88044, V.CATA, Q.UNCOMMON)
+	recipe:SetRecipeItemID(65433)
 	recipe:SetCraftedItemID(62672)
 	recipe:SetSkillLevels(525, 525, 525, 525, 525)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
@@ -1631,6 +1656,7 @@ function addon:InitCooking()
 
 	-- Starfire Espresso -- 88045
 	recipe = AddRecipe(88045, V.CATA, Q.UNCOMMON)
+	recipe:SetRecipeItemID(65414)
 	recipe:SetCraftedItemID(62675)
 	recipe:SetSkillLevels(450, 450, 455, 460, 465)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
@@ -1638,6 +1664,7 @@ function addon:InitCooking()
 
 	-- Tender Baked Turtle -- 88046
 	recipe = AddRecipe(88046, V.CATA, Q.UNCOMMON)
+	recipe:SetRecipeItemID(65419)
 	recipe:SetCraftedItemID(62658)
 	recipe:SetSkillLevels(475, 475, 490, 497, 505)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
@@ -1645,6 +1672,7 @@ function addon:InitCooking()
 
 	-- Whitecrest Gumbo -- 88047
 	recipe = AddRecipe(88047, V.CATA, Q.UNCOMMON)
+	recipe:SetRecipeItemID(65406)
 	recipe:SetCraftedItemID(62656)
 	recipe:SetSkillLevels(450, 450, 465, 477, 490)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
@@ -1659,6 +1687,7 @@ function addon:InitCooking()
 
 	-- Scalding Murglesnout -- 96133
 	recipe = AddRecipe(96133, V.CATA, Q.UNCOMMON)
+	recipe:SetRecipeItemID(68688)
 	recipe:SetCraftedItemID(68687)
 	recipe:SetSkillLevels(500, 500, 500, 500, 510)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
