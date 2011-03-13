@@ -242,7 +242,7 @@ function addon:InitAlchemy()
 	recipe:SetRecipeItemID(4597)
 	recipe:SetCraftedItemID(4596)
 	recipe:SetSkillLevels(50, 50, 80, 100, 120)
-	recipe:AddFilters(F.HORDE, F.QUEST, F.RETIRED, F.IBOE, F.RBOE)
+	recipe:AddFilters(F.HORDE, F.RETIRED, F.IBOE, F.RBOE)
 	recipe:AddCustom(48)
 
 	-- Lesser Stoneshield Potion -- 4942
@@ -250,7 +250,7 @@ function addon:InitAlchemy()
 	recipe:SetRecipeItemID(4624)
 	recipe:SetCraftedItemID(4623)
 	recipe:SetSkillLevels(215, 215, 230, 250, 270)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.QUEST, F.RETIRED, F.IBOE, F.RBOE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOE, F.RBOE)
 	recipe:AddCustom(48)
 
 	-- Rage Potion -- 6617
@@ -408,7 +408,7 @@ function addon:InitAlchemy()
 	recipe = AddRecipe(11452, V.ORIG, Q.COMMON)
 	recipe:SetCraftedItemID(9030)
 	recipe:SetSkillLevels(210, 210, 225, 245, 265)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.QUEST, F.RETIRED, F.IBOE, F.RBOP)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOE, F.RBOP)
 	recipe:AddCustom(48)
 
 	-- Magic Resistance Potion -- 11453
@@ -711,7 +711,7 @@ function addon:InitAlchemy()
 	recipe:SetRecipeItemID(13491)
 	recipe:SetCraftedItemID(13452)
 	recipe:SetSkillLevels(280, 280, 295, 315, 335)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.RETIRED, F.IBOE, F.RBOE, F.DPS)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOE, F.RBOE, F.DPS)
 	recipe:AddCustom(48)
 
 	-- Purification Potion -- 17572
@@ -759,7 +759,7 @@ function addon:InitAlchemy()
 	recipe:SetRecipeItemID(13497)
 	recipe:SetCraftedItemID(13461)
 	recipe:SetSkillLevels(290, 290, 305, 325, 345)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.RETIRED, F.IBOE, F.RBOE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOE, F.RBOE)
 	recipe:AddCustom(48)
 
 	-- Greater Shadow Protection Potion -- 17578
@@ -858,7 +858,7 @@ function addon:InitAlchemy()
 	recipe = AddRecipe(24266, V.ORIG, Q.RARE)
 	recipe:SetCraftedItemID(19931)
 	recipe:SetSkillLevels(300, 300, 315, 322, 330)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.RETIRED, F.IBOE, F.RBOP)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOE, F.RBOP)
 	recipe:AddCustom(48)
 
 	-- Mageblood Elixir -- 24365
@@ -866,7 +866,7 @@ function addon:InitAlchemy()
 	recipe:SetRecipeItemID(20011)
 	recipe:SetCraftedItemID(20007)
 	recipe:SetSkillLevels(275, 275, 290, 310, 330)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.RETIRED, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
 	recipe:AddCustom(48)
 
 	-- Greater Dreamless Sleep Potion -- 24366
@@ -874,7 +874,7 @@ function addon:InitAlchemy()
 	recipe:SetRecipeItemID(20012)
 	recipe:SetCraftedItemID(20002)
 	recipe:SetSkillLevels(275, 275, 290, 310, 330)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.RETIRED, F.IBOE, F.RBOP)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOE, F.RBOP)
 	recipe:AddCustom(48)
 
 	-- Living Action Potion -- 24367
@@ -882,7 +882,7 @@ function addon:InitAlchemy()
 	recipe:SetRecipeItemID(20013)
 	recipe:SetCraftedItemID(20008)
 	recipe:SetSkillLevels(285, 285, 300, 320, 340)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.RETIRED, F.IBOE, F.RBOP)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOE, F.RBOP)
 	recipe:AddCustom(48)
 
 	-- Mighty Troll's Blood Elixir -- 24368
@@ -890,7 +890,7 @@ function addon:InitAlchemy()
 	recipe:SetRecipeItemID(20014)
 	recipe:SetCraftedItemID(20004)
 	recipe:SetSkillLevels(290, 290, 305, 325, 345)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.RETIRED, F.IBOE, F.RBOP)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOE, F.RBOP)
 	recipe:AddCustom(48)
 
 	-- Transmute: Elemental Fire -- 25146
