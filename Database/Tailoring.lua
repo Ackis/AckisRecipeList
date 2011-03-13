@@ -1471,7 +1471,7 @@ function addon:InitTailoring()
 	recipe:SetCraftedItemID(17723)
 	recipe:SetSkillLevels(190, 190, 200, 205, 210)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.SEASONAL, F.IBOE, F.RBOE)
-	recipe:AddSeason(1)
+	recipe:AddSeason("WINTER_VEIL")
 
 	-- Flarecore Wraps -- 22759
 	recipe = AddRecipe(22759, V.ORIG, Q.RARE)
@@ -1663,7 +1663,7 @@ function addon:InitTailoring()
 	recipe:SetSkillLevels(250, 250, 265, 280, 295)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.SEASONAL, F.IBOE, F.RBOP, F.CLOTH)
 	recipe:AddVendor(15909)
-	recipe:AddSeason(2)
+	recipe:AddSeason("LUNAR_FESTIVAL")
 
 	-- Festival Suit -- 26407
 	recipe = AddRecipe(26407, V.ORIG, Q.UNCOMMON)
@@ -1672,7 +1672,7 @@ function addon:InitTailoring()
 	recipe:SetSkillLevels(250, 250, 265, 280, 295)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.SEASONAL, F.IBOE, F.RBOP)
 	recipe:AddVendor(15909)
-	recipe:AddSeason(2)
+	recipe:AddSeason("LUNAR_FESTIVAL")
 
 	-- Bolt of Netherweave -- 26745
 	recipe = AddRecipe(26745, V.TBC, Q.COMMON)
@@ -2399,7 +2399,7 @@ function addon:InitTailoring()
 	recipe:SetSkillLevels(250, 250, 250, 250, 250)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.SEASONAL, F.IBOE, F.RBOP, F.CLOTH)
 	recipe:AddVendor(13420)
-	recipe:AddSeason(1)
+	recipe:AddSeason("WINTER_VEIL")
 
 	-- Red Winter Clothes -- 44958
 	recipe = AddRecipe(44958, V.TBC, Q.UNCOMMON)
@@ -2408,7 +2408,7 @@ function addon:InitTailoring()
 	recipe:SetSkillLevels(250, 250, 250, 250, 250)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.SEASONAL, F.IBOE, F.RBOP, F.CLOTH)
 	recipe:AddVendor(13433)
-	recipe:AddSeason(1)
+	recipe:AddSeason("WINTER_VEIL")
 
 	-- Sunfire Handwraps -- 46128
 	recipe = AddRecipe(46128, V.TBC, Q.EPIC)

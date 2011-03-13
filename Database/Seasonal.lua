@@ -30,10 +30,9 @@ function addon:InitSeasons(DB)
 	local function AddSeason(identifier, name)
 		addon:AddListEntry(DB, identifier, name, GetCategoryInfo(155))
 	end
-	AddSeason(1, GetCategoryInfo(156))	-- Winter's Veil
-	AddSeason(2, GetCategoryInfo(160))	-- Lunar Festival
-	AddSeason(3, L["Darkmoon Faire"])
-	AddSeason(4, GetCategoryInfo(161))	-- Midsummer
-	AddSeason(5, GetCategoryInfo(14981))	-- Pilgrim's Bounty
-	AddSeason(6, L["Day of the Dead"])
+	AddSeason("WINTER_VEIL", GetCategoryInfo(156))
+	AddSeason("LUNAR_FESTIVAL", GetCategoryInfo(160))
+	AddSeason("MIDSUMMER", GetCategoryInfo(161))
+	AddSeason("PILGRIMS_BOUNTY", GetCategoryInfo(14981))
+	AddSeason("DAY_OF_THE_DEAD", L["Day of the Dead"])
 end

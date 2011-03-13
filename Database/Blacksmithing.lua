@@ -1588,7 +1588,7 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItemID(17704)
 	recipe:SetSkillLevels(190, 190, 215, 227, 240)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.SEASONAL, F.IBOE, F.RBOE, F.ONE_HAND, F.AXE)
-	recipe:AddSeason(1)
+	recipe:AddSeason("WINTER_VEIL")
 
 	-- Elemental Sharpening Stone -- 22757
 	recipe = AddRecipe(22757, V.ORIG, Q.RARE)

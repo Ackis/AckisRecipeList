@@ -837,7 +837,7 @@ function addon:InitAlchemy()
 	recipe:SetCraftedItemID(17708)
 	recipe:SetSkillLevels(190, 190, 210, 230, 250)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.SEASONAL, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	recipe:AddSeason(1)
+	recipe:AddSeason("WINTER_VEIL")
 
 	-- Major Rejuvenation Potion -- 22732
 	recipe = AddRecipe(22732, V.ORIG, Q.RARE)

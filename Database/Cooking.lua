@@ -619,7 +619,7 @@ function addon:InitCooking()
 	recipe:SetSkillLevels(1, 1, 45, 65, 85)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.SEASONAL, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
 	recipe:AddVendor(13420, 13429, 13432, 13433, 13435, 23010, 23012, 23064)
-	recipe:AddSeason(1)
+	recipe:AddSeason("WINTER_VEIL")
 
 	-- Egg Nog -- 21144
 	recipe = AddRecipe(21144, V.ORIG, Q.COMMON)
@@ -628,7 +628,7 @@ function addon:InitCooking()
 	recipe:SetSkillLevels(35, 35, 75, 95, 115)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.SEASONAL, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
 	recipe:AddVendor(13420, 13429, 13432, 13433, 13435, 23010, 23012, 23064)
-	recipe:AddSeason(1)
+	recipe:AddSeason("WINTER_VEIL")
 
 	-- Spider Sausage -- 21175
 	recipe = AddRecipe(21175, V.ORIG, Q.COMMON)
@@ -954,7 +954,7 @@ function addon:InitCooking()
 	recipe:SetSkillLevels(325, 325, 325, 325, 325)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.SEASONAL, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
 	recipe:AddVendor(13420, 13433)
-	recipe:AddSeason(1)
+	recipe:AddSeason("WINTER_VEIL")
 
 	-- Mammoth Meal -- 45549
 	recipe = AddRecipe(45549, V.WOTLK, Q.COMMON)
@@ -1324,7 +1324,7 @@ function addon:InitCooking()
 	recipe:SetSkillLevels(100, 100, 150, 162, 175)
 	recipe:SetRequiredFaction("Alliance")
 	recipe:AddFilters(F.ALLIANCE, F.SEASONAL, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
-	recipe:AddSeason(5)
+	recipe:AddSeason("PILGRIMS_BOUNTY")
 
 	-- Slow-Roasted Turkey -- 62045
 	recipe = AddRecipe(62045, V.WOTLK, Q.COMMON)
@@ -1332,7 +1332,7 @@ function addon:InitCooking()
 	recipe:SetSkillLevels(330, 330, 330, 342, 355)
 	recipe:SetRequiredFaction("Alliance")
 	recipe:AddFilters(F.ALLIANCE, F.SEASONAL, F.IBOE, F.RBOP, F.DPS)
-	recipe:AddSeason(5)
+	recipe:AddSeason("PILGRIMS_BOUNTY")
 
 	-- Cranberry Chutney -- 62049
 	recipe = AddRecipe(62049, V.WOTLK, Q.COMMON)
@@ -1340,7 +1340,7 @@ function addon:InitCooking()
 	recipe:SetSkillLevels(210, 210, 210, 222, 235)
 	recipe:SetRequiredFaction("Alliance")
 	recipe:AddFilters(F.ALLIANCE, F.SEASONAL, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
-	recipe:AddSeason(5)
+	recipe:AddSeason("PILGRIMS_BOUNTY")
 
 	-- Spice Bread Stuffing -- 62050
 	recipe = AddRecipe(62050, V.WOTLK, Q.COMMON)
@@ -1348,7 +1348,7 @@ function addon:InitCooking()
 	recipe:SetSkillLevels(90, 90, 90, 102, 115)
 	recipe:SetRequiredFaction("Alliance")
 	recipe:AddFilters(F.ALLIANCE, F.SEASONAL, F.IBOE, F.RBOE)
-	recipe:AddSeason(5)
+	recipe:AddSeason("PILGRIMS_BOUNTY")
 
 	-- Candied Sweet Potato -- 62051
 	recipe = AddRecipe(62051, V.WOTLK, Q.COMMON)
@@ -1356,7 +1356,7 @@ function addon:InitCooking()
 	recipe:SetSkillLevels(270, 270, 270, 282, 295)
 	recipe:SetRequiredFaction("Alliance")
 	recipe:AddFilters(F.ALLIANCE, F.SEASONAL, F.IBOE, F.RBOP)
-	recipe:AddSeason(5)
+	recipe:AddSeason("PILGRIMS_BOUNTY")
 
 	-- Worg Tartare -- 62350
 	recipe = AddRecipe(62350, V.WOTLK, Q.UNCOMMON)
@@ -1385,7 +1385,7 @@ function addon:InitCooking()
 	recipe:SetCraftedItemID(46691)
 	recipe:SetSkillLevels(45, 45, 55, 60, 65)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.SEASONAL, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
-	recipe:AddSeason(6)
+	recipe:AddSeason("DAY_OF_THE_DEAD")
 
 	-- Candied Sweet Potato -- 66034
 	recipe = AddRecipe(66034, V.WOTLK, Q.COMMON)
@@ -1393,7 +1393,7 @@ function addon:InitCooking()
 	recipe:SetSkillLevels(270, 270, 270, 282, 295)
 	recipe:SetRequiredFaction("Horde")
 	recipe:AddFilters(F.HORDE, F.SEASONAL, F.IBOE, F.RBOP)
-	recipe:AddSeason(5)
+	recipe:AddSeason("PILGRIMS_BOUNTY")
 
 	-- Cranberry Chutney -- 66035
 	recipe = AddRecipe(66035, V.WOTLK, Q.COMMON)
@@ -1401,7 +1401,7 @@ function addon:InitCooking()
 	recipe:SetSkillLevels(210, 210, 210, 222, 235)
 	recipe:SetRequiredFaction("Horde")
 	recipe:AddFilters(F.HORDE, F.SEASONAL, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
-	recipe:AddSeason(5)
+	recipe:AddSeason("PILGRIMS_BOUNTY")
 
 	-- Pumpkin Pie -- 66036
 	recipe = AddRecipe(66036, V.WOTLK, Q.COMMON)
@@ -1409,7 +1409,7 @@ function addon:InitCooking()
 	recipe:SetSkillLevels(100, 100, 150, 162, 175)
 	recipe:SetRequiredFaction("Horde")
 	recipe:AddFilters(F.HORDE, F.SEASONAL, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
-	recipe:AddSeason(5)
+	recipe:AddSeason("PILGRIMS_BOUNTY")
 
 	-- Slow-Roasted Turkey -- 66037
 	recipe = AddRecipe(66037, V.WOTLK, Q.COMMON)
@@ -1417,7 +1417,7 @@ function addon:InitCooking()
 	recipe:SetSkillLevels(330, 330, 330, 342, 355)
 	recipe:SetRequiredFaction("Horde")
 	recipe:AddFilters(F.HORDE, F.SEASONAL, F.IBOE, F.RBOP, F.DPS)
-	recipe:AddSeason(5)
+	recipe:AddSeason("PILGRIMS_BOUNTY")
 
 	-- Spice Bread Stuffing -- 66038
 	recipe = AddRecipe(66038, V.WOTLK, Q.COMMON)
@@ -1425,7 +1425,7 @@ function addon:InitCooking()
 	recipe:SetSkillLevels(90, 90, 90, 102, 115)
 	recipe:SetRequiredFaction("Horde")
 	recipe:AddFilters(F.HORDE, F.SEASONAL, F.IBOE, F.RBOE)
-	recipe:AddSeason(5)
+	recipe:AddSeason("PILGRIMS_BOUNTY")
 
 	-- Baked Rockfish -- 88003
 	recipe = AddRecipe(88003, V.CATA, Q.UNCOMMON)

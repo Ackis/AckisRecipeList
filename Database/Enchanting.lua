@@ -855,7 +855,7 @@ function addon:InitEnchanting()
 	recipe:SetRecipeItemID(17725)
 	recipe:SetSkillLevels(190, 190, 210, 230, 250)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.SEASONAL, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.ONE_HAND, F.TWO_HAND)
-	recipe:AddSeason(1)
+	recipe:AddSeason("WINTER_VEIL")
 
 	-- Enchant Weapon - Spellpower -- 22749
 	recipe = AddRecipe(22749, V.ORIG, Q.RARE)
@@ -1797,7 +1797,7 @@ function addon:InitEnchanting()
 	recipe:SetCraftedItemID(35498)
 	recipe:SetSkillLevels(350, 350, 350, 357, 365)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.SEASONAL, F.IBOE, F.RBOP, F.ONE_HAND, F.TWO_HAND)
-	recipe:AddSeason(4)
+	recipe:AddSeason("MIDSUMMER")
 
 	-- Enchant Chest - Defense -- 46594
 	recipe = AddRecipe(46594, V.WOTLK, Q.COMMON)

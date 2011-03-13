@@ -1438,7 +1438,7 @@ function addon:InitLeatherworking()
 	recipe:SetCraftedItemID(17721)
 	recipe:SetSkillLevels(190, 190, 210, 220, 230)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.SEASONAL, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.LEATHER)
-	recipe:AddSeason(1)
+	recipe:AddSeason("WINTER_VEIL")
 
 	-- Rugged Leather -- 22331
 	recipe = AddRecipe(22331, V.ORIG, Q.COMMON)
@@ -2750,7 +2750,7 @@ function addon:InitLeatherworking()
 	recipe:SetSkillLevels(285, 285, 285, 285, 285)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.SEASONAL, F.IBOE, F.RBOP, F.CLOTH)
 	recipe:AddVendor(13420, 13433)
-	recipe:AddSeason(1)
+	recipe:AddSeason("WINTER_VEIL")
 
 	-- Heavy Knothide Armor Kit -- 44970
 	recipe = AddRecipe(44970, V.TBC, Q.COMMON)
