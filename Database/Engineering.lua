@@ -1462,7 +1462,7 @@ function addon:InitEngineering()
 	recipe:SetCraftedItemID(23775)
 	recipe:SetSkillLevels(405, 405, 425, 432, 440)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE)
-	recipe:AddVendor(28722)
+	recipe:AddLimitedVendor(28722, 5, 33594, 5)
 
 	-- Elemental Seaforium Charge -- 30547
 	recipe = AddRecipe(30547, V.TBC, Q.COMMON)
