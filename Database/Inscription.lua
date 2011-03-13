@@ -1891,7 +1891,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItemID(43367)
 	recipe:SetSkillLevels(75, 75, 80, 85, 90)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.PALADIN)
-	recipe:AddCustom(14)
+	recipe:AddCustom(15)
 
 	-- Glyph of Blessing of Might -- 58314
 	recipe = AddRecipe(58314, V.WOTLK, Q.COMMON)
