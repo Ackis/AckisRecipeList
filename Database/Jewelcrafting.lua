@@ -4251,6 +4251,7 @@ function addon:InitJewelcrafting()
 
 	-- Fire Prism -- 73478
 	recipe = AddRecipe(73478, V.CATA, Q.COMMON)
+	recipe:SetCraftedItemID(52304)
 	recipe:SetSkillLevels(500, 500, 500, 500, 525)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	recipe:AddTrainer(18751, 19063, 19775, 19778, 26982, 26997, 28701, 44582, 46675)
