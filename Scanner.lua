@@ -728,7 +728,7 @@ do
 					end
 				end
 				local matching_item = scanned_items[recipe:CraftedItemID()]
-				local matching_recipe = scanned_recipes[recipe.name]
+				local matching_recipe = scanned_recipes[recipe.name] and not recipe:CraftedItemID()
 
 				if matching_item or matching_recipe then
 					current_profession = recipe.profession
