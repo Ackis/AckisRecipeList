@@ -4348,6 +4348,7 @@ function addon:InitJewelcrafting()
 
 	-- The Perforator -- 73621
 	recipe = AddRecipe(73621, V.CATA, Q.COMMON)
+	recipe:SetCraftedItemID(52493)
 	recipe:SetSkillLevels(490, 490, 500, 505, 510)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	recipe:AddTrainer(18751, 19063, 19775, 19778, 26982, 26997, 28701, 44582, 46675)
