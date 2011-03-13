@@ -387,6 +387,7 @@ function addon:InitTrainer(DB)
 	self:addLookupList(DB, 45548, L["Kark Helmbreaker"], BZ["Orgrimmar"], 36.0, 83.0, HORDE)  -- UPDATED
 	self:addLookupList(DB, 45550, L["Zarbo Porkpatty"], BZ["Orgrimmar"], 39.0, 85.8, NEUTRAL)
 	self:addLookupList(DB, 45559, L["Nivi Weavewell"], BZ["Orgrimmar"], 41.1, 79.7, HORDE)
+	self:addLookupList(DB, 46357, L["Gonto"], BZ["Orgrimmar"], 44.57, 78.61, HORDE)
 	self:addLookupList(DB, 46675, L["Lugrah"], BZ["Orgrimmar"], 72.5, 34.5, HORDE)
 	self:addLookupList(DB, 46709, L["Arugi"], BZ["Orgrimmar"], 56.5, 61.5, HORDE) -- UPDATED
 	self:addLookupList(DB, 46716, L["Nerog"], BZ["Orgrimmar"], 55.2, 56.7, HORDE)
