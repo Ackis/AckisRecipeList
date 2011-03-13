@@ -688,6 +688,8 @@ do
 		table.wipe(scanned_items)
 		table.wipe(scanned_recipes)
 
+		local trainer_profession = _G.GetTrainerServiceSkillLine(1)
+
 		-- Get all the names of recipes from the trainer
 		for index = 1, _G.GetNumTrainerServices(), 1 do
 			local item_name = _G.GetTrainerServiceInfo(index)
@@ -713,39 +715,41 @@ do
 		local current_profession
 
 		for spell_id, recipe in pairs(recipe_list) do
-			local train_data = recipe.acquire_data[A.TRAINER]
-			local matching_trainer = false
+			if trainer_profession == recipe.profession then
+				local train_data = recipe.acquire_data[A.TRAINER]
+				local matching_trainer = false
 
-			if train_data then
-				for id_num in pairs(train_data) do
-					if id_num == trainer_id then
-						matching_trainer = true
-						break
-					end
-				end
-			end
-			local matching_item = scanned_items[recipe:CraftedItemID()]
-			local matching_recipe = scanned_recipes[recipe.name]
-
-			if matching_item or matching_recipe then
-				current_profession = recipe.profession
-
-				if not matching_trainer then
-					recipe:AddTrainer(trainer_id)
-					table.insert(missing_spell_ids, spell_id)
-
-					if not recipe:HasFilter("common1", "TRAINER") then
-						recipe:AddFilters(F.TRAINER)
-
-						if matching_item then
-							table.insert(output, ("Added trainer flag to recipe with spell ID %d. (matching crafted item ID %d)"):format(spell_id, recipe:CraftedItemID()))
-						elseif matching_recipe then
-							table.insert(output, ("Added trainer flag to recipe with spell ID %d. (matching recipe name \"%s\")"):format(spell_id, recipe.name))
+				if train_data then
+					for id_num in pairs(train_data) do
+						if id_num == trainer_id then
+							matching_trainer = true
+							break
 						end
 					end
 				end
-			elseif matching_trainer then
-				table.insert(extra_spell_ids, spell_id)
+				local matching_item = scanned_items[recipe:CraftedItemID()]
+				local matching_recipe = scanned_recipes[recipe.name]
+
+				if matching_item or matching_recipe then
+					current_profession = recipe.profession
+
+					if not matching_trainer then
+						recipe:AddTrainer(trainer_id)
+						table.insert(missing_spell_ids, spell_id)
+
+						if not recipe:HasFilter("common1", "TRAINER") then
+							recipe:AddFilters(F.TRAINER)
+
+							if matching_item then
+								table.insert(output, ("Added trainer flag to recipe with spell ID %d. (matching crafted item ID %d)"):format(spell_id, recipe:CraftedItemID()))
+							elseif matching_recipe then
+								table.insert(output, ("Added trainer flag to recipe with spell ID %d. (matching recipe name \"%s\")"):format(spell_id, recipe.name))
+							end
+						end
+					end
+				elseif matching_trainer then
+					table.insert(extra_spell_ids, spell_id)
+				end
 			end
 		end
 		local found_missing = #missing_spell_ids > 0
