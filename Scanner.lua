@@ -757,7 +757,7 @@ do
 
 			for index in ipairs(missing_spell_ids) do
 				local spell_id = missing_spell_ids[index]
-				table.insert(output, L["DATAMINER_TRAINER_TEACH"]:format(spell_id, recipe_list[spell_id].name))
+				table.insert(output, ("%d (%s)"):format(spell_id, recipe_list[spell_id].name))
 			end
 		end
 
@@ -767,7 +767,7 @@ do
 
 			for index in ipairs(extra_spell_ids) do
 				local spell_id = extra_spell_ids[index]
-				table.insert(output, L["DATAMINER_TRAINER_NOTTEACH"]:format(spell_id, recipe_list[spell_id].name))
+				table.insert(output, ("%d (%s)"):format(spell_id, recipe_list[spell_id].name))
 			end
 		end
 
