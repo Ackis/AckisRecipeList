@@ -592,10 +592,12 @@ do
 			local trainer = private.trainer_list[identifier]
 			local trainer_name
 
-			if trainer.spell_id then
-				table.insert(output, ("AddTrainer(%s, %s, \"%s\", %s, %s, \"%s\")"):format(identifier, trainer.spell_id, trainer.location, trainer.coord_x, trainer.coord_y, trainer.faction))
-			else
-				table.insert(output, ("AddTrainer(%s, \"%s\", \"%s\", %s, %s, \"%s\")"):format(identifier, trainer.name, trainer.location, trainer.coord_x, trainer.coord_y, trainer.faction))
+			if trainer then
+				if trainer.spell_id then
+					table.insert(output, ("AddTrainer(%s, %s, \"%s\", %s, %s, \"%s\")"):format(identifier, trainer.spell_id, trainer.location, trainer.coord_x, trainer.coord_y, trainer.faction))
+				else
+					table.insert(output, ("AddTrainer(%s, \"%s\", \"%s\", %s, %s, \"%s\")"):format(identifier, trainer.name:gsub("\"", "\\\""), trainer.location, trainer.coord_x, trainer.coord_y, trainer.faction))
+				end
 			end
 		end
 		addon:DisplayTextDump(nil, nil, table.concat(output, "\n"))
