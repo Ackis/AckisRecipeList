@@ -567,84 +567,11 @@ end
 local ARLDatamineTT = _G.CreateFrame("GameTooltip", "ARLDatamineTT", _G.UIParent, "GameTooltipTemplate")
 
 do
-	-- Tables used in all the Scan functions within this do block. -Torhal
-	local scanned_recipes, output = {}, {}
-
-	--- Function to compare the skill levels of a trainers recipes with those in the ARL database.
-	-- @name AckisRecipeList:ScanSkillLevelData
-	-- @param autoscan True when autoscan is enabled in preferences, it will surpress output letting you know when a scan has occured.
-	-- @return Does a comparison of the information in your internal ARL database, and those items which are available on the trainer.  Compares the skill levels between the two.
-	function addon:ScanSkillLevelData(autoscan)
-		if not _G.IsTradeskillTrainer() then
-			if not autoscan then
-				self:Print(L["DATAMINER_SKILLLEVEL_ERROR"])
-			end
-			return
-		end
-		local recipe_list = LoadRecipe()	-- Get internal database
-
-		if not recipe_list then
-			self:Print(L["DATAMINER_NODB_ERROR"])
-			return
-		end
-		-- Get the initial trainer filters
-		local avail = _G.GetTrainerServiceTypeFilter("available")
-		local unavail = _G.GetTrainerServiceTypeFilter("unavailable")
-		local used = _G.GetTrainerServiceTypeFilter("used")
-
-		-- Clear the trainer filters
-		_G.SetTrainerServiceTypeFilter("available", 1)
-		_G.SetTrainerServiceTypeFilter("unavailable", 1)
-		_G.SetTrainerServiceTypeFilter("used", 1)
-
-		table.wipe(scanned_recipes)
-
-		-- Get the skill levels from the trainer
-		for i = 1, _G.GetNumTrainerServices(), 1 do
-			local name = _G.GetTrainerServiceInfo(i)
-			local _, skilllevel = _G.GetTrainerServiceSkillReq(i)
-
-			if not skilllevel then
-				skilllevel = 0
-			end
-			scanned_recipes[name] = skilllevel
-		end
-		local found = false
-
-		table.wipe(output)
-
-		for i in pairs(recipe_list) do
-			local i_name = recipe_list[i].name
-
-			if scanned_recipes[i_name] and scanned_recipes[i_name] ~= recipe_list[i].skill_level then
-				found = true
-				table.insert(output, L["DATAMINER_SKILLELVEL"]:format(i_name, recipe_list[i].skill_level, scanned_recipes[i_name]))
-				recipe_list[i].skill_level = scanned_recipes[i_name]
-
-				local skill_level = recipe_list[i].skill_level
-				local optimal_level = recipe_list[i].optimal_level
-
-				if optimal_level > skill_level or optimal_level < skill_level then
-					recipe_list[i].optimal_level = skill_level
-					recipe_list[i].medium_level = skill_level + 10
-					recipe_list[i].easy_level = skill_level + 15
-					recipe_list[i].trivial_level = skill_level + 20
-				end
-			end
-		end
-		table.insert(output, "Trainer Skill Level Scan Complete.")
-
-		if found then
-			self:DisplayTextDump(nil, nil, table.concat(output, "\n"))
-		end
-		-- Reset the filters to what they were before
-		_G.SetTrainerServiceTypeFilter("available", avail or 0)
-		_G.SetTrainerServiceTypeFilter("unavailable", unavail or 0)
-		_G.SetTrainerServiceTypeFilter("used", used or 0)
-	end
-
-	local missing_spell_ids, extra_spell_ids, corrected_spell_ids = {}, {}, {}
-	local scanned_items, itemless_spells = {}, {}
+	-- Tables used in addon:ScanTrainerData
+	local scanned_recipes, scanned_items, output = {}, {}, {}
+	local missing_spell_ids, extra_spell_ids, fixed_item_spell_ids = {}, {}, {}
+	local mismatched_levels, mismatched_levels_unconfirmed = {}, {}
+	local itemless_spells = {}
 
 	--- Function to compare which recipes are available from a trainer and compare with the internal ARL database.
 	-- @name AckisRecipeList:ScanTrainerData
@@ -690,20 +617,26 @@ do
 
 		local trainer_profession = _G.GetTrainerServiceSkillLine(1)
 
-		-- Get all the names of recipes from the trainer
 		for index = 1, _G.GetNumTrainerServices(), 1 do
 			local item_name = _G.GetTrainerServiceInfo(index)
 			local item_id = ItemLinkToID(_G.GetTrainerServiceItemLink(index))
+			local _, skill_level = _G.GetTrainerServiceSkillReq(index)
+
+			if not skill_level then
+				skill_level = 0
+			end
 
 			if item_id then
-				scanned_items[item_id] = true
+				scanned_items[item_id] = skill_level
 			else
-				scanned_recipes[item_name] = true
+				scanned_recipes[item_name] = skill_level
 			end
 		end
 		table.wipe(missing_spell_ids)
 		table.wipe(extra_spell_ids)
-		table.wipe(corrected_spell_ids)
+		table.wipe(fixed_item_spell_ids)
+		table.wipe(mismatched_levels)
+		table.wipe(mismatched_levels_unconfirmed)
 		table.wipe(output)
 
 		-- Dump out trainer info
@@ -712,8 +645,6 @@ do
 
 		table.insert(output, "ARL Version: @project-version@")
 		table.insert(output, L["DATAMINER_TRAINER_INFO"]:format(trainer_name, trainer_id))
-
-		local current_profession
 
 		for spell_id, recipe in pairs(recipe_list) do
 			if trainer_profession == recipe.profession then
@@ -729,11 +660,13 @@ do
 					end
 				end
 				local matching_item = scanned_items[recipe:CraftedItemID()]
-				local matching_recipe = scanned_recipes[recipe.name] and not recipe:CraftedItemID()
+				local matching_recipe = scanned_recipes[recipe.name]
+
+				if recipe:CraftedItemID() then
+					matching_recipe = nil
+				end
 
 				if matching_item or matching_recipe then
-					current_profession = recipe.profession
-
 					if not matching_trainer then
 						recipe:AddTrainer(trainer_id)
 						table.insert(missing_spell_ids, spell_id)
@@ -748,6 +681,13 @@ do
 							end
 						end
 					end
+					local recipe_skill = recipe:SkillLevels()
+
+					if matching_item and matching_item ~= recipe_skill then
+						table.insert(mismatched_levels, spell_id)
+					elseif matching_recipe and matching_recipe ~= recipe_skill then
+						table.insert(mismatched_levels_unconfirmed, spell_id)
+					end
 				elseif matching_trainer then
 					table.wipe(itemless_spells)
 
@@ -761,7 +701,7 @@ do
 					end
 
 					if itemless_spells[spell_id] then
-						table.insert(corrected_spell_ids, spell_id)
+						table.insert(fixed_item_spell_ids, spell_id)
 					else
 						table.insert(extra_spell_ids, spell_id)
 					end
@@ -770,7 +710,9 @@ do
 		end
 		local found_missing = #missing_spell_ids > 0
 		local found_extra = #extra_spell_ids > 0
-		local found_corrected = #corrected_spell_ids > 0
+		local found_fixed_item = #fixed_item_spell_ids > 0
+		local found_wrong_level = #mismatched_levels > 0
+		local found_unconfirmed_level = #mismatched_levels_unconfirmed > 0
 
 		if found_missing then
 			table.insert(output, "\nTrainer is missing from the following entries:")
@@ -792,18 +734,44 @@ do
 			end
 		end
 
-		if found_corrected then
+		if found_fixed_item then
 			table.insert(output, "\nRecipes which had no crafted item ID, but will once a dump is performed:")
-			table.sort(corrected_spell_ids)
+			table.sort(fixed_item_spell_ids)
 
-			for index in ipairs(corrected_spell_ids) do
-				local spell_id = corrected_spell_ids[index]
+			for index in ipairs(fixed_item_spell_ids) do
+				local spell_id = fixed_item_spell_ids[index]
 				table.insert(output, ("%d (%s)"):format(spell_id, recipe_list[spell_id].name))
 			end
 		end
 
-		if found_missing or found_extra or found_corrected then
-			if found_extra and current_profession == private.professions.Engineering then
+		if found_wrong_level then
+			table.insert(output, "\nRecipes which had an incorrect skill level, but will not once a dump is performed:")
+			table.sort(mismatched_levels)
+
+			for index in ipairs(mismatched_levels) do
+				local spell_id = mismatched_levels[index]
+				local recipe = recipe_list[spell_id]
+				local recipe_skill = recipe:SkillLevels()
+				local corrected_skill = scanned_items[recipe:CraftedItemID()]
+				table.insert(output, ("%d (%s): Corrected skill level from %d to %d."):format(spell_id, recipe.name, recipe_skill, corrected_skill))
+				recipe:SetSkillLevels(corrected_skill)
+			end
+		end
+
+		if found_unconfirmed_level then
+			table.insert(output, "\nRecipes with possible incorrect skill levels - unable to confirm:")
+			table.sort(mismatched_levels_unconfirmed)
+
+			for index in ipairs(mismatched_levels_unconfirmed) do
+				local spell_id = mismatched_levels_unconfirmed[index]
+				local recipe = recipe_list[spell_id]
+				local recipe_skill = recipe:SkillLevels()
+				table.insert(output, ("%d (%s): Skill set to %d; trainer reports %d."):format(spell_id, recipe.name, recipe_skill, scanned_recipes[recipe.name]))
+			end
+		end
+
+		if found_missing or found_extra or found_fixed_item or found_wrong_level or found_unconfirmed_level then
+			if found_extra and trainer_profession == private.professions.Engineering then
 				table.insert(output, "\nSome goggles may be listed as extra. These goggles ONLY show up for the classes who can make them, so they may be false positives.")
 			end
 

@@ -26,7 +26,7 @@ local AceConfigReg 	= LibStub("AceConfigRegistry-3.0")
 local AceConfigDialog 	= LibStub("AceConfigDialog-3.0")
 
 -- Set up the private intra-file namespace.
-local private	= select(2, ...)
+local FOLDER_NAME, private	= ...
 
 local modularOptions = {}
 
@@ -357,14 +357,6 @@ local function GetDatamineOptions()
 					name	= L["Generate Tradeskill Links"],
 					desc	= L["GENERATE_LINKS_DESC"],
 					func	= function() addon:GenerateLinks() end,
-				},
-				scantrainerskills = {
-					width	= "double",
-					order	= 20,
-					type	= "execute",
-					name	= L["Compare Trainer Skills"],
-					desc	= L["COMPARE_TRAINER_SKILL_DESC"],
-					func	= function() addon:ScanSkillLevelData() end,
 				},
 				scantraineracquire = {
 					width	= "double",

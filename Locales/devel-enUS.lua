@@ -224,7 +224,6 @@ L["COMMON_ISSUES_DESC"] = [=[Please refer to these common issues before submitti
 2) Inscription is missing so many glyphs! Why aren't they listed?  Turn off your 'classes' filter.  By default (and due to popular request) ARL will only show recipes which your class can use and most glyphs are not usable by your class.
 3) I don't want to see opposite faction recipes! Turn on the factions filter.  This will set it up to only display your factions obtainable recipes.  If something still shows up and it shouldn't, please submit a bug report.]=]
 L["COMPARE_TRAINER_ACQUIRE_DESC"] = "Compare selected trainer acquire methods with those in the ARL database."
-L["COMPARE_TRAINER_SKILL_DESC"] = "Compare skill levels of selected trainer with those in ARL database."
 L["CONTRACTALL_DESC"] = "Minimize all recipes listed below."
 L["CRAFTED_ENGINEERS"] = "Recipe is created by Engineers."
 L["CROSSBOW_DESC"] = "Recipes that make crossbows should be included in the scan."
@@ -264,7 +263,6 @@ L["Coilfang Sorceress"] = "Coilfang Sorceress"
 L["Coilskar Siren"] = "Coilskar Siren"
 L["Common Issues"] = "Common Issues"
 L["Compare Trainer Acquire"] = "Compare Trainer Acquire"
-L["Compare Trainer Skills"] = "Compare Trainer Skills"
 L["Constance Brisboise"] = "Constance Brisboise"
 L["Cook Ghilm"] = "Cook Ghilm"
 L["Cookie One-Eye"] = "Cookie One-Eye"
@@ -296,10 +294,6 @@ L["DAILY_COOKING_FISH"] = "Choose Barrel of Fish when completing any of these qu
 L["DAILY_COOKING_MEAT"] = "Choose Crate of Meat when completing any of these quests."
 L["DAILY_FISHING_SHATT"] = "Randomly obtained by completing any of the BC fishing daily quests."
 L["DATAMINER_NODB_ERROR"] = "Recipe database not loaded.  Please scan the tradeskill first then try the datamining."
-L["DATAMINER_SKILLELVEL"] = [=[Recipe level different!
-    Name: %s
-	ARL Level: %s
-	Trainer Level: %s]=]
 L["DATAMINER_SKILLLEVEL_ERROR"] = "This can only be used for a trade skill trainer.  Please open up the trainer and try again."
 L["DATAMINER_TRAINER_INFO"] = [=[Trainer Name: %s
 Trainer ID: %s]=]

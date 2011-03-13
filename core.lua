@@ -746,13 +746,12 @@ end
 
 ---Event used for datamining when a trainer is shown.
 function addon:TRAINER_SHOW()
-	self:ScanSkillLevelData(true)
 	self:ScanTrainerData(true)
 end
 
 ---Event used for datamining when a vendor is shown.
 function addon:MERCHANT_SHOW()
-	addon:ScanVendor()
+	self:ScanVendor()
 end
 
 do
@@ -969,8 +968,6 @@ do
 					self:Scan(false, false)
 				end
 			end
-		elseif arg1 == "scandata" then
-			self:ScanSkillLevelData()
 		elseif arg1 == "scanprof" then
 			self:ScanProfession("all")
 		elseif arg1 == "tradelinks" then
