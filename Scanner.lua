@@ -1310,7 +1310,7 @@ do
 
 		if not game_vers then
 			table.insert(output, "No expansion information: " .. tostring(spell_id) .. " " .. recipe_name)
-		elseif game_vers > private.game_versions.WOTLK then
+		elseif game_vers > #private.game_version_names then
 			table.insert(output, "Expansion information too high: " .. tostring(spell_id) .. " " .. recipe_name)
 		end
 		local optimal = recipe.optimal_level
