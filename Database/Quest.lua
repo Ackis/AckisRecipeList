@@ -1,21 +1,19 @@
 --[[
 ************************************************************************
 Quest.lua
-Quest data for all of Ackis Recipe List
 ************************************************************************
 File date: @file-date-iso@
 File hash: @file-abbreviated-hash@
 Project hash: @project-abbreviated-hash@
 Project version: @project-version@
 ************************************************************************
-Format:
-	AddQuest(QuestID, Zone, X, Y, Faction)
-************************************************************************
 Please see http://www.wowace.com/addons/arl/ for more information.
 ************************************************************************
 This source code is released under All Rights Reserved.
 ************************************************************************
 ]]--
+
+local _G = getfenv(0)
 
 -------------------------------------------------------------------------------
 -- AddOn namespace.
@@ -26,7 +24,7 @@ local L		= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
 local BZ	= LibStub("LibBabble-Zone-3.0"):GetLookupTable()
 
 -- Set up the private intra-file namespace.
-local private	= select(2, ...)
+local FOLDER_NAME, private	= ...
 
 ------------------------------------------------------------------------------
 -- Constants.
@@ -38,13 +36,13 @@ local HORDE	= 2
 ------------------------------------------------------------------------------
 -- Memoizing table for quest names.
 ------------------------------------------------------------------------------
-private.quest_names = setmetatable({}, {
+private.quest_names = _G.setmetatable({}, {
 	__index = function(t, id_num)
-			  GameTooltip:SetOwner(UIParent, ANCHOR_NONE)
-			  GameTooltip:SetHyperlink("quest:"..tostring(id_num))
+			  _G.GameTooltip:SetOwner(UIParent, ANCHOR_NONE)
+			  _G.GameTooltip:SetHyperlink("quest:"..tostring(id_num))
 
 			  local quest_name = _G["GameTooltipTextLeft1"]:GetText()
-			  GameTooltip:Hide()
+			  _G.GameTooltip:Hide()
 
 			  if not quest_name then
 				  return _G.UNKNOWN
@@ -55,8 +53,8 @@ private.quest_names = setmetatable({}, {
 })
 
 function addon:InitQuest(DB)
-	local function AddQuest(QuestID, Zone, X, Y, Faction)
-		addon:addLookupList(DB, QuestID, nil, Zone, X, Y, Faction)
+	local function AddQuest(quest_id, location, coord_x, coord_y, faction)
+		addon:AddListEntry(DB, quest_id, nil, location, coord_x, coord_y, faction)
 	end
 
 	AddQuest(384,	BZ["Dun Morogh"],		46.8,	52.5,	ALLIANCE)
@@ -103,14 +101,14 @@ function addon:InitQuest(DB)
 	AddQuest(9635,	BZ["Zangarmarsh"],		33.7,	50.2,	HORDE)
 	AddQuest(9636,	BZ["Zangarmarsh"],		68.6,	50.2,	ALLIANCE)
 	AddQuest(10860,	BZ["Blade's Edge Mountains"],	76.1,	60.3,	HORDE)
-	AddQuest(11377,	BZ["Shattrath City"],		61.6, 16.5, NEUTRAL)
-	AddQuest(11379,	BZ["Shattrath City"],		61.6, 16.5, NEUTRAL)
-	AddQuest(11380,	BZ["Shattrath City"],		61.6, 16.5, NEUTRAL)
-	AddQuest(11381,	BZ["Shattrath City"],		61.6, 16.5, NEUTRAL)
-	AddQuest(11666,	BZ["Terokkar Forest"],		38.7, 12.8, NEUTRAL)
-	AddQuest(11667,	BZ["Terokkar Forest"],		38.7, 12.8, NEUTRAL)
-	AddQuest(11668,	BZ["Terokkar Forest"],		38.7, 12.8, NEUTRAL)
-	AddQuest(11669,	BZ["Terokkar Forest"],		38.7, 12.8, NEUTRAL)
+	AddQuest(11377,	BZ["Shattrath City"],		61.6, 16.5,	NEUTRAL)
+	AddQuest(11379,	BZ["Shattrath City"],		61.6, 16.5,	NEUTRAL)
+	AddQuest(11380,	BZ["Shattrath City"],		61.6, 16.5,	NEUTRAL)
+	AddQuest(11381,	BZ["Shattrath City"],		61.6, 16.5,	NEUTRAL)
+	AddQuest(11666,	BZ["Terokkar Forest"],		38.7, 12.8,	NEUTRAL)
+	AddQuest(11667,	BZ["Terokkar Forest"],		38.7, 12.8,	NEUTRAL)
+	AddQuest(11668,	BZ["Terokkar Forest"],		38.7, 12.8,	NEUTRAL)
+	AddQuest(11669,	BZ["Terokkar Forest"],		38.7, 12.8,	NEUTRAL)
 	AddQuest(12889,	BZ["The Storm Peaks"],		37.7,	46.5,	NEUTRAL)
 	AddQuest(13571,	BZ["Dalaran"],			0,	0,	NEUTRAL)
 	AddQuest(13087,	BZ["Howling Fjord"],		58.2,	62.1,	ALLIANCE)
@@ -130,6 +128,7 @@ function addon:InitQuest(DB)
 	AddQuest(14151,	BZ["Dalaran"],			42.5,	32.1,	NEUTRAL)
 	AddQuest(26620,	BZ["Duskwood"],			73.8,	43.6,	ALLIANCE)
 	AddQuest(26623,	BZ["Duskwood"],			73.8,	43.6,	ALLIANCE)
-	AddQuest(26860,	BZ["Loch Modan"],			34.9,	49.1,	ALLIANCE)
+	AddQuest(26860,	BZ["Loch Modan"],		34.9,	49.1,	ALLIANCE)
 
+	self.InitQuest = nil
 end

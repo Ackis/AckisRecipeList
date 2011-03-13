@@ -852,8 +852,8 @@ do
 	}
 
 	--- Adds an item to a specific database listing (ie: vendor, mob, etc)
-	-- @name AckisRecipeList:addLookupList
-	-- @usage AckisRecipeList:addLookupList(DB,NPC ID, NPC Name, NPC Location, X Coord, Y Coord, Faction)
+	-- @name AckisRecipeList:AddListEntry
+	-- @usage AckisRecipeList:AddListEntry(DB,NPC ID, NPC Name, NPC Location, X Coord, Y Coord, Faction)
 	-- @param DB Database which the entry will be stored
 	-- @param ID Unique identified for the entry
 	-- @param name Name of the entry
@@ -863,30 +863,31 @@ do
 	-- @param faction Faction identifier for the entry
 	-- @return None, array is passed as a reference
 	-- For individual database structures, see Documentation.lua
-	function addon:addLookupList(DB, ID, name, location, coord_x, coord_y, faction)
-		if DB[ID] then
-			self:Debug("Duplicate lookup: %d - %s.", ID, name)
+	function addon:AddListEntry(lookup_list, identifier, name, location, coord_x, coord_y, faction)
+		if lookup_list[identifier] then
+			self:Debug("Duplicate lookup: %s - %s.", identifier, name)
 			return
 		end
 
-		DB[ID] = {
+		local entry = {
 			["name"]	= name,
 			["location"]	= location,
 			["faction"]	= faction and FACTION_NAMES[faction + 1] or FACTION_NAMES[1]
 		}
+		lookup_list[identifier] = entry
 
 		if coord_x and coord_y then
-			DB[ID]["coord_x"] = coord_x
-			DB[ID]["coord_y"] = coord_y
+			lookup_list[identifier]["coord_x"] = coord_x
+			lookup_list[identifier]["coord_y"] = coord_y
 		end
 
 		--@alpha@
-		if not location and DB ~= private.custom_list then
-			self:Debug("Lookup ID: %d (%s) has an unknown location.", ID, DB[ID].name or _G.UNKNOWN)
+		if not location and lookup_list ~= private.custom_list and lookup_list ~= private.reputation_list then
+			self:Debug("Lookup ID: %s (%s) has an unknown location.", identifier, lookup_list[identifier].name or _G.UNKNOWN)
 		end
 
-		if faction and DB == private.mob_list then
-			self:Debug("Mob %d (%s) has been assigned to faction %s.", ID, name, DB[ID].faction)
+		if faction and lookup_list == private.mob_list then
+			self:Debug("Mob %d (%s) has been assigned to faction %s.", identifier, name, lookup_list[identifier].faction)
 		end
 		--@end-alpha@
 	end

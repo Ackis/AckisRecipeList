@@ -1,16 +1,11 @@
 --[[
 ************************************************************************
 Mob.lua
-Mob data for all of Ackis Recipe List
 ************************************************************************
 File date: @file-date-iso@
 File hash: @file-abbreviated-hash@
 Project hash: @project-abbreviated-hash@
 Project version: @project-version@
-************************************************************************
-Format:
-	self:addLookupList(DB,NPC ID, NPC Name, NPC Location, X Coord, Y Coord, Faction)
-	the "Faction" parameter is not used in this specific database
 ************************************************************************
 Please see http://www.wowace.com/addons/arl/ for more information.
 ************************************************************************
@@ -25,8 +20,8 @@ local BZ		= LibStub("LibBabble-Zone-3.0"):GetLookupTable()
 local BB		= LibStub("LibBabble-Boss-3.0"):GetLookupTable()
 
 function addon:InitMob(DB)
-	local function AddMob(mob_id, mob_name, zone, coord_x, coord_y, faction)
-		addon:addLookupList(DB, mob_id, mob_name, zone, coord_x, coord_y, faction)
+	local function AddMob(mob_id, mob_name, zone, coord_x, coord_y)
+		addon:AddListEntry(DB, mob_id, mob_name, zone, coord_x, coord_y, nil)
 	end
 
 	-- Arathi Highlands
@@ -443,4 +438,6 @@ function addon:InitMob(DB)
 
 	-- Utgarde Pinnacle
 	AddMob(26861,	BB["King Ymiron"],			BZ["Utgarde Pinnacle"], 0, 0)
+
+	self.InitMob = nil
 end
