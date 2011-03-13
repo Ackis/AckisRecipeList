@@ -1835,7 +1835,7 @@ do
 			local rep_data = acquire_data[A.REPUTATION]
 
 			if rep_data then
-				for rep_id, rep_info in pairs(acquire_info) do		-- TODO: This is totally fucking broken. acquire_info is not declared/defined.
+				for rep_id, rep_info in pairs(rep_data) do
 					for rep_level, level_info in pairs(rep_info) do
 						if rep_level ~= scan_data.repidlevel then
 							table.insert(output, "    Wrong reputation level.")
