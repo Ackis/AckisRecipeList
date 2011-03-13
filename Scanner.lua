@@ -1552,12 +1552,11 @@ do
 			local text
 
 			if text_r then
-				text = text_l .. " " .. text_r
+				text = ("%s %s"):format(text_l, text_r)
 			else
 				text = text_l
 			end
-
-			local text = string.lower(text)
+			text = text:lower()
 
 			-- Check for recipe/item binding
 			-- The recipe binding is within the first few lines of the tooltip always
@@ -1874,10 +1873,8 @@ do
 			table.insert(missing_flags, string.format(flag_format, FS[F.TRAINER]))
 		end
 
-		if recipe:HasFilter("common1", "TRAINER") and not acquire_data[A.TRAINER] then
-			if not acquire_data[A.CUSTOM] then
-				table.insert(extra_flags, string.format(flag_format, FS[F.TRAINER]))
-			end
+		if recipe:HasFilter("common1", "TRAINER") and not acquire_data[A.TRAINER] and not acquire_data[A.CUSTOM] then
+			table.insert(extra_flags, string.format(flag_format, FS[F.TRAINER]))
 		end
 
 		for flag, acquire_type in pairs(FILTER_TO_ACQUIRE_MAP) do
@@ -1957,11 +1954,11 @@ do
 			table.insert(output, string.format("    Extra Specialty: %s", recipe.specialty))
 		end
 
-		if scan_data.quality ~= recipe.quality then
+		if scan_data.quality and scan_data.quality ~= recipe.quality then
 			local QS = private.item_quality_names
 
 			found_problem = true
-			table.insert(output, string.format("    Wrong quality: Q.%s - should be Q.%s.", QS[recipe.quality], QS[scan_data.quality]))
+			table.insert(output, ("    Wrong quality: Q.%s - should be Q.%s."):format(QS[recipe.quality], QS[scan_data.quality]))
 		end
 
 		if found_problem then
