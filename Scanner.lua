@@ -643,8 +643,8 @@ do
 		_G.SetTrainerServiceTypeFilter("used", used or 0)
 	end
 
-	local missing_spell_ids, extra_spell_ids = {}, {}
-	local scanned_items = {}
+	local missing_spell_ids, extra_spell_ids, corrected_spell_ids = {}, {}, {}
+	local scanned_items, itemless_spells = {}, {}
 
 	--- Function to compare which recipes are available from a trainer and compare with the internal ARL database.
 	-- @name AckisRecipeList:ScanTrainerData
@@ -703,6 +703,7 @@ do
 		end
 		table.wipe(missing_spell_ids)
 		table.wipe(extra_spell_ids)
+		table.wipe(corrected_spell_ids)
 		table.wipe(output)
 
 		-- Dump out trainer info
@@ -748,19 +749,28 @@ do
 						end
 					end
 				elseif matching_trainer then
+					table.wipe(itemless_spells)
+
 					if not recipe:CraftedItemID() then
 						for item_id in pairs(scanned_items) do
 							if recipe.name == _G.GetItemInfo(item_id) then
 								recipe:SetCraftedItemID(item_id)
+								itemless_spells[spell_id] = true
 							end
 						end
 					end
-					table.insert(extra_spell_ids, spell_id)
+
+					if itemless_spells[spell_id] then
+						table.insert(corrected_spell_ids, spell_id)
+					else
+						table.insert(extra_spell_ids, spell_id)
+					end
 				end
 			end
 		end
 		local found_missing = #missing_spell_ids > 0
 		local found_extra = #extra_spell_ids > 0
+		local found_corrected = #corrected_spell_ids > 0
 
 		if found_missing then
 			table.insert(output, "\nTrainer is missing from the following entries:")
@@ -773,7 +783,7 @@ do
 		end
 
 		if found_extra then
-			table.insert(output, "\nRecipes which are either missing crafted item IDs or are wrongly assigned to the trainer:")
+			table.insert(output, "\nRecipes which are wrongly assigned to the trainer:")
 			table.sort(extra_spell_ids)
 
 			for index in ipairs(extra_spell_ids) do
@@ -782,8 +792,18 @@ do
 			end
 		end
 
-		if found_missing or found_extra then
-			if current_profession == private.professions.Engineering then
+		if found_corrected then
+			table.insert(output, "\nRecipes which had no crafted item ID, but will once a dump is performed:")
+			table.sort(corrected_spell_ids)
+
+			for index in ipairs(corrected_spell_ids) do
+				local spell_id = corrected_spell_ids[index]
+				table.insert(output, ("%d (%s)"):format(spell_id, recipe_list[spell_id].name))
+			end
+		end
+
+		if found_missing or found_extra or found_corrected then
+			if found_extra and current_profession == private.professions.Engineering then
 				table.insert(output, "\nSome goggles may be listed as extra. These goggles ONLY show up for the classes who can make them, so they may be false positives.")
 			end
 
