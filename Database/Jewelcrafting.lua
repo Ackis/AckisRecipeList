@@ -2142,7 +2142,7 @@ function addon:InitJewelcrafting()
 	-- Stormy Chalcedony -- 53943
 	recipe = AddRecipe(53943, V.WOTLK, Q.UNCOMMON)
 	recipe:SetRecipeItemID(41560)
-	recipe:SetCraftedItemID(39927)
+	recipe:SetCraftedItemID(39932)
 	recipe:SetSkillLevels(350, 350, 375, 395, 415)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.PVP, F.IBOE, F.RBOP, F.CASTER)
 	recipe:AddVendor(34039, 34079)
