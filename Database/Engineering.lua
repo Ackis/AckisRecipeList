@@ -1735,7 +1735,7 @@ function addon:InitEngineering()
 	recipe:SetCraftedItemID(34061)
 	recipe:SetSkillLevels(375, 375, 385, 390, 395)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(11017, 24868, 25099)
+	recipe:AddTrainer(11017, 24868, 25099, 33586)
 
 	-- Field Repair Bot 110G -- 44391
 	recipe = AddRecipe(44391, V.TBC, Q.UNCOMMON)
@@ -2243,7 +2243,7 @@ function addon:InitEngineering()
 	recipe:SetCraftedItemID(59449)
 	recipe:SetSkillLevels(525, 525, 525, 530, 535)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.MAGE, F.PRIEST, F.WARLOCK)
-	recipe:AddTrainer(5518, 11017)
+	recipe:AddTrainer(5518, 11017, 33586)
 
 	-- Synapse Springs -- 82175
 	recipe = AddRecipe(82175, V.CATA, Q.COMMON)
@@ -2280,42 +2280,42 @@ function addon:InitEngineering()
 	recipe:SetCraftedItemID(60224)
 	recipe:SetSkillLevels(425, 425, 435, 442, 450)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(5518, 11017)
+	recipe:AddTrainer(5518, 11017, 33586)
 
 	-- Authentic Jr. Engineer Goggles -- 84406
 	recipe = AddRecipe(84406, V.CATA, Q.COMMON)
 	recipe:SetCraftedItemID(60222)
 	recipe:SetSkillLevels(440, 440, 455, 457, 460)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(5518, 11017)
+	recipe:AddTrainer(5518, 11017, 33586)
 
 	-- R19 Threatfinder -- 84408
 	recipe = AddRecipe(84408, V.CATA, Q.COMMON)
 	recipe:SetCraftedItemID(59595)
 	recipe:SetSkillLevels(450, 450, 470, 472, 475)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(5518, 11017)
+	recipe:AddTrainer(5518, 11017, 33586)
 
 	-- Volatile Seaforium Blastpack -- 84409
 	recipe = AddRecipe(84409, V.CATA, Q.COMMON)
 	recipe:SetCraftedItemID(60853)
 	recipe:SetSkillLevels(455, 455, 460, 467, 475)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(5518, 11017)
+	recipe:AddTrainer(5518, 11017, 33586)
 
 	-- Safety Catch Removal Kit -- 84410
 	recipe = AddRecipe(84410, V.CATA, Q.COMMON)
 	recipe:SetCraftedItemID(59596)
 	recipe:SetSkillLevels(450, 450, 470, 472, 475)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(5518, 11017)
+	recipe:AddTrainer(5518, 11017, 33586)
 
 	-- High-Powered Bolt Gun -- 84411
 	recipe = AddRecipe(84411, V.CATA, Q.COMMON)
 	recipe:SetCraftedItemID(60223)
 	recipe:SetSkillLevels(465, 465, 465, 465, 480)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(5518, 11017)
+	recipe:AddTrainer(5518, 11017, 33586)
 
 	-- Personal World Destroyer -- 84412
 	recipe = AddRecipe(84412, V.CATA, Q.COMMON)
@@ -2338,42 +2338,42 @@ function addon:InitEngineering()
 	recipe:SetCraftedItemID(60218)
 	recipe:SetSkillLevels(475, 475, 490, 492, 495)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(5518, 11017)
+	recipe:AddTrainer(5518, 11017, 33586)
 
 	-- Elementium Toolbox -- 84416
 	recipe = AddRecipe(84416, V.CATA, Q.COMMON)
 	recipe:SetCraftedItemID(60217)
 	recipe:SetSkillLevels(475, 475, 495, 497, 500)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(5518, 11017)
+	recipe:AddTrainer(5518, 11017, 33586)
 
 	-- Volatile Thunderstick -- 84417
 	recipe = AddRecipe(84417, V.CATA, Q.COMMON)
 	recipe:SetCraftedItemID(59599)
 	recipe:SetSkillLevels(495, 495, 515, 517, 520)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(5518, 11017)
+	recipe:AddTrainer(5518, 11017, 33586)
 
 	-- Elementium Dragonling -- 84418
 	recipe = AddRecipe(84418, V.CATA, Q.COMMON)
 	recipe:SetCraftedItemID(60403)
 	recipe:SetSkillLevels(475, 475, 505, 507, 510)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(5518, 11017)
+	recipe:AddTrainer(5518, 11017, 33586)
 
 	-- Finely-Tuned Throat Needler -- 84420
 	recipe = AddRecipe(84420, V.CATA, Q.COMMON)
 	recipe:SetCraftedItemID(59598)
 	recipe:SetSkillLevels(490, 490, 510, 512, 515)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(5518, 11017)
+	recipe:AddTrainer(5518, 11017, 33586)
 
 	-- Loot-a-Rang -- 84421
 	recipe = AddRecipe(84421, V.CATA, Q.COMMON)
 	recipe:SetCraftedItemID(60854)
 	recipe:SetSkillLevels(490, 490, 495, 497, 500)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(5518, 11017)
+	recipe:AddTrainer(5518, 11017, 33586)
 
 	-- Invisibility Field -- 84424
 	recipe = AddRecipe(84424, V.CATA, Q.COMMON)
@@ -2398,49 +2398,49 @@ function addon:InitEngineering()
 	recipe:SetCraftedItemID(59594)
 	recipe:SetSkillLevels(515, 515, 525, 530, 535)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(5518, 11017)
+	recipe:AddTrainer(5518, 11017, 33586)
 
 	-- Goblin Barbecue -- 84429
 	recipe = AddRecipe(84429, V.CATA, Q.COMMON)
 	recipe:SetCraftedItemID(60858)
 	recipe:SetSkillLevels(505, 505, 505, 505, 515)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(5518, 11017)
+	recipe:AddTrainer(5518, 11017, 33586)
 
 	-- Heat-Treated Spinning Lure -- 84430
 	recipe = AddRecipe(84430, V.CATA, Q.COMMON)
 	recipe:SetCraftedItemID(68049)
 	recipe:SetSkillLevels(510, 510, 510, 520, 540)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(5518, 11017)
+	recipe:AddTrainer(5518, 11017, 33586)
 
 	-- Overpowered Chicken Splitter -- 84431
 	recipe = AddRecipe(84431, V.CATA, Q.COMMON)
 	recipe:SetCraftedItemID(59364)
 	recipe:SetSkillLevels(525, 525, 525, 530, 535)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(5518, 11017)
+	recipe:AddTrainer(5518, 11017, 33586)
 
 	-- Kickback 5000 -- 84432
 	recipe = AddRecipe(84432, V.CATA, Q.COMMON)
 	recipe:SetCraftedItemID(59367)
 	recipe:SetSkillLevels(525, 525, 525, 525, 525)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(5518, 11017)
+	recipe:AddTrainer(5518, 11017, 33586)
 
 	-- Electrified Ether -- 94748
 	recipe = AddRecipe(94748, V.CATA, Q.COMMON)
 	recipe:SetCraftedItemID(67749)
 	recipe:SetSkillLevels(445, 445, 455, 460, 465)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(5518, 11017)
+	recipe:AddTrainer(5518, 11017, 33586)
 
 	-- Electrostatic Condenser -- 95703
 	recipe = AddRecipe(95703, V.CATA, Q.COMMON)
 	recipe:SetCraftedItemID(67494)
 	recipe:SetSkillLevels(440, 440, 450, 452, 455)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(5518, 11017)
+	recipe:AddTrainer(5518, 11017, 33586)
 
 	self.InitEngineering = nil
 end
