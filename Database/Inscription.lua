@@ -19,11 +19,11 @@ This source code is released under All Rights Reserved.
 -------------------------------------------------------------------------------
 -- AddOn namespace.
 -------------------------------------------------------------------------------
-local MODNAME = "Ackis Recipe List"
-local addon = LibStub("AceAddon-3.0"):GetAddon(MODNAME)
-local L = LibStub("AceLocale-3.0"):GetLocale(MODNAME)
-
 local FOLDER_NAME, private = ...
+
+local addon = LibStub("AceAddon-3.0"):GetAddon(private.addon_name)
+local L = LibStub("AceLocale-3.0"):GetLocale(private.addon_name)
+
 
 -------------------------------------------------------------------------------
 -- Filter flags. Acquire types, and Reputation levels.
@@ -36,13 +36,15 @@ local FAC = private.faction_ids
 local V = private.game_versions
 
 --------------------------------------------------------------------------------------------------------------------
--- Counter and wrapper function
+-- Initialize!
 --------------------------------------------------------------------------------------------------------------------
-local function AddRecipe(spell_id, genesis, quality)
-	return addon:AddRecipe(spell_id, 45357, genesis, quality)
-end
-
 function addon:InitInscription()
+	local function AddRecipe(spell_id, genesis, quality)
+		return addon:AddRecipe(spell_id, 45357, genesis, quality)
+	end
+
+	private:InitializeInscriptionTrainers()
+
 	local recipe
 
 	-- Scroll of Stamina -- 45382

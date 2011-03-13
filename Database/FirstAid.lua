@@ -33,13 +33,15 @@ local FAC = private.faction_ids
 local V = private.game_versions
 
 --------------------------------------------------------------------------------------------------------------------
--- Counter and wrapper function
+-- Initialize!
 --------------------------------------------------------------------------------------------------------------------
-local function AddRecipe(spell_id, genesis, quality)
-	return addon:AddRecipe(spell_id, 3273, genesis, quality)
-end
-
 function addon:InitFirstAid()
+	local function AddRecipe(spell_id, genesis, quality)
+		return addon:AddRecipe(spell_id, 3273, genesis, quality)
+	end
+
+	private:InitializeFirstAidTrainers()
+
 	local recipe
 
 	-- Linen Bandage -- 3275

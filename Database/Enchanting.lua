@@ -33,13 +33,15 @@ local FAC = private.faction_ids
 local V = private.game_versions
 
 --------------------------------------------------------------------------------------------------------------------
--- Counter and wrapper function
+-- Initialize!
 --------------------------------------------------------------------------------------------------------------------
-local function AddRecipe(spell_id, genesis, quality)
-	return addon:AddRecipe(spell_id, 7411, genesis, quality)
-end
-
 function addon:InitEnchanting()
+	local function AddRecipe(spell_id, genesis, quality)
+		return addon:AddRecipe(spell_id, 7411, genesis, quality)
+	end
+
+	private:InitializeEnchantingTrainers()
+
 	local recipe
 
 	-- Enchant Bracer - Minor Health -- 7418

@@ -33,13 +33,15 @@ local FAC = private.faction_ids
 local V = private.game_versions
 
 --------------------------------------------------------------------------------------------------------------------
--- Counter and wrapper function
+-- Initialize!
 --------------------------------------------------------------------------------------------------------------------
-local function AddRecipe(spell_id, genesis, quality)
-	return addon:AddRecipe(spell_id, 51304, genesis, quality)
-end
-
 function addon:InitAlchemy()
+	local function AddRecipe(spell_id, genesis, quality)
+		return addon:AddRecipe(spell_id, 51304, genesis, quality)
+	end
+
+	private:InitializeAlchemyTrainers()
+
 	local recipe
 
 	-- Elixir of Lion's Strength -- 2329

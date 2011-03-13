@@ -32,13 +32,15 @@ local Q = private.item_qualities
 local V = private.game_versions
 
 --------------------------------------------------------------------------------------------------------------------
--- Counter and wrapper function
+-- Initialize!
 --------------------------------------------------------------------------------------------------------------------
-local function AddRecipe(spell_id, genesis, quality)
-	return addon:AddRecipe(spell_id, 53428, genesis, quality)
-end
-
 function addon:InitRuneforging()
+	local function AddRecipe(spell_id, genesis, quality)
+		return addon:AddRecipe(spell_id, 53428, genesis, quality)
+	end
+
+	private:InitializeRuneforgingTrainers()
+
 	local recipe
 
 	-- Rune of Swordshattering -- 53323

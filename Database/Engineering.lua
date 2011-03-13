@@ -34,13 +34,15 @@ local FAC = private.faction_ids
 local V = private.game_versions
 
 --------------------------------------------------------------------------------------------------------------------
--- Counter and wrapper function
+-- Initialize!
 --------------------------------------------------------------------------------------------------------------------
-local function AddRecipe(spell_id, genesis, quality)
-	return addon:AddRecipe(spell_id, 4036, genesis, quality)
-end
-
 function addon:InitEngineering()
+	local function AddRecipe(spell_id, genesis, quality)
+		return addon:AddRecipe(spell_id, 4036, genesis, quality)
+	end
+
+	private:InitializeEngineeringTrainers()
+
 	local recipe
 
 	-- Rough Blasting Powder -- 3918
