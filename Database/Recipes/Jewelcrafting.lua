@@ -469,7 +469,7 @@ function addon:InitJewelcrafting()
 
 	-- Brilliant Blood Garnet -- 28903
 	recipe = AddRecipe(28903, V.TBC, Q.COMMON)
-	recipe:SetRecipeItemID(23130)
+	recipe:SetRecipeItemID(23133)
 	recipe:SetCraftedItemID(23094)
 	recipe:SetSkillLevels(300, 300, 300, 320, 340)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER)

@@ -975,7 +975,7 @@ function addon:InitEnchanting()
 
 	-- Enchant Cloak - Stealth -- 25083
 	recipe = AddRecipe(25083, V.TBC, Q.RARE)
-	recipe:SetRecipeItemID(20734)
+	recipe:SetRecipeItemID(33149)
 	recipe:SetSkillLevels(300, 300, 310, 325, 340)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.RAID, F.IBOE, F.RBOE, F.CENARION_EXPEDITION, F.CLOAK)
 	recipe:AddRepVendor(FAC.CENARION_EXPEDITION, REP.EXALTED, 17904)
@@ -1308,7 +1308,8 @@ function addon:InitEnchanting()
 	recipe:SetCraftedItemID(22521)
 	recipe:SetSkillLevels(310, 310, 310, 320, 330)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE)
-	recipe:AddVendor(16635, 16722, 19663)
+	recipe:AddVendor(16635, 16722)
+	recipe:AddLimitedVendor(19663, 1)
 
 	-- Superior Wizard Oil -- 28019
 	recipe = AddRecipe(28019, V.TBC, Q.COMMON)
@@ -1316,7 +1317,8 @@ function addon:InitEnchanting()
 	recipe:SetCraftedItemID(22522)
 	recipe:SetSkillLevels(340, 340, 340, 350, 360)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	recipe:AddVendor(16635, 16722, 19663)
+	recipe:AddVendor(16635, 16722)
+	recipe:AddLimitedVendor(19663, 1)
 
 	-- Large Prismatic Shard -- 28022
 	recipe = AddRecipe(28022, V.TBC, Q.COMMON)
@@ -1324,7 +1326,8 @@ function addon:InitEnchanting()
 	recipe:SetCraftedItemID(22449)
 	recipe:SetSkillLevels(335, 335, 335, 335, 335)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE)
-	recipe:AddVendor(16635, 16722, 19663)
+	recipe:AddVendor(16635, 16722)
+	recipe:AddLimitedVendor(19663, 1)
 
 	-- Prismatic Sphere -- 28027
 	recipe = AddRecipe(28027, V.TBC, Q.COMMON)
@@ -1362,7 +1365,7 @@ function addon:InitEnchanting()
 	recipe:SetSkillLevels(375, 375, 375, 377, 385)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.VENDOR, F.IBOP, F.RBOP)
 	recipe:AddTrainer(3345, 19251, 19252, 26906, 26954, 26980, 26990, 28693, 33583, 33610, 33633)
-	recipe:AddVendor(19663)
+	recipe:AddLimitedVendor(19663, 1)
 
 	-- Enchant Chest - Major Spirit -- 33990
 	recipe = AddRecipe(33990, V.TBC, Q.COMMON)
@@ -1480,7 +1483,7 @@ function addon:InitEnchanting()
 	recipe:SetRecipeItemID(28282)
 	recipe:SetSkillLevels(325, 325, 335, 350, 365)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.SHIELD)
-	recipe:AddVendor(19663)
+	recipe:AddLimitedVendor(19663, 1)
 
 	-- Enchant Weapon - Major Healing -- 34010
 	recipe = AddRecipe(34010, V.TBC, Q.UNCOMMON)
