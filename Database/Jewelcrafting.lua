@@ -1817,56 +1817,56 @@ function addon:InitJewelcrafting()
 	recipe:SetCraftedItemID(39900)
 	recipe:SetSkillLevels(350, 350, 375, 395, 415)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS)
-	recipe:AddTrainer(18751, 26915, 26960, 26982, 26997, 28701, 33590, 46675)
+	recipe:AddTrainer(18751, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 46675)
 
 	-- Delicate Bloodstone -- 53832
 	recipe = AddRecipe(53832, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(39905)
 	recipe:SetSkillLevels(350, 350, 375, 395, 415)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS)
-	recipe:AddTrainer(18751, 26915, 26960, 26982, 26997, 28701, 33590, 46675)
+	recipe:AddTrainer(18751, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 46675)
 
 	-- Subtle Sun Crystal -- 53843
 	recipe = AddRecipe(53843, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(39907)
 	recipe:SetSkillLevels(350, 350, 360, 365, 370)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.TANK)
-	recipe:AddTrainer(18751, 26915, 26960, 26982, 26997, 28701, 33590, 46675)
+	recipe:AddTrainer(18751, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 46675)
 
 	-- Flashing Bloodstone -- 53844
 	recipe = AddRecipe(53844, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(39908)
 	recipe:SetSkillLevels(350, 350, 375, 395, 415)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.TANK)
-	recipe:AddTrainer(18751, 26915, 26960, 26982, 26997, 28701, 33590, 46675)
+	recipe:AddTrainer(18751, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 46675)
 
 	-- Smooth Sun Crystal -- 53845
 	recipe = AddRecipe(53845, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(39909)
 	recipe:SetSkillLevels(350, 350, 375, 395, 415)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS)
-	recipe:AddTrainer(18751, 26915, 26960, 26982, 26997, 28701, 33590, 46675)
+	recipe:AddTrainer(18751, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 46675)
 
 	-- Brilliant Bloodstone -- 53852
 	recipe = AddRecipe(53852, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(39912)
 	recipe:SetSkillLevels(350, 350, 375, 395, 415)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(18751, 26915, 26960, 26982, 26997, 28701, 33590, 46675)
+	recipe:AddTrainer(18751, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 46675)
 
 	-- Rigid Chalcedony -- 53854
 	recipe = AddRecipe(53854, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(39915)
 	recipe:SetSkillLevels(350, 350, 375, 395, 415)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(18751, 26915, 26960, 26982, 26997, 28701, 33590, 46675)
+	recipe:AddTrainer(18751, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 46675)
 
 	-- Quick Sun Crystal -- 53856
 	recipe = AddRecipe(53856, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(39918)
 	recipe:SetSkillLevels(350, 350, 375, 395, 415)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(18751, 26915, 26960, 26982, 26997, 28701, 33590, 46675)
+	recipe:AddTrainer(18751, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 46675)
 
 	-- Mystic Sun Crystal -- 53857
 	recipe = AddRecipe(53857, V.WOTLK, Q.UNCOMMON)
@@ -1881,21 +1881,21 @@ function addon:InitJewelcrafting()
 	recipe:SetCraftedItemID(39934)
 	recipe:SetSkillLevels(350, 350, 375, 395, 415)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS)
-	recipe:AddTrainer(18751, 26915, 26960, 26982, 26997, 28701, 33590, 46675)
+	recipe:AddTrainer(18751, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 46675)
 
 	-- Shifting Shadow Crystal -- 53860
 	recipe = AddRecipe(53860, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(39935)
 	recipe:SetSkillLevels(350, 350, 375, 395, 415)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS)
-	recipe:AddTrainer(18751, 26915, 26960, 26982, 26997, 28701, 33590, 46675)
+	recipe:AddTrainer(18751, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 46675)
 
 	-- Glinting Shadow Crystal -- 53861
 	recipe = AddRecipe(53861, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(39942)
 	recipe:SetSkillLevels(350, 350, 375, 395, 415)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS)
-	recipe:AddTrainer(18751, 26915, 26960, 26982, 26997, 28701, 33590, 46675)
+	recipe:AddTrainer(18751, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 46675)
 
 	-- Mysterious Shadow Crystal -- 53865
 	recipe = AddRecipe(53865, V.WOTLK, Q.UNCOMMON)
@@ -1918,35 +1918,35 @@ function addon:InitJewelcrafting()
 	recipe:SetCraftedItemID(39933)
 	recipe:SetSkillLevels(350, 350, 375, 395, 415)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS)
-	recipe:AddTrainer(18751, 26915, 26960, 26982, 26997, 28701, 33590, 46675)
+	recipe:AddTrainer(18751, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 46675)
 
 	-- Guardian's Shadow Crystal -- 53871
 	recipe = AddRecipe(53871, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(39940)
 	recipe:SetSkillLevels(350, 350, 375, 395, 415)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS, F.TANK)
-	recipe:AddTrainer(18751, 26915, 26960, 26982, 26997, 28701, 33590, 46675)
+	recipe:AddTrainer(18751, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 46675)
 
 	-- Inscribed Huge Citrine -- 53872
 	recipe = AddRecipe(53872, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(39947)
 	recipe:SetSkillLevels(350, 350, 375, 395, 415)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS)
-	recipe:AddTrainer(18751, 26915, 26960, 26982, 26997, 28701, 33590, 46675)
+	recipe:AddTrainer(18751, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 46675)
 
 	-- Etched Shadow Crystal -- 53873
 	recipe = AddRecipe(53873, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(39948)
 	recipe:SetSkillLevels(350, 350, 375, 395, 415)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS)
-	recipe:AddTrainer(18751, 26915, 26960, 26982, 26997, 28701, 33590, 46675)
+	recipe:AddTrainer(18751, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 46675)
 
 	-- Champion's Huge Citrine -- 53874
 	recipe = AddRecipe(53874, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(39949)
 	recipe:SetSkillLevels(350, 350, 375, 395, 415)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS, F.TANK)
-	recipe:AddTrainer(18751, 26915, 26960, 26982, 26997, 28701, 33590, 46675)
+	recipe:AddTrainer(18751, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 46675)
 
 	-- Resplendent Huge Citrine -- 53875
 	recipe = AddRecipe(53875, V.WOTLK, Q.UNCOMMON)
@@ -1961,7 +1961,7 @@ function addon:InitJewelcrafting()
 	recipe:SetCraftedItemID(39951)
 	recipe:SetSkillLevels(350, 350, 375, 395, 415)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS)
-	recipe:AddTrainer(18751, 26915, 26960, 26982, 26997, 28701, 33590, 46675)
+	recipe:AddTrainer(18751, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 46675)
 
 	-- Deadly Huge Citrine -- 53877
 	recipe = AddRecipe(53877, V.WOTLK, Q.UNCOMMON)
@@ -1984,21 +1984,21 @@ function addon:InitJewelcrafting()
 	recipe:SetCraftedItemID(39955)
 	recipe:SetSkillLevels(350, 350, 375, 395, 415)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS)
-	recipe:AddTrainer(18751, 26915, 26960, 26982, 26997, 28701, 33590, 46675)
+	recipe:AddTrainer(18751, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 46675)
 
 	-- Potent Huge Citrine -- 53882
 	recipe = AddRecipe(53882, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(39956)
 	recipe:SetSkillLevels(350, 350, 375, 395, 415)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
-	recipe:AddTrainer(18751, 26915, 26960, 26982, 26997, 28701, 33590, 46675)
+	recipe:AddTrainer(18751, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 46675)
 
 	-- Veiled Shadow Crystal -- 53883
 	recipe = AddRecipe(53883, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(39957)
 	recipe:SetSkillLevels(350, 350, 375, 395, 415)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
-	recipe:AddTrainer(18751, 26915, 26960, 26982, 26997, 28701, 33590, 46675)
+	recipe:AddTrainer(18751, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 46675)
 
 	-- Willful Huge Citrine -- 53884
 	recipe = AddRecipe(53884, V.WOTLK, Q.UNCOMMON)
@@ -2021,28 +2021,28 @@ function addon:InitJewelcrafting()
 	recipe:SetCraftedItemID(39965)
 	recipe:SetSkillLevels(350, 350, 360, 365, 370)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.TANK)
-	recipe:AddTrainer(18751, 26915, 26960, 26982, 26997, 28701, 33590, 46675)
+	recipe:AddTrainer(18751, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 46675)
 
 	-- Accurate Shadow Crystal -- 53892
 	recipe = AddRecipe(53892, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(39966)
 	recipe:SetSkillLevels(350, 350, 375, 395, 415)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS, F.TANK)
-	recipe:AddTrainer(18751, 26915, 26960, 26982, 26997, 28701, 33590, 46675)
+	recipe:AddTrainer(18751, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 46675)
 
 	-- Resolute Huge Citrine -- 53893
 	recipe = AddRecipe(53893, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(39967)
 	recipe:SetSkillLevels(350, 350, 375, 395, 415)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS, F.TANK)
-	recipe:AddTrainer(18751, 26915, 26960, 26982, 26997, 28701, 33590, 46675)
+	recipe:AddTrainer(18751, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 46675)
 
 	-- Timeless Shadow Crystal -- 53894
 	recipe = AddRecipe(53894, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(39968)
 	recipe:SetSkillLevels(350, 350, 375, 395, 415)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(18751, 26915, 26960, 26982, 26997, 28701, 33590, 46675)
+	recipe:AddTrainer(18751, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 46675)
 
 	-- Nimble Dark Jade -- 53917
 	recipe = AddRecipe(53917, V.WOTLK, Q.UNCOMMON)
@@ -2057,7 +2057,7 @@ function addon:InitJewelcrafting()
 	recipe:SetCraftedItemID(39976)
 	recipe:SetSkillLevels(350, 350, 375, 395, 415)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.TANK)
-	recipe:AddTrainer(18751, 26915, 26960, 26982, 26997, 28701, 33590, 46675)
+	recipe:AddTrainer(18751, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 46675)
 
 	-- Steady Dark Jade -- 53919
 	recipe = AddRecipe(53919, V.WOTLK, Q.UNCOMMON)
@@ -2072,7 +2072,7 @@ function addon:InitJewelcrafting()
 	recipe:SetCraftedItemID(39978)
 	recipe:SetSkillLevels(350, 350, 375, 395, 415)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(18751, 26915, 26960, 26982, 26997, 28701, 33590, 46675)
+	recipe:AddTrainer(18751, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 46675)
 
 	-- Purified Shadow Crystal -- 53921
 	recipe = AddRecipe(53921, V.WOTLK, Q.UNCOMMON)
@@ -2087,14 +2087,14 @@ function addon:InitJewelcrafting()
 	recipe:SetCraftedItemID(39980)
 	recipe:SetSkillLevels(350, 350, 375, 395, 415)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
-	recipe:AddTrainer(18751, 26915, 26960, 26982, 26997, 28701, 33590, 46675)
+	recipe:AddTrainer(18751, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 46675)
 
 	-- Lightning Dark Jade -- 53923
 	recipe = AddRecipe(53923, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(39981)
 	recipe:SetSkillLevels(350, 350, 375, 395, 415)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
-	recipe:AddTrainer(18751, 26915, 26960, 26982, 26997, 28701, 33590, 46675)
+	recipe:AddTrainer(18751, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 46675)
 
 	-- Turbid Dark Jade -- 53924
 	recipe = AddRecipe(53924, V.WOTLK, Q.UNCOMMON)
@@ -2109,7 +2109,7 @@ function addon:InitJewelcrafting()
 	recipe:SetCraftedItemID(39983)
 	recipe:SetSkillLevels(350, 350, 375, 395, 415)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
-	recipe:AddTrainer(18751, 26915, 26960, 26982, 26997, 28701, 33590, 46675)
+	recipe:AddTrainer(18751, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 46675)
 
 	-- Radiant Dark Jade -- 53932
 	recipe = AddRecipe(53932, V.WOTLK, Q.UNCOMMON)
@@ -2132,14 +2132,14 @@ function addon:InitJewelcrafting()
 	recipe:SetCraftedItemID(39919)
 	recipe:SetSkillLevels(350, 350, 375, 395, 415)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(18751, 26915, 26960, 26982, 26997, 28701, 33590, 46675)
+	recipe:AddTrainer(18751, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 46675)
 
 	-- Sparkling Chalcedony -- 53941
 	recipe = AddRecipe(53941, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(39927)
 	recipe:SetSkillLevels(350, 350, 375, 395, 415)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
-	recipe:AddTrainer(18751, 26915, 26960, 26982, 26997, 28701, 33590, 46675)
+	recipe:AddTrainer(18751, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 46675)
 
 	-- Stormy Chalcedony -- 53943
 	recipe = AddRecipe(53943, V.WOTLK, Q.UNCOMMON)
@@ -2506,7 +2506,7 @@ function addon:InitJewelcrafting()
 	recipe:SetCraftedItemID(39910)
 	recipe:SetSkillLevels(350, 350, 375, 395, 415)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS, F.TANK)
-	recipe:AddTrainer(18751, 26915, 26960, 26982, 26997, 28701, 33590, 46675)
+	recipe:AddTrainer(18751, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 46675)
 
 	-- Fierce Monarch Topaz -- 54019
 	recipe = AddRecipe(54019, V.WOTLK, Q.RARE)
@@ -2537,7 +2537,7 @@ function addon:InitJewelcrafting()
 	recipe:SetCraftedItemID(41375)
 	recipe:SetSkillLevels(420, 420, 440, 450, 460)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
-	recipe:AddTrainer(18751, 26915, 26960, 26982, 26997, 28701, 33590, 46675)
+	recipe:AddTrainer(18751, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 46675)
 
 	-- Forlorn Skyflare Diamond -- 55387
 	recipe = AddRecipe(55387, V.WOTLK, Q.RARE)
@@ -2592,7 +2592,7 @@ function addon:InitJewelcrafting()
 	recipe:SetCraftedItemID(41339)
 	recipe:SetSkillLevels(420, 420, 440, 450, 460)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS)
-	recipe:AddTrainer(18751, 26915, 26960, 26982, 26997, 28701, 33590, 46675)
+	recipe:AddTrainer(18751, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 46675)
 
 	-- Thundering Skyflare Diamond -- 55395
 	recipe = AddRecipe(55395, V.WOTLK, Q.RARE)
@@ -2631,7 +2631,7 @@ function addon:InitJewelcrafting()
 	recipe:SetCraftedItemID(41397)
 	recipe:SetSkillLevels(420, 420, 440, 450, 460)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(18751, 26915, 26960, 26982, 26997, 28701, 33590, 46675)
+	recipe:AddTrainer(18751, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 46675)
 
 	-- Relentless Earthsiege Diamond -- 55400
 	recipe = AddRecipe(55400, V.WOTLK, Q.RARE)
@@ -2654,7 +2654,7 @@ function addon:InitJewelcrafting()
 	recipe:SetCraftedItemID(41381)
 	recipe:SetSkillLevels(420, 420, 440, 450, 460)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS)
-	recipe:AddTrainer(18751, 26915, 26960, 26982, 26997, 28701, 33590, 46675)
+	recipe:AddTrainer(18751, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 46675)
 
 	-- Trenchant Earthsiege Diamond -- 55403
 	recipe = AddRecipe(55403, V.WOTLK, Q.RARE)
@@ -2797,84 +2797,84 @@ function addon:InitJewelcrafting()
 	recipe:SetCraftedItemID(42336)
 	recipe:SetSkillLevels(350, 350, 380, 400, 420)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS, F.RING)
-	recipe:AddTrainer(18751, 26915, 26960, 26982, 26997, 28701, 33590, 46675)
+	recipe:AddTrainer(18751, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 46675)
 
 	-- Sun Rock Ring -- 56194
 	recipe = AddRecipe(56194, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(42337)
 	recipe:SetSkillLevels(350, 350, 380, 400, 420)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.RING)
-	recipe:AddTrainer(18751, 26915, 26960, 26982, 26997, 28701, 33590, 46675)
+	recipe:AddTrainer(18751, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 46675)
 
 	-- Jade Dagger Pendant -- 56195
 	recipe = AddRecipe(56195, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(42338)
 	recipe:SetSkillLevels(380, 380, 400, 410, 420)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS, F.NECK)
-	recipe:AddTrainer(18751, 26915, 26960, 26982, 26997, 28701, 33590, 46675)
+	recipe:AddTrainer(18751, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 46675)
 
 	-- Blood Sun Necklace -- 56196
 	recipe = AddRecipe(56196, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(42339)
 	recipe:SetSkillLevels(380, 380, 400, 410, 420)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.NECK)
-	recipe:AddTrainer(18751, 26915, 26960, 26982, 26997, 28701, 33590, 46675)
+	recipe:AddTrainer(18751, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 46675)
 
 	-- Dream Signet -- 56197
 	recipe = AddRecipe(56197, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(42340)
 	recipe:SetSkillLevels(420, 420, 440, 450, 460)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.RING)
-	recipe:AddTrainer(18751, 26915, 26960, 26982, 26997, 28701, 33590, 46675)
+	recipe:AddTrainer(18751, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 46675)
 
 	-- Figurine - Ruby Hare -- 56199
 	recipe = AddRecipe(56199, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(42341)
 	recipe:SetSkillLevels(400, 400, 430, 440, 450)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.TRINKET)
-	recipe:AddTrainer(18751, 26915, 26960, 26982, 26997, 28701, 33590, 46675)
+	recipe:AddTrainer(18751, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 46675)
 
 	-- Figurine - Twilight Serpent -- 56201
 	recipe = AddRecipe(56201, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(42395)
 	recipe:SetSkillLevels(400, 400, 430, 440, 450)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.HEALER, F.CASTER, F.TRINKET)
-	recipe:AddTrainer(18751, 26915, 26960, 26982, 26997, 28701, 33590, 46675)
+	recipe:AddTrainer(18751, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 46675)
 
 	-- Figurine - Sapphire Owl -- 56202
 	recipe = AddRecipe(56202, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(42413)
 	recipe:SetSkillLevels(400, 400, 430, 440, 450)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.HEALER, F.CASTER, F.TRINKET)
-	recipe:AddTrainer(18751, 26915, 26960, 26982, 26997, 28701, 33590, 46675)
+	recipe:AddTrainer(18751, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 46675)
 
 	-- Figurine - Emerald Boar -- 56203
 	recipe = AddRecipe(56203, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(42418)
 	recipe:SetSkillLevels(400, 400, 430, 440, 450)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.DPS, F.TRINKET)
-	recipe:AddTrainer(18751, 26915, 26960, 26982, 26997, 28701, 33590, 46675)
+	recipe:AddTrainer(18751, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 46675)
 
 	-- Dark Jade Focusing Lens -- 56205
 	recipe = AddRecipe(56205, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(41367)
 	recipe:SetSkillLevels(350, 350, 360, 370, 380)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(18751, 26915, 26960, 26982, 26997, 28701, 33590, 46675)
+	recipe:AddTrainer(18751, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 46675)
 
 	-- Shadow Crystal Focusing Lens -- 56206
 	recipe = AddRecipe(56206, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(42420)
 	recipe:SetSkillLevels(350, 350, 360, 365, 370)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(18751, 26915, 26960, 26982, 26997, 28701, 33590, 46675)
+	recipe:AddTrainer(18751, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 46675)
 
 	-- Shadow Jade Focusing Lens -- 56208
 	recipe = AddRecipe(56208, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(42421)
 	recipe:SetSkillLevels(350, 350, 360, 365, 370)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(18751, 26915, 26960, 26982, 26997, 28701, 33590, 46675)
+	recipe:AddTrainer(18751, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 46675)
 
 	-- Titanium Impact Band -- 56496
 	recipe = AddRecipe(56496, V.WOTLK, Q.EPIC)
@@ -2929,56 +2929,56 @@ function addon:InitJewelcrafting()
 	recipe:SetCraftedItemID(42701)
 	recipe:SetSkillLevels(350, 350, 360, 365, 370)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(18751, 26915, 26960, 26982, 26997, 28701, 33590, 46675)
+	recipe:AddTrainer(18751, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 46675)
 
 	-- Enchanted Tear -- 56531
 	recipe = AddRecipe(56531, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(42702)
 	recipe:SetSkillLevels(390, 390, 410, 425, 440)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(18751, 26915, 26960, 26982, 26997, 28701, 33590, 46675)
+	recipe:AddTrainer(18751, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 46675)
 
 	-- Crystal Citrine Necklace -- 58141
 	recipe = AddRecipe(58141, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(43244)
 	recipe:SetSkillLevels(350, 350, 380, 400, 420)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.NECK)
-	recipe:AddTrainer(18751, 26915, 26960, 26982, 26997, 28701, 33590, 46675)
+	recipe:AddTrainer(18751, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 46675)
 
 	-- Crystal Chalcedony Amulet -- 58142
 	recipe = AddRecipe(58142, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(43245)
 	recipe:SetSkillLevels(350, 350, 380, 400, 420)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS, F.NECK)
-	recipe:AddTrainer(18751, 26915, 26960, 26982, 26997, 28701, 33590, 46675)
+	recipe:AddTrainer(18751, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 46675)
 
 	-- Earthshadow Ring -- 58143
 	recipe = AddRecipe(58143, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(43246)
 	recipe:SetSkillLevels(350, 350, 360, 365, 370)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.HEALER, F.CASTER, F.RING)
-	recipe:AddTrainer(18751, 26915, 26960, 26982, 26997, 28701, 33590, 46675)
+	recipe:AddTrainer(18751, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 46675)
 
 	-- Jade Ring of Slaying -- 58144
 	recipe = AddRecipe(58144, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(43247)
 	recipe:SetSkillLevels(350, 350, 360, 365, 370)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.DPS, F.TANK, F.RING)
-	recipe:AddTrainer(18751, 26915, 26960, 26982, 26997, 28701, 33590, 46675)
+	recipe:AddTrainer(18751, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 46675)
 
 	-- Stoneguard Band -- 58145
 	recipe = AddRecipe(58145, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(43248)
 	recipe:SetSkillLevels(390, 390, 410, 420, 430)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.TANK, F.RING)
-	recipe:AddTrainer(18751, 26915, 26960, 26982, 26997, 28701, 33590, 46675)
+	recipe:AddTrainer(18751, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 46675)
 
 	-- Shadowmight Ring -- 58146
 	recipe = AddRecipe(58146, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(43249)
 	recipe:SetSkillLevels(390, 390, 410, 420, 430)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.RING)
-	recipe:AddTrainer(18751, 26915, 26960, 26982, 26997, 28701, 33590, 46675)
+	recipe:AddTrainer(18751, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 46675)
 
 	-- Ring of Earthen Might -- 58147
 	recipe = AddRecipe(58147, V.WOTLK, Q.RARE)
@@ -3041,14 +3041,14 @@ function addon:InitJewelcrafting()
 	recipe:SetCraftedItemID(44063)
 	recipe:SetSkillLevels(400, 400, 430, 440, 450)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.TANK, F.TRINKET)
-	recipe:AddTrainer(18751, 26915, 26960, 26982, 26997, 28701, 33590, 46675)
+	recipe:AddTrainer(18751, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 46675)
 
 	-- Icy Prism -- 62242
 	recipe = AddRecipe(62242, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(44943)
 	recipe:SetSkillLevels(425, 425, 445, 457, 470)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP)
-	recipe:AddTrainer(18751, 26915, 26960, 26982, 26997, 28701, 33590, 46675)
+	recipe:AddTrainer(18751, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 46675)
 
 	-- Prismatic Black Diamond -- 62941
 	recipe = AddRecipe(62941, V.WOTLK, Q.COMMON)
@@ -3069,28 +3069,28 @@ function addon:InitJewelcrafting()
 	recipe:SetCraftedItemID(45812)
 	recipe:SetSkillLevels(420, 420, 440, 450, 460)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS, F.NECK)
-	recipe:AddTrainer(18751, 26915, 26960, 26982, 26997, 28701, 33590, 46675)
+	recipe:AddTrainer(18751, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 46675)
 
 	-- Sky Sapphire Amulet -- 64726
 	recipe = AddRecipe(64726, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(45813)
 	recipe:SetSkillLevels(420, 420, 440, 450, 460)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.NECK)
-	recipe:AddTrainer(18751, 26915, 26960, 26982, 26997, 28701, 33590, 46675)
+	recipe:AddTrainer(18751, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 46675)
 
 	-- Runed Mana Band -- 64727
 	recipe = AddRecipe(64727, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(45808)
 	recipe:SetSkillLevels(420, 420, 440, 450, 460)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.RING)
-	recipe:AddTrainer(18751, 26915, 26960, 26982, 26997, 28701, 33590, 46675)
+	recipe:AddTrainer(18751, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 46675)
 
 	-- Scarlet Signet -- 64728
 	recipe = AddRecipe(64728, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(45809)
 	recipe:SetSkillLevels(420, 420, 440, 450, 460)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS, F.RING)
-	recipe:AddTrainer(18751, 26915, 26960, 26982, 26997, 28701, 33590, 46675)
+	recipe:AddTrainer(18751, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 46675)
 
 	-- Regal Eye of Zul -- 66338
 	recipe = AddRecipe(66338, V.WOTLK, Q.RARE)
@@ -4256,28 +4256,28 @@ function addon:InitJewelcrafting()
 	recipe:SetCraftedItemID(52304)
 	recipe:SetSkillLevels(500, 500, 500, 500, 525)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(18751, 19063, 19775, 19778, 26982, 26997, 28701, 33590, 44582, 46675)
+	recipe:AddTrainer(18751, 19063, 19775, 19778, 26982, 26997, 28701, 33590, 33614, 44582, 46675)
 
 	-- Jasper Ring -- 73494
 	recipe = AddRecipe(73494, V.CATA, Q.COMMON)
 	recipe:SetCraftedItemID(52306)
 	recipe:SetSkillLevels(425, 425, 450, 467, 485)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(18751, 19063, 19775, 19778, 26982, 26997, 28701, 33590, 44582, 46675)
+	recipe:AddTrainer(18751, 19063, 19775, 19778, 26982, 26997, 28701, 33590, 33614, 44582, 46675)
 
 	-- Hessonite Band -- 73495
 	recipe = AddRecipe(73495, V.CATA, Q.COMMON)
 	recipe:SetCraftedItemID(52308)
 	recipe:SetSkillLevels(450, 450, 485, 495, 505)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(18751, 19063, 19775, 19778, 26982, 26997, 28701, 33590, 44582, 46675)
+	recipe:AddTrainer(18751, 19063, 19775, 19778, 26982, 26997, 28701, 33590, 33614, 44582, 46675)
 
 	-- Alicite Pendant -- 73496
 	recipe = AddRecipe(73496, V.CATA, Q.COMMON)
 	recipe:SetCraftedItemID(52307)
 	recipe:SetSkillLevels(435, 435, 450, 467, 485)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(18751, 19063, 19775, 19778, 26982, 26997, 28701, 33590, 44582, 46675)
+	recipe:AddTrainer(18751, 19063, 19775, 19778, 26982, 26997, 28701, 33590, 33614, 44582, 46675)
 
 	-- Nightstone Choker -- 73497
 	recipe = AddRecipe(73497, V.CATA, Q.COMMON)
@@ -4347,14 +4347,14 @@ function addon:InitJewelcrafting()
 	recipe:SetCraftedItemID(52492)
 	recipe:SetSkillLevels(460, 460, 470, 475, 480)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(18751, 19063, 19775, 19778, 26982, 26997, 28701, 33590, 44582, 46675)
+	recipe:AddTrainer(18751, 19063, 19775, 19778, 26982, 26997, 28701, 33590, 33614, 44582, 46675)
 
 	-- The Perforator -- 73621
 	recipe = AddRecipe(73621, V.CATA, Q.COMMON)
 	recipe:SetCraftedItemID(52493)
 	recipe:SetSkillLevels(490, 490, 500, 505, 510)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(18751, 19063, 19775, 19778, 26982, 26997, 28701, 33590, 44582, 46675)
+	recipe:AddTrainer(18751, 19063, 19775, 19778, 26982, 26997, 28701, 33590, 33614, 44582, 46675)
 
 	-- Jeweler's Ruby Monocle -- 73625
 	recipe = AddRecipe(73625, V.CATA, Q.RARE)
