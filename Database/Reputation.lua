@@ -13,14 +13,25 @@ This source code is released under All Rights Reserved.
 ************************************************************************
 ]]--
 
-local MODNAME	= "Ackis Recipe List"
-local addon	= LibStub("AceAddon-3.0"):GetAddon(MODNAME)
-local L		= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
+-----------------------------------------------------------------------
+-- Upvalued Lua API.
+-----------------------------------------------------------------------
+local _G = getfenv(0)
+
+-----------------------------------------------------------------------
+-- AddOn namespace.
+-----------------------------------------------------------------------
+local FOLDER_NAME, private = ...
+
+local LibStub = _G.LibStub
+
+local addon	= LibStub("AceAddon-3.0"):GetAddon(private.addon_name)
+local L		= LibStub("AceLocale-3.0"):GetLocale(private.addon_name)
 local BFAC	= LibStub("LibBabble-Faction-3.0"):GetLookupTable()
 
 function addon:InitReputation(DB)
 	local function AddReputation(rep_id, name)
-		addon:AddListEntry(DB, rep_id, name, nil, nil, nil, nil)
+		private:AddListEntry(DB, rep_id, name, nil, nil, nil, nil)
 	end
 	AddReputation(59, BFAC["Thorium Brotherhood"])
 	AddReputation(270, BFAC["Zandalar Tribe"])

@@ -508,20 +508,6 @@ local NO_ROLE_FLAG = {
 	---------------------------------------------------------------------------------------
 }
 
-local function ItemLinkToID(item_link)
-	if not item_link then
-		return
-	end
-
-	local id = item_link:match("item:(%d+)")
-
-	if not id then
-		return
-	end
-	return tonumber(id)
-end
-
-
 local function LoadRecipe()
 	local recipe_list = private.recipe_list
 
@@ -619,7 +605,7 @@ do
 
 		for index = 1, _G.GetNumTrainerServices(), 1 do
 			local item_name = _G.GetTrainerServiceInfo(index)
-			local item_id = ItemLinkToID(_G.GetTrainerServiceItemLink(index))
+			local item_id = private.ItemLinkToID(_G.GetTrainerServiceItemLink(index))
 			local _, skill_level = _G.GetTrainerServiceSkillReq(index)
 
 			if not skill_level then
@@ -1091,7 +1077,7 @@ do
 				local match_text = string.match(item_name, "%a+: ")
 
 				if match_text and RECIPE_TYPES[match_text:lower()] then
-					local item_id = ItemLinkToID(_G.GetMerchantItemLink(index))
+					local item_id = private.ItemLinkToID(_G.GetMerchantItemLink(index))
 					local spell_id = RECIPE_ITEM_TO_SPELL_MAP[item_id]
 
 					if spell_id then

@@ -13,14 +13,25 @@ This source code is released under All Rights Reserved.
 ************************************************************************
 ]]--
 
-local MODNAME		= "Ackis Recipe List"
-local addon		= LibStub("AceAddon-3.0"):GetAddon(MODNAME)
-local L			= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
+-----------------------------------------------------------------------
+-- Upvalued Lua API.
+-----------------------------------------------------------------------
+local _G = getfenv(0)
+
+-----------------------------------------------------------------------
+-- AddOn namespace.
+-----------------------------------------------------------------------
+local FOLDER_NAME, private	= ...
+
+local LibStub = _G.LibStub
+
+local addon		= LibStub("AceAddon-3.0"):GetAddon(private.addon_name)
+local L			= LibStub("AceLocale-3.0"):GetLocale(private.addon_name)
 local BZ		= LibStub("LibBabble-Zone-3.0"):GetLookupTable()
 
 function addon:InitCustom(DB)
 	local function AddCustom(identifier, location, coord_x, coord_y, faction)
-		addon:AddListEntry(DB, identifier, L[identifier], location, coord_x, coord_y, nil)
+		private:AddListEntry(DB, identifier, L[identifier], location, coord_x, coord_y, nil)
 	end
 	AddCustom("DISCOVERY_ALCH_ELIXIRFLASK")
 	AddCustom("DISCOVERY_ALCH_POTION")

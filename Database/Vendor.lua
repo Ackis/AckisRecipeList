@@ -13,25 +13,33 @@ This source code is released under All Rights Reserved.
 ************************************************************************
 ]]--
 
--------------------------------------------------------------------------------
+-----------------------------------------------------------------------
+-- Upvalued Lua API.
+-----------------------------------------------------------------------
+local _G = getfenv(0)
+
+-----------------------------------------------------------------------
 -- AddOn namespace.
--------------------------------------------------------------------------------
-local MODNAME	= "Ackis Recipe List"
-local addon	= LibStub("AceAddon-3.0"):GetAddon(MODNAME)
-local L		= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
+-----------------------------------------------------------------------
+local FOLDER_NAME, private	= ...
+
+local LibStub = _G.LibStub
+
+local addon	= LibStub("AceAddon-3.0"):GetAddon(private.addon_name)
+local L		= LibStub("AceLocale-3.0"):GetLocale(private.addon_name)
 local BZ	= LibStub("LibBabble-Zone-3.0"):GetLookupTable()
 local BB	= LibStub("LibBabble-Boss-3.0"):GetLookupTable()
 
-------------------------------------------------------------------------------
+-----------------------------------------------------------------------
 -- Constants.
-------------------------------------------------------------------------------
+-----------------------------------------------------------------------
 local NEUTRAL	= 0
 local ALLIANCE	= 1
 local HORDE	= 2
 
 function addon:InitVendor(DB)
 	local function AddVendor(id_num, name, zone, x, y, faction)
-		addon:AddListEntry(DB, id_num, name, zone, x, y, faction)
+		private:AddListEntry(DB, id_num, name, zone, x, y, faction)
 	end
 
 	AddVendor(66,		L["Tharynn Bouden"],			BZ["Elwynn Forest"],			41.9, 67.1, ALLIANCE)

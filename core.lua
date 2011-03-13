@@ -39,22 +39,21 @@ local table = _G.table
 -------------------------------------------------------------------------------
 -- AddOn namespace.
 -------------------------------------------------------------------------------
+local FOLDER_NAME, private = ...
+private.addon_name = "Ackis Recipe List"
+
 local LibStub	= _G.LibStub
-local MODNAME	= "Ackis Recipe List"
-local addon	= LibStub("AceAddon-3.0"):NewAddon(MODNAME, "AceConsole-3.0", "AceEvent-3.0")
+local addon	= LibStub("AceAddon-3.0"):NewAddon(private.addon_name, "AceConsole-3.0", "AceEvent-3.0")
 _G.AckisRecipeList = addon
 
 --@alpha@
 _G.ARL = addon
 --@end-alpha@
 
-local L		= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
+local L		= LibStub("AceLocale-3.0"):GetLocale(private.addon_name)
 local BFAC 	= LibStub("LibBabble-Faction-3.0"):GetLookupTable()
 
-local debugger	= _G.tekDebug and _G.tekDebug:GetFrame(MODNAME)
-
--- Set up the private intra-file namespace.
-local private	= select(2, ...)
+local debugger	= _G.tekDebug and _G.tekDebug:GetFrame(private.addon_name)
 
 private.build_num = select(2, _G.GetBuildInfo())
 
@@ -843,55 +842,6 @@ do
 		end
 	end
 end
-
-do
-	local FACTION_NAMES = {
-		[1]	= BFAC["Neutral"],
-		[2]	= BFAC["Alliance"],
-		[3]	= BFAC["Horde"]
-	}
-
-	--- Adds an item to a specific database listing (ie: vendor, mob, etc)
-	-- @name AckisRecipeList:AddListEntry
-	-- @usage AckisRecipeList:AddListEntry(DB,NPC ID, NPC Name, NPC Location, X Coord, Y Coord, Faction)
-	-- @param DB Database which the entry will be stored
-	-- @param ID Unique identified for the entry
-	-- @param name Name of the entry
-	-- @param location Location of the entry in the world
-	-- @param coord_x X coordinate of where the entry is found
-	-- @param coord_y Y coordinate of where the entry is found
-	-- @param faction Faction identifier for the entry
-	-- @return None, array is passed as a reference
-	-- For individual database structures, see Documentation.lua
-	function addon:AddListEntry(lookup_list, identifier, name, location, coord_x, coord_y, faction)
-		if lookup_list[identifier] then
-			self:Debug("Duplicate lookup: %s - %s.", identifier, name)
-			return
-		end
-
-		local entry = {
-			["name"]	= name,
-			["location"]	= location,
-			["faction"]	= faction and FACTION_NAMES[faction + 1] or FACTION_NAMES[1]
-		}
-		lookup_list[identifier] = entry
-
-		if coord_x and coord_y then
-			lookup_list[identifier]["coord_x"] = coord_x
-			lookup_list[identifier]["coord_y"] = coord_y
-		end
-
-		--@alpha@
-		if not location and lookup_list ~= private.custom_list and lookup_list ~= private.reputation_list then
-			self:Debug("Lookup ID: %s (%s) has an unknown location.", identifier, lookup_list[identifier].name or _G.UNKNOWN)
-		end
-
-		if faction and lookup_list == private.mob_list then
-			self:Debug("Mob %d (%s) has been assigned to faction %s.", identifier, name, lookup_list[identifier].faction)
-		end
-		--@end-alpha@
-	end
-end	-- do
 
 -------------------------------------------------------------------------------
 -- ARL Logic Functions

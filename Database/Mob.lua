@@ -12,16 +12,16 @@ Please see http://www.wowace.com/addons/arl/ for more information.
 This source code is released under All Rights Reserved.
 ************************************************************************
 ]]--
+local FOLDER_NAME, private = ...
 
-local MODNAME		= "Ackis Recipe List"
-local addon		= LibStub("AceAddon-3.0"):GetAddon(MODNAME)
-local L			= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
+local addon		= LibStub("AceAddon-3.0"):GetAddon(private.addon_name)
+local L			= LibStub("AceLocale-3.0"):GetLocale(private.addon_name)
 local BZ		= LibStub("LibBabble-Zone-3.0"):GetLookupTable()
 local BB		= LibStub("LibBabble-Boss-3.0"):GetLookupTable()
 
 function addon:InitMob(DB)
 	local function AddMob(mob_id, mob_name, zone, coord_x, coord_y)
-		addon:AddListEntry(DB, mob_id, mob_name, zone, coord_x, coord_y, nil)
+		private:AddListEntry(DB, mob_id, mob_name, zone, coord_x, coord_y, nil)
 	end
 
 	-- Arathi Highlands

@@ -13,23 +13,32 @@ This source code is released under All Rights Reserved.
 ************************************************************************
 ]] --
 
+-----------------------------------------------------------------------
+-- Upvalued Lua API.
+-----------------------------------------------------------------------
 local _G = getfenv(0)
 
-local MODNAME = "Ackis Recipe List"
-local addon = LibStub("AceAddon-3.0"):GetAddon(MODNAME)
-local L = LibStub("AceLocale-3.0"):GetLocale(MODNAME)
+-----------------------------------------------------------------------
+-- AddOn namespace.
+-----------------------------------------------------------------------
+local FOLDER_NAME, private = ...
+
+local LibStub = _G.LibStub
+
+local addon = LibStub("AceAddon-3.0"):GetAddon(private.addon_name)
+local L = LibStub("AceLocale-3.0"):GetLocale(private.addon_name)
 local BZ = LibStub("LibBabble-Zone-3.0"):GetLookupTable()
 
-------------------------------------------------------------------------------
+-----------------------------------------------------------------------
 -- Constants.
-------------------------------------------------------------------------------
+-----------------------------------------------------------------------
 local NEUTRAL = 0
 local ALLIANCE = 1
 local HORDE = 2
 
 function addon:InitTrainer(DB)
 	local function AddTrainer(id_num, name, location, coord_x, coord_y, faction)
-		addon:AddListEntry(DB, id_num, name, location, coord_x, coord_y, faction)
+		private:AddListEntry(DB, id_num, name, location, coord_x, coord_y, faction)
 	end
 
 	AddTrainer(514, L["Smith Argus"], BZ["Elwynn Forest"], 41.7, 65.6, ALLIANCE)
