@@ -263,7 +263,14 @@ do
 
 			for index in ipairs(extra_spell_ids) do
 				local spell_id = extra_spell_ids[index]
-				table.insert(output, ("%d (%s)"):format(spell_id, recipe_list[spell_id].name))
+				local recipe = recipe_list[spell_id]
+				local crafted_item = recipe:CraftedItemID()
+
+				if crafted_item then
+					table.insert(output, ("%d (%s) - Crafted item ID set to %d (%s)"):format(spell_id, recipe.name, crafted_item, _G.GetItemInfo(crafted_item) or _G.UNKNOWN))
+				else
+					table.insert(output, ("%d (%s)"):format(spell_id, recipe.name))
+				end
 			end
 		end
 
