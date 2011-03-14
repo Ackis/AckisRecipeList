@@ -20,7 +20,6 @@
 <Include file="Database\Quest.lua"/>
 <Include file="Database\Reputation.lua"/>
 <Include file="Database\Seasonal.lua"/>
-<Include file="Database\Trainer.lua"/>
 <Include file="Database\Vendor.lua"/>
 
 <Include file="Database\Trainers\Alchemy.lua"/>
