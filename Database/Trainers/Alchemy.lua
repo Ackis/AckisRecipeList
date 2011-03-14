@@ -59,6 +59,7 @@ function private:InitializeAlchemyTrainers()
 	AddTrainer(28703, "Linzy Blackbolt", "Dalaran", 42.5, 32.1, "Neutral")
 	AddTrainer(33588, "Crystal Brightspark", "Icecrown", 71.6, 21, "Neutral")
 	AddTrainer(33608, 51304, "Shattrath City", 44.3, 90.4, "Neutral")
+	AddTrainer(33630, "Aelthin", "Shattrath City", 38.6, 70.8, "Neutral")
 	AddTrainer(33674, "Alchemist Kanhu", "Shattrath City", 38.6, 30, "Neutral")
 
 	self.InitializeAlchemyTrainers = nil
