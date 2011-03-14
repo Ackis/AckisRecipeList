@@ -204,6 +204,10 @@ do
 						recipe:AddTrainer(trainer_id)
 						table.insert(missing_spell_ids, spell_id)
 
+						if not private.trainer_list[trainer_id] then
+							table.insert(output, ("%s was not found in the trainer list."):format(_G.UnitName("target")))
+						end
+
 						if not recipe:HasFilter("common1", "TRAINER") then
 							recipe:AddFilters(F.TRAINER)
 
