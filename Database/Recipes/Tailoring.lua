@@ -1013,7 +1013,7 @@ function addon:InitTailoring()
 	recipe:SetRecipeItemID(10463)
 	recipe:SetCraftedItemID(10025)
 	recipe:SetSkillLevels(245, 245, 260, 275, 290)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.QUEST, F.RETIRED, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
 	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Cindercloth Boots -- 12088
@@ -1260,7 +1260,7 @@ function addon:InitTailoring()
 	recipe:SetRecipeItemID(14493)
 	recipe:SetCraftedItemID(14136)
 	recipe:SetSkillLevels(285, 285, 300, 315, 330)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.RETIRED, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.CLOTH)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.CLOTH)
 	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Felcloth Boots -- 18437
@@ -1590,7 +1590,7 @@ function addon:InitTailoring()
 	recipe:SetRecipeItemID(19764)
 	recipe:SetCraftedItemID(19682)
 	recipe:SetSkillLevels(300, 300, 315, 330, 345)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.RETIRED, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.CLOTH)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.CLOTH)
 	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Bloodvine Leggings -- 24092
@@ -1598,7 +1598,7 @@ function addon:InitTailoring()
 	recipe:SetRecipeItemID(19765)
 	recipe:SetCraftedItemID(19683)
 	recipe:SetSkillLevels(300, 300, 315, 330, 345)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.RETIRED, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.CLOTH)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.CLOTH)
 	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Bloodvine Boots -- 24093
@@ -1606,7 +1606,7 @@ function addon:InitTailoring()
 	recipe:SetRecipeItemID(19766)
 	recipe:SetCraftedItemID(19684)
 	recipe:SetSkillLevels(300, 300, 315, 330, 345)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.RETIRED, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.CLOTH)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.CLOTH)
 	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Runed Stygian Leggings -- 24901
@@ -1994,28 +1994,28 @@ function addon:InitTailoring()
 	recipe = AddRecipe(28205, V.ORIG, Q.EPIC)
 	recipe:SetCraftedItemID(22654)
 	recipe:SetSkillLevels(300, 300, 315, 330, 345)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.RAID, F.RETIRED, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.CLOTH)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.CLOTH)
 	recipe:AddCustom("Custom41")
 
 	-- Glacial Vest -- 28207
 	recipe = AddRecipe(28207, V.ORIG, Q.EPIC)
 	recipe:SetCraftedItemID(22652)
 	recipe:SetSkillLevels(300, 300, 315, 330, 345)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.RAID, F.RETIRED, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.CLOTH)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.CLOTH)
 	recipe:AddCustom("Custom41")
 
 	-- Glacial Cloak -- 28208
 	recipe = AddRecipe(28208, V.ORIG, Q.EPIC)
 	recipe:SetCraftedItemID(22658)
 	recipe:SetSkillLevels(300, 300, 315, 330, 345)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.RAID, F.RETIRED, F.IBOE, F.RBOP, F.CLOAK)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOE, F.RBOP, F.CLOAK)
 	recipe:AddCustom("Custom41")
 
 	-- Glacial Wrists -- 28209
 	recipe = AddRecipe(28209, V.ORIG, Q.EPIC)
 	recipe:SetCraftedItemID(22655)
 	recipe:SetSkillLevels(300, 300, 315, 330, 345)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.RAID, F.RETIRED, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.CLOTH)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.CLOTH)
 	recipe:AddCustom("Custom41")
 
 	-- Gaea's Embrace -- 28210

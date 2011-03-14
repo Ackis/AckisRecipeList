@@ -723,7 +723,7 @@ function addon:InitBlacksmithing()
 	recipe:SetRecipeItemID(7983)
 	recipe:SetCraftedItemID(7926)
 	recipe:SetSkillLevels(220, 220, 240, 250, 260)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.QUEST, F.RETIRED, F.IBOE, F.RBOP, F.TANK, F.PLATE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOE, F.RBOP, F.TANK, F.PLATE)
 	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Ornate Mithril Gloves -- 9950
@@ -731,7 +731,7 @@ function addon:InitBlacksmithing()
 	recipe:SetRecipeItemID(7984)
 	recipe:SetCraftedItemID(7927)
 	recipe:SetSkillLevels(220, 220, 240, 250, 260)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.QUEST, F.RETIRED, F.IBOE, F.RBOP, F.PLATE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOE, F.RBOP, F.PLATE)
 	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Ornate Mithril Shoulder -- 9952
@@ -739,21 +739,21 @@ function addon:InitBlacksmithing()
 	recipe:SetRecipeItemID(7985)
 	recipe:SetCraftedItemID(7928)
 	recipe:SetSkillLevels(225, 225, 245, 255, 265)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.QUEST, F.RETIRED, F.IBOE, F.RBOP, F.TANK, F.PLATE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOE, F.RBOP, F.TANK, F.PLATE)
 	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Truesilver Gauntlets -- 9954
 	recipe = AddRecipe(9954, V.ORIG, Q.COMMON)
 	recipe:SetCraftedItemID(7938)
 	recipe:SetSkillLevels(225, 225, 245, 255, 265)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.RETIRED, F.IBOE, F.RBOP, F.DPS, F.PLATE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOE, F.RBOP, F.DPS, F.PLATE)
 	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Orcish War Leggings -- 9957
 	recipe = AddRecipe(9957, V.ORIG, Q.COMMON)
 	recipe:SetCraftedItemID(7929)
 	recipe:SetSkillLevels(250, 250, 250, 260, 270)
-	recipe:AddFilters(F.HORDE, F.QUEST, F.RETIRED, F.IBOE, F.RBOP, F.DPS, F.MAIL)
+	recipe:AddFilters(F.HORDE, F.RETIRED, F.IBOE, F.RBOP, F.DPS, F.MAIL)
 	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Heavy Mithril Breastplate -- 9959
@@ -805,28 +805,28 @@ function addon:InitBlacksmithing()
 	recipe = AddRecipe(9972, V.ORIG, Q.UNCOMMON)
 	recipe:SetCraftedItemID(7935)
 	recipe:SetSkillLevels(260, 260, 260, 270, 280)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.QUEST, F.RETIRED, F.IBOE, F.RBOP, F.TANK, F.PLATE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOE, F.RBOP, F.TANK, F.PLATE)
 	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Truesilver Breastplate -- 9974
 	recipe = AddRecipe(9974, V.ORIG, Q.COMMON)
 	recipe:SetCraftedItemID(7939)
 	recipe:SetSkillLevels(245, 245, 265, 275, 285)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.RETIRED, F.IBOE, F.RBOP, F.PLATE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOE, F.RBOP, F.PLATE)
 	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Ornate Mithril Boots -- 9979
 	recipe = AddRecipe(9979, V.ORIG, Q.UNCOMMON)
 	recipe:SetCraftedItemID(7936)
 	recipe:SetSkillLevels(265, 265, 265, 275, 285)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.QUEST, F.RETIRED, F.IBOE, F.RBOP, F.TANK, F.PLATE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOE, F.RBOP, F.TANK, F.PLATE)
 	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Ornate Mithril Helm -- 9980
 	recipe = AddRecipe(9980, V.ORIG, Q.UNCOMMON)
 	recipe:SetCraftedItemID(7937)
 	recipe:SetSkillLevels(265, 265, 265, 275, 285)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.QUEST, F.RETIRED, F.IBOE, F.RBOP, F.DPS, F.PLATE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOE, F.RBOP, F.DPS, F.PLATE)
 	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Copper Claymore -- 9983
@@ -891,7 +891,7 @@ function addon:InitBlacksmithing()
 	recipe = AddRecipe(10003, V.ORIG, Q.COMMON)
 	recipe:SetCraftedItemID(7954)
 	recipe:SetSkillLevels(235, 235, 260, 272, 285)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.RETIRED, F.IBOE, F.RBOP, F.ONE_HAND, F.MACE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOE, F.RBOP, F.ONE_HAND, F.MACE)
 	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Dazzling Mithril Rapier -- 10005
@@ -906,7 +906,7 @@ function addon:InitBlacksmithing()
 	recipe = AddRecipe(10007, V.ORIG, Q.COMMON)
 	recipe:SetCraftedItemID(7961)
 	recipe:SetSkillLevels(245, 245, 270, 282, 295)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.RETIRED, F.IBOE, F.RBOP, F.ONE_HAND, F.SWORD)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOE, F.RBOP, F.ONE_HAND, F.SWORD)
 	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Runed Mithril Hammer -- 10009
@@ -921,7 +921,7 @@ function addon:InitBlacksmithing()
 	recipe = AddRecipe(10011, V.ORIG, Q.COMMON)
 	recipe:SetCraftedItemID(7959)
 	recipe:SetSkillLevels(250, 250, 275, 287, 300)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.RETIRED, F.IBOE, F.RBOP, F.TWO_HAND, F.POLEARM)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOE, F.RBOP, F.TWO_HAND, F.POLEARM)
 	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Ebon Shiv -- 10013
@@ -936,7 +936,7 @@ function addon:InitBlacksmithing()
 	recipe = AddRecipe(10015, V.ORIG, Q.COMMON)
 	recipe:SetCraftedItemID(7960)
 	recipe:SetSkillLevels(260, 260, 285, 297, 310)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.RETIRED, F.IBOE, F.RBOP, F.TWO_HAND, F.SWORD)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOE, F.RBOP, F.TWO_HAND, F.SWORD)
 	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Inlaid Mithril Cylinder -- 11454
@@ -952,7 +952,7 @@ function addon:InitBlacksmithing()
 	recipe:SetRecipeItemID(9367)
 	recipe:SetCraftedItemID(9366)
 	recipe:SetSkillLevels(205, 205, 225, 235, 245)
-	recipe:AddFilters(F.ALLIANCE, F.QUEST, F.RETIRED, F.IBOE, F.RBOE, F.DPS, F.MAIL)
+	recipe:AddFilters(F.ALLIANCE, F.RETIRED, F.IBOE, F.RBOE, F.DPS, F.MAIL)
 	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Silvered Bronze Leggings -- 12259
@@ -1174,7 +1174,7 @@ function addon:InitBlacksmithing()
 	recipe:SetRecipeItemID(12699)
 	recipe:SetCraftedItemID(12631)
 	recipe:SetSkillLevels(290, 290, 310, 320, 330)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.QUEST, F.RETIRED, F.IBOE, F.RBOP, F.PLATE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOE, F.RBOP, F.PLATE)
 	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Radiant Boots -- 16656
@@ -1264,7 +1264,7 @@ function addon:InitBlacksmithing()
 	recipe:SetRecipeItemID(12696)
 	recipe:SetCraftedItemID(12628)
 	recipe:SetSkillLevels(285, 285, 305, 315, 325)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.QUEST, F.RETIRED, F.IBOE, F.RBOP, F.PLATE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOE, F.RBOP, F.PLATE)
 	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Whitesoul Helm -- 16724
@@ -1385,7 +1385,7 @@ function addon:InitBlacksmithing()
 	recipe:SetRecipeItemID(12821)
 	recipe:SetCraftedItemID(12774)
 	recipe:SetSkillLevels(275, 275, 300, 312, 325)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.QUEST, F.RETIRED, F.IBOE, F.RBOE, F.ONE_HAND, F.AXE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOE, F.RBOE, F.ONE_HAND, F.AXE)
 	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Huge Thorium Battleaxe -- 16971
@@ -1402,7 +1402,7 @@ function addon:InitBlacksmithing()
 	recipe:SetRecipeItemID(12824)
 	recipe:SetCraftedItemID(12776)
 	recipe:SetSkillLevels(280, 280, 305, 317, 330)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.QUEST, F.RETIRED, F.IBOE, F.RBOE, F.TANK, F.TWO_HAND, F.MACE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOE, F.RBOE, F.TANK, F.TWO_HAND, F.MACE)
 	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Blazing Rapier -- 16978
@@ -1410,7 +1410,7 @@ function addon:InitBlacksmithing()
 	recipe:SetRecipeItemID(12825)
 	recipe:SetCraftedItemID(12777)
 	recipe:SetSkillLevels(280, 280, 305, 317, 330)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.QUEST, F.RETIRED, F.IBOE, F.RBOE, F.ONE_HAND, F.SWORD)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOE, F.RBOE, F.ONE_HAND, F.SWORD)
 	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Serenity -- 16983
@@ -1693,7 +1693,7 @@ function addon:InitBlacksmithing()
 	recipe:SetRecipeItemID(19776)
 	recipe:SetCraftedItemID(19690)
 	recipe:SetSkillLevels(300, 300, 320, 330, 340)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.RETIRED, F.IBOE, F.RBOP, F.DPS, F.HEALER, F.CASTER, F.MAIL)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOE, F.RBOP, F.DPS, F.HEALER, F.CASTER, F.MAIL)
 	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Bloodsoul Shoulders -- 24137
@@ -1701,7 +1701,7 @@ function addon:InitBlacksmithing()
 	recipe:SetRecipeItemID(19777)
 	recipe:SetCraftedItemID(19691)
 	recipe:SetSkillLevels(300, 300, 320, 330, 340)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.RETIRED, F.IBOE, F.RBOP, F.DPS, F.HEALER, F.CASTER, F.MAIL)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOE, F.RBOP, F.DPS, F.HEALER, F.CASTER, F.MAIL)
 	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Bloodsoul Gauntlets -- 24138
@@ -1709,7 +1709,7 @@ function addon:InitBlacksmithing()
 	recipe:SetRecipeItemID(19778)
 	recipe:SetCraftedItemID(19692)
 	recipe:SetSkillLevels(300, 300, 320, 330, 340)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.RETIRED, F.IBOE, F.RBOP, F.DPS, F.HEALER, F.CASTER, F.MAIL)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOE, F.RBOP, F.DPS, F.HEALER, F.CASTER, F.MAIL)
 	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Darksoul Breastplate -- 24139
@@ -1717,7 +1717,7 @@ function addon:InitBlacksmithing()
 	recipe:SetRecipeItemID(19779)
 	recipe:SetCraftedItemID(19693)
 	recipe:SetSkillLevels(300, 300, 320, 330, 340)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.RETIRED, F.IBOE, F.RBOP, F.TANK, F.PLATE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOE, F.RBOP, F.TANK, F.PLATE)
 	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Darksoul Leggings -- 24140
@@ -1725,7 +1725,7 @@ function addon:InitBlacksmithing()
 	recipe:SetRecipeItemID(19780)
 	recipe:SetCraftedItemID(19694)
 	recipe:SetSkillLevels(300, 300, 320, 330, 340)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.RETIRED, F.IBOE, F.RBOP, F.TANK, F.PLATE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOE, F.RBOP, F.TANK, F.PLATE)
 	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Darksoul Shoulders -- 24141
@@ -1733,7 +1733,7 @@ function addon:InitBlacksmithing()
 	recipe:SetRecipeItemID(19781)
 	recipe:SetCraftedItemID(19695)
 	recipe:SetSkillLevels(300, 300, 320, 330, 340)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.RETIRED, F.IBOE, F.RBOP, F.TANK, F.PLATE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOE, F.RBOP, F.TANK, F.PLATE)
 	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Dark Iron Boots -- 24399
@@ -1844,21 +1844,21 @@ function addon:InitBlacksmithing()
 	recipe = AddRecipe(28242, V.ORIG, Q.EPIC)
 	recipe:SetCraftedItemID(22669)
 	recipe:SetSkillLevels(300, 300, 320, 330, 340)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.RETIRED, F.IBOE, F.RBOP, F.TANK, F.PLATE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOE, F.RBOP, F.TANK, F.PLATE)
 	recipe:AddCustom("Custom41")
 
 	-- Icebane Gauntlets -- 28243
 	recipe = AddRecipe(28243, V.ORIG, Q.EPIC)
 	recipe:SetCraftedItemID(22670)
 	recipe:SetSkillLevels(300, 300, 320, 330, 340)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.RETIRED, F.IBOE, F.RBOP, F.TANK, F.PLATE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOE, F.RBOP, F.TANK, F.PLATE)
 	recipe:AddCustom("Custom41")
 
 	-- Icebane Bracers -- 28244
 	recipe = AddRecipe(28244, V.ORIG, Q.EPIC)
 	recipe:SetCraftedItemID(22671)
 	recipe:SetSkillLevels(300, 300, 320, 330, 340)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.RETIRED, F.IBOE, F.RBOP, F.TANK, F.PLATE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOE, F.RBOP, F.TANK, F.PLATE)
 	recipe:AddCustom("Custom41")
 
 	-- Ironvine Breastplate -- 28461
@@ -2407,112 +2407,112 @@ function addon:InitBlacksmithing()
 	recipe = AddRecipe(34529, V.TBC, Q.COMMON)
 	recipe:SetCraftedItemID(23563)
 	recipe:SetSkillLevels(350, 350, 360, 370, 380)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.RETIRED, F.IBOP, F.RBOP, F.DPS, F.HEALER, F.CASTER, F.MAIL)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOP, F.RBOP, F.DPS, F.HEALER, F.CASTER, F.MAIL)
 	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Twisting Nether Chain Shirt -- 34530
 	recipe = AddRecipe(34530, V.TBC, Q.COMMON)
 	recipe:SetCraftedItemID(23564)
 	recipe:SetSkillLevels(375, 375, 385, 395, 405)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.RETIRED, F.IBOP, F.RBOP, F.DPS, F.MAIL)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOP, F.RBOP, F.DPS, F.MAIL)
 	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Breastplate of Kings -- 34533
 	recipe = AddRecipe(34533, V.TBC, Q.COMMON)
 	recipe:SetCraftedItemID(28483)
 	recipe:SetSkillLevels(350, 350, 360, 370, 380)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.RETIRED, F.IBOP, F.RBOP, F.DPS, F.PLATE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOP, F.RBOP, F.DPS, F.PLATE)
 	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Bulwark of Kings -- 34534
 	recipe = AddRecipe(34534, V.TBC, Q.COMMON)
 	recipe:SetCraftedItemID(28484)
 	recipe:SetSkillLevels(375, 375, 385, 395, 405)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.RETIRED, F.IBOP, F.RBOP, F.DPS, F.PLATE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOP, F.RBOP, F.DPS, F.PLATE)
 	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Fireguard -- 34535
 	recipe = AddRecipe(34535, V.TBC, Q.COMMON)
 	recipe:SetCraftedItemID(28425)
 	recipe:SetSkillLevels(350, 350, 360, 370, 380)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.RETIRED, F.IBOP, F.RBOP, F.DPS, F.ONE_HAND, F.SWORD)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOP, F.RBOP, F.DPS, F.ONE_HAND, F.SWORD)
 	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Blazeguard -- 34537
 	recipe = AddRecipe(34537, V.TBC, Q.COMMON)
 	recipe:SetCraftedItemID(28426)
 	recipe:SetSkillLevels(375, 375, 385, 395, 405)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.RETIRED, F.IBOP, F.RBOP, F.DPS, F.ONE_HAND, F.SWORD)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOP, F.RBOP, F.DPS, F.ONE_HAND, F.SWORD)
 	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Lionheart Blade -- 34538
 	recipe = AddRecipe(34538, V.TBC, Q.COMMON)
 	recipe:SetCraftedItemID(28428)
 	recipe:SetSkillLevels(350, 350, 360, 370, 380)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.RETIRED, F.IBOP, F.RBOP, F.DPS, F.TWO_HAND, F.SWORD)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOP, F.RBOP, F.DPS, F.TWO_HAND, F.SWORD)
 	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Lionheart Champion -- 34540
 	recipe = AddRecipe(34540, V.TBC, Q.COMMON)
 	recipe:SetCraftedItemID(28429)
 	recipe:SetSkillLevels(375, 375, 385, 395, 405)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.RETIRED, F.IBOP, F.RBOP, F.DPS, F.TWO_HAND, F.SWORD)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOP, F.RBOP, F.DPS, F.TWO_HAND, F.SWORD)
 	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- The Planar Edge -- 34541
 	recipe = AddRecipe(34541, V.TBC, Q.COMMON)
 	recipe:SetCraftedItemID(28431)
 	recipe:SetSkillLevels(350, 350, 360, 370, 380)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.RETIRED, F.IBOP, F.RBOP, F.DPS, F.ONE_HAND, F.AXE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOP, F.RBOP, F.DPS, F.ONE_HAND, F.AXE)
 	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Black Planar Edge -- 34542
 	recipe = AddRecipe(34542, V.TBC, Q.COMMON)
 	recipe:SetCraftedItemID(28432)
 	recipe:SetSkillLevels(375, 375, 385, 395, 405)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.RETIRED, F.IBOP, F.RBOP, F.DPS, F.ONE_HAND, F.AXE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOP, F.RBOP, F.DPS, F.ONE_HAND, F.AXE)
 	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Lunar Crescent -- 34543
 	recipe = AddRecipe(34543, V.TBC, Q.COMMON)
 	recipe:SetCraftedItemID(28434)
 	recipe:SetSkillLevels(350, 350, 360, 370, 380)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.RETIRED, F.IBOP, F.RBOP, F.DPS, F.TWO_HAND, F.AXE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOP, F.RBOP, F.DPS, F.TWO_HAND, F.AXE)
 	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Mooncleaver -- 34544
 	recipe = AddRecipe(34544, V.TBC, Q.COMMON)
 	recipe:SetCraftedItemID(28435)
 	recipe:SetSkillLevels(375, 375, 385, 395, 405)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.RETIRED, F.IBOP, F.RBOP, F.DPS, F.TWO_HAND, F.AXE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOP, F.RBOP, F.DPS, F.TWO_HAND, F.AXE)
 	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Drakefist Hammer -- 34545
 	recipe = AddRecipe(34545, V.TBC, Q.COMMON)
 	recipe:SetCraftedItemID(28437)
 	recipe:SetSkillLevels(350, 350, 360, 370, 380)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.RETIRED, F.IBOP, F.RBOP, F.ONE_HAND, F.MACE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOP, F.RBOP, F.ONE_HAND, F.MACE)
 	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Dragonmaw -- 34546
 	recipe = AddRecipe(34546, V.TBC, Q.COMMON)
 	recipe:SetCraftedItemID(28438)
 	recipe:SetSkillLevels(375, 375, 385, 395, 405)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.RETIRED, F.IBOP, F.RBOP, F.ONE_HAND, F.MACE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOP, F.RBOP, F.ONE_HAND, F.MACE)
 	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Thunder -- 34547
 	recipe = AddRecipe(34547, V.TBC, Q.COMMON)
 	recipe:SetCraftedItemID(28440)
 	recipe:SetSkillLevels(350, 350, 360, 370, 380)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.RETIRED, F.IBOP, F.RBOP, F.DPS, F.TWO_HAND, F.MACE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOP, F.RBOP, F.DPS, F.TWO_HAND, F.MACE)
 	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Deep Thunder -- 34548
 	recipe = AddRecipe(34548, V.TBC, Q.COMMON)
 	recipe:SetCraftedItemID(28441)
 	recipe:SetSkillLevels(375, 375, 385, 395, 405)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.RETIRED, F.IBOP, F.RBOP, F.DPS, F.TWO_HAND, F.MACE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOP, F.RBOP, F.DPS, F.TWO_HAND, F.MACE)
 	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Fel Weightstone -- 34607
@@ -2562,147 +2562,147 @@ function addon:InitBlacksmithing()
 	recipe = AddRecipe(36122, V.TBC, Q.COMMON)
 	recipe:SetCraftedItemID(30069)
 	recipe:SetSkillLevels(260, 260, 280, 290, 300)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.RETIRED, F.IBOP, F.RBOP, F.DPS, F.PLATE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOP, F.RBOP, F.DPS, F.PLATE)
 	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Windforged Leggings -- 36124
 	recipe = AddRecipe(36124, V.TBC, Q.COMMON)
 	recipe:SetCraftedItemID(30070)
 	recipe:SetSkillLevels(260, 260, 280, 290, 300)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.RETIRED, F.IBOP, F.RBOP, F.DPS, F.MAIL)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOP, F.RBOP, F.DPS, F.MAIL)
 	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Light Earthforged Blade -- 36125
 	recipe = AddRecipe(36125, V.TBC, Q.COMMON)
 	recipe:SetCraftedItemID(30071)
 	recipe:SetSkillLevels(260, 260, 280, 290, 300)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.RETIRED, F.IBOP, F.RBOP, F.ONE_HAND, F.SWORD)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOP, F.RBOP, F.ONE_HAND, F.SWORD)
 	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Light Skyforged Axe -- 36126
 	recipe = AddRecipe(36126, V.TBC, Q.COMMON)
 	recipe:SetCraftedItemID(30072)
 	recipe:SetSkillLevels(260, 260, 280, 290, 300)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.RETIRED, F.IBOP, F.RBOP, F.ONE_HAND, F.AXE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOP, F.RBOP, F.ONE_HAND, F.AXE)
 	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Light Emberforged Hammer -- 36128
 	recipe = AddRecipe(36128, V.TBC, Q.COMMON)
 	recipe:SetCraftedItemID(30073)
 	recipe:SetSkillLevels(260, 260, 280, 290, 300)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.RETIRED, F.IBOP, F.RBOP, F.DPS, F.ONE_HAND, F.MACE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOP, F.RBOP, F.DPS, F.ONE_HAND, F.MACE)
 	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Heavy Earthforged Breastplate -- 36129
 	recipe = AddRecipe(36129, V.TBC, Q.COMMON)
 	recipe:SetCraftedItemID(30074)
 	recipe:SetSkillLevels(330, 330, 340, 350, 360)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.RETIRED, F.IBOP, F.RBOP, F.TANK, F.PLATE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOP, F.RBOP, F.TANK, F.PLATE)
 	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Stormforged Hauberk -- 36130
 	recipe = AddRecipe(36130, V.TBC, Q.COMMON)
 	recipe:SetCraftedItemID(30076)
 	recipe:SetSkillLevels(330, 330, 340, 350, 360)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.RETIRED, F.IBOP, F.RBOP, F.DPS, F.MAIL)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOP, F.RBOP, F.DPS, F.MAIL)
 	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Windforged Rapier -- 36131
 	recipe = AddRecipe(36131, V.TBC, Q.COMMON)
 	recipe:SetCraftedItemID(30077)
 	recipe:SetSkillLevels(330, 330, 340, 350, 360)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.RETIRED, F.IBOP, F.RBOP, F.ONE_HAND, F.SWORD)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOP, F.RBOP, F.ONE_HAND, F.SWORD)
 	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Stoneforged Claymore -- 36133
 	recipe = AddRecipe(36133, V.TBC, Q.COMMON)
 	recipe:SetCraftedItemID(30086)
 	recipe:SetSkillLevels(330, 330, 340, 350, 360)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.RETIRED, F.IBOP, F.RBOP, F.DPS, F.TWO_HAND, F.SWORD)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOP, F.RBOP, F.DPS, F.TWO_HAND, F.SWORD)
 	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Stormforged Axe -- 36134
 	recipe = AddRecipe(36134, V.TBC, Q.COMMON)
 	recipe:SetCraftedItemID(30087)
 	recipe:SetSkillLevels(330, 330, 340, 350, 360)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.RETIRED, F.IBOP, F.RBOP, F.DPS, F.ONE_HAND, F.AXE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOP, F.RBOP, F.DPS, F.ONE_HAND, F.AXE)
 	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Skyforged Great Axe -- 36135
 	recipe = AddRecipe(36135, V.TBC, Q.COMMON)
 	recipe:SetCraftedItemID(30088)
 	recipe:SetSkillLevels(330, 330, 340, 350, 360)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.RETIRED, F.IBOP, F.RBOP, F.DPS, F.TWO_HAND, F.AXE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOP, F.RBOP, F.DPS, F.TWO_HAND, F.AXE)
 	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Lavaforged Warhammer -- 36136
 	recipe = AddRecipe(36136, V.TBC, Q.COMMON)
 	recipe:SetCraftedItemID(30089)
 	recipe:SetSkillLevels(330, 330, 340, 350, 360)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.RETIRED, F.IBOP, F.RBOP, F.DPS, F.ONE_HAND, F.MACE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOP, F.RBOP, F.DPS, F.ONE_HAND, F.MACE)
 	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Great Earthforged Hammer -- 36137
 	recipe = AddRecipe(36137, V.TBC, Q.COMMON)
 	recipe:SetCraftedItemID(30093)
 	recipe:SetSkillLevels(330, 330, 340, 350, 360)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.RETIRED, F.IBOP, F.RBOP, F.DPS, F.TWO_HAND, F.MACE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOP, F.RBOP, F.DPS, F.TWO_HAND, F.MACE)
 	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Embrace of the Twisting Nether -- 36256
 	recipe = AddRecipe(36256, V.TBC, Q.COMMON)
 	recipe:SetCraftedItemID(23565)
 	recipe:SetSkillLevels(375, 375, 385, 395, 405)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.RETIRED, F.IBOP, F.RBOP, F.DPS, F.MAIL)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOP, F.RBOP, F.DPS, F.MAIL)
 	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Bulwark of the Ancient Kings -- 36257
 	recipe = AddRecipe(36257, V.TBC, Q.COMMON)
 	recipe:SetCraftedItemID(28485)
 	recipe:SetSkillLevels(375, 375, 385, 395, 405)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.RETIRED, F.IBOP, F.RBOP, F.DPS, F.PLATE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOP, F.RBOP, F.DPS, F.PLATE)
 	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Blazefury -- 36258
 	recipe = AddRecipe(36258, V.TBC, Q.COMMON)
 	recipe:SetCraftedItemID(28427)
 	recipe:SetSkillLevels(375, 375, 385, 395, 405)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.RETIRED, F.IBOP, F.RBOP, F.DPS, F.ONE_HAND, F.SWORD)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOP, F.RBOP, F.DPS, F.ONE_HAND, F.SWORD)
 	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Lionheart Executioner -- 36259
 	recipe = AddRecipe(36259, V.TBC, Q.COMMON)
 	recipe:SetCraftedItemID(28430)
 	recipe:SetSkillLevels(375, 375, 385, 395, 405)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.RETIRED, F.IBOP, F.RBOP, F.DPS, F.TWO_HAND, F.SWORD)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOP, F.RBOP, F.DPS, F.TWO_HAND, F.SWORD)
 	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Wicked Edge of the Planes -- 36260
 	recipe = AddRecipe(36260, V.TBC, Q.COMMON)
 	recipe:SetCraftedItemID(28433)
 	recipe:SetSkillLevels(375, 375, 385, 395, 405)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.RETIRED, F.IBOP, F.RBOP, F.DPS, F.ONE_HAND, F.AXE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOP, F.RBOP, F.DPS, F.ONE_HAND, F.AXE)
 	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Bloodmoon -- 36261
 	recipe = AddRecipe(36261, V.TBC, Q.COMMON)
 	recipe:SetCraftedItemID(28436)
 	recipe:SetSkillLevels(375, 375, 385, 395, 405)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.RETIRED, F.IBOP, F.RBOP, F.DPS, F.TWO_HAND, F.AXE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOP, F.RBOP, F.DPS, F.TWO_HAND, F.AXE)
 	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Dragonstrike -- 36262
 	recipe = AddRecipe(36262, V.TBC, Q.COMMON)
 	recipe:SetCraftedItemID(28439)
 	recipe:SetSkillLevels(375, 375, 385, 395, 405)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.RETIRED, F.IBOP, F.RBOP, F.ONE_HAND, F.MACE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOP, F.RBOP, F.ONE_HAND, F.MACE)
 	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Stormherald -- 36263
 	recipe = AddRecipe(36263, V.TBC, Q.COMMON)
 	recipe:SetCraftedItemID(28442)
 	recipe:SetSkillLevels(375, 375, 385, 395, 405)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.RETIRED, F.IBOP, F.RBOP, F.DPS, F.TWO_HAND, F.MACE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOP, F.RBOP, F.DPS, F.TWO_HAND, F.MACE)
 	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Belt of the Guardian -- 36389
@@ -3200,35 +3200,35 @@ function addon:InitBlacksmithing()
 	recipe = AddRecipe(55183, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(41186)
 	recipe:SetSkillLevels(415, 415, 420, 425, 430)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.RETIRED, F.IBOP, F.RBOP, F.DPS, F.ONE_HAND, F.SWORD)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOP, F.RBOP, F.DPS, F.ONE_HAND, F.SWORD)
 	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Corroded Saronite Woundbringer -- 55184
 	recipe = AddRecipe(55184, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(41187)
 	recipe:SetSkillLevels(415, 415, 420, 425, 430)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.RETIRED, F.IBOP, F.RBOP, F.DPS, F.ONE_HAND, F.SWORD)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOP, F.RBOP, F.DPS, F.ONE_HAND, F.SWORD)
 	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Saronite Mindcrusher -- 55185
 	recipe = AddRecipe(55185, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(41188)
 	recipe:SetSkillLevels(415, 415, 420, 425, 430)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.RETIRED, F.IBOP, F.RBOP, F.DPS, F.TWO_HAND, F.MACE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOP, F.RBOP, F.DPS, F.TWO_HAND, F.MACE)
 	recipe:AddTrainer(3355, 7230, 7231, 11177, 11178, 20124, 20125, 33591, 33609, 37072, 44781, 45548)
 
 	-- Chestplate of Conquest -- 55186
 	recipe = AddRecipe(55186, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(41189)
 	recipe:SetSkillLevels(415, 415, 420, 425, 430)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.RETIRED, F.IBOP, F.RBOP, F.DPS, F.PLATE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOP, F.RBOP, F.DPS, F.PLATE)
 	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Legplates of Conquest -- 55187
 	recipe = AddRecipe(55187, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(41190)
 	recipe:SetSkillLevels(415, 415, 420, 425, 430)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.RETIRED, F.IBOP, F.RBOP, F.DPS, F.PLATE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOP, F.RBOP, F.DPS, F.PLATE)
 	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Sturdy Cobalt Quickblade -- 55200

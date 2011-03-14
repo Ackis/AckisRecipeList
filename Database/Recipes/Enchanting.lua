@@ -523,7 +523,7 @@ function addon:InitEnchanting()
 	recipe = AddRecipe(13882, V.ORIG, Q.UNCOMMON)
 	recipe:SetRecipeItemID(11206)
 	recipe:SetSkillLevels(225, 225, 245, 265, 285)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.RETIRED, F.IBOE, F.RBOE, F.DPS, F.CLOAK)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOE, F.RBOE, F.DPS, F.CLOAK)
 	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Enchant Gloves - Strength -- 13887
@@ -1043,7 +1043,7 @@ function addon:InitEnchanting()
 	recipe:SetRecipeItemID(20756)
 	recipe:SetCraftedItemID(20749)
 	recipe:SetSkillLevels(300, 300, 310, 320, 330)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.RETIRED, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
 	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Brilliant Mana Oil -- 25130
@@ -1051,7 +1051,7 @@ function addon:InitEnchanting()
 	recipe:SetRecipeItemID(20757)
 	recipe:SetCraftedItemID(20748)
 	recipe:SetSkillLevels(300, 300, 310, 320, 330)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.RETIRED, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
 	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Enchant 2H Weapon - Agility -- 27837

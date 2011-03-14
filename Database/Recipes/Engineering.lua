@@ -267,7 +267,7 @@ function addon:InitEngineering()
 	recipe:SetRecipeItemID(13308)
 	recipe:SetCraftedItemID(4386)
 	recipe:SetSkillLevels(155, 155, 175, 185, 195)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.RETIRED, F.IBOE, F.RBOE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOE, F.RBOE)
 	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Iron Strut -- 3958
@@ -591,7 +591,7 @@ function addon:InitEngineering()
 	recipe:SetRecipeItemID(10607)
 	recipe:SetCraftedItemID(10506)
 	recipe:SetSkillLevels(230, 230, 250, 260, 270)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.RETIRED, F.IBOE, F.RBOE, F.CLOTH)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOE, F.RBOE, F.CLOTH)
 	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Rose Colored Goggles -- 12618
@@ -1122,7 +1122,7 @@ function addon:InitEngineering()
 	recipe:SetRecipeItemID(20000)
 	recipe:SetCraftedItemID(19999)
 	recipe:SetSkillLevels(300, 300, 320, 330, 340)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.RETIRED, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.CLOTH)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.CLOTH)
 	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Bloodvine Lens -- 24357
@@ -1130,7 +1130,7 @@ function addon:InitEngineering()
 	recipe:SetRecipeItemID(20001)
 	recipe:SetCraftedItemID(19998)
 	recipe:SetSkillLevels(300, 300, 320, 330, 340)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.RETIRED, F.IBOE, F.RBOP, F.LEATHER)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOE, F.RBOP, F.LEATHER)
 	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Tranquil Mechanical Yeti -- 26011

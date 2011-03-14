@@ -221,7 +221,7 @@ function addon:InitCooking()
 	recipe:SetRecipeItemID(3736)
 	recipe:SetCraftedItemID(3728)
 	recipe:SetSkillLevels(150, 150, 190, 210, 230)
-	recipe:AddFilters(F.ALLIANCE, F.QUEST, F.RETIRED, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
+	recipe:AddFilters(F.ALLIANCE, F.RETIRED, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
 	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Soothing Turtle Bisque -- 3400
@@ -229,7 +229,7 @@ function addon:InitCooking()
 	recipe:SetRecipeItemID(3737)
 	recipe:SetCraftedItemID(3729)
 	recipe:SetSkillLevels(175, 175, 215, 235, 255)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.QUEST, F.RETIRED, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
 	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Barbecued Buzzard Wing -- 4094
@@ -247,7 +247,7 @@ function addon:InitCooking()
 	recipe:SetRecipeItemID(5482)
 	recipe:SetCraftedItemID(5472)
 	recipe:SetSkillLevels(10, 10, 50, 70, 90)
-	recipe:AddFilters(F.ALLIANCE, F.QUEST, F.RETIRED, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
+	recipe:AddFilters(F.ALLIANCE, F.RETIRED, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
 	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Scorpid Surprise -- 6413
@@ -271,7 +271,7 @@ function addon:InitCooking()
 	recipe:SetRecipeItemID(5485)
 	recipe:SetCraftedItemID(5476)
 	recipe:SetSkillLevels(50, 50, 90, 110, 130)
-	recipe:AddFilters(F.ALLIANCE, F.VENDOR, F.RETIRED, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
+	recipe:AddFilters(F.ALLIANCE, F.RETIRED, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
 	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Strider Stew -- 6416
@@ -287,7 +287,7 @@ function addon:InitCooking()
 	recipe:SetRecipeItemID(44977)
 	recipe:SetCraftedItemID(44977)
 	recipe:SetSkillLevels(90, 90, 130, 150, 170)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.RETIRED, F.IBOE, F.RBOP)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOE, F.RBOP)
 	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Crispy Lizard Tail -- 6418
@@ -606,7 +606,7 @@ function addon:InitCooking()
 	recipe:SetRecipeItemID(16767)
 	recipe:SetCraftedItemID(16766)
 	recipe:SetSkillLevels(225, 225, 250, 262, 275)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.RETIRED, F.IBOE, F.RBOE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOE, F.RBOE)
 	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Mithril Head Trout -- 20916
@@ -678,7 +678,7 @@ function addon:InitCooking()
 	recipe:SetRecipeItemID(21025)
 	recipe:SetCraftedItemID(21023)
 	recipe:SetSkillLevels(300, 300, 325, 337, 350)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.QUEST, F.RETIRED, F.IBOE, F.RBOE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOE, F.RBOE)
 	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Smoked Sagefish -- 25704
