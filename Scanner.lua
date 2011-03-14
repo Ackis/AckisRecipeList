@@ -727,32 +727,33 @@ do
 						local acquire = recipe and recipe.acquire_data
 						local vendor_data = acquire and acquire[A.VENDOR]
 						local rep_data = acquire and acquire[A.REPUTATION]
-						local found_recipe = false
+						local matching_vendor = false
 
 						if vendor_data then
 							for id_num in pairs(vendor_data) do
 								if id_num == vendor_id then
-									found_recipe = true
+									matching_vendor = true
 									break
 								end
 							end
 						elseif rep_data then
 							for id_num, info in pairs(rep_data) do
-								if found_recipe then
+								if matching_vendor then
 									break
 								end
 
 								for rep_level, level_info in pairs(info) do
 									for rep_vendor_id in pairs(level_info) do
 										if rep_vendor_id == vendor_id then
-											found_recipe = true
+											matching_vendor = true
 										end
 									end
 								end
 							end
 						end
+						local vendor = private.vendor_list[vendor_id]
 
-						if not found_recipe then
+						if not matching_vendor then
 							if supply > -1 then
 								recipe:AddLimitedVendor(vendor_id, supply)
 							else
@@ -765,8 +766,8 @@ do
 							end
 							added_output = true
 							table.insert(output, ("Vendor ID missing from \"%s\" %d."):format(recipe and recipe.name or _G.UNKNOWN, spell_id))
-						else
-							local reported_supply = private.vendor_list[vendor_id].item_list[spell_id]
+						elseif vendor and vendor.item_list then
+							local reported_supply = vendor.item_list[spell_id]
 
 							if reported_supply == true and supply > -1 then
 								recipe:AddLimitedVendor(vendor_id, supply)
