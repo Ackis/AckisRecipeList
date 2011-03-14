@@ -41,9 +41,7 @@ function addon:InitTrainer(DB)
 		private:AddListEntry(DB, id_num, name, location, coord_x, coord_y, faction)
 	end
 
-	AddTrainer(3373, L["Arnok"], BZ["Orgrimmar"], 34.1, 84.4, HORDE)
-	AddTrainer(12920, L["Doctor Gregory Victor"], BZ["Arathi Highlands"], 73.4, 36.8, HORDE)
-	AddTrainer(12939, L["Doctor Gustaf VanHowzen"], BZ["Dustwallow Marsh"], 68.18, 47.94, ALLIANCE)
+	AddTrainer(47418, "Runda", "Durotar", 52.8, 42, "Horde")
 
 	self.InitTrainer = nil
 end
