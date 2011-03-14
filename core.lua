@@ -938,6 +938,7 @@ function addon:InitializeLookups()
 	self:InitMob(private.mob_list)
 	self:InitQuest(private.quest_list)
 	self:InitReputation(private.reputation_list)
+	self:InitTrainer(private.trainer_list)
 	self:InitSeasons(private.seasonal_list)
 	self:InitVendor(private.vendor_list)
 
