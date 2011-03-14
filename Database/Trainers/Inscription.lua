@@ -42,6 +42,7 @@ function private:InitializeInscriptionTrainers()
 	AddTrainer(30722, "Neferatti", "Hellfire Peninsula", 52.3, 36.1, "Horde")
 	AddTrainer(33603, "Arthur Denny", "Icecrown", 71.7, 20.9, "Neutral")
 	AddTrainer(33615, 45363, "Shattrath City", 43.5, 90.7, "Neutral")
+	AddTrainer(33638, "Scribe Lanloer", "Shattrath City", 56.0, 74.4, "Neutral")
 	AddTrainer(33679, "Recorder Lidio", "Shattrath City", 36.2, 44, "Neutral")
 	AddTrainer(46716, "Nerog", "Orgrimmar", 55.2, 56.7, "Horde")
 

@@ -50,6 +50,7 @@ function private:InitializeSmeltingTrainers()
 	AddTrainer(26999, "Fendrig Redbeard", "Borean Tundra", 57.5, 66.2, "Alliance")
 	AddTrainer(28698, "Jedidiah Handers", "Dalaran", 41.5, 26, "Neutral")
 	AddTrainer(33617, 32606, "Shattrath City", 43.6, 90.9, "Neutral")
+	AddTrainer(33640, "Hanlir", "Shattrath City", 58.0, 75.0, "Neutral")
 	AddTrainer(33682, "Fono", "Shattrath City", 36, 48.5, "Neutral")
 	AddTrainer(46357, "Gonto", "Orgrimmar", 44.57, 78.61, "Horde")
 
