@@ -1630,24 +1630,24 @@ function addon:InitAlchemy()
 
 	-- Flask of the Frost Wyrm -- 53901
 	recipe = AddRecipe(53901, V.WOTLK, Q.COMMON)
-	recipe:SetCraftedItemID(40082)
+	recipe:SetCraftedItemID(46376)
 	recipe:SetSkillLevels(435, 435, 450, 457, 465)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
-	recipe:AddTrainer(1386, 2132, 3009, 3184, 3347, 4611, 26903, 26951, 26975, 26987, 27023, 27029, 28703)
+	recipe:AddTrainer(1386, 2132, 3009, 3184, 3347, 4611, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588)
 
 	-- Flask of Stoneblood -- 53902
 	recipe = AddRecipe(53902, V.WOTLK, Q.COMMON)
-	recipe:SetCraftedItemID(40083)
+	recipe:SetCraftedItemID(46379)
 	recipe:SetSkillLevels(435, 435, 450, 457, 465)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(1386, 2132, 3009, 3184, 3347, 4611, 26903, 26951, 26975, 26987, 27023, 27029, 28703)
+	recipe:AddTrainer(1386, 2132, 3009, 3184, 3347, 4611, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588)
 
 	-- Flask of Endless Rage -- 53903
 	recipe = AddRecipe(53903, V.WOTLK, Q.COMMON)
-	recipe:SetCraftedItemID(40084)
+	recipe:SetCraftedItemID(46377)
 	recipe:SetSkillLevels(435, 435, 450, 457, 465)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS)
-	recipe:AddTrainer(1386, 2132, 3009, 3184, 3347, 4611, 26903, 26951, 26975, 26987, 27023, 27029, 28703)
+	recipe:AddTrainer(1386, 2132, 3009, 3184, 3347, 4611, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588)
 
 	-- Powerful Rejuvenation Potion -- 53904
 	recipe = AddRecipe(53904, V.WOTLK, Q.COMMON)
@@ -1705,10 +1705,10 @@ function addon:InitAlchemy()
 
 	-- Flask of Pure Mojo -- 54213
 	recipe = AddRecipe(54213, V.WOTLK, Q.COMMON)
-	recipe:SetCraftedItemID(40404)
+	recipe:SetCraftedItemID(46378)
 	recipe:SetSkillLevels(435, 435, 450, 457, 465)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(1386, 2132, 3009, 3184, 3347, 4611, 26903, 26951, 26975, 26987, 27023, 27029, 28703)
+	recipe:AddTrainer(1386, 2132, 3009, 3184, 3347, 4611, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588)
 
 	-- Elixir of Mighty Strength -- 54218
 	recipe = AddRecipe(54218, V.WOTLK, Q.COMMON)
@@ -1935,9 +1935,10 @@ function addon:InitAlchemy()
 
 	-- Transmute: Living Elements -- 78866
 	recipe = AddRecipe(78866, V.CATA, Q.COMMON)
+	recipe:SetCraftedItemID(54464)
 	recipe:SetSkillLevels(485, 485, 510, 515, 520)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(1386, 2132, 3009, 3184, 3347, 4160, 4611, 5177, 5499, 26951, 26975, 27023, 27029, 28703, 33608, 33630)
+	recipe:AddTrainer(1386, 2132, 3009, 3184, 3347, 4160, 4611, 5177, 5499, 26951, 26975, 27023, 27029, 28703, 33588, 33608, 33630)
 
 	-- Transmute: Shadowspirit Diamond -- 80237
 	recipe = AddRecipe(80237, V.CATA, Q.COMMON)
