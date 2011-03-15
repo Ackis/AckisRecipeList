@@ -80,7 +80,6 @@ function addon:InitMob(DB)
 
 	-- Felwood
 	AddMob(7158,	L["Deadwood Shaman"],			BZ["Felwood"], 62.5, 10.3)
-	AddMob(7441,	L["Winterfall Totemic"],		BZ["Felwood"], 41.5, 42.7)
 
 	-- Grizzly Hills
 	AddMob(26270,	L["Iron Rune-Shaper"],			BZ["Grizzly Hills"], 67.8, 16.3)
@@ -255,6 +254,7 @@ function addon:InitMob(DB)
 	AddMob(7428,	L["Frostmaul Giant"],			BZ["Winterspring"], 58.5, 70.0)
 	AddMob(7438,	L["Winterfall Ursa"],			BZ["Winterspring"], 67.5, 36.3)
 	AddMob(7440,	L["Winterfall Den Watcher"],		BZ["Winterspring"], 68.0, 35.5)
+	AddMob(7441,	L["Winterfall Totemic"],		BZ["Winterspring"], 24.2, 50.4)
 	AddMob(7524,	L["Anguished Highborne"],		BZ["Winterspring"], 50.7, 41.9)
 	AddMob(14457,	BB["Princess Tempestria"],		BZ["Winterspring"], 52.7, 41.9)
 
