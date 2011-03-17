@@ -165,7 +165,7 @@ function addon:InitEngineering()
 	recipe:SetCraftedItemID(4372)
 	recipe:SetSkillLevels(120, 120, 145, 157, 170)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.GUN)
-	recipe:AddVendor(2682, 6730)
+	recipe:AddVendor(6730)
 
 	-- Shadow Goggles -- 3940
 	recipe = AddRecipe(3940, V.ORIG, Q.UNCOMMON)
@@ -231,7 +231,7 @@ function addon:InitEngineering()
 	recipe:SetCraftedItemID(4381)
 	recipe:SetSkillLevels(140, 140, 165, 177, 190)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.TRINKET)
-	recipe:AddVendor(2682, 2683, 3495)
+	recipe:AddVendor(2683, 3495)
 
 	-- Bronze Framework -- 3953
 	recipe = AddRecipe(3953, V.ORIG, Q.COMMON)

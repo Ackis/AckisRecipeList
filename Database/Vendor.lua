@@ -79,7 +79,6 @@ function addon:InitVendor(DB)
 	AddVendor(2670,		L["Xizk Goodstitch"],			BZ["The Cape of Stranglethorn"],	43.6, 73.0, NEUTRAL)  -- UPDATED
 	AddVendor(2672,		L["Cowardly Crosby"],			BZ["The Cape of Stranglethorn"],	40.9, 82.5, NEUTRAL)   -- UPDATED
 	AddVendor(2679,		L["Wenna Silkbeard"],			BZ["Wetlands"],				25.7, 25.8, ALLIANCE)
-	AddVendor(2682,		L["Fradd Swiftgear"],			BZ["Wetlands"],				26.4, 25.8, ALLIANCE)
 	AddVendor(2683,		L["Namdo Bizzfizzle"],			BZ["Gnomeregan"],			   0,	 0, ALLIANCE)
 	AddVendor(2685,		L["Mazk Snipeshot"],			BZ["The Cape of Stranglethorn"],	43.2, 70.2, NEUTRAL)  -- UPDATED
 	AddVendor(2687,		L["Gnaz Blunderflame"],			BZ["Northern Stranglethorn"],		67.5, 61.5, NEUTRAL)  -- UPDATED
