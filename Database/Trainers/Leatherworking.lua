@@ -36,7 +36,7 @@ function private:InitializeLeatherworkingTrainers()
 	AddTrainer(4212, "Telonis", "Darnassus", 64.5, 21.3, "Alliance")
 	AddTrainer(4588, "Arthur Moore", "Undercity", 70.3, 58.5, "Horde")
 	AddTrainer(5127, "Fimble Finespindle", "Ironforge", 39.8, 33.5, "Alliance")
-	AddTrainer(5564, "Simon Tanner", "Stormwind City", 71.8, 62.9, "Alliance")
+	AddTrainer(5564, "Simon Tanner", "Stormwind City", 71.8, 62.9, "Alliance") -- UPDATED
 	AddTrainer(5784, "Waldor", "Wailing Caverns", 32.6, 28.5, "Neutral")
 	AddTrainer(7866, "Peter Galen", "Azshara", 37.5, 65.5, "Alliance")
 	AddTrainer(7867, "Thorkaf Dragoneye", "Badlands", 62.6, 57.6, "Horde")
