@@ -64,7 +64,6 @@ function addon:InitVendor(DB)
 	AddVendor(1684,		L["Khara Deepwater"],			BZ["Loch Modan"],			39.5, 39.3, ALLIANCE)
 	AddVendor(1685,		L["Xandar Goodbeard"],			BZ["Loch Modan"],			82.5, 63.5, ALLIANCE)
 	AddVendor(2118,		L["Abigail Shiel"],			BZ["Tirisfal Glades"],			61.0, 51.0, HORDE) -- UPDATED
-	AddVendor(2380,		L["Nandar Branson"],			BZ["Hillsbrad Foothills"],		50.9, 57.1, ALLIANCE)
 	AddVendor(2383,		L["Lindea Rabonne"],			BZ["Hillsbrad Foothills"],		50.6, 61.0, ALLIANCE)
 	AddVendor(2393,		L["Christoph Jeffcoat"],		BZ["Hillsbrad Foothills"],		62.4, 19.1, HORDE)
 	AddVendor(2394,		L["Mallen Swain"],			BZ["Hillsbrad Foothills"],		62.0, 20.9, HORDE)
