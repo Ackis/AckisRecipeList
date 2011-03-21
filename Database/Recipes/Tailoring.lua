@@ -462,7 +462,7 @@ function addon:InitTailoring()
 	recipe:SetSkillLevels(70, 70, 95, 112, 130)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.INSTANCE, F.MOB_DROP, F.IBOE, F.RBOE)
 	recipe:AddMobDrop(590, 3530, 3531)
-	recipe:AddLimitedVendor(843, 1, 3005, 1, 3556, 1, 4189, 1, 16224, 1)
+	recipe:AddLimitedVendor(843, 1, 3005, 1, 3556, 1, 16224, 1)
 
 	-- Red Woolen Bag -- 6688
 	recipe = AddRecipe(6688, V.ORIG, Q.COMMON)
@@ -470,7 +470,7 @@ function addon:InitTailoring()
 	recipe:SetCraftedItemID(5763)
 	recipe:SetSkillLevels(115, 115, 140, 157, 175)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE)
-	recipe:AddLimitedVendor(777, 1, 1454, 1, 1474, 1, 3005, 1, 3364, 1, 3485, 1, 3537, 1, 4189, 2, 4577, 1)
+	recipe:AddLimitedVendor(777, 1, 1454, 1, 1474, 1, 3005, 1, 3364, 1, 3485, 1, 3537, 1, 4577, 1)
 
 	-- Lesser Wizard's Robe -- 6690
 	recipe = AddRecipe(6690, V.ORIG, Q.COMMON)
@@ -532,7 +532,7 @@ function addon:InitTailoring()
 	recipe:SetSkillLevels(55, 55, 80, 97, 115)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
 	recipe:AddVendor(66)
-	recipe:AddLimitedVendor(3364, 1, 3485, 1, 3522, 1, 4189, 1)
+	recipe:AddLimitedVendor(3364, 1, 3485, 1, 3522, 1)
 
 	-- Blue Linen Robe -- 7633
 	recipe = AddRecipe(7633, V.ORIG, Q.COMMON)

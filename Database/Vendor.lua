@@ -131,8 +131,6 @@ function addon:InitVendor(DB)
 	AddVendor(4083,		L["Jeeda"],				BZ["Stonetalon Mountains"],		47.6, 61.7, HORDE)
 	AddVendor(4086,		L["Veenix"],				BZ["Stonetalon Mountains"],		58.3, 51.7, NEUTRAL)
 	AddVendor(4168,		L["Elynna"],				BZ["Darnassus"],			64.4, 21.6, ALLIANCE)
-	AddVendor(4186,		L["Mavralyn"],				BZ["Darkshore"],			37.0, 41.2, ALLIANCE)
-	AddVendor(4189,		L["Valdaron"],				BZ["Darkshore"],			38.1, 40.6, ALLIANCE)
 	AddVendor(4223,		L["Fyldan"],				BZ["Darnassus"],			49.0, 37.0, ALLIANCE) -- UPDATED
 	AddVendor(4225,		L["Saenorion"],				BZ["Darnassus"],			63.8, 22.1, ALLIANCE)
 	AddVendor(4226,		L["Ulthir"],				BZ["Darnassus"],			56.0, 24.6, ALLIANCE)

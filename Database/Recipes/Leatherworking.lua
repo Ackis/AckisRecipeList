@@ -398,7 +398,7 @@ function addon:InitLeatherworking()
 	recipe:SetSkillLevels(90, 90, 120, 135, 150)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.INSTANCE, F.MOB_DROP, F.IBOE, F.RBOE, F.DPS, F.LEATHER)
 	recipe:AddMobDrop(1732, 3385)
-	recipe:AddVendor(843, 3556, 4186)
+	recipe:AddVendor(843, 3556)
 
 	-- Murloc Scale Breastplate -- 6703
 	recipe = AddRecipe(6703, V.ORIG, Q.COMMON)
@@ -407,7 +407,7 @@ function addon:InitLeatherworking()
 	recipe:SetSkillLevels(95, 95, 125, 140, 155)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.INSTANCE, F.MOB_DROP, F.IBOE, F.RBOE, F.DPS, F.LEATHER)
 	recipe:AddMobDrop(657, 3386)
-	recipe:AddVendor(843, 3556, 4186)
+	recipe:AddVendor(843, 3556)
 
 	-- Thick Murloc Armor -- 6704
 	recipe = AddRecipe(6704, V.ORIG, Q.UNCOMMON)
