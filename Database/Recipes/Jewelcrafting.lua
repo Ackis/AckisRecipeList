@@ -164,8 +164,8 @@ function addon:InitJewelcrafting()
 	recipe:SetRecipeItemID(20970)
 	recipe:SetCraftedItemID(20950)
 	recipe:SetSkillLevels(120, 120, 150, 165, 180)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.TANK, F.NECK)
-	recipe:AddVendor(1448, 4877)
+	recipe:AddFilters(F.ALLIANCE, F.VENDOR, F.IBOE, F.RBOE, F.TANK, F.NECK)
+	recipe:AddVendor(1448)
 
 	-- Heavy Iron Knuckles -- 25612
 	recipe = AddRecipe(25612, V.TBC, Q.COMMON)

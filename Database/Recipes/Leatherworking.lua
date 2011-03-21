@@ -462,7 +462,7 @@ function addon:InitLeatherworking()
 	recipe:SetCraftedItemID(5963)
 	recipe:SetSkillLevels(170, 170, 190, 200, 210)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.DPS, F.LEATHER)
-	recipe:AddVendor(2810, 2821, 3958, 4877)
+	recipe:AddVendor(2810, 2821, 3958)
 
 	-- Barbaric Shoulders -- 7151
 	recipe = AddRecipe(7151, V.ORIG, Q.COMMON)
