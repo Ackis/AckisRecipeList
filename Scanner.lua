@@ -14,7 +14,7 @@ This source code is released under All Rights Reserved.
 ************************************************************************
 --- Vendor/trainer scanning for Ackis Recipe List.
 @class file
-@name core.lua
+@name Scanner.lua
 @release 2.0
 ************************************************************************
 ]]--

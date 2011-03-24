@@ -1,6 +1,6 @@
 --[[
 ************************************************************************
-core.lua
+Core.lua
 Core functions for Ackis Recipe List
 ************************************************************************
 File date: @file-date-iso@
@@ -15,7 +15,7 @@ This source code is released under All Rights Reserved.
 --- Ackis Recipe List provides functionality to scan your professions.
 -- It will determine which recipes you are missing.
 -- @class file
--- @name core.lua
+-- @name Core.lua
 -- @release 2.0
 ************************************************************************
 ]]
