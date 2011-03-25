@@ -4425,7 +4425,8 @@ function addon:InitJewelcrafting()
 
 	-- Punisher's Band - 98921
 	--recipe = AddRecipe(98921, V.CATA, Q.RARE)
-	--recipe:SetCraftedItemID()
+	--recipe:SetRecipeItemID(69853)
+	--recipe:SetCraftedItemID(69852)
 	--recipe:SetSkillLevels()
 	--recipe:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.RBOE)
 
