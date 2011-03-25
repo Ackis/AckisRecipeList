@@ -970,6 +970,10 @@ do
 	function addon:Scan(textdump, is_refresh)
 		local current_prof, prof_level = _G.GetTradeSkillLine()
 
+		if current_prof == private.runeforging_name then
+			prof_level = _G.UnitLevel("player")
+		end
+
 		-- Bail if we haven't opened a tradeskill frame.
 		if current_prof == "UNKNOWN" then
 			self:Print(L["OpenTradeSkillWindow"])
