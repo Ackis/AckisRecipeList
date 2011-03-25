@@ -491,7 +491,7 @@ function addon:InitLeatherworking()
 	recipe:SetRecipeItemID(6474)
 	recipe:SetCraftedItemID(6466)
 	recipe:SetSkillLevels(90, 90, 120, 135, 150)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED)
 	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Deviate Scale Gloves -- 7954
@@ -499,7 +499,7 @@ function addon:InitLeatherworking()
 	recipe:SetRecipeItemID(6475)
 	recipe:SetCraftedItemID(6467)
 	recipe:SetSkillLevels(105, 105, 130, 142, 155)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED)
 	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Deviate Scale Belt -- 7955
@@ -771,8 +771,8 @@ function addon:InitLeatherworking()
 	recipe:SetRecipeItemID(8403)
 	recipe:SetCraftedItemID(8210)
 	recipe:SetSkillLevels(220, 220, 240, 250, 260)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.QUEST, F.IBOE, F.RBOP, F.LEATHER)
-	recipe:AddQuest(2848, 2855)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOE, F.RBOP, F.LEATHER)
+	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Big Voodoo Mask -- 10531
 	recipe = AddRecipe(10531, V.ORIG, Q.UNCOMMON)
@@ -803,16 +803,16 @@ function addon:InitLeatherworking()
 	recipe:SetRecipeItemID(8404)
 	recipe:SetCraftedItemID(8211)
 	recipe:SetSkillLevels(225, 225, 245, 255, 265)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.QUEST, F.IBOE, F.RBOP, F.LEATHER)
-	recipe:AddQuest(2849, 2856)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOE, F.RBOP, F.LEATHER)
+	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Wild Leather Helmet -- 10546
 	recipe = AddRecipe(10546, V.ORIG, Q.UNCOMMON)
 	recipe:SetRecipeItemID(8405)
 	recipe:SetCraftedItemID(8214)
 	recipe:SetSkillLevels(225, 225, 245, 255, 265)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.QUEST, F.IBOE, F.RBOP, F.LEATHER)
-	recipe:AddQuest(2850, 2857)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOE, F.RBOP, F.LEATHER)
+	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Nightscape Pants -- 10548
 	recipe = AddRecipe(10548, V.ORIG, Q.COMMON)
@@ -879,9 +879,9 @@ function addon:InitLeatherworking()
 	recipe:SetRecipeItemID(8406)
 	recipe:SetCraftedItemID(8213)
 	recipe:SetSkillLevels(245, 245, 265, 275, 285)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.QUEST, F.IBOE, F.RBOP, F.LEATHER)
-	recipe:AddQuest(2851, 2858)
-
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOE, F.RBOP, F.LEATHER)
+	recipe:AddCustom("REMOVED_FROM_GAME")
+	
 	-- Tough Scorpid Leggings -- 10568
 	recipe = AddRecipe(10568, V.ORIG, Q.UNCOMMON)
 	recipe:SetRecipeItemID(8401)
@@ -903,16 +903,16 @@ function addon:InitLeatherworking()
 	recipe:SetRecipeItemID(8407)
 	recipe:SetCraftedItemID(8212)
 	recipe:SetSkillLevels(250, 250, 270, 280, 290)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.QUEST, F.IBOE, F.RBOP, F.LEATHER)
-	recipe:AddQuest(2852, 2859)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOE, F.RBOP, F.LEATHER)
+	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Wild Leather Cloak -- 10574
 	recipe = AddRecipe(10574, V.ORIG, Q.UNCOMMON)
 	recipe:SetRecipeItemID(8408)
 	recipe:SetCraftedItemID(8215)
 	recipe:SetSkillLevels(250, 250, 270, 280, 290)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.QUEST, F.IBOE, F.RBOP, F.CLOAK)
-	recipe:AddQuest(2853, 2860)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOE, F.RBOP, F.CLOAK)
+	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Dragonscale Gauntlets -- 10619
 	recipe = AddRecipe(10619, V.ORIG, Q.COMMON)
@@ -984,8 +984,8 @@ function addon:InitLeatherworking()
 	recipe:SetRecipeItemID(15726)
 	recipe:SetCraftedItemID(15045)
 	recipe:SetSkillLevels(260, 260, 280, 290, 300)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.MAIL)
-	recipe:AddVendor(11874)
+	recipe:AddFilters(F.ALLIANCE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.MAIL)
+	recipe:AddLimitedVendor(11874, 1)
 
 	-- Heavy Scorpid Vest -- 19051
 	recipe = AddRecipe(19051, V.ORIG, Q.UNCOMMON)
@@ -1476,48 +1476,48 @@ function addon:InitLeatherworking()
 	recipe:SetRecipeItemID(18514)
 	recipe:SetCraftedItemID(18504)
 	recipe:SetSkillLevels(300, 300, 320, 330, 340)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.INSTANCE, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.LEATHER)
-	recipe:AddCustom("DM_CACHE")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.LEATHER)
+	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Mongoose Boots -- 22922
 	recipe = AddRecipe(22922, V.ORIG, Q.RARE)
 	recipe:SetRecipeItemID(18515)
 	recipe:SetCraftedItemID(18506)
 	recipe:SetSkillLevels(300, 300, 320, 330, 340)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.INSTANCE, F.IBOE, F.RBOP, F.DPS, F.LEATHER)
-	recipe:AddCustom("DM_CACHE")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOE, F.RBOP, F.DPS, F.LEATHER)
+	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Swift Flight Bracers -- 22923
 	recipe = AddRecipe(22923, V.ORIG, Q.RARE)
 	recipe:SetRecipeItemID(18516)
 	recipe:SetCraftedItemID(18508)
 	recipe:SetSkillLevels(300, 300, 320, 330, 340)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.INSTANCE, F.IBOE, F.RBOP, F.DPS, F.MAIL)
-	recipe:AddCustom("DM_CACHE")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOE, F.RBOP, F.DPS, F.MAIL)
+	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Chromatic Cloak -- 22926
 	recipe = AddRecipe(22926, V.ORIG, Q.EPIC)
 	recipe:SetRecipeItemID(18517)
 	recipe:SetCraftedItemID(18509)
 	recipe:SetSkillLevels(300, 300, 320, 330, 340)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.INSTANCE, F.IBOE, F.RBOE, F.CLOAK)
-	recipe:AddCustom("DM_CACHE")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOE, F.RBOE, F.CLOAK)
+	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Hide of the Wild -- 22927
 	recipe = AddRecipe(22927, V.ORIG, Q.EPIC)
 	recipe:SetRecipeItemID(18518)
 	recipe:SetCraftedItemID(18510)
 	recipe:SetSkillLevels(300, 300, 320, 330, 340)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.INSTANCE, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOAK)
-	recipe:AddCustom("DM_CACHE")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOAK)
+	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Shifting Cloak -- 22928
 	recipe = AddRecipe(22928, V.ORIG, Q.EPIC)
 	recipe:SetRecipeItemID(18519)
 	recipe:SetCraftedItemID(18511)
 	recipe:SetSkillLevels(300, 300, 320, 330, 340)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.INSTANCE, F.IBOE, F.RBOE, F.TANK, F.CLOAK)
-	recipe:AddCustom("DM_CACHE")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOE, F.RBOE, F.TANK, F.CLOAK)
+	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Heavy Leather Ball -- 23190
 	recipe = AddRecipe(23190, V.ORIG, Q.COMMON)
@@ -2734,7 +2734,7 @@ function addon:InitLeatherworking()
 	recipe:SetRecipeItemID(34200)
 	recipe:SetCraftedItemID(34105)
 	recipe:SetSkillLevels(350, 350, 360, 370, 380)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOE, F.RBOP, F.LOWERCITY)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOE, F.RBOP)
 	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Glove Reinforcements -- 44770

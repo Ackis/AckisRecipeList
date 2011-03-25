@@ -318,7 +318,6 @@ L["DISCOVERY_INSC_MINOR"] = "Obtained randomly by conducting Minor Inscription R
 L["DISCOVERY_INSC_NORTHREND"] = "Obtained randomly by conducting Northrend Inscription Research."
 L["DISPLAY_EXCLUSION_DESC"] = "Display recipes that are in the exclusion list."
 L["DISPLAY_OPTIONS_DESC"] = "Allows you to customize how the GUI behaves."
-L["DM_CACHE"] = "Randomly obtained in Dire Maul (North) in Knot Thimblejack's cache."
 L["DM_TRIBUTE"] = "DM Tribute Run - Chest"
 L["Daedal"] = "Daedal"
 L["Daenril"] = "Daenril"

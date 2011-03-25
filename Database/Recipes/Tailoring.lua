@@ -1494,40 +1494,40 @@ function addon:InitTailoring()
 	recipe:SetRecipeItemID(18414)
 	recipe:SetCraftedItemID(18405)
 	recipe:SetSkillLevels(300, 300, 315, 330, 345)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.INSTANCE, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
-	recipe:AddCustom("DM_CACHE")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
+	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Felcloth Gloves -- 22867
 	recipe = AddRecipe(22867, V.ORIG, Q.RARE)
 	recipe:SetRecipeItemID(18415)
 	recipe:SetCraftedItemID(18407)
 	recipe:SetSkillLevels(300, 300, 315, 330, 345)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.INSTANCE, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.CLOTH)
-	recipe:AddCustom("DM_CACHE")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.CLOTH)
+	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Inferno Gloves -- 22868
 	recipe = AddRecipe(22868, V.ORIG, Q.RARE)
 	recipe:SetRecipeItemID(18416)
 	recipe:SetCraftedItemID(18408)
 	recipe:SetSkillLevels(300, 300, 315, 330, 345)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.INSTANCE, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.CLOTH)
-	recipe:AddCustom("DM_CACHE")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.CLOTH)
+	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Mooncloth Gloves -- 22869
 	recipe = AddRecipe(22869, V.ORIG, Q.RARE)
 	recipe:SetRecipeItemID(18417)
 	recipe:SetCraftedItemID(18409)
 	recipe:SetSkillLevels(300, 300, 315, 330, 345)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.INSTANCE, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.CLOTH)
-	recipe:AddCustom("DM_CACHE")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.CLOTH)
+	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Cloak of Warding -- 22870
 	recipe = AddRecipe(22870, V.ORIG, Q.RARE)
 	recipe:SetRecipeItemID(18418)
 	recipe:SetCraftedItemID(18413)
 	recipe:SetSkillLevels(300, 300, 315, 330, 345)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.INSTANCE, F.IBOE, F.RBOP, F.TANK, F.CLOAK)
-	recipe:AddCustom("DM_CACHE")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOE, F.RBOP, F.TANK, F.CLOAK)
+	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Mooncloth Robe -- 22902
 	recipe = AddRecipe(22902, V.ORIG, Q.COMMON)
