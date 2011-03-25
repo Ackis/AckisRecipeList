@@ -4423,5 +4423,11 @@ function addon:InitJewelcrafting()
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
 	recipe:AddWorldDrop("Deepholm", "Eastern Kingdoms", "Kalimdor")
 
+	-- Punisher's Band - 98921
+	--recipe = AddRecipe(98921, V.CATA, Q.RARE)
+	--recipe:SetCraftedItemID()
+	--recipe:SetSkillLevels()
+	--recipe:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.RBOE)
+
 	self.InitJewelcrafting = nil
 end
