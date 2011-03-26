@@ -138,14 +138,14 @@ function addon:InitVendor(DB)
 	AddVendor(4229,		L["Mythrin'dir"],			BZ["Darnassus"],			60.0, 19.1, ALLIANCE)
 	AddVendor(4265,		L["Nyoma"],				BZ["Teldrassil"],			57.2, 61.2, ALLIANCE)
 	AddVendor(4305,		L["Kriggon Talsone"],			BZ["Westfall"],				36.2, 90.1, ALLIANCE)
-	AddVendor(4553,		L["Ronald Burch"],			BZ["Undercity"],			62.4, 43.4, HORDE)
-	AddVendor(4561,		L["Daniel Bartlett"],			BZ["Undercity"],			64.2, 37.7, HORDE)
-	AddVendor(4574,		L["Lizbeth Cromwell"],			BZ["Undercity"],			81.2, 31.0, HORDE)
-	AddVendor(4577,		L["Millie Gregorian"],			BZ["Undercity"],			70.8, 29.6, HORDE)
-	AddVendor(4589,		L["Joseph Moore"],			BZ["Undercity"],			70.2, 57.8, HORDE)
-	AddVendor(4610,		L["Algernon"],				BZ["Undercity"],			51.9, 74.4, HORDE)
-	AddVendor(4617,		L["Thaddeus Webb"],			BZ["Undercity"],			62.0, 60.7, HORDE)
-	AddVendor(4775,		L["Felicia Doan"],			BZ["Undercity"],			64.3, 50.2, HORDE)
+	AddVendor(4553,		L["Ronald Burch"],			BZ["Undercity"],			62.3, 43.1, HORDE) -- COMPLETELY UPDATED
+	AddVendor(4561,		L["Daniel Bartlett"],			BZ["Undercity"],			64.1, 37.4, HORDE) -- COMPLETELY UPDATED
+	AddVendor(4574,		L["Lizbeth Cromwell"],			BZ["Undercity"],			81.0, 30.7, HORDE) -- COMPLETELY UPDATED
+	AddVendor(4577,		L["Millie Gregorian"],			BZ["Undercity"],			70.6, 30.1, HORDE) -- COMPLETELY UPDATED
+	AddVendor(4589,		L["Joseph Moore"],			BZ["Undercity"],			70.0, 58.5, HORDE) -- COMPLETELY UPDATED
+	AddVendor(4610,		L["Algernon"],				BZ["Undercity"],			51.7, 74.7, HORDE) -- COMPLETELY UPDATED
+	AddVendor(4617,		L["Thaddeus Webb"],			BZ["Undercity"],			62.4, 61.0, HORDE) -- COMPLETELY UPDATED
+	AddVendor(4775,		L["Felicia Doan"],			BZ["Undercity"],			64.1, 50.6, HORDE) -- COMPLETELY UPDATED
 	AddVendor(4782,		L["Truk Wildbeard"],			BZ["The Hinterlands"],			14.4, 42.5, ALLIANCE)
 	AddVendor(4878,		L["Montarr"],				BZ["Thousand Needles"],			45.2, 50.7, HORDE)
 	AddVendor(4879,		L["Ogg'marr"],				BZ["Dustwallow Marsh"],			36.7, 31.0, HORDE)
@@ -225,7 +225,7 @@ function addon:InitVendor(DB)
 	AddVendor(12959,	L["Nergal"],				BZ["Un'Goro Crater"],			43.3,  7.7, NEUTRAL)
 	AddVendor(12962,	L["Wik'Tar"],				BZ["Ashenvale"],			11.8, 34.1, HORDE)
 	AddVendor(13420,	L["Penney Copperpinch"],		BZ["Orgrimmar"],			53.5, 66.1, NEUTRAL)
-	AddVendor(13429,	L["Nardstrum Copperpinch"],		BZ["Undercity"],			67.5, 38.7, HORDE)
+	AddVendor(13429,	L["Nardstrum Copperpinch"],		BZ["Undercity"],			67.5, 38.7, HORDE) -- COMPLETELY UPDATED
 	AddVendor(13432,	L["Seersa Copperpinch"],		BZ["Thunder Bluff"],			42.0, 55.1, HORDE)
 	AddVendor(13433,	L["Wulmort Jinglepocket"],		BZ["Ironforge"],			33.0, 67.6, NEUTRAL)
 	AddVendor(13435,	L["Khole Jinglepocket"],		BZ["Stormwind City"],			62.2, 70.6, ALLIANCE)

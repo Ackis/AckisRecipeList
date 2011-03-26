@@ -659,7 +659,8 @@ function addon:InitLeatherworking()
 	recipe:SetCraftedItemID(7386)
 	recipe:SetSkillLevels(190, 190, 210, 220, 230)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.LEATHER)
-	recipe:AddVendor(4225, 4589, 7852, 7854)
+	recipe:AddVendor(4225, 7852, 7854)
+	recipe:AddLimitedVendor(4589, 1)
 
 	-- Dusky Belt -- 9206
 	recipe = AddRecipe(9206, V.ORIG, Q.COMMON)
@@ -881,7 +882,7 @@ function addon:InitLeatherworking()
 	recipe:SetSkillLevels(245, 245, 265, 275, 285)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOE, F.RBOP, F.LEATHER)
 	recipe:AddCustom("REMOVED_FROM_GAME")
-	
+
 	-- Tough Scorpid Leggings -- 10568
 	recipe = AddRecipe(10568, V.ORIG, Q.UNCOMMON)
 	recipe:SetRecipeItemID(8401)
@@ -1533,7 +1534,8 @@ function addon:InitLeatherworking()
 	recipe:SetCraftedItemID(18948)
 	recipe:SetSkillLevels(155, 155, 175, 185, 195)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.DPS, F.LEATHER)
-	recipe:AddVendor(4225, 4589)
+	recipe:AddVendor(4225)
+	recipe:AddLimitedVendor(4589, 1)
 
 	-- Might of the Timbermaw -- 23703
 	recipe = AddRecipe(23703, V.ORIG, Q.COMMON)

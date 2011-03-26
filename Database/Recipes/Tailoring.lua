@@ -1006,7 +1006,8 @@ function addon:InitTailoring()
 	recipe:SetCraftedItemID(10034)
 	recipe:SetSkillLevels(240, 240, 245, 250, 255)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE)
-	recipe:AddVendor(4577, 8681)
+	recipe:AddVendor(8681)
+	recipe:AddLimitedVendor(4577, 1)
 
 	-- Shadoweave Mask -- 12086
 	recipe = AddRecipe(12086, V.ORIG, Q.UNCOMMON)
@@ -1029,7 +1030,8 @@ function addon:InitTailoring()
 	recipe:SetCraftedItemID(10035)
 	recipe:SetSkillLevels(245, 245, 250, 255, 260)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.CLOTH)
-	recipe:AddVendor(4577, 8681)
+	recipe:AddVendor(8681)
+	recipe:AddLimitedVendor(4577, 1)
 
 	-- White Wedding Dress -- 12091
 	recipe = AddRecipe(12091, V.ORIG, Q.COMMON)
@@ -1052,7 +1054,8 @@ function addon:InitTailoring()
 	recipe:SetCraftedItemID(10036)
 	recipe:SetSkillLevels(250, 250, 265, 280, 295)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.CLOTH)
-	recipe:AddVendor(4577, 8681)
+	recipe:AddVendor(8681)
+	recipe:AddLimitedVendor(4577, 1)
 
 	-- Bolt of Runecloth -- 18401
 	recipe = AddRecipe(18401, V.ORIG, Q.COMMON)
