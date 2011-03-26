@@ -1352,8 +1352,8 @@ function addon:InitEngineering()
 	recipe:SetCraftedItemID(23746)
 	recipe:SetSkillLevels(350, 350, 360, 370, 380)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.DPS, F.GUN)
-	recipe:AddVendor(16657, 16782)
-	recipe:AddLimitedVendor(19661, 1)
+	recipe:AddVendor(16657)
+	recipe:AddLimitedVendor(16782, 1, 19661, 1)
 
 	-- Felsteel Boomstick -- 30314
 	recipe = AddRecipe(30314, V.TBC, Q.RARE)
@@ -1442,8 +1442,8 @@ function addon:InitEngineering()
 	recipe:SetCraftedItemID(23768)
 	recipe:SetSkillLevels(335, 335, 335, 345, 355)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE)
-	recipe:AddVendor(16657, 16782)
-	recipe:AddLimitedVendor(18484, 1, 19383, 1)
+	recipe:AddVendor(16657)
+	recipe:AddLimitedVendor(16782, 1, 18484, 1, 19383, 1)
 
 	-- Green Smoke Flare -- 30344
 	recipe = AddRecipe(30344, V.TBC, Q.COMMON)
@@ -1459,8 +1459,8 @@ function addon:InitEngineering()
 	recipe:SetCraftedItemID(23774)
 	recipe:SetSkillLevels(325, 325, 325, 335, 345)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE)
-	recipe:AddVendor(16657, 16782)
-	recipe:AddLimitedVendor(18484, 1)
+	recipe:AddVendor(16657)
+	recipe:AddLimitedVendor(16782, 1, 18484, 1)
 
 	-- Titanium Toolbox -- 30349
 	recipe = AddRecipe(30349, V.WOTLK, Q.COMMON)

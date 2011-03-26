@@ -1957,7 +1957,8 @@ function addon:InitLeatherworking()
 	recipe:SetCraftedItemID(25679)
 	recipe:SetSkillLevels(300, 300, 300, 305, 310)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE)
-	recipe:AddVendor(16689, 16748)
+	recipe:AddVendor(16748)
+	recipe:AddLimitedVendor(16689, 1)
 
 	-- Stylin' Purple Hat -- 32485
 	recipe = AddRecipe(32485, V.TBC, Q.RARE)

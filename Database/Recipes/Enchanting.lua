@@ -1308,8 +1308,8 @@ function addon:InitEnchanting()
 	recipe:SetCraftedItemID(22521)
 	recipe:SetSkillLevels(310, 310, 310, 320, 330)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE)
-	recipe:AddVendor(16635, 16722)
-	recipe:AddLimitedVendor(19663, 1)
+	recipe:AddVendor(16722)
+	recipe:AddLimitedVendor(16635, 1, 19663, 1)
 
 	-- Superior Wizard Oil -- 28019
 	recipe = AddRecipe(28019, V.TBC, Q.COMMON)
@@ -1317,8 +1317,8 @@ function addon:InitEnchanting()
 	recipe:SetCraftedItemID(22522)
 	recipe:SetSkillLevels(340, 340, 340, 350, 360)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	recipe:AddVendor(16635, 16722)
-	recipe:AddLimitedVendor(19663, 1)
+	recipe:AddVendor(16722)
+	recipe:AddLimitedVendor(16635, 1, 19663, 1)
 
 	-- Large Prismatic Shard -- 28022
 	recipe = AddRecipe(28022, V.TBC, Q.COMMON)
@@ -1326,8 +1326,8 @@ function addon:InitEnchanting()
 	recipe:SetCraftedItemID(22449)
 	recipe:SetSkillLevels(335, 335, 335, 335, 335)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE)
-	recipe:AddVendor(16635, 16722)
-	recipe:AddLimitedVendor(19663, 1)
+	recipe:AddVendor(16722)
+	recipe:AddLimitedVendor(16635, 1, 19663, 1)
 
 	-- Prismatic Sphere -- 28027
 	recipe = AddRecipe(28027, V.TBC, Q.COMMON)

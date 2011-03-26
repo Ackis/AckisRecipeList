@@ -246,21 +246,21 @@ function addon:InitVendor(DB)
 	AddVendor(16583,	L["Rohok"],				BZ["Hellfire Peninsula"],		53.2, 38.2, HORDE)
 	AddVendor(16585,	L["Cookie One-Eye"],			BZ["Hellfire Peninsula"],		54.6, 41.1, HORDE)
 	AddVendor(16588,	L["Apothecary Antonivich"],		BZ["Hellfire Peninsula"],		52.4, 36.5, HORDE)
-	AddVendor(16624,	L["Gelanthis"],				BZ["Silvermoon City"],			90.8, 73.6, HORDE)
-	AddVendor(16635,	L["Lyna"],				BZ["Silvermoon City"],			69.1, 24.4, HORDE)
-	AddVendor(16638,	L["Deynna"],				BZ["Silvermoon City"],			55.8, 51.0, HORDE)
-	AddVendor(16641,	L["Melaris"],				BZ["Silvermoon City"],			66.0, 20.6, HORDE)
+	AddVendor(16624,	L["Gelanthis"],				BZ["Silvermoon City"],			90.9, 73.3, HORDE) -- COMPLETELY UPDATED
+	AddVendor(16635,	L["Lyna"],				BZ["Silvermoon City"],			70.3, 24.9, HORDE) -- COMPLETELY UPDATED
+	AddVendor(16638,	L["Deynna"],				BZ["Silvermoon City"],			55.6, 51.0, HORDE) -- COMPLETELY UPDATED
+	AddVendor(16641,	L["Melaris"],				BZ["Silvermoon City"],			67.1, 19.5, HORDE) -- COMPLETELY UPDATED
 	AddVendor(16657,	L["Feera"],				BZ["The Exodar"],			54.0, 90.5, ALLIANCE)
-	AddVendor(16670,	L["Eriden"],				BZ["Silvermoon City"],			79.5, 36.2, HORDE)
-	AddVendor(16677,	L["Quelis"],				BZ["Silvermoon City"],			69.3, 70.7, HORDE)
-	AddVendor(16689,	L["Zaralda"],				BZ["Silvermoon City"],			84.0, 78.8, HORDE)
+	AddVendor(16670,	L["Eriden"],				BZ["Silvermoon City"],			80.3, 36.1, HORDE) -- COMPLETELY UPDATED
+	AddVendor(16677,	L["Quelis"],				BZ["Silvermoon City"],			69.3, 70.4, HORDE) -- COMPLETELY UPDATED
+	AddVendor(16689,	L["Zaralda"],				BZ["Silvermoon City"],			84.8, 78.6, HORDE) -- COMPLETELY UPDATED
 	AddVendor(16705,	L["Altaa"],				BZ["The Exodar"],			27.5, 62.1, ALLIANCE)
 	AddVendor(16713,	L["Arras"],				BZ["The Exodar"],			60.0, 89.5, ALLIANCE)
 	AddVendor(16718,	L["Phea"],				BZ["The Exodar"],			54.7, 26.5, ALLIANCE)
 	AddVendor(16722,	L["Egomis"],				BZ["The Exodar"],			39.1, 39.4, ALLIANCE)
 	AddVendor(16748,	L["Haferet"],				BZ["The Exodar"],			66.0, 74.6, ALLIANCE)
 	AddVendor(16767,	L["Neii"],				BZ["The Exodar"],			64.5, 68.5, ALLIANCE)
-	AddVendor(16782,	L["Yatheon"],				BZ["Silvermoon City"],			76.0, 37.7, HORDE)
+	AddVendor(16782,	L["Yatheon"],				BZ["Silvermoon City"],			75.6, 40.7, HORDE) -- COMPLETELY UPDATED
 	AddVendor(16826,	L["Sid Limbardi"],			BZ["Hellfire Peninsula"],		54.3, 63.6, ALLIANCE)
 	AddVendor(17246,	L["\"Cookie\" McWeaksauce"],		BZ["Azuremyst Isle"],			46.7, 70.5, ALLIANCE)
 	AddVendor(17512,	L["Arred"],				BZ["The Exodar"],			45.0, 26.0, ALLIANCE)
@@ -333,7 +333,7 @@ function addon:InitVendor(DB)
 	AddVendor(22213,	L["Gidge Spellweaver"],			BZ["Shattrath City"],			66.0, 67.9, NEUTRAL)
 	AddVendor(23007,	L["Paulsta'ats"],			BZ["Nagrand"],				30.6, 57.0, NEUTRAL)
 	AddVendor(23010,	L["Wolgren Jinglepocket"],		BZ["The Exodar"],			54.5, 47.2, ALLIANCE)
-	AddVendor(23012,	L["Hotoppik Copperpinch"],		BZ["Silvermoon City"],			63.5, 79.1, HORDE)
+	AddVendor(23012,	L["Hotoppik Copperpinch"],		BZ["Silvermoon City"],			63.5, 79.1, HORDE) -- COMPLETELY UPDATED
 	AddVendor(23064,	L["Eebee Jinglepocket"],		BZ["Shattrath City"],			51.0, 31.3, NEUTRAL)
 	AddVendor(23159,	L["Okuno"],				BZ["Black Temple"],			   0,	 0, NEUTRAL)
 	AddVendor(23437,	L["Indormi"],				BZ["Hyjal Summit"],			   0,	 0, NEUTRAL)

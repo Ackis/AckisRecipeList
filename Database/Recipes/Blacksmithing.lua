@@ -1975,8 +1975,8 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItemID(23502)
 	recipe:SetSkillLevels(325, 325, 335, 345, 355)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.DPS, F.TWO_HAND, F.MACE)
-	recipe:AddVendor(16670, 16713)
-	recipe:AddLimitedVendor(19662, 1)
+	recipe:AddVendor(16713)
+	recipe:AddLimitedVendor(16670, 1, 19662, 1)
 
 	-- Adamantite Cleaver -- 29568
 	recipe = AddRecipe(29568, V.TBC, Q.COMMON)
@@ -1984,8 +1984,8 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItemID(23503)
 	recipe:SetSkillLevels(330, 330, 340, 350, 360)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.DPS, F.TWO_HAND, F.AXE)
-	recipe:AddVendor(16670, 16713)
-	recipe:AddLimitedVendor(19662, 1)
+	recipe:AddVendor(16713)
+	recipe:AddLimitedVendor(16670, 1, 19662, 1)
 
 	-- Adamantite Dagger -- 29569
 	recipe = AddRecipe(29569, V.TBC, Q.COMMON)
@@ -1993,8 +1993,8 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItemID(23504)
 	recipe:SetSkillLevels(330, 330, 340, 350, 360)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.ONE_HAND, F.DAGGER)
-	recipe:AddVendor(16670, 16713)
-	recipe:AddLimitedVendor(19662, 1)
+	recipe:AddVendor(16713)
+	recipe:AddLimitedVendor(16670, 1, 19662, 1)
 
 	-- Adamantite Rapier -- 29571
 	recipe = AddRecipe(29571, V.TBC, Q.COMMON)
@@ -2002,8 +2002,8 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItemID(23505)
 	recipe:SetSkillLevels(335, 335, 345, 355, 365)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.TANK, F.ONE_HAND, F.SWORD)
-	recipe:AddVendor(16670, 16713)
-	recipe:AddLimitedVendor(19662, 1)
+	recipe:AddVendor(16713)
+	recipe:AddLimitedVendor(16670, 1, 19662, 1)
 
 	-- Adamantite Plate Bracers -- 29603
 	recipe = AddRecipe(29603, V.TBC, Q.COMMON)
