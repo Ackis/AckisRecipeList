@@ -962,7 +962,10 @@ function private.InitializeFrame()
 	-- Create MainPanel.filter_toggle, and set its scripts.
 	-------------------------------------------------------------------------------
 	do
-		local function Toggle_OnClick(self, button, down)
+		local filter_toggle = GenericCreateButton(nil, MainPanel, 24, 24, nil, nil, nil, L["FILTER_OPEN_DESC"], 2)
+		filter_toggle:SetPoint("TOPLEFT", MainPanel, "TOPLEFT", 323, -41)
+
+		filter_toggle:SetScript("OnClick", function(self, button, down)
 			-- The first time this button is clicked, everything in the expanded section of the MainPanel must be created.
 			if private.InitializeFilterPanel then
 				private.InitializeFilterPanel()
@@ -971,12 +974,7 @@ function private.InitializeFrame()
 
 			MainPanel:ToggleState()
 			self:SetTextures()
-		end
-
-		local filter_toggle = GenericCreateButton(nil, MainPanel, 24, 24, nil, nil, nil, L["FILTER_OPEN_DESC"], 2)
-		filter_toggle:SetPoint("TOPLEFT", MainPanel, "TOPLEFT", 323, -41)
-
-		filter_toggle:SetScript("OnClick", Toggle_OnClick)
+		end)
 
 		filter_toggle:SetHighlightTexture([[Interface\CHATFRAME\UI-ChatIcon-BlinkHilight]])
 
