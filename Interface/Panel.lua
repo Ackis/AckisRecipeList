@@ -503,7 +503,7 @@ function private.InitializeFrame()
 		local location_list = private.location_list
 		local reputation_list = private.reputation_list
 
-		local search_params = {
+		local recipe_fields = {
 			"name",
 			"skill_level",
 			--@debug@
@@ -511,90 +511,92 @@ function private.InitializeFrame()
 			--@end-debug@
 			"specialty",
 		}
-		-- Scans through the recipe database and toggles the flag on if the item is in the search criteria
-		function SearchRecipes(pattern)
-			if not pattern then
-				return
+
+		local function SearchByField(recipe, search_pattern)
+			for index, field in ipairs(recipe_fields) do
+				local str = recipe[field] and tostring(recipe[field]):lower() or nil
+
+				if str and str:find(search_pattern) then
+					recipe:AddState("RELEVANT")
+					return true
+				end
 			end
-			local current_prof = ORDERED_PROFESSIONS[MainPanel.profession]
+			return false
+		end
 
-			pattern = pattern:lower()
+		local function SearchByAcquireType(recipe, search_pattern)
+			for acquire_type in pairs(acquire_names) do
+				if recipe.acquire_data[acquire_type] then
+					local acquire_name = acquire_names[acquire_type]:lower()
 
-			for index, entry in pairs(private.recipe_list) do
-				entry:RemoveState("RELEVANT")
-
-				if entry.profession == current_prof then
-					local found = false
-
-					for index, field in ipairs(search_params) do
-						local str = entry[field] and tostring(entry[field]):lower() or nil
-
-						if str and str:find(pattern) then
-							entry:AddState("RELEVANT")
-							found = true
-							break
-						end
+					if acquire_name:find(search_pattern) then
+						recipe:AddState("RELEVANT")
+						return true
 					end
+				end
+			end
+			return false
+		end
 
-					if not found then
-						for acquire_type in pairs(acquire_names) do
-							local str = acquire_names[acquire_type]:lower()
+		local function SearchByLocation(recipe, search_pattern)
+			for location_name in pairs(location_list) do
+				for spell_id in pairs(location_list[location_name].recipes) do
+					if spell_id == recipe.spell_id then
+						local location = location_name:lower()
 
-							if str and str:find(pattern) and entry.acquire_data[acquire_type] then
-								entry:AddState("RELEVANT")
-								found = true
-								break
-							end
-						end
-					end
-
-					if not found then
-						for location_name in pairs(location_list) do
-							local breakout = false
-
-							for spell_id in pairs(location_list[location_name].recipes) do
-								if spell_id == entry.spell_id then
-									local str = location_name:lower()
-
-									if str and str:find(pattern) then
-										entry:AddState("RELEVANT")
-										breakout = true
-										break
-									end
-								end
-							end
-
-							if breakout then
-								break
-							end
-						end
-					end
-
-					if not found then
-						for acquire_type, acquire_data in pairs(entry.acquire_data) do
-							if acquire_type == A.REPUTATION then
-								local breakout = false
-
-								for id_num, info in pairs(acquire_data) do
-									local str = reputation_list[id_num].name:lower()
-
-									if str and str:find(pattern) then
-										entry:AddState("RELEVANT")
-										breakout = true
-										break
-									end
-								end
-							end
-
-							if breakout then
-								break
-							end
+						if location:find(search_pattern) then
+							recipe:AddState("RELEVANT")
+							return true
 						end
 					end
 				end
-			end	-- if entry.profession
-		end	-- for
-	end	-- do
+			end
+			return false
+		end
+
+		local function SearchByReputation(recipe, search_pattern)
+			for acquire_type, acquire_data in pairs(recipe.acquire_data) do
+				if acquire_type == A.REPUTATION then
+					for id_num, info in pairs(acquire_data) do
+						local str = reputation_list[id_num].name:lower()
+
+						if str and str:find(search_pattern) then
+							recipe:AddState("RELEVANT")
+							return true
+						end
+					end
+				end
+			end
+			return false
+		end
+		-- Scans through the recipe database and toggles the flag on if the item is in the search criteria
+		function SearchRecipes(search_pattern)
+			if not search_pattern then
+				return
+			end
+			search_pattern = search_pattern:lower()
+
+			for index, recipe in pairs(private.recipe_list) do
+				recipe:RemoveState("RELEVANT")
+
+				if recipe.profession == ORDERED_PROFESSIONS[MainPanel.profession] then
+					local found = SearchByField(recipe, search_pattern)
+
+					if not found then
+						found = SearchByAcquireType(recipe, search_pattern)
+					end
+
+					if not found then
+						found = SearchByLocation(recipe, search_pattern)
+					end
+
+					if not found then
+						found = SearchByReputation(recipe, search_pattern)
+					end
+				end
+			end
+		end
+	end	-- do-block
 
 	-------------------------------------------------------------------------------
 	-- Search EditBox
@@ -924,7 +926,7 @@ function private.InitializeFrame()
 		filter_toggle:SetScript("OnClick", Toggle_OnClick)
 
 		filter_toggle:SetHighlightTexture([[Interface\CHATFRAME\UI-ChatIcon-BlinkHilight]])
-		
+
 		function filter_toggle:SetTextures()
 			if MainPanel.is_expanded then
 				self:SetNormalTexture([[Interface\BUTTONS\UI-SpellbookIcon-PrevPage-Up]])
