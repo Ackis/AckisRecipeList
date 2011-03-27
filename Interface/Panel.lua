@@ -554,6 +554,14 @@ function private.InitializeFrame()
 			return false
 		end
 
+		local function SearchByQuality(recipe, search_pattern)
+			if private.item_quality_names[recipe.quality]:lower():find(search_pattern) then
+				recipe:AddState("RELEVANT")
+				return true
+			end
+			return false
+		end
+
 		local function SearchByReputation(recipe, search_pattern)
 			for acquire_type, acquire_data in pairs(recipe.acquire_data) do
 				if acquire_type == A.REPUTATION then
@@ -581,6 +589,10 @@ function private.InitializeFrame()
 
 				if recipe.profession == ORDERED_PROFESSIONS[MainPanel.profession] then
 					local found = SearchByField(recipe, search_pattern)
+
+					if not found then
+						found = SearchByQuality(recipe, search_pattern)
+					end
 
 					if not found then
 						found = SearchByAcquireType(recipe, search_pattern)
