@@ -500,22 +500,15 @@ function private.InitializeFrame()
 	-------------------------------------------------------------------------------
 	local SearchRecipes
 	do
-		local acquire_names = private.acquire_names
-		local location_list = private.location_list
-		local reputation_list = private.reputation_list
-
 		local recipe_fields = {
 			"name",
 			"skill_level",
-			--@debug@
-			-- "item_id",
-			--@end-debug@
 			"specialty",
 		}
 
 		local function SearchByField(recipe, search_pattern)
 			for index, field in ipairs(recipe_fields) do
-				local str = recipe[field] and tostring(recipe[field]):lower() or nil
+				local str = recipe[field] and tostring(recipe[field]):lower()
 
 				if str and str:find(search_pattern) then
 					recipe:AddState("RELEVANT")
@@ -526,6 +519,8 @@ function private.InitializeFrame()
 		end
 
 		local function SearchByAcquireType(recipe, search_pattern)
+			local acquire_names = private.acquire_names
+
 			for acquire_type in pairs(acquire_names) do
 				if recipe.acquire_data[acquire_type] then
 					local acquire_name = acquire_names[acquire_type]:lower()
@@ -540,6 +535,8 @@ function private.InitializeFrame()
 		end
 
 		local function SearchByLocation(recipe, search_pattern)
+			local location_list = private.location_list
+
 			for location_name in pairs(location_list) do
 				for spell_id in pairs(location_list[location_name].recipes) do
 					if spell_id == recipe.spell_id then
@@ -563,7 +560,34 @@ function private.InitializeFrame()
 			return false
 		end
 
+		local function SearchByList(recipe, search_pattern, list)
+			for id_num, unit in pairs(list) do
+				if unit.item_list and unit.item_list[recipe.spell_id] and unit.name:lower():find(search_pattern) then
+					recipe:AddState("RELEVANT")
+					return true
+				end
+			end
+		end
+
+		local function SearchByTrainer(recipe, search_pattern)
+			return SearchByList(recipe, search_pattern, private.trainer_list)
+		end
+
+		local function SearchByVendor(recipe, search_pattern)
+			return SearchByList(recipe, search_pattern, private.vendor_list)
+		end
+
+		local function SearchByMobDrop(recipe, search_pattern)
+			return SearchByList(recipe, search_pattern, private.mob_list)
+		end
+
+		local function SearchByCustom(recipe, search_pattern)
+			return SearchByList(recipe, search_pattern, private.custom_list)
+		end
+
 		local function SearchByReputation(recipe, search_pattern)
+			local reputation_list = private.reputation_list
+
 			for acquire_type, acquire_data in pairs(recipe.acquire_data) do
 				if acquire_type == A.REPUTATION then
 					for id_num, info in pairs(acquire_data) do
@@ -605,6 +629,22 @@ function private.InitializeFrame()
 
 					if not found then
 						found = SearchByReputation(recipe, search_pattern)
+					end
+
+					if not found then
+						found = SearchByTrainer(recipe, search_pattern)
+					end
+
+					if not found then
+						found = SearchByVendor(recipe, search_pattern)
+					end
+
+					if not found then
+						found = SearchByMobDrop(recipe, search_pattern)
+					end
+
+					if not found then
+						found = SearchByCustom(recipe, search_pattern)
 					end
 				end
 			end
