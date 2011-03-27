@@ -569,7 +569,8 @@ function addon:InitEnchanting()
 	recipe:SetRecipeItemID(11223)
 	recipe:SetSkillLevels(235, 235, 255, 275, 295)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.TANK)
-	recipe:AddVendor(989, 4229)
+	recipe:AddVendor(4229)
+	recipe:AddLimitedVendor(989, 1)
 
 	-- Enchant Shield - Frost Resistance -- 13933
 	recipe = AddRecipe(13933, V.ORIG, Q.UNCOMMON)

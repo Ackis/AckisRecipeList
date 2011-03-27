@@ -47,7 +47,7 @@ function addon:InitVendor(DB)
 	AddVendor(734,		L["Corporal Bluth"],			BZ["Northern Stranglethorn"],		47.5,  10.3, ALLIANCE) -- UPDATED
 	AddVendor(777,		L["Amy Davenport"],			BZ["Redridge Mountains"],		29.1, 47.5, ALLIANCE)
 	AddVendor(843,		L["Gina MacGregor"],			BZ["Westfall"],				57.6, 54.0, ALLIANCE)
-	AddVendor(989,		L["Banalash"],				BZ["Swamp of Sorrows"],			44.7, 56.7, HORDE)
+	AddVendor(989,		L["Banalash"],				BZ["Swamp of Sorrows"],			46.6, 56.9, HORDE) -- COMPLETELY UPDATED
 	AddVendor(1146,		L["Vharr"],				BZ["Northern Stranglethorn"],		38.7, 49.2, HORDE)   -- UPDATED
 	AddVendor(1148,		L["Nerrist"],				BZ["Northern Stranglethorn"],		39.2, 51.0, HORDE)  -- UPDATED
 	AddVendor(1149,		L["Uthok"],				BZ["Northern Stranglethorn"],		37.5, 49.2, HORDE)   -- UPDATED
@@ -188,8 +188,8 @@ function addon:InitVendor(DB)
 	AddVendor(8158,		L["Bronk"],				BZ["Feralas"],				76.1, 43.3, HORDE)
 	AddVendor(8160,		L["Nioma"],				BZ["The Hinterlands"],			13.4, 43.3, ALLIANCE)
 	AddVendor(8161,		L["Harggan"],				BZ["The Hinterlands"],			13.4, 44.0, ALLIANCE)
-	AddVendor(8176,		L["Gharash"],				BZ["Swamp of Sorrows"],			45.5, 51.6, HORDE)
-	AddVendor(8177,		L["Rartar"],				BZ["Swamp of Sorrows"],			45.4, 57.0, HORDE)
+	AddVendor(8176,		L["Gharash"],				BZ["Swamp of Sorrows"],			47.2, 52.1, HORDE) -- COMPLETELY UPDATED
+	AddVendor(8177,		L["Rartar"],				BZ["Swamp of Sorrows"],			47.2, 57.1, HORDE) -- COMPLETELY UPDATED
 	AddVendor(8178,		L["Nina Lightbrew"],			BZ["Blasted Lands"],			66.9, 18.3, ALLIANCE)
 	AddVendor(8307,		L["Tarban Hearthgrain"],		BZ["Northern Barrens"],			55.1, 61.7, HORDE)  -- UPDATED
 	AddVendor(8363,		L["Shadi Mistrunner"],			BZ["Thunder Bluff"],			40.4, 63.6, HORDE)
@@ -210,7 +210,7 @@ function addon:InitVendor(DB)
 	AddVendor(11278,	L["Magnus Frostwake"],			BZ["Western Plaguelands"],		68.1, 77.6, NEUTRAL)
 	AddVendor(11536,	L["Quartermaster Miranda Breechlock"],	BZ["Eastern Plaguelands"],		75.8, 54.1, NEUTRAL)
 	AddVendor(11557,	L["Meilosh"],				BZ["Felwood"],				65.7,  2.9, HORDE)
-	AddVendor(11874,	L["Masat T'andr"],			BZ["Swamp of Sorrows"],			26.3, 31.6, NEUTRAL)
+	AddVendor(11874,	L["Masat T'andr"],			BZ["Swamp of Sorrows"],			26.3, 31.6, NEUTRAL) -- COMPLETELY UPDATED
 	AddVendor(12022,	L["Lorelae Wintersong"],		BZ["Moonglade"],			48.3, 40.1, NEUTRAL)
 	AddVendor(12033,	L["Wulan"],				BZ["Desolace"],				26.2, 69.7, HORDE)
 	AddVendor(12043,	L["Kulwia"],				BZ["Stonetalon Mountains"],		45.4, 59.4, HORDE)

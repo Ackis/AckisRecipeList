@@ -27,7 +27,7 @@ function private:InitializeAlchemyTrainers()
 
 	AddTrainer(1215, "Alchemist Mallory", "Elwynn Forest", 39.8, 48.3, "Alliance")
 	AddTrainer(1246, "Vosur Brakthel", "Ironforge", 66.5, 55.2, "Alliance")
-	AddTrainer(1386, "Rogvar", "Swamp of Sorrows", 48.4, 55.7, "Horde")
+	AddTrainer(1386, "Rogvar", "Swamp of Sorrows", 50.0, 56.2, "Horde") -- COMPLETELY UPDATED
 	AddTrainer(1470, "Ghak Healtouch", "Loch Modan", 37, 49.2, "Alliance")
 	AddTrainer(2132, "Carolai Anise", "Tirisfal Glades", 59.5, 52.2, "Horde")
 	AddTrainer(2391, "Serge Hinott", "Hillsbrad Foothills", 61.6, 19.2, "Horde")

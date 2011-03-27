@@ -708,7 +708,8 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItemID(7924)
 	recipe:SetSkillLevels(215, 215, 235, 245, 255)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.DPS, F.MAIL)
-	recipe:AddVendor(8161, 8176)
+	recipe:AddVendor(8161)
+	recipe:AddLimitedVendor(8176, 1)
 
 	-- Mithril Shield Spike -- 9939
 	recipe = AddRecipe(9939, V.ORIG, Q.RARE)

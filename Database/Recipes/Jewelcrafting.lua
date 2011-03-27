@@ -263,7 +263,8 @@ function addon:InitJewelcrafting()
 	recipe:SetCraftedItemID(21758)
 	recipe:SetSkillLevels(215, 215, 240, 255, 270)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOP, F.RBOE, F.DPS, F.TRINKET)
-	recipe:AddVendor(989, 4897)
+	recipe:AddVendor(4897)
+	recipe:AddLimitedVendor(989, 1)
 
 	-- Aquamarine Pendant of the Warrior -- 26876
 	recipe = AddRecipe(26876, V.TBC, Q.COMMON)
