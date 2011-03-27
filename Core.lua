@@ -563,8 +563,8 @@ function addon:OnInitialize()
 			       if not guid then
 				       return
 			       end
-			       local GUID = tonumber(string.sub(guid, -12, -9), 16)
-			       local unit = private.mob_list[GUID] or private.vendor_list[GUID] or private.trainer_list[GUID]
+			       local id_num = tonumber(string.sub(guid, -12, -9), 16)
+			       local unit = private.mob_list[id_num] or private.vendor_list[id_num] or private.trainer_list[id_num]
 
 			       if not unit or not unit.item_list then
 				       return

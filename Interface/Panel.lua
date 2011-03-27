@@ -42,7 +42,7 @@ local GetItemQualityColor = _G.GetItemQualityColor
 -------------------------------------------------------------------------------
 -- AddOn namespace.
 -------------------------------------------------------------------------------
-local LibStub = LibStub
+local LibStub = _G.LibStub
 
 local MODNAME	= "Ackis Recipe List"
 local addon	= LibStub("AceAddon-3.0"):GetAddon(MODNAME)
@@ -51,9 +51,7 @@ local BFAC	= LibStub("LibBabble-Faction-3.0"):GetLookupTable()
 local L		= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
 
 -- Set up the private intra-file namespace.
-local private	= select(2, ...)
-
-local Player	= private.Player
+local FOLDER_NAME, private	= ...
 
 -------------------------------------------------------------------------------
 -- Upvalues
@@ -79,7 +77,7 @@ function private.InitializeFrame()
 	-------------------------------------------------------------------------------
 	-- Create the MainPanel and set its values
 	-------------------------------------------------------------------------------
-	local MainPanel = CreateFrame("Frame", "ARL_MainPanel", UIParent)
+	local MainPanel = _G.CreateFrame("Frame", "ARL_MainPanel", _G.UIParent)
 
 	-- The panel width changes when contracting and expanding - store it for later use.
 	MainPanel.normal_width = 384
@@ -100,7 +98,7 @@ function private.InitializeFrame()
 	MainPanel.is_expanded = false
 
 	-- Let the user banish the MainPanel with the ESC key.
-	table.insert(UISpecialFrames, "ARL_MainPanel")
+	table.insert(_G.UISpecialFrames, "ARL_MainPanel")
 	addon.Frame = MainPanel
 
 	do
@@ -258,7 +256,7 @@ function private.InitializeFrame()
 						FixedOffsetX = opts.offsetx + 151
 					end
 				end
-				self:SetPoint(opts.anchorFrom, UIParent, opts.anchorTo, FixedOffsetX, opts.offsety)
+				self:SetPoint(opts.anchorFrom, _G.UIParent, opts.anchorTo, FixedOffsetX, opts.offsety)
 			end
 			self:SetScale(addon.db.profile.frameopts.uiscale)
 		end
@@ -291,7 +289,7 @@ function private.InitializeFrame()
 				self.filter_reset:Hide()
 				self.filter_menu:Hide()
 
-				PlaySound("igCharacterInfoClose")
+				_G.PlaySound("igCharacterInfoClose")
 
 				self:SetWidth(self.normal_width)
 				self:SetHitRectInsets(0, 35, 0, 53)
@@ -330,7 +328,7 @@ function private.InitializeFrame()
 				end
 				MainPanel.filter_reset:Show()
 
-				PlaySound("igCharacterInfoOpen")
+				_G.PlaySound("igCharacterInfoOpen")
 
 				self:SetWidth(self.expanded_width)
 				self:SetHitRectInsets(0, 90, 0, 53)
@@ -347,7 +345,7 @@ function private.InitializeFrame()
 			self.is_expanded = not self.is_expanded
 
 			self:ClearAllPoints()
-			self:SetPoint("BOTTOMLEFT", UIParent, "BOTTOMLEFT", x, y)
+			self:SetPoint("BOTTOMLEFT", _G.UIParent, "BOTTOMLEFT", x, y)
 			self:UpdateTitle()
 		end
 	end	-- do-block
@@ -375,7 +373,7 @@ function private.InitializeFrame()
 	-------------------------------------------------------------------------------
 	-- Create the profession-cycling button and assign its values.
 	-------------------------------------------------------------------------------
-	local ProfCycle = CreateFrame("Button", nil, MainPanel, "UIPanelButtonTemplate")
+	local ProfCycle = _G.CreateFrame("Button", nil, MainPanel, "UIPanelButtonTemplate")
 	ProfCycle:SetWidth(64)
 	ProfCycle:SetHeight(64)
 	ProfCycle:SetPoint("TOPLEFT", MainPanel, "TOPLEFT", 5, -4)
@@ -424,7 +422,7 @@ function private.InitializeFrame()
 					    while index ~= endLoop do
 						    if index > NUM_PROFESSIONS then
 							    index = 1
-						    elseif Player.professions[ORDERED_PROFESSIONS[index]] then
+						    elseif private.Player.professions[ORDERED_PROFESSIONS[index]] then
 							    displayProf = index
 							    MainPanel.profession = index
 							    break
@@ -446,7 +444,7 @@ function private.InitializeFrame()
 					    while index ~= endLoop do
 						    if index < 1 then
 							    index = NUM_PROFESSIONS
-						    elseif Player.professions[ORDERED_PROFESSIONS[index]] then
+						    elseif private.Player.professions[ORDERED_PROFESSIONS[index]] then
 							    displayProf = index
 							    MainPanel.profession = index
 							    break
@@ -459,36 +457,39 @@ function private.InitializeFrame()
 				    local is_shown = trade_frame:IsVisible()
 				    local sfx
 
-				    PlaySound("igCharacterNPCSelect")
+				    _G.PlaySound("igCharacterNPCSelect")
 
 				    -- If not shown, save the current sound effects setting then set it to 0.
 				    if not is_shown then
-					    sfx = tonumber(GetCVar("Sound_EnableSFX"))
-					    SetCVar("Sound_EnableSFX", 0)
+					    sfx = tonumber(_G.GetCVar("Sound_EnableSFX"))
+					    _G.SetCVar("Sound_EnableSFX", 0)
 				    end
-				    CastSpellByName(ORDERED_PROFESSIONS[MainPanel.profession])
+				    _G.CastSpellByName(ORDERED_PROFESSIONS[MainPanel.profession])
 				    addon:Scan()
 
 				    if not is_shown then
-					    CloseTradeSkill()
-					    SetCVar("Sound_EnableSFX", sfx)
+					    _G.CloseTradeSkill()
+					    _G.SetCVar("Sound_EnableSFX", sfx)
 				    end
 			    end)
 
-	function ProfCycle:ChangeTexture(texture)
+	local TEXTURE_UP_FORMAT = ([[Interface\Addons\%s\img\]]):format(FOLDER_NAME) .. "%s_up"
+	local TEXTURE_DOWN_FORMAT = ([[Interface\Addons\%s\img\]]):format(FOLDER_NAME) .. "%s_down"
+
+	function ProfCycle:ChangeTexture(texture_name)
 		local normal, pushed, disabled = self._normal, self._pushed, self._disabled
 
-		normal:SetTexture([[Interface\Addons\AckisRecipeList\img\]] .. texture .. [[_up]])
+		normal:SetTexture(TEXTURE_UP_FORMAT:format(texture_name))
 		normal:SetTexCoord(0, 1, 0, 1)
 		normal:SetAllPoints(self)
 		self:SetNormalTexture(normal)
 
-		pushed:SetTexture([[Interface\Addons\AckisRecipeList\img\]] .. texture .. [[_down]])
+		pushed:SetTexture(TEXTURE_DOWN_FORMAT:format(texture_name))
 		pushed:SetTexCoord(0, 1, 0, 1)
 		pushed:SetAllPoints(self)
 		self:SetPushedTexture(pushed)
 
-		disabled:SetTexture([[Interface\Addons\AckisRecipeList\img\]] .. texture .. [[_up]])
+		disabled:SetTexture(TEXTURE_UP_FORMAT:format(texture_name))
 		disabled:SetTexCoord(0, 1, 0, 1)
 		disabled:SetAllPoints(self)
 		self:SetDisabledTexture(disabled)
@@ -613,11 +614,11 @@ function private.InitializeFrame()
 	-------------------------------------------------------------------------------
 	-- Search EditBox
 	-------------------------------------------------------------------------------
-	local SearchBox = CreateFrame("EditBox", nil, MainPanel, "InputBoxTemplate")
+	local SearchBox = _G.CreateFrame("EditBox", nil, MainPanel, "InputBoxTemplate")
 
 	SearchBox:EnableMouse(true)
 	SearchBox:SetAutoFocus(false)
-	SearchBox:SetFontObject(ChatFontSmall)
+	SearchBox:SetFontObject("ChatFontSmall")
 	SearchBox:SetWidth(130)
 	SearchBox:SetHeight(12)
 	SearchBox:SetPoint("TOPLEFT", MainPanel, "TOPLEFT", 75, -39)
@@ -632,28 +633,28 @@ function private.InitializeFrame()
 	do
 		local old_x, old_y, click_time
 
-		WorldFrame:HookScript("OnMouseDown",
+		_G.WorldFrame:HookScript("OnMouseDown",
 				      function(frame, ...)
 					      if not SearchBox:HasFocus() then
 						      return
 					      end
-					      old_x, old_y = GetCursorPosition()
-					      click_time = GetTime()
+					      old_x, old_y = _G.GetCursorPosition()
+					      click_time = _G.GetTime()
 				      end)
 
-		WorldFrame:HookScript("OnMouseUp",
+		_G.WorldFrame:HookScript("OnMouseUp",
 				      function(frame, ...)
 					      if not SearchBox:HasFocus() then
 						      return
 					      end
-					      local x, y = GetCursorPosition()
+					      local x, y = _G.GetCursorPosition()
 
 					      if not old_x or not old_y or not x or not y or not click_time then
 						      SearchBox:ClearFocus()
 						      return
 					      end
 
-					      if (_G.math.abs(x - old_x) + _G.math.abs(y - old_y)) <= 5 and GetTime() - click_time < .5 then
+					      if (_G.math.abs(x - old_x) + _G.math.abs(y - old_y)) <= 5 and _G.GetTime() - click_time < .5 then
 						      SearchBox:ClearFocus()
 					      end
 				      end)
@@ -736,7 +737,7 @@ function private.InitializeFrame()
 
 	do
 		local last_update = 0
-		local updater = CreateFrame("Frame", nil, UIParent)
+		local updater = _G.CreateFrame("Frame", nil, _G.UIParent)
 
 		updater:Hide()
 		updater:SetScript("OnUpdate",
@@ -770,7 +771,7 @@ function private.InitializeFrame()
 	-------------------------------------------------------------------------------
 	-- Create the expand button and set its scripts.
 	-------------------------------------------------------------------------------
-	local ExpandButtonFrame = CreateFrame("Frame", nil, MainPanel)
+	local ExpandButtonFrame = _G.CreateFrame("Frame", nil, MainPanel)
 
 	ExpandButtonFrame:SetHeight(20)
 	ExpandButtonFrame:SetPoint("TOPLEFT", SearchBox, "BOTTOMLEFT", -12, -5)
@@ -859,7 +860,7 @@ function private.InitializeFrame()
 	-------------------------------------------------------------------------------
 	-- "Skill Level" checkbox.
 	-------------------------------------------------------------------------------
-	local SkillToggle = CreateFrame("CheckButton", nil, MainPanel, "UICheckButtonTemplate")
+	local SkillToggle = _G.CreateFrame("CheckButton", nil, MainPanel, "UICheckButtonTemplate")
 	SkillToggle:SetPoint("TOPLEFT", SearchBox, "TOPRIGHT", 0, 0)
 	SkillToggle:SetHeight(16)
 	SkillToggle:SetWidth(16)
@@ -884,7 +885,7 @@ function private.InitializeFrame()
 	-------------------------------------------------------------------------------
 	-- "Display Exclusions" checkbox.
 	-------------------------------------------------------------------------------
-	local ExcludeToggle = CreateFrame("CheckButton", nil, MainPanel, "UICheckButtonTemplate")
+	local ExcludeToggle = _G.CreateFrame("CheckButton", nil, MainPanel, "UICheckButtonTemplate")
 	ExcludeToggle:SetPoint("TOP", SkillToggle, "BOTTOM", 0, 1)
 	ExcludeToggle:SetHeight(16)
 	ExcludeToggle:SetWidth(16)
@@ -909,7 +910,7 @@ function private.InitializeFrame()
 	-------------------------------------------------------------------------------
 	-- Create the X-close button, and set its scripts.
 	-------------------------------------------------------------------------------
-	MainPanel.xclose_button = CreateFrame("Button", nil, MainPanel, "UIPanelCloseButton")
+	MainPanel.xclose_button = _G.CreateFrame("Button", nil, MainPanel, "UIPanelCloseButton")
 	MainPanel.xclose_button:SetPoint("TOPRIGHT", MainPanel, "TOPRIGHT", -30, -8)
 
 	MainPanel.xclose_button:SetScript("OnClick",
@@ -992,7 +993,7 @@ function private.InitializeFrame()
 	-- Create MainPanel.progress_bar and set its scripts
 	-------------------------------------------------------------------------------
 	do
-		local progress_bar = CreateFrame("StatusBar", nil, MainPanel)
+		local progress_bar = _G.CreateFrame("StatusBar", nil, MainPanel)
 		progress_bar:SetWidth(216)
 		progress_bar:SetHeight(18)
 		progress_bar:SetPoint("BOTTOMLEFT", MainPanel, 17, 80)
