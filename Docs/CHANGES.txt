@@ -1,11 +1,17 @@
 ==ARL Change Log
 NOTE: Always remove the folder for old versions and install a fresh copy when upgrading.
 
-== Under Development
+== 2.2.3
+
+==== Recipe Database:
+* Trainer and vendor locations are updated.
+* Now when visit a vendor or trainer, if the data in ARL is wrong, it'll dynamically update the database.
 
 ==== Backend:
 * Reverted switch to AceLocale 3.1
 * Ignore devel-enUS.lua for packages versions.  It's not needed.
+* Massive overhaul of the database structure.  Things are a lot easier to read now.
+* Database dynamically updates based on trainer/vendors being visited.  Output provides code which you can copy and paste.
 
 == Version 2.2.2 Release
 
