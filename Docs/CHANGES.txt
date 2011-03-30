@@ -1,6 +1,17 @@
 ==ARL Change Log
 NOTE: Always remove the folder for old versions and install a fresh copy when upgrading.
 
+== Under Development
+
+==== Recipe Database:
+* Added 4.1 recipes
+
+==== Interface:
+* Tooltip for alt-tradeskill listing has been updated.  Functionality to delete an alt from the list has been in for a while, however the tooltip did not tell you how to do this.
+
+==== Backend:
+* Removed un-needed speciality scanning code.
+
 == 2.2.3
 
 ==== Recipe Database:

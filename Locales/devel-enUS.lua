@@ -28,7 +28,8 @@ L["ACQUIRETOOLTIPPOSITION_DESC"] = "Changes the location of the tooltip containi
 L["ALL_FILTERED"] = "Although you have already scanned this profession, your filters are currently preventing any recipes from being displayed. Please change your filters and try again."
 L["ALT_CLICK"] = "Alt-Click to add/remove this recipe to your ignore list."
 L["ALT_TRADESKILL_DESC"] = [=[This will display a list of alts which have had trade skills scanned.
-Clicking on the alt's name will output the tradeskill to chat.]=]
+Clicking on the alt's name will output the tradeskill to chat.
+Alt-Clicking on the alt's name will delete the alt from the list.]=]
 L["AMMO_DESC"] = "Recipes that make ammunition should be included in the scan."
 L["AQ40_RANDOM_BOP"] = "Random BoP drop off of bosses in AQ40."
 L["ARCH_DROP"] = "This recipe is a random drop from a \"Canopic Jar\" while collecting artifacts for Archaeology."
