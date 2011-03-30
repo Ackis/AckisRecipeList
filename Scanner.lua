@@ -1057,19 +1057,19 @@ end	-- do
 -------------------------------------------------------------------------------
 do
 	local SPECIALTY_TEXT = {
-		["requires spellfire tailoring"] = 26797,
-		["requires mooncloth tailoring"] = 26798,
-		["requires shadoweave tailoring"] = 26801,
-		["requires dragonscale leatherworking"] = 10657,
-		["requires elemental leatherworking"] = 10659,
-		["requires tribal leatherworking"] = 10661,
+		--["requires spellfire tailoring"] = 26797,
+		--["requires mooncloth tailoring"] = 26798,
+		--["requires shadoweave tailoring"] = 26801,
+		--["requires dragonscale leatherworking"] = 10657,
+		--["requires elemental leatherworking"] = 10659,
+		--["requires tribal leatherworking"] = 10661,
 		["requires gnomish engineer"] = 20219,
 		["requires goblin engineer"] = 20222,
-		["requires armorsmith"] = 9788,
-		["requires master axesmith"] = 17041,
-		["requires master hammersmith"] = 17040,
-		["requires master swordsmith"] = 17039,
-		["requires weaponsmith"] = 9787,
+		--["requires armorsmith"] = 9788,
+		--["requires master axesmith"] = 17041,
+		--["requires master hammersmith"] = 17040,
+		--["requires master swordsmith"] = 17039,
+		--["requires weaponsmith"] = 9787,
 	}
 
 	local FACTION_TEXT = {
