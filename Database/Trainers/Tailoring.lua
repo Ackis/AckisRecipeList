@@ -34,7 +34,7 @@ function private:InitializeTailoringTrainers()
 	AddTrainer(3484, "Kil'hala", "Northern Barrens", 49.9, 61.2, "Horde")
 	AddTrainer(3523, "Bowen Brisboise", "Tirisfal Glades", 52.6, 55.6, "Horde")
 	AddTrainer(3704, "Mahani", "Southern Barrens", 41.5, 46.9, "Horde")
-	AddTrainer(4159, "Me'lynn", "Darnassus", 61.7, 23, "Alliance")
+	AddTrainer(4159, "Me'lynn", "Darnassus", 59.8, 37.4, "Alliance") -- COMPLETELY UPDATED
 	AddTrainer(4193, "Grondal Moonbreeze", "Darkshore", 38.2, 40.5, "Alliance")
 	AddTrainer(4576, "Josef Gregorian", "Undercity", 70.7, 30.3, "Horde")
 	AddTrainer(4578, "Josephine Lister", "Undercity", 86.5, 22.3, "Horde")
