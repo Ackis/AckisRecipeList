@@ -1163,7 +1163,7 @@ function addon:InitCooking()
 	recipe:SetSkillLevels(375, 375, 375, 387, 400)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.QUEST, F.IBOE, F.RBOP)
 	recipe:AddQuest(13571)
-	recipe:AddCustom("Custom36")
+	recipe:AddCustom("KUNG")
 
 	-- Northern Stew -- 57421
 	recipe = AddRecipe(57421, V.WOTLK, Q.COMMON)

@@ -1732,42 +1732,42 @@ function addon:InitLeatherworking()
 	recipe:SetCraftedItemID(22661)
 	recipe:SetSkillLevels(300, 300, 320, 330, 340)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOE, F.RBOP, F.DPS, F.LEATHER)
-	recipe:AddCustom("Custom41")
+	recipe:AddCustom("NAXX40_GONE")
 
 	-- Polar Gloves -- 28220
 	recipe = AddRecipe(28220, V.ORIG, Q.EPIC)
 	recipe:SetCraftedItemID(22662)
 	recipe:SetSkillLevels(300, 300, 320, 330, 340)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOE, F.RBOP, F.DPS, F.LEATHER)
-	recipe:AddCustom("Custom41")
+	recipe:AddCustom("NAXX40_GONE")
 
 	-- Polar Bracers -- 28221
 	recipe = AddRecipe(28221, V.ORIG, Q.EPIC)
 	recipe:SetCraftedItemID(22663)
 	recipe:SetSkillLevels(300, 300, 320, 330, 340)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOE, F.RBOP, F.DPS, F.LEATHER)
-	recipe:AddCustom("Custom41")
+	recipe:AddCustom("NAXX40_GONE")
 
 	-- Icy Scale Breastplate -- 28222
 	recipe = AddRecipe(28222, V.ORIG, Q.EPIC)
 	recipe:SetCraftedItemID(22664)
 	recipe:SetSkillLevels(300, 300, 320, 330, 340)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOE, F.RBOP, F.DPS, F.MAIL)
-	recipe:AddCustom("Custom41")
+	recipe:AddCustom("NAXX40_GONE")
 
 	-- Icy Scale Gauntlets -- 28223
 	recipe = AddRecipe(28223, V.ORIG, Q.EPIC)
 	recipe:SetCraftedItemID(22666)
 	recipe:SetSkillLevels(300, 300, 320, 330, 340)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOE, F.RBOP, F.DPS, F.MAIL)
-	recipe:AddCustom("Custom41")
+	recipe:AddCustom("NAXX40_GONE")
 
 	-- Icy Scale Bracers -- 28224
 	recipe = AddRecipe(28224, V.ORIG, Q.EPIC)
 	recipe:SetCraftedItemID(22665)
 	recipe:SetSkillLevels(300, 300, 320, 330, 340)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOE, F.RBOP, F.DPS, F.MAIL)
-	recipe:AddCustom("Custom41")
+	recipe:AddCustom("NAXX40_GONE")
 
 	-- Bramblewood Helm -- 28472
 	recipe = AddRecipe(28472, V.ORIG, Q.COMMON)

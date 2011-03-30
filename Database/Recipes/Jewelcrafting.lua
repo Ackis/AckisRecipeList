@@ -1271,7 +1271,7 @@ function addon:InitJewelcrafting()
 	recipe:SetCraftedItemID(31866)
 	recipe:SetSkillLevels(325, 325, 325, 340, 355)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	recipe:AddCustom("Custom35")
+	recipe:AddCustom("OGRI_DRAGONS")
 
 	-- Deadly Flame Spessarite -- 39467
 	recipe = AddRecipe(39467, V.TBC, Q.UNCOMMON)
@@ -1279,7 +1279,7 @@ function addon:InitJewelcrafting()
 	recipe:SetCraftedItemID(31869)
 	recipe:SetSkillLevels(325, 325, 325, 340, 355)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOE, F.RBOE, F.DPS)
-	recipe:AddCustom("Custom35")
+	recipe:AddCustom("OGRI_DRAGONS")
 
 	-- Veiled Nightseye -- 39470
 	recipe = AddRecipe(39470, V.TBC, Q.RARE)

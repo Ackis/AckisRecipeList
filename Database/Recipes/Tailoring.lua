@@ -1998,28 +1998,28 @@ function addon:InitTailoring()
 	recipe:SetCraftedItemID(22654)
 	recipe:SetSkillLevels(300, 300, 315, 330, 345)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.CLOTH)
-	recipe:AddCustom("Custom41")
+	recipe:AddCustom("NAXX40_GONE")
 
 	-- Glacial Vest -- 28207
 	recipe = AddRecipe(28207, V.ORIG, Q.EPIC)
 	recipe:SetCraftedItemID(22652)
 	recipe:SetSkillLevels(300, 300, 315, 330, 345)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.CLOTH)
-	recipe:AddCustom("Custom41")
+	recipe:AddCustom("NAXX40_GONE")
 
 	-- Glacial Cloak -- 28208
 	recipe = AddRecipe(28208, V.ORIG, Q.EPIC)
 	recipe:SetCraftedItemID(22658)
 	recipe:SetSkillLevels(300, 300, 315, 330, 345)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOE, F.RBOP, F.CLOAK)
-	recipe:AddCustom("Custom41")
+	recipe:AddCustom("NAXX40_GONE")
 
 	-- Glacial Wrists -- 28209
 	recipe = AddRecipe(28209, V.ORIG, Q.EPIC)
 	recipe:SetCraftedItemID(22655)
 	recipe:SetSkillLevels(300, 300, 315, 330, 345)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.CLOTH)
-	recipe:AddCustom("Custom41")
+	recipe:AddCustom("NAXX40_GONE")
 
 	-- Gaea's Embrace -- 28210
 	recipe = AddRecipe(28210, V.ORIG, Q.COMMON)
@@ -2821,7 +2821,7 @@ function addon:InitTailoring()
 	recipe:SetSkillLevels(420, 420, 435, 445, 455)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.CLOAK)
 	recipe:AddTrainer(26914, 28699)
-	recipe:AddCustom("Custom45")
+	recipe:AddCustom("NORTH_DUNG")
 
 	-- Deathchill Cloak -- 56017
 	recipe = AddRecipe(56017, V.WOTLK, Q.COMMON)
@@ -2829,7 +2829,7 @@ function addon:InitTailoring()
 	recipe:SetSkillLevels(420, 420, 435, 445, 455)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.CLOAK)
 	recipe:AddTrainer(26914, 28699)
-	recipe:AddCustom("Custom44")
+	recipe:AddCustom("LORE_NORTH")
 
 	-- Hat of Wintry Doom -- 56018
 	recipe = AddRecipe(56018, V.WOTLK, Q.COMMON)

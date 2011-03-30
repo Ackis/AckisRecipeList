@@ -1846,21 +1846,21 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItemID(22669)
 	recipe:SetSkillLevels(300, 300, 320, 330, 340)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOE, F.RBOP, F.TANK, F.PLATE)
-	recipe:AddCustom("Custom41")
+	recipe:AddCustom("NAXX40_GONE")
 
 	-- Icebane Gauntlets -- 28243
 	recipe = AddRecipe(28243, V.ORIG, Q.EPIC)
 	recipe:SetCraftedItemID(22670)
 	recipe:SetSkillLevels(300, 300, 320, 330, 340)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOE, F.RBOP, F.TANK, F.PLATE)
-	recipe:AddCustom("Custom41")
+	recipe:AddCustom("NAXX40_GONE")
 
 	-- Icebane Bracers -- 28244
 	recipe = AddRecipe(28244, V.ORIG, Q.EPIC)
 	recipe:SetCraftedItemID(22671)
 	recipe:SetSkillLevels(300, 300, 320, 330, 340)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOE, F.RBOP, F.TANK, F.PLATE)
-	recipe:AddCustom("Custom41")
+	recipe:AddCustom("NAXX40_GONE")
 
 	-- Ironvine Breastplate -- 28461
 	recipe = AddRecipe(28461, V.ORIG, Q.COMMON)
