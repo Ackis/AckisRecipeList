@@ -130,12 +130,12 @@ function addon:InitVendor(DB)
 	AddVendor(3958,		L["Lardan"],				BZ["Ashenvale"],			34.8, 49.8, ALLIANCE)
 	AddVendor(4083,		L["Jeeda"],				BZ["Stonetalon Mountains"],		47.6, 61.7, HORDE)
 	AddVendor(4086,		L["Veenix"],				BZ["Stonetalon Mountains"],		58.3, 51.7, NEUTRAL)
-	AddVendor(4168,		L["Elynna"],				BZ["Darnassus"],			64.4, 21.6, ALLIANCE)
-	AddVendor(4223,		L["Fyldan"],				BZ["Darnassus"],			49.0, 37.0, ALLIANCE) -- UPDATED
-	AddVendor(4225,		L["Saenorion"],				BZ["Darnassus"],			63.8, 22.1, ALLIANCE)
-	AddVendor(4226,		L["Ulthir"],				BZ["Darnassus"],			56.0, 24.6, ALLIANCE)
-	AddVendor(4228,		L["Vaean"],				BZ["Darnassus"],			58.5, 14.4, ALLIANCE)
-	AddVendor(4229,		L["Mythrin'dir"],			BZ["Darnassus"],			60.0, 19.1, ALLIANCE)
+	AddVendor(4168,		L["Elynna"],				BZ["Darnassus"],			60.6, 36.9, ALLIANCE) -- COMPLETELY UPDATED
+	AddVendor(4223,		L["Fyldan"],				BZ["Darnassus"],			49.5, 36.9, ALLIANCE) -- COMPLETELY UPDATED
+	AddVendor(4225,		L["Saenorion"],				BZ["Darnassus"],			60.0, 37.3, ALLIANCE) -- COMPLETELY UPDATED
+	AddVendor(4226,		L["Ulthir"],				BZ["Darnassus"],			54.6, 38.9, ALLIANCE) -- COMPLETELY UPDATED
+	AddVendor(4228,		L["Vaean"],				BZ["Darnassus"],			56.4, 32.2, ALLIANCE) -- COMPLETELY UPDATED
+	AddVendor(4229,		L["Mythrin'dir"],			BZ["Darnassus"],			58.1, 34.2, ALLIANCE) -- COMPLETELY UPDATED
 	AddVendor(4265,		L["Nyoma"],				BZ["Teldrassil"],			57.2, 61.2, ALLIANCE)
 	AddVendor(4305,		L["Kriggon Talsone"],			BZ["Westfall"],				36.2, 90.1, ALLIANCE)
 	AddVendor(4553,		L["Ronald Burch"],			BZ["Undercity"],			62.3, 43.1, HORDE) -- COMPLETELY UPDATED

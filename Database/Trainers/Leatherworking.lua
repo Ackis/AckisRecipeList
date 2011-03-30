@@ -33,7 +33,7 @@ function private:InitializeLeatherworkingTrainers()
 	AddTrainer(3549, "Shelene Rhobart", "Tirisfal Glades", 65.5, 61, "Horde")
 	AddTrainer(3605, "Nadyia Maneweaver", "Teldrassil", 41.8, 49.5, "Alliance")
 	AddTrainer(3967, "Aayndia Floralwind", "Ashenvale", 35.9, 52.1, "Alliance")
-	AddTrainer(4212, "Telonis", "Darnassus", 64.5, 21.3, "Alliance")
+	AddTrainer(4212, "Telonis", "Darnassus", 60.5, 36.8, "Alliance") -- COMPLETELY UPDATED
 	AddTrainer(4588, "Arthur Moore", "Undercity", 70.3, 58.5, "Horde")
 	AddTrainer(5127, "Fimble Finespindle", "Ironforge", 39.8, 33.5, "Alliance")
 	AddTrainer(5564, "Simon Tanner", "Stormwind City", 71.8, 62.9, "Alliance") -- UPDATED

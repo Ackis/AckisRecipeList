@@ -37,7 +37,7 @@ function private:InitializeAlchemyTrainers()
 	AddTrainer(3347, "Yelmak", "Orgrimmar", 56.7, 33.2, "Horde")
 	AddTrainer(3603, "Cyndra Kindwhisper", "Teldrassil", 57.6, 60.7, "Alliance")
 	AddTrainer(3964, "Kylanna", "Ashenvale", 50.8, 67.1, "Alliance")
-	AddTrainer(4160, "Ainethil", "Darnassus", 55, 23.8, "Alliance")
+	AddTrainer(4160, "Ainethil", "Darnassus", 53.9, 48.5, "Alliance") -- COMPLETELY UPDATED
 	AddTrainer(4611, "Doctor Herbert Halsey", "Undercity", 47.7, 73, "Horde")
 	AddTrainer(4900, "Alchemist Narett", "Dustwallow Marsh", 64, 47.7, "Alliance")
 	AddTrainer(5177, "Tally Berryfizz", "Ironforge", 66.6, 55.2, "Alliance")

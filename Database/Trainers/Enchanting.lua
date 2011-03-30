@@ -29,7 +29,7 @@ function private:InitializeEnchantingTrainers()
 	AddTrainer(3011, "Teg Dawnstrider", "Thunder Bluff", 45, 38, "Horde")
 	AddTrainer(3345, "Godan", "Orgrimmar", 53.8, 38.5, "Horde")
 	AddTrainer(3606, "Alanna Raveneye", "Teldrassil", 36.8, 34.2, "Alliance")
-	AddTrainer(4213, "Taladan", "Darnassus", 58.6, 13.2, "Alliance")
+	AddTrainer(4213, "Taladan", "Darnassus", 56.4, 31.0, "Alliance") -- COMPLETELY UPDATED
 	AddTrainer(4616, "Lavinia Crowe", "Undercity", 62.1, 60.5, "Horde")
 	AddTrainer(5157, "Gimble Thistlefuzz", "Ironforge", 60, 45.4, "Alliance")
 	AddTrainer(5695, "Vance Undergloom", "Tirisfal Glades", 61.7, 51.6, "Horde")

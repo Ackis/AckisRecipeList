@@ -34,7 +34,7 @@ function private:InitializeCookingTrainers()
 	AddTrainer(3067, "Pyall Silentstride", "Mulgore", 45.5, 58.1, "Horde")
 	AddTrainer(3087, "Crystal Boughman", "Redridge Mountains", 22.8, 43.6, "Alliance")
 	AddTrainer(3399, "Zamja", "Orgrimmar", 57.5, 53.7, "Horde")
-	AddTrainer(4210, "Alegorn", "Darnassus", 50, 36.6, "Alliance")
+	AddTrainer(4210, "Alegorn", "Darnassus", 49.9, 36.6, "Alliance") -- COMPLETELY UPDATED
 	AddTrainer(4552, "Eunice Burch", "Undercity", 62.3, 44.6, "Horde")
 	AddTrainer(5159, "Daryl Riknussun", "Ironforge", 60.1, 36.8, "Alliance")
 	AddTrainer(5482, "Stephen Ryback", "Stormwind City", 77.2, 53.2, "Alliance") -- UPDATED

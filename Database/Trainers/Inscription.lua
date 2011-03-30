@@ -35,7 +35,7 @@ function private:InitializeInscriptionTrainers()
 	AddTrainer(30710, "Zantasia", "Silvermoon City", 69.5, 24, "Horde")
 	AddTrainer(30711, "Margaux Parchley", "Undercity", 61, 58.5, "Horde")
 	AddTrainer(30713, "Catarina Stanford", "Stormwind City", 49.8, 74.7, "Alliance")
-	AddTrainer(30715, "Feyden Darkin", "Darnassus", 58.9, 14.1, "Alliance")
+	AddTrainer(30715, "Feyden Darkin", "Darnassus", 56.8, 31.6, "Alliance") -- COMPLETELY UPDATED
 	AddTrainer(30716, "Thoth", "The Exodar", 40.5, 39.1, "Alliance")
 	AddTrainer(30717, "Elise Brightletter", "Ironforge", 60.7, 44.9, "Alliance")
 	AddTrainer(30721, "Michael Schwan", "Hellfire Peninsula", 53.9, 65.5, "Alliance")

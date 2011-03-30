@@ -30,7 +30,7 @@ function private:InitializeFirstAidTrainers()
 	AddTrainer(2329, "Michelle Belle", "Elwynn Forest", 43.4, 65.6, "Alliance")
 	AddTrainer(2798, "Pand Stonebinder", "Thunder Bluff", 29.4, 21.5, "Horde")
 	AddTrainer(3181, "Fremal Doohickey", "Wetlands", 10.8, 61.3, "Alliance")
-	AddTrainer(4211, "Dannelor", "Darnassus", 51.7, 12.6, "Alliance")
+	AddTrainer(4211, "Dannelor", "Darnassus", 51.7, 30.4, "Alliance") -- COMPLETELY UPDATED
 	AddTrainer(4591, "Mary Edras", "Undercity", 73.5, 54.8, "Horde")
 	AddTrainer(5150, "Nissa Firestone", "Ironforge", 54, 57.8, "Alliance")
 	AddTrainer(5759, "Nurse Neela", "Tirisfal Glades", 61.8, 52.8, "Horde")
