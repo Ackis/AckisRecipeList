@@ -27,7 +27,7 @@ function private:InitializeTailoringTrainers()
 
 	AddTrainer(1103, "Eldrin", "Elwynn Forest", 79.3, 69, "Alliance")
 	AddTrainer(1346, "Georgio Bolero", "Stormwind City", 53.2, 81.5, "Alliance")
-	AddTrainer(2399, "Daryl Stack", "Hillsbrad Foothills", 63.7, 20.8, "Horde")
+	AddTrainer(2399, "Daryl Stack", "Hillsbrad Foothills", 58.1, 48.0, "Horde") -- COMPLETELY UPDATED
 	AddTrainer(2627, "Grarnik Goodstitch", "The Cape of Stranglethorn", 43.6, 73, "Neutral")
 	AddTrainer(3004, "Tepa", "Thunder Bluff", 44.3, 45, "Horde")
 	AddTrainer(3363, "Magar", "Orgrimmar", 63.5, 50, "Horde")

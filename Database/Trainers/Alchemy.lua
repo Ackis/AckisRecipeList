@@ -30,7 +30,7 @@ function private:InitializeAlchemyTrainers()
 	AddTrainer(1386, "Rogvar", "Swamp of Sorrows", 50.0, 56.2, "Horde") -- COMPLETELY UPDATED
 	AddTrainer(1470, "Ghak Healtouch", "Loch Modan", 37, 49.2, "Alliance")
 	AddTrainer(2132, "Carolai Anise", "Tirisfal Glades", 59.5, 52.2, "Horde")
-	AddTrainer(2391, "Serge Hinott", "Hillsbrad Foothills", 61.6, 19.2, "Horde")
+	AddTrainer(2391, "Serge Hinott", "Hillsbrad Foothills", 49.1, 66.4, "Horde") -- COMPLETELY UPDATED
 	AddTrainer(2837, "Jaxin Chong", "The Cape of Stranglethorn", 42.6, 74.8, "Neutral")
 	AddTrainer(3009, "Bena Winterhoof", "Thunder Bluff", 46.8, 33.5, "Horde")
 	AddTrainer(3184, "Miao'zan", "Durotar", 55.5, 74, "Horde")

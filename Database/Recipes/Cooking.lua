@@ -374,7 +374,7 @@ function addon:InitCooking()
 	recipe:SetCraftedItemID(4593)
 	recipe:SetSkillLevels(100, 100, 140, 160, 180)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE)
-	recipe:AddVendor(2383, 2397, 3027, 3029, 3497, 4553, 5494)
+	recipe:AddVendor(2397, 3027, 3029, 3497, 4553, 5494)
 
 	-- Rainbow Fin Albacore -- 7827
 	recipe = AddRecipe(7827, V.ORIG, Q.COMMON)
@@ -390,7 +390,7 @@ function addon:InitCooking()
 	recipe:SetCraftedItemID(4594)
 	recipe:SetSkillLevels(175, 175, 190, 210, 230)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE)
-	recipe:AddVendor(2383, 2664, 3178, 3333, 4574, 5162, 12033, 12962)
+	recipe:AddVendor(2664, 3178, 3333, 4574, 5162, 12033, 12962)
 
 	-- Savory Deviate Delight -- 8238
 	recipe = AddRecipe(8238, V.ORIG, Q.UNCOMMON)
@@ -615,7 +615,7 @@ function addon:InitCooking()
 	recipe:SetCraftedItemID(8364)
 	recipe:SetSkillLevels(175, 175, 215, 235, 255)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE)
-	recipe:AddVendor(2383, 2664, 3178, 3333, 4574, 5162, 12033, 12962)
+	recipe:AddVendor(2664, 3178, 3333, 4574, 5162, 12033, 12962)
 
 	-- Gingerbread Cookie -- 21143
 	recipe = AddRecipe(21143, V.ORIG, Q.COMMON)

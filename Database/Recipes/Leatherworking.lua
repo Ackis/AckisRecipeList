@@ -276,7 +276,8 @@ function addon:InitLeatherworking()
 	recipe:SetCraftedItemID(4255)
 	recipe:SetSkillLevels(155, 155, 175, 185, 195)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.DPS, F.TANK, F.LEATHER)
-	recipe:AddVendor(2679, 2698)
+	recipe:AddVendor(2679)
+	recipe:AddLimitedVendor(2698, 1)
 
 	-- Guardian Armor -- 3773
 	recipe = AddRecipe(3773, V.ORIG, Q.UNCOMMON)
@@ -598,7 +599,7 @@ function addon:InitLeatherworking()
 	recipe:SetCraftedItemID(7352)
 	recipe:SetSkillLevels(135, 135, 160, 172, 185)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.LEATHER)
-	recipe:AddVendor(3537)
+	recipe:AddLimitedVendor(3537, 1)
 
 	-- Pilferer's Gloves -- 9148
 	recipe = AddRecipe(9148, V.ORIG, Q.UNCOMMON)

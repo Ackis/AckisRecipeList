@@ -196,7 +196,8 @@ function addon:InitEnchanting()
 	recipe:SetRecipeItemID(6377)
 	recipe:SetSkillLevels(125, 125, 150, 170, 190)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.DPS)
-	recipe:AddVendor(3012, 3537)
+	recipe:AddVendor(3012)
+	recipe:AddLimitedVendor(3537, 1)
 
 	-- Enchant Shield - Minor Stamina -- 13378
 	recipe = AddRecipe(13378, V.ORIG, Q.COMMON)

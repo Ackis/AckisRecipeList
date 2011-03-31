@@ -64,11 +64,10 @@ function addon:InitVendor(DB)
 	AddVendor(1684,		L["Khara Deepwater"],			BZ["Loch Modan"],			39.5, 39.3, ALLIANCE)
 	AddVendor(1685,		L["Xandar Goodbeard"],			BZ["Loch Modan"],			82.5, 63.5, ALLIANCE)
 	AddVendor(2118,		L["Abigail Shiel"],			BZ["Tirisfal Glades"],			61.0, 51.0, HORDE) -- UPDATED
-	AddVendor(2383,		L["Lindea Rabonne"],			BZ["Hillsbrad Foothills"],		50.6, 61.0, ALLIANCE)
-	AddVendor(2393,		L["Christoph Jeffcoat"],		BZ["Hillsbrad Foothills"],		62.4, 19.1, HORDE)
-	AddVendor(2394,		L["Mallen Swain"],			BZ["Hillsbrad Foothills"],		62.0, 20.9, HORDE)
-	AddVendor(2397,		L["Derak Nightfall"],			BZ["Hillsbrad Foothills"],		63.0, 18.5, HORDE)
-	AddVendor(2480,		L["Bro'kin"],				BZ["Hillsbrad Foothills"],		44.0, 21.8, NEUTRAL)
+	AddVendor(2393,		L["Christoph Jeffcoat"],		BZ["Hillsbrad Foothills"],		57.5, 47.8, HORDE) -- COMPLETELY UPDATED
+	AddVendor(2394,		L["Mallen Swain"],			BZ["Hillsbrad Foothills"],		58.1, 47.9, HORDE) -- COMPLETELY UPDATED
+	AddVendor(2397,		L["Derak Nightfall"],			BZ["Hillsbrad Foothills"],		57.7, 45.2, HORDE) -- COMPLETELY UPDATED
+	AddVendor(2480,		L["Bro'kin"],				BZ["Hillsbrad Foothills"],		44.0, 21.8, NEUTRAL) -- COMPLETELY UPDATED
 	AddVendor(2482,		L["Zarena Cromwind"],			BZ["The Cape of Stranglethorn"],	43.0, 70.7, NEUTRAL)  -- UPDATED
 	AddVendor(2483,		L["Jaquilina Dramet"],			BZ["Northern Stranglethorn"],		43.7, 23.1, NEUTRAL) -- UPDATED
 	AddVendor(2663,		L["Narkk"],				BZ["The Cape of Stranglethorn"],	42.7, 69.2, NEUTRAL)   -- UPDATED
@@ -83,7 +82,7 @@ function addon:InitVendor(DB)
 	AddVendor(2687,		L["Gnaz Blunderflame"],			BZ["Northern Stranglethorn"],		67.5, 61.5, NEUTRAL)  -- UPDATED
 	AddVendor(2688,		L["Ruppo Zipcoil"],			BZ["The Hinterlands"],			34.3, 37.9, NEUTRAL)
 	AddVendor(2697,		L["Clyde Ranthal"],			BZ["Redridge Mountains"],		88.9, 70.9, ALLIANCE)
-	AddVendor(2698,		L["George Candarte"],			BZ["Hillsbrad Foothills"],		92.0, 38.4, HORDE)
+	AddVendor(2698,		L["George Candarte"],			BZ["Hillsbrad Foothills"],		76.7, 58.5, HORDE) -- COMPLETELY UPDATED
 	AddVendor(2699,		L["Rikqiz"],				BZ["The Cape of Stranglethorn"],	43.2, 71.7, NEUTRAL)   -- UPDATED
 	AddVendor(2803,		L["Malygen"],				BZ["Felwood"],				62.3, 25.6, ALLIANCE)
 	AddVendor(2810,		L["Hammon Karwn"],			BZ["Arathi Highlands"],			46.5, 47.3, ALLIANCE)
@@ -121,7 +120,7 @@ function addon:InitVendor(DB)
 	AddVendor(3497,		L["Kilxx"],				BZ["Northern Barrens"],			68.6, 72.5, NEUTRAL)   -- UPDATED
 	AddVendor(3499,		L["Ranik"],				BZ["Northern Barrens"],			67.1, 73.5, NEUTRAL)   -- UPDATED
 	AddVendor(3522,		L["Constance Brisboise"],		BZ["Tirisfal Glades"],			52.6, 55.7, HORDE)
-	AddVendor(3537,		L["Zixil"],				BZ["Hillsbrad Foothills"],		53.5, 38.3, NEUTRAL)
+	AddVendor(3537,		L["Zixil"],				BZ["Hillsbrad Foothills"],		49.8, 60.8, NEUTRAL) -- COMPLETELY UPDATED
 	AddVendor(3550,		L["Martine Tramblay"],			BZ["Tirisfal Glades"],			65.8, 59.6, HORDE) -- UPDATED
 	AddVendor(3556,		L["Andrew Hilbert"],			BZ["Silverpine Forest"],		43.2, 40.7, HORDE)
 	AddVendor(3881,		L["Grimtak"],				BZ["Durotar"],				51.2, 42.6, HORDE)
@@ -173,8 +172,8 @@ function addon:InitVendor(DB)
 	AddVendor(6576,		L["Brienna Starglow"],			BZ["Feralas"],				89.0, 45.9, ALLIANCE)
 	AddVendor(6730,		L["Jinky Twizzlefixxit"],		BZ["Thousand Needles"],			77.7, 77.8, NEUTRAL)
 	AddVendor(6731,		L["Harlown Darkweave"],			BZ["Ashenvale"],			18.2, 60.0, ALLIANCE)
-	AddVendor(6777,		L["Zan Shivsproket"],			BZ["Hillsbrad Foothills"],		71.5, 45.5, NEUTRAL)
-	AddVendor(6779,		L["Smudge Thunderwood"],		BZ["Hillsbrad Foothills"],		71.5, 45.5, NEUTRAL)
+	AddVendor(6777,		L["Zan Shivsproket"],			BZ["Hillsbrad Foothills"],		71.5, 45.5, NEUTRAL) -- COMPLETELY UPDATED
+	AddVendor(6779,		L["Smudge Thunderwood"],		BZ["Hillsbrad Foothills"],		71.5, 45.5, NEUTRAL) -- COMPLETELY UPDATED
 	AddVendor(7733,		L["Innkeeper Fizzgrimble"],		BZ["Tanaris"],				52.6, 27.0, NEUTRAL) -- UPDATED
 	AddVendor(7852,		L["Pratt McGrubben"],			BZ["Feralas"],				30.6, 42.7, ALLIANCE)
 	AddVendor(7854,		L["Jangdor Swiftstrider"],		BZ["Feralas"],				74.5, 42.9, HORDE)
