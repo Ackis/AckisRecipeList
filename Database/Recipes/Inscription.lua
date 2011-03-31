@@ -129,14 +129,14 @@ function addon:InitInscription()
 	recipe:SetCraftedItemID(37091)
 	recipe:SetSkillLevels(360, 360, 365, 370, 375)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30715, 33603, 33615, 33638, 46716)
+	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30713, 30715, 33603, 33615, 33638, 46716)
 
 	-- Scroll of Intellect VIII -- 50604
 	recipe = AddRecipe(50604, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(37092)
 	recipe:SetSkillLevels(410, 410, 415, 420, 425)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30715, 33603, 33615, 33638, 46716)
+	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30713, 30715, 33603, 33615, 33638, 46716)
 
 	-- Scroll of Spirit II -- 50605
 	recipe = AddRecipe(50605, V.WOTLK, Q.COMMON)
@@ -178,14 +178,14 @@ function addon:InitInscription()
 	recipe:SetCraftedItemID(37097)
 	recipe:SetSkillLevels(355, 355, 360, 365, 370)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
-	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30715, 33603, 33615, 33638, 46716)
+	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30713, 30715, 33603, 33615, 33638, 46716)
 
 	-- Scroll of Spirit VIII -- 50611
 	recipe = AddRecipe(50611, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(37098)
 	recipe:SetSkillLevels(405, 405, 410, 415, 420)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
-	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30715, 33603, 33615, 33638, 46716)
+	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30713, 30715, 33603, 33615, 33638, 46716)
 
 	-- Scroll of Stamina II -- 50612
 	recipe = AddRecipe(50612, V.WOTLK, Q.COMMON)
@@ -227,14 +227,14 @@ function addon:InitInscription()
 	recipe:SetCraftedItemID(37093)
 	recipe:SetSkillLevels(350, 350, 355, 360, 365)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30715, 33603, 33615, 33638, 46716)
+	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30713, 30715, 33603, 33615, 33638, 46716)
 
 	-- Scroll of Stamina VIII -- 50620
 	recipe = AddRecipe(50620, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(37094)
 	recipe:SetSkillLevels(400, 400, 405, 410, 415)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30715, 33603, 33615, 33638, 46716)
+	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30713, 30715, 33603, 33615, 33638, 46716)
 
 	-- Ivory Ink -- 52738
 	recipe = AddRecipe(52738, V.WOTLK, Q.COMMON)
@@ -269,7 +269,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItemID(40896)
 	recipe:SetSkillLevels(350, 350, 355, 360, 365)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DRUID)
-	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30715, 30721, 30722, 33603, 33615, 33638, 33679, 46716)
+	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30713, 30715, 30721, 30722, 33603, 33615, 33638, 33679, 46716)
 
 	-- Glyph of Solar Beam -- 56944
 	recipe = AddRecipe(56944, V.WOTLK, Q.COMMON)
@@ -332,7 +332,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItemID(40903)
 	recipe:SetSkillLevels(310, 310, 315, 320, 325)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DRUID)
-	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30715, 30721, 30722, 33603, 33615, 33638, 33679, 46716)
+	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30713, 30715, 30721, 30722, 33603, 33615, 33638, 33679, 46716)
 
 	-- Glyph of Rebirth -- 56953
 	recipe = AddRecipe(56953, V.WOTLK, Q.COMMON)
@@ -423,7 +423,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItemID(42736)
 	recipe:SetSkillLevels(335, 335, 340, 345, 350)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.CASTER, F.MAGE)
-	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30715, 30721, 30722, 33603, 33615, 33638, 33679, 46716)
+	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30713, 30715, 30721, 30722, 33603, 33615, 33638, 33679, 46716)
 
 	-- Glyph of Blink -- 56973
 	recipe = AddRecipe(56973, V.WOTLK, Q.COMMON)
@@ -479,7 +479,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItemID(42745)
 	recipe:SetSkillLevels(375, 375, 380, 385, 390)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.CASTER, F.MAGE)
-	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30715, 33603, 33615, 33638, 46716)
+	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30713, 30715, 33603, 33615, 33638, 46716)
 
 	-- Glyph of Icy Veins -- 56981
 	recipe = AddRecipe(56981, V.WOTLK, Q.COMMON)
@@ -500,7 +500,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItemID(42749)
 	recipe:SetSkillLevels(325, 325, 330, 335, 340)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.CASTER, F.MAGE)
-	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30715, 30721, 30722, 33603, 33615, 33638, 33679, 46716)
+	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30713, 30715, 30721, 30722, 33603, 33615, 33638, 33679, 46716)
 
 	-- Glyph of Molten Armor -- 56986
 	recipe = AddRecipe(56986, V.WOTLK, Q.COMMON)
@@ -514,7 +514,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItemID(42752)
 	recipe:SetSkillLevels(400, 400, 400, 400, 405)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.CASTER, F.MAGE)
-	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30715, 33603, 33615, 33638, 46716)
+	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30713, 30715, 33603, 33615, 33638, 46716)
 
 	-- Glyph of Cone of Cold -- 56988
 	recipe = AddRecipe(56988, V.WOTLK, Q.COMMON)
@@ -542,7 +542,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItemID(44955)
 	recipe:SetSkillLevels(315, 315, 320, 325, 330)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.MAGE)
-	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30715, 30721, 30722, 33603, 33615, 33638, 33679, 46716)
+	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30713, 30715, 30721, 30722, 33603, 33615, 33638, 33679, 46716)
 
 	-- Glyph of Aimed Shot -- 56994
 	recipe = AddRecipe(56994, V.WOTLK, Q.COMMON)
@@ -612,7 +612,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItemID(42906)
 	recipe:SetSkillLevels(350, 350, 355, 360, 365)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS, F.HUNTER)
-	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30715, 30721, 30722, 33603, 33615, 33638, 33679, 46716)
+	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30713, 30715, 30721, 30722, 33603, 33615, 33638, 33679, 46716)
 
 	-- Glyph of Misdirection -- 57004
 	recipe = AddRecipe(57004, V.WOTLK, Q.COMMON)
@@ -633,7 +633,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItemID(42909)
 	recipe:SetSkillLevels(375, 375, 380, 385, 390)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS, F.HUNTER)
-	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30715, 33603, 33615, 33638, 46716)
+	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30713, 30715, 33603, 33615, 33638, 46716)
 
 	-- Glyph of Silencing Shot -- 57007
 	recipe = AddRecipe(57007, V.WOTLK, Q.COMMON)
@@ -647,7 +647,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItemID(42911)
 	recipe:SetSkillLevels(315, 315, 320, 325, 330)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS, F.HUNTER)
-	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30715, 30721, 30722, 33603, 33615, 33638, 33679, 46716)
+	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30713, 30715, 30721, 30722, 33603, 33615, 33638, 33679, 46716)
 
 	-- Glyph of Serpent Sting -- 57009
 	recipe = AddRecipe(57009, V.WOTLK, Q.COMMON)
@@ -738,7 +738,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItemID(41105)
 	recipe:SetSkillLevels(300, 300, 305, 310, 315)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.PALADIN)
-	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30715, 30721, 30722, 33603, 33615, 33638, 33679, 46716)
+	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30713, 30715, 30721, 30722, 33603, 33615, 33638, 33679, 46716)
 
 	-- Glyph of Hammer of Justice -- 57027
 	recipe = AddRecipe(57027, V.WOTLK, Q.COMMON)
@@ -787,7 +787,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItemID(41094)
 	recipe:SetSkillLevels(335, 335, 340, 345, 350)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.PALADIN)
-	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30715, 30721, 30722, 33603, 33615, 33638, 33679, 46716)
+	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30713, 30715, 30721, 30722, 33603, 33615, 33638, 33679, 46716)
 
 	-- Glyph of Seal of Insight -- 57034
 	recipe = AddRecipe(57034, V.WOTLK, Q.COMMON)
@@ -808,7 +808,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItemID(41102)
 	recipe:SetSkillLevels(375, 375, 380, 385, 390)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.PALADIN)
-	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30715, 33603, 33615, 33638, 46716)
+	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30713, 30715, 33603, 33615, 33638, 46716)
 
 	-- Glyph of Adrenaline Rush -- 57112
 	recipe = AddRecipe(57112, V.WOTLK, Q.COMMON)
@@ -822,7 +822,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItemID(42955)
 	recipe:SetSkillLevels(340, 340, 345, 350, 355)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS, F.ROGUE)
-	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30715, 30721, 30722, 33603, 33615, 33638, 33679, 46716)
+	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30713, 30715, 30721, 30722, 33603, 33615, 33638, 33679, 46716)
 
 	-- Glyph of Backstab -- 57114
 	recipe = AddRecipe(57114, V.WOTLK, Q.COMMON)
@@ -878,7 +878,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItemID(42963)
 	recipe:SetSkillLevels(305, 305, 310, 315, 320)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS, F.ROGUE)
-	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30715, 30721, 30722, 33603, 33615, 33638, 33679, 46716)
+	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30713, 30715, 30721, 30722, 33603, 33615, 33638, 33679, 46716)
 
 	-- Glyph of Garrote -- 57123
 	recipe = AddRecipe(57123, V.WOTLK, Q.COMMON)
@@ -1067,7 +1067,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItemID(43428)
 	recipe:SetSkillLevels(320, 320, 325, 330, 335)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.WARRIOR)
-	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30715, 30721, 30722, 33603, 33615, 33638, 33679, 46716)
+	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30713, 30715, 30721, 30722, 33603, 33615, 33638, 33679, 46716)
 
 	-- Glyph of Victory Rush -- 57170
 	recipe = AddRecipe(57170, V.WOTLK, Q.COMMON)
@@ -1081,7 +1081,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItemID(43432)
 	recipe:SetSkillLevels(345, 345, 350, 355, 360)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.WARRIOR)
-	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30715, 30721, 30722, 33603, 33615, 33638, 33679, 46716)
+	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30713, 30715, 30721, 30722, 33603, 33615, 33638, 33679, 46716)
 
 	-- Glyph of Circle of Healing -- 57181
 	recipe = AddRecipe(57181, V.WOTLK, Q.COMMON)
@@ -1123,7 +1123,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItemID(42401)
 	recipe:SetSkillLevels(315, 315, 320, 325, 330)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.PRIEST)
-	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30715, 30721, 30722, 33603, 33615, 33638, 33679, 46716)
+	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30713, 30715, 30721, 30722, 33603, 33615, 33638, 33679, 46716)
 
 	-- Glyph of Inner Fire -- 57188
 	recipe = AddRecipe(57188, V.WOTLK, Q.COMMON)
@@ -1158,7 +1158,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItemID(42406)
 	recipe:SetSkillLevels(350, 350, 355, 360, 365)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.CASTER, F.PRIEST)
-	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30715, 30721, 30722, 33603, 33615, 33638, 33679, 46716)
+	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30713, 30715, 30721, 30722, 33603, 33615, 33638, 33679, 46716)
 
 	-- Glyph of Power Word: Barrier -- 57193
 	recipe = AddRecipe(57193, V.WOTLK, Q.COMMON)
@@ -1200,7 +1200,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItemID(42412)
 	recipe:SetSkillLevels(375, 375, 380, 385, 390)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.PRIEST)
-	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30715, 33603, 33615, 33638, 46716)
+	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30713, 30715, 33603, 33615, 33638, 46716)
 
 	-- Glyph of Shadow Word: Death -- 57199
 	recipe = AddRecipe(57199, V.WOTLK, Q.COMMON)
@@ -1319,14 +1319,14 @@ function addon:InitInscription()
 	recipe:SetCraftedItemID(43548)
 	recipe:SetSkillLevels(300, 300, 305, 310, 315)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DK)
-	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30715, 30721, 30722, 33603, 33615, 33638, 33679, 46716)
+	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30713, 30715, 30721, 30722, 33603, 33615, 33638, 33679, 46716)
 
 	-- Glyph of Raise Dead -- 57222
 	recipe = AddRecipe(57222, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(43549)
 	recipe:SetSkillLevels(350, 350, 355, 360, 365)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS, F.DK)
-	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30715, 30721, 30722, 33603, 33615, 33638, 33679, 46716)
+	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30713, 30715, 30721, 30722, 33603, 33615, 33638, 33679, 46716)
 
 	-- Glyph of Rune Strike -- 57223
 	recipe = AddRecipe(57223, V.WOTLK, Q.COMMON)
@@ -1340,28 +1340,28 @@ function addon:InitInscription()
 	recipe:SetCraftedItemID(43551)
 	recipe:SetSkillLevels(330, 330, 335, 340, 345)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DK)
-	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30715, 30721, 30722, 33603, 33615, 33638, 33679, 46716)
+	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30713, 30715, 30721, 30722, 33603, 33615, 33638, 33679, 46716)
 
 	-- Glyph of Strangulate -- 57225
 	recipe = AddRecipe(57225, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(43552)
 	recipe:SetSkillLevels(375, 375, 380, 385, 390)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DK)
-	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30715, 33603, 33615, 33638, 46716)
+	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30713, 30715, 33603, 33615, 33638, 46716)
 
 	-- Glyph of Pillar of Frost -- 57226
 	recipe = AddRecipe(57226, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(43553)
 	recipe:SetSkillLevels(305, 305, 310, 315, 320)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DK)
-	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30715, 30721, 30722, 33603, 33615, 33638, 33679, 46716)
+	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30713, 30715, 30721, 30722, 33603, 33615, 33638, 33679, 46716)
 
 	-- Glyph of Vampiric Blood -- 57227
 	recipe = AddRecipe(57227, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(43554)
 	recipe:SetSkillLevels(345, 345, 350, 355, 360)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DK)
-	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30715, 30721, 30722, 33603, 33615, 33638, 33679, 46716)
+	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30713, 30715, 30721, 30722, 33603, 33615, 33638, 33679, 46716)
 
 	-- Glyph of Raise Ally -- 57228
 	recipe = AddRecipe(57228, V.WOTLK, Q.COMMON)
@@ -1417,7 +1417,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItemID(41527)
 	recipe:SetSkillLevels(300, 300, 305, 310, 315)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.SHAMAN)
-	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30715, 30721, 30722, 33603, 33615, 33638, 33679, 46716)
+	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30713, 30715, 30721, 30722, 33603, 33615, 33638, 33679, 46716)
 
 	-- Glyph of Fire Elemental Totem -- 57237
 	recipe = AddRecipe(57237, V.WOTLK, Q.COMMON)
@@ -1501,7 +1501,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItemID(41539)
 	recipe:SetSkillLevels(375, 375, 380, 385, 390)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.SHAMAN)
-	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30715, 33603, 33615, 33638, 46716)
+	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30713, 30715, 33603, 33615, 33638, 46716)
 
 	-- Glyph of Lava Lash -- 57249
 	recipe = AddRecipe(57249, V.WOTLK, Q.COMMON)
@@ -1529,7 +1529,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItemID(41542)
 	recipe:SetSkillLevels(330, 330, 335, 340, 345)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS, F.SHAMAN)
-	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30715, 30721, 30722, 33603, 33615, 33638, 33679, 46716)
+	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30713, 30715, 30721, 30722, 33603, 33615, 33638, 33679, 46716)
 
 	-- Glyph of Thunderstorm -- 57253
 	recipe = AddRecipe(57253, V.WOTLK, Q.COMMON)
@@ -1543,7 +1543,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItemID(42453)
 	recipe:SetSkillLevels(350, 350, 355, 360, 365)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.CASTER, F.WARLOCK)
-	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30715, 30721, 30722, 33603, 33615, 33638, 33679, 46716)
+	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30713, 30715, 30721, 30722, 33603, 33615, 33638, 33679, 46716)
 
 	-- Glyph of Conflagrate -- 57258
 	recipe = AddRecipe(57258, V.WOTLK, Q.COMMON)
@@ -1662,7 +1662,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItemID(42471)
 	recipe:SetSkillLevels(325, 325, 330, 335, 340)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.CASTER, F.WARLOCK)
-	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30715, 30721, 30722, 33603, 33615, 33638, 33679, 46716)
+	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30713, 30715, 30721, 30722, 33603, 33615, 33638, 33679, 46716)
 
 	-- Glyph of Unstable Affliction -- 57276
 	recipe = AddRecipe(57276, V.WOTLK, Q.COMMON)
@@ -1753,21 +1753,21 @@ function addon:InitInscription()
 	recipe:SetCraftedItemID(43125)
 	recipe:SetSkillLevels(325, 325, 325, 325, 330)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30715, 30721, 30722, 33603, 33615, 33638, 33679, 46716)
+	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30713, 30715, 30721, 30722, 33603, 33615, 33638, 33679, 46716)
 
 	-- Ink of the Sea -- 57715
 	recipe = AddRecipe(57715, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(43126)
 	recipe:SetSkillLevels(350, 350, 350, 350, 355)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30715, 33603, 33615, 33638, 46716)
+	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30713, 30715, 33603, 33615, 33638, 46716)
 
 	-- Snowfall Ink -- 57716
 	recipe = AddRecipe(57716, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(43127)
 	recipe:SetSkillLevels(375, 375, 375, 375, 380)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30715, 33603, 33615, 33638, 46716)
+	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30713, 30715, 33603, 33615, 33638, 46716)
 
 	-- Glyph of Aquatic Form -- 58286
 	recipe = AddRecipe(58286, V.WOTLK, Q.COMMON)
@@ -2096,7 +2096,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItemID(43397)
 	recipe:SetSkillLevels(80, 80, 90, 95, 100)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.DISC, F.IBOE, F.RBOP, F.WARRIOR)
-	recipe:AddTrainer(30706, 30715, 33603, 33615, 33638, 46716)
+	recipe:AddTrainer(30706, 30713, 30715, 33603, 33615, 33638, 46716)
 	recipe:AddCustom("DISCOVERY_INSC_MINOR")
 
 	-- Glyph of Demoralizing Shout -- 58345
@@ -2111,7 +2111,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItemID(43399)
 	recipe:SetSkillLevels(80, 80, 90, 95, 100)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.DISC, F.IBOE, F.RBOP, F.WARRIOR)
-	recipe:AddTrainer(30706, 30715, 33603, 33615, 33638, 46716)
+	recipe:AddTrainer(30706, 30713, 30715, 33603, 33615, 33638, 46716)
 	recipe:AddCustom("DISCOVERY_INSC_MINOR")
 
 	-- Glyph of Enduring Victory -- 58347
@@ -2168,14 +2168,14 @@ function addon:InitInscription()
 	recipe:SetCraftedItemID(43463)
 	recipe:SetSkillLevels(370, 370, 375, 380, 385)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS, F.TANK)
-	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30715, 33603, 33615, 33638, 46716)
+	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30713, 30715, 33603, 33615, 33638, 46716)
 
 	-- Scroll of Agility VIII -- 58483
 	recipe = AddRecipe(58483, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(43464)
 	recipe:SetSkillLevels(420, 420, 425, 430, 435)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS, F.TANK)
-	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30715, 33603, 33615, 33638, 46716)
+	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30713, 30715, 33603, 33615, 33638, 46716)
 
 	-- Scroll of Strength -- 58484
 	recipe = AddRecipe(58484, V.WOTLK, Q.COMMON)
@@ -2224,14 +2224,14 @@ function addon:InitInscription()
 	recipe:SetCraftedItemID(43465)
 	recipe:SetSkillLevels(365, 365, 370, 375, 380)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS, F.TANK)
-	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30715, 33603, 33615, 33638, 46716)
+	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30713, 30715, 33603, 33615, 33638, 46716)
 
 	-- Scroll of Strength VIII -- 58491
 	recipe = AddRecipe(58491, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(43466)
 	recipe:SetSkillLevels(415, 415, 420, 425, 430)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS, F.TANK)
-	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30715, 33603, 33615, 33638, 46716)
+	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30713, 30715, 33603, 33615, 33638, 46716)
 
 	-- Mystic Tome -- 58565
 	recipe = AddRecipe(58565, V.WOTLK, Q.COMMON)
@@ -2252,7 +2252,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItemID(43725)
 	recipe:SetSkillLevels(100, 100, 110, 115, 120)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.DISC, F.IBOE, F.RBOP, F.SHAMAN)
-	recipe:AddTrainer(30706, 30715, 33603, 33615, 33638, 46716)
+	recipe:AddTrainer(30706, 30713, 30715, 33603, 33615, 33638, 46716)
 	recipe:AddCustom("DISCOVERY_INSC_MINOR")
 
 	-- Glyph of Rune Tap -- 59338
@@ -2260,21 +2260,21 @@ function addon:InitInscription()
 	recipe:SetCraftedItemID(43825)
 	recipe:SetSkillLevels(310, 310, 315, 320, 325)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DK)
-	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30715, 30721, 30722, 33603, 33615, 33638, 33679, 46716)
+	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30713, 30715, 30721, 30722, 33603, 33615, 33638, 33679, 46716)
 
 	-- Glyph of Blood Boil -- 59339
 	recipe = AddRecipe(59339, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(43826)
 	recipe:SetSkillLevels(320, 320, 325, 330, 335)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DK)
-	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30715, 30721, 30722, 33603, 33615, 33638, 33679, 46716)
+	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30713, 30715, 30721, 30722, 33603, 33615, 33638, 33679, 46716)
 
 	-- Glyph of Death Strike -- 59340
 	recipe = AddRecipe(59340, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(43827)
 	recipe:SetSkillLevels(340, 340, 345, 350, 355)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DK)
-	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30715, 30721, 30722, 33603, 33615, 33638, 33679, 46716)
+	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30713, 30715, 30721, 30722, 33603, 33615, 33638, 33679, 46716)
 
 	-- Certificate of Ownership -- 59387
 	recipe = AddRecipe(59387, V.WOTLK, Q.COMMON)
@@ -2365,28 +2365,28 @@ function addon:InitInscription()
 	recipe:SetCraftedItemID(43666)
 	recipe:SetSkillLevels(325, 325, 340, 345, 350)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.ONE_HAND)
-	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30715, 30721, 30722, 33603, 33615, 33638, 33679, 46716)
+	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30713, 30715, 30721, 30722, 33603, 33615, 33638, 33679, 46716)
 
 	-- Book of Clever Tricks -- 59496
 	recipe = AddRecipe(59496, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(43667)
 	recipe:SetSkillLevels(325, 325, 340, 345, 350)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.ONE_HAND)
-	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30715, 30721, 30722, 33603, 33615, 33638, 33679, 46716)
+	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30713, 30715, 30721, 30722, 33603, 33615, 33638, 33679, 46716)
 
 	-- Iron-bound Tome -- 59497
 	recipe = AddRecipe(59497, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(38322)
 	recipe:SetSkillLevels(400, 400, 425, 437, 450)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.ONE_HAND)
-	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30715, 33603, 33615, 33638, 46716)
+	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30713, 30715, 33603, 33615, 33638, 46716)
 
 	-- Faces of Doom -- 59498
 	recipe = AddRecipe(59498, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(44210)
 	recipe:SetSkillLevels(400, 400, 425, 437, 450)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.ONE_HAND)
-	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30715, 33603, 33615, 33638, 46716)
+	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30713, 30715, 33603, 33615, 33638, 46716)
 
 	-- Darkmoon Card -- 59502
 	recipe = AddRecipe(59502, V.WOTLK, Q.COMMON)
@@ -2400,14 +2400,14 @@ function addon:InitInscription()
 	recipe:SetCraftedItemID(44317)
 	recipe:SetSkillLevels(325, 325, 340, 345, 350)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30715, 30721, 30722, 33603, 33615, 33638, 33679, 46716)
+	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30713, 30715, 30721, 30722, 33603, 33615, 33638, 33679, 46716)
 
 	-- Darkmoon Card of the North -- 59504
 	recipe = AddRecipe(59504, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(44318)
 	recipe:SetSkillLevels(400, 400, 425, 450, 475)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30715, 33603, 33615, 33638, 46716)
+	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30713, 30715, 33603, 33615, 33638, 46716)
 
 	-- Glyph of Holy Wrath -- 59559
 	recipe = AddRecipe(59559, V.WOTLK, Q.COMMON)
@@ -2442,37 +2442,37 @@ function addon:InitInscription()
 	recipe:SetCraftedItemID(44315)
 	recipe:SetSkillLevels(350, 350, 350, 350, 355)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30715, 33603, 33615, 33638, 46716)
+	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30713, 30715, 33603, 33615, 33638, 46716)
 
 	-- Master's Inscription of the Axe -- 61117
 	recipe = AddRecipe(61117, V.WOTLK, Q.COMMON)
 	recipe:SetSkillLevels(400, 400, 400, 400, 405)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS)
-	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30715, 33603, 33615, 33638, 46716)
+	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30713, 30715, 33603, 33615, 33638, 46716)
 
 	-- Master's Inscription of the Crag -- 61118
 	recipe = AddRecipe(61118, V.WOTLK, Q.COMMON)
 	recipe:SetSkillLevels(400, 400, 400, 400, 405)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
-	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30715, 33603, 33615, 33638, 46716)
+	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30713, 30715, 33603, 33615, 33638, 46716)
 
 	-- Master's Inscription of the Pinnacle -- 61119
 	recipe = AddRecipe(61119, V.WOTLK, Q.COMMON)
 	recipe:SetSkillLevels(400, 400, 400, 400, 405)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.TANK)
-	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30715, 33603, 33615, 33638, 46716)
+	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30713, 30715, 33603, 33615, 33638, 46716)
 
 	-- Master's Inscription of the Storm -- 61120
 	recipe = AddRecipe(61120, V.WOTLK, Q.COMMON)
 	recipe:SetSkillLevels(400, 400, 400, 400, 405)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
-	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30715, 33603, 33615, 33638, 46716)
+	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30713, 30715, 33603, 33615, 33638, 46716)
 
 	-- Northrend Inscription Research -- 61177
 	recipe = AddRecipe(61177, V.WOTLK, Q.COMMON)
 	recipe:SetSkillLevels(385, 385, 425, 437, 450)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30715, 33603, 33615, 33638, 33679, 46716)
+	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30713, 30715, 33603, 33615, 33638, 33679, 46716)
 
 	-- Minor Inscription Research -- 61288
 	recipe = AddRecipe(61288, V.WOTLK, Q.COMMON)
@@ -2492,7 +2492,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItemID(44928)
 	recipe:SetSkillLevels(375, 375, 380, 385, 390)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DRUID)
-	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30715, 33603, 33615, 33638, 46716)
+	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30713, 30715, 33603, 33615, 33638, 46716)
 
 	-- Rituals of the New Moon -- 64051
 	recipe = AddRecipe(64051, V.WOTLK, Q.UNCOMMON)
@@ -2506,7 +2506,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItemID(45849)
 	recipe:SetSkillLevels(350, 350, 375, 387, 400)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.ONE_HAND)
-	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30715, 33603, 33615, 33638, 46716)
+	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30713, 30715, 33603, 33615, 33638, 46716)
 
 	-- Glyph of Raptor Strike -- 64246
 	recipe = AddRecipe(64246, V.WOTLK, Q.COMMON)
@@ -2940,7 +2940,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItemID(48720)
 	recipe:SetSkillLevels(100, 100, 105, 110, 115)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DRUID)
-	recipe:AddTrainer(26959, 28702, 30706, 30710, 30715, 30722, 33603, 33615, 33638, 33679, 46716)
+	recipe:AddTrainer(26959, 28702, 30706, 30710, 30713, 30715, 30722, 33603, 33615, 33638, 33679, 46716)
 
 	-- Glyph of Command -- 68166
 	recipe = AddRecipe(68166, V.WOTLK, Q.COMMON)
@@ -2954,7 +2954,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItemID(49632)
 	recipe:SetSkillLevels(440, 440, 440, 442, 460)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30715, 33603, 33615, 33638, 46716)
+	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30713, 30715, 33603, 33615, 33638, 46716)
 
 	-- Glyph of Mana Shield -- 71101
 	recipe = AddRecipe(71101, V.WOTLK, Q.COMMON)
