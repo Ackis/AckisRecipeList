@@ -648,7 +648,7 @@ function addon:InitCooking()
 	recipe:SetCraftedItemID(18045)
 	recipe:SetSkillLevels(225, 225, 250, 262, 275)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	recipe:AddVendor(4782, 7733, 8125)
+	recipe:AddVendor(4782, 7733, 40589)
 
 	-- Runn Tum Tuber Surprise -- 22761
 	recipe = AddRecipe(22761, V.ORIG, Q.UNCOMMON)

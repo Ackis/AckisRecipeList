@@ -33,15 +33,15 @@ function private:InitializeEngineeringTrainers()
 	AddTrainer(5518, "Lilliam Sparkspindle", "Stormwind City", 62.2, 30.5, "Alliance")
 	AddTrainer(7406, "Oglethorpe Obnoticus", "The Cape of Stranglethorn", 43, 72.1, "Neutral")
 	AddTrainer(7944, "Tinkmaster Overspark", "Ironforge", 69.8, 50, "Alliance")
-	AddTrainer(8126, "Nixx Sprocketspring", "Tanaris", 52.5, 27.3, "Neutral")
-	AddTrainer(8736, "Buzzek Bracketswing", "Tanaris", 52.3, 27.7, "Neutral")
+	AddTrainer(8126, "Nixx Sprocketspring", "Tanaris", 52.4, 28.3, "Neutral") -- ???????????????????
+	AddTrainer(8736, "Buzzek Bracketswing", "Tanaris", 51.7, 30.4, "Neutral") -- COMPLETELY UPDATED
 	AddTrainer(8738, "Vazario Linkgrease", "Northern Barrens", 68.5, 69.2, "Neutral")
 	AddTrainer(11017, "Roxxik", "Orgrimmar", 56.85, 56.54, "Horde")
 	AddTrainer(11025, "Mukdrak", "Durotar", 52.2, 40.8, "Horde")
 	AddTrainer(11031, "Franklin Lloyd", "Undercity", 75.9, 73.7, "Horde")
 	AddTrainer(11037, "Jenna Lemkenilli", "Darkshore", 38.3, 41.1, "Alliance")
 	AddTrainer(14742, "Zap Farflinger", "Winterspring", 61.2, 37.6, "Neutral")
-	AddTrainer(14743, "Jhordy Lapforge", "Tanaris", 52.3, 26.9, "Neutral")
+	AddTrainer(14743, "Jhordy Lapforge", "Tanaris", 52.2, 27.9, "Neutral") -- COMPLETELY UPDATED
 	AddTrainer(16667, "Danwe", "Silvermoon City", 76.5, 40.9, "Horde")
 	AddTrainer(16726, "Ockil", "The Exodar", 54, 92.1, "Alliance")
 	AddTrainer(17222, "Artificer Daelo", "Azuremyst Isle", 48, 51, "Alliance")

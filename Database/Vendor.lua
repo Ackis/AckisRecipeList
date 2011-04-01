@@ -156,17 +156,17 @@ function addon:InitVendor(DB)
 	AddVendor(5163,		L["Burbik Gearspanner"],		BZ["Ironforge"],			46.5, 27.1, ALLIANCE)
 	AddVendor(5175,		L["Gearcutter Cogspinner"],		BZ["Ironforge"],			68.0, 43.1, ALLIANCE)
 	AddVendor(5178,		L["Soolie Berryfizz"],			BZ["Ironforge"],			66.6, 54.5, ALLIANCE)
-	AddVendor(5411,		L["Krinkle Goodsteel"],			BZ["Tanaris"],				51.5, 28.8, NEUTRAL)
+	AddVendor(5411,		L["Krinkle Goodsteel"],			BZ["Tanaris"],				51.2, 30.4, NEUTRAL) -- COMPLETELY UPDATED
 	AddVendor(5483,		L["Erika Tate"],			BZ["Stormwind City"],			78.5, 53.0, ALLIANCE)
 	AddVendor(5494,		L["Catherine Leland"],			BZ["Stormwind City"],			55.1, 69.5, ALLIANCE)
 	AddVendor(5512,		L["Kaita Deepforge"],			BZ["Stormwind City"],			63.5, 37.6, ALLIANCE)
-	AddVendor(5594,		L["Alchemist Pestlezugg"],		BZ["Tanaris"],				50.9, 27.0, NEUTRAL)
+	AddVendor(5594,		L["Alchemist Pestlezugg"],		BZ["Tanaris"],				50.8, 28.0, NEUTRAL) -- COMPLETELY UPDATED
 	AddVendor(5748,		L["Killian Sanatha"],			BZ["Silverpine Forest"],		33.0, 17.8, HORDE)
 	AddVendor(5757,		L["Lilly"],				BZ["Silverpine Forest"],		43.1, 50.8, HORDE)
 	AddVendor(5758,		L["Leo Sarn"],				BZ["Silverpine Forest"],		53.9, 82.3, HORDE)
 	AddVendor(5940,		L["Harn Longcast"],			BZ["Mulgore"],				47.5, 55.1, HORDE)
 	AddVendor(5942,		L["Zansoa"],				BZ["Durotar"],				56.1, 73.4, HORDE)
-	AddVendor(6568,		L["Vizzklick"],				BZ["Tanaris"],				51.0, 27.4, NEUTRAL)
+	AddVendor(6568,		L["Vizzklick"],				BZ["Tanaris"],				50.7, 28.7, NEUTRAL) -- COMPLETELY UPDATED
 	AddVendor(6567,		L["Ghok'kah"],				BZ["Dustwallow Marsh"],			35.2, 30.8, HORDE)
 	AddVendor(6574,		L["Jun'ha"],				BZ["Arathi Highlands"],			72.7, 36.5, HORDE)
 	AddVendor(6576,		L["Brienna Starglow"],			BZ["Feralas"],				89.0, 45.9, ALLIANCE)
@@ -174,13 +174,12 @@ function addon:InitVendor(DB)
 	AddVendor(6731,		L["Harlown Darkweave"],			BZ["Ashenvale"],			18.2, 60.0, ALLIANCE)
 	AddVendor(6777,		L["Zan Shivsproket"],			BZ["Hillsbrad Foothills"],		71.5, 45.5, NEUTRAL) -- COMPLETELY UPDATED
 	AddVendor(6779,		L["Smudge Thunderwood"],		BZ["Hillsbrad Foothills"],		71.5, 45.5, NEUTRAL) -- COMPLETELY UPDATED
-	AddVendor(7733,		L["Innkeeper Fizzgrimble"],		BZ["Tanaris"],				52.6, 27.0, NEUTRAL) -- UPDATED
+	AddVendor(7733,		L["Innkeeper Fizzgrimble"],		BZ["Tanaris"],				52.6, 27.0, NEUTRAL) -- COMPLETELY UPDATED
 	AddVendor(7852,		L["Pratt McGrubben"],			BZ["Feralas"],				30.6, 42.7, ALLIANCE)
 	AddVendor(7854,		L["Jangdor Swiftstrider"],		BZ["Feralas"],				74.5, 42.9, HORDE)
 	AddVendor(7940,		L["Darnall"],				BZ["Moonglade"],			51.6, 33.3, NEUTRAL)
 	AddVendor(7947,		L["Vivianna"],				BZ["Feralas"],				31.3, 43.5, ALLIANCE)
-	AddVendor(8125,		L["Dirge Quikcleave"],			BZ["Tanaris"],				52.6, 28.0, NEUTRAL) -- UPDATED
-	AddVendor(8131,		L["Blizrik Buckshot"],			BZ["Tanaris"],				50.8, 27.6, NEUTRAL)
+	AddVendor(8131,		L["Blizrik Buckshot"],			BZ["Tanaris"],				50.7, 28.5, NEUTRAL) -- COMPLETELY UPDATED
 	AddVendor(8145,		L["Sheendra Tallgrass"],		BZ["Feralas"],				74.5, 42.8, HORDE)
 	AddVendor(8150,		L["Janet Hommers"],			BZ["Desolace"],				66.2,  6.7, ALLIANCE)
 	AddVendor(8157,		L["Logannas"],				BZ["Feralas"],				32.7, 44.0, ALLIANCE)
@@ -231,7 +230,6 @@ function addon:InitVendor(DB)
 	AddVendor(14371,	L["Shen'dralar Provisioner"],		BZ["Dire Maul"],			   0,	 0, NEUTRAL)
 	AddVendor(14637,	L["Zorbin Fandazzle"],			BZ["Feralas"],				44.8, 43.4, NEUTRAL)
 	AddVendor(14738,	L["Otho Moji'ko"],			BZ["The Hinterlands"],			79.3, 79.1, HORDE)
-	AddVendor(15165,	L["Haughty Modiste"],			BZ["Tanaris"],				66.5, 22.3, NEUTRAL)
 	AddVendor(15176,	L["Vargus"],				BZ["Silithus"],				51.2, 38.8, NEUTRAL)
 	AddVendor(15179,	L["Mishta"],				BZ["Silithus"],				49.9, 36.5, NEUTRAL)
 	AddVendor(15293,	L["Aendel Windspear"],			BZ["Silithus"],				62.6, 49.8, NEUTRAL)
@@ -325,7 +323,7 @@ function addon:InitVendor(DB)
 	AddVendor(21432,	L["Almaador"],				BZ["Shattrath City"],			51.0, 41.9, NEUTRAL)
 	AddVendor(21474,	L["Coreiel"],				BZ["Nagrand"],				42.8, 42.6, HORDE)
 	AddVendor(21485,	L["Aldraan"],				BZ["Nagrand"],				42.9, 42.5, ALLIANCE)
-	AddVendor(21643,	L["Alurmi"],				BZ["Tanaris"],				62.99, 57.32, NEUTRAL)
+	AddVendor(21643,	L["Alurmi"],				BZ["Tanaris"],				63.0, 57.3, NEUTRAL) -- COMPLETELY UPDATED
 	AddVendor(21655,	L["Nakodu"],				BZ["Shattrath City"],			62.1, 69.0, NEUTRAL)
 	AddVendor(22208,	L["Nasmara Moonsong"],			BZ["Shattrath City"],			66.0, 69.0, NEUTRAL)
 	AddVendor(22212,	L["Andrion Darkspinner"],		BZ["Shattrath City"],			66.0, 67.8, NEUTRAL)
@@ -385,6 +383,8 @@ function addon:InitVendor(DB)
 	AddVendor(35826,	L["Kaye Toogie"],			BZ["Dalaran"],				34.0, 35.6, NEUTRAL)
 	AddVendor(37687,	L["Alchemist Finklestein"],		BZ["Icecrown Citadel"],			   0,	 0, NEUTRAL)
 	AddVendor(40160,	L["Frozo the Renowned"],		BZ["Dalaran"],				41.0, 28.5, NEUTRAL)
+	AddVendor(40572,	L["Haughty Modiste"],			BZ["Tanaris"],				50.7, 28.6, NEUTRAL) -- COMPLETELY UPDATED
+	AddVendor(40589,	L["Dirge Quikcleave"],			BZ["Tanaris"],				52.6, 29.1, NEUTRAL) -- COMPLETELY UPDATED
 	AddVendor(49701,	L["Bario Matalli"],			BZ["Stormwind City"], 			50.9, 71.4, ALLIANCE)
 	AddVendor(49703,	L["Casandra Downs"],			BZ["Twilight Highlands"],		78.6, 76.2, ALLIANCE)
 	AddVendor(49737,	L["Shazdar"],				BZ["Orgrimmar"],			57.2, 62.0, HORDE)

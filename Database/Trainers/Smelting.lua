@@ -37,7 +37,7 @@ function private:InitializeSmeltingTrainers()
 	AddTrainer(5392, "Yarr Hammerstone", "Dun Morogh", 50, 50.3, "Alliance")
 	AddTrainer(5513, "Gelman Stonehand", "Stormwind City", 59.2, 37.7, "Alliance")
 	AddTrainer(6297, "Kurdram Stonehammer", "Darkshore", 38.2, 41.1, "Alliance")
-	AddTrainer(8128, "Pikkle", "Tanaris", 51.1, 28.1, "Neutral")
+	AddTrainer(8128, "Pikkle", "Tanaris", 51.0, 29.1, "Neutral") -- COMPLETELY UPDATED
 	AddTrainer(16663, "Belil", "Silvermoon City", 79.1, 42.9, "Horde")
 	AddTrainer(16752, "Muaat", "The Exodar", 60, 87.9, "Alliance")
 	AddTrainer(17488, "Dulvi", "Azuremyst Isle", 48.9, 51.1, "Alliance")

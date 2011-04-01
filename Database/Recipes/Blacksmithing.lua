@@ -445,7 +445,7 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItemID(3837)
 	recipe:SetSkillLevels(190, 190, 215, 227, 240)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.DPS, F.MAIL)
-	recipe:AddVendor(5411)
+	recipe:AddLimitedVendor(5411, 1)
 
 	-- Green Iron Shoulders -- 3504
 	recipe = AddRecipe(3504, V.ORIG, Q.UNCOMMON)

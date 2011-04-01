@@ -2452,7 +2452,7 @@ function addon:InitTailoring()
 	recipe:SetCraftedItemID(6836)
 	recipe:SetSkillLevels(250, 250, 255, 270, 285)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.CLOTH)
-	recipe:AddVendor(15165)
+	recipe:AddLimitedVendor(40572, 1)
 
 	-- Mycah's Botanical Bag -- 50194
 	recipe = AddRecipe(50194, V.TBC, Q.COMMON)
@@ -2468,7 +2468,7 @@ function addon:InitTailoring()
 	recipe:SetCraftedItemID(38277)
 	recipe:SetSkillLevels(250, 250, 265, 280, 295)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.CLOTH)
-	recipe:AddVendor(15165)
+	recipe:AddVendor(40572)
 
 	-- Haliscan Pantaloons -- 50647
 	recipe = AddRecipe(50647, V.TBC, Q.COMMON)
@@ -2476,7 +2476,7 @@ function addon:InitTailoring()
 	recipe:SetCraftedItemID(38278)
 	recipe:SetSkillLevels(245, 245, 250, 255, 260)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.CLOTH)
-	recipe:AddVendor(15165)
+	recipe:AddVendor(40572)
 
 	-- Lightweave Embroidery -- 55642
 	recipe = AddRecipe(55642, V.WOTLK, Q.COMMON)
