@@ -3136,7 +3136,7 @@ function addon:InitInscription()
 	recipe:SetSkillLevels(500, 500, 510, 522, 535)
 	recipe:SetRequiredFaction("Alliance")
 	recipe:AddFilters(F.ALLIANCE, F.TRAINER, F.IBOE, F.RBOE)
-	recipe:AddTrainer(28702, 30713, 30715, 30717, 46716)
+	recipe:AddTrainer(28702, 30713, 30715, 30717)
 
 	-- Adventurer's Journal -- 89367
 	recipe = AddRecipe(89367, V.CATA, Q.COMMON)
