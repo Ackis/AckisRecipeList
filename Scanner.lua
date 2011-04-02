@@ -112,7 +112,7 @@ do
 	-- @return Does a comparison of the information in your internal ARL database, and those items which are available on the trainer.
 	-- Compares the acquire information of the ARL database with what is available on the trainer.
 	function addon:ScanTrainerData(autoscan)
-		if not _G.UnitExists("target") and not _G.UnitIsPlayer("target") and not _G.UnitIsEnemy("player", "target") then	-- Make sure the target exists and is a NPC
+		if not _G.UnitExists("target") or _G.UnitIsPlayer("target") or _G.UnitIsEnemy("player", "target") then
 			if not autoscan then
 				self:Print(L["DATAMINER_TRAINER_NOTTARGETTED"])
 			end
@@ -687,7 +687,7 @@ do
 	local RECIPE_ITEM_TO_SPELL_MAP
 
 	function addon:ScanVendor()
-		if not (_G.UnitExists("target") and (not _G.UnitIsPlayer("target")) and (not _G.UnitIsEnemy("player", "target"))) then	-- Make sure the target exists and is a NPC
+		if not _G.UnitExists("target") or _G.UnitIsPlayer("target") or _G.UnitIsEnemy("player", "target") then
 			self:Print(L["DATAMINER_VENDOR_NOTTARGETTED"])
 			return
 		end
@@ -703,7 +703,7 @@ do
 
 		table.wipe(output)
 
-		table.insert(output, "ARL Version: @project-version@")
+		table.insert(output, ("ARL Version: %s"):format(self.version))
 		table.insert(output, L["DATAMINER_VENDOR_INFO"]:format(vendor_name, vendor_id))
 
 		if not RECIPE_ITEM_TO_SPELL_MAP then
