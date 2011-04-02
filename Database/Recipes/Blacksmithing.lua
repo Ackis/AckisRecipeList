@@ -3215,7 +3215,7 @@ function addon:InitBlacksmithing()
 	recipe = AddRecipe(55185, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(41188)
 	recipe:SetSkillLevels(415, 415, 420, 425, 430)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.RETIRED, F.IBOP, F.RBOP, F.DPS, F.TWO_HAND, F.MACE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.DPS, F.TWO_HAND, F.MACE)
 	recipe:AddTrainer(2998, 3355, 7230, 7231, 11177, 11178, 20124, 20125, 33591, 33609, 33631, 37072, 44781, 45548)
 
 	-- Chestplate of Conquest -- 55186
