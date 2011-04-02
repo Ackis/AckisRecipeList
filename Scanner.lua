@@ -55,7 +55,7 @@ local NO_ROLE_FLAG	-- Populated at the end of the file.
 -------------------------------------------------------------------------------
 -- Functions/methods
 -------------------------------------------------------------------------------
-local function LoadRecipe()
+local function LoadAllRecipes()
 	local recipe_list = private.recipe_list
 
 	if addon.db.profile.autoloaddb then
@@ -112,7 +112,7 @@ do
 	-- @return Does a comparison of the information in your internal ARL database, and those items which are available on the trainer.
 	-- Compares the acquire information of the ARL database with what is available on the trainer.
 	function addon:ScanTrainerData(autoscan)
-		if not (_G.UnitExists("target") and (not _G.UnitIsPlayer("target")) and (not _G.UnitIsEnemy("player", "target"))) then	-- Make sure the target exists and is a NPC
+		if not _G.UnitExists("target") and not _G.UnitIsPlayer("target") and not _G.UnitIsEnemy("player", "target") then	-- Make sure the target exists and is a NPC
 			if not autoscan then
 				self:Print(L["DATAMINER_TRAINER_NOTTARGETTED"])
 			end
@@ -125,7 +125,7 @@ do
 			end
 			return
 		end
-		local recipe_list = LoadRecipe()	-- Get internal database
+		local recipe_list = LoadAllRecipes()	-- Get internal database
 
 		if not recipe_list then
 			self:Print(L["DATAMINER_NODB_ERROR"])
@@ -176,7 +176,7 @@ do
 		local trainer_id = tonumber(string.sub(_G.UnitGUID("target"), -12, -9), 16)
 		local trainer_name = _G.UnitName("target")
 
-		table.insert(output, "ARL Version: @project-version@")
+		table.insert(output, ("ARL Version: %s"):format(self.version))
 		table.insert(output, L["DATAMINER_TRAINER_INFO"]:format(trainer_name, trainer_id))
 
 		for spell_id, recipe in pairs(recipe_list) do
@@ -414,7 +414,7 @@ do
 	--- Scans the items in the specified profession
 	-------------------------------------------------------------------------------
 	local function ProfessionScan(prof_name)
-		local master_list = LoadRecipe()
+		local master_list = LoadAllRecipes()
 
 		if not master_list then
 			addon:Print(L["DATAMINER_NODB_ERROR"])
@@ -502,7 +502,7 @@ do
 	--- Dumps the items in the specified profession
 	-------------------------------------------------------------------------------
 	local function ProfessionDump(prof_name)
-		local master_list = LoadRecipe()
+		local master_list = LoadAllRecipes()
 
 		if not master_list then
 			addon:Print(L["DATAMINE_NODB_ERROR"])
@@ -572,7 +572,7 @@ do
 	local sorted_data = {}
 
 	local function ProfessionTrainerDump(prof_name)
-		local master_list = LoadRecipe()
+		local master_list = LoadAllRecipes()
 
 		if not master_list then
 			addon:Print(L["DATAMINE_NODB_ERROR"])
@@ -623,13 +623,17 @@ do
 		if type(prof_name) == "number" then
 			prof_name = _G.GetSpellInfo(prof_name)
 		end
-
-		local found = false
-		prof_name = string.lower(prof_name)
+		prof_name = prof_name:lower()
 
 		local scan_all = prof_name == "all"
 
-		if not scan_all then
+		if scan_all then
+			for idx, name in ipairs(ORDERED_PROFESSIONS) do
+				ProfessionTrainerDump(name:lower())
+			end
+		else
+			local found = false
+
 			for idx, name in ipairs(ORDERED_PROFESSIONS) do
 				if prof_name == name:lower() then
 					found = true
@@ -642,10 +646,6 @@ do
 				return
 			end
 			ProfessionTrainerDump(prof_name)
-		else
-			for idx, name in ipairs(ORDERED_PROFESSIONS) do
-				ProfessionTrainerDump(name:lower())
-			end
 		end
 	end
 end	-- do
@@ -691,7 +691,7 @@ do
 			self:Print(L["DATAMINER_VENDOR_NOTTARGETTED"])
 			return
 		end
-		local recipe_list = LoadRecipe()		-- Get internal database
+		local recipe_list = LoadAllRecipes()		-- Get internal database
 
 		if not recipe_list then
 			self:Print(L["DATAMINER_NODB_ERROR"])
@@ -834,7 +834,7 @@ do
 
 	function addon:TooltipScanDatabase()
 		-- Get internal database
-		local recipe_list = LoadRecipe()
+		local recipe_list = LoadAllRecipes()
 
 		if (not recipe_list) then
 			self:Print(L["DATAMINER_NODB_ERROR"])
@@ -935,7 +935,7 @@ do
 	local output = {}
 
 	function addon:TooltipScanRecipe(spell_id, is_vendor, is_largescan)
-		local recipe_list = LoadRecipe()
+		local recipe_list = LoadAllRecipes()
 
 		if not recipe_list then
 			self:Print(L["DATAMINER_NODB_ERROR"])
