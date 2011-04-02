@@ -26,7 +26,7 @@ function private:InitializeEnchantingTrainers()
 	end
 
 	AddTrainer(1317, "Lucan Cordell", "Stormwind City", 53, 74.3, "Alliance")
-	AddTrainer(3011, "Teg Dawnstrider", "Thunder Bluff", 45, 38, "Horde")
+	AddTrainer(3011, "Teg Dawnstrider", "Thunder Bluff", 45.3, 38.4, "Horde") -- COMPLETELY UPDATED
 	AddTrainer(3345, "Godan", "Orgrimmar", 53.8, 38.5, "Horde")
 	AddTrainer(3606, "Alanna Raveneye", "Teldrassil", 36.8, 34.2, "Alliance")
 	AddTrainer(4213, "Taladan", "Darnassus", 56.4, 31.0, "Alliance") -- COMPLETELY UPDATED

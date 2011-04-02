@@ -30,7 +30,7 @@ function private:InitializeCookingTrainers()
 	AddTrainer(1430, "Tomas", "Elwynn Forest", 44.3, 66, "Alliance")
 	AddTrainer(1699, "Gremlock Pilsnor", "Dun Morogh", 47.6, 52.3, "Alliance")
 	AddTrainer(2818, "Slagg", "Arathi Highlands", 74.1, 33.8, "Horde")
-	AddTrainer(3026, "Aska Mistrunner", "Thunder Bluff", 51.1, 52.9, "Horde")
+	AddTrainer(3026, "Aska Mistrunner", "Thunder Bluff", 50.7, 53.1, "Horde") -- COMPLETELY UPDATED
 	AddTrainer(3067, "Pyall Silentstride", "Mulgore", 45.5, 58.1, "Horde")
 	AddTrainer(3087, "Crystal Boughman", "Redridge Mountains", 22.8, 43.6, "Alliance")
 	AddTrainer(3399, "Zamja", "Orgrimmar", 57.5, 53.7, "Horde")

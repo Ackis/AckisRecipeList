@@ -32,7 +32,7 @@ function private:InitializeAlchemyTrainers()
 	AddTrainer(2132, "Carolai Anise", "Tirisfal Glades", 59.5, 52.2, "Horde")
 	AddTrainer(2391, "Serge Hinott", "Hillsbrad Foothills", 49.1, 66.4, "Horde") -- COMPLETELY UPDATED
 	AddTrainer(2837, "Jaxin Chong", "The Cape of Stranglethorn", 42.6, 74.8, "Neutral")
-	AddTrainer(3009, "Bena Winterhoof", "Thunder Bluff", 46.8, 33.5, "Horde")
+	AddTrainer(3009, "Bena Winterhoof", "Thunder Bluff", 46.6, 33.2, "Horde") -- COMPLETELY UPDATED
 	AddTrainer(3184, "Miao'zan", "Durotar", 55.5, 74, "Horde")
 	AddTrainer(3347, "Yelmak", "Orgrimmar", 56.7, 33.2, "Horde")
 	AddTrainer(3603, "Cyndra Kindwhisper", "Teldrassil", 57.6, 60.7, "Alliance")

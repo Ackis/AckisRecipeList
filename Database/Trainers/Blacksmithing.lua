@@ -28,7 +28,7 @@ function private:InitializeBlacksmithingTrainers()
 	AddTrainer(514, "Smith Argus", "Elwynn Forest", 41.7, 65.6, "Alliance")
 	AddTrainer(1241, "Tognus Flintfire", "Dun Morogh", 45.3, 52, "Alliance")
 	AddTrainer(2836, "Brikk Keencraft", "The Cape of Stranglethorn", 44.1, 70.9, "Neutral")
-	AddTrainer(2998, "Karn Stonehoof", "Thunder Bluff", 39, 56.5, "Horde")
+	AddTrainer(2998, "Karn Stonehoof", "Thunder Bluff", 39.4, 55.1, "Horde") -- COMPLETELY UPDATED
 	AddTrainer(3136, "Clarise Gnarltree", "Duskwood", 74, 48.5, "Alliance")
 	AddTrainer(3174, "Dwukk", "Durotar", 52, 40.7, "Horde")
 	AddTrainer(3355, "Saru Steelfury", "Orgrimmar", 76.5, 34.53, "Horde")

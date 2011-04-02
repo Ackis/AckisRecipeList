@@ -27,7 +27,7 @@ function private:InitializeLeatherworkingTrainers()
 
 	AddTrainer(1385, "Brawn", "Northern Stranglethorn", 37.8, 50.4, "Horde")
 	AddTrainer(1632, "Adele Fielder", "Elwynn Forest", 46.4, 62.1, "Alliance")
-	AddTrainer(3007, "Una", "Thunder Bluff", 41.8, 42.7, "Horde")
+	AddTrainer(3007, "Una", "Thunder Bluff", 41.5, 42.6, "Horde") -- COMPLETELY UPDATED
 	AddTrainer(3069, "Chaw Stronghide", "Mulgore", 45.5, 57.9, "Horde")
 	AddTrainer(3365, "Karolek", "Orgrimmar", 62.8, 44.5, "Horde")
 	AddTrainer(3549, "Shelene Rhobart", "Tirisfal Glades", 65.5, 61, "Horde")

@@ -31,7 +31,7 @@ function private:InitializeInscriptionTrainers()
 	AddTrainer(26995, "Tink Brightbolt", "Borean Tundra", 57.6, 71.7, "Alliance")
 	AddTrainer(28702, "Professor Pallin", "Dalaran", 41.8, 36.9, "Neutral")
 	AddTrainer(30706, "Jo'mah", "Orgrimmar", 56.2, 46.5, "Horde")
-	AddTrainer(30709, "Poshken Hardbinder", "Thunder Bluff", 29.2, 22, "Horde")
+	AddTrainer(30709, "Poshken Hardbinder", "Thunder Bluff", 28.7, 20.9, "Horde") -- COMPLETELY UPDATED
 	AddTrainer(30710, "Zantasia", "Silvermoon City", 69.5, 24, "Horde")
 	AddTrainer(30711, "Margaux Parchley", "Undercity", 61, 58.5, "Horde")
 	AddTrainer(30713, "Catarina Stanford", "Stormwind City", 49.8, 74.7, "Alliance") -- COMPLETELY UPDATED

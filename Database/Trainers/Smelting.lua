@@ -27,7 +27,7 @@ function private:InitializeSmeltingTrainers()
 
 	AddTrainer(1681, "Brock Stoneseeker", "Loch Modan", 37.1, 47.8, "Alliance")
 	AddTrainer(1701, "Dank Drizzlecut", "Dun Morogh", 69.3, 55.5, "Alliance")
-	AddTrainer(3001, "Brek Stonehoof", "Thunder Bluff", 34.5, 57.6, "Horde")
+	AddTrainer(3001, "Brek Stonehoof", "Thunder Bluff", 34.4, 57.9, "Horde") -- COMPLETELY UPDATED
 	AddTrainer(3137, "Matt Johnson", "Duskwood", 74, 49.7, "Alliance")
 	AddTrainer(3175, "Krunn", "Durotar", 51.9, 40.9, "Horde")
 	AddTrainer(3357, "Makaru", "Orgrimmar", 72.31, 34.91, "Horde")

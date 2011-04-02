@@ -95,10 +95,10 @@ function addon:InitVendor(DB)
 	AddVendor(2843,		L["Jutak"],				BZ["The Cape of Stranglethorn"],	41.6, 74.1, NEUTRAL)   -- UPDATED
 	AddVendor(2846,		L["Blixrez Goodstitch"],		BZ["The Cape of Stranglethorn"],	42.8, 74.1, NEUTRAL)   -- UPDATED
 	AddVendor(2848,		L["Glyx Brewright"],			BZ["The Cape of Stranglethorn"],	42.6, 74.9, NEUTRAL)   -- UPDATED
-	AddVendor(3005,		L["Mahu"],				BZ["Thunder Bluff"],			43.8, 44.6, HORDE)
-	AddVendor(3012,		L["Nata Dawnstrider"],			BZ["Thunder Bluff"],			46.5, 38.8, HORDE)
-	AddVendor(3027,		L["Naal Mistrunner"],			BZ["Thunder Bluff"],			51.1, 52.2, HORDE)
-	AddVendor(3029,		L["Sewa Mistrunner"],			BZ["Thunder Bluff"],			56.0, 47.1, HORDE)
+	AddVendor(3005,		L["Mahu"],				BZ["Thunder Bluff"],			43.8, 45.1, HORDE) -- COMPLETELY UPDATED
+	AddVendor(3012,		L["Nata Dawnstrider"],			BZ["Thunder Bluff"],			44.9, 37.7, HORDE) -- COMPLETELY UPDATED
+	AddVendor(3027,		L["Naal Mistrunner"],			BZ["Thunder Bluff"],			51.0, 52.5, HORDE) -- COMPLETELY UPDATED
+	AddVendor(3029,		L["Sewa Mistrunner"],			BZ["Thunder Bluff"],			55.8, 47.0, HORDE) -- COMPLETELY UPDATED
 	AddVendor(3081,		L["Wunna Darkmane"],			BZ["Mulgore"],				46.1, 58.2, HORDE)
 	AddVendor(3085,		L["Gloria Femmel"],			BZ["Redridge Mountains"],		26.7, 43.5, ALLIANCE)
 	AddVendor(3134,		L["Kzixx"],				BZ["Duskwood"],				81.9, 19.9, NEUTRAL)
@@ -190,7 +190,7 @@ function addon:InitVendor(DB)
 	AddVendor(8177,		L["Rartar"],				BZ["Swamp of Sorrows"],			47.2, 57.1, HORDE) -- COMPLETELY UPDATED
 	AddVendor(8178,		L["Nina Lightbrew"],			BZ["Blasted Lands"],			66.9, 18.3, ALLIANCE)
 	AddVendor(8307,		L["Tarban Hearthgrain"],		BZ["Northern Barrens"],			55.1, 61.7, HORDE)  -- UPDATED
-	AddVendor(8363,		L["Shadi Mistrunner"],			BZ["Thunder Bluff"],			40.4, 63.6, HORDE)
+	AddVendor(8363,		L["Shadi Mistrunner"],			BZ["Thunder Bluff"],			40.6, 64.0, HORDE) -- COMPLETELY UPDATED
 	AddVendor(8508,		L["Gretta Ganter"],			BZ["Dun Morogh"],			31.5, 44.7, ALLIANCE)
 	AddVendor(8679,		L["Knaz Blunderflame"],			BZ["Northern Stranglethorn"],		67.7, 61.1, NEUTRAL)   -- UPDATED
 	AddVendor(8681,		L["Outfitter Eric"],			BZ["Ironforge"],			43.2, 29.2, ALLIANCE)
@@ -224,7 +224,7 @@ function addon:InitVendor(DB)
 	AddVendor(12962,	L["Wik'Tar"],				BZ["Ashenvale"],			11.8, 34.1, HORDE)
 	AddVendor(13420,	L["Penney Copperpinch"],		BZ["Orgrimmar"],			53.5, 66.1, NEUTRAL)
 	AddVendor(13429,	L["Nardstrum Copperpinch"],		BZ["Undercity"],			67.5, 38.7, HORDE) -- COMPLETELY UPDATED
-	AddVendor(13432,	L["Seersa Copperpinch"],		BZ["Thunder Bluff"],			42.0, 55.1, HORDE)
+	AddVendor(13432,	L["Seersa Copperpinch"],		BZ["Thunder Bluff"],			42.0, 55.1, HORDE) -- COMPLETELY UPDATED
 	AddVendor(13433,	L["Wulmort Jinglepocket"],		BZ["Ironforge"],			33.0, 67.6, NEUTRAL)
 	AddVendor(13435,	L["Khole Jinglepocket"],		BZ["Stormwind City"],			62.2, 70.6, ALLIANCE)
 	AddVendor(14371,	L["Shen'dralar Provisioner"],		BZ["Dire Maul"],			   0,	 0, NEUTRAL)
