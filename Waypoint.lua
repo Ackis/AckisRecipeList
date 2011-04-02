@@ -175,7 +175,7 @@ local INSTANCE_LOCATIONS = {
 		["y"] = 0,
 	},
 	[BZ["Ruins of Ahn'Qiraj"]] = {
-		["zone"] = KALIMDOR_IDNUMS[BZ["Tanaris"]],
+		["zone"] = KALIMDOR_IDNUMS[BZ["Silithus"]],
 		["continent"] = 1,
 		["x"] = 0,
 		["y"] = 0,
@@ -205,7 +205,7 @@ local INSTANCE_LOCATIONS = {
 		["y"] = 0,
 	},
 	[BZ["Temple of Ahn'Qiraj"]] = {
-		["zone"] = KALIMDOR_IDNUMS[BZ["Tanaris"]],
+		["zone"] = KALIMDOR_IDNUMS[BZ["Silithus"]],
 		["continent"] = 1,
 		["x"] = 0,
 		["y"] = 0,
