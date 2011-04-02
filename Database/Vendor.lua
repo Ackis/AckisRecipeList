@@ -264,13 +264,13 @@ function addon:InitVendor(DB)
 	AddVendor(17518,	L["Ythyar"],				BZ["Karazhan"],				   0,	 0, NEUTRAL)
 	AddVendor(17585,	L["Quartermaster Urgronn"],		BZ["Hellfire Peninsula"],		54.9, 37.9, HORDE)
 	AddVendor(17657,	L["Logistics Officer Ulrike"],		BZ["Hellfire Peninsula"],		56.7, 62.6, ALLIANCE)
-	AddVendor(17904,	L["Fedryen Swiftspear"],		BZ["Zangarmarsh"],			79.3, 63.8, NEUTRAL)
+	AddVendor(17904,	L["Fedryen Swiftspear"],		BZ["Zangarmarsh"],			79.3, 63.8, NEUTRAL) -- COMPLETELY UPDATED
 	AddVendor(18005,	L["Haalrun"],				BZ["Zangarmarsh"],			67.8, 48.0, ALLIANCE)
-	AddVendor(18011,	L["Zurai"],				BZ["Zangarmarsh"],			85.2, 54.7, HORDE)
-	AddVendor(18015,	L["Gambarinka"],			BZ["Zangarmarsh"],			31.7, 49.3, HORDE)
-	AddVendor(18017,	L["Seer Janidi"],			BZ["Zangarmarsh"],			32.4, 51.9, HORDE)
+	AddVendor(18011,	L["Zurai"],				BZ["Zangarmarsh"],			85.3, 54.8, HORDE) -- COMPLETELY UPDATED
+	AddVendor(18015,	L["Gambarinka"],			BZ["Zangarmarsh"],			31.7, 49.3, HORDE) -- COMPLETELY UPDATED
+	AddVendor(18017,	L["Seer Janidi"],			BZ["Zangarmarsh"],			32.4, 51.9, HORDE) -- COMPLETELY UPDATED
 	AddVendor(18255,	L["Apprentice Darius"],			BZ["Deadwind Pass"],			47.0, 75.3, NEUTRAL)
-	AddVendor(18382,	L["Mycah"],				BZ["Zangarmarsh"],			17.9, 51.2, NEUTRAL)
+	AddVendor(18382,	L["Mycah"],				BZ["Zangarmarsh"],			17.9, 51.2, NEUTRAL) -- COMPLETELY UPDATED
 	AddVendor(18427,	L["Fazu"],				BZ["Bloodmyst Isle"],			53.5, 56.5, ALLIANCE)
 	AddVendor(18484,	L["Wind Trader Lathrai"],		BZ["Shattrath City"],			72.3, 31.0, NEUTRAL)
 	AddVendor(18664,	L["Aged Dalaran Wizard"],		BZ["Old Hillsbrad Foothills"],		   0,	 0, NEUTRAL)
@@ -281,7 +281,7 @@ function addon:InitVendor(DB)
 	AddVendor(18802,	L["Alchemist Gribble"],			BZ["Hellfire Peninsula"],		53.8, 65.8, ALLIANCE)
 	AddVendor(18821,	L["Quartermaster Jaffrey Noreliqe"],	BZ["Nagrand"],				41.2, 44.3, HORDE)
 	AddVendor(18822,	L["Quartermaster Davian Vaclav"],	BZ["Nagrand"],				41.2, 44.3, ALLIANCE)
-	AddVendor(18911,	L["Juno Dufrain"],			BZ["Zangarmarsh"],			78.0, 66.1, NEUTRAL)
+	AddVendor(18911,	L["Juno Dufrain"],			BZ["Zangarmarsh"],			78.0, 66.1, NEUTRAL) -- COMPLETELY UPDATED
 	AddVendor(18951,	L["Erilia"],				BZ["Eversong Woods"],			55.5, 54.0, HORDE)
 	AddVendor(18957,	L["Innkeeper Grilka"],			BZ["Terokkar Forest"],			48.8, 45.1, HORDE)
 	AddVendor(18960,	L["Rungor"],				BZ["Terokkar Forest"],			48.8, 46.1, HORDE)
@@ -301,7 +301,7 @@ function addon:InitVendor(DB)
 	AddVendor(19342,	L["Krek Cragcrush"],			BZ["Shadowmoon Valley"],		28.9, 30.8, HORDE)
 	AddVendor(19351,	L["Daggle Ironshaper"],			BZ["Shadowmoon Valley"],		36.8, 54.4, ALLIANCE)
 	AddVendor(19373,	L["Mari Stonehand"],			BZ["Shadowmoon Valley"],		36.8, 55.1, ALLIANCE)
-	AddVendor(19383,	L["Captured Gnome"],			BZ["Zangarmarsh"],			32.5, 48.1, HORDE)
+	AddVendor(19383,	L["Captured Gnome"],			BZ["Zangarmarsh"],			32.5, 48.1, HORDE) -- COMPLETELY UPDATED
 	AddVendor(19521,	L["Arrond"],				BZ["Shadowmoon Valley"],		55.9, 58.2, NEUTRAL)
 	AddVendor(19537,	L["Dealer Malij"],			BZ["Netherstorm"],			44.2, 34.0, NEUTRAL)
 	AddVendor(19540,	L["Asarnan"],				BZ["Netherstorm"],			44.2, 33.7, NEUTRAL)

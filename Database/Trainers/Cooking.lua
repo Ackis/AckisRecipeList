@@ -29,7 +29,7 @@ function private:InitializeCookingTrainers()
 	self:AddTrainer(17246, "\"Cookie\" McWeaksauce", "Azuremyst Isle", 46.7 , 70.5, "Alliance" )
 	self:AddTrainer(18987, "Gaston", "Hellfire Peninsula", 54.1, 63.5, "Alliance")
 	self:AddTrainer(18988, "Baxter", "Hellfire Peninsula", 56.8, 37.5, "Horde")
-	self:AddTrainer(18993, "Naka", "Zangarmarsh", 78.5, 63, "Neutral")
+	self:AddTrainer(18993, "Naka", "Zangarmarsh", 78.5, 63, "Neutral") -- COMPLETELY UPDATED
 	self:AddTrainer(19185, "Jack Trapper", "Shattrath City", 63, 68.5, "Neutral")
 	self:AddTrainer(19186, "Kylene", "Shattrath City", 76.5, 33, "Neutral")
 	self:AddTrainer(19369, "Celie Steelwing", "Shadowmoon Valley", 37.2, 58.5, "Alliance")

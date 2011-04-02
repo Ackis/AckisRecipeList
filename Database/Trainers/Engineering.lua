@@ -28,7 +28,7 @@ function private:InitializeEngineeringTrainers()
 	self:AddTrainer(16726, "Ockil", "The Exodar", 54, 92.1, "Alliance")
 	self:AddTrainer(17222, "Artificer Daelo", "Azuremyst Isle", 48, 51, "Alliance")
 	self:AddTrainer(17634, "K. Lee Smallfry", "Zangarmarsh", 68.6, 50.2, "Alliance")
-	self:AddTrainer(17637, "Mack Diver", "Zangarmarsh", 33.9, 51, "Horde")
+	self:AddTrainer(17637, "Mack Diver", "Zangarmarsh", 33.9, 51, "Horde") -- COMPLETELY UPDATED
 	self:AddTrainer(18752, "Zebig", "Hellfire Peninsula", 54.8, 38.5, "Horde")
 	self:AddTrainer(18775, "Lebowski", "Hellfire Peninsula", 55.7, 65.5, "Alliance")
 	self:AddTrainer(19576, "Xyrol", "Netherstorm", 32.5, 66.7, "Neutral")
