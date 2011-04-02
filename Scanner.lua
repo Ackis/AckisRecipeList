@@ -176,9 +176,6 @@ do
 		local trainer_id = tonumber(string.sub(_G.UnitGUID("target"), -12, -9), 16)
 		local trainer_name = _G.UnitName("target")
 
-		table.insert(output, ("ARL Version: %s"):format(self.version))
-		table.insert(output, L["DATAMINER_TRAINER_INFO"]:format(trainer_name, trainer_id))
-
 		for spell_id, recipe in pairs(recipe_list) do
 			if trainer_profession == recipe.profession then
 				local train_data = recipe.acquire_data[A.TRAINER]
@@ -200,16 +197,18 @@ do
 				end
 				local trainer_entry = private.trainer_list[trainer_id]
 				local trainer_x, trainer_y = _G.GetPlayerMapPosition("player")
+				trainer_x = ("%.2f"):format(trainer_x * 100)
+				trainer_y = ("%.2f"):format(trainer_y * 100)
 
 				if trainer_entry and trainer_entry.coord_x ~= trainer_x or trainer_entry.coord_y ~= trainer_y then
-					table.insert(output, ("%s appears to have different coordinates than those in the database - a trainer dump for %s will fix this."):format(trainer_name, trainer_profession))
+					table.insert(output, ("%s appears to have different coordinates (%s, %s) than those in the database (%s, %s) - a trainer dump for %s will fix this."):format(trainer_name, trainer_entry.coord_x, trainer_entry.coord_y, trainer_x, trainer_y, trainer_profession))
 					trainer_entry.coord_x = trainer_x
 					trainer_entry.coord_y = trainer_y
 				elseif not trainer_entry then
 					table.insert(output, ("%s was not found in the trainer list - a trainer dump for %s will fix this."):format(trainer_name, trainer_profession))
 					_G.SetMapToCurrentZone() -- Make sure were are looking at the right zone
 
-					private:AddTrainer(trainer_id, trainer_name, _G.GetRealZoneText(), ("%.2f"):format(trainer_x * 100), ("%.2f"):format(trainer_y * 100), private.Player.faction)
+					private:AddTrainer(trainer_id, trainer_name, _G.GetRealZoneText(), trainer_x, trainer_y, private.Player.faction)
 				end
 
 				if matching_item or matching_recipe then
@@ -325,6 +324,8 @@ do
 		end
 
 		if #output > 0 then
+			table.insert(output, 1, ("ARL Version: %s"):format(self.version))
+			table.insert(output, 2, L["DATAMINER_TRAINER_INFO"]:format(trainer_name, trainer_id))
 			if found_extra and trainer_profession == private.professions.Engineering then
 				table.insert(output, "\nSome goggles may be listed as extra. These goggles ONLY show up for the classes who can make them, so they may be false positives.")
 			end
