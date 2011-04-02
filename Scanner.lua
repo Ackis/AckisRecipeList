@@ -1358,6 +1358,19 @@ do
 	}
 	local FILTER_TO_ACQUIRE_MAP
 
+	local OBTAIN_FILTERS = {
+		["TRAINER"] = true,
+		["VENDOR"] = true,
+		["INSTANCE"] = true,
+		["RAID"] = true,
+		["SEASONAL"] = true,
+		["QUEST"] = true,
+		["PVP"] = true,
+		["WORLD_DROP"] = true,
+		["MOB_DROP"] = true,
+		["DISC"] = true,
+	}
+
 	--- Prints out the results of the tooltip scan.
 	-- @name AckisRecipeList:PrintScanResults
 	function addon:PrintScanResults()
@@ -1566,11 +1579,20 @@ do
 		end
 
 		-- Check to see if we have an obtain method flag,  all recipes must have at least one of these
-		if (not recipe:HasFilter("common1", "TRAINER") and not recipe:HasFilter("common1", "VENDOR") and not recipe:HasFilter("common1", "INSTANCE") and not recipe:HasFilter("common1", "RAID")
-		    and not recipe:HasFilter("common1", "SEASONAL") and not recipe:HasFilter("common1", "QUEST") and not recipe:HasFilter("common1", "PVP") and not recipe:HasFilter("common1", "WORLD_DROP")
-		    and not recipe:HasFilter("common1", "MOB_DROP") and not recipe:HasFilter("common1", "DISC")) then
-			found_problem = true
-			table.insert(output, "    No obtain flag.")
+		if not recipe:HasFilter("common1", "RETIRED") then
+			local matching_filter = false
+
+			for filter in pairs(OBTAIN_FILTERS) do
+				if recipe:HasFilter("common1", filter) then
+					matching_filter = true
+					break
+				end
+			end
+
+			if not matching_filter then
+				found_problem = true
+				table.insert(output, "    No obtain flag.")
+			end
 		end
 
 		-- Check for recipe binding information,  all recipes must have one of these
