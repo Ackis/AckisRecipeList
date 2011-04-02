@@ -740,9 +740,9 @@ do
 
 						-- Check the database to see if the vendor is listed as an acquire method.
 						local recipe = recipe_list[spell_id]
-						local acquire = recipe and recipe.acquire_data
-						local vendor_data = acquire and acquire[A.VENDOR]
-						local rep_data = acquire and acquire[A.REPUTATION]
+						local acquire_data = recipe and recipe.acquire_data
+						local vendor_data = acquire_data and acquire_data[A.VENDOR]
+						local rep_data = acquire_data and acquire_data[A.REPUTATION]
 						local matching_vendor = false
 
 						if vendor_data then
@@ -767,23 +767,14 @@ do
 								end
 							end
 						end
-						local vendor = private.vendor_list[vendor_id]
+						local vendor_entry = private.vendor_list[vendor_id]
 
-						if not matching_vendor then
-							if supply > -1 then
-								recipe:AddLimitedVendor(vendor_id, supply)
-							else
-								recipe:AddVendor(vendor_id)
-							end
+						if not vendor_entry then
+							table.insert(output, ("%s was not found in the vendor list"):format(vendor_name))
+						end
 
-							if not recipe:HasFilter("common1", "VENDOR") then
-								recipe:AddFilters(F.VENDOR)
-								table.insert(output, ("%d: Vendor flag needs to be set."):format(spell_id))
-							end
-							added_output = true
-							table.insert(output, ("Vendor ID missing from \"%s\" %d."):format(recipe and recipe.name or _G.UNKNOWN, spell_id))
-						elseif vendor and vendor.item_list then
-							local reported_supply = vendor.item_list[spell_id]
+						if matching_vendor and vendor_entry and vendor_entry.item_list then
+							local reported_supply = vendor_entry.item_list[spell_id]
 
 							if reported_supply == true and supply > -1 then
 								recipe:AddLimitedVendor(vendor_id, supply)
@@ -797,9 +788,22 @@ do
 
 							if not recipe:HasFilter("common1", "VENDOR") then
 								recipe:AddFilters(F.VENDOR)
-								table.insert(output, ("%d: Vendor flag needs to be set."):format(spell_id))
+								table.insert(output, ("%d: Vendor flag was not set."):format(spell_id))
 								added_output = true
 							end
+						elseif not matching_vendor then
+							if supply > -1 then
+								recipe:AddLimitedVendor(vendor_id, supply)
+							else
+								recipe:AddVendor(vendor_id)
+							end
+
+							if not recipe:HasFilter("common1", "VENDOR") then
+								recipe:AddFilters(F.VENDOR)
+								table.insert(output, ("%d: Vendor flag was not set."):format(spell_id))
+							end
+							added_output = true
+							table.insert(output, ("Vendor ID missing from \"%s\" %d."):format(recipe and recipe.name or _G.UNKNOWN, spell_id))
 						end
 					else
 						for spell_id, recipe in pairs(private.recipe_list) do
@@ -812,7 +816,7 @@ do
 						--@debug@
 						added_output = true
 						table.insert(output, ("Spell ID not found for recipe item %d (%s)"):format(item_id, item_name))
-						--@end-debug@
+					--@end-debug@
 					end
 				end
 			end
