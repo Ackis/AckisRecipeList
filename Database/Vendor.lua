@@ -303,8 +303,8 @@ function addon:InitVendor(DB)
 	AddVendor(19373,	L["Mari Stonehand"],			BZ["Shadowmoon Valley"],		36.8, 55.1, ALLIANCE)
 	AddVendor(19383,	L["Captured Gnome"],			BZ["Zangarmarsh"],			32.5, 48.1, HORDE) -- COMPLETELY UPDATED
 	AddVendor(19521,	L["Arrond"],				BZ["Shadowmoon Valley"],		55.9, 58.2, NEUTRAL)
-	AddVendor(19537,	L["Dealer Malij"],			BZ["Netherstorm"],			44.2, 34.0, NEUTRAL)
-	AddVendor(19540,	L["Asarnan"],				BZ["Netherstorm"],			44.2, 33.7, NEUTRAL)
+	AddVendor(19537,	L["Dealer Malij"],			BZ["Netherstorm"],			44.2, 34.0, NEUTRAL) -- COMPLETELY UPDATED
+	AddVendor(19540,	L["Asarnan"],				BZ["Netherstorm"],			44.2, 33.7, NEUTRAL) -- COMPLETELY UPDATED
 	AddVendor(19661,	L["Viggz Shinesparked"],		BZ["Shattrath City"],			64.9, 69.1, NEUTRAL)
 	AddVendor(19662,	L["Aaron Hollman"],			BZ["Shattrath City"],			63.1, 71.1, NEUTRAL)
 	AddVendor(19663,	L["Madame Ruby"],			BZ["Shattrath City"],			63.1, 69.3, NEUTRAL)
@@ -317,7 +317,7 @@ function addon:InitVendor(DB)
 	AddVendor(20097,	L["Nula the Butcher"],			BZ["Nagrand"],				58.0, 35.7, HORDE)
 	AddVendor(20240,	L["Trader Narasu"],			BZ["Nagrand"],				54.6, 75.2, ALLIANCE)
 	AddVendor(20241,	L["Provisioner Nasela"],		BZ["Nagrand"],				53.5, 36.9, HORDE)
-	AddVendor(20242,	L["Karaaz"],				BZ["Netherstorm"],			43.6, 34.3, NEUTRAL)
+	AddVendor(20242,	L["Karaaz"],				BZ["Netherstorm"],			43.6, 34.3, NEUTRAL) -- COMPLETELY UPDATED
 	AddVendor(20916,	L["Xerintha Ravenoak"],			BZ["Blade's Edge Mountains"],		62.5, 40.3, NEUTRAL) -- COMPLETELY UPDATED
 	AddVendor(21113,	L["Sassa Weldwell"],			BZ["Blade's Edge Mountains"],		61.3, 68.9, ALLIANCE)
 	AddVendor(21432,	L["Almaador"],				BZ["Shattrath City"],			51.0, 41.9, NEUTRAL)

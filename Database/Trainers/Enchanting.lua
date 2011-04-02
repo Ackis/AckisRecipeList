@@ -26,7 +26,7 @@ function private:InitializeEnchantingTrainers()
 	self:AddTrainer(18773, "Johan Barnes", "Hellfire Peninsula", 53.7, 66.1, "Alliance")
 	self:AddTrainer(19251, "Enchantress Volali", "Shattrath City", 43.2, 92.3, "Neutral")
 	self:AddTrainer(19252, "High Enchanter Bardolan", "Shattrath City", 43.2, 92.2, "Neutral")
-	self:AddTrainer(19540, "Asarnan", "Netherstorm", 44.2, 33.7, "Neutral")
+	self:AddTrainer(19540, "Asarnan", "Netherstorm", 44.2, 33.7, "Neutral") -- COMPLETELY UPDATED
 	self:AddTrainer(26906, "Elizabeth Jackson", "Howling Fjord", 58.6, 62.8, "Alliance")
 	self:AddTrainer(26954, "Emil Autumn", "Howling Fjord", 78.7, 28.3, "Horde")
 	self:AddTrainer(26980, "Eorain Dawnstrike", "Borean Tundra", 41.2, 53.9, "Horde")

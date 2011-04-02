@@ -11,7 +11,7 @@ function private:InitializeJewelcraftingTrainers()
 	self:AddTrainer(18751, "Kalaen", "Hellfire Peninsula", 56.8, 37.7, "Horde")
 	self:AddTrainer(18774, "Tatiana", "Hellfire Peninsula", 54.6, 63.6, "Alliance")
 	self:AddTrainer(19063, "Hamanar", "Shattrath City", 35.7, 20.5, "Neutral")
-	self:AddTrainer(19539, "Jazdalaad", "Netherstorm", 44.5, 34, "Neutral")
+	self:AddTrainer(19539, "Jazdalaad", "Netherstorm", 44.5, 34.0, "Neutral") -- COMPLETELY UPDATED
 	self:AddTrainer(19775, "Kalinda", "Silvermoon City", 90.5, 74.1, "Horde")
 	self:AddTrainer(19778, "Farii", "The Exodar", 45, 24, "Alliance")
 	self:AddTrainer(26915, "Ounhulo", "Howling Fjord", 59.9, 63.8, "Alliance")
