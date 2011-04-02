@@ -821,7 +821,15 @@ function addon:SetupOptions()
 	if _G.TomTom or _G.Cartographer_Waypoints then
 		self:RegisterModuleOptions("Waypoint", GetMapOptions(), L["Waypoints"])
 	end
-	self:RegisterModuleOptions("Datamining", GetDatamineOptions(), L["Datamine Options"])
+
+	if addon.version == "Devel" then
+		self:RegisterModuleOptions("Datamining", GetDatamineOptions(), L["Datamine Options"])
+	else
+		addon.db.profile.scantrainers = false
+		addon.db.profile.scanvendors = false
+		addon.db.profile.autoloaddb = false
+
+	end
 	self:RegisterModuleOptions("Documentation", GetDocumentation(), L["Documentation"])
 	self:RegisterModuleOptions("Profiles", giveProfiles(), L["Profile Options"])
 
