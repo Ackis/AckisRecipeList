@@ -14,11 +14,29 @@ This source code is released under All Rights Reserved.
 ************************************************************************
 ]]--
 
+-------------------------------------------------------------------------------
+-- Upvalued Lua API
+-------------------------------------------------------------------------------
+local _G = getfenv(0)
+
+-- Functions
+local pairs = _G.pairs
+local type = _G.type
+local tonumber = _G.tonumber
+
+-- Libraries
+local table = _G.table
+
+-------------------------------------------------------------------------------
+-- AddOn namespace.
+-------------------------------------------------------------------------------
+local LibStub = _G.LibStub
+
 local MODNAME		= "Ackis Recipe List"
 local addon		= LibStub("AceAddon-3.0"):GetAddon(MODNAME)
 
 local BFAC		= LibStub("LibBabble-Faction-3.0"):GetLookupTable()
-local LC		= LOCALIZED_CLASS_NAMES_MALE
+local LC		= _G.LOCALIZED_CLASS_NAMES_MALE
 local L			= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
 
 local AceConfig 	= LibStub("AceConfig-3.0")
@@ -120,7 +138,7 @@ local function fullOptions()
 									  local exclusion_list = addon.db.profile.exclusionlist
 
 									  for i in pairs(exclusion_list) do
-										  addon:Print(i .. ": " .. GetSpellInfo(i))
+										  addon:Print(i .. ": " .. _G.GetSpellInfo(i))
 									  end
 								  end,
 							disabled = function(info)
@@ -219,7 +237,7 @@ local function GetMapOptions()
 					order	= 2,
 					type	= "toggle",
 					name	= L["Trainer"],
-					desc	= string.format(L["WAYPOINT_TOGGLE_FORMAT"], L["Trainer"]),
+					desc	= L["WAYPOINT_TOGGLE_FORMAT"]:format(L["Trainer"]),
 					disabled = not has_waypoints,
 					get	= function()
 							  return addon.db.profile.maptrainer
@@ -232,7 +250,7 @@ local function GetMapOptions()
 					order	= 3,
 					type	= "toggle",
 					name	= L["Vendor"],
-					desc	= string.format(L["WAYPOINT_TOGGLE_FORMAT"], L["Vendor"]),
+					desc	= L["WAYPOINT_TOGGLE_FORMAT"]:format(L["Vendor"]),
 					disabled = not has_waypoints,
 					get	= function()
 							  return addon.db.profile.mapvendor
@@ -245,7 +263,7 @@ local function GetMapOptions()
 					order	= 4,
 					type	= "toggle",
 					name	= L["Mob Drop"],
-					desc	= string.format(L["WAYPOINT_TOGGLE_FORMAT"], L["Mob Drop"]),
+					desc	= L["WAYPOINT_TOGGLE_FORMAT"]:format(L["Mob Drop"]),
 					disabled = not has_waypoints,
 					get	= function()
 							  return addon.db.profile.mapmob
@@ -258,7 +276,7 @@ local function GetMapOptions()
 					order	= 5,
 					type	= "toggle",
 					name	= L["Quest"],
-					desc	= string.format(L["WAYPOINT_TOGGLE_FORMAT"], L["Quest"]),
+					desc	= L["WAYPOINT_TOGGLE_FORMAT"]:format(L["Quest"]),
 					disabled = not has_waypoints,
 					get	= function()
 							  return addon.db.profile.mapquest
@@ -291,7 +309,7 @@ local function GetMapOptions()
 					type	= "toggle",
 					width	= "full",
 					name	= _G.WORLD_MAP,
-					desc	= string.format(L["WAYPOINT_MAP_FORMAT"], _G.WORLD_MAP),
+					desc	= L["WAYPOINT_MAP_FORMAT"]:format(_G.WORLD_MAP),
 					disabled = not has_waypoints,
 					get	= function()
 							  return addon.db.profile.worldmap
@@ -305,7 +323,7 @@ local function GetMapOptions()
 					type	= "toggle",
 					width	= "full",
 					name	= _G.MINIMAP_LABEL,
-					desc	= string.format(L["WAYPOINT_MAP_FORMAT"], _G.MINIMAP_LABEL),
+					desc	= L["WAYPOINT_MAP_FORMAT"]:format(_G.MINIMAP_LABEL),
 					disabled = not has_waypoints,
 					get	= function()
 							  return addon.db.profile.minimap
@@ -723,7 +741,7 @@ local function GetDisplayOptions()
 							get	= function()
 									  return addon.db.profile.spelltooltiplocation
 								  end,
-							set	= function(info,name)
+							set	= function(info, name)
 									  addon.db.profile.spelltooltiplocation = name
 								  end,
 							values	= function()
