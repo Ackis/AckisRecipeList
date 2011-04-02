@@ -198,12 +198,17 @@ do
 				if recipe:CraftedItemID() then
 					matching_recipe = nil
 				end
+				local trainer_entry = private.trainer_list[trainer_id]
+				local trainer_x, trainer_y = _G.GetPlayerMapPosition("player")
 
-				if not private.trainer_list[trainer_id] then
+				if trainer_entry and trainer_entry.coord_x ~= trainer_x or trainer_entry.coord_y ~= trainer_y then
+					table.insert(output, ("%s appears to have different coordinates than those in the database - a trainer dump for %s will fix this."):format(trainer_name, trainer_profession))
+					trainer_entry.coord_x = trainer_x
+					trainer_entry.coord_y = trainer_y
+				elseif not trainer_entry then
 					table.insert(output, ("%s was not found in the trainer list - a trainer dump for %s will fix this."):format(trainer_name, trainer_profession))
 					_G.SetMapToCurrentZone() -- Make sure were are looking at the right zone
 
-					local trainer_x, trainer_y = _G.GetPlayerMapPosition("player")
 					private:AddTrainer(trainer_id, trainer_name, _G.GetRealZoneText(), ("%.2f"):format(trainer_x * 100), ("%.2f"):format(trainer_y * 100), private.Player.faction)
 				end
 
@@ -319,7 +324,7 @@ do
 			end
 		end
 
-		if found_missing or found_extra or found_fixed_item or found_wrong_level or found_unconfirmed_level then
+		if #output > 0 then
 			if found_extra and trainer_profession == private.professions.Engineering then
 				table.insert(output, "\nSome goggles may be listed as extra. These goggles ONLY show up for the classes who can make them, so they may be false positives.")
 			end
