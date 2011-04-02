@@ -33,7 +33,7 @@ function private:InitializeEngineeringTrainers()
 	self:AddTrainer(18775, "Lebowski", "Hellfire Peninsula", 55.7, 65.5, "Alliance")
 	self:AddTrainer(19576, "Xyrol", "Netherstorm", 32.5, 66.7, "Neutral")
 	self:AddTrainer(21493, "Kablamm Farflinger", "Netherstorm", 32.9, 63.7, "Neutral")
-	self:AddTrainer(21494, "Smiles O'Byron", "Blade's Edge Mountains", 60.3, 65.2, "Neutral")
+	self:AddTrainer(21494, "Smiles O'Byron", "Blade's Edge Mountains", 60.3, 65.2, "Neutral") -- COMPLETELY UPDATED
 	self:AddTrainer(24868, "Niobe Whizzlespark", "Shadowmoon Valley", 36.7, 54.8, "Alliance")
 	self:AddTrainer(25099, "Jonathan Garrett", "Shadowmoon Valley", 29.2, 28.5, "Horde")
 	self:AddTrainer(25277, "Chief Engineer Leveny", "Borean Tundra", 42.6, 53.7, "Horde")

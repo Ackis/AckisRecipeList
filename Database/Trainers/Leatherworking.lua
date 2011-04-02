@@ -35,7 +35,7 @@ function private:InitializeLeatherworkingTrainers()
 	self:AddTrainer(18754, "Barim Spilthoof", "Hellfire Peninsula", 56.2, 38.6, "Horde")
 	self:AddTrainer(18771, "Brumman", "Hellfire Peninsula", 54.1, 64, "Alliance")
 	self:AddTrainer(19187, "Darmari", "Shattrath City", 66.8, 67.1, "Neutral")
-	self:AddTrainer(21087, "Grikka", "Blade's Edge Mountains", 76.8, 65.5, "Horde")
+	self:AddTrainer(21087, "Grikka", "Blade's Edge Mountains", 76.8, 65.5, "Horde") -- COMPLETELY UPDATED
 	self:AddTrainer(26911, "Bernadette Dexter", "Howling Fjord", 59.9, 63.6, "Alliance")
 	self:AddTrainer(26961, "Gunter Hansen", "Howling Fjord", 78.3, 28.2, "Horde")
 	self:AddTrainer(26996, "Awan Iceborn", "Borean Tundra", 76.3, 37, "Horde")

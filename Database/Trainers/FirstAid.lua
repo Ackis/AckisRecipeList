@@ -27,7 +27,7 @@ function private:InitializeFirstAidTrainers()
 	self:AddTrainer(18990, "Burko", "Hellfire Peninsula", 22.4, 39.3, "Alliance")
 	self:AddTrainer(18991, "Aresella", "Hellfire Peninsula", 26.3, 62, "Horde")
 	self:AddTrainer(19184, "Mildred Fletcher", "Shattrath City", 66.5, 13.5, "Neutral")
-	self:AddTrainer(19478, "Fera Palerunner", "Blade's Edge Mountains", 53.7, 55, "Horde")
+	self:AddTrainer(19478, "Fera Palerunner", "Blade's Edge Mountains", 54.0, 55.1, "Horde") -- COMPLETELY UPDATED
 	self:AddTrainer(22477, "Anchorite Ensham", "Terokkar Forest", 30.8, 75.9, "Neutral")
 	self:AddTrainer(23734, "Anchorite Yazmina", "Howling Fjord", 59.5, 62.3, "Alliance")
 	self:AddTrainer(26956, "Sally Tompkins", "Howling Fjord", 79.4, 29.4, "Horde")
