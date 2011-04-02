@@ -605,9 +605,9 @@ do
 
 			if trainer then
 				if trainer.spell_id then
-					table.insert(output, ("AddTrainer(%s, %s, \"%s\", %s, %s, \"%s\")"):format(identifier, trainer.spell_id, trainer.location, trainer.coord_x, trainer.coord_y, trainer.faction))
+					table.insert(output, ("self:AddTrainer(%s, %s, \"%s\", %s, %s, \"%s\")"):format(identifier, trainer.spell_id, trainer.location, trainer.coord_x, trainer.coord_y, trainer.faction))
 				else
-					table.insert(output, ("AddTrainer(%s, \"%s\", \"%s\", %s, %s, \"%s\")"):format(identifier, trainer.name:gsub("\"", "\\\""), trainer.location, trainer.coord_x, trainer.coord_y, trainer.faction))
+					table.insert(output, ("self:AddTrainer(%s, \"%s\", \"%s\", %s, %s, \"%s\")"):format(identifier, trainer.name:gsub("\"", "\\\""), trainer.location, trainer.coord_x, trainer.coord_y, trainer.faction))
 				end
 			end
 		end
