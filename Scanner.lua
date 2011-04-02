@@ -199,14 +199,19 @@ do
 					matching_recipe = nil
 				end
 
+				if not private.trainer_list[trainer_id] then
+					table.insert(output, ("%s was not found in the trainer list - a trainer dump for %s will fix this."):format(trainer_name, trainer_profession))
+					_G.SetMapToCurrentZone() -- Make sure were are looking at the right zone
+
+					local trainer_x, trainer_y = _G.GetPlayerMapPosition("player")
+					private:AddTrainer(trainer_id, trainer_name, _G.GetRealZoneText(), ("%.2f"):format(trainer_x * 100), ("%.2f"):format(trainer_y * 100), private.Player.faction)
+				end
+
 				if matching_item or matching_recipe then
 					if not matching_trainer then
-						recipe:AddTrainer(trainer_id)
 						table.insert(missing_spell_ids, spell_id)
 
-						if not private.trainer_list[trainer_id] then
-							table.insert(output, ("%s was not found in the trainer list."):format(_G.UnitName("target")))
-						end
+						recipe:AddTrainer(trainer_id)
 
 						if not recipe:HasFilter("common1", "TRAINER") then
 							recipe:AddFilters(F.TRAINER)
