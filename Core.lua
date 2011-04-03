@@ -1029,8 +1029,6 @@ do
 		-- Save the current state of the TradeSkillFrame so it can be restored after we muck with it.
 		local have_materials = _G.TradeSkillFrame.filterTbl.hasMaterials
 		local have_skillup = _G.TradeSkillFrame.filterTbl.hasSkillUp
-		local subclass = _G.TradeSkillFrame.filterTbl.subClassValue
-		local slot = _G.TradeSkillFrame.filterTbl.slotValue
 
 		if _G.MRTAPI then
 			_G.MRTAPI:PushFilterSelection()
@@ -1043,8 +1041,6 @@ do
 				_G.TradeSkillFrame.filterTbl.hasSkillUp = false
 				_G.TradeSkillOnlyShowSkillUps(false)
 			end
-			--UIDropDownMenu_Initialize(TradeSkillFilterDropDown, TradeSkillInvSlotDropDown_Initialize)
-			--UIDropDownMenu_SetSelectedID(TradeSkillFilterDropDown, 1)
 			_G.SetTradeSkillInvSlotFilter(0, 1, 1)
 			_G.TradeSkillUpdateFilterBar()
 			_G.TradeSkillFrame_Update()
