@@ -1875,7 +1875,7 @@ function addon:InitJewelcrafting()
 	recipe:SetCraftedItemID(39917)
 	recipe:SetSkillLevels(350, 350, 375, 395, 415)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.PVP, F.IBOE, F.RBOP)
-	recipe:AddVendor(34039, 34079)
+	recipe:AddVendor(34039)
 
 	-- Sovereign Shadow Crystal -- 53859
 	recipe = AddRecipe(53859, V.WOTLK, Q.COMMON)
@@ -1904,7 +1904,7 @@ function addon:InitJewelcrafting()
 	recipe:SetCraftedItemID(39945)
 	recipe:SetSkillLevels(350, 350, 375, 395, 415)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.PVP, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
-	recipe:AddVendor(34039, 34079)
+	recipe:AddVendor(34039)
 
 	-- Defender's Shadow Crystal -- 53869
 	recipe = AddRecipe(53869, V.WOTLK, Q.UNCOMMON)
@@ -1955,7 +1955,7 @@ function addon:InitJewelcrafting()
 	recipe:SetCraftedItemID(39950)
 	recipe:SetSkillLevels(350, 350, 375, 395, 415)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.PVP, F.IBOE, F.RBOP, F.DPS)
-	recipe:AddVendor(34039, 34079)
+	recipe:AddVendor(34039)
 
 	-- Fierce Huge Citrine -- 53876
 	recipe = AddRecipe(53876, V.WOTLK, Q.COMMON)
@@ -1978,7 +1978,7 @@ function addon:InitJewelcrafting()
 	recipe:SetCraftedItemID(39954)
 	recipe:SetSkillLevels(350, 350, 375, 395, 415)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.PVP, F.IBOE, F.RBOP, F.DPS)
-	recipe:AddVendor(34039, 34079)
+	recipe:AddVendor(34039)
 
 	-- Deft Huge Citrine -- 53880
 	recipe = AddRecipe(53880, V.WOTLK, Q.COMMON)
@@ -2007,7 +2007,7 @@ function addon:InitJewelcrafting()
 	recipe:SetCraftedItemID(39958)
 	recipe:SetSkillLevels(350, 350, 375, 395, 415)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.PVP, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
-	recipe:AddVendor(34039, 34079)
+	recipe:AddVendor(34039)
 
 	-- Reckless Huge Citrine -- 53885
 	recipe = AddRecipe(53885, V.WOTLK, Q.UNCOMMON)
@@ -2066,7 +2066,7 @@ function addon:InitJewelcrafting()
 	recipe:SetCraftedItemID(39977)
 	recipe:SetSkillLevels(350, 350, 375, 395, 415)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.PVP, F.IBOE, F.RBOP)
-	recipe:AddVendor(34039, 34079)
+	recipe:AddVendor(34039)
 
 	-- Forceful Dark Jade -- 53920
 	recipe = AddRecipe(53920, V.WOTLK, Q.COMMON)
@@ -2103,7 +2103,7 @@ function addon:InitJewelcrafting()
 	recipe:SetCraftedItemID(39982)
 	recipe:SetSkillLevels(350, 350, 375, 395, 415)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.PVP, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
-	recipe:AddVendor(34039, 34079)
+	recipe:AddVendor(34039)
 
 	-- Energized Dark Jade -- 53925
 	recipe = AddRecipe(53925, V.WOTLK, Q.COMMON)
@@ -2118,7 +2118,7 @@ function addon:InitJewelcrafting()
 	recipe:SetCraftedItemID(39991)
 	recipe:SetSkillLevels(350, 350, 375, 395, 415)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.PVP, F.IBOE, F.RBOP, F.CASTER)
-	recipe:AddVendor(34039, 34079)
+	recipe:AddVendor(34039)
 
 	-- Shattered Dark Jade -- 53933
 	recipe = AddRecipe(53933, V.WOTLK, Q.UNCOMMON)
@@ -2126,7 +2126,7 @@ function addon:InitJewelcrafting()
 	recipe:SetCraftedItemID(39992)
 	recipe:SetSkillLevels(350, 350, 375, 395, 415)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.PVP, F.IBOE, F.RBOP, F.CASTER)
-	recipe:AddVendor(34039, 34079)
+	recipe:AddVendor(34039)
 
 	-- Solid Chalcedony -- 53934
 	recipe = AddRecipe(53934, V.WOTLK, Q.COMMON)
@@ -2148,7 +2148,7 @@ function addon:InitJewelcrafting()
 	recipe:SetCraftedItemID(39932)
 	recipe:SetSkillLevels(350, 350, 375, 395, 415)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.PVP, F.IBOE, F.RBOP, F.CASTER)
-	recipe:AddVendor(34039, 34079)
+	recipe:AddVendor(34039)
 
 	-- Delicate Scarlet Ruby -- 53945
 	recipe = AddRecipe(53945, V.WOTLK, Q.RARE)

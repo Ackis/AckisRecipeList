@@ -230,7 +230,6 @@ L["CTRL_SHIFT_CLICK"] = "Ctrl-Shift-Click to add the item to the map and mini-ma
 L["Cabal Fanatic"] = "Cabal Fanatic"
 L["Camberon"] = "Camberon"
 L["Captain Halyndor"] = "Captain Halyndor"
-L["Captain O'Neal"] = "Captain O'Neal"
 L["Captured Gnome"] = "Captured Gnome"
 L["Carolai Anise"] = "Carolai Anise"
 L["Carter Tiffens"] = "Carter Tiffens"
