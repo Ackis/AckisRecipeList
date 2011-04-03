@@ -16,9 +16,7 @@ These translations are released under the Public Domain.
 ************************************************************************
 ]]--
 
-local MODNAME	= "Ackis Recipe List"
-
-local L = LibStub("AceLocale-3.0"):NewLocale(MODNAME, "enUS", true)
+local L = LibStub("AceLocale-3.0"):NewLocale("Ackis Recipe List", "enUS", true)
 
 if not L then return end
 

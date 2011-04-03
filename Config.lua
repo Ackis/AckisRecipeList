@@ -30,22 +30,23 @@ local table = _G.table
 -------------------------------------------------------------------------------
 -- AddOn namespace.
 -------------------------------------------------------------------------------
+local FOLDER_NAME, private	= ...
+
 local LibStub = _G.LibStub
 
-local MODNAME		= "Ackis Recipe List"
-local addon		= LibStub("AceAddon-3.0"):GetAddon(MODNAME)
+local addon		= LibStub("AceAddon-3.0"):GetAddon(private.addon_name)
 
 local BFAC		= LibStub("LibBabble-Faction-3.0"):GetLookupTable()
 local LC		= _G.LOCALIZED_CLASS_NAMES_MALE
-local L			= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
+local L			= LibStub("AceLocale-3.0"):GetLocale(private.addon_name)
 
 local AceConfig 	= LibStub("AceConfig-3.0")
 local AceConfigReg 	= LibStub("AceConfigRegistry-3.0")
 local AceConfigDialog 	= LibStub("AceConfigDialog-3.0")
 
--- Set up the private intra-file namespace.
-local FOLDER_NAME, private	= ...
-
+-------------------------------------------------------------------------------
+-- Constants
+-------------------------------------------------------------------------------
 local modularOptions = {}
 
 local function giveProfiles()
@@ -75,7 +76,7 @@ local function fullOptions()
 	if not options then
 		options = {
 			type = "group",
-			name = MODNAME,
+			name = private.addon_name,
 			args = {
 				general = {
 					order	= 1,
@@ -812,8 +813,8 @@ local function GetDisplayOptions()
 end
 
 function addon:SetupOptions()
-	AceConfigReg:RegisterOptionsTable(MODNAME, fullOptions)
-	self.optionsFrame = AceConfigDialog:AddToBlizOptions(MODNAME, nil, nil, "general")
+	AceConfigReg:RegisterOptionsTable(private.addon_name, fullOptions)
+	self.optionsFrame = AceConfigDialog:AddToBlizOptions(private.addon_name, nil, nil, "general")
 
 	-- Register the module options
 	self:RegisterModuleOptions("Display", GetDisplayOptions(), _G.DISPLAY_OPTIONS)
@@ -835,7 +836,7 @@ function addon:SetupOptions()
 
 	-- Add in the about panel to the Bliz options (not a part of the ace3 config)
 	if LibStub:GetLibrary("LibAboutPanel", true) then
-		self.optionsFrame["About"] = LibStub:GetLibrary("LibAboutPanel").new(MODNAME, MODNAME)
+		self.optionsFrame["About"] = LibStub:GetLibrary("LibAboutPanel").new(private.addon_name, private.addon_name)
 	else
 		self:Print("Lib AboutPanel not loaded.")
 	end
@@ -851,5 +852,5 @@ end
 
 function addon:RegisterModuleOptions(name, optionsTable, displayName)
 	modularOptions[name] = optionsTable
-	self.optionsFrame[name] = AceConfigDialog:AddToBlizOptions(MODNAME, displayName, MODNAME, name)
+	self.optionsFrame[name] = AceConfigDialog:AddToBlizOptions(private.addon_name, displayName, private.addon_name, name)
 end

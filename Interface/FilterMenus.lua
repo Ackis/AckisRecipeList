@@ -3,26 +3,23 @@
 -------------------------------------------------------------------------------
 local _G = getfenv(0)
 
-local string = _G.string
-
-local table = _G.table
-
+-- Functions
 local pairs = _G.pairs
+
+-- Libraries
+local string = _G.string
+local table = _G.table
 
 -------------------------------------------------------------------------------
 -- AddOn namespace.
 -------------------------------------------------------------------------------
+local FOLDER_NAME, private = ...
+
 local LibStub = _G.LibStub
-
-local MODNAME	= "Ackis Recipe List"
-local addon	= LibStub("AceAddon-3.0"):GetAddon(MODNAME)
-
+local addon	= LibStub("AceAddon-3.0"):GetAddon(private.addon_name)
+local L		= LibStub("AceLocale-3.0"):GetLocale(private.addon_name)
 local BFAC	= LibStub("LibBabble-Faction-3.0"):GetLookupTable()
-local L		= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
 local QTip	= LibStub("LibQTip-1.0")
-
--- Set up the private intra-file namespace.
-local private	= _G.select(2, ...)
 
 -------------------------------------------------------------------------------
 -- Upvalues
@@ -30,8 +27,6 @@ local private	= _G.select(2, ...)
 local SetTextColor = private.SetTextColor
 local GenericCreateButton = private.GenericCreateButton
 local SetTooltipScripts = private.SetTooltipScripts
-
-local A = private.acquire_types
 
 -------------------------------------------------------------------------------
 -- Constants
@@ -424,6 +419,7 @@ function private.InitializeFilterPanel()
 	-- Create FilterPanel.obtain, and set its scripts.
 	-------------------------------------------------------------------------------
 	do
+		local A = private.acquire_types
 		local obtain_frame = FilterPanel:CreateSubMenu("obtain")
 
 		-------------------------------------------------------------------------------

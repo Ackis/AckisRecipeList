@@ -40,7 +40,6 @@ local table = _G.table
 -- AddOn namespace.
 -------------------------------------------------------------------------------
 local FOLDER_NAME, private = ...
-private.addon_name = "Ackis Recipe List"
 
 local LibStub	= _G.LibStub
 local addon	= LibStub("AceAddon-3.0"):NewAddon(private.addon_name, "AceConsole-3.0", "AceEvent-3.0")
@@ -1051,7 +1050,7 @@ do
 		local recipe_list = private.recipe_list
 		local recipes_found = 0
 		local SF = private.recipe_state_flags
-		local overwritemap = private.spell_overwrite_map
+		local spell_overwrite_map = private.spell_overwrite_map
 
 		for i = 1, _G.GetNumTradeSkills() do
 			local tradeName, tradeType = _G.GetTradeSkillInfo(i)
@@ -1068,13 +1067,13 @@ do
 					-- ability to learn the lower rank.
 
 					-- If we have it in the mapping, set the lower rank spell to known
-					if overwritemap[spell_id] then
-						local overwrite_recipe = recipe_list[overwritemap[spell_id]]
+					if spell_overwrite_map[spell_id] then
+						local overwrite_recipe = recipe_list[spell_overwrite_map[spell_id]]
 
 						if overwrite_recipe then
 							SetRecipeAsKnownOrLinked(overwrite_recipe, is_linked)
 						else
-							self:Debug(tradeName .. " " .. overwritemap[spell_id] .. L["MissingFromDB"])
+							self:Debug(tradeName .. " " .. spell_overwrite_map[spell_id] .. L["MissingFromDB"])
 						end
 					end
 					SetRecipeAsKnownOrLinked(recipe, is_linked)

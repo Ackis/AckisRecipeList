@@ -14,18 +14,14 @@ local type = _G.type
 -------------------------------------------------------------------------------
 -- AddOn namespace.
 -------------------------------------------------------------------------------
-local LibStub = LibStub
+local FOLDER_NAME, private = ...
 
-local MODNAME	= "Ackis Recipe List"
-local addon	= LibStub("AceAddon-3.0"):GetAddon(MODNAME)
-
+local LibStub	= _G.LibStub
+local addon	= LibStub("AceAddon-3.0"):GetAddon(private.addon_name)
+local L		= LibStub("AceLocale-3.0"):GetLocale(private.addon_name)
 local BFAC	= LibStub("LibBabble-Faction-3.0"):GetLookupTable()
 local BZ	= LibStub("LibBabble-Zone-3.0"):GetLookupTable()
-local L		= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
 local QTip	= LibStub("LibQTip-1.0")
-
--- Set up the private intra-file namespace.
-local FOLDER_NAME, private	= ...
 
 local Player	= private.Player
 
@@ -1503,8 +1499,8 @@ do
 		narrowFont = LSM3:Fetch(LSM3.MediaType.FONT, "Arial Narrow")
 		normalFont = LSM3:Fetch(LSM3.MediaType.FONT, "Friz Quadrata TT")
 	end
-	local narrowFontObj = CreateFont(MODNAME.."narrowFontObj")
-	local normalFontObj = CreateFont(MODNAME.."normalFontObj")
+	local narrowFontObj = CreateFont(private.addon_name.."narrowFontObj")
+	local normalFontObj = CreateFont(private.addon_name.."normalFontObj")
 
 	-- I want to do a bit more comprehensive tooltip processing. Things like changing font sizes,
 	-- adding padding to the left hand side, and using better color handling. So... this function
@@ -1850,7 +1846,7 @@ do
 			end
 			return
 		end
-		acquire_tip = QTip:Acquire(MODNAME.." Tooltip", 2, "LEFT", "LEFT")
+		acquire_tip = QTip:Acquire(private.addon_name.." Tooltip", 2, "LEFT", "LEFT")
 		acquire_tip:ClearAllPoints()
 
 		if acquire_tip_anchor == "Right" then

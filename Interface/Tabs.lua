@@ -11,16 +11,12 @@ local pairs, ipairs = _G.pairs, _G.ipairs
 -------------------------------------------------------------------------------
 -- AddOn namespace.
 -------------------------------------------------------------------------------
-local LibStub = LibStub
+local FOLDER_NAME, private = ...
 
-local MODNAME	= "Ackis Recipe List"
-local addon	= LibStub("AceAddon-3.0"):GetAddon(MODNAME)
-
+local LibStub = _G.LibStub
+local addon	= LibStub("AceAddon-3.0"):GetAddon(private.addon_name)
+local L		= LibStub("AceLocale-3.0"):GetLocale(private.addon_name)
 local BFAC	= LibStub("LibBabble-Faction-3.0"):GetLookupTable()
-local L		= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
-
--- Set up the private intra-file namespace.
-local private	= select(2, ...)
 
 -------------------------------------------------------------------------------
 -- Constants

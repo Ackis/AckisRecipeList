@@ -17,28 +17,22 @@
 -------------------------------------------------------------------------------
 local _G = getfenv(0)
 
+-- Libraries
+local bit = _G.bit
 local table = _G.table
 
-local bit = _G.bit
-
+-- Functions
 local pairs = _G.pairs
-
--------------------------------------------------------------------------------
--- Localized Blizzard API.
--------------------------------------------------------------------------------
 
 -------------------------------------------------------------------------------
 -- AddOn namespace.
 -------------------------------------------------------------------------------
-local LibStub = _G.LibStub
-
-local MODNAME	= "Ackis Recipe List"
-local addon	= LibStub("AceAddon-3.0"):GetAddon(MODNAME)
-
-local BFAC	= LibStub("LibBabble-Faction-3.0"):GetLookupTable()
-local L		= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
-
 local FOLDER_NAME, private	= ...
+
+local LibStub = _G.LibStub
+local addon	= LibStub("AceAddon-3.0"):GetAddon(private.addon_name)
+local L		= LibStub("AceLocale-3.0"):GetLocale(private.addon_name)
+local BFAC	= LibStub("LibBabble-Faction-3.0"):GetLookupTable()
 
 ------------------------------------------------------------------------------
 -- Data which is stored regarding a players statistics (luadoc copied from Collectinator, needs updating)

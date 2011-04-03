@@ -21,10 +21,8 @@ local table = _G.table
 local FOLDER_NAME, private = ...
 
 local LibStub = _G.LibStub
-local MODNAME = "Ackis Recipe List"
-local addon = LibStub("AceAddon-3.0"):GetAddon(MODNAME)
-
-local L = LibStub("AceLocale-3.0"):GetLocale(MODNAME)
+local addon = LibStub("AceAddon-3.0"):GetAddon(private.addon_name)
+local L = LibStub("AceLocale-3.0"):GetLocale(private.addon_name)
 local BZ = LibStub("LibBabble-Zone-3.0"):GetLookupTable()
 local BFAC = LibStub("LibBabble-Faction-3.0"):GetLookupTable()
 

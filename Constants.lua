@@ -19,11 +19,11 @@ local _G = getfenv(0)
 -------------------------------------------------------------------------------
 -- AddOn namespace.
 -------------------------------------------------------------------------------
-local LibStub = _G.LibStub
+local FOLDER_NAME, private = ...
+private.addon_name = "Ackis Recipe List"
 
-local MODNAME	= "Ackis Recipe List"
-local L		= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
-local private	= _G.select(2, ...)
+local LibStub = _G.LibStub
+local L		= LibStub("AceLocale-3.0"):GetLocale(private.addon_name)
 
 -------------------------------------------------------------------------------
 -- Profession data.

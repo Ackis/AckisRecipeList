@@ -5,17 +5,15 @@ local _G = getfenv(0)
 
 local table = _G.table
 local string = _G.string
+local pairs = _G.pairs
 
 -------------------------------------------------------------------------------
 -- AddOn namespace.
 -------------------------------------------------------------------------------
-local LibStub = LibStub
+local FOLDER_NAME, private = ...
 
-local MODNAME	= "Ackis Recipe List"
-local addon	= LibStub("AceAddon-3.0"):GetAddon(MODNAME)
-
--- Set up the private intra-file namespace.
-local private	= select(2, ...)
+local LibStub = _G.LibStub
+local addon	= LibStub("AceAddon-3.0"):GetAddon(private.addon_name)
 
 -------------------------------------------------------------------------------
 -- Table cache mechanism
@@ -104,13 +102,13 @@ do
 	local HIGHLIGHT_FONT_COLOR = _G.HIGHLIGHT_FONT_COLOR
 
 	local function Show_Tooltip(frame, motion)
-		GameTooltip:SetOwner(frame, "ANCHOR_RIGHT")
-		GameTooltip:SetText(frame.tooltip_text, HIGHLIGHT_FONT_COLOR.r, HIGHLIGHT_FONT_COLOR.g, HIGHLIGHT_FONT_COLOR.b)
-		GameTooltip:Show()
+		_G.GameTooltip:SetOwner(frame, "ANCHOR_RIGHT")
+		_G.GameTooltip:SetText(frame.tooltip_text, HIGHLIGHT_FONT_COLOR.r, HIGHLIGHT_FONT_COLOR.g, HIGHLIGHT_FONT_COLOR.b)
+		_G.GameTooltip:Show()
 	end
 
 	local function Hide_Tooltip()
-		GameTooltip:Hide()
+		_G.GameTooltip:Hide()
 	end
 
 	function private.SetTooltipScripts(frame, textLabel)

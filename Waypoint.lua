@@ -24,17 +24,13 @@ local pairs, select = _G.pairs, _G.select
 -------------------------------------------------------------------------------
 -- AddOn namespace.
 -------------------------------------------------------------------------------
+local FOLDER_NAME, private	= ...
+
 local LibStub = _G.LibStub
-
-local MODNAME	= "Ackis Recipe List"
-local addon	= LibStub("AceAddon-3.0"):GetAddon(MODNAME)
-
+local addon	= LibStub("AceAddon-3.0"):GetAddon(private.addon_name)
+local L		= LibStub("AceLocale-3.0"):GetLocale(private.addon_name)
 local BFAC	= LibStub("LibBabble-Faction-3.0"):GetLookupTable()
 local BZ	= LibStub("LibBabble-Zone-3.0"):GetLookupTable()
-local L		= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
-
--- Set up the private intra-file namespace.
-local FOLDER_NAME, private	= ...
 
 local A = private.acquire_types
 local F = private.filter_flags

@@ -14,13 +14,18 @@ This source code is released under All Rights Reserved.
 ]] --
 
 -------------------------------------------------------------------------------
+-- Localized Lua globals.
+-------------------------------------------------------------------------------
+local _G = getfenv(0)
+
+-------------------------------------------------------------------------------
 -- AddOn namespace.
 -------------------------------------------------------------------------------
-local MODNAME = "Ackis Recipe List"
-local addon = LibStub("AceAddon-3.0"):GetAddon(MODNAME)
-local L = LibStub("AceLocale-3.0"):GetLocale(MODNAME)
-
 local FOLDER_NAME, private = ...
+
+local LibStub	= _G.LibStub
+local addon = LibStub("AceAddon-3.0"):GetAddon(private.addon_name)
+local L = LibStub("AceLocale-3.0"):GetLocale(private.addon_name)
 
 -------------------------------------------------------------------------------
 -- Filter flags. Acquire types, and Reputation levels.
