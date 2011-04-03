@@ -119,12 +119,9 @@ end
 function recipe_prototype:SetRequiredFaction(faction_name)
 	self.required_faction = faction_name
 
-	if faction_name and private.Player.faction ~= BFAC[faction_name] then
+	if faction_name and private.Player.faction ~= faction_name then
 		self.is_ignored = true
-	end
-
-	if self.is_ignored then
-		private.num_recipes[self.profession] = (private.num_recipes[self.profession] or 0) - 1
+		private.num_recipes[self.profession] = private.num_recipes[self.profession] - 1
 	end
 end
 
