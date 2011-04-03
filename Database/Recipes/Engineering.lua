@@ -1287,70 +1287,70 @@ function addon:InitEngineering()
 	recipe:SetCraftedItemID(23781)
 	recipe:SetSkillLevels(300, 300, 300, 310, 320)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(8736, 11017, 17634, 17637, 18752, 18775, 19576, 25277, 26907, 26955, 26991, 28697, 33586, 33611, 33634)
+	recipe:AddTrainer(5518, 8736, 11017, 17634, 17637, 18752, 18775, 19576, 25277, 26907, 26955, 26991, 28697, 33586, 33611, 33634)
 
 	-- Fel Iron Casing -- 30304
 	recipe = AddRecipe(30304, V.TBC, Q.COMMON)
 	recipe:SetCraftedItemID(23782)
 	recipe:SetSkillLevels(300, 300, 300, 310, 320)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(8736, 11017, 17634, 17637, 18752, 18775, 19576, 25277, 26907, 26955, 26991, 28697, 33586, 33611, 33634)
+	recipe:AddTrainer(5518, 8736, 11017, 17634, 17637, 18752, 18775, 19576, 25277, 26907, 26955, 26991, 28697, 33586, 33611, 33634)
 
 	-- Handful of Fel Iron Bolts -- 30305
 	recipe = AddRecipe(30305, V.TBC, Q.COMMON)
 	recipe:SetCraftedItemID(23783)
 	recipe:SetSkillLevels(300, 300, 300, 305, 310)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(8736, 11017, 17634, 17637, 18752, 18775, 19576, 25277, 26907, 26955, 26991, 28697, 33586, 33611, 33634)
+	recipe:AddTrainer(5518, 8736, 11017, 17634, 17637, 18752, 18775, 19576, 25277, 26907, 26955, 26991, 28697, 33586, 33611, 33634)
 
 	-- Adamantite Frame -- 30306
 	recipe = AddRecipe(30306, V.TBC, Q.COMMON)
 	recipe:SetCraftedItemID(23784)
 	recipe:SetSkillLevels(325, 325, 325, 330, 335)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(8736, 11017, 17634, 17637, 18752, 18775, 19576, 25277, 26907, 26955, 26991, 28697, 33586, 33611, 33634)
+	recipe:AddTrainer(5518, 8736, 11017, 17634, 17637, 18752, 18775, 19576, 25277, 26907, 26955, 26991, 28697, 33586, 33611, 33634)
 
 	-- Hardened Adamantite Tube -- 30307
 	recipe = AddRecipe(30307, V.TBC, Q.COMMON)
 	recipe:SetCraftedItemID(23785)
 	recipe:SetSkillLevels(340, 340, 350, 360, 370)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(8736, 11017, 17634, 17637, 18752, 18775, 19576, 25277, 26907, 26955, 26991, 28697, 33586, 33611, 33634)
+	recipe:AddTrainer(5518, 8736, 11017, 17634, 17637, 18752, 18775, 19576, 25277, 26907, 26955, 26991, 28697, 33586, 33611, 33634)
 
 	-- Khorium Power Core -- 30308
 	recipe = AddRecipe(30308, V.TBC, Q.COMMON)
 	recipe:SetCraftedItemID(23786)
 	recipe:SetSkillLevels(340, 340, 350, 360, 370)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(8736, 11017, 17634, 17637, 18752, 18775, 19576, 25277, 26907, 26955, 26991, 28697, 33586, 33611, 33634)
+	recipe:AddTrainer(5518, 8736, 11017, 17634, 17637, 18752, 18775, 19576, 25277, 26907, 26955, 26991, 28697, 33586, 33611, 33634)
 
 	-- Felsteel Stabilizer -- 30309
 	recipe = AddRecipe(30309, V.TBC, Q.COMMON)
 	recipe:SetCraftedItemID(23787)
 	recipe:SetSkillLevels(340, 340, 350, 360, 370)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(8736, 11017, 17634, 17637, 18752, 18775, 19576, 25277, 26907, 26955, 26991, 28697, 33586, 33611, 33634)
+	recipe:AddTrainer(5518, 8736, 11017, 17634, 17637, 18752, 18775, 19576, 25277, 26907, 26955, 26991, 28697, 33586, 33611, 33634)
 
 	-- Fel Iron Bomb -- 30310
 	recipe = AddRecipe(30310, V.TBC, Q.COMMON)
 	recipe:SetCraftedItemID(23736)
 	recipe:SetSkillLevels(300, 300, 320, 330, 340)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(8736, 11017, 17634, 17637, 18752, 18775, 19576, 25277, 26907, 26955, 26991, 28697, 33586, 33611, 33634)
+	recipe:AddTrainer(5518, 8736, 11017, 17634, 17637, 18752, 18775, 19576, 25277, 26907, 26955, 26991, 28697, 33586, 33611, 33634)
 
 	-- Adamantite Grenade -- 30311
 	recipe = AddRecipe(30311, V.TBC, Q.COMMON)
 	recipe:SetCraftedItemID(23737)
 	recipe:SetSkillLevels(325, 325, 335, 345, 355)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(8736, 11017, 17634, 17637, 18752, 18775, 19576, 25277, 26907, 26955, 26991, 28697, 33586, 33611, 33634)
+	recipe:AddTrainer(5518, 8736, 11017, 17634, 17637, 18752, 18775, 19576, 25277, 26907, 26955, 26991, 28697, 33586, 33611, 33634)
 
 	-- Fel Iron Musket -- 30312
 	recipe = AddRecipe(30312, V.TBC, Q.COMMON)
 	recipe:SetCraftedItemID(23742)
 	recipe:SetSkillLevels(320, 320, 330, 340, 350)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.GUN)
-	recipe:AddTrainer(8736, 11017, 17634, 17637, 18752, 18775, 19576, 25277, 26907, 26955, 26991, 28697, 33586, 33611, 33634)
+	recipe:AddTrainer(5518, 8736, 11017, 17634, 17637, 18752, 18775, 19576, 25277, 26907, 26955, 26991, 28697, 33586, 33611, 33634)
 
 	-- Adamantite Rifle -- 30313
 	recipe = AddRecipe(30313, V.TBC, Q.COMMON)
@@ -1634,42 +1634,42 @@ function addon:InitEngineering()
 	recipe:SetCraftedItemID(32423)
 	recipe:SetSkillLevels(335, 335, 335, 340, 345)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(8736, 11017, 17634, 17637, 18752, 18775, 19576, 25277, 26907, 26955, 26991, 28697, 33586, 33611, 33634)
+	recipe:AddTrainer(5518, 8736, 11017, 17634, 17637, 18752, 18775, 19576, 25277, 26907, 26955, 26991, 28697, 33586, 33611, 33634)
 
 	-- Frost Grenades -- 39973
 	recipe = AddRecipe(39973, V.TBC, Q.COMMON)
 	recipe:SetCraftedItemID(32413)
 	recipe:SetSkillLevels(335, 335, 345, 355, 365)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(8736, 11017, 17634, 17637, 18752, 18775, 19576, 25277, 26907, 26955, 26991, 28697, 33586, 33611, 33634)
+	recipe:AddTrainer(5518, 8736, 11017, 17634, 17637, 18752, 18775, 19576, 25277, 26907, 26955, 26991, 28697, 33586, 33611, 33634)
 
 	-- Furious Gizmatic Goggles -- 40274
 	recipe = AddRecipe(40274, V.TBC, Q.COMMON)
 	recipe:SetCraftedItemID(32461)
 	recipe:SetSkillLevels(350, 350, 370, 380, 390)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.DPS, F.PALADIN, F.WARRIOR, F.PLATE)
-	recipe:AddTrainer(17634, 17637, 18752, 18775, 19576, 25277, 26955, 28697, 33586)
+	recipe:AddTrainer(5518, 17634, 17637, 18752, 18775, 19576, 25277, 26955, 28697, 33586)
 
 	-- Gyro-balanced Khorium Destroyer -- 41307
 	recipe = AddRecipe(41307, V.TBC, Q.COMMON)
 	recipe:SetCraftedItemID(32756)
 	recipe:SetSkillLevels(375, 375, 375, 392, 410)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.GUN)
-	recipe:AddTrainer(8736, 11017, 17634, 17637, 18752, 18775, 19576, 25277, 26907, 26955, 26991, 28697, 33586, 33611, 33634)
+	recipe:AddTrainer(5518, 8736, 11017, 17634, 17637, 18752, 18775, 19576, 25277, 26907, 26955, 26991, 28697, 33586, 33611, 33634)
 
 	-- Justicebringer 2000 Specs -- 41311
 	recipe = AddRecipe(41311, V.TBC, Q.COMMON)
 	recipe:SetCraftedItemID(32472)
 	recipe:SetSkillLevels(350, 350, 370, 380, 390)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.PALADIN, F.PLATE)
-	recipe:AddTrainer(17634, 17637, 18752, 18775, 19576, 25277, 26907, 26955, 26991, 28697, 33586)
+	recipe:AddTrainer(5518, 17634, 17637, 18752, 18775, 19576, 25277, 26907, 26955, 26991, 28697, 33586)
 
 	-- Tankatronic Goggles -- 41312
 	recipe = AddRecipe(41312, V.TBC, Q.COMMON)
 	recipe:SetCraftedItemID(32473)
 	recipe:SetSkillLevels(350, 350, 370, 380, 390)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.TANK, F.PALADIN, F.WARRIOR, F.PLATE)
-	recipe:AddTrainer(17634, 17637, 18752, 18775, 19576, 25277, 26907, 26955, 26991, 28697, 33586)
+	recipe:AddTrainer(5518, 17634, 17637, 18752, 18775, 19576, 25277, 26907, 26955, 26991, 28697, 33586)
 
 	-- Surestrike Goggles v2.0 -- 41314
 	recipe = AddRecipe(41314, V.TBC, Q.COMMON)
@@ -1741,14 +1741,14 @@ function addon:InitEngineering()
 	recipe:SetCraftedItemID(34060)
 	recipe:SetSkillLevels(300, 300, 330, 340, 350)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(8736, 11017, 17637, 24868, 25099, 25277, 26955, 28697, 33586, 33611, 33634)
+	recipe:AddTrainer(5518, 8736, 11017, 17637, 24868, 25099, 25277, 26955, 28697, 33586, 33611, 33634)
 
 	-- Turbo-Charged Flying Machine -- 44157
 	recipe = AddRecipe(44157, V.TBC, Q.COMMON)
 	recipe:SetCraftedItemID(34061)
 	recipe:SetSkillLevels(375, 375, 385, 390, 395)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(8736, 11017, 17637, 24868, 25099, 33586, 33611, 33634)
+	recipe:AddTrainer(5518, 8736, 11017, 17637, 24868, 25099, 33586, 33611, 33634)
 
 	-- Field Repair Bot 110G -- 44391
 	recipe = AddRecipe(44391, V.TBC, Q.UNCOMMON)
@@ -1859,50 +1859,50 @@ function addon:InitEngineering()
 	recipe:SetCraftedItemID(39690)
 	recipe:SetSkillLevels(350, 350, 366, 375, 385)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(8736, 11017, 17637, 25277, 26907, 26955, 26991, 28697, 33586, 33611, 33634)
+	recipe:AddTrainer(5518, 8736, 11017, 17637, 25277, 26907, 26955, 26991, 28697, 33586, 33611, 33634)
 
 	-- Mark "S" Boomstick -- 54353
 	recipe = AddRecipe(54353, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(39688)
 	recipe:SetSkillLevels(400, 400, 405, 410, 415)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.DPS, F.GUN)
-	recipe:AddTrainer(8736, 11017, 17637, 25277, 26907, 26955, 26991, 28697, 33586, 33611, 33634)
+	recipe:AddTrainer(5518, 8736, 11017, 17637, 25277, 26907, 26955, 26991, 28697, 33586, 33611, 33634)
 
 	-- Personal Electromagnetic Pulse Generator -- 54736
 	recipe = AddRecipe(54736, V.WOTLK, Q.COMMON)
 	recipe:SetSkillLevels(390, 390, 390, 392, 395)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(8736, 11017, 17637, 25277, 26907, 26955, 26991, 28697, 33586, 33611, 33634)
+	recipe:AddTrainer(5518, 8736, 11017, 17637, 25277, 26907, 26955, 26991, 28697, 33586, 33611, 33634)
 
 	-- Frag Belt -- 54793
 	recipe = AddRecipe(54793, V.WOTLK, Q.COMMON)
 	recipe:SetSkillLevels(380, 380, 380, 382, 385)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(8736, 11017, 17637, 25277, 26907, 26955, 26991, 28697, 33586, 33611, 33634)
+	recipe:AddTrainer(5518, 8736, 11017, 17637, 25277, 26907, 26955, 26991, 28697, 33586, 33611, 33634)
 
 	-- Hand-Mounted Pyro Rocket -- 54998
 	recipe = AddRecipe(54998, V.WOTLK, Q.COMMON)
 	recipe:SetSkillLevels(400, 400, 400, 402, 405)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(8736, 11017, 17637, 25277, 26907, 26955, 26991, 28697, 33586, 33611, 33634)
+	recipe:AddTrainer(5518, 8736, 11017, 17637, 25277, 26907, 26955, 26991, 28697, 33586, 33611, 33634)
 
 	-- Hyperspeed Accelerators -- 54999
 	recipe = AddRecipe(54999, V.WOTLK, Q.COMMON)
 	recipe:SetSkillLevels(400, 400, 400, 402, 405)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(8736, 11017, 17637, 25277, 26907, 26955, 26991, 28697, 33586, 33611, 33634)
+	recipe:AddTrainer(5518, 8736, 11017, 17637, 25277, 26907, 26955, 26991, 28697, 33586, 33611, 33634)
 
 	-- Flexweave Underlay -- 55002
 	recipe = AddRecipe(55002, V.WOTLK, Q.COMMON)
 	recipe:SetSkillLevels(380, 380, 380, 382, 385)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS)
-	recipe:AddTrainer(8736, 11017, 17637, 25277, 26907, 26955, 26991, 28697, 33586, 33611, 33634)
+	recipe:AddTrainer(5518, 8736, 11017, 17637, 25277, 26907, 26955, 26991, 28697, 33586, 33611, 33634)
 
 	-- Nitro Boosts -- 55016
 	recipe = AddRecipe(55016, V.WOTLK, Q.COMMON)
 	recipe:SetSkillLevels(405, 405, 405, 405, 410)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(8736, 11017, 17637, 25277, 26907, 26955, 26991, 28697, 33586, 33611, 33634)
+	recipe:AddTrainer(5518, 8736, 11017, 17637, 25277, 26907, 26955, 26991, 28697, 33586, 33611, 33634)
 
 	-- Scrapbot Construction Kit -- 55252
 	recipe = AddRecipe(55252, V.WOTLK, Q.COMMON)
@@ -1916,49 +1916,49 @@ function addon:InitEngineering()
 	recipe:SetCraftedItemID(39681)
 	recipe:SetSkillLevels(350, 350, 360, 370, 380)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(8736, 11017, 17637, 25277, 26907, 26955, 26991, 28697, 33586, 33611, 33634)
+	recipe:AddTrainer(5518, 8736, 11017, 17637, 25277, 26907, 26955, 26991, 28697, 33586, 33611, 33634)
 
 	-- Hammer Pick -- 56459
 	recipe = AddRecipe(56459, V.TBC, Q.COMMON)
 	recipe:SetCraftedItemID(40892)
 	recipe:SetSkillLevels(375, 375, 380, 385, 390)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(8736, 11017, 17637, 25277, 26907, 26955, 26991, 28697, 33586, 33611, 33634)
+	recipe:AddTrainer(5518, 8736, 11017, 17637, 25277, 26907, 26955, 26991, 28697, 33586, 33611, 33634)
 
 	-- Cobalt Frag Bomb -- 56460
 	recipe = AddRecipe(56460, V.TBC, Q.COMMON)
 	recipe:SetCraftedItemID(40771)
 	recipe:SetSkillLevels(350, 350, 375, 382, 390)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(8736, 11017, 17637, 25277, 26907, 26955, 26991, 28697, 33586, 33611, 33634)
+	recipe:AddTrainer(5518, 8736, 11017, 17637, 25277, 26907, 26955, 26991, 28697, 33586, 33611, 33634)
 
 	-- Bladed Pickaxe -- 56461
 	recipe = AddRecipe(56461, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(40893)
 	recipe:SetSkillLevels(375, 375, 380, 385, 390)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(8736, 11017, 17637, 25277, 26907, 26955, 26991, 28697, 33586, 33611, 33634)
+	recipe:AddTrainer(5518, 8736, 11017, 17637, 25277, 26907, 26955, 26991, 28697, 33586, 33611, 33634)
 
 	-- Gnomish Army Knife -- 56462
 	recipe = AddRecipe(56462, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(40772)
 	recipe:SetSkillLevels(435, 435, 440, 445, 450)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(8736, 11017, 17637, 25277, 26907, 26955, 26991, 28697, 33586, 33611, 33634)
+	recipe:AddTrainer(5518, 8736, 11017, 17637, 25277, 26907, 26955, 26991, 28697, 33586, 33611, 33634)
 
 	-- Explosive Decoy -- 56463
 	recipe = AddRecipe(56463, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(40536)
 	recipe:SetSkillLevels(375, 375, 385, 390, 395)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(8736, 11017, 17637, 25277, 26907, 26955, 26991, 28697, 33586, 33611, 33634)
+	recipe:AddTrainer(5518, 8736, 11017, 17637, 25277, 26907, 26955, 26991, 28697, 33586, 33611, 33634)
 
 	-- Overcharged Capacitor -- 56464
 	recipe = AddRecipe(56464, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(39682)
 	recipe:SetSkillLevels(375, 375, 380, 385, 390)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(8736, 11017, 17637, 25277, 26907, 26955, 26991, 28697, 33586, 33611, 33634)
+	recipe:AddTrainer(5518, 8736, 11017, 17637, 25277, 26907, 26955, 26991, 28697, 33586, 33611, 33634)
 
 	-- Mechanized Snow Goggles -- 56465
 	recipe = AddRecipe(56465, V.WOTLK, Q.COMMON)
@@ -1972,14 +1972,14 @@ function addon:InitEngineering()
 	recipe:SetCraftedItemID(40767)
 	recipe:SetSkillLevels(420, 420, 435, 440, 445)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS, F.TRINKET)
-	recipe:AddTrainer(8736, 11017, 17637, 25277, 26907, 26955, 26991, 28697, 33586, 33611, 33634)
+	recipe:AddTrainer(5518, 8736, 11017, 17637, 25277, 26907, 26955, 26991, 28697, 33586, 33611, 33634)
 
 	-- Noise Machine -- 56467
 	recipe = AddRecipe(56467, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(40865)
 	recipe:SetSkillLevels(420, 420, 435, 440, 445)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.TRINKET)
-	recipe:AddTrainer(8736, 11017, 17637, 25277, 26907, 26955, 26991, 28697, 33586, 33611, 33634)
+	recipe:AddTrainer(5518, 8736, 11017, 17637, 25277, 26907, 26955, 26991, 28697, 33586, 33611, 33634)
 
 	-- Box of Bombs -- 56468
 	recipe = AddRecipe(56468, V.WOTLK, Q.COMMON)
@@ -1993,28 +1993,28 @@ function addon:InitEngineering()
 	recipe:SetCraftedItemID(41121)
 	recipe:SetSkillLevels(425, 425, 430, 435, 440)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.TRINKET)
-	recipe:AddTrainer(8736, 11017, 17637, 25277, 26907, 26955, 26991, 28697, 33586, 33611, 33634)
+	recipe:AddTrainer(5518, 8736, 11017, 17637, 25277, 26907, 26955, 26991, 28697, 33586, 33611, 33634)
 
 	-- Sun Scope -- 56470
 	recipe = AddRecipe(56470, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(41146)
 	recipe:SetSkillLevels(425, 425, 430, 432, 435)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS)
-	recipe:AddTrainer(8736, 11017, 17637, 25277, 26907, 26955, 26991, 28697, 33586, 33611, 33634)
+	recipe:AddTrainer(5518, 8736, 11017, 17637, 25277, 26907, 26955, 26991, 28697, 33586, 33611, 33634)
 
 	-- Froststeel Tube -- 56471
 	recipe = AddRecipe(56471, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(39683)
 	recipe:SetSkillLevels(390, 390, 395, 400, 405)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(8736, 11017, 17637, 25277, 26907, 26955, 26991, 28697, 33586, 33611, 33634)
+	recipe:AddTrainer(5518, 8736, 11017, 17637, 25277, 26907, 26955, 26991, 28697, 33586, 33611, 33634)
 
 	-- MOLL-E -- 56472
 	recipe = AddRecipe(56472, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(40768)
 	recipe:SetSkillLevels(425, 425, 430, 432, 435)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(8736, 11017, 17637, 25277, 26907, 26955, 26991, 28697, 33586, 33611, 33634)
+	recipe:AddTrainer(5518, 8736, 11017, 17637, 25277, 26907, 26955, 26991, 28697, 33586, 33611, 33634)
 
 	-- Gnomish X-Ray Specs -- 56473
 	recipe = AddRecipe(56473, V.WOTLK, Q.COMMON)
@@ -2029,35 +2029,35 @@ function addon:InitEngineering()
 	recipe:SetCraftedItemID(37567)
 	recipe:SetSkillLevels(410, 410, 415, 420, 425)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(8736, 11017, 17637, 25277, 26907, 26955, 26991, 28697, 33586, 33611, 33634)
+	recipe:AddTrainer(5518, 8736, 11017, 17637, 25277, 26907, 26955, 26991, 28697, 33586, 33611, 33634)
 
 	-- Mana Injector Kit -- 56477
 	recipe = AddRecipe(56477, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(42546)
 	recipe:SetSkillLevels(415, 415, 420, 425, 430)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(8736, 11017, 17637, 25277, 26907, 26955, 26991, 28697, 33586, 33611, 33634)
+	recipe:AddTrainer(5518, 8736, 11017, 17637, 25277, 26907, 26955, 26991, 28697, 33586, 33611, 33634)
 
 	-- Heartseeker Scope -- 56478
 	recipe = AddRecipe(56478, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(41167)
 	recipe:SetSkillLevels(430, 430, 435, 445, 455)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS)
-	recipe:AddTrainer(8736, 11017, 17637, 25277, 26907, 26955, 26991, 28697, 33586, 33611, 33634)
+	recipe:AddTrainer(5518, 8736, 11017, 17637, 25277, 26907, 26955, 26991, 28697, 33586, 33611, 33634)
 
 	-- Armor Plated Combat Shotgun -- 56479
 	recipe = AddRecipe(56479, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(41168)
 	recipe:SetSkillLevels(450, 450, 455, 460, 465)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.TANK, F.GUN)
-	recipe:AddTrainer(8736, 11017, 17637, 25277, 26907, 26955, 26991, 28697, 33586, 33611, 33634)
+	recipe:AddTrainer(5518, 8736, 11017, 17637, 25277, 26907, 26955, 26991, 28697, 33586, 33611, 33634)
 
 	-- Armored Titanium Goggles -- 56480
 	recipe = AddRecipe(56480, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(42549)
 	recipe:SetSkillLevels(440, 440, 450, 455, 460)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.DPS, F.TANK, F.DK, F.PALADIN, F.WARRIOR, F.PLATE)
-	recipe:AddTrainer(25277, 26907, 26955, 26991, 28697, 33586)
+	recipe:AddTrainer(5518, 25277, 26907, 26955, 26991, 28697, 33586)
 
 	-- Weakness Spectralizers -- 56481
 	recipe = AddRecipe(56481, V.WOTLK, Q.COMMON)
@@ -2071,7 +2071,7 @@ function addon:InitEngineering()
 	recipe:SetCraftedItemID(42552)
 	recipe:SetSkillLevels(440, 440, 450, 455, 460)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.DPS, F.DK, F.PALADIN, F.WARRIOR, F.PLATE)
-	recipe:AddTrainer(25277, 26907, 26955, 26991, 28697, 33586)
+	recipe:AddTrainer(5518, 25277, 26907, 26955, 26991, 28697, 33586)
 
 	-- Visage Liquification Goggles -- 56484
 	recipe = AddRecipe(56484, V.WOTLK, Q.COMMON)
@@ -2132,42 +2132,42 @@ function addon:InitEngineering()
 	recipe:SetCraftedItemID(44504)
 	recipe:SetSkillLevels(450, 450, 455, 460, 465)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS, F.GUN)
-	recipe:AddTrainer(8736, 11017, 17637, 25277, 26907, 26955, 26991, 28697, 33586, 33611, 33634)
+	recipe:AddTrainer(5518, 8736, 11017, 17637, 25277, 26907, 26955, 26991, 28697, 33586, 33611, 33634)
 
 	-- Diamond-cut Refractor Scope -- 61471
 	recipe = AddRecipe(61471, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(44739)
 	recipe:SetSkillLevels(390, 390, 400, 407, 415)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(8736, 11017, 17637, 25277, 26907, 26955, 26991, 28697, 33586, 33611, 33634)
+	recipe:AddTrainer(5518, 8736, 11017, 17637, 25277, 26907, 26955, 26991, 28697, 33586, 33611, 33634)
 
 	-- Mechanized Snow Goggles -- 61481
 	recipe = AddRecipe(61481, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(44742)
 	recipe:SetSkillLevels(420, 420, 425, 432, 440)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DRUID, F.ROGUE, F.LEATHER)
-	recipe:AddTrainer(25277, 26907, 26955, 26991, 28697, 33586)
+	recipe:AddTrainer(5518, 25277, 26907, 26955, 26991, 28697, 33586)
 
 	-- Mechanized Snow Goggles -- 61482
 	recipe = AddRecipe(61482, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(44742)
 	recipe:SetSkillLevels(420, 420, 425, 432, 440)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HUNTER, F.SHAMAN, F.MAIL)
-	recipe:AddTrainer(25277, 26907, 26955, 26991, 28697, 33586)
+	recipe:AddTrainer(5518, 25277, 26907, 26955, 26991, 28697, 33586)
 
 	-- Mechanized Snow Goggles -- 61483
 	recipe = AddRecipe(61483, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(44742)
 	recipe:SetSkillLevels(420, 420, 425, 432, 440)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DK, F.PALADIN, F.WARRIOR, F.PLATE)
-	recipe:AddTrainer(25277, 26907, 26955, 26991, 28697, 33586)
+	recipe:AddTrainer(5518, 25277, 26907, 26955, 26991, 28697, 33586)
 
 	-- Unbreakable Healing Amplifiers -- 62271
 	recipe = AddRecipe(62271, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(44949)
 	recipe:SetSkillLevels(440, 440, 450, 455, 460)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.HEALER, F.PALADIN, F.PLATE)
-	recipe:AddTrainer(25277, 26907, 26955)
+	recipe:AddTrainer(5518, 25277, 26907, 26955)
 
 	-- High-powered Flashlight -- 63750
 	recipe = AddRecipe(63750, V.WOTLK, Q.COMMON)
@@ -2180,27 +2180,27 @@ function addon:InitEngineering()
 	recipe = AddRecipe(63770, V.WOTLK, Q.COMMON)
 	recipe:SetSkillLevels(400, 400, 400, 402, 405)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.TANK)
-	recipe:AddTrainer(8736, 11017, 17637, 25277, 26907, 26955, 26991, 28697, 33586, 33611, 33634)
+	recipe:AddTrainer(5518, 8736, 11017, 17637, 25277, 26907, 26955, 26991, 28697, 33586, 33611, 33634)
 
 	-- Goblin Beam Welder -- 67326
 	recipe = AddRecipe(67326, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(47828)
 	recipe:SetSkillLevels(410, 410, 415, 420, 425)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP)
-	recipe:AddTrainer(8736, 11017, 17637, 25277, 26955, 28697, 33586, 33611, 33634)
+	recipe:AddTrainer(5518, 8736, 11017, 17637, 25277, 26955, 28697, 33586, 33611, 33634)
 
 	-- Mind Amplification Dish -- 67839
 	recipe = AddRecipe(67839, V.WOTLK, Q.COMMON)
 	recipe:SetSkillLevels(410, 410, 410, 415, 420)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP)
-	recipe:AddTrainer(8736, 11017, 17637, 25277, 26955, 28697, 33586, 33611, 33634)
+	recipe:AddTrainer(5518, 8736, 11017, 17637, 25277, 26955, 28697, 33586, 33611, 33634)
 
 	-- Wormhole Generator: Northrend -- 67920
 	recipe = AddRecipe(67920, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(48933)
 	recipe:SetSkillLevels(435, 435, 450, 455, 460)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP)
-	recipe:AddTrainer(8736, 11017, 17637, 25277, 26955, 28697, 33586, 33611, 33634)
+	recipe:AddTrainer(5518, 8736, 11017, 17637, 25277, 26955, 28697, 33586, 33611, 33634)
 
 	-- Jeeves -- 68067
 	recipe = AddRecipe(68067, V.WOTLK, Q.RARE)

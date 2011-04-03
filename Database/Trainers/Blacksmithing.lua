@@ -19,7 +19,7 @@ function private:InitializeBlacksmithingTrainers()
 	self:AddTrainer(4258, "Bengus Deepforge", "Ironforge", 51, 43, "Alliance")
 	self:AddTrainer(4596, "James Van Brunt", "Undercity", 61.2, 29.9, "Horde")
 	self:AddTrainer(5164, "Grumnus Steelshaper", "Ironforge", 50.2, 42.8, "Alliance")
-	self:AddTrainer(5511, "Therum Deepforge", "Stormwind City", 63.9, 37.8, "Alliance")
+	self:AddTrainer(5511, "Therum Deepforge", "Stormwind City", 63.7, 37.0, "Alliance") -- COMPLETELY UPDATED
 	self:AddTrainer(6299, "Delfrum Flintbeard", "Darkshore", 38.2, 41, "Alliance")
 	self:AddTrainer(7230, "Shayis Steelfury", "Orgrimmar", 75.91, 37.1, "Horde")
 	self:AddTrainer(7231, "Kelgruk Bloodaxe", "Orgrimmar", 76.34, 37.08, "Horde")

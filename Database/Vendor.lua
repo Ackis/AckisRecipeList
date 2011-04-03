@@ -36,8 +36,8 @@ function addon:InitVendor(DB)
 	end
 
 	AddVendor(66,		L["Tharynn Bouden"],			BZ["Elwynn Forest"],			41.9, 67.1, "Alliance")
-	AddVendor(340,		L["Kendor Kabonka"],			BZ["Stormwind City"],			76.6, 53.7, "Alliance")
-	AddVendor(734,		L["Corporal Bluth"],			BZ["Northern Stranglethorn"],		47.5,  10.3, "Alliance") -- UPDATED
+	AddVendor(340,		L["Kendor Kabonka"],			BZ["Stormwind City"],			76.6, 52.8, "Alliance") -- COMPLETELY UPDATED
+	AddVendor(734,		L["Corporal Bluth"],			BZ["Northern Stranglethorn"],		47.5, 10.3, "Alliance") -- UPDATED
 	AddVendor(777,		L["Amy Davenport"],			BZ["Redridge Mountains"],		29.1, 47.5, "Alliance")
 	AddVendor(843,		L["Gina MacGregor"],			BZ["Westfall"],				57.6, 54.0, "Alliance")
 	AddVendor(989,		L["Banalash"],				BZ["Swamp of Sorrows"],			46.6, 56.9, "Horde") -- COMPLETELY UPDATED
@@ -45,10 +45,10 @@ function addon:InitVendor(DB)
 	AddVendor(1148,		L["Nerrist"],				BZ["Northern Stranglethorn"],		39.2, 51.0, "Horde")  -- UPDATED
 	AddVendor(1149,		L["Uthok"],				BZ["Northern Stranglethorn"],		37.5, 49.2, "Horde")   -- UPDATED
 	AddVendor(1250,		L["Drake Lindgren"],			BZ["Elwynn Forest"],			83.3, 66.7, "Alliance")
-	AddVendor(1286,		L["Edna Mullby"],			BZ["Stormwind City"],			64.6, 71.5, "Alliance")
-	AddVendor(1313,		L["Maria Lumere"],			BZ["Stormwind City"],			55.7, 85.5, "Alliance")
-	AddVendor(1318,		L["Jessara Cordell"],			BZ["Stormwind City"],			53.0, 74.2, "Alliance")
-	AddVendor(1347,		L["Alexandra Bolero"],			BZ["Stormwind City"],			53.3, 81.7, "Alliance")
+	AddVendor(1286,		L["Edna Mullby"],			BZ["Stormwind City"],			64.7, 71.2, "Alliance") -- COMPLETELY UPDATED
+	AddVendor(1313,		L["Maria Lumere"],			BZ["Stormwind City"],			55.7, 85.5, "Alliance") -- COMPLETELY UPDATED
+	AddVendor(1318,		L["Jessara Cordell"],			BZ["Stormwind City"],			53.0, 74.2, "Alliance") -- COMPLETELY UPDATED
+	AddVendor(1347,		L["Alexandra Bolero"],			BZ["Stormwind City"],			53.3, 81.7, "Alliance") -- COMPLETELY UPDATED
 	AddVendor(1448,		L["Neal Allen"],			BZ["Wetlands"],				11.8, 52.6, "Alliance")
 	AddVendor(1454,		L["Jennabink Powerseam"],		BZ["Wetlands"],				 8.1, 55.9, "Alliance")
 	AddVendor(1465,		L["Drac Roughcut"],			BZ["Loch Modan"],			35.6, 49.0, "Alliance")
@@ -150,9 +150,9 @@ function addon:InitVendor(DB)
 	AddVendor(5175,		L["Gearcutter Cogspinner"],		BZ["Ironforge"],			68.0, 43.1, "Alliance")
 	AddVendor(5178,		L["Soolie Berryfizz"],			BZ["Ironforge"],			66.6, 54.5, "Alliance")
 	AddVendor(5411,		L["Krinkle Goodsteel"],			BZ["Tanaris"],				51.2, 30.4, "Neutral") -- COMPLETELY UPDATED
-	AddVendor(5483,		L["Erika Tate"],			BZ["Stormwind City"],			78.5, 53.0, "Alliance")
-	AddVendor(5494,		L["Catherine Leland"],			BZ["Stormwind City"],			55.1, 69.5, "Alliance")
-	AddVendor(5512,		L["Kaita Deepforge"],			BZ["Stormwind City"],			63.5, 37.6, "Alliance")
+	AddVendor(5483,		L["Erika Tate"],			BZ["Stormwind City"],			77.6, 53.0, "Alliance") -- COMPLETELY UPDATED
+	AddVendor(5494,		L["Catherine Leland"],			BZ["Stormwind City"],			55.1, 69.5, "Alliance") -- COMPLETELY UPDATED
+	AddVendor(5512,		L["Kaita Deepforge"],			BZ["Stormwind City"],			63.5, 37.6, "Alliance") -- COMPLETELY UPDATED
 	AddVendor(5594,		L["Alchemist Pestlezugg"],		BZ["Tanaris"],				50.8, 28.0, "Neutral") -- COMPLETELY UPDATED
 	AddVendor(5748,		L["Killian Sanatha"],			BZ["Silverpine Forest"],		33.0, 17.8, "Horde")
 	AddVendor(5757,		L["Lilly"],				BZ["Silverpine Forest"],		43.1, 50.8, "Horde")
@@ -219,7 +219,7 @@ function addon:InitVendor(DB)
 	AddVendor(13429,	L["Nardstrum Copperpinch"],		BZ["Undercity"],			67.5, 38.7, "Horde") -- COMPLETELY UPDATED
 	AddVendor(13432,	L["Seersa Copperpinch"],		BZ["Thunder Bluff"],			42.0, 55.1, "Horde") -- COMPLETELY UPDATED
 	AddVendor(13433,	L["Wulmort Jinglepocket"],		BZ["Ironforge"],			33.0, 67.6, "Neutral")
-	AddVendor(13435,	L["Khole Jinglepocket"],		BZ["Stormwind City"],			62.2, 70.6, "Alliance")
+	AddVendor(13435,	L["Khole Jinglepocket"],		BZ["Stormwind City"],			62.2, 70.6, "Alliance") -- COMPLETELY UPDATED
 	AddVendor(14371,	L["Shen'dralar Provisioner"],		BZ["Dire Maul"],			   0,	 0, "Neutral")
 	AddVendor(14637,	L["Zorbin Fandazzle"],			BZ["Feralas"],				44.8, 43.4, "Neutral")
 	AddVendor(14738,	L["Otho Moji'ko"],			BZ["The Hinterlands"],			79.3, 79.1, "Horde")
@@ -378,7 +378,7 @@ function addon:InitVendor(DB)
 	AddVendor(40160,	L["Frozo the Renowned"],		BZ["Dalaran"],				41.0, 28.5, "Neutral")
 	AddVendor(40572,	L["Haughty Modiste"],			BZ["Tanaris"],				50.7, 28.6, "Neutral") -- COMPLETELY UPDATED
 	AddVendor(40589,	L["Dirge Quikcleave"],			BZ["Tanaris"],				52.6, 29.1, "Neutral") -- COMPLETELY UPDATED
-	AddVendor(49701,	L["Bario Matalli"],			BZ["Stormwind City"], 			50.9, 71.4, "Alliance")
+	AddVendor(49701,	L["Bario Matalli"],			BZ["Stormwind City"], 			50.4, 71.9, "Alliance") -- COMPLETELY UPDATED
 	AddVendor(49703,	L["Casandra Downs"],			BZ["Twilight Highlands"],		78.6, 76.2, "Alliance")
 	AddVendor(49737,	L["Shazdar"],				BZ["Orgrimmar"],			57.2, 62.0, "Horde")
 	AddVendor(50134,	L["Senthii"],				BZ["Twilight Highlands"],		78.7, 77.0, "Alliance")
@@ -390,7 +390,7 @@ function addon:InitVendor(DB)
 	AddVendor(50382,	L["Brundall Chiselgut"],		BZ["Twilight Highlands"],		79.1, 76.5, "Alliance")
 	AddVendor(50386,	L["Sal Ferraga"],			BZ["Twilight Highlands"],		78.6, 76.9, "Alliance")
 	AddVendor(50433,	L["Aristaleon Sunweaver"],		BZ["Twilight Highlands"],		75.2, 50.1, "Horde")
-	AddVendor(50480,	L["Isabel Jones"],			BZ["Stormwind City"],			63.7, 61.3, "Alliance")
+	AddVendor(50480,	L["Isabel Jones"],			BZ["Stormwind City"],			63.7, 61.3, "Alliance") -- COMPLETELY UPDATED
 	AddVendor(50482,	L["Marith Lazuria"],			BZ["Orgrimmar"],			72.5, 36.2, "Horde")
 
 	self.InitVendor = nil

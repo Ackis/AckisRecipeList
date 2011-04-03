@@ -12,7 +12,7 @@ function private:InitializeEngineeringTrainers()
 	self:AddTrainer(3290, "Deek Fizzlebizz", "Loch Modan", 45.9, 13.6, "Alliance")
 	self:AddTrainer(3494, "Tinkerwiz", "Northern Barrens", 68.5, 69.2, "Neutral")
 	self:AddTrainer(5174, "Springspindle Fizzlegear", "Ironforge", 68.4, 44, "Alliance")
-	self:AddTrainer(5518, "Lilliam Sparkspindle", "Stormwind City", 62.2, 30.5, "Alliance")
+	self:AddTrainer(5518, "Lilliam Sparkspindle", "Stormwind City", 62.8, 32.0, "Alliance") -- COMPLETELY UPDATED
 	self:AddTrainer(7406, "Oglethorpe Obnoticus", "The Cape of Stranglethorn", 43, 72.1, "Neutral")
 	self:AddTrainer(7944, "Tinkmaster Overspark", "Ironforge", 69.8, 50, "Alliance")
 	self:AddTrainer(8126, "Nixx Sprocketspring", "Tanaris", 52.4, 28.3, "Neutral") -- ???????????????????

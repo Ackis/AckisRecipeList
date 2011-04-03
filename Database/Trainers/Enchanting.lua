@@ -7,7 +7,7 @@ local FOLDER_NAME, private = ...
 -- What we _really_ came here to see...
 -----------------------------------------------------------------------
 function private:InitializeEnchantingTrainers()
-	self:AddTrainer(1317, "Lucan Cordell", "Stormwind City", 53, 74.3, "Alliance")
+	self:AddTrainer(1317, "Lucan Cordell", "Stormwind City", 53, 74.3, "Alliance") -- COMPLETELY UPDATED
 	self:AddTrainer(3011, "Teg Dawnstrider", "Thunder Bluff", 45.3, 38.4, "Horde") -- COMPLETELY UPDATED
 	self:AddTrainer(3345, "Godan", "Orgrimmar", 53.8, 38.5, "Horde")
 	self:AddTrainer(3606, "Alanna Raveneye", "Teldrassil", 36.8, 34.2, "Alliance")

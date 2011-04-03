@@ -23,7 +23,7 @@ function private:InitializeAlchemyTrainers()
 	self:AddTrainer(4611, "Doctor Herbert Halsey", "Undercity", 47.7, 73, "Horde")
 	self:AddTrainer(4900, "Alchemist Narett", "Dustwallow Marsh", 64, 47.7, "Alliance")
 	self:AddTrainer(5177, "Tally Berryfizz", "Ironforge", 66.6, 55.2, "Alliance")
-	self:AddTrainer(5499, "Lilyssia Nightbreeze", "Stormwind City", 55.6, 85.9, "Alliance")
+	self:AddTrainer(5499, "Lilyssia Nightbreeze", "Stormwind City", 55.6, 85.9, "Alliance") -- COMPLETELY UPDATED
 	self:AddTrainer(7948, "Kylanna Windwhisper", "Feralas", 32.6, 43.8, "Alliance")
 	self:AddTrainer(16161, "Arcanist Sheynathren", "Eversong Woods", 38.2, 72.5, "Horde")
 	self:AddTrainer(16588, "Apothecary Antonivich", "Hellfire Peninsula", 52.4, 36.5, "Horde")

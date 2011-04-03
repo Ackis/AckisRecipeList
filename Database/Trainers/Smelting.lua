@@ -17,7 +17,7 @@ function private:InitializeSmeltingTrainers()
 	self:AddTrainer(4254, "Geofram Bouldertoe", "Ironforge", 50.3, 26, "Alliance")
 	self:AddTrainer(4598, "Brom Killian", "Undercity", 55.8, 37, "Horde")
 	self:AddTrainer(5392, "Yarr Hammerstone", "Dun Morogh", 50, 50.3, "Alliance")
-	self:AddTrainer(5513, "Gelman Stonehand", "Stormwind City", 59.2, 37.7, "Alliance")
+	self:AddTrainer(5513, "Gelman Stonehand", "Stormwind City", 59.5, 37.8, "Alliance") -- COMPLETELY UPDATED
 	self:AddTrainer(6297, "Kurdram Stonehammer", "Darkshore", 38.2, 41.1, "Alliance")
 	self:AddTrainer(8128, "Pikkle", "Tanaris", 51.0, 29.1, "Neutral") -- COMPLETELY UPDATED
 	self:AddTrainer(16663, "Belil", "Silvermoon City", 79.1, 42.9, "Horde")
