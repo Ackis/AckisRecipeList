@@ -1021,7 +1021,7 @@ function private.InitializeListFrame()
 		if addon.db.profile.filters.general.faction then
 			return true
 		end
-		return (not faction or faction == BFAC[Player.faction] or faction == FACTION_NEUTRAL)
+		return (not faction or faction == Player.faction or faction == FACTION_NEUTRAL)
 	end
 
 	-- Padding for list entries/subentries

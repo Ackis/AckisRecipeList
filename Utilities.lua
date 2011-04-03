@@ -22,9 +22,9 @@ local L = LibStub("AceLocale-3.0"):GetLocale(private.addon_name, true)
 -----------------------------------------------------------------------
 do
 	local FACTION_NAMES = {
-		[1] = BFAC["Neutral"],
-		[2] = BFAC["Alliance"],
-		[3] = BFAC["Horde"]
+		[1] = "Neutral",
+		[2] = "Alliance",
+		[3] = "Horde"
 	}
 
 	function private:AddListEntry(lookup_list, identifier, name, location, coord_x, coord_y, faction)

@@ -24,8 +24,6 @@ local QTip	= LibStub("LibQTip-1.0")
 -- Set up the private intra-file namespace.
 local private	= _G.select(2, ...)
 
-local Player	= private.Player
-
 -------------------------------------------------------------------------------
 -- Upvalues
 -------------------------------------------------------------------------------
@@ -182,7 +180,7 @@ function private.InitializeFilterPanel()
 						       filterdb.classes[class] = false
 					       end
 					       -- Set your own class to true.
-					       filterdb.classes[string.lower(Player["Class"])] = true
+					       filterdb.classes[private.Player.class:lower()] = true
 
 					       if MainPanel:IsVisible() then
 						       MainPanel:UpdateTitle()
@@ -397,7 +395,7 @@ function private.InitializeFilterPanel()
 				       end
 
 				       if toggle == false then
-					       local class = string.lower(Player["Class"])
+					       local class = private.Player.class:lower()
 					       classes[class] = true
 					       general_frame[class]:SetChecked(true)
 				       end
@@ -719,7 +717,7 @@ function private.InitializeFilterPanel()
 	-- Check to see if we're Horde or Alliance, and change the displayed
 	-- reputation strings to be faction-correct.
 	-------------------------------------------------------------------------------
-	local isAlliance = (Player.faction == "Alliance")
+	local isAlliance = (private.Player.faction == "Alliance")
 
 	local HonorHold_Thrallmar_Text = isAlliance and BFAC["Honor Hold"] or BFAC["Thrallmar"]
 	local Kurenai_Maghar_Text = isAlliance and BFAC["Kurenai"] or BFAC["The Mag'har"]

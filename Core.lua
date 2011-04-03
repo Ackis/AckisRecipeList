@@ -577,9 +577,8 @@ function addon:OnInitialize()
 			       for spell_id in pairs(unit.item_list) do
 				       local recipe = recipe_list[spell_id]
 				       local recipe_prof = _G.GetSpellInfo(recipe.profession)
-				       local scanned = player.has_scanned[recipe_prof]
 
-				       if scanned then
+				       if player.scanned_professions[recipe_prof] then
 					       local skill_level = player.professions[recipe_prof]
 					       local has_level = skill_level and (type(skill_level) == "boolean" and true or skill_level >= recipe.skill_level)
 
@@ -997,7 +996,7 @@ do
 		local is_linked = _G.IsTradeSkillLinked() or _G.IsTradeSkillGuild()
 
 		if not is_linked then
-			player.has_scanned[current_prof] = true
+			player.scanned_professions[current_prof] = true
 		end
 
 		-- Get the current profession Specialty

@@ -69,10 +69,6 @@ local A = private.acquire_types
 -------------------------------------------------------------------------------
 local ORDERED_PROFESSIONS	= private.ordered_professions
 
-local FACTION_HORDE		= BFAC["Horde"]
-local FACTION_ALLIANCE		= BFAC["Alliance"]
-local FACTION_NEUTRAL		= BFAC["Neutral"]
-
 function private.InitializeFrame()
 	-------------------------------------------------------------------------------
 	-- Create the MainPanel and set its values

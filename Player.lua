@@ -46,8 +46,8 @@ local FOLDER_NAME, private	= ...
 -- @class table
 -- @name Player
 -- @field known_filtered Total number of items known filtered during the scan.
--- @field Faction Player's faction
--- @field Class Player's class
+-- @field faction Player's faction
+-- @field class Player's class
 -- @field ["Reputation"] Listing of players reputation levels
 local Player = {}
 private.Player = Player
@@ -64,17 +64,12 @@ local F = private.filter_flags
 -------------------------------------------------------------------------------
 function Player:Initialize()
 	self.faction = _G.UnitFactionGroup("player")
-	self.Class = _G.select(2, _G.UnitClass("player"))
+	self.class = _G.select(2, _G.UnitClass("player"))
+
+	self.scanned_professions = {}
+	self.professions = {}
+
 	self:SetProfessions()
-
-	-------------------------------------------------------------------------------
-	-- Set the scanned state for all professions to false.
-	-------------------------------------------------------------------------------
-	self.has_scanned = {}
-
-	for profession in pairs(self.professions) do
-		self.has_scanned[profession] = false
-	end
 end
 
 do
@@ -127,7 +122,7 @@ function Player:HasProperRepLevel(rep_data)
 	if not rep_data then
 		return true
 	end
-	local is_alliance = Player.faction == BFAC["Alliance"]
+	local is_alliance = Player.faction == "Alliance"
 	local player_rep = Player["Reputation"]
 	local FAC = private.faction_ids
 	local has_faction = true
@@ -156,9 +151,9 @@ function Player:HasRecipeFaction(recipe)
 	local flagged_horde = recipe:HasFilter("common1", "HORDE")
 	local flagged_alliance = recipe:HasFilter("common1", "ALLIANCE")
 
-	if self.faction == BFAC["Alliance"] and flagged_horde and not flagged_alliance then
+	if self.faction == "Alliance" and flagged_horde and not flagged_alliance then
 		return false
-	elseif self.faction == BFAC["Horde"] and flagged_alliance and not flagged_horde then
+	elseif self.faction == "Horde" and flagged_alliance and not flagged_horde then
 		return false
 	end
 	return true
@@ -176,23 +171,6 @@ do
 
 	-- Sets the player's professions. Used when the AddOn initializes and when a profession has been learned or unlearned.
 	function Player:SetProfessions()
-		if not self.professions then
-			self.professions = {
-				[_G.GetSpellInfo(51304)]	= false, -- Alchemy
-				[_G.GetSpellInfo(51300)]	= false, -- Blacksmithing
-				[_G.GetSpellInfo(51296)]	= false, -- Cooking
-				[_G.GetSpellInfo(51313)]	= false, -- Enchanting
-				[_G.GetSpellInfo(51306)]	= false, -- Engineering
-				[_G.GetSpellInfo(45542)]	= false, -- First Aid
-				[_G.GetSpellInfo(51302)]	= false, -- Leatherworking
-				[_G.GetSpellInfo(2656)]		= false, -- Smelting
-				[_G.GetSpellInfo(51309)]	= false, -- Tailoring
-				[_G.GetSpellInfo(51311)]	= false, -- Jewelcrafting
-				[_G.GetSpellInfo(45363)]	= false, -- Inscription
-				[private.runeforging_name]	= false, -- Runeforging
-			}
-		end
-
 		for i in pairs(self.professions) do
 			self.professions[i] = nil
 		end
