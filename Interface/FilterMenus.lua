@@ -549,8 +549,7 @@ function private.InitializeFilterPanel()
 			["thrown"]	= { tt = L["THROWN_DESC"],	text = L["Thrown"],						row = 14, col = 1 },
 			["bow"]		= { tt = L["BOW_DESC"],		text = SetTextColor(BASIC_COLORS["grey"], L["Bow"]),		row = 14, col = 2 },
 			["crossbow"]	= { tt = L["CROSSBOW_DESC"],	text = SetTextColor(BASIC_COLORS["grey"], L["Crossbow"]),	row = 15, col = 1 },
-			["ammo"]	= { tt = L["AMMO_DESC"],	text = L["Ammo"],						row = 15, col = 2 },
-			["gun"]		= { tt = L["GUN_DESC"],		text = L["Gun"],						row = 16, col = 1 },
+			["gun"]		= { tt = L["GUN_DESC"],		text = L["Gun"],						row = 15, col = 2 },
 		}
 		GenerateCheckBoxes(item_frame, weapon_buttons)
 		weapon_buttons = nil
@@ -1255,7 +1254,6 @@ function private.InitializeFilterPanel()
 		["thrown"]		= { cb = FilterPanel.item.thrown,		svroot = filterdb.item.weapon },
 		["bow"]			= { cb = FilterPanel.item.bow,			svroot = nil },
 		["crossbow"]		= { cb = FilterPanel.item.crossbow,		svroot = nil },
-		["ammo"]		= { cb = FilterPanel.item.ammo,			svroot = filterdb.item.weapon },
 		["gun"]			= { cb = FilterPanel.item.gun,			svroot = filterdb.item.weapon },
 		------------------------------------------------------------------------------------------------
 		-- Quality Options

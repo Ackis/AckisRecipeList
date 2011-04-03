@@ -28,7 +28,6 @@ L["ALT_CLICK"] = "Alt-Click to add/remove this recipe to your ignore list."
 L["ALT_TRADESKILL_DESC"] = [=[This will display a list of alts which have had trade skills scanned.
 Clicking on the alt's name will output the tradeskill to chat.
 Alt-Clicking on the alt's name will delete the alt from the list.]=]
-L["AMMO_DESC"] = "Recipes that make ammunition should be included in the scan."
 L["AQ40_RANDOM_BOP"] = "Random BoP drop off of bosses in AQ40."
 L["ARCH_DROP"] = "This recipe is a random drop from a \"Canopic Jar\" while collecting artifacts for Archaeology."
 L["ARL_ALLEXCLUDED"] = "Although you have already scanned this profession, your exclusions are currently preventing any recipes from being displayed. Please change your exclusions and try again."
@@ -81,7 +80,6 @@ L["Alurmi"] = "Alurmi"
 L["Alys Vol'tyr"] = "Alys Vol'tyr"
 L["Amal'thazad"] = "Amal'thazad"
 L["Amelia Atherton"] = "Amelia Atherton"
-L["Ammo"] = "Ammo"
 L["Amy Davenport"] = "Amy Davenport"
 L["Anchorite Ensham"] = "Anchorite Ensham"
 L["Anchorite Fateema"] = "Anchorite Fateema"

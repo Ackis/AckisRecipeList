@@ -486,7 +486,6 @@ function private.InitializeListFrame()
 			["thrown"]	= { flag = ITEM1.THROWN,	index = 5,	sv_root = weapon_filters },
 			["bow"]		= { flag = ITEM1.BOW,		index = 5,	sv_root = weapon_filters },
 			["crossbow"]	= { flag = ITEM1.XBOW,		index = 5,	sv_root = weapon_filters },
-			["ammo"]	= { flag = ITEM1.AMMO,		index = 5,	sv_root = weapon_filters },
 		}
 
 		local SOFT_FILTERS = {

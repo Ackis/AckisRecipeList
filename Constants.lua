@@ -140,7 +140,7 @@ private.filter_flags = {
 	["RESERVED_65"]		= 65,		["ONE_HAND"]	= 66,		["TWO_HAND"]	= 67,		["AXE"]		= 68,
 	["SWORD"]		= 69,		["MACE"]	= 70,		["POLEARM"]	= 71,		["DAGGER"]	= 72,
 	["STAFF"]		= 73,		["WAND"]	= 74,		["THROWN"]	= 75,		["BOW"]		= 76,
-	["XBOW"]		= 77,		["AMMO"]	= 78,		["FIST"]	= 79,		["GUN"]		= 80,
+	["XBOW"]		= 77,		["RESERVED_78"]	= 78,		["FIST"]	= 79,		["GUN"]		= 80,
 	["RESERVED_81"]		= 81,		["RESERVED_82"]	= 82,		["RESERVED_83"]	= 83,		["RESERVED_84"]	= 84,
 	["RESERVED_85"]		= 85,		["RESERVED_86"]	= 86,		["RESERVED_87"]	= 87,		["RESERVED_88"]	= 88,
 	["RESERVED_89"]		= 89,		["RESERVED_90"]	= 90,		["RESERVED_91"]	= 91,		["RESERVED_92"]	= 92,
@@ -177,7 +177,7 @@ private.filter_strings = {
 	[65]	= "RESERVED_65",	[66]	= "ONE_HAND",		[67]	= "TWO_HAND",		[68]	= "AXE",
 	[69]	= "SWORD",		[70]	= "MACE",		[71]	= "POLEARM",		[72]	= "DAGGER",
 	[73]	= "STAFF",		[74]	= "WAND",		[75]	= "THROWN",		[76]	= "BOW",
-	[77]	= "XBOW",		[78]	= "AMMO",		[79]	= "FIST",		[80]	= "GUN",
+	[77]	= "XBOW",		[78]	= "RESERVED_78",		[79]	= "FIST",		[80]	= "GUN",
 	[81]	= "RESERVED_81",	[82]	= "RESERVED_82",	[83]	= "RESERVED_83",	[84]	= "RESERVED_84",
 	[85]	= "RESERVED_85",	[86]	= "RESERVED_86",	[87]	= "RESERVED_87",	[88]	= "RESERVED_88",
 	[89]	= "RESERVED_89",	[90]	= "RESERVED_90",	[91]	= "RESERVED_91",	[92]	= "RESERVED_92",
@@ -316,9 +316,8 @@ private.item_flags_word1 = {
 	THROWN		= 0x00040000,	-- 19
 	BOW		= 0x00080000,	-- 20
 	XBOW		= 0x00100000,	-- 21
-	AMMO		= 0x00200000,	-- 22
-	FIST		= 0x00400000,	-- 23
-	GUN		= 0x00800000,	-- 24
+	FIST		= 0x00200000,	-- 22
+	GUN		= 0x00400000,	-- 23
 }
 
 -------------------------------------------------------------------------------
