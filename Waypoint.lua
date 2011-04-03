@@ -42,8 +42,6 @@ local F = private.filter_flags
 -------------------------------------------------------------------------------
 -- Constants.
 -------------------------------------------------------------------------------
-local FACTION_NEUTRAL		= BFAC["Neutral"]
-
 local KALIMDOR_NAMES = {}
 local EASTERN_KINGDOMS_NAMES = {}
 local OUTLAND_NAMES = {}
@@ -326,7 +324,7 @@ local WAYPOINT_FUNCS = {
 		local trainer = private.trainer_list[id_num]
 		local trainer_faction = trainer.faction
 
-		if trainer_faction == BFAC[private.Player.faction] or trainer_faction == FACTION_NEUTRAL then
+		if trainer_faction == private.Player.faction or trainer_faction == "Neutral" then
 			return trainer
 		end
 	end,
@@ -337,7 +335,7 @@ local WAYPOINT_FUNCS = {
 		local vendor = private.vendor_list[id_num]
 		local vendor_faction = vendor.faction
 
-		if vendor_faction == BFAC[private.Player.faction] or vendor_faction == FACTION_NEUTRAL then
+		if vendor_faction == private.Player.faction or vendor_faction == "Neutral" then
 			return vendor
 		end
 	end,
@@ -348,7 +346,7 @@ local WAYPOINT_FUNCS = {
 		local vendor = private.vendor_list[id_num]
 		local vendor_faction = vendor.faction
 
-		if vendor_faction == BFAC[private.Player.faction] or vendor_faction == FACTION_NEUTRAL then
+		if vendor_faction == private.Player.faction or vendor_faction == "Neutral" then
 			return vendor
 		end
 	end,
@@ -362,7 +360,7 @@ local WAYPOINT_FUNCS = {
 		local quest = private.quest_list[id_num]
 		local quest_faction = quest.faction
 
-		if quest_faction == BFAC[private.Player.faction] or quest_faction == FACTION_NEUTRAL then
+		if quest_faction == private.Player.faction or quest_faction == "Neutral" then
 			return quest
 		end
 	end,

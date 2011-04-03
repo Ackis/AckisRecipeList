@@ -20,50 +20,35 @@ local L = LibStub("AceLocale-3.0"):GetLocale(private.addon_name, true)
 -----------------------------------------------------------------------
 -- Methods.
 -----------------------------------------------------------------------
-do
-	local FACTION_NAMES = {
-		[1] = "Neutral",
-		[2] = "Alliance",
-		[3] = "Horde"
-	}
-
-	function private:AddListEntry(lookup_list, identifier, name, location, coord_x, coord_y, faction)
-		if lookup_list[identifier] then
-			addon:Debug("Duplicate lookup: %s - %s.", identifier, name)
-			return
-		end
-
-		local entry = {
-			name = name,
-			location = location,
-		}
-		lookup_list[identifier] = entry
-
-		if faction then
-			if _G.type(faction) == "string" then
-				entry.faction = faction
-			else
-				entry.faction = FACTION_NAMES[faction + 1]
-			end
-		end
-
-		if coord_x and coord_y then
-			lookup_list[identifier].coord_x = coord_x
-			lookup_list[identifier].coord_y = coord_y
-		end
-
-		--@alpha@
-		if not location and lookup_list ~= private.custom_list and lookup_list ~= private.reputation_list then
-			addon:Debug("Lookup ID: %s (%s) has an unknown location.", identifier, lookup_list[identifier].name or _G.UNKNOWN)
-		end
-
-		if faction and lookup_list == private.mob_list then
-			addon:Debug("Mob %d (%s) has been assigned to faction %s.", identifier, name, lookup_list[identifier].faction)
-		end
-		--@end-alpha@
-		return entry
+function private:AddListEntry(lookup_list, identifier, name, location, coord_x, coord_y, faction)
+	if lookup_list[identifier] then
+		addon:Debug("Duplicate lookup: %s - %s.", identifier, name)
+		return
 	end
-end -- do
+
+	local entry = {
+		name = name,
+		location = location,
+		faction = faction,
+	}
+	lookup_list[identifier] = entry
+
+	if coord_x and coord_y then
+		lookup_list[identifier].coord_x = coord_x
+		lookup_list[identifier].coord_y = coord_y
+	end
+
+	--@alpha@
+	if not location and lookup_list ~= private.custom_list and lookup_list ~= private.reputation_list then
+		addon:Debug("Lookup ID: %s (%s) has an unknown location.", identifier, lookup_list[identifier].name or _G.UNKNOWN)
+	end
+
+	if faction and lookup_list == private.mob_list then
+		addon:Debug("Mob %d (%s) has been assigned to faction %s.", identifier, name, lookup_list[identifier].faction)
+	end
+	--@end-alpha@
+	return entry
+end
 
 function private:AddTrainer(id_num, trainer_name, location, coord_x, coord_y, faction)
 	if _G.type(trainer_name) == "number" then

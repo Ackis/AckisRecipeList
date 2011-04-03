@@ -30,16 +30,16 @@ local LibStub = _G.LibStub
 local addon = LibStub("AceAddon-3.0"):GetAddon(private.addon_name)
 local L = LibStub("AceLocale-3.0"):GetLocale(private.addon_name)
 
-local GetCategoryInfo = _G.GetCategoryInfo
-
 function addon:InitSeasons(DB)
 	local function AddSeason(identifier, name)
-		private:AddListEntry(DB, identifier, name, GetCategoryInfo(155))
+		private:AddListEntry(DB, identifier, name, _G.GetCategoryInfo(155))
 	end
 
-	AddSeason("WINTER_VEIL", GetCategoryInfo(156))
-	AddSeason("LUNAR_FESTIVAL", GetCategoryInfo(160))
-	AddSeason("MIDSUMMER", GetCategoryInfo(161))
-	AddSeason("PILGRIMS_BOUNTY", GetCategoryInfo(14981))
+	AddSeason("WINTER_VEIL", _G.GetCategoryInfo(156))
+	AddSeason("LUNAR_FESTIVAL", _G.GetCategoryInfo(160))
+	AddSeason("MIDSUMMER", _G.GetCategoryInfo(161))
+	AddSeason("PILGRIMS_BOUNTY", _G.GetCategoryInfo(14981))
 	AddSeason("DAY_OF_THE_DEAD", L["Day of the Dead"])
+
+	self.InitSeasons = nil
 end

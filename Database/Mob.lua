@@ -12,6 +12,10 @@ Please see http://www.wowace.com/addons/arl/ for more information.
 This source code is released under All Rights Reserved.
 ************************************************************************
 ]]--
+
+-----------------------------------------------------------------------
+-- AddOn namespace.
+-----------------------------------------------------------------------
 local FOLDER_NAME, private = ...
 
 local addon		= LibStub("AceAddon-3.0"):GetAddon(private.addon_name)
