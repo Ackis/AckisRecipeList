@@ -1032,8 +1032,8 @@ do
 		local subclass = _G.TradeSkillFrame.filterTbl.subClassValue
 		local slot = _G.TradeSkillFrame.filterTbl.slotValue
 
-		if _G.MRTAPI and _G.MRTAPI:PushFilterSelection() then
-			-- MrTrader saved the state for us
+		if _G.MRTAPI then
+			_G.MRTAPI:PushFilterSelection()
 		else
 			if not _G.Skillet and have_materials then
 				_G.TradeSkillFrame.filterTbl.hasMaterials = false
@@ -1068,9 +1068,7 @@ do
 			local tradeName, tradeType = _G.GetTradeSkillInfo(i)
 
 			if tradeType ~= "header" then
-				-- Get the trade skill link for the specified recipe
 				local spell_link = _G.GetTradeSkillRecipeLink(i)
-				-- Spell ID of the recipe being scanned.
 				local spell_string = spell_link:match("^|c%x%x%x%x%x%x%x%x|H%w+:(%d+)")
 				local spell_id = tonumber(spell_string)
 				local recipe = recipe_list[spell_id]
@@ -1089,7 +1087,6 @@ do
 							self:Debug(tradeName .. " " .. overwritemap[spell_id] .. L["MissingFromDB"])
 						end
 					end
-					-- Toggle spell to known
 					togglerecipe(recipe, is_linked)
 					recipes_found = recipes_found + 1
 				else
@@ -1098,12 +1095,10 @@ do
 			end
 		end
 
-		-- Close all the headers we've opened
-		-- If Mr Trader is installed use that API
-		if _G.MRTAPI and _G.MRTAPI:PopFilterSelection() then
-			-- MrTrader restored the state for us
+		-- Restore the state of the things we changed.
+		if _G.MRTAPI then
+			_G.MRTAPI:PopFilterSelection()
 		else
-			-- Collapse all headers that were collapsed before
 			for i = _G.GetNumTradeSkills(), 1, -1 do
 				local name, tradeType, _, isExpanded = _G.GetTradeSkillInfo(i)
 
@@ -1111,8 +1106,6 @@ do
 					_G.CollapseTradeSkillSubClass(i)
 				end
 			end
-
-			-- Restore the state of the things we changed.
 			_G.TradeSkillFrame.filterTbl.hasMaterials = have_materials
 			_G.TradeSkillOnlyShowMakeable(have_materials)
 			_G.TradeSkillFrame.filterTbl.hasSkillUp = have_skillup
@@ -1120,7 +1113,6 @@ do
 
 			_G.TradeSkillUpdateFilterBar()
 			_G.TradeSkillFrame_Update()
-
 		end
 		previous_recipe_count = current_recipe_count
 		current_recipe_count = recipes_found
@@ -1128,10 +1120,6 @@ do
 		if is_refresh and previous_recipe_count == recipes_found then
 			return
 		end
-
-		-------------------------------------------------------------------------------
-		-- Update the player's reputation levels.
-		-------------------------------------------------------------------------------
 		player:UpdateReputations()
 
 		-------------------------------------------------------------------------------
