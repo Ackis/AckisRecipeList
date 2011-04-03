@@ -956,6 +956,8 @@ end
 -- Recipe Scanning Functions
 -------------------------------------------------------------------------------
 do
+	local current_recipe_count, previous_recipe_count = 0, 0
+
 	-- List of tradeskill headers, used in addon:Scan()
 	local header_list = {}
 
@@ -1120,10 +1122,10 @@ do
 			_G.TradeSkillFrame_Update()
 
 		end
-		player.prev_count = player.foundRecipes
-		player.foundRecipes = recipes_found
+		previous_recipe_count = current_recipe_count
+		current_recipe_count = recipes_found
 
-		if is_refresh and player.prev_count == recipes_found then
+		if is_refresh and previous_recipe_count == recipes_found then
 			return
 		end
 
