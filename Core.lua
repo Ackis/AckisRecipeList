@@ -961,13 +961,13 @@ do
 	-- List of tradeskill headers, used in addon:Scan()
 	local header_list = {}
 
-	-- Toggles a recipe ot known state if it's your own
-	local function togglerecipe(recipe, is_linked)
-		if not is_linked then
+	-- Toggles a recipe's stats based on whether it's linked or actually known.
+	local function SetRecipeAsKnownOrLinked(recipe, is_linked)
+		if is_linked then
+			recipe:AddState("LINKED")
+		else
 			recipe:AddState("KNOWN")
 			recipe:RemoveState("LINKED")
-		else
-			recipe:AddState("LINKED")
 		end
 	end
 
@@ -1076,14 +1076,15 @@ do
 
 					-- If we have it in the mapping, set the lower rank spell to known
 					if overwritemap[spell_id] then
-						local overwriterecipe = recipe_list[overwritemap[spell_id]]
-						if overwriterecipe then
-							togglerecipe(overwriterecipe, is_linked)
+						local overwrite_recipe = recipe_list[overwritemap[spell_id]]
+
+						if overwrite_recipe then
+							SetRecipeAsKnownOrLinked(overwrite_recipe, is_linked)
 						else
 							self:Debug(tradeName .. " " .. overwritemap[spell_id] .. L["MissingFromDB"])
 						end
 					end
-					togglerecipe(recipe, is_linked)
+					SetRecipeAsKnownOrLinked(recipe, is_linked)
 					recipes_found = recipes_found + 1
 				else
 					self:Debug(tradeName .. " " .. spell_string .. L["MissingFromDB"])
