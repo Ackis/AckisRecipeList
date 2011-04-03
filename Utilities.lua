@@ -20,6 +20,10 @@ local L = LibStub("AceLocale-3.0"):GetLocale(private.addon_name, true)
 -----------------------------------------------------------------------
 -- Methods.
 -----------------------------------------------------------------------
+function private.SetTextColor(color_code, text)
+	return ("|cff%s%s|r"):format(color_code or "ffffff", text)
+end
+
 function private:AddListEntry(lookup_list, identifier, name, location, coord_x, coord_y, faction)
 	if lookup_list[identifier] then
 		addon:Debug("Duplicate lookup: %s - %s.", identifier, name)

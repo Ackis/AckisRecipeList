@@ -180,13 +180,6 @@ function addon:ClosePopups()
 end
 
 -------------------------------------------------------------------------------
--- Functions common to most files in the AddOn.
--------------------------------------------------------------------------------
-function private.SetTextColor(color_code, text)
-	return ("|cff%s%s|r"):format(color_code or "ffffff", text)
-end
-
--------------------------------------------------------------------------------
 -- Debugger.
 -------------------------------------------------------------------------------
 function addon:Debug(...)
