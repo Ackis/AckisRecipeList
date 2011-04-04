@@ -60,7 +60,7 @@ local GenericCreateButton = private.GenericCreateButton
 -------------------------------------------------------------------------------
 function private.InitializeListFrame()
 	local MainPanel	= addon.Frame
-	local ListFrame = CreateFrame("Frame", nil, MainPanel)
+	local ListFrame = _G.CreateFrame("Frame", nil, MainPanel)
 
 	MainPanel.list_frame = ListFrame
 
@@ -79,7 +79,7 @@ function private.InitializeListFrame()
 	-------------------------------------------------------------------------------
 	-- Scroll bar.
 	-------------------------------------------------------------------------------
-	local ScrollBar = CreateFrame("Slider", nil, ListFrame)
+	local ScrollBar = _G.CreateFrame("Slider", nil, ListFrame)
 
 	ScrollBar:SetPoint("TOPLEFT", ListFrame, "TOPRIGHT", 5, -11)
 	ScrollBar:SetPoint("BOTTOMLEFT", ListFrame, "BOTTOMRIGHT", 5, 12)
@@ -94,13 +94,13 @@ function private.InitializeListFrame()
 
 	ListFrame.scroll_bar = ScrollBar
 
-	local ScrollUpButton = CreateFrame("Button", nil, ScrollBar, "UIPanelScrollUpButtonTemplate")
+	local ScrollUpButton = _G.CreateFrame("Button", nil, ScrollBar, "UIPanelScrollUpButtonTemplate")
 
 	ScrollUpButton:SetHeight(16)
 	ScrollUpButton:SetWidth(18)
 	ScrollUpButton:SetPoint("BOTTOM", ScrollBar, "TOP", 0, -4)
 
-	local ScrollDownButton = CreateFrame("Button", nil, ScrollBar,"UIPanelScrollDownButtonTemplate")
+	local ScrollDownButton = _G.CreateFrame("Button", nil, ScrollBar,"UIPanelScrollDownButtonTemplate")
 
 	ScrollDownButton:SetHeight(16)
 	ScrollDownButton:SetWidth(18)
@@ -320,7 +320,7 @@ function private.InitializeListFrame()
 	ListFrame.entry_buttons = {}
 
 	for i = 1, NUM_RECIPE_LINES do
-		local cur_container = CreateFrame("Frame", nil, ListFrame)
+		local cur_container = _G.CreateFrame("Frame", nil, ListFrame)
 
 		cur_container:SetHeight(16)
 		cur_container:SetWidth(LISTFRAME_WIDTH)
@@ -1232,8 +1232,7 @@ function private.InitializeListFrame()
 	end
 
 	local function ExpandWorldDropData(entry_index, entry_type, parent_entry, id_num, recipe_id, hide_location, hide_type)
-		local _, _, _, hex_color = GetItemQualityColor(private.recipe_list[recipe_id].quality)
-		local drop_location = type(id_num) == "string" and BZ[id_num] or nil
+		local drop_location = type(id_num) == "string" and BZ[id_num]
 
 		if drop_location then
 			drop_location = string.format(": %s", SetTextColor(CATEGORY_COLORS["location"], drop_location))
@@ -1242,7 +1241,7 @@ function private.InitializeListFrame()
 		end
 		local t = AcquireTable()
 
-		t.text = string.format("%s%s%s|r%s", PADDING, hex_color, L["World Drop"], drop_location)
+		t.text = string.format("%s%s%s|r%s", PADDING, _G.select(4, _G.GetItemQualityColor(private.recipe_list[recipe_id].quality)), L["World Drop"], drop_location)
 		t.recipe_id = recipe_id
 
 		return ListFrame:InsertEntry(t, parent_entry, entry_index, entry_type, true)
@@ -1258,15 +1257,13 @@ function private.InitializeListFrame()
 	end
 
 	local function ExpandAchievementData(entry_index, entry_type, parent_entry, id_num, recipe_id, hide_location, hide_type)
-		local _, achievement_name = GetAchievementInfo(id_num)
-		local t = AcquireTable()
+		local entry = AcquireTable()
 
-		t.text = string.format("%s%s %s", PADDING,
-				       hide_type and "" or SetTextColor(CATEGORY_COLORS["achievement"], _G.ACHIEVEMENTS)..":",
-				       SetTextColor(BASIC_COLORS["normal"], achievement_name))
-		t.recipe_id = recipe_id
+		entry.text = ("%s%s %s"):format(PADDING, hide_type and "" or SetTextColor(CATEGORY_COLORS["achievement"], _G.ACHIEVEMENTS) .. ":",
+					    SetTextColor(BASIC_COLORS["normal"], _G.select(2, _G.GetAchievementInfo(id_num))))
+		entry.recipe_id = recipe_id
 
-		return ListFrame:InsertEntry(t, parent_entry, entry_index, entry_type, true)
+		return ListFrame:InsertEntry(entry, parent_entry, entry_index, entry_type, true)
 	end
 
 	local function ExpandAcquireData(entry_index, entry_type, parent_entry, acquire_type, acquire_data, recipe_id, hide_location, hide_type)
@@ -1472,19 +1469,18 @@ end	-- InitializeListFrame()
 -------------------------------------------------------------------------------
 -- Tooltip functions and data.
 -------------------------------------------------------------------------------
-spell_tip = CreateFrame("GameTooltip", "AckisRecipeList_SpellTooltip", UIParent, "GameTooltipTemplate")
+spell_tip = _G.CreateFrame("GameTooltip", "AckisRecipeList_SpellTooltip", _G.UIParent, "GameTooltipTemplate")
 
 -- Font Objects needed for acquire_tip
 local narrowFont
 local normalFont
 
 do
-	-- Fallback in case the user doesn't have LSM-3.0 installed
-	if not LibStub:GetLibrary("LibSharedMedia-3.0", true) then
+	local LSM3 = LibStub("LibSharedMedia-3.0", true)
 
-		local locale = GetLocale()
+	if not LSM3 then
 		-- Fix for font issues on koKR
-		if locale == "koKR" then
+		if _G.GetLocale() == "koKR" then
 			narrowFont = "Fonts\\2002.TTF"
 			normalFont = "Fonts\\2002.TTF"
 		else
@@ -1492,14 +1488,11 @@ do
 			normalFont = "Fonts\\FRIZQT__.TTF"
 		end
 	else
-		-- Register LSM 3.0
-		local LSM3 = LibStub("LibSharedMedia-3.0")
-
 		narrowFont = LSM3:Fetch(LSM3.MediaType.FONT, "Arial Narrow")
 		normalFont = LSM3:Fetch(LSM3.MediaType.FONT, "Friz Quadrata TT")
 	end
-	local narrowFontObj = CreateFont(private.addon_name.."narrowFontObj")
-	local normalFontObj = CreateFont(private.addon_name.."normalFontObj")
+	local narrowFontObj = _G.CreateFont(("%s%s"):format(private.addon_name, "narrowFontObj"))
+	local normalFontObj = _G.CreateFont(("%s%s"):format(private.addon_name, "normalFontObj"))
 
 	-- I want to do a bit more comprehensive tooltip processing. Things like changing font sizes,
 	-- adding padding to the left hand side, and using better color handling. So... this function
@@ -1546,36 +1539,6 @@ do
 		else
 			acquire_tip:SetCell(line, 1, "|cff"..hexcolor1..leftStr.."|r", nil, "LEFT", 2, nil, 0, 0, width, width)
 		end
-	end
-
-	local function SetSpellTooltip(owner, loc, link)
-		spell_tip:SetOwner(owner, "ANCHOR_NONE")
-		spell_tip:ClearAllPoints()
-
-		if loc == "Top" then
-			spell_tip:SetPoint("BOTTOMLEFT", owner, "TOPLEFT")
-		elseif loc == "Bottom" then
-			spell_tip:SetPoint("TOPLEFT", owner, "BOTTOMLEFT")
-		elseif loc == "Left" then
-			spell_tip:SetPoint("TOPRIGHT", owner, "TOPLEFT")
-		elseif loc == "Right" then
-			spell_tip:SetPoint("TOPLEFT", owner, "TOPRIGHT")
-		end
-
-		-- Add TipTac Support
-		if _G.TipTac and _G.TipTac.AddModifiedTip and not spell_tip.tiptac then
-			_G.TipTac:AddModifiedTip(spell_tip)
-			spell_tip.tiptac = true
-		end
-
-		-- Set the spell tooltip's scale, and copy its other values from GameTooltip so AddOns which modify it will work.
-		spell_tip:SetBackdrop(GameTooltip:GetBackdrop())
-		spell_tip:SetBackdropColor(GameTooltip:GetBackdropColor())
-		spell_tip:SetBackdropBorderColor(GameTooltip:GetBackdropBorderColor())
-		spell_tip:SetScale(addon.db.profile.tooltip.scale)
-		spell_tip:SetClampedToScreen(true)
-		spell_tip:SetHyperlink(link)
-		spell_tip:Show()
 	end
 
 	local function GetTipFactionInfo(comp_faction)
@@ -1668,13 +1631,13 @@ do
 		local display_tip, name_color = GetTipFactionInfo(quest.faction)
 
 		if display_tip then
-			local coord_text = ""
+			addline_func(0, -1, false, L["Quest"], type_color, private.quest_names[id_num], name_color)
 
 			if quest.coord_x ~= 0 and quest.coord_y ~= 0 then
-				coord_text = "(" .. quest.coord_x .. ", " .. quest.coord_y .. ")"
+				addline_func(1, -2, true, quest.location, CATEGORY_COLORS["location"], ("(%.2f, %.2f)"):format(quest.coord_x, quest.coord_y), CATEGORY_COLORS["coords"])
+			else
+				addline_func(1, -2, true, quest.location, CATEGORY_COLORS["location"], "", CATEGORY_COLORS["coords"])
 			end
-			addline_func(0, -1, false, L["Quest"], type_color, private.quest_names[id_num], name_color)
-			addline_func(1, -2, true, quest.location, CATEGORY_COLORS["location"], coord_text, CATEGORY_COLORS["coords"])
 		end
 	end
 
@@ -1687,35 +1650,25 @@ do
 		local display_tip, name_color = GetTipFactionInfo(rep_vendor.faction)
 
 		if display_tip then
-			local rep_color = private.reputation_colors
-			local rep_str = ""
-			local type_color
+			addline_func(0, -1, false, _G.REPUTATION, CATEGORY_COLORS["reputation"], private.reputation_list[id_num].name, CATEGORY_COLORS["repname"])
 
 			if rep_level == 0 then
-				rep_str = FACTION_NEUTRAL
-				type_color = rep_color["neutral"]
+				addline_func(1, -2, false, FACTION_NEUTRAL, private.reputation_colors["neutral"], rep_vendor.name, name_color)
 			elseif rep_level == 1 then
-				rep_str = BFAC["Friendly"]
-				type_color = rep_color["friendly"]
+				addline_func(1, -2, false, BFAC["Friendly"], private.reputation_colors["friendly"], rep_vendor.name, name_color)
 			elseif rep_level == 2 then
-				rep_str = BFAC["Honored"]
-				type_color = rep_color["honored"]
+				addline_func(1, -2, false, BFAC["Honored"], private.reputation_colors["honored"], rep_vendor.name, name_color)
 			elseif rep_level == 3 then
-				rep_str = BFAC["Revered"]
-				type_color = rep_color["revered"]
+				addline_func(1, -2, false, BFAC["Revered"], private.reputation_colors["revered"], rep_vendor.name, name_color)
 			else
-				rep_str = BFAC["Exalted"]
-				type_color = rep_color["exalted"]
+				addline_func(1, -2, false, BFAC["Exalted"], private.reputation_colors["exalted"], rep_vendor.name, name_color)
 			end
-			addline_func(0, -1, false, _G.REPUTATION, CATEGORY_COLORS["reputation"], private.reputation_list[id_num].name, CATEGORY_COLORS["repname"])
-			addline_func(1, -2, false, rep_str, type_color, rep_vendor.name, name_color)
-
-			local coord_text = ""
 
 			if rep_vendor.coord_x ~= 0 and rep_vendor.coord_y ~= 0 then
-				coord_text = "(" .. rep_vendor.coord_x .. ", " .. rep_vendor.coord_y .. ")"
+				addline_func(2, -2, true, rep_vendor.location, CATEGORY_COLORS["location"], ("(%.2f, %.2f)"):format(rep_vendor.coord_x, rep_vendor.coord_y), CATEGORY_COLORS["coords"])
+			else
+				addline_func(2, -2, true, rep_vendor.location, CATEGORY_COLORS["location"], "", CATEGORY_COLORS["coords"])
 			end
-			addline_func(2, -2, true, rep_vendor.location, CATEGORY_COLORS["location"], coord_text, CATEGORY_COLORS["coords"])
 		end
 	end
 
@@ -1769,9 +1722,7 @@ do
 		end
 
 		for acquire_type, acquire_data in pairs(recipe.acquire_data) do
-			local can_display = (not acquire_id or acquire_type == acquire_id)
-
-			if can_display then
+			if not acquire_id or acquire_type == acquire_id then
 				for id_num, info in pairs(acquire_data) do
 					if acquire_type == A.TRAINER then
 						Tooltip_AddTrainer(id_num, location, addline_func)
@@ -1805,45 +1756,65 @@ do
 	end
 
 	-------------------------------------------------------------------------------
-	-- Main tooltip-generating function.
+	-- Main tooltip function.
 	-------------------------------------------------------------------------------
-	local BINDING_FLAGS = {
-		[COMMON1.IBOE] = L["BOEFilter"],
-		[COMMON1.IBOP] = L["BOPFilter"],
-		[COMMON1.IBOA] = L["BOAFilter"],
-		[COMMON1.RBOE] = L["RecipeBOEFilter"],
-		[COMMON1.RBOP] = L["RecipeBOPFilter"],
-		[COMMON1.RBOA] = L["RecipeBOAFilter"]
-	}
+	local function InitSpellTooltip(owner, loc, link)
+		spell_tip:SetOwner(owner, "ANCHOR_NONE")
+		spell_tip:ClearAllPoints()
 
-	function ListItem_ShowTooltip(owner, list_entry)
-		if not list_entry then
-			return
+		if loc == "Top" then
+			spell_tip:SetPoint("BOTTOMLEFT", owner, "TOPLEFT")
+		elseif loc == "Bottom" then
+			spell_tip:SetPoint("TOPLEFT", owner, "BOTTOMLEFT")
+		elseif loc == "Left" then
+			spell_tip:SetPoint("TOPRIGHT", owner, "TOPLEFT")
+		elseif loc == "Right" then
+			spell_tip:SetPoint("TOPLEFT", owner, "TOPRIGHT")
 		end
-		local recipe_id = list_entry.recipe_id
-		local recipe = private.recipe_list[recipe_id]
 
-		if not recipe then
-			return
+		-- Add TipTac Support
+		if _G.TipTac and _G.TipTac.AddModifiedTip and not spell_tip.tiptac then
+			_G.TipTac:AddModifiedTip(spell_tip)
+			spell_tip.tiptac = true
 		end
+
+		-- Set the spell tooltip's scale, and copy its other values from GameTooltip so AddOns which modify it will work.
+		spell_tip:SetBackdrop(_G.GameTooltip:GetBackdrop())
+		spell_tip:SetBackdropColor(_G.GameTooltip:GetBackdropColor())
+		spell_tip:SetBackdropBorderColor(_G.GameTooltip:GetBackdropBorderColor())
+		spell_tip:SetScale(addon.db.profile.tooltip.scale)
+		spell_tip:SetClampedToScreen(true)
+		spell_tip:SetHyperlink(link)
+		spell_tip:Show()
+	end
+
+	local function InitializeTooltips(spell_id)
 		local spell_tip_anchor = addon.db.profile.spelltooltiplocation
 		local acquire_tip_anchor = addon.db.profile.acquiretooltiplocation
-		local spell_link = GetSpellLink(recipe.spell_id)
+		local spell_link = _G.GetSpellLink(spell_id)
 		local MainPanel = addon.Frame
 
 		if acquire_tip_anchor == _G.OFF then
 			QTip:Release(acquire_tip)
 
 			-- If we have the spell link tooltip, anchor it to MainPanel instead so it shows
-			if spell_tip_anchor ~= _G.OFF and spell_link then
-				SetSpellTooltip(MainPanel, spell_tip_anchor, spell_link)
-			else
+			if spell_tip_anchor == _G.OFF then
 				spell_tip:Hide()
+			elseif spell_link then
+				InitSpellTooltip(MainPanel, spell_tip_anchor, spell_link)
 			end
 			return
 		end
 		acquire_tip = QTip:Acquire(private.addon_name.." Tooltip", 2, "LEFT", "LEFT")
 		acquire_tip:ClearAllPoints()
+		acquire_tip:SetClampedToScreen(true)
+		acquire_tip:Clear()
+		acquire_tip:SetScale(addon.db.profile.tooltip.scale)
+
+		if _G.TipTac and _G.TipTac.AddModifiedTip then
+			-- Pass true as second parameter because hooking OnHide causes C stack overflows -Torhal
+			_G.TipTac:AddModifiedTip(acquire_tip, true)
+		end
 
 		if acquire_tip_anchor == "Right" then
 			acquire_tip:SetPoint("TOPLEFT", MainPanel, "TOPRIGHT", MainPanel.is_expanded and -90 or -35, 0)
@@ -1854,105 +1825,105 @@ do
 		elseif acquire_tip_anchor == "Bottom" then
 			acquire_tip:SetPoint("TOPLEFT", MainPanel, "BOTTOMLEFT", 0, 55)
 		elseif acquire_tip_anchor == "Mouse" then
-			local x, y = GetCursorPosition()
-			local uiscale = UIParent:GetEffectiveScale()
+			local x, y = _G.GetCursorPosition()
+			local uiscale = _G.UIParent:GetEffectiveScale()
 
-			acquire_tip:SetPoint("BOTTOMLEFT", UIParent, "BOTTOMLEFT", x / uiscale, y / uiscale)
+			acquire_tip:SetPoint("BOTTOMLEFT", _G.UIParent, "BOTTOMLEFT", x / uiscale, y / uiscale)
 		end
-		acquire_tip:SetClampedToScreen(true)
 
-		if _G.TipTac and _G.TipTac.AddModifiedTip then
-			-- Pass true as second parameter because hooking OnHide causes C stack overflows -Torhal
-			_G.TipTac:AddModifiedTip(acquire_tip, true)
+		-- If we have the spell link tooltip, link it to the acquire tooltip.
+		if spell_tip_anchor == _G.OFF then
+			spell_tip:Hide()
+		elseif spell_link then
+			InitSpellTooltip(acquire_tip, spell_tip_anchor, spell_link)
 		end
-		local _, _, _, quality_color = GetItemQualityColor(recipe.quality)
+	end
 
-		acquire_tip:Clear()
-		acquire_tip:SetScale(addon.db.profile.tooltip.scale)
+	local BINDING_FLAGS = {
+		[COMMON1.IBOE] = L["BOEFilter"],
+		[COMMON1.IBOP] = L["BOPFilter"],
+		[COMMON1.IBOA] = L["BOAFilter"],
+		[COMMON1.RBOE] = L["RecipeBOEFilter"],
+		[COMMON1.RBOP] = L["RecipeBOPFilter"],
+		[COMMON1.RBOA] = L["RecipeBOAFilter"]
+	}
+
+	local NON_COORD_ACQUIRES = {
+		[A.WORLD_DROP] = true,
+		[A.CUSTOM] = true,
+		[A.ACHIEVEMENT] = true,
+	}
+
+	function ListItem_ShowTooltip(owner, list_entry)
+		if not list_entry then
+			return
+		end
+		local recipe = private.recipe_list[list_entry.recipe_id]
+
+		if not recipe then
+			return
+		end
+		InitializeTooltips(recipe.spell_id)
+
 		acquire_tip:AddHeader()
-		acquire_tip:SetCell(1, 1, quality_color..recipe.name, "CENTER", 2)
+		acquire_tip:SetCell(1, 1, _G.select(4, _G.GetItemQualityColor(recipe.quality))..recipe.name, "CENTER", 2)
 
-		-- check if the recipe is excluded
-		if addon.db.profile.exclusionlist[recipe_id] then
+		if addon.db.profile.exclusionlist[list_entry.recipe_id] then
 			ttAdd(0, -1, true, L["RECIPE_EXCLUDED"], "ff0000")
 		end
 
 		-- Add in skill level requirement, colored correctly
-		local color_1 = BASIC_COLORS["normal"]
-		local color_2
-
 		local skill_level = private.current_profession_scanlevel
-		local recipe_level = recipe.skill_level
-		local optimal_level = recipe.optimal_level
-		local medium_level = recipe.medium_level
-		local easy_level = recipe.easy_level
-		local trivial_level = recipe.trivial_level
-		local difficulty = private.difficulty_colors
 
-		if recipe_level > skill_level then
-			color_2 = difficulty["impossible"]
-		elseif skill_level >= trivial_level then
-			color_2 = difficulty["trivial"]
-		elseif skill_level >= easy_level then
-			color_2 = difficulty["easy"]
-		elseif skill_level >= medium_level then
-			color_2 = difficulty["medium"]
-		elseif skill_level >= optimal_level then
-			color_2 = difficulty["optimal"]
+		if recipe.skill_level > skill_level then
+			ttAdd(0, -1, false, string.format("%s:", _G.SKILL_LEVEL), BASIC_COLORS["normal"], recipe.skill_level, private.difficulty_colors["impossible"])
+		elseif skill_level >= recipe.trivial_level then
+			ttAdd(0, -1, false, string.format("%s:", _G.SKILL_LEVEL), BASIC_COLORS["normal"], recipe.skill_level, private.difficulty_colors["trivial"])
+		elseif skill_level >= recipe.easy_level then
+			ttAdd(0, -1, false, string.format("%s:", _G.SKILL_LEVEL), BASIC_COLORS["normal"], recipe.skill_level, private.difficulty_colors["easy"])
+		elseif skill_level >= recipe.medium_level then
+			ttAdd(0, -1, false, string.format("%s:", _G.SKILL_LEVEL), BASIC_COLORS["normal"], recipe.skill_level, private.difficulty_colors["medium"])
+		elseif skill_level >= recipe.optimal_level then
+			ttAdd(0, -1, false, string.format("%s:", _G.SKILL_LEVEL), BASIC_COLORS["normal"], recipe.skill_level, private.difficulty_colors["optimal"])
 		else
-			color_2 = difficulty["trivial"]
+			ttAdd(0, -1, false, string.format("%s:", _G.SKILL_LEVEL), BASIC_COLORS["normal"], recipe.skill_level, private.difficulty_colors["trivial"])
 		end
-		ttAdd(0, -1, false, string.format("%s:", _G.SKILL_LEVEL), color_1, recipe.skill_level, color_2)
-
-		-- Binding info
 		acquire_tip:AddSeparator()
-		color_1 = BASIC_COLORS["normal"]
 
 		for flag, label in pairs(BINDING_FLAGS) do
 			if _G.bit.band(recipe.flags.common1, flag) == flag then
-				ttAdd(0, -1, true, label, color_1)
+				ttAdd(0, -1, true, label, BASIC_COLORS["normal"])
 			end
 		end
 		acquire_tip:AddSeparator()
 
-		if recipe.specialty then
-			local spec = recipe.specialty
-			local spec_name = GetSpellInfo(spec)
-			local known = (spec == Player["Specialty"])
+		local recipe_specialty = recipe.specialty
 
-			ttAdd(0, -1, false, string.format(_G.ITEM_REQ_SKILL, spec_name), known and BASIC_COLORS["white"] or difficulty["impossible"])
+		if recipe_specialty then
+			local hex_color = (recipe_specialty == Player["Specialty"]) and BASIC_COLORS["white"] or private.difficulty_colors["impossible"]
+
+			ttAdd(0, -1, false, _G.ITEM_REQ_SKILL:format(_G.GetSpellInfo(recipe_specialty)), hex_color)
 			acquire_tip:AddSeparator()
 		end
-
 		ttAdd(0, -1, false, L["Obtained From"] .. " : ", BASIC_COLORS["normal"])
 
-		local acquire_id = list_entry.acquire_id
-		local location = list_entry.location_id
-
-		addon:DisplayAcquireData(recipe_id, acquire_id, location, ttAdd)
+		addon:DisplayAcquireData(list_entry.recipe_id, list_entry.acquire_id, list_entry.location_id, ttAdd)
 
 		if not addon.db.profile.hide_tooltip_hint then
-			-- Give the tooltip hint a unique color.
-			color_1 = "c9c781"
+			local HINT_COLOR = "c9c781"
+			local acquire_id = list_entry.acquire_id
 
 			acquire_tip:AddSeparator()
 			acquire_tip:AddSeparator()
 
-			ttAdd(0, -1, 0, L["ALT_CLICK"], color_1)
-			ttAdd(0, -1, 0, L["CTRL_CLICK"], color_1)
-			ttAdd(0, -1, 0, L["SHIFT_CLICK"], color_1)
+			ttAdd(0, -1, 0, L["ALT_CLICK"], HINT_COLOR)
+			ttAdd(0, -1, 0, L["CTRL_CLICK"], HINT_COLOR)
+			ttAdd(0, -1, 0, L["SHIFT_CLICK"], HINT_COLOR)
 
-			if acquire_id ~= A.WORLD_DROP and acquire_id ~= A.CUSTOM and acquire_id ~= A.ACHIEVEMENT and (_G.TomTom or _G.Cartographer_Waypoints) and (addon.db.profile.worldmap or addon.db.profile.minimap) then
-				ttAdd(0, -1, 0, L["CTRL_SHIFT_CLICK"], color_1)
+			if not NON_COORD_ACQUIRES[acquire_id] and (_G.TomTom or _G.Cartographer_Waypoints) and (addon.db.profile.worldmap or addon.db.profile.minimap) then
+				ttAdd(0, -1, 0, L["CTRL_SHIFT_CLICK"], HINT_COLOR)
 			end
 		end
 		acquire_tip:Show()
-
-		-- If we have the spell link tooltip, link it to the acquire tooltip.
-		if spell_tip_anchor ~= _G.OFF and spell_link then
-			SetSpellTooltip(acquire_tip, spell_tip_anchor, spell_link)
-		else
-			spell_tip:Hide()
-		end
 	end
 end	-- do
