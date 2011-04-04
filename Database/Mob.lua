@@ -193,8 +193,6 @@ function addon:InitMob(DB)
 	AddMob(14448,	L["Molt Thorn"],			BZ["Swamp of Sorrows"], 30.4, 41.4)
 
 	-- Tanaris
- 	AddMob(5615,	L["Wastewander Rogue"],			BZ["Tanaris"], 60.4, 39.3)
-	AddMob(5616,	L["Wastewander Thief"],			BZ["Tanaris"], 63.0, 29.9)
 	AddMob(5617,	L["Wastewander Shadow Mage"],		BZ["Tanaris"], 60.0, 37.4)
 	AddMob(5618,	L["Wastewander Bandit"],		BZ["Tanaris"], 63.6, 30.6)
 

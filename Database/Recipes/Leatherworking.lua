@@ -660,8 +660,8 @@ function addon:InitLeatherworking()
 	recipe:SetCraftedItemID(7386)
 	recipe:SetSkillLevels(190, 190, 210, 220, 230)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.LEATHER)
-	recipe:AddVendor(7852, 7854)
-	recipe:AddLimitedVendor(4225, 1, 4589, 1)
+	recipe:AddVendor(7852)
+	recipe:AddLimitedVendor(4225, 1, 4589, 1, 7854, 1)
 
 	-- Dusky Belt -- 9206
 	recipe = AddRecipe(9206, V.ORIG, Q.COMMON)
@@ -728,7 +728,8 @@ function addon:InitLeatherworking()
 	recipe:SetCraftedItemID(8187)
 	recipe:SetSkillLevels(205, 205, 225, 235, 245)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.MAIL)
-	recipe:AddVendor(7852, 7854)
+	recipe:AddVendor(7852)
+	recipe:AddLimitedVendor(7854, 1)
 
 	-- Turtle Scale Breastplate -- 10511
 	recipe = AddRecipe(10511, V.ORIG, Q.COMMON)
@@ -743,7 +744,8 @@ function addon:InitLeatherworking()
 	recipe:SetCraftedItemID(8192)
 	recipe:SetSkillLevels(210, 210, 230, 240, 250)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.DPS, F.LEATHER)
-	recipe:AddVendor(7854, 8160)
+	recipe:AddVendor(8160)
+	recipe:AddLimitedVendor(7854, 1)
 
 	-- Turtle Scale Bracers -- 10518
 	recipe = AddRecipe(10518, V.ORIG, Q.COMMON)
@@ -797,8 +799,8 @@ function addon:InitLeatherworking()
 	recipe:SetRecipeItemID(8398)
 	recipe:SetCraftedItemID(8204)
 	recipe:SetSkillLevels(225, 225, 245, 255, 265)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOE, F.RBOE, F.DPS, F.MAIL)
-	recipe:AddMobDrop(5616)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOE, F.RBOE, F.DPS, F.MAIL)
+	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Wild Leather Vest -- 10544
 	recipe = AddRecipe(10544, V.ORIG, Q.UNCOMMON)
@@ -835,8 +837,8 @@ function addon:InitLeatherworking()
 	recipe:SetRecipeItemID(8399)
 	recipe:SetCraftedItemID(8209)
 	recipe:SetSkillLevels(235, 235, 255, 265, 275)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOE, F.RBOE, F.DPS, F.MAIL)
-	recipe:AddMobDrop(5615)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOE, F.RBOE, F.DPS, F.MAIL)
+	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Turtle Scale Leggings -- 10556
 	recipe = AddRecipe(10556, V.ORIG, Q.COMMON)
@@ -889,8 +891,8 @@ function addon:InitLeatherworking()
 	recipe:SetRecipeItemID(8401)
 	recipe:SetCraftedItemID(8206)
 	recipe:SetSkillLevels(245, 245, 265, 275, 285)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOE, F.RBOE, F.DPS, F.MAIL)
-	recipe:AddMobDrop(5615)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOE, F.RBOE, F.DPS, F.MAIL)
+	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Tough Scorpid Helm -- 10570
 	recipe = AddRecipe(10570, V.ORIG, Q.UNCOMMON)
@@ -1059,7 +1061,8 @@ function addon:InitLeatherworking()
 	recipe:SetCraftedItemID(15061)
 	recipe:SetSkillLevels(270, 270, 290, 300, 310)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.LEATHER)
-	recipe:AddVendor(7852, 7854)
+	recipe:AddVendor(7852)
+	recipe:AddLimitedVendor(7854, 1)
 
 	-- Ironfeather Shoulders -- 19062
 	recipe = AddRecipe(19062, V.ORIG, Q.COMMON)
