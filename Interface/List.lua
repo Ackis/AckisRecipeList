@@ -1561,153 +1561,156 @@ do
 	-------------------------------------------------------------------------------
 	-- Functions for adding individual acquire type data to the tooltip.
 	-------------------------------------------------------------------------------
-	local function Tooltip_AddTrainer(id_num, location, addline_func)
-		local trainer = private.trainer_list[id_num]
+	local COORD_FORMAT = "(%.2f, %.2f)"
 
-		if not trainer or (location and trainer.location ~= location) then
-			return
-		end
-		local display_tip, name_color = GetTipFactionInfo(trainer.faction)
+	local TOOLTIP_ACQUIRE_FUNCS = {
+		[A.TRAINER] = function(recipe_id, identifier, location, acquire_info, addline_func)
+			local trainer = private.trainer_list[identifier]
 
-		if display_tip then
-			local coord_text = ""
+			if not trainer or (location and trainer.location ~= location) then
+				return
+			end
+			local display_tip, name_color = GetTipFactionInfo(trainer.faction)
 
-			if trainer.coord_x ~= 0 and trainer.coord_y ~= 0 then
-				coord_text = "(" .. trainer.coord_x .. ", " .. trainer.coord_y .. ")"
+			if not display_tip then
+				return
 			end
 			addline_func(0, -2, false, L["Trainer"], CATEGORY_COLORS["trainer"], trainer.name, name_color)
-			addline_func(1, -2, true, trainer.location, CATEGORY_COLORS["location"], coord_text, CATEGORY_COLORS["coords"])
-		end
-	end
 
-	local function Tooltip_AddVendor(recipe_id, id_num, location, addline_func)
-		local vendor = private.vendor_list[id_num]
+			if trainer.coord_x ~= 0 and trainer.coord_y ~= 0 then
+				addline_func(1, -2, true, trainer.location, CATEGORY_COLORS["location"], COORD_FORMAT:format(trainer.coord_x, trainer.coord_y), CATEGORY_COLORS["coords"])
+			else
+				addline_func(1, -2, true, trainer.location, CATEGORY_COLORS["location"], "", CATEGORY_COLORS["coords"])
+			end
+		end,
+		[A.VENDOR] = function(recipe_id, identifier, location, acquire_info, addline_func)
+			local vendor = private.vendor_list[identifier]
 
-		if location and vendor.location ~= location then
-			return
-		end
-		local type_color = CATEGORY_COLORS["vendor"]
-		local display_tip, name_color = GetTipFactionInfo(vendor.faction)
+			if not vendor or (location and vendor.location ~= location) then
+				return
+			end
+			local display_tip, name_color = GetTipFactionInfo(vendor.faction)
 
-		if display_tip then
-			local coord_text = ""
+			if not display_tip then
+				return
+			end
+			addline_func(0, -1, false, L["Vendor"], CATEGORY_COLORS["vendor"], vendor.name, name_color)
 
 			if vendor.coord_x ~= 0 and vendor.coord_y ~= 0 then
-				coord_text = "(" .. vendor.coord_x .. ", " .. vendor.coord_y .. ")"
+				addline_func(1, -2, true, vendor.location, CATEGORY_COLORS["location"], COORD_FORMAT:format(vendor.coord_x, vendor.coord_y), CATEGORY_COLORS["coords"])
+			else
+				addline_func(1, -2, true, vendor.location, CATEGORY_COLORS["location"], "", CATEGORY_COLORS["coords"])
 			end
-			addline_func(0, -1, false, L["Vendor"], type_color, vendor.name, name_color)
-			addline_func(1, -2, true, vendor.location, CATEGORY_COLORS["location"], coord_text, CATEGORY_COLORS["coords"])
-
 			local quantity = vendor.item_list[recipe_id]
 
 			if type(quantity) == "number" then
-				addline_func(2, -2, true, L["LIMITED_SUPPLY"], type_color, string.format("(%d)", quantity), BASIC_COLORS["white"])
+				addline_func(2, -2, true, L["LIMITED_SUPPLY"], CATEGORY_COLORS["vendor"], string.format("(%d)", quantity), BASIC_COLORS["white"])
 			end
-		end
-	end
+		end,
+		[A.MOB_DROP] = function(recipe_id, identifier, location, acquire_info, addline_func)
+			local mob = private.mob_list[identifier]
 
-	local function Tooltip_AddMobDrop(id_num, location, addline_func)
-		local mob = private.mob_list[id_num]
+			if not mob or (location and mob.location ~= location) then
+				return
+			end
+			addline_func(0, -1, false, L["Mob Drop"], CATEGORY_COLORS["mobdrop"], mob.name, private.reputation_colors["hostile"])
 
-		if location and mob.location ~= location then
-			return
-		end
-		local coord_text = ""
+			if mob.coord_x ~= 0 and mob.coord_y ~= 0 then
+				addline_func(1, -2, true, mob.location, CATEGORY_COLORS["location"], COORD_FORMAT:format(mob.coord_x, mob.coord_y), CATEGORY_COLORS["coords"])
+			else
+				addline_func(1, -2, true, mob.location, CATEGORY_COLORS["location"], "", CATEGORY_COLORS["coords"])
 
-		if mob.coord_x ~= 0 and mob.coord_y ~= 0 then
-			coord_text = "(" .. mob.coord_x .. ", " .. mob.coord_y .. ")"
-		end
-		addline_func(0, -1, false, L["Mob Drop"], CATEGORY_COLORS["mobdrop"], mob.name, private.reputation_colors["hostile"])
-		addline_func(1, -2, true, mob.location, CATEGORY_COLORS["location"], coord_text, CATEGORY_COLORS["coords"])
-	end
+			end
+		end,
+		[A.QUEST] = function(recipe_id, identifier, location, acquire_info, addline_func)
+			local quest = private.quest_list[identifier]
 
-	local function Tooltip_AddQuest(id_num, location, addline_func)
-		local quest = private.quest_list[id_num]
+			if not quest or (location and quest.location ~= location) then
+				return
+			end
+			local display_tip, name_color = GetTipFactionInfo(quest.faction)
 
-		if location and quest.location ~= location then
-			return
-		end
-		local type_color = CATEGORY_COLORS["quest"]
-		local display_tip, name_color = GetTipFactionInfo(quest.faction)
-
-		if display_tip then
-			addline_func(0, -1, false, L["Quest"], type_color, private.quest_names[id_num], name_color)
+			if not display_tip then
+				return
+			end
+			addline_func(0, -1, false, L["Quest"], CATEGORY_COLORS["quest"], private.quest_names[identifier], name_color)
 
 			if quest.coord_x ~= 0 and quest.coord_y ~= 0 then
-				addline_func(1, -2, true, quest.location, CATEGORY_COLORS["location"], ("(%.2f, %.2f)"):format(quest.coord_x, quest.coord_y), CATEGORY_COLORS["coords"])
+				addline_func(1, -2, true, quest.location, CATEGORY_COLORS["location"], COORD_FORMAT:format(quest.coord_x, quest.coord_y), CATEGORY_COLORS["coords"])
 			else
 				addline_func(1, -2, true, quest.location, CATEGORY_COLORS["location"], "", CATEGORY_COLORS["coords"])
 			end
-		end
-	end
+		end,
+		[A.SEASONAL] = function(recipe_id, identifier, location, acquire_info, addline_func)
+			local hex_color = CATEGORY_COLORS["seasonal"]
+			addline_func(0, -1, 0, private.acquire_names[A.SEASONAL], hex_color, private.seasonal_list[identifier].name, hex_color)
+		end,
+		[A.REPUTATION] = function(recipe_id, identifier, location, acquire_info, addline_func)
+			for rep_level, level_info in pairs(acquire_info) do
+				for vendor_id in pairs(level_info) do
+					local rep_vendor = private.vendor_list[vendor_id]
 
-	local function Tooltip_AddRepVendor(id_num, location, rep_level, vendor_id, addline_func)
-		local rep_vendor = private.vendor_list[vendor_id]
+					if rep_vendor and (not location or rep_vendor.location == location) then
+						local display_tip, name_color = GetTipFactionInfo(rep_vendor.faction)
 
-		if location and rep_vendor.location ~= location then
-			return
-		end
-		local display_tip, name_color = GetTipFactionInfo(rep_vendor.faction)
+						if display_tip then
+							addline_func(0, -1, false, _G.REPUTATION, CATEGORY_COLORS["reputation"], private.reputation_list[identifier].name, CATEGORY_COLORS["repname"])
 
-		if display_tip then
-			addline_func(0, -1, false, _G.REPUTATION, CATEGORY_COLORS["reputation"], private.reputation_list[id_num].name, CATEGORY_COLORS["repname"])
+							if rep_level == 0 then
+								addline_func(1, -2, false, FACTION_NEUTRAL, private.reputation_colors["neutral"], rep_vendor.name, name_color)
+							elseif rep_level == 1 then
+								addline_func(1, -2, false, BFAC["Friendly"], private.reputation_colors["friendly"], rep_vendor.name, name_color)
+							elseif rep_level == 2 then
+								addline_func(1, -2, false, BFAC["Honored"], private.reputation_colors["honored"], rep_vendor.name, name_color)
+							elseif rep_level == 3 then
+								addline_func(1, -2, false, BFAC["Revered"], private.reputation_colors["revered"], rep_vendor.name, name_color)
+							else
+								addline_func(1, -2, false, BFAC["Exalted"], private.reputation_colors["exalted"], rep_vendor.name, name_color)
+							end
 
-			if rep_level == 0 then
-				addline_func(1, -2, false, FACTION_NEUTRAL, private.reputation_colors["neutral"], rep_vendor.name, name_color)
-			elseif rep_level == 1 then
-				addline_func(1, -2, false, BFAC["Friendly"], private.reputation_colors["friendly"], rep_vendor.name, name_color)
-			elseif rep_level == 2 then
-				addline_func(1, -2, false, BFAC["Honored"], private.reputation_colors["honored"], rep_vendor.name, name_color)
-			elseif rep_level == 3 then
-				addline_func(1, -2, false, BFAC["Revered"], private.reputation_colors["revered"], rep_vendor.name, name_color)
-			else
-				addline_func(1, -2, false, BFAC["Exalted"], private.reputation_colors["exalted"], rep_vendor.name, name_color)
+							if rep_vendor.coord_x ~= 0 and rep_vendor.coord_y ~= 0 then
+								addline_func(2, -2, true, rep_vendor.location, CATEGORY_COLORS["location"], COORD_FORMAT:format(rep_vendor.coord_x, rep_vendor.coord_y), CATEGORY_COLORS["coords"])
+							else
+								addline_func(2, -2, true, rep_vendor.location, CATEGORY_COLORS["location"], "", CATEGORY_COLORS["coords"])
+							end
+						end
+					end
+				end
 			end
+		end,
+		[A.WORLD_DROP] = function(recipe_id, identifier, location, acquire_info, addline_func)
+			local drop_location = type(identifier) == "string" and BZ[identifier] or _G.UNKNOWN
 
-			if rep_vendor.coord_x ~= 0 and rep_vendor.coord_y ~= 0 then
-				addline_func(2, -2, true, rep_vendor.location, CATEGORY_COLORS["location"], ("(%.2f, %.2f)"):format(rep_vendor.coord_x, rep_vendor.coord_y), CATEGORY_COLORS["coords"])
-			else
-				addline_func(2, -2, true, rep_vendor.location, CATEGORY_COLORS["location"], "", CATEGORY_COLORS["coords"])
+			if location and drop_location ~= location then
+				return
 			end
-		end
-	end
+			local recipe = private.recipe_list[recipe_id]
+			local recipe_item_id = recipe:RecipeItemID()
+			local recipe_item_level = recipe_item_id and _G.select(4, _G.GetItemInfo(recipe_item_id))
+			local quality_color = string.gsub(_G.select(4, _G.GetItemQualityColor(recipe.quality)), "|cff", "")
+			local location_text
 
-	local function Tooltip_AddWorldDrop(recipe_id, id_num, location, addline_func)
-		local drop_location = type(id_num) == "string" and BZ[id_num] or nil
+			if recipe_item_level then
+				location_text = ("%s (%d - %d)"):format(drop_location, recipe_item_level - 5, recipe_item_level + 5)
+			else
+				location_text = drop_location
+			end
+			addline_func(0, -1, false, L["World Drop"], quality_color, location_text, CATEGORY_COLORS["location"])
+		end,
+		[A.CUSTOM] = function(recipe_id, identifier, location, acquire_info, addline_func)
+			addline_func(0, -1, false, private.custom_list[identifier].name, CATEGORY_COLORS["custom"])
+		end,
+		[A.ACHIEVEMENT] = function(recipe_id, identifier, location, acquire_info, addline_func)
+			local recipe = private.recipe_list[recipe_id]
+			local _, achievement_name, _, _, _, _, _, achievement_desc = _G.GetAchievementInfo(identifier)
 
-		if location and drop_location ~= location then
-			return
-		end
-		local recipe_item_id = private.recipe_list[recipe_id]:RecipeItemID()
-		local _, recipe_item_level
-
-		if recipe_item_id then
-			_, _, _, recipe_item_level = _G.GetItemInfo(recipe_item_id)
-		end
-		local _, _, _, quality_color = _G.GetItemQualityColor(private.recipe_list[recipe_id].quality)
-		local type_color = string.gsub(quality_color, "|cff", "")
-
-		if type(id_num) == "string" then
-			local location_text = recipe_item_level and string.format("%s (%d - %d)", drop_location, recipe_item_level - 5, recipe_item_level + 5) or drop_location
-
-			addline_func(0, -1, false, L["World Drop"], type_color, location_text, CATEGORY_COLORS["location"])
-		else
-			local location_text = recipe_item_level and string.format("%s (%d - %d)", _G.UNKNOWN, recipe_item_level - 5, recipe_item_level + 5) or _G.UNKNOWN
-
-			addline_func(0, -1, false, L["World Drop"], type_color, location_text, CATEGORY_COLORS["location"])
-		end
-	end
-
-	local function Tooltip_AddAchievement(recipe_id, id_num, addline_func)
-		local recipe = private.recipe_list[recipe_id]
-		local _, achievement_name, _, _, _, _, _, achievement_desc = _G.GetAchievementInfo(id_num)
-
-		-- The recipe is an actual reward from an achievement if flagged - else we're just using the text to describe how to get it.
-		if recipe:HasFilter("common1", "ACHIEVEMENT") then
-			addline_func(0, -1, false, _G.ACHIEVEMENTS, CATEGORY_COLORS["achievement"], achievement_name, BASIC_COLORS["normal"])
-		end
-		addline_func(0, -1, false, achievement_desc, CATEGORY_COLORS["custom"])
-	end
+			-- The recipe is an actual reward from an achievement if flagged - else we're just using the text to describe how to get it.
+			if recipe:HasFilter("common1", "ACHIEVEMENT") then
+				addline_func(0, -1, false, _G.ACHIEVEMENTS, CATEGORY_COLORS["achievement"], achievement_name, BASIC_COLORS["normal"])
+			end
+			addline_func(0, -1, false, achievement_desc, CATEGORY_COLORS["custom"])
+		end,
+	}
 
 	-------------------------------------------------------------------------------
 	-- Public API function for displaying a recipe's acquire data.
@@ -1723,30 +1726,11 @@ do
 
 		for acquire_type, acquire_data in pairs(recipe.acquire_data) do
 			if not acquire_id or acquire_type == acquire_id then
-				for id_num, info in pairs(acquire_data) do
-					if acquire_type == A.TRAINER then
-						Tooltip_AddTrainer(id_num, location, addline_func)
-					elseif acquire_type == A.VENDOR then
-						Tooltip_AddVendor(recipe_id, id_num, location, addline_func)
-					elseif acquire_type == A.MOB_DROP then
-						Tooltip_AddMobDrop(id_num, location, addline_func)
-					elseif acquire_type == A.QUEST then
-						Tooltip_AddQuest(id_num, location, addline_func)
-					elseif acquire_type == A.SEASONAL then
-						local color_1 = CATEGORY_COLORS["seasonal"]
-						addline_func(0, -1, 0, private.acquire_names[A.SEASONAL], color_1, private.seasonal_list[id_num].name, color_1)
-					elseif acquire_type == A.REPUTATION then
-						for rep_level, level_info in pairs(info) do
-							for vendor_id in pairs(level_info) do
-								Tooltip_AddRepVendor(id_num, location, rep_level, vendor_id, addline_func)
-							end
-						end
-					elseif acquire_type == A.WORLD_DROP then
-						Tooltip_AddWorldDrop(recipe_id, id_num, location, addline_func)
-					elseif acquire_type == A.CUSTOM then
-						addline_func(0, -1, false, private.custom_list[id_num].name, CATEGORY_COLORS["custom"])
-					elseif acquire_type == A.ACHIEVEMENT then
-						Tooltip_AddAchievement(recipe_id, id_num, addline_func)
+				local populate_func = TOOLTIP_ACQUIRE_FUNCS[acquire_type]
+
+				for identifier, info in pairs(acquire_data) do
+					if populate_func then
+						populate_func(recipe_id, identifier, location, info, addline_func)
 					else
 						addline_func(0, -1, 0, L["Unhandled Recipe"], BASIC_COLORS["normal"])
 					end
