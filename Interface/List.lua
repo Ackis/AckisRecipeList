@@ -9,6 +9,7 @@ local math = _G.math
 
 local bit = _G.bit
 local pairs = _G.pairs
+local select = _G.select
 local type = _G.type
 
 -------------------------------------------------------------------------------
@@ -22,8 +23,6 @@ local L		= LibStub("AceLocale-3.0"):GetLocale(private.addon_name)
 local BFAC	= LibStub("LibBabble-Faction-3.0"):GetLookupTable()
 local BZ	= LibStub("LibBabble-Zone-3.0"):GetLookupTable()
 local QTip	= LibStub("LibQTip-1.0")
-
-local Player	= private.Player
 
 -------------------------------------------------------------------------------
 -- Constants
@@ -578,7 +577,7 @@ function private.InitializeListFrame()
 			-------------------------------------------------------------------------------
 
 			-- Display both horde and alliance factions?
-			if not general_filters.faction and not Player:HasRecipeFaction(recipe) then
+			if not general_filters.faction and not private.Player:HasRecipeFaction(recipe) then
 				return false
 			end
 
@@ -591,7 +590,7 @@ function private.InitializeListFrame()
 			if not general_filters.specialty then
 				local specialty = recipe.specialty
 
-				if specialty and specialty ~= Player["Specialty"] then
+				if specialty and specialty ~= private.Player["Specialty"] then
 					return false
 				end
 			end
@@ -756,10 +755,11 @@ function private.InitializeListFrame()
 					recipe:AddState("VISIBLE")
 				end
 			end
-			Player.recipes_total = recipes_total
-			Player.recipes_known = recipes_known
-			Player.recipes_total_filtered = recipes_total_filtered
-			Player.recipes_known_filtered = recipes_known_filtered
+			local player = private.Player
+			player.recipes_total = recipes_total
+			player.recipes_known = recipes_known
+			player.recipes_total_filtered = recipes_total_filtered
+			player.recipes_known_filtered = recipes_known_filtered
 
 			-------------------------------------------------------------------------------
 			-- Mark all exclusions in the recipe database to not be displayed, and update
@@ -781,8 +781,8 @@ function private.InitializeListFrame()
 					end
 				end
 			end
-			Player.excluded_recipes_known = known_count
-			Player.excluded_recipes_unknown = unknown_count
+			player.excluded_recipes_known = known_count
+			player.excluded_recipes_unknown = unknown_count
 
 			-------------------------------------------------------------------------------
 			-- Initialize the expand button and entries for the current tab.
@@ -801,13 +801,11 @@ function private.InitializeListFrame()
 			-- Update the progress bar display.
 			-------------------------------------------------------------------------------
 			local profile = addon.db.profile
-			local max_value = profile.includefiltered and Player.recipes_total or (Player.recipes_total_filtered + (Player.recipes_known - Player.recipes_known_filtered))
-			--local cur_value = profile.includefiltered and Player.recipes_known or Player.recipes_known_filtered
-			-- Current value will always be what we know regardless of filters.
-			local cur_value = Player.recipes_known
+			local max_value = profile.includefiltered and player.recipes_total or (player.recipes_total_filtered + (player.recipes_known - player.recipes_known_filtered))
+			local cur_value = player.recipes_known	-- Current value will always be what we know regardless of filters.
 
 			if not profile.includeexcluded and not profile.ignoreexclusionlist then
-				max_value = max_value - Player.excluded_recipes_known
+				max_value = max_value - player.excluded_recipes_known
 			end
 			local progress_bar = MainPanel.progress_bar
 
@@ -880,20 +878,21 @@ function private.InitializeListFrame()
 				showpopup = true
 			end
 			local editbox_text = MainPanel.search_editbox:GetText()
+			local player = private.Player
 
-			if Player.recipes_total == 0 then
+			if player.recipes_total == 0 then
 				if showpopup then
 					_G.StaticPopup_Show("ARL_NOTSCANNED")
 				end
-			elseif Player.recipes_known == Player.recipes_total then
+			elseif player.recipes_known == player.recipes_total then
 				if showpopup then
 					_G.StaticPopup_Show("ARL_ALLKNOWN")
 				end
-			elseif (Player.recipes_total_filtered - Player.recipes_known_filtered) == 0 then
+			elseif (player.recipes_total_filtered - player.recipes_known_filtered) == 0 then
 				if showpopup then
 					_G.StaticPopup_Show("ARL_ALLFILTERED")
 				end
-			elseif Player.excluded_recipes_unknown ~= 0 then
+			elseif player.excluded_recipes_unknown ~= 0 then
 				if showpopup then
 					_G.StaticPopup_Show("ARL_ALLEXCLUDED")
 				end
@@ -903,15 +902,15 @@ function private.InitializeListFrame()
 				addon:Print(L["NO_DISPLAY"])
 				addon:Debug("Current tab is %s", _G.tostring(addon.db.profile.current_tab))
 				addon:Debug("recipes_total check for 0")
-				addon:Debug("recipes_total: " .. Player.recipes_total)
+				addon:Debug("recipes_total: " .. player.recipes_total)
 				addon:Debug("recipes_total check for equal to recipes_total")
-				addon:Debug("recipes_known: " .. Player.recipes_known)
-				addon:Debug("recipes_total: " .. Player.recipes_total)
+				addon:Debug("recipes_known: " .. player.recipes_known)
+				addon:Debug("recipes_total: " .. player.recipes_total)
 				addon:Debug("recipes_total_filtered - recipes_known_filtered = 0")
-				addon:Debug("recipes_total_filtered: " .. Player.recipes_total_filtered)
-				addon:Debug("recipes_known_filtered: " .. Player.recipes_known_filtered)
+				addon:Debug("recipes_total_filtered: " .. player.recipes_total_filtered)
+				addon:Debug("recipes_known_filtered: " .. player.recipes_known_filtered)
 				addon:Debug("excluded_recipes_unknown ~= 0")
-				addon:Debug("excluded_recipes_unknown: " .. Player.excluded_recipes_unknown)
+				addon:Debug("excluded_recipes_unknown: " .. player.excluded_recipes_unknown)
 			end
 			return
 		end
@@ -1016,7 +1015,7 @@ function private.InitializeListFrame()
 		if addon.db.profile.filters.general.faction then
 			return true
 		end
-		return (not faction or faction == Player.faction or faction == FACTION_NEUTRAL)
+		return (not faction or faction == private.Player.faction or faction == FACTION_NEUTRAL)
 	end
 
 	-- Padding for list entries/subentries
@@ -1026,7 +1025,7 @@ function private.InitializeListFrame()
 	local function ColorNameByFaction(name, faction)
 		if faction == FACTION_NEUTRAL then
 			name = SetTextColor(private.reputation_colors["neutral"], name)
-		elseif faction == BFAC[Player.faction] then
+		elseif faction == private.Player.faction then
 			name = SetTextColor(private.reputation_colors["exalted"], name)
 		else
 			name = SetTextColor(private.reputation_colors["hated"], name)
@@ -1241,7 +1240,7 @@ function private.InitializeListFrame()
 		end
 		local t = AcquireTable()
 
-		t.text = string.format("%s%s%s|r%s", PADDING, _G.select(4, _G.GetItemQualityColor(private.recipe_list[recipe_id].quality)), L["World Drop"], drop_location)
+		t.text = string.format("%s%s%s|r%s", PADDING, select(4, _G.GetItemQualityColor(private.recipe_list[recipe_id].quality)), L["World Drop"], drop_location)
 		t.recipe_id = recipe_id
 
 		return ListFrame:InsertEntry(t, parent_entry, entry_index, entry_type, true)
@@ -1260,7 +1259,7 @@ function private.InitializeListFrame()
 		local entry = AcquireTable()
 
 		entry.text = ("%s%s %s"):format(PADDING, hide_type and "" or SetTextColor(CATEGORY_COLORS["achievement"], _G.ACHIEVEMENTS) .. ":",
-					    SetTextColor(BASIC_COLORS["normal"], _G.select(2, _G.GetAchievementInfo(id_num))))
+					    SetTextColor(BASIC_COLORS["normal"], select(2, _G.GetAchievementInfo(id_num))))
 		entry.recipe_id = recipe_id
 
 		return ListFrame:InsertEntry(entry, parent_entry, entry_index, entry_type, true)
@@ -1548,7 +1547,7 @@ do
 		if comp_faction == FACTION_NEUTRAL then
 			color = private.reputation_colors["neutral"]
 			display_tip = true
-		elseif comp_faction == BFAC[Player.faction] then
+		elseif comp_faction == private.Player.faction then
 			color = private.reputation_colors["exalted"]
 			display_tip = true
 		else
@@ -1686,8 +1685,8 @@ do
 			end
 			local recipe = private.recipe_list[recipe_id]
 			local recipe_item_id = recipe:RecipeItemID()
-			local recipe_item_level = recipe_item_id and _G.select(4, _G.GetItemInfo(recipe_item_id))
-			local quality_color = string.gsub(_G.select(4, _G.GetItemQualityColor(recipe.quality)), "|cff", "")
+			local recipe_item_level = recipe_item_id and select(4, _G.GetItemInfo(recipe_item_id))
+			local quality_color = string.gsub(select(4, _G.GetItemQualityColor(recipe.quality)), "|cff", "")
 			local location_text
 
 			if recipe_item_level then
@@ -1850,7 +1849,7 @@ do
 		InitializeTooltips(recipe.spell_id)
 
 		acquire_tip:AddHeader()
-		acquire_tip:SetCell(1, 1, _G.select(4, _G.GetItemQualityColor(recipe.quality))..recipe.name, "CENTER", 2)
+		acquire_tip:SetCell(1, 1, select(4, _G.GetItemQualityColor(recipe.quality))..recipe.name, "CENTER", 2)
 
 		if addon.db.profile.exclusionlist[list_entry.recipe_id] then
 			ttAdd(0, -1, true, L["RECIPE_EXCLUDED"], "ff0000")
@@ -1884,7 +1883,7 @@ do
 		local recipe_specialty = recipe.specialty
 
 		if recipe_specialty then
-			local hex_color = (recipe_specialty == Player["Specialty"]) and BASIC_COLORS["white"] or private.difficulty_colors["impossible"]
+			local hex_color = (recipe_specialty == private.Player["Specialty"]) and BASIC_COLORS["white"] or private.difficulty_colors["impossible"]
 
 			ttAdd(0, -1, false, _G.ITEM_REQ_SKILL:format(_G.GetSpellInfo(recipe_specialty)), hex_color)
 			acquire_tip:AddSeparator()
