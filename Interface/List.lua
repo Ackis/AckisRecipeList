@@ -1794,17 +1794,14 @@ do
 						Tooltip_AddWorldDrop(recipe_id, id_num, location, addline_func)
 					elseif acquire_type == A.CUSTOM then
 						addline_func(0, -1, false, private.custom_list[id_num].name, CATEGORY_COLORS["custom"])
-						--@alpha@
 					elseif acquire_type == A.ACHIEVEMENT then
 						Tooltip_AddAchievement(recipe_id, id_num, addline_func)
-					elseif can_display then
-						-- Unhandled
+					else
 						addline_func(0, -1, 0, L["Unhandled Recipe"], BASIC_COLORS["normal"])
-						--@end-alpha@
 					end
-				end	-- for id_num
-			end	-- if can_display
-		end	-- for acquire_type
+				end
+			end
+		end
 	end
 
 	-------------------------------------------------------------------------------
