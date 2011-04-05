@@ -1326,8 +1326,8 @@ function addon:InitLeatherworking()
 	recipe:SetRecipeItemID(15771)
 	recipe:SetCraftedItemID(15059)
 	recipe:SetSkillLevels(300, 300, 320, 330, 340)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.LEATHER)
-	recipe:AddMobDrop(1813)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.LEATHER)
+	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Devilsaur Leggings -- 19097
 	recipe = AddRecipe(19097, V.ORIG, Q.RARE)
