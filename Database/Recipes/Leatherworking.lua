@@ -425,7 +425,7 @@ function addon:InitLeatherworking()
 	recipe:SetCraftedItemID(5783)
 	recipe:SetSkillLevels(190, 190, 210, 220, 230)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.MOB_DROP, F.IBOE, F.RBOE, F.DPS, F.LEATHER)
-	recipe:AddMobDrop(1561, 2636)
+	recipe:AddMobDrop(1561)
 	recipe:AddLimitedVendor(4897, 1)
 
 	-- Handstitched Leather Vest -- 7126
