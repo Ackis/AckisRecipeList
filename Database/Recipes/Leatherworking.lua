@@ -922,8 +922,8 @@ function addon:InitLeatherworking()
 	recipe = AddRecipe(10619, V.ORIG, Q.COMMON)
 	recipe:SetCraftedItemID(8347)
 	recipe:SetSkillLevels(225, 225, 245, 255, 265)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.MAIL)
-	recipe:AddTrainer(7867, 29508)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOE, F.RBOP, F.MAIL)
+	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Wolfshead Helm -- 10621
 	recipe = AddRecipe(10621, V.ORIG, Q.COMMON)
@@ -958,7 +958,7 @@ function addon:InitLeatherworking()
 	recipe:SetCraftedItemID(8367)
 	recipe:SetSkillLevels(255, 255, 275, 285, 295)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.MAIL)
-	recipe:AddTrainer(3365, 4212, 5564, 7867, 21087, 29508, 33581, 33612, 33635)
+	recipe:AddTrainer(3365, 4212, 5564, 21087, 29508, 33581, 33612, 33635)
 
 	-- Cured Rugged Hide -- 19047
 	recipe = AddRecipe(19047, V.ORIG, Q.COMMON)
@@ -1649,14 +1649,14 @@ function addon:InitLeatherworking()
 	recipe:SetCraftedItemID(20295)
 	recipe:SetSkillLevels(300, 300, 320, 330, 340)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.MAIL)
-	recipe:AddTrainer(3365, 4212, 5564, 7867, 21087, 29508, 33581, 33612, 33635)
+	recipe:AddTrainer(3365, 4212, 5564, 21087, 29508, 33581, 33612, 33635)
 
 	-- Green Dragonscale Gauntlets -- 24655
 	recipe = AddRecipe(24655, V.ORIG, Q.COMMON)
 	recipe:SetCraftedItemID(20296)
 	recipe:SetSkillLevels(280, 280, 290, 295, 300)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.MAIL)
-	recipe:AddTrainer(3365, 4212, 5564, 7867, 21087, 29508, 33581, 33612, 33635)
+	recipe:AddTrainer(3365, 4212, 5564, 21087, 29508, 33581, 33612, 33635)
 
 	-- Dreamscale Breastplate -- 24703
 	recipe = AddRecipe(24703, V.ORIG, Q.COMMON)
@@ -2512,7 +2512,7 @@ function addon:InitLeatherworking()
 	recipe:SetCraftedItemID(29971)
 	recipe:SetSkillLevels(260, 260, 280, 290, 300)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.DPS, F.MAIL)
-	recipe:AddTrainer(3365, 4212, 5564, 7867, 21087, 29508, 33581, 33612, 33635)
+	recipe:AddTrainer(3365, 4212, 5564, 21087, 29508, 33581, 33612, 33635)
 
 	-- Primalstorm Breastplate -- 36077
 	recipe = AddRecipe(36077, V.TBC, Q.COMMON)
@@ -2533,7 +2533,7 @@ function addon:InitLeatherworking()
 	recipe:SetCraftedItemID(29975)
 	recipe:SetSkillLevels(330, 330, 350, 360, 370)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.DPS, F.MAIL)
-	recipe:AddTrainer(3365, 4212, 5564, 7867, 21087, 29508, 33581, 33612, 33635)
+	recipe:AddTrainer(3365, 4212, 5564, 21087, 29508, 33581, 33612, 33635)
 
 	-- Belt of Natural Power -- 36349
 	recipe = AddRecipe(36349, V.TBC, Q.EPIC)
