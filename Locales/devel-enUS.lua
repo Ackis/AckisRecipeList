@@ -727,7 +727,6 @@ L["LEATHER_DESC"] = "Recipes that make leather items should be included in the s
 L["LIMITED_SUPPLY"] = "Sold in limited quantity."
 L["LK_WOW_DESC"] = "Recipes available with Wrath of the Lich King."
 L["Lady Alistra"] = "Lady Alistra"
-L["Lady Palanseer"] = "Lady Palanseer"
 L["Lalla Brightweave"] = "Lalla Brightweave"
 L["Landraelanis"] = "Landraelanis"
 L["Lanolis Dewdrop"] = "Lanolis Dewdrop"
