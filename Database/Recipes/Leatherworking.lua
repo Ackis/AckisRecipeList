@@ -4345,7 +4345,7 @@ function addon:InitLeatherworking()
 
 	-- Lightning Lash -- 78460
 	recipe = AddRecipe(78460, V.CATA, Q.COMMON)
-	recipe:SetSkillLevels(425, 425, 520, 525, 530)
+	recipe:SetSkillLevels(525, 525, 525, 525, 530)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	recipe:AddVendor(50172, 50381)
 
@@ -4417,13 +4417,13 @@ function addon:InitLeatherworking()
 
 	-- Razor-Edged Cloak -- 78475
 	recipe = AddRecipe(78475, V.CATA, Q.COMMON)
-	recipe:SetSkillLevels(425, 425, 530, 535, 540)
+	recipe:SetSkillLevels(525, 525, 530, 535, 540)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	recipe:AddVendor(50172, 50381)
 
 	-- Twilight Dragonscale Cloak -- 78476
 	recipe = AddRecipe(78476, V.CATA, Q.COMMON)
-	recipe:SetSkillLevels(425, 425, 530, 535, 540)
+	recipe:SetSkillLevels(525, 525, 530, 535, 540)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	recipe:AddVendor(50172, 50381)
 
