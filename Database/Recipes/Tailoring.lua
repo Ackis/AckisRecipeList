@@ -1073,7 +1073,6 @@ function addon:InitTailoring()
 
 	-- Frostweave Tunic -- 18403
 	recipe = AddRecipe(18403, V.ORIG, Q.COMMON)
-	recipe:SetRecipeItemID(14466)
 	recipe:SetCraftedItemID(13869)
 	recipe:SetSkillLevels(255, 255, 270, 285, 300)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
@@ -1106,7 +1105,6 @@ function addon:InitTailoring()
 
 	-- Runecloth Tunic -- 18407
 	recipe = AddRecipe(18407, V.ORIG, Q.COMMON)
-	recipe:SetRecipeItemID(14470)
 	recipe:SetCraftedItemID(13857)
 	recipe:SetSkillLevels(260, 260, 275, 290, 305)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
@@ -1131,7 +1129,6 @@ function addon:InitTailoring()
 
 	-- Ghostweave Belt -- 18410
 	recipe = AddRecipe(18410, V.ORIG, Q.COMMON)
-	recipe:SetRecipeItemID(14473)
 	recipe:SetCraftedItemID(14143)
 	recipe:SetSkillLevels(265, 265, 280, 295, 310)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE, F.CLOTH)
@@ -1139,7 +1136,6 @@ function addon:InitTailoring()
 
 	-- Frostweave Gloves -- 18411
 	recipe = AddRecipe(18411, V.ORIG, Q.COMMON)
-	recipe:SetRecipeItemID(14474)
 	recipe:SetCraftedItemID(13870)
 	recipe:SetSkillLevels(265, 265, 280, 295, 310)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
@@ -1155,7 +1151,6 @@ function addon:InitTailoring()
 
 	-- Ghostweave Gloves -- 18413
 	recipe = AddRecipe(18413, V.ORIG, Q.COMMON)
-	recipe:SetRecipeItemID(14477)
 	recipe:SetCraftedItemID(14142)
 	recipe:SetSkillLevels(270, 270, 285, 300, 315)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE, F.CLOTH)
@@ -1163,7 +1158,6 @@ function addon:InitTailoring()
 
 	-- Brightcloth Robe -- 18414
 	recipe = AddRecipe(18414, V.ORIG, Q.COMMON)
-	recipe:SetRecipeItemID(14478)
 	recipe:SetCraftedItemID(14100)
 	recipe:SetSkillLevels(270, 270, 285, 300, 315)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE, F.CLOTH)
@@ -1171,7 +1165,6 @@ function addon:InitTailoring()
 
 	-- Brightcloth Gloves -- 18415
 	recipe = AddRecipe(18415, V.ORIG, Q.COMMON)
-	recipe:SetRecipeItemID(14479)
 	recipe:SetCraftedItemID(14101)
 	recipe:SetSkillLevels(270, 270, 285, 300, 315)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE, F.CLOTH)
@@ -1179,7 +1172,6 @@ function addon:InitTailoring()
 
 	-- Ghostweave Vest -- 18416
 	recipe = AddRecipe(18416, V.ORIG, Q.COMMON)
-	recipe:SetRecipeItemID(14480)
 	recipe:SetCraftedItemID(14141)
 	recipe:SetSkillLevels(275, 275, 290, 305, 320)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE, F.CLOTH)
@@ -1187,7 +1179,6 @@ function addon:InitTailoring()
 
 	-- Runecloth Gloves -- 18417
 	recipe = AddRecipe(18417, V.ORIG, Q.COMMON)
-	recipe:SetRecipeItemID(14481)
 	recipe:SetCraftedItemID(13863)
 	recipe:SetSkillLevels(275, 275, 290, 305, 320)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
@@ -1211,7 +1202,6 @@ function addon:InitTailoring()
 
 	-- Brightcloth Cloak -- 18420
 	recipe = AddRecipe(18420, V.ORIG, Q.COMMON)
-	recipe:SetRecipeItemID(14484)
 	recipe:SetCraftedItemID(14103)
 	recipe:SetSkillLevels(275, 275, 290, 305, 320)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOAK)
@@ -1219,7 +1209,6 @@ function addon:InitTailoring()
 
 	-- Wizardweave Leggings -- 18421
 	recipe = AddRecipe(18421, V.ORIG, Q.COMMON)
-	recipe:SetRecipeItemID(14485)
 	recipe:SetCraftedItemID(14132)
 	recipe:SetSkillLevels(275, 275, 290, 305, 320)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE, F.CLOTH)
@@ -1235,7 +1224,6 @@ function addon:InitTailoring()
 
 	-- Runecloth Boots -- 18423
 	recipe = AddRecipe(18423, V.ORIG, Q.COMMON)
-	recipe:SetRecipeItemID(14488)
 	recipe:SetCraftedItemID(13864)
 	recipe:SetSkillLevels(280, 280, 295, 310, 325)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
@@ -1243,12 +1231,10 @@ function addon:InitTailoring()
 
 	-- Frostweave Pants -- 18424
 	recipe = AddRecipe(18424, V.ORIG, Q.COMMON)
-	recipe:SetRecipeItemID(14489)
 	recipe:SetCraftedItemID(13871)
 	recipe:SetSkillLevels(280, 280, 295, 310, 325)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
 	recipe:AddTrainer(1103, 1346, 2399, 2627, 3004, 3363, 3484, 3523, 3704, 4159, 4193, 4576, 5153, 9584, 11052, 11557, 16366, 16640, 16729, 17487, 18749, 18772, 26914, 26964, 26969, 27001, 28699, 33580, 33613, 33636, 33684, 44783, 45559)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
 
 	-- Cindercloth Pants -- 18434
 	recipe = AddRecipe(18434, V.ORIG, Q.UNCOMMON)
@@ -1268,7 +1254,6 @@ function addon:InitTailoring()
 
 	-- Felcloth Boots -- 18437
 	recipe = AddRecipe(18437, V.ORIG, Q.COMMON)
-	recipe:SetRecipeItemID(14492)
 	recipe:SetCraftedItemID(14108)
 	recipe:SetSkillLevels(285, 285, 300, 315, 330)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
@@ -1301,7 +1286,6 @@ function addon:InitTailoring()
 
 	-- Ghostweave Pants -- 18441
 	recipe = AddRecipe(18441, V.ORIG, Q.COMMON)
-	recipe:SetRecipeItemID(14495)
 	recipe:SetCraftedItemID(14144)
 	recipe:SetSkillLevels(290, 290, 305, 320, 335)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE, F.CLOTH)
@@ -1309,7 +1293,6 @@ function addon:InitTailoring()
 
 	-- Felcloth Hood -- 18442
 	recipe = AddRecipe(18442, V.ORIG, Q.COMMON)
-	recipe:SetRecipeItemID(14496)
 	recipe:SetCraftedItemID(14111)
 	recipe:SetSkillLevels(290, 290, 305, 320, 335)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
@@ -1317,7 +1300,6 @@ function addon:InitTailoring()
 
 	-- Runecloth Headband -- 18444
 	recipe = AddRecipe(18444, V.ORIG, Q.COMMON)
-	recipe:SetRecipeItemID(14498)
 	recipe:SetCraftedItemID(13866)
 	recipe:SetSkillLevels(295, 295, 310, 325, 340)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
@@ -1333,7 +1315,6 @@ function addon:InitTailoring()
 
 	-- Wizardweave Robe -- 18446
 	recipe = AddRecipe(18446, V.ORIG, Q.COMMON)
-	recipe:SetRecipeItemID(14500)
 	recipe:SetCraftedItemID(14128)
 	recipe:SetSkillLevels(300, 300, 315, 330, 345)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE, F.CLOTH)
@@ -1366,7 +1347,6 @@ function addon:InitTailoring()
 
 	-- Wizardweave Turban -- 18450
 	recipe = AddRecipe(18450, V.ORIG, Q.COMMON)
-	recipe:SetRecipeItemID(14505)
 	recipe:SetCraftedItemID(14130)
 	recipe:SetSkillLevels(300, 300, 315, 330, 345)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE, F.CLOTH)
