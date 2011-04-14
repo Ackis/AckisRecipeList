@@ -11,7 +11,7 @@ function private:InitializeSmeltingTrainers()
 	self:AddTrainer(1701, "Dank Drizzlecut", "Dun Morogh", 69.3, 55.5, "Alliance")
 	self:AddTrainer(3001, "Brek Stonehoof", "Thunder Bluff", 34.4, 57.9, "Horde") -- COMPLETELY UPDATED
 	self:AddTrainer(3137, "Matt Johnson", "Duskwood", 74, 49.7, "Alliance")
-	self:AddTrainer(3175, "Krunn", "Durotar", 51.9, 40.9, "Horde")
+	self:AddTrainer(3175, "Krunn", "Durotar", 51.9, 40.9, "Horde") -- COMPLETELY UPDATED
 	self:AddTrainer(3357, "Makaru", "Orgrimmar", 72.31, 34.91, "Horde")
 	self:AddTrainer(3555, "Johan Focht", "Silverpine Forest", 43.4, 40.5, "Horde")
 	self:AddTrainer(4254, "Geofram Bouldertoe", "Ironforge", 50.3, 26, "Alliance")

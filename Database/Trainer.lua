@@ -31,7 +31,7 @@ function addon:InitTrainer(DB)
 		private:AddListEntry(DB, id_num, name, location, coord_x, coord_y, faction)
 	end
 
-	AddTrainer(47418, "Runda", "Durotar", 52.8, 42, "Horde")
+	AddTrainer(47418, "Runda", "Durotar", 52.8, 42, "Horde") -- COMPLETELY UPDATED
 
 	self.InitTrainer = nil
 end

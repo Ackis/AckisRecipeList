@@ -12,7 +12,7 @@ function private:InitializeBlacksmithingTrainers()
 	self:AddTrainer(2836, "Brikk Keencraft", "The Cape of Stranglethorn", 44.1, 70.9, "Neutral")
 	self:AddTrainer(2998, "Karn Stonehoof", "Thunder Bluff", 39.4, 55.1, "Horde") -- COMPLETELY UPDATED
 	self:AddTrainer(3136, "Clarise Gnarltree", "Duskwood", 74, 48.5, "Alliance")
-	self:AddTrainer(3174, "Dwukk", "Durotar", 52, 40.7, "Horde")
+	self:AddTrainer(3174, "Dwukk", "Durotar", 52, 40.7, "Horde") -- COMPLETELY UPDATED
 	self:AddTrainer(3355, "Saru Steelfury", "Orgrimmar", 76.5, 34.53, "Horde")
 	self:AddTrainer(3478, "Traugh", "Northern Barrens", 48.3, 56.2, "Horde")
 	self:AddTrainer(3557, "Guillaume Sorouy", "Silverpine Forest", 43.2, 41, "Horde")

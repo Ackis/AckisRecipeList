@@ -17,7 +17,7 @@ function private:InitializeFirstAidTrainers()
 	self:AddTrainer(5150, "Nissa Firestone", "Ironforge", 54, 57.8, "Alliance")
 	self:AddTrainer(5759, "Nurse Neela", "Tirisfal Glades", 61.8, 52.8, "Horde")
 	self:AddTrainer(5939, "Vira Younghoof", "Mulgore", 46.8, 60.8, "Horde")
-	self:AddTrainer(5943, "Rawrk", "Durotar", 54.1, 42, "Horde")
+	self:AddTrainer(5943, "Rawrk", "Durotar", 54.1, 42, "Horde") -- COMPLETELY UPDATED
 	self:AddTrainer(6094, "Byancie", "Teldrassil", 55.3, 56.8, "Alliance")
 	self:AddTrainer(16272, "Kanaria", "Eversong Woods", 48.5, 47.6, "Horde")
 	self:AddTrainer(16662, "Alestus", "Silvermoon City", 77.6, 71.3, "Horde")

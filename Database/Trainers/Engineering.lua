@@ -19,7 +19,7 @@ function private:InitializeEngineeringTrainers()
 	self:AddTrainer(8736, "Buzzek Bracketswing", "Tanaris", 51.7, 30.4, "Neutral") -- COMPLETELY UPDATED
 	self:AddTrainer(8738, "Vazario Linkgrease", "Northern Barrens", 68.5, 69.2, "Neutral")
 	self:AddTrainer(11017, "Roxxik", "Orgrimmar", 56.85, 56.54, "Horde")
-	self:AddTrainer(11025, "Mukdrak", "Durotar", 52.2, 40.8, "Horde")
+	self:AddTrainer(11025, "Mukdrak", "Durotar", 52.2, 40.8, "Horde") -- COMPLETELY UPDATED
 	self:AddTrainer(11031, "Franklin Lloyd", "Undercity", 75.9, 73.7, "Horde")
 	self:AddTrainer(11037, "Jenna Lemkenilli", "Darkshore", 38.3, 41.1, "Alliance")
 	self:AddTrainer(14742, "Zap Farflinger", "Winterspring", 61.2, 37.6, "Neutral")

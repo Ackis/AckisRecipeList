@@ -116,7 +116,7 @@ function addon:InitVendor(DB)
 	AddVendor(3537,		L["Zixil"],				BZ["Hillsbrad Foothills"],		49.8, 60.8, "Neutral") -- COMPLETELY UPDATED
 	AddVendor(3550,		L["Martine Tramblay"],			BZ["Tirisfal Glades"],			65.8, 59.6, "Horde") -- UPDATED
 	AddVendor(3556,		L["Andrew Hilbert"],			BZ["Silverpine Forest"],		43.2, 40.7, "Horde")
-	AddVendor(3881,		L["Grimtak"],				BZ["Durotar"],				51.2, 42.6, "Horde")
+	AddVendor(3881,		L["Grimtak"],				BZ["Durotar"],				50.7, 42.8, "Horde") -- COMPLETELY UPDATED
 	AddVendor(3954,		L["Dalria"],				BZ["Ashenvale"],			35.1, 52.1, "Alliance")
 	AddVendor(3956,		L["Harklan Moongrove"],			BZ["Ashenvale"],			50.8, 67.0, "Alliance")
 	AddVendor(3958,		L["Lardan"],				BZ["Ashenvale"],			34.8, 49.8, "Alliance")
@@ -158,7 +158,7 @@ function addon:InitVendor(DB)
 	AddVendor(5757,		L["Lilly"],				BZ["Silverpine Forest"],		43.1, 50.8, "Horde")
 	AddVendor(5758,		L["Leo Sarn"],				BZ["Silverpine Forest"],		53.9, 82.3, "Horde")
 	AddVendor(5940,		L["Harn Longcast"],			BZ["Mulgore"],				47.5, 55.1, "Horde")
-	AddVendor(5942,		L["Zansoa"],				BZ["Durotar"],				56.1, 73.4, "Horde")
+	AddVendor(5942,		L["Zansoa"],				BZ["Durotar"],				57.4, 77.0, "Horde") -- COMPLETELY UPDATED
 	AddVendor(6568,		L["Vizzklick"],				BZ["Tanaris"],				50.7, 28.7, "Neutral") -- COMPLETELY UPDATED
 	AddVendor(6567,		L["Ghok'kah"],				BZ["Dustwallow Marsh"],			35.2, 30.8, "Horde")
 	AddVendor(6574,		L["Jun'ha"],				BZ["Arathi Highlands"],			72.7, 36.5, "Horde")
