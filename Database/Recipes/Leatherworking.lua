@@ -1070,7 +1070,7 @@ function addon:InitLeatherworking()
 	recipe:SetCraftedItemID(15067)
 	recipe:SetSkillLevels(270, 270, 290, 300, 310)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.LEATHER)
-	recipe:AddVendor(12958)
+	recipe:AddLimitedVendor(12958, 1)
 
 	-- Chimeric Boots -- 19063
 	recipe = AddRecipe(19063, V.ORIG, Q.UNCOMMON)

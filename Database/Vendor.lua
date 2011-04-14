@@ -73,7 +73,7 @@ function addon:InitVendor(DB)
 	AddVendor(2683,		L["Namdo Bizzfizzle"],			BZ["Gnomeregan"],			   0,	 0, "Alliance")
 	AddVendor(2685,		L["Mazk Snipeshot"],			BZ["The Cape of Stranglethorn"],	43.2, 70.2, "Neutral")  -- UPDATED
 	AddVendor(2687,		L["Gnaz Blunderflame"],			BZ["Northern Stranglethorn"],		67.5, 61.5, "Neutral")  -- UPDATED
-	AddVendor(2688,		L["Ruppo Zipcoil"],			BZ["The Hinterlands"],			34.3, 37.9, "Neutral")
+	AddVendor(2688,		L["Ruppo Zipcoil"],			BZ["The Hinterlands"],			34.3, 37.9, "Neutral") -- COMPLETELY UPDATED
 	AddVendor(2697,		L["Clyde Ranthal"],			BZ["Redridge Mountains"],		88.9, 70.9, "Alliance")
 	AddVendor(2698,		L["George Candarte"],			BZ["Hillsbrad Foothills"],		76.7, 58.5, "Horde") -- COMPLETELY UPDATED
 	AddVendor(2699,		L["Rikqiz"],				BZ["The Cape of Stranglethorn"],	43.2, 71.7, "Neutral")   -- UPDATED
@@ -212,7 +212,7 @@ function addon:InitVendor(DB)
 	AddVendor(12943,	L["Werg Thickblade"],			BZ["Tirisfal Glades"],			83.2, 69.7, "Horde")
 	AddVendor(12944,	L["Lokhtos Darkbargainer"],		BZ["Blackrock Depths"],			   0,	 0, "Neutral")
 	AddVendor(12956,	L["Zannok Hidepiercer"],		BZ["Silithus"],				81.9, 17.8, "Neutral")
-	AddVendor(12958,	L["Gigget Zipcoil"],			BZ["The Hinterlands"],			34.5, 38.5, "Neutral")
+	AddVendor(12958,	L["Gigget Zipcoil"],			BZ["The Hinterlands"],			34.5, 38.5, "Neutral") -- COMPLETELY UPDATED
 	AddVendor(12959,	L["Nergal"],				BZ["Un'Goro Crater"],			43.3,  7.7, "Neutral")
 	AddVendor(12962,	L["Wik'Tar"],				BZ["Ashenvale"],			11.8, 34.1, "Horde")
 	AddVendor(13420,	L["Penney Copperpinch"],		BZ["Orgrimmar"],			53.5, 66.1, "Neutral")
@@ -222,7 +222,7 @@ function addon:InitVendor(DB)
 	AddVendor(13435,	L["Khole Jinglepocket"],		BZ["Stormwind City"],			62.2, 70.6, "Alliance") -- COMPLETELY UPDATED
 	AddVendor(14371,	L["Shen'dralar Provisioner"],		BZ["Dire Maul"],			   0,	 0, "Neutral")
 	AddVendor(14637,	L["Zorbin Fandazzle"],			BZ["Feralas"],				44.8, 43.4, "Neutral")
-	AddVendor(14738,	L["Otho Moji'ko"],			BZ["The Hinterlands"],			79.3, 79.1, "Horde")
+	AddVendor(14738,	L["Otho Moji'ko"],			BZ["The Hinterlands"],			79.3, 79.1, "Horde") -- COMPLETELY UPDATED
 	AddVendor(15176,	L["Vargus"],				BZ["Silithus"],				51.2, 38.8, "Neutral")
 	AddVendor(15179,	L["Mishta"],				BZ["Silithus"],				49.9, 36.5, "Neutral")
 	AddVendor(15293,	L["Aendel Windspear"],			BZ["Silithus"],				62.6, 49.8, "Neutral")
