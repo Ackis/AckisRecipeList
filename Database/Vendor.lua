@@ -229,8 +229,8 @@ function addon:InitVendor(DB)
 	AddVendor(15419,	L["Kania"],				BZ["Silithus"],				52.0, 39.6, "Neutral")
 	AddVendor(15471,	BB["Lieutenant General Andorov"],	BZ["Ruins of Ahn'Qiraj"],		   0,	 0, "Neutral")
 	AddVendor(15909,	L["Fariel Starsong"],			BZ["Moonglade"],			54.0, 35.4, "Neutral")
-	AddVendor(16224,	L["Rathis Tomber"],			BZ["Ghostlands"],			47.2, 28.7, "Horde")
-	AddVendor(16253,	L["Master Chef Mouldier"],		BZ["Ghostlands"],			48.3, 30.9, "Horde")
+	AddVendor(16224,	L["Rathis Tomber"],			BZ["Ghostlands"],			47.2, 28.7, "Horde") -- COMPLETELY UPDATED
+	AddVendor(16253,	L["Master Chef Mouldier"],		BZ["Ghostlands"],			48.3, 30.9, "Horde") -- COMPLETELY UPDATED
 	AddVendor(16262,	L["Landraelanis"],			BZ["Eversong Woods"],			49.0, 47.0, "Horde")
 	AddVendor(16388,	L["Koren"],				BZ["Karazhan"],				   0,	 0, "Neutral")
 	AddVendor(16583,	L["Rohok"],				BZ["Hellfire Peninsula"],		53.2, 38.2, "Horde")
