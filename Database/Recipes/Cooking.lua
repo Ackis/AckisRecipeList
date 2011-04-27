@@ -221,16 +221,16 @@ function addon:InitCooking()
 	recipe:SetRecipeItemID(3736)
 	recipe:SetCraftedItemID(3728)
 	recipe:SetSkillLevels(150, 150, 190, 210, 230)
-	recipe:AddFilters(F.ALLIANCE, F.RETIRED, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	recipe:AddCustom("REMOVED_FROM_GAME")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
+	recipe:AddTrainer(1382, 2818, 3026, 3399, 4210, 4552, 5482, 16253, 18993, 19185, 26905, 26953, 26972, 26989, 28705, 29631, 33587, 33619, 45550, 46709, 47405, 49789)
 
 	-- Soothing Turtle Bisque -- 3400
 	recipe = AddRecipe(3400, V.ORIG, Q.COMMON)
 	recipe:SetRecipeItemID(3737)
 	recipe:SetCraftedItemID(3729)
 	recipe:SetSkillLevels(175, 175, 215, 235, 255)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	recipe:AddCustom("REMOVED_FROM_GAME")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
+	recipe:AddTrainer(1382, 2818, 3026, 3399, 4210, 4552, 5482, 16253, 18993, 19185, 26905, 26953, 26972, 26989, 28705, 29631, 33587, 33619, 45550, 46709, 47405, 49789)
 
 	-- Barbecued Buzzard Wing -- 4094
 	recipe = AddRecipe(4094, V.ORIG, Q.COMMON)
@@ -247,8 +247,8 @@ function addon:InitCooking()
 	recipe:SetRecipeItemID(5482)
 	recipe:SetCraftedItemID(5472)
 	recipe:SetSkillLevels(10, 10, 50, 70, 90)
-	recipe:AddFilters(F.ALLIANCE, F.RETIRED, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	recipe:AddCustom("REMOVED_FROM_GAME")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
+	recipe:AddTrainer(1382, 2818, 3026, 3399, 4210, 4552, 5482, 16253, 18993, 19185, 26905, 26953, 26972, 26989, 28705, 29631, 33587, 33619, 45550, 46709, 47405, 49789)
 
 	-- Scorpid Surprise -- 6413
 	recipe = AddRecipe(6413, V.ORIG, Q.COMMON)
@@ -271,8 +271,8 @@ function addon:InitCooking()
 	recipe:SetRecipeItemID(5485)
 	recipe:SetCraftedItemID(5476)
 	recipe:SetSkillLevels(50, 50, 90, 110, 130)
-	recipe:AddFilters(F.ALLIANCE, F.RETIRED, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	recipe:AddCustom("REMOVED_FROM_GAME")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
+	recipe:AddTrainer(1382, 2818, 3026, 3399, 4210, 4552, 5482, 16253, 18993, 19185, 26905, 26953, 26972, 26989, 28705, 29631, 33587, 33619, 45550, 46709, 47405, 49789)
 
 	-- Strider Stew -- 6416
 	recipe = AddRecipe(6416, V.ORIG, Q.COMMON)
@@ -1145,7 +1145,8 @@ function addon:InitCooking()
 	recipe:SetRecipeItemID(35564)
 	recipe:SetCraftedItemID(35563)
 	recipe:SetSkillLevels(250, 250, 275, 285, 295)
-	recipe:AddFilters(F.ALLIANCE, F.VENDOR, F.IBOE, F.RBOE, F.DPS)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.VENDOR, F.IBOE, F.RBOE, F.DPS)
+	recipe:AddTrainer(1382, 2818, 3026, 3399, 4210, 4552, 5482, 16253, 18993, 19185, 26905, 26953, 26972, 26989, 28705, 29631, 33587, 33619, 45550, 46709, 47405, 49789)
 	recipe:AddVendor(2803)
 
 	-- Juicy Bear Burger -- 46688
@@ -1153,7 +1154,8 @@ function addon:InitCooking()
 	recipe:SetRecipeItemID(35566)
 	recipe:SetCraftedItemID(35565)
 	recipe:SetSkillLevels(250, 250, 275, 285, 295)
-	recipe:AddFilters(F.ALLIANCE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
+	recipe:AddTrainer(1382, 2818, 3026, 3399, 4210, 4552, 5482, 16253, 18993, 19185, 26905, 26953, 26972, 26989, 28705, 29631, 33587, 33619, 45550, 46709, 47405, 49789)
 	recipe:AddVendor(2803)
 
 	-- Kungaloosh -- 53056
