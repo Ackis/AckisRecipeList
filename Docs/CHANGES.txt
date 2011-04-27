@@ -1,15 +1,22 @@
 ==ARL Change Log
 NOTE: Always remove the folder for old versions and install a fresh copy when upgrading.
 
-== Under Development
+== 2.2.4
 
 ==== Recipe Database:
-* Added 4.1 recipes
+* Added 4.1 recipes, including some which were previously removed from the game.
+* Updated a great many trainers and vendors - limited quantities, coordinates, and recipes trained/sold.
 
 ==== Interface:
 * Tooltip for alt-tradeskill listing has been updated.  Functionality to delete an alt from the list has been in for a while, however the tooltip did not tell you how to do this.
+* Removed the Ammo filter from the recipe list panel.
+
+==== Bug Fixes:
+* Information for recipe achievements will once again be displayed.
 
 ==== Backend:
+* Disabled the datamining options and turn off all relevant settings for non-Devel versions - people who had no business turning the stuff on were constantly doing so and then filing tickets about the popups.
+* Many code cleanups and optimizations.
 * Removed un-needed speciality scanning code.
 
 == 2.2.3
@@ -136,7 +143,7 @@ NOTE: Always remove the folder for old versions and install a fresh copy when up
 == Version 2.0 Release Candidate 1
 
 ==== Changes to the recipe list panel:
-* Completely revamped the GUI: The main panel is wider, allowing more text to fit in the list without being truncated. 
+* Completely revamped the GUI: The main panel is wider, allowing more text to fit in the list without being truncated.
 * The currently-selected filter category will now persist between expanding or collapsing the panel.
 * Removed the word "Miscellaneous" and the "Display Exclusions" checkbox from the Miscellaneous filter menu.
 * The lists for each tab will now retain the state of their entries - if a recipe is expanded in a tab it will remain so even if another tab is selected, the sorting method is changed, or the list panel is closed.
