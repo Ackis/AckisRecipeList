@@ -4454,7 +4454,7 @@ function addon:InitJewelcrafting()
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
 	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
 
-	-- Jeweler's Emerald Monocle -- 73627
+	-- Jeweler's Amber Monocle -- 73627
 	recipe = AddRecipe(73627, V.CATA, Q.RARE)
 	recipe:SetCraftedItemID(52487)
 	recipe:SetSkillLevels(460, 460, 490, 500, 510)
@@ -4512,11 +4512,12 @@ function addon:InitJewelcrafting()
 	recipe:AddWorldDrop("Deepholm", "Eastern Kingdoms", "Kalimdor")
 
 	-- Punisher's Band - 98921
-	--recipe = AddRecipe(98921, V.CATA, Q.RARE)
-	--recipe:SetRecipeItemID(69853)
-	--recipe:SetCraftedItemID(69852)
-	--recipe:SetSkillLevels()
-	--recipe:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.RBOE)
+	recipe = AddRecipe(98921, V.CATA, Q.RARE)
+	recipe:SetRecipeItemID(69853)
+	recipe:SetCraftedItemID(69852)
+	recipe:SetSkillLevels(525, 525, 525, 525, 525)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	recipe:AddVendor(50480, 50482)
 
 	self.InitJewelcrafting = nil
 end
