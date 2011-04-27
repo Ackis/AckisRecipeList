@@ -327,7 +327,7 @@ function addon:InitInscription()
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.CASTER, F.DRUID)
 	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30709, 30710, 30711, 30713, 30715, 30716, 30717, 30721, 30722, 33603, 33615, 33638, 33679, 46716)
 
-	-- Glyph of Rake -- 56952
+	-- Glyph of Pounce -- 56952
 	recipe = AddRecipe(56952, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(40903)
 	recipe:SetSkillLevels(310, 310, 315, 320, 325)
@@ -1223,7 +1223,7 @@ function addon:InitInscription()
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.CASTER, F.PRIEST)
 	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30709, 30710, 30711, 30713, 30715, 30716, 30717, 30721, 30722, 33603, 33615, 33638, 33679, 46716)
 
-	-- Glyph of Spirit of Redemption -- 57202
+	-- Glyph of Prayer of Mending -- 57202
 	recipe = AddRecipe(57202, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(42417)
 	recipe:SetSkillLevels(385, 385, 390, 397, 405)
@@ -1363,7 +1363,7 @@ function addon:InitInscription()
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DK)
 	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30709, 30713, 30715, 30721, 30722, 33603, 33615, 33638, 33679, 46716)
 
-	-- Glyph of Raise Ally -- 57228
+	-- Glyph of Death Gate -- 57228
 	recipe = AddRecipe(57228, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(43673)
 	recipe:SetSkillLevels(300, 300, 305, 310, 315)
@@ -1825,7 +1825,7 @@ function addon:InitInscription()
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.DPS, F.HUNTER)
 	recipe:AddCustom("DISCOVERY_INSC_MINOR")
 
-	-- Glyph of Mend Pet -- 58301
+	-- Glyph of Lesser Proportion -- 58301
 	recipe = AddRecipe(58301, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(43350)
 	recipe:SetSkillLevels(75, 75, 80, 85, 90)
@@ -1839,7 +1839,7 @@ function addon:InitInscription()
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.DPS, F.HUNTER)
 	recipe:AddCustom("DISCOVERY_INSC_MINOR")
 
-	-- Glyph of Arcane Intellect -- 58303
+	-- Glyph of Arcane Brilliance -- 58303
 	recipe = AddRecipe(58303, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(43339)
 	recipe:SetSkillLevels(75, 75, 80, 85, 90)
@@ -2599,7 +2599,7 @@ function addon:InitInscription()
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DRUID)
 	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30709, 30710, 30711, 30713, 30715, 30716, 30717, 30721, 30722, 33603, 33615, 33638, 33679, 46716)
 
-	-- Glyph of Pain Suppression -- 64259
+	-- Glyph of Desperation -- 64259
 	recipe = AddRecipe(64259, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(45760)
 	recipe:SetSkillLevels(255, 255, 255, 262, 270)
