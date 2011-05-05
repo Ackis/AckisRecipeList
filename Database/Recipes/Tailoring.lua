@@ -3581,5 +3581,21 @@ function addon:InitTailoring()
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	recipe:AddTrainer(1346, 2399, 3004, 3363, 4159, 4576, 5153, 9584, 16640, 28699, 33580, 33613, 33636, 44783, 45559)
 
+	-- Boots of the Black Flame
+	--recipe = AddRecipe(, V.CATA, Q.EPIC)
+	--recipe:SetRecipeItemID(69976)
+
+	-- Don Tayo's Inferno Mittens
+	--recipe = AddRecipe(, V.CATA, Q.EPIC)
+	--recipe:SetRecipeItemID(69966)
+
+	-- Endless Dream Walkers
+	--recipe = AddRecipe(, V.CATA, Q.EPIC)
+	--recipe:SetRecipeItemID(69975)
+
+	-- Grips of Altered Reality
+	--recipe = AddRecipe(, V.CATA, Q.EPIC)
+	--recipe:SetRecipeItemID(69965)
+
 	self.InitTailoring = nil
 end
