@@ -4554,6 +4554,38 @@ function addon:InitLeatherworking()
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	recipe:AddTrainer(3007, 3365, 3967, 4212, 4588, 5127, 5564, 21087, 26998, 28700, 29507, 33581, 33612, 33635)
 
+	-- Cluthes of Evil
+	--recipe = AddRecipe(, V.CATA, Q.EPIC)
+	--recipe:SetRecipeItemID(69962)
+
+	-- Dragonfire Gloves
+	--recipe = AddRecipe(, V.CATA, Q.EPIC)
+	--recipe:SetRecipeItemID(69960)
+
+	-- Earthen Scale Sabatons
+	--recipe = AddRecipe(, V.CATA, Q.EPIC)
+	--recipe:SetRecipeItemID(69971)
+
+	-- Ethereal Footfalls
+	--recipe = AddRecipe(, V.CATA, Q.EPIC)
+	--recipe:SetRecipeItemID(69974)
+
+	-- Footwraps of Quenched Fire
+	--recipe = AddRecipe(, V.CATA, Q.EPIC)
+	--recipe:SetRecipeItemID(69972)
+
+	-- Gloves of Unforgiving Flame
+	--recipe = AddRecipe(, V.CATA, Q.EPIC)
+	--recipe:SetRecipeItemID(69961)
+
+	-- Heavenly Gloves of the Moon
+	--recipe = AddRecipe(, V.CATA, Q.EPIC)
+	--recipe:SetRecipeItemID(69963)
+
+	-- Treads of the Craft
+	--recipe = AddRecipe(, V.CATA, Q.EPIC)
+	--recipe:SetRecipeItemID(69973)
+
 	self.InitLeatherworking = nil
 end
 
