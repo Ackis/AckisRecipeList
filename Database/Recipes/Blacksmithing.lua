@@ -4317,5 +4317,29 @@ function addon:InitBlacksmithing()
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	recipe:AddVendor(50375, 50382)
 
+	-- Emberforged Elementium Boots
+	--recipe = AddRecipe(, V.CATA, Q.EPIC)
+	--recipe:SetRecipeItemID(69970)
+
+	-- Eternal Elementium Handguards
+	--recipe = AddRecipe(, V.CATA, Q.EPIC)
+	--recipe:SetRecipeItemID(69958)
+
+	-- Fists of Fury
+	--recipe = AddRecipe(, V.CATA, Q.EPIC)
+	--recipe:SetRecipeItemID(69957)
+
+	-- Holy Flame Gauntlets
+	--recipe = AddRecipe(, V.CATA, Q.EPIC)
+	--recipe:SetRecipeItemID(69959)
+
+	-- Mirrored Boots
+	--recipe = AddRecipe(, V.CATA, Q.EPIC)
+	--recipe:SetRecipeItemID(69969)
+
+	-- Warboots of Might Lords
+	--recipe = AddRecipe(, V.CATA, Q.EPIC)
+	--recipe:SetRecipeItemID(69968)
+
 	self.InitBlacksmithing = nil
 end
