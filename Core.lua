@@ -451,13 +451,13 @@ function addon:OnInitialize()
 	local debug_version = false
 	local alpha_version = false
 
-	-- @debug@
+	--@debug@
 	debug_version = true
-	-- @end-debug
+	--@end-debug
 
-	-- @alpha@
+	--@alpha@
 	alpha_version = true
-	-- @end-alpha@
+	--@end-alpha@
 
 	version = debug_version and "Devel" or (alpha_version and version .. "-Alpha") or version
 
