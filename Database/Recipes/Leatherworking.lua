@@ -930,7 +930,7 @@ function addon:InitLeatherworking()
 	recipe:SetCraftedItemID(8345)
 	recipe:SetSkillLevels(225, 225, 245, 255, 265)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS, F.DRUID, F.LEATHER)
-	recipe:AddTrainer(7870, 7871, 29509)
+	recipe:AddTrainer(7871, 29509)
 
 	-- Gauntlets of the Sea -- 10630
 	recipe = AddRecipe(10630, V.ORIG, Q.COMMON)
@@ -951,7 +951,7 @@ function addon:InitLeatherworking()
 	recipe:SetCraftedItemID(8349)
 	recipe:SetSkillLevels(250, 250, 270, 280, 290)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.LEATHER)
-	recipe:AddTrainer(3365, 4212, 5564, 7870, 7871, 21087, 29509, 33581, 33612, 33635)
+	recipe:AddTrainer(3365, 4212, 5564, 7871, 21087, 29509, 33581, 33612, 33635)
 
 	-- Dragonscale Breastplate -- 10650
 	recipe = AddRecipe(10650, V.ORIG, Q.COMMON)
@@ -2505,7 +2505,7 @@ function addon:InitLeatherworking()
 	recipe:SetCraftedItemID(29970)
 	recipe:SetSkillLevels(260, 260, 280, 290, 300)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.HEALER, F.CASTER, F.LEATHER)
-	recipe:AddTrainer(3365, 4212, 5564, 7870, 7871, 21087, 29509, 33581, 33612, 33635)
+	recipe:AddTrainer(3365, 4212, 5564, 7871, 21087, 29509, 33581, 33612, 33635)
 
 	-- Dragonstrike Leggings -- 36076
 	recipe = AddRecipe(36076, V.TBC, Q.COMMON)
@@ -2526,7 +2526,7 @@ function addon:InitLeatherworking()
 	recipe:SetCraftedItemID(29974)
 	recipe:SetSkillLevels(330, 330, 350, 360, 370)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.HEALER, F.CASTER, F.LEATHER)
-	recipe:AddTrainer(3365, 4212, 5564, 7870, 7871, 21087, 29509, 33581, 33612, 33635)
+	recipe:AddTrainer(3365, 4212, 5564, 7871, 21087, 29509, 33581, 33612, 33635)
 
 	-- Golden Dragonstrike Breastplate -- 36079
 	recipe = AddRecipe(36079, V.TBC, Q.COMMON)
