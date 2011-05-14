@@ -25,16 +25,16 @@ L["ACHIEVEMENT_DESC"] = "Recipes obtained via Achievements should be included in
 L["ACQUIRETOOLTIPPOSITION_DESC"] = "Changes the location of the tooltip containing the acquire information."
 L["ALL_FILTERED"] = "Although you have already scanned this profession, your filters are currently preventing any recipes from being displayed. Please change your filters and try again."
 L["ALT_CLICK"] = "Alt-Click to add/remove this recipe to your ignore list."
-L["ALT_TRADESKILL_DESC"] = [=[This will display a list of alts which have had trade skills scanned.
+L["ALT_TRADESKILL_DESC"] = [[This will display a list of alts which have had trade skills scanned.
 Clicking on the alt's name will output the tradeskill to chat.
-Alt-Clicking on the alt's name will delete the alt from the list.]=]
+Alt-Clicking on the alt's name will delete the alt from the list.]]
 L["AQ40_RANDOM_BOP"] = "Random BoP drop off of bosses in AQ40."
 L["ARCH_DROP"] = "This recipe is a random drop from a \"Canopic Jar\" while collecting artifacts for Archaeology."
 L["ARL_ALLEXCLUDED"] = "Although you have already scanned this profession, your exclusions are currently preventing any recipes from being displayed. Please change your exclusions and try again."
 L["ARL_ALLKNOWN"] = "You know all the recipes for this profession."
 L["ARL_SEARCHFILTERED"] = "Your search has no results."
-L["ARMOR_TEXT_DESC"] = [=[Left-click here to select all armor filters.
-Right-click here to deselect all armor filters.]=]
+L["ARMOR_TEXT_DESC"] = [[Left-click here to select all armor filters.
+Right-click here to deselect all armor filters.]]
 L["AUTOLOAD_DB_DESC"] = "Automatically loads all of the ARL recipe databases when doing a datamining scan."
 L["AUTOSCANMAP_DESC"] = "Auto show all waypoints when doing a recipe scan."
 L["AUTOSCAN_TRAINERS_DESC"] = "Turns on scanning at trainers to compare skill levels, and recipe acquire methods."
@@ -206,8 +206,8 @@ L["Buzzek Bracketswing"] = "Buzzek Bracketswing"
 L["Byancie"] = "Byancie"
 L["CATA_WOW_DESC"] = "Recipes available with Cataclysm."
 L["CLASS_DESC"] = "Include this class in the scan.  This will filter on two factors: 1) Can the class use the recipe and 2) can the class learn the recipe."
-L["CLASS_TEXT_DESC"] = [=[Left-click here to select all classes.
-Right-click here to select your own class.]=]
+L["CLASS_TEXT_DESC"] = [[Left-click here to select all classes.
+Right-click here to select your own class.]]
 L["CLEAR_EXCLUSION_LIST_DESC"] = "Removes all recipes from the exclusion list."
 L["CLEAR_WAYPOINTS_DESC"] = "Remove all ARL waypoints from TomTom."
 L["CLOAK_DESC"] = "Recipes that make cloaks should be included in the scan."
@@ -215,10 +215,10 @@ L["CLOSEGUI_DESC"] = "Close the ARL window when the crafting window is closed."
 L["CLOSE_DESC"] = "Close the Recipe List Window."
 L["CLOTH_DESC"] = "Recipes that make cloth items should be included in the scan."
 L["COMMAND_LINE_SCAN"] = "To run a scan from a command line you need to specify the profession like: /arl scan enchanting"
-L["COMMON_ISSUES_DESC"] = [=[Please refer to these common issues before submitting a bug report.
+L["COMMON_ISSUES_DESC"] = [[Please refer to these common issues before submitting a bug report.
 1) Recipe X does not show up! - Check your filter settings to make sure that the recipe is not being filtered.
 2) Inscription is missing so many glyphs! Why aren't they listed?  Turn off your 'classes' filter.  By default (and due to popular request) ARL will only show recipes which your class can use and most glyphs are not usable by your class.
-3) I don't want to see opposite faction recipes! Turn on the factions filter.  This will set it up to only display your factions obtainable recipes.  If something still shows up and it shouldn't, please submit a bug report.]=]
+3) I don't want to see opposite faction recipes! Turn on the factions filter.  This will set it up to only display your factions obtainable recipes.  If something still shows up and it shouldn't, please submit a bug report.]]
 L["COMPARE_TRAINER_ACQUIRE_DESC"] = "Compare selected trainer acquire methods with those in the ARL database."
 L["CONTRACTALL_DESC"] = "Minimize all recipes listed below."
 L["CRAFTED_ENGINEERS"] = "Recipe is created by Engineers."
@@ -289,11 +289,11 @@ L["DAILY_COOKING_MEAT"] = "Choose Crate of Meat when completing any of these que
 L["DAILY_FISHING_SHATT"] = "Randomly obtained by completing any of the BC fishing daily quests."
 L["DATAMINER_NODB_ERROR"] = "Recipe database not loaded.  Please scan the tradeskill first then try the datamining."
 L["DATAMINER_SKILLLEVEL_ERROR"] = "This can only be used for a trade skill trainer.  Please open up the trainer and try again."
-L["DATAMINER_TRAINER_INFO"] = [=[Trainer Name: %s
-Trainer ID: %s]=]
+L["DATAMINER_TRAINER_INFO"] = [[Trainer Name: %s
+Trainer ID: %s]]
 L["DATAMINER_TRAINER_NOTTARGETTED"] = "You must target the trainer when you run this command."
-L["DATAMINER_VENDOR_INFO"] = [=[Vendor Name: %s
-Vendor ID: %s]=]
+L["DATAMINER_VENDOR_INFO"] = [[Vendor Name: %s
+Vendor ID: %s]]
 L["DATAMINER_VENDOR_NOTTARGETTED"] = "You must target the vendor when you run this command."
 L["DATAMINE_OPTIONS_DESC"] = "Allows you to customize in-game ARL datamining."
 L["DATAMINE_WARNING_DESC"] = "Please note that enabling Auto Load Recipe Database will increase the amount of memory used by ARL.  Enabling Auto Scan Trainers may cause a slight bit of lag when the trainer is opened.  This will be more noticeable on the first scan of a trainer."
@@ -391,8 +391,8 @@ L["ENG_FLOOR_ITEM_BRD"] = "The schematic can be found on the floor near Golem Lo
 L["ENG_GNOMER"] = "Dropped from mobs in Gnomeregan."
 L["EXCLUDECOUNT_DESC"] = "Include excluded recipes in the count of total recipes."
 L["EXCLUSION_ISSUES_DESC"] = "To add a recipe to the exclusion (ignore) list, just alt-click on it from the recipe window.  To get this recipe back, open up the ARL options and set the toggle of \"Show Excluded Recipes\" to be on.  This will show all the recipes you've excluded in your scan during your next scan.  Once you have done this, Alt Click on the recipe again to remove it from the exclusion list."
-L["EXPANDALL_DESC"] = [=[Expand all recipes listed below.
-Hold the Shift key to expand sub-entries.]=]
+L["EXPANDALL_DESC"] = [[Expand all recipes listed below.
+Hold the Shift key to expand sub-entries.]]
 L["Eclipsion Archmage"] = "Eclipsion Archmage"
 L["Eclipsion Blood Knight"] = "Eclipsion Blood Knight"
 L["Eclipsion Bloodwarder"] = "Eclipsion Bloodwarder"
@@ -483,7 +483,7 @@ L["Frostfeather Witch"] = "Frostfeather Witch"
 L["Frostmaul Giant"] = "Frostmaul Giant"
 L["Frozo the Renowned"] = "Frozo the Renowned"
 L["Fyldan"] = "Fyldan"
-L["GAME_COMMANDS_DESC"] = [=[Command Line:
+L["GAME_COMMANDS_DESC"] = [[Command Line:
 Type /arl to open up the GUI.  Acceptable commands include:
 - /arl about
   Opens up the about panel, listing information about the mod.
@@ -529,7 +529,7 @@ This is the functionality that occurs when you click on a recipe.
 - Alt Click
   Adds or removes a recipe from the exclusion list.
 - Ctrl-Shift Click
-  Adds the specific recipe acquire methods to the World Map and Mini-map.]=]
+  Adds the specific recipe acquire methods to the World Map and Mini-map.]]
 L["GENERATE_LINKS_DESC"] = "Generate complete profession links."
 L["GUN_DESC"] = "Recipes that make guns should be included in the scan."
 L["Gagsprocket"] = "Gagsprocket"
@@ -815,8 +815,8 @@ L["Miralisse"] = "Miralisse"
 L["Mire Lord"] = "Mire Lord"
 L["Misensi"] = "Misensi"
 L["Mishta"] = "Mishta"
-L["MissingFromDB"] = [=[": is missing from the database.
-Please inform the author of the add-on about this recipe."]=]
+L["MissingFromDB"] = [[": is missing from the database.
+Please inform the author of the add-on about this recipe."]]
 L["Misty Merriweather"] = "Misty Merriweather"
 L["Mixie Farshot"] = "Mixie Farshot"
 L["Mo'arg Weaponsmith"] = "Mo'arg Weaponsmith"
@@ -948,16 +948,16 @@ L["RECIPE_BOE_DESC"] = "Recipes that are Bind on Equip should be included in the
 L["RECIPE_BOP_DESC"] = "Recipes that are Bind on Pickup should be included in the scan."
 L["RECIPE_EXCLUDED"] = "Recipe is in Exclusion list"
 L["REMOVED_FROM_GAME"] = "This recipe has been removed from the game, but may still be obtainable if someone still has the recipe item."
-L["REPORTING_BUGS_DESC"] = [=[When reporting a bug, please make sure you do the following:
+L["REPORTING_BUGS_DESC"] = [[When reporting a bug, please make sure you do the following:
 1) Download the latest version, available from http://www.wowace.com/addons/arl/files/
 2) Make sure there is not a bug report filed for your issue already.  You can check these at http://www.wowace.com/addons/arl/tickets/
 3) Disable addons such as Skillet or ATSW.
 4) Read the bug reporting documentation at http://www.wowace.com/addons/arl/pages/feedback-and-bug-reporting/
 5) If your problem is not listed and you are using the latest version verify your addon settings.  Verify filters, profiles, etc.
 6) You have found a bug that no one has reported before.  Create a new ticket at http://www.wowace.com/addons/arl/tickets/ with a descriptive heading about the problem.  In the ticket make sure you include the error message that you received (just the error message, I don't need a listing of the addons you use), the recipe/profession you were working with, and any other info that you think may help.
-When posting a bug report, do NOT include all of the addons from swatter.  This just makes it difficult to read.  If you want a good error reporting mod, get BugSack.  Do not post errors/missing recipes in the comments, or send them to me via a PM.  Post them as a ticket which I can address and track easily.]=]
-L["REP_TEXT_DESC"] = [=[Left-click here to select all reputation filters.
-Right-click here to deselect all reputation filters.]=]
+When posting a bug report, do NOT include all of the addons from swatter.  This just makes it difficult to read.  If you want a good error reporting mod, get BugSack.  Do not post errors/missing recipes in the comments, or send them to me via a PM.  Post them as a ticket which I can address and track easily.]]
+L["REP_TEXT_DESC"] = [[Left-click here to select all reputation filters.
+Right-click here to deselect all reputation filters.]]
 L["RESET_DESC"] = "Reset All Filters to default values."
 L["RESET_WINDOW_DESC"] = "Resets the ARL GUI to default position."
 L["RETIRED_DESC"] = "Include recipes which can no longer be acquired."
@@ -1001,9 +1001,9 @@ L["Ruppo Zipcoil"] = "Ruppo Zipcoil"
 L["SCANBUTTONPOSITION_DESC"] = "Allows you to customize where the scan button is placed on the tradeskill frame."
 L["SCAN_ENTIRE_DB_DESC"] = "Loads the entire recipe database, and scans every single recipes tooltip checking the flags.  This will lag your computer and use a lot of memory."
 L["SCAN_PROF_DB_DESC"] = "Scans a specified profession (lower case name or spell id) in the recipe database, scanning the tooltips and comparing them with the internal database."
-L["SCAN_RECIPES_DESC"] = [=[Scans an open tradeskill for missing recipes.
+L["SCAN_RECIPES_DESC"] = [[Scans an open tradeskill for missing recipes.
 Shift-click to generate a text dump.
-Alt-click to remove all waypoints from the mini-map and world map.]=]
+Alt-click to remove all waypoints from the mini-map and world map.]]
 L["SCAN_SPELL_ID_DESC"] = "Scans a specified spell ID, scanning its tooltip and comparing it with the internal database."
 L["SCAN_VENDOR_DESC"] = "Scans the currently opened vendor for recipes and compares the information with the internal database."
 L["SCHOLO_BOOK_SPAWN"] = "After you kill Jandice Barov in Scholomance, a book spawns that let's you learn this recipe"
@@ -1210,9 +1210,9 @@ L["ULDUAR_RANDOM"] = "Random drop off of Ulduar bosses."
 L["UNIT_MAX_TOOLTIPS_DESC"] = "Maximum number of recipes to show in tooltips."
 L["UNIT_TOOLTIPS_DESC"] = "Toggles whether or not to display unknown recipes in the tooltips of the vendors, trainers, or mobs which carry them."
 L["UNKNOWN_DESC"] = "Include all unknown recipes in the scan."
-L["USING_FILTERS_DESC"] = [=[Filters may be toggled on or off.  There are two types of filters: one which will prevent the recipe from showing up at all, and one which will prevent a specific type of acquire information from showing up.
+L["USING_FILTERS_DESC"] = [[Filters may be toggled on or off.  There are two types of filters: one which will prevent the recipe from showing up at all, and one which will prevent a specific type of acquire information from showing up.
 With the first type of filter, these match the proprieties of the recipe (ie: binding).  If you toggle ARL to not show BoP recipes, no recipes that are BoP will show up in the scan.  The second type of filter deals with acquire information.  If a recipe is available as a mob drop, or from a vendor and you toggle to not show vendor recipes, the recipe will still show up but vendor information will be hidden for it.  The reason is that there is still another way to acquire this recipe (mob drop) so it should still be included in the scan.
-Please note that the tooltips will always hide the opposite faction methods of acquiring a recipe.  This has been done to save space in the tooltip since they can get quite large.]=]
+Please note that the tooltips will always hide the opposite faction methods of acquiring a recipe.  This has been done to save space in the tooltip since they can get quite large.]]
 L["Ulthir"] = "Ulthir"
 L["Una"] = "Una"
 L["Una Kobuna"] = "Una Kobuna"
@@ -1253,8 +1253,8 @@ L["Vosur Brakthel"] = "Vosur Brakthel"
 L["WAND_DESC"] = "Recipes that make wands should be included in the scan."
 L["WAYPOINT_MAP_FORMAT"] = "Create waypoints for missing recipes on the %s."
 L["WAYPOINT_TOGGLE_FORMAT"] = "Create waypoints for %s recipes."
-L["WEAPON_TEXT_DESC"] = [=[Left-click here to select all weapon filters.
-Right-click here to deselect all weapon filters.]=]
+L["WEAPON_TEXT_DESC"] = [[Left-click here to select all weapon filters.
+Right-click here to deselect all weapon filters.]]
 L["WORLD_DROP_DESC"] = "Recipes that are World Drops should be included in the scan."
 L["Waldor"] = "Waldor"
 L["Wand"] = "Wand"
