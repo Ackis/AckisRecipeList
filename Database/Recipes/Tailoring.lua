@@ -2407,7 +2407,7 @@ function addon:InitTailoring()
 	recipe:SetRecipeItemID(35205)
 	recipe:SetCraftedItemID(34367)
 	recipe:SetSkillLevels(365, 365, 375, 392, 410)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.CLOTH)
 	recipe:AddCustom("SUNWELL_RANDOM")
 
 	-- Sunfire Robe -- 46130
