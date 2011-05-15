@@ -1728,13 +1728,12 @@ function addon:InitEngineering()
 	recipe:AddTrainer(17634, 17637, 18752, 18775, 19576, 25277, 26907, 26955, 26991, 28697, 33586)
 
 	-- Adamantite Arrow Maker -- 43676
-	recipe = AddRecipe(43676, V.TBC, Q.UNCOMMON)
-	recipe:SetRecipeItemID(33804)
+	recipe = AddRecipe(43676, V.TBC, Q.COMMON)
 	recipe:SetCraftedItemID(20475)
 	recipe:SetSkillLevels(335, 335, 335, 345, 355)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOE, F.RBOP)
-	recipe:AddMobDrop(19707)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.REMOVED, F.IBOE, F.RBOP)
 	recipe:AddCustom("BUGGED")
+	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Flying Machine -- 44155
 	recipe = AddRecipe(44155, V.TBC, Q.COMMON)
