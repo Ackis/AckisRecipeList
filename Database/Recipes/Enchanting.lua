@@ -1524,8 +1524,8 @@ function addon:InitEnchanting()
 	recipe:SetRecipeItemID(33307)
 	recipe:SetCraftedItemID(33307)
 	recipe:SetSkillLevels(375, 375, 380, 385, 390)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOP, F.DPS, F.ONE_HAND, F.TWO_HAND)
-	recipe:AddCustom("ZA_RANDOM")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.REMOVED, F.IBOE, F.RBOP, F.DPS, F.ONE_HAND, F.TWO_HAND)
+	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Enchant Shield - Resilience -- 44383
 	recipe = AddRecipe(44383, V.TBC, Q.COMMON)
