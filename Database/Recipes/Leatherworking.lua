@@ -1473,8 +1473,8 @@ function addon:InitLeatherworking()
 	recipe = AddRecipe(22815, V.ORIG, Q.COMMON)
 	recipe:SetCraftedItemID(18258)
 	recipe:SetSkillLevels(275, 275, 285, 290, 385)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.INSTANCE, F.QUEST, F.IBOE, F.RBOP)
-	recipe:AddQuest(5518)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.REMOVED, F.IBOE, F.RBOP)
+	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Girdle of Insight -- 22921
 	recipe = AddRecipe(22921, V.ORIG, Q.RARE)

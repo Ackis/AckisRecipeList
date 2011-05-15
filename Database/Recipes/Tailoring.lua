@@ -1469,8 +1469,8 @@ function addon:InitTailoring()
 	recipe = AddRecipe(22813, V.ORIG, Q.COMMON)
 	recipe:SetCraftedItemID(18258)
 	recipe:SetSkillLevels(275, 275, 285, 290, 295)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.INSTANCE, F.QUEST, F.IBOE, F.RBOP)
-	recipe:AddQuest(5518)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.REMOVED, F.IBOE, F.RBOP)
+	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Belt of the Archmage -- 22866
 	recipe = AddRecipe(22866, V.ORIG, Q.EPIC)
