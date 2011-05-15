@@ -3079,6 +3079,14 @@ function addon:InitInscription()
 	recipe:SetSkillLevels(490, 490, 490, 490, 500)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOP)
 	recipe:AddCustom("DEEPHOLM_RANDOM_INSC")
+	
+	-- Origami Beetle -- 86646
+	recipe = AddRecipe(86646, V.CATA, Q.COMMON)
+	recipe:SetRecipeItemID(65651)
+	recipe:SetCraftedItemID(63246)
+	recipe:SetSkillLevels(500, 500, 500, 500, 510)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOP)
+	recipe:AddCustom("ULDUM_RANDOM_INSC")
 
 	-- Etched Horn -- 86647
 	recipe = AddRecipe(86647, V.CATA, Q.COMMON)

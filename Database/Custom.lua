@@ -75,6 +75,7 @@ function addon:InitCustom(DB)
 	AddCustom("REMOVED_FROM_GAME")
 	AddCustom("VASHJ'IR_RANDOM_INSC")
 	AddCustom("DEEPHOLM_RANDOM_INSC")
+	AddCustom("ULDUM_RANDOM_INSC")
 	AddCustom("ENG_DISC")
 
 	self.InitCustom = nil
