@@ -2453,6 +2453,22 @@ function addon:InitEngineering()
 	recipe:SetSkillLevels(440, 440, 450, 452, 455)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	recipe:AddTrainer(5518, 8736, 11017, 11025, 17637, 33586, 33611, 33634)
+	
+	-- Gnomish Gravity Well -- 95705
+	recipe = AddRecipe(95705, V.CATA, Q.COMMON)
+	recipe:SetCraftedItemID(40727)
+	recipe:SetSpecialty(20219)
+	recipe:SetSkillLevels(500, 500, 500, 500, 505)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	recipe:AddTrainer(7406, 7944, 29514)
+	
+	-- Big Daddy -- 95707
+	recipe = AddRecipe(95707, V.CATA, Q.COMMON)
+	recipe:SetCraftedItemID(63396)
+	recipe:SetSpecialty(20222)
+	recipe:SetSkillLevels(500, 500, 505, 507, 510)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	recipe:AddTrainer(8126, 8738, 29513)	
 
 	self.InitEngineering = nil
 end
