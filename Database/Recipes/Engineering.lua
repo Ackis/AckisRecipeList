@@ -1731,7 +1731,7 @@ function addon:InitEngineering()
 	recipe = AddRecipe(43676, V.TBC, Q.COMMON)
 	recipe:SetCraftedItemID(20475)
 	recipe:SetSkillLevels(335, 335, 335, 345, 355)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.REMOVED, F.IBOE, F.RBOP)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOE, F.RBOP)
 	recipe:AddCustom("BUGGED")
 	recipe:AddCustom("REMOVED_FROM_GAME")
 

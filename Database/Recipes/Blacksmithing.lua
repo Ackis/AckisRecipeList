@@ -1350,7 +1350,7 @@ function addon:InitBlacksmithing()
 	recipe:SetRecipeItemID(12725)
 	recipe:SetCraftedItemID(12620)
 	recipe:SetSkillLevels(300, 300, 320, 330, 340)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.REMOVED, F.IBOE, F.RBOP, F.TANK, F.PLATE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOE, F.RBOP, F.TANK, F.PLATE)
 	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Enchanted Thorium Leggings -- 16744
@@ -1358,7 +1358,7 @@ function addon:InitBlacksmithing()
 	recipe:SetRecipeItemID(12726)
 	recipe:SetCraftedItemID(12619)
 	recipe:SetSkillLevels(300, 300, 320, 330, 340)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.REMOVED, F.IBOE, F.RBOP, F.TANK, F.PLATE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOE, F.RBOP, F.TANK, F.PLATE)
 	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Enchanted Thorium Breastplate -- 16745
@@ -1366,7 +1366,7 @@ function addon:InitBlacksmithing()
 	recipe:SetRecipeItemID(12727)
 	recipe:SetCraftedItemID(12618)
 	recipe:SetSkillLevels(300, 300, 320, 330, 340)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.REMOVED, F.IBOE, F.RBOP, F.TANK, F.PLATE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOE, F.RBOP, F.TANK, F.PLATE)
 	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Invulnerable Mail -- 16746

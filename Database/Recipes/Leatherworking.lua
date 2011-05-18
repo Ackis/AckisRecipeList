@@ -1350,8 +1350,8 @@ function addon:InitLeatherworking()
 	recipe:SetRecipeItemID(15774)
 	recipe:SetCraftedItemID(15081)
 	recipe:SetSkillLevels(300, 300, 320, 330, 340)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOE, F.RBOE, F.DPS, F.MAIL)
-	recipe:AddMobDrop(7029)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOE, F.RBOE, F.DPS, F.MAIL)
+	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Volcanic Shoulders -- 19101
 	recipe = AddRecipe(19101, V.ORIG, Q.UNCOMMON)
@@ -1473,7 +1473,7 @@ function addon:InitLeatherworking()
 	recipe = AddRecipe(22815, V.ORIG, Q.COMMON)
 	recipe:SetCraftedItemID(18258)
 	recipe:SetSkillLevels(275, 275, 285, 290, 385)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.REMOVED, F.IBOE, F.RBOP)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOE, F.RBOP)
 	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Girdle of Insight -- 22921

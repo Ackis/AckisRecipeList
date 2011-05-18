@@ -54,7 +54,6 @@ function addon:InitMob(DB)
 	-- Burning Steppes
 	AddMob(7025,	L["Blackrock Soldier"],			BZ["Burning Steppes"], 44.0, 52.8)
 	AddMob(7027,	L["Blackrock Slayer"],			BZ["Burning Steppes"], 44.4, 50.7)
-	AddMob(7029,	L["Blackrock Battlemaster"],		BZ["Burning Steppes"], 40.5, 35.8)
 	AddMob(7035,	L["Firegut Brute"],			BZ["Burning Steppes"], 82.5, 48.1)
 	AddMob(7037,	L["Thaurissan Firewalker"],		BZ["Burning Steppes"], 61.1, 42.0)
 	AddMob(10119,	L["Volchan"],				BZ["Burning Steppes"], 73.0, 49.3)
