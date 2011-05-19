@@ -184,10 +184,7 @@ function addon:InitMob(DB)
 
 	-- Swamp of Sorrows
 	AddMob(764,	L["Swampwalker"],			BZ["Swamp of Sorrows"], 51.0, 36.7)
-	AddMob(765,	L["Swampwalker Elder"],			BZ["Swamp of Sorrows"], 12.0, 33.2)
-	AddMob(766,	L["Tangled Horror"],			BZ["Swamp of Sorrows"], 12.0, 31.8)
-	AddMob(1081,	L["Mire Lord"],				BZ["Swamp of Sorrows"], 5.6, 31.4)
-	AddMob(14448,	L["Molt Thorn"],			BZ["Swamp of Sorrows"], 30.4, 41.4)
+	AddMob(14448,	L["Molt Thorn"],			BZ["Swamp of Sorrows"], 51.0, 42.6)
 
 	-- Tanaris
 	AddMob(5617,	L["Wastewander Shadow Mage"],		BZ["Tanaris"], 60.0, 37.4)
