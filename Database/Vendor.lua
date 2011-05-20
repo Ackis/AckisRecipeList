@@ -163,7 +163,7 @@ function addon:InitVendor(DB)
 	AddVendor(6567,		L["Ghok'kah"],				BZ["Dustwallow Marsh"],			35.2, 30.8, "Horde")
 	AddVendor(6574,		L["Jun'ha"],				BZ["Arathi Highlands"],			72.7, 36.5, "Horde")
 	AddVendor(6576,		L["Brienna Starglow"],			BZ["Feralas"],				89.0, 45.9, "Alliance")
-	AddVendor(6730,		L["Jinky Twizzlefixxit"],		BZ["Thousand Needles"],			77.7, 77.8, "Neutral")
+	AddVendor(6730,		L["Jinky Twizzlefixxit"],		BZ["Thousand Needles"],			77.7, 77.8, "Alliance")
 	AddVendor(6731,		L["Harlown Darkweave"],			BZ["Ashenvale"],			18.2, 60.0, "Alliance")
 	AddVendor(6777,		L["Zan Shivsproket"],			BZ["Hillsbrad Foothills"],		71.5, 45.5, "Neutral") -- COMPLETELY UPDATED
 	AddVendor(6779,		L["Smudge Thunderwood"],		BZ["Hillsbrad Foothills"],		71.5, 45.5, "Neutral") -- COMPLETELY UPDATED
