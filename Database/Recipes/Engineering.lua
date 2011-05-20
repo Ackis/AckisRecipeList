@@ -786,8 +786,8 @@ function addon:InitEngineering()
 	recipe:SetCraftedItemID(10577)
 	recipe:SetSkillLevels(205, 205, 205, 205, 205)
 	recipe:SetSpecialty(20222)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.TRINKET)
-	recipe:AddTrainer(8126, 8738)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOE, F.RBOP, F.TRINKET)
+	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Mechanical Repair Kit -- 15255
 	recipe = AddRecipe(15255, V.ORIG, Q.COMMON)
