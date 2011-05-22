@@ -3306,6 +3306,13 @@ function addon:InitInscription()
 	recipe:SetSkillLevels(275, 275, 280, 287, 295)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE)
 	recipe:AddTrainer(28702, 30706, 30709, 30711, 30713, 30715, 30717, 33603, 33615, 33638, 46716)
+	
+	-- Glyph of Frost Armor -- 98398
+	recipe = AddRecipe(98398, V.CATA, Q.COMMON)
+	recipe:SetCraftedItemID(69773)
+	recipe:SetSkillLevels(430, 430, 430, 435, 440)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOE, F.MAGE)
+	recipe:AddCustom("DISCOVERY_INSC_NORTHREND")
 
 	self.InitInscription = nil
 end
