@@ -1440,7 +1440,7 @@ function addon:InitCooking()
 	recipe:SetCraftedItemID(62661)
 	recipe:SetSkillLevels(500, 500, 515, 520, 525)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	recipe:AddVendor(49701, 49737)
+	recipe:AddVendor(3027, 4553, 49701, 49737)
 
 	-- Basilisk Liverdog -- 88004
 	recipe = AddRecipe(88004, V.CATA, Q.UNCOMMON)
@@ -1448,7 +1448,7 @@ function addon:InitCooking()
 	recipe:SetCraftedItemID(62665)
 	recipe:SetSkillLevels(500, 500, 515, 520, 525)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	recipe:AddVendor(49701, 49737)
+	recipe:AddVendor(3027, 4553, 49701, 49737)
 
 	-- Beer-Basted Crocolisk -- 88005
 	recipe = AddRecipe(88005, V.CATA, Q.UNCOMMON)
@@ -1456,7 +1456,7 @@ function addon:InitCooking()
 	recipe:SetCraftedItemID(62670)
 	recipe:SetSkillLevels(500, 500, 515, 520, 525)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	recipe:AddVendor(49701, 49737)
+	recipe:AddVendor(3027, 4553, 49701, 49737)
 
 	-- Blackened Surprise -- 88006
 	recipe = AddRecipe(88006, V.CATA, Q.COMMON)
@@ -1478,7 +1478,7 @@ function addon:InitCooking()
 	recipe:SetCraftedItemID(62655)
 	recipe:SetSkillLevels(450, 450, 465, 477, 490)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	recipe:AddVendor(49701, 49737)
+	recipe:AddVendor(3027, 4553, 49701, 49737)
 
 	-- Chocolate Cookie -- 88013
 	recipe = AddRecipe(88013, V.CATA, Q.UNCOMMON)
@@ -1486,7 +1486,7 @@ function addon:InitCooking()
 	recipe:SetCraftedItemID(62680)
 	recipe:SetSkillLevels(505, 505, 510, 512, 515)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	recipe:AddVendor(49701, 49737)
+	recipe:AddVendor(3027, 4553, 49701, 49737)
 
 	-- Crocolisk Au Gratin -- 88014
 	recipe = AddRecipe(88014, V.CATA, Q.UNCOMMON)
@@ -1494,7 +1494,7 @@ function addon:InitCooking()
 	recipe:SetCraftedItemID(62664)
 	recipe:SetSkillLevels(500, 500, 515, 520, 525)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	recipe:AddVendor(49701, 49737)
+	recipe:AddVendor(3027, 4553, 49701, 49737)
 
 	-- Darkbrew Lager -- 88015
 	recipe = AddRecipe(88015, V.CATA, Q.COMMON)
@@ -1509,14 +1509,14 @@ function addon:InitCooking()
 	recipe:SetCraftedItemID(62666)
 	recipe:SetSkillLevels(500, 500, 515, 520, 525)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	recipe:AddVendor(49701, 49737)
+	recipe:AddVendor(3027, 4553, 49701, 49737)
 
 	-- Feathered Lure -- 88017
 	recipe = AddRecipe(88017, V.CATA, Q.UNCOMMON)
 	recipe:SetRecipeItemID(65408)
 	recipe:SetSkillLevels(450, 450, 450, 455, 470)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	recipe:AddVendor(49701, 49737)
+	recipe:AddVendor(3027, 4553, 49701, 49737)
 
 	-- Fish Fry -- 88018
 	recipe = AddRecipe(88018, V.CATA, Q.UNCOMMON)
@@ -1524,7 +1524,7 @@ function addon:InitCooking()
 	recipe:SetCraftedItemID(62677)
 	recipe:SetSkillLevels(500, 500, 500, 500, 510)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	recipe:AddVendor(49701, 49737)
+	recipe:AddVendor(3027, 4553, 49701, 49737)
 
 	-- Fortune Cookie -- 88019
 	recipe = AddRecipe(88019, V.CATA, Q.UNCOMMON)
@@ -1532,7 +1532,7 @@ function addon:InitCooking()
 	recipe:SetCraftedItemID(62649)
 	recipe:SetSkillLevels(525, 525, 525, 525, 525)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	recipe:AddVendor(49701, 49737)
+	recipe:AddVendor(3027, 4553, 49701, 49737)
 
 	-- Grilled Dragon -- 88020
 	recipe = AddRecipe(88020, V.CATA, Q.UNCOMMON)
@@ -1540,7 +1540,7 @@ function addon:InitCooking()
 	recipe:SetCraftedItemID(62662)
 	recipe:SetSkillLevels(500, 500, 515, 520, 525)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	recipe:AddVendor(49701, 49737)
+	recipe:AddVendor(3027, 4553, 49701, 49737)
 
 	-- Hearty Seafood Soup -- 88021
 	recipe = AddRecipe(88021, V.CATA, Q.UNCOMMON)
@@ -1548,7 +1548,7 @@ function addon:InitCooking()
 	recipe:SetCraftedItemID(62659)
 	recipe:SetSkillLevels(475, 475, 490, 497, 505)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	recipe:AddVendor(49701, 49737)
+	recipe:AddVendor(3027, 4553, 49701, 49737)
 
 	-- Highland Spirits -- 88022
 	recipe = AddRecipe(88022, V.CATA, Q.UNCOMMON)
@@ -1556,7 +1556,7 @@ function addon:InitCooking()
 	recipe:SetCraftedItemID(62674)
 	recipe:SetSkillLevels(450, 450, 455, 460, 465)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	recipe:AddVendor(49701, 49737)
+	recipe:AddVendor(3027, 4553, 49701, 49737)
 
 	-- Lavascale Fillet -- 88024
 	recipe = AddRecipe(88024, V.CATA, Q.UNCOMMON)
@@ -1564,7 +1564,7 @@ function addon:InitCooking()
 	recipe:SetCraftedItemID(62654)
 	recipe:SetSkillLevels(450, 450, 465, 477, 490)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	recipe:AddVendor(49701, 49737)
+	recipe:AddVendor(3027, 4553, 49701, 49737)
 
 	-- Lavascale Minestrone -- 88025
 	recipe = AddRecipe(88025, V.CATA, Q.UNCOMMON)
@@ -1572,7 +1572,7 @@ function addon:InitCooking()
 	recipe:SetCraftedItemID(62663)
 	recipe:SetSkillLevels(500, 500, 515, 520, 525)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	recipe:AddVendor(49701, 49737)
+	recipe:AddVendor(3027, 4553, 49701, 49737)
 
 	-- Lightly Fried Lurker -- 88028
 	recipe = AddRecipe(88028, V.CATA, Q.UNCOMMON)
@@ -1580,7 +1580,7 @@ function addon:InitCooking()
 	recipe:SetCraftedItemID(62651)
 	recipe:SetSkillLevels(450, 450, 465, 477, 490)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	recipe:AddVendor(49701, 49737)
+	recipe:AddVendor(3027, 4553, 49701, 49737)
 
 	-- Lurker Lunch -- 88030
 	recipe = AddRecipe(88030, V.CATA, Q.UNCOMMON)
@@ -1588,7 +1588,7 @@ function addon:InitCooking()
 	recipe:SetCraftedItemID(62657)
 	recipe:SetSkillLevels(450, 450, 465, 477, 490)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	recipe:AddVendor(49701, 49737)
+	recipe:AddVendor(3027, 4553, 49701, 49737)
 
 	-- Mushroom Sauce Mudfish -- 88031
 	recipe = AddRecipe(88031, V.CATA, Q.UNCOMMON)
@@ -1596,7 +1596,7 @@ function addon:InitCooking()
 	recipe:SetCraftedItemID(62667)
 	recipe:SetSkillLevels(500, 500, 515, 520, 525)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	recipe:AddVendor(49701, 49737)
+	recipe:AddVendor(3027, 4553, 49701, 49737)
 
 	-- Pickled Guppy -- 88033
 	recipe = AddRecipe(88033, V.CATA, Q.UNCOMMON)
@@ -1604,7 +1604,7 @@ function addon:InitCooking()
 	recipe:SetCraftedItemID(62660)
 	recipe:SetSkillLevels(475, 475, 490, 497, 505)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	recipe:AddVendor(49701, 49737)
+	recipe:AddVendor(3027, 4553, 49701, 49737)
 
 	-- Blackbelly Sushi -- 88034
 	recipe = AddRecipe(88034, V.CATA, Q.UNCOMMON)
@@ -1612,7 +1612,7 @@ function addon:InitCooking()
 	recipe:SetCraftedItemID(62668)
 	recipe:SetSkillLevels(500, 500, 515, 520, 525)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	recipe:AddVendor(49701, 49737)
+	recipe:AddVendor(3027, 4553, 49701, 49737)
 
 	-- Salted Eye -- 88035
 	recipe = AddRecipe(88035, V.CATA, Q.UNCOMMON)
@@ -1620,7 +1620,7 @@ function addon:InitCooking()
 	recipe:SetCraftedItemID(62653)
 	recipe:SetSkillLevels(450, 450, 465, 477, 490)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	recipe:AddVendor(49701, 49737)
+	recipe:AddVendor(3027, 4553, 49701, 49737)
 
 	-- Seafood Magnifique Feast -- 88036
 	recipe = AddRecipe(88036, V.CATA, Q.RARE)
@@ -1635,7 +1635,7 @@ function addon:InitCooking()
 	recipe:SetCraftedItemID(62652)
 	recipe:SetSkillLevels(450, 450, 465, 477, 490)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	recipe:AddVendor(49701, 49737)
+	recipe:AddVendor(3027, 4553, 49701, 49737)
 
 	-- Severed Sagefish Head -- 88039
 	recipe = AddRecipe(88039, V.CATA, Q.UNCOMMON)
@@ -1643,7 +1643,7 @@ function addon:InitCooking()
 	recipe:SetCraftedItemID(62671)
 	recipe:SetSkillLevels(500, 500, 515, 520, 525)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	recipe:AddVendor(49701, 49737)
+	recipe:AddVendor(3027, 4553, 49701, 49737)
 
 	-- Skewered Eel -- 88042
 	recipe = AddRecipe(88042, V.CATA, Q.UNCOMMON)
@@ -1651,7 +1651,7 @@ function addon:InitCooking()
 	recipe:SetCraftedItemID(62669)
 	recipe:SetSkillLevels(500, 500, 515, 520, 525)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	recipe:AddVendor(49701, 49737)
+	recipe:AddVendor(3027, 4553, 49701, 49737)
 
 	-- South Island Iced Tea -- 88044
 	recipe = AddRecipe(88044, V.CATA, Q.UNCOMMON)
@@ -1659,7 +1659,7 @@ function addon:InitCooking()
 	recipe:SetCraftedItemID(62672)
 	recipe:SetSkillLevels(525, 525, 525, 525, 525)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	recipe:AddVendor(49701, 49737)
+	recipe:AddVendor(3027, 4553, 49701, 49737)
 
 	-- Starfire Espresso -- 88045
 	recipe = AddRecipe(88045, V.CATA, Q.UNCOMMON)
@@ -1667,7 +1667,7 @@ function addon:InitCooking()
 	recipe:SetCraftedItemID(62675)
 	recipe:SetSkillLevels(450, 450, 455, 460, 465)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	recipe:AddVendor(49701, 49737)
+	recipe:AddVendor(3027, 4553, 49701, 49737)
 
 	-- Tender Baked Turtle -- 88046
 	recipe = AddRecipe(88046, V.CATA, Q.UNCOMMON)
@@ -1675,7 +1675,7 @@ function addon:InitCooking()
 	recipe:SetCraftedItemID(62658)
 	recipe:SetSkillLevels(475, 475, 490, 497, 505)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	recipe:AddVendor(49701, 49737)
+	recipe:AddVendor(3027, 4553, 49701, 49737)
 
 	-- Whitecrest Gumbo -- 88047
 	recipe = AddRecipe(88047, V.CATA, Q.UNCOMMON)
@@ -1683,7 +1683,7 @@ function addon:InitCooking()
 	recipe:SetCraftedItemID(62656)
 	recipe:SetSkillLevels(450, 450, 465, 477, 490)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	recipe:AddVendor(49701, 49737)
+	recipe:AddVendor(3027, 4553, 49701, 49737)
 
 	-- Venison Jerky -- 93741
 	recipe = AddRecipe(93741, V.CATA, Q.COMMON)
@@ -1698,7 +1698,7 @@ function addon:InitCooking()
 	recipe:SetCraftedItemID(68687)
 	recipe:SetSkillLevels(500, 500, 500, 500, 510)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	recipe:AddVendor(49701, 49737)
+	recipe:AddVendor(3027, 4553, 49701, 49737)
 
 	self.InitCooking = nil
 end
