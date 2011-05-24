@@ -120,7 +120,7 @@ function addon:InitVendor(DB)
 	AddVendor(3954,		L["Dalria"],				BZ["Ashenvale"],			35.1, 52.1, "Alliance")
 	AddVendor(3956,		L["Harklan Moongrove"],			BZ["Ashenvale"],			50.8, 67.0, "Alliance")
 	AddVendor(3958,		L["Lardan"],				BZ["Ashenvale"],			34.8, 49.8, "Alliance")
-	AddVendor(4083,		L["Jeeda"],				BZ["Stonetalon Mountains"],		47.6, 61.7, "Horde")
+	AddVendor(4083,		L["Jeeda"],				BZ["Stonetalon Mountains"],		50.5, 63.4, "Horde") -- COMPLETELY UPDATED
 	AddVendor(4086,		L["Veenix"],				BZ["Stonetalon Mountains"],		58.3, 51.7, "Neutral")
 	AddVendor(4168,		L["Elynna"],				BZ["Darnassus"],			60.6, 36.9, "Alliance") -- COMPLETELY UPDATED
 	AddVendor(4223,		L["Fyldan"],				BZ["Darnassus"],			49.5, 36.9, "Alliance") -- COMPLETELY UPDATED
