@@ -2891,7 +2891,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItemID(45794)
 	recipe:SetSkillLevels(425, 425, 430, 435, 440)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.WARRIOR)
-	recipe:AddCustom("DISCOVERY_INSC_BOOK")
+	recipe:AddCustom("DISCOVERY_INSC_MINOR")
 
 	-- Glyph of Starsurge -- 64313
 	recipe = AddRecipe(64313, V.WOTLK, Q.COMMON)
