@@ -1262,8 +1262,8 @@ function addon:InitBlacksmithing()
 	recipe:SetRecipeItemID(12707)
 	recipe:SetCraftedItemID(12611)
 	recipe:SetSkillLevels(300, 300, 320, 330, 340)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOE, F.RBOP, F.PLATE)
-	recipe:AddMobDrop(1836)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOE, F.RBOP, F.PLATE)
+	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Demon Forged Breastplate -- 16667
 	recipe = AddRecipe(16667, V.ORIG, Q.RARE)
