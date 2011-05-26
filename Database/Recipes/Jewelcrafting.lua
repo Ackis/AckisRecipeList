@@ -164,7 +164,8 @@ function addon:InitJewelcrafting()
 	recipe:SetRecipeItemID(20970)
 	recipe:SetCraftedItemID(20950)
 	recipe:SetSkillLevels(120, 120, 150, 165, 180)
-	recipe:AddFilters(F.ALLIANCE, F.VENDOR, F.IBOE, F.RBOE, F.TANK, F.NECK)
+	recipe:AddFilters(F.ALLIANCE, F.TRAINER, F.VENDOR, F.IBOE, F.RBOE, F.TANK, F.NECK)
+	recipe:AddTrainer(33637)
 	recipe:AddVendor(1448)
 
 	-- Heavy Iron Knuckles -- 25612
@@ -172,7 +173,8 @@ function addon:InitJewelcrafting()
 	recipe:SetRecipeItemID(20971)
 	recipe:SetCraftedItemID(20954)
 	recipe:SetSkillLevels(125, 125, 155, 170, 185)
-	recipe:AddFilters(F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.DPS, F.ONE_HAND, F.FIST)
+	recipe:AddFilters(F.HORDE, F.TRAINER, F.VENDOR, F.IBOE, F.RBOE, F.DPS, F.ONE_HAND, F.FIST)
+	recipe:AddTrainer(33637)
 	recipe:AddLimitedVendor(2393, 1)
 
 	-- Golden Dragon Ring -- 25613
@@ -194,7 +196,8 @@ function addon:InitJewelcrafting()
 	recipe:SetRecipeItemID(20973)
 	recipe:SetCraftedItemID(20958)
 	recipe:SetSkillLevels(150, 150, 180, 195, 210)
-	recipe:AddFilters(F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.RING)
+	recipe:AddFilters(F.HORDE, F.TRAINER, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.RING)
+	recipe:AddTrainer(33637)
 	recipe:AddLimitedVendor(9636, 1)
 
 	-- Jade Pendant of Blasting -- 25618
@@ -522,7 +525,7 @@ function addon:InitJewelcrafting()
 	recipe:SetCraftedItemID(23103)
 	recipe:SetSkillLevels(300, 300, 300, 320, 340)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.CASTER)
-	recipe:AddTrainer(18774, 19063, 19539, 26915, 26960, 26982, 26997, 28701, 33614, 33680)
+	recipe:AddTrainer(18774, 19063, 19539, 26915, 26960, 26982, 26997, 28701, 33614, 33637, 33680)
 
 	-- Jagged Deep Peridot -- 28917
 	recipe = AddRecipe(28917, V.TBC, Q.COMMON)
@@ -546,7 +549,7 @@ function addon:InitJewelcrafting()
 	recipe:SetCraftedItemID(23108)
 	recipe:SetSkillLevels(300, 300, 300, 320, 340)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
-	recipe:AddTrainer(18774, 19063, 19539, 26915, 26960, 26982, 26997, 28701, 33614, 33680)
+	recipe:AddTrainer(18774, 19063, 19539, 26915, 26960, 26982, 26997, 28701, 33614, 33637, 33680)
 
 	-- Purified Shadow Draenite -- 28927
 	recipe = AddRecipe(28927, V.TBC, Q.UNCOMMON)
@@ -602,7 +605,7 @@ function addon:InitJewelcrafting()
 	recipe:SetCraftedItemID(23118)
 	recipe:SetSkillLevels(300, 300, 300, 320, 340)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(18774, 19063, 19539, 26915, 26960, 26982, 26997, 28701, 33614, 33680)
+	recipe:AddTrainer(18774, 19063, 19539, 26915, 26960, 26982, 26997, 28701, 33614, 33637, 33680)
 
 	-- Sparkling Azure Moonstone -- 28953
 	recipe = AddRecipe(28953, V.TBC, Q.COMMON)

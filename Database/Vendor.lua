@@ -369,7 +369,7 @@ function addon:InitVendor(DB)
 	AddVendor(33594,	L["Fizzix Blastbolt"],			BZ["Icecrown"],				72.2, 20.9, "Neutral")
 	AddVendor(33595,	L["Mera Mistrunner"],			BZ["Icecrown"],				72.4, 20.9, "Neutral")
 	AddVendor(33602,	L["Anuur"],				BZ["Icecrown"],				71.4, 20.8, "Neutral")
-	AddVendor(33637,	L["Kirembri Silvermane"],		BZ["Shattrath City"],			58.1, 75.0, "Neutral")
+	AddVendor(33637,	L["Kirembri Silvermane"],		BZ["Shattrath City"],			58.1, 75.0, "Neutral") -- COMPLETELY UPDATED
 	AddVendor(33680,	L["Nemiha"],				BZ["Shattrath City"],			36.1, 47.7, "Neutral")
 	AddVendor(35826,	L["Kaye Toogie"],			BZ["Dalaran"],				34.0, 35.6, "Neutral")
 	AddVendor(37687,	L["Alchemist Finklestein"],		BZ["Icecrown Citadel"],			   0,	 0, "Neutral")
