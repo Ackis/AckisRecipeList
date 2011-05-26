@@ -290,7 +290,7 @@ function addon:InitVendor(DB)
 	AddVendor(19234,	L["Yurial Soulwater"],			BZ["Shattrath City"],			43.5, 96.9, "Neutral")
 	AddVendor(19296,	L["Innkeeper Biribi"],			BZ["Terokkar Forest"],			56.7, 53.3, "Alliance")
 	AddVendor(19321,	L["Quartermaster Endarin"],		BZ["Shattrath City"],			47.9, 26.1, "Neutral")
-	AddVendor(19331,	L["Quartermaster Enuril"],		BZ["Shattrath City"],			60.5, 64.2, "Neutral")
+	AddVendor(19331,	L["Quartermaster Enuril"],		BZ["Shattrath City"],			60.5, 64.2, "Neutral") -- COMPLETELY UPDATED
 	AddVendor(19342,	L["Krek Cragcrush"],			BZ["Shadowmoon Valley"],		28.9, 30.8, "Horde")
 	AddVendor(19351,	L["Daggle Ironshaper"],			BZ["Shadowmoon Valley"],		36.8, 54.4, "Alliance")
 	AddVendor(19373,	L["Mari Stonehand"],			BZ["Shadowmoon Valley"],		36.8, 55.1, "Alliance")

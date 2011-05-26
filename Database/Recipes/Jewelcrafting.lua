@@ -469,12 +469,12 @@ function addon:InitJewelcrafting()
 	recipe:AddTrainer(15501, 18751, 18774, 19063, 19539, 19775, 19778, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 33680, 44582, 46675)
 
 	-- Brilliant Blood Garnet -- 28903
-	recipe = AddRecipe(28903, V.TBC, Q.COMMON)
+	recipe = AddRecipe(28903, V.TBC, Q.UNCOMMON)
 	recipe:SetRecipeItemID(23133)
 	recipe:SetCraftedItemID(23094)
 	recipe:SetSkillLevels(300, 300, 300, 320, 340)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
-	recipe:AddTrainer(18774, 19063, 19539, 26915, 26960, 26982, 26997, 28701, 33614, 33680)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.SCRYER)
+	recipe:AddRepVendor(FAC.SCRYER, REP.FRIENDLY, 19331)
 
 	-- Bold Blood Garnet -- 28905
 	recipe = AddRecipe(28905, V.TBC, Q.COMMON)
@@ -4511,7 +4511,7 @@ function addon:InitJewelcrafting()
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
 	recipe:AddWorldDrop("Deepholm", "Eastern Kingdoms", "Kalimdor")
 
-	-- Punisher's Band - 98921
+	-- Punisher's Band -- 98921
 	recipe = AddRecipe(98921, V.CATA, Q.RARE)
 	recipe:SetRecipeItemID(69853)
 	recipe:SetCraftedItemID(69852)
