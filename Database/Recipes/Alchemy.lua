@@ -320,8 +320,8 @@ function addon:InitAlchemy()
 	recipe:SetRecipeItemID(6054)
 	recipe:SetCraftedItemID(6048)
 	recipe:SetSkillLevels(135, 135, 160, 180, 200)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE)
-	recipe:AddLimitedVendor(2393, 1, 3956, 1)
+	recipe:AddFilters(F.HORDE, F.VENDOR, F.IBOE, F.RBOE)
+	recipe:AddLimitedVendor(2393, 1)
 
 	-- Fire Protection Potion -- 7257
 	recipe = AddRecipe(7257, V.ORIG, Q.COMMON)

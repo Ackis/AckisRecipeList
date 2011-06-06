@@ -118,7 +118,6 @@ function addon:InitVendor(DB)
 	AddVendor(3556,		L["Andrew Hilbert"],			BZ["Silverpine Forest"],		43.2, 40.7, "Horde")
 	AddVendor(3881,		L["Grimtak"],				BZ["Durotar"],				50.7, 42.8, "Horde") -- COMPLETELY UPDATED
 	AddVendor(3954,		L["Dalria"],				BZ["Ashenvale"],			35.1, 52.1, "Alliance")
-	AddVendor(3956,		L["Harklan Moongrove"],			BZ["Ashenvale"],			50.8, 67.0, "Alliance")
 	AddVendor(3958,		L["Lardan"],				BZ["Ashenvale"],			34.8, 49.8, "Alliance")
 	AddVendor(4083,		L["Jeeda"],				BZ["Stonetalon Mountains"],		50.5, 63.4, "Horde") -- COMPLETELY UPDATED
 	AddVendor(4086,		L["Veenix"],				BZ["Stonetalon Mountains"],		58.3, 51.7, "Neutral")
