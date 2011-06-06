@@ -75,6 +75,7 @@ function addon:InitMob(DB)
 	AddMob(16072,	L["Tidelord Rrurgaz"],			BZ["Dustwallow Marsh"], 76.7, 19.5)
 
 	-- Eastern Plaguelands
+	AddMob(1844,	L["Foreman Marcrid"],			BZ["Eastern Plaguelands"], 54.0, 68.0)
 	AddMob(8546,	L["Dark Adept"],			BZ["Eastern Plaguelands"], 65.8, 37.9)
 	AddMob(8550,	L["Shadowmage"],			BZ["Eastern Plaguelands"], 78.5, 35.3)
 	AddMob(8561,	L["Mossflayer Shadowhunter"],		BZ["Eastern Plaguelands"], 60.9, 21.5)
@@ -229,8 +230,7 @@ function addon:InitMob(DB)
 	AddMob(1783,	L["Skeletal Flayer"],			BZ["Western Plaguelands"], 50.7, 80.5)
 	AddMob(1791,	L["Slavering Ghoul"],			BZ["Western Plaguelands"], 36.0, 56.5)
 	AddMob(1812,	L["Rotting Behemoth"],			BZ["Western Plaguelands"], 64.5, 36.6)
-	AddMob(1844,	L["Foreman Marcrid"],			BZ["Western Plaguelands"], 47.7, 35.4)
-	AddMob(1885,	L["Scarlet Smith"],			BZ["Western Plaguelands"], 45.4, 14.5)
+	AddMob(1885,	L["Scarlet Smith"],			BZ["Western Plaguelands"], 53.8, 44.2)
 	AddMob(4494,	L["Scarlet Spellbinder"],		BZ["Western Plaguelands"], 52.7, 38.4)
 
 	-- Westfall
