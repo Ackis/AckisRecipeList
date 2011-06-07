@@ -1,6 +1,33 @@
 ==ARL Change Log
 NOTE: Always remove the folder for old versions and install a fresh copy when upgrading.
 
+== 2.2.5
+
+==== Recipe Database:
+* Marked the following recipes as removed from the game:
+** Enchanted Thorium Breastplate
+** Enchanted Thorium Helm
+** Enchanted Thorium Leggings
+** Enchant Weapon - Executioner
+** Gordok Ogre Suit
+** Adamantite Arrow Maker
+** Heavy Scorpid Shoulders
+** The Mortar: Reloaded
+** Runic Plate Boots
+* The following recipes have been added in patch 4.1:
+** Origami Beetle
+** Big Daddy
+** Gnomish Gravity Well
+** Glyph of Frost Armor
+* Several vendors, trainers, quest-givers, and mobs have been removed.
+* Many recipes have had multiple trainers or vendors added to their acquire lists.
+* Many vendors, trainers, and quest-givers have had their locations updated.
+* Fixed faction information for the "Enchanted Lantern", the "Magic Lamp", and the "Shadow Protection Potion" recipes.
+* Fixed acquire information for the "Glyph of Indimidating Shout" recipe.
+
+==== Backend:
+* The datamining options have truly been disabled for non-developers (non-repository versions).
+
 == 2.2.4
 
 ==== Recipe Database:
