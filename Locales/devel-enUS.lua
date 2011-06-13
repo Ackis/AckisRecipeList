@@ -479,7 +479,6 @@ L["Fremal Doohickey"] = "Fremal Doohickey"
 L["Frostbrood Spawn"] = "Frostbrood Spawn"
 L["Frostfeather Screecher"] = "Frostfeather Screecher"
 L["Frostfeather Witch"] = "Frostfeather Witch"
-L["Frostmaul Giant"] = "Frostmaul Giant"
 L["Frozo the Renowned"] = "Frozo the Renowned"
 L["Fyldan"] = "Fyldan"
 L["GAME_COMMANDS_DESC"] = [[Command Line:
