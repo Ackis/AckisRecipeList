@@ -750,8 +750,8 @@ function addon:InitAlchemy()
 	recipe:SetRecipeItemID(13495)
 	recipe:SetCraftedItemID(13456)
 	recipe:SetSkillLevels(290, 290, 305, 325, 345)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOE, F.RBOE)
-	recipe:AddMobDrop(7428)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOE, F.RBOE)
+	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Greater Nature Protection Potion -- 17576
 	recipe = AddRecipe(17576, V.ORIG, Q.UNCOMMON)
