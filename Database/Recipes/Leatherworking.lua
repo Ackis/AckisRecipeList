@@ -4377,7 +4377,7 @@ function addon:InitLeatherworking()
 	-- Stormleather Sash -- 78462
 	recipe = AddRecipe(78462, V.CATA, Q.COMMON)
 	recipe:SetRecipeItemID(67072)
-	recipe:SetSkillLevels(425, 425, 520, 525, 530)
+	recipe:SetSkillLevels(525, 525, 525, 525, 530)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	recipe:AddVendor(3366, 50172, 50381)
 
@@ -4461,7 +4461,7 @@ function addon:InitLeatherworking()
 	-- Dragonscale Leg Armor -- 78477
 	recipe = AddRecipe(78477, V.CATA, Q.COMMON)
 	recipe:SetRecipeItemID(68193)
-	recipe:SetSkillLevels(425, 425, 530, 535, 540)
+	recipe:SetSkillLevels(525, 525, 530, 535, 540)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	recipe:AddVendor(3366, 50172, 50381)
 
@@ -4545,14 +4545,14 @@ function addon:InitLeatherworking()
 	-- Twilight Scale Chestguard -- 78489
 	recipe = AddRecipe(78489, V.CATA, Q.COMMON)
 	recipe:SetRecipeItemID(67096)
-	recipe:SetSkillLevels(425, 425, 530, 535, 540)
+	recipe:SetSkillLevels(525, 525, 530, 535, 540)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	recipe:AddVendor(3366, 50172, 50381)
 
 	-- Dragonkiller Tunic -- 78490
 	recipe = AddRecipe(78490, V.CATA, Q.COMMON)
 	recipe:SetRecipeItemID(67100)
-	recipe:SetSkillLevels(425, 425, 530, 535, 540)
+	recipe:SetSkillLevels(525, 525, 530, 535, 540)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	recipe:AddVendor(3366, 50172, 50381)
 
