@@ -4320,26 +4320,72 @@ function addon:InitBlacksmithing()
 	-- Emberforged Elementium Boots
 	--recipe = AddRecipe(, V.CATA, Q.EPIC)
 	--recipe:SetRecipeItemID(69970)
-
+	--recipe:AddFilters()
+	
 	-- Eternal Elementium Handguards
 	--recipe = AddRecipe(, V.CATA, Q.EPIC)
 	--recipe:SetRecipeItemID(69958)
-
+	--recipe:AddFilters()
+	
 	-- Fists of Fury
 	--recipe = AddRecipe(, V.CATA, Q.EPIC)
 	--recipe:SetRecipeItemID(69957)
-
+	--recipe:AddFilters()
+	
 	-- Holy Flame Gauntlets
 	--recipe = AddRecipe(, V.CATA, Q.EPIC)
 	--recipe:SetRecipeItemID(69959)
-
+	--recipe:AddFilters()
+	
 	-- Mirrored Boots
 	--recipe = AddRecipe(, V.CATA, Q.EPIC)
 	--recipe:SetRecipeItemID(69969)
-
+	--recipe:AddFilters()
+	
 	-- Warboots of Might Lords
 	--recipe = AddRecipe(, V.CATA, Q.EPIC)
 	--recipe:SetRecipeItemID(69968)
-
+	--recipe:AddFilters()
+	
+	-- Brainsplinter
+	--recipe = AddRecipe(, V.CATA, Q.RARE)
+	--recipe:SetRecipeItemID()
+	--recipe:AddFilters()
+	
+	-- Elementium-Edged Scalper
+	--recipe = AddRecipe(, V.CATA, Q.RARE)
+	--recipe:SetRecipeItemID()
+	--recipe:AddFilters()
+	
+	-- Lightforged Elementium Hammer	
+	--recipe = AddRecipe(, V.CATA, Q.RARE)
+	--recipe:SetRecipeItemID()
+	--recipe:AddFilters()
+	
+	-- Masterwork Elementium Deathblade	
+	--recipe = AddRecipe(, V.CATA, Q.RARE)
+	--recipe:SetRecipeItemID()
+	--recipe:AddFilters()
+	
+	-- Masterwork Elementium Spellblade	
+	--recipe = AddRecipe(, V.CATA, Q.RARE)
+	--recipe:SetRecipeItemID()
+	--recipe:AddFilters()
+	
+	-- Pyrium Spellward	
+	--recipe = AddRecipe(, V.CATA, Q.RARE)
+	--recipe:SetRecipeItemID()
+	--recipe:AddFilters()
+	
+	-- Unbreakable Guardian
+	--recipe = AddRecipe(, V.CATA, Q.RARE)
+	--recipe:SetRecipeItemID()
+	--recipe:AddFilters()
+	
+	-- Witch-Hunter's Harvester
+	--recipe = AddRecipe(, V.CATA, Q.RARE)
+	--recipe:SetRecipeItemID()
+	--recipe:AddFilters()
+	
 	self.InitBlacksmithing = nil
 end

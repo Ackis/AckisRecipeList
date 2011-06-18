@@ -4522,5 +4522,29 @@ function addon:InitJewelcrafting()
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	recipe:AddVendor(50480, 50482)
 
+	-- Bloodthirsty Sapphire Ring
+	--recipe = AddRecipe(, V.CATA, Q.COMMON)
+	--recipe:AddFilters()
+	
+	-- Bloodthirsty Amberjewel Band
+	--recipe = AddRecipe(, V.CATA, Q.COMMON)
+	--recipe:AddFilters()
+	
+	-- Bloodthirsty Ruby Signet
+	--recipe = AddRecipe(, V.CATA, Q.COMMON)
+	--recipe:AddFilters()
+	
+	-- Bloodthirsty Sapphire Necklace	
+	--recipe = AddRecipe(, V.CATA, Q.COMMON)
+	--recipe:AddFilters()
+	
+	-- Bloodthirsty Amberjewel Pendant
+	--recipe = AddRecipe(, V.CATA, Q.COMMON)
+	--recipe:AddFilters()
+	
+	-- Bloodthirsty Ruby Choker
+	--recipe = AddRecipe(, V.CATA, Q.COMMON)
+	--recipe:AddFilters()
+	
 	self.InitJewelcrafting = nil
 end

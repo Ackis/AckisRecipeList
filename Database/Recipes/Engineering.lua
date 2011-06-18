@@ -2468,6 +2468,18 @@ function addon:InitEngineering()
 	recipe:SetSpecialty(20222)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	recipe:AddTrainer(8126, 8738, 29513)
+	
+	-- Flintlocke's Woodchucker
+	-- recipe = AddRecipe(, V.CATA, Q.COMMON)
+	-- recipe:SetCraftedItemID()
+	-- recipe:SetSkillLevels()
+	-- recipe:AddFilters()
+	
+	-- Extreme-Impact Hole Puncher
+	-- recipe = AddRecipe(, V.CATA, Q.COMMON)
+	-- recipe:SetCraftedItemID()
+	-- recipe:SetSkillLevels()
+	-- recipe:AddFilters()
 
 	self.InitEngineering = nil
 end

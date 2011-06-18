@@ -3313,6 +3313,31 @@ function addon:InitInscription()
 	recipe:SetSkillLevels(430, 430, 430, 435, 440)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOE, F.MAGE)
 	recipe:AddCustom("DISCOVERY_INSC_NORTHREND")
+	
+	-- Glyph of Unleashed Lightning -- 101057
+	-- recipe = AddRecipe(101057, V.CATA, Q.COMMON)
+	-- recipe:SetCraftedItemID()
+	-- recipe:SetSkillLevels()
+	-- recipe:AddFilters()
+	-- recipe:AddCustom("DISCOVERY_INSC_NORTHREND")	
+	
+	-- Bloodthirsty Charm of Triumph
+	-- recipe = AddRecipe(, V.CATA, Q.COMMON)
+	-- recipe:SetCraftedItemID()
+	-- recipe:SetSkillLevels()
+	-- recipe:AddFilters()
+	
+	-- Bloodthirsty Eyeball of Dominance
+	-- recipe = AddRecipe(, V.CATA, Q.COMMON)
+	-- recipe:SetCraftedItemID()
+	-- recipe:SetSkillLevels()
+	-- recipe:AddFilters()
+	
+	-- Bloodthirsty Jawbone of Conquest
+	-- recipe = AddRecipe(, V.CATA, Q.COMMON)
+	-- recipe:SetCraftedItemID()
+	-- recipe:SetSkillLevels()
+	-- recipe:AddFilters()
 
 	self.InitInscription = nil
 end

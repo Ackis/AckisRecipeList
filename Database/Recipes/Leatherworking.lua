@@ -4598,10 +4598,26 @@ function addon:InitLeatherworking()
 	recipe:SetSkillLevels(465, 465, 465, 465, 470)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	recipe:AddTrainer(3007, 3365, 3967, 4212, 4588, 5127, 5564, 21087, 26998, 28700, 29507, 33581, 33612, 33635)
+	
+	-- Drakehide Leg Armor
+	--recipe = AddRecipe(, V.CATA, Q.COMMON)
+	--recipe:SetRecipeItemID()
+	--recipe:SetSkillLevels()
+	
+	-- Royal Scribe's Satchel
+	--recipe = AddRecipe(, V.CATA, Q.RARE)
+	--recipe:SetRecipeItemID()
+	--recipe:SetSkillLevels()
+	
+	-- Triple-Reinforced Mining Bag
+	--recipe = AddRecipe(, V.CATA, Q.RARE)
+	--recipe:SetRecipeItemID()
+	--recipe:SetSkillLevels()
 
 	-- Cluthes of Evil
 	--recipe = AddRecipe(, V.CATA, Q.EPIC)
 	--recipe:SetRecipeItemID(69962)
+	--recipe:SetSkillLevels()
 
 	-- Dragonfire Gloves
 	--recipe = AddRecipe(, V.CATA, Q.EPIC)

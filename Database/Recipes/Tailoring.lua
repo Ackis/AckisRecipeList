@@ -3580,6 +3580,12 @@ function addon:InitTailoring()
 	recipe:SetSkillLevels(525, 525, 525, 530, 535)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	recipe:AddTrainer(1346, 2399, 3004, 3363, 4159, 4576, 5153, 9584, 16640, 28699, 33580, 33613, 33636, 44783, 45559)
+	
+	-- Luxurious Silk Gem Bag
+	-- recipe = AddRecipe(, V.CATA, Q.RARE)
+	-- recipe:SetCraftedItemID()
+	-- recipe:SetSkillLevels()
+	-- recipe:AddFilters()
 
 	-- Boots of the Black Flame
 	--recipe = AddRecipe(, V.CATA, Q.EPIC)
