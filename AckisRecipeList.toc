@@ -31,8 +31,8 @@
 ## Author: Torhal, Pompachomp, Ackis, Zhinjio, Jim-Bim
 ## X-Donate: http://www.wowace.com/addons/arl/pages/donations/
 
-## Interface: 40100
-## X-Compatible-With: 40100
+## Interface: 40200
+## X-Compatible-With: 40200
 ## Version: @project-version@
 ## X-Revision: @project-abbreviated-hash@
 ## X-Date: @file-date-iso@
