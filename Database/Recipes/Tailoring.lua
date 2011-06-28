@@ -3581,112 +3581,160 @@ function addon:InitTailoring()
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	recipe:AddTrainer(1346, 2399, 3004, 3363, 4159, 4576, 5153, 9584, 16640, 28699, 33580, 33613, 33636, 44783, 45559)
 	
-	-- Luxurious Silk Gem Bag
-	-- recipe = AddRecipe(, V.CATA, Q.RARE)
-	-- recipe:SetCraftedItemID()
+	-- Luxurious Silk Gem Bag -- 100585
+	-- recipe = AddRecipe(100585, V.CATA, Q.RARE)
+	-- recipe:SetCraftedItemID(70138)
+	-- recipe:SetRecipeItemID(70176)
 	-- recipe:SetSkillLevels()
-	-- recipe:AddFilters()
+	-- recipe:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.RBOP, F.VENDOR)
+	-- recipe:AddVendor(53881)
 
-	-- Boots of the Black Flame
-	--recipe = AddRecipe(, V.CATA, Q.EPIC)
-	--recipe:SetRecipeItemID(69976)
+	-- Boots of the Black Flame -- 99460
+	-- recipe = AddRecipe(, V.CATA, Q.EPIC)
+	-- recipe:SetRecipeItemID(69976)
+	-- recipe:SetCraftedItemID(69954)
+	-- recipe:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.RBOP, F.CASTER, F.CLOTH)
+	-- recipe:SetSkillLevels()
 
-	-- Don Tayo's Inferno Mittens
-	--recipe = AddRecipe(, V.CATA, Q.EPIC)
+	-- Don Tayo's Inferno Mittens -- 99449
+	--recipe = AddRecipe(99449, V.CATA, Q.EPIC)
 	--recipe:SetRecipeItemID(69966)
+	-- recipe:SetCraftedItemID(69945)
+	-- recipe:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.RBOP, F.CASTER, F.CLOTH)
+	-- recipe:SetSkillLevels()
 
-	-- Endless Dream Walkers
-	--recipe = AddRecipe(, V.CATA, Q.EPIC)
+	-- Endless Dream Walkers -- 99459
+	--recipe = AddRecipe(99459, V.CATA, Q.EPIC)
 	--recipe:SetRecipeItemID(69975)
+	-- recipe:SetCraftedItemID(69953)
+	-- recipe:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.RBOP, F.HEALER, F.CLOTH)
+	-- recipe:SetSkillLevels()
 
-	-- Grips of Altered Reality
-	--recipe = AddRecipe(, V.CATA, Q.EPIC)
+	-- Grips of Altered Reality -- 99448
+	--recipe = AddRecipe(99448, V.CATA, Q.EPIC)
 	--recipe:SetRecipeItemID(69965)
+	-- recipe:SetCraftedItemID(69944)
+	-- recipe:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.RBOP, F.HEALER, F.CLOTH)
+	-- recipe:SetSkillLevels()
 	
 	-- Bloodthirsty Embersilk Belt
 	--recipe = AddRecipe(, V.CATA, Q.RARE)
 	--recipe:SetRecipeItemID()
-	--recipe:AddFilters()
+	-- recipe:SetCraftedItemID()
+	-- recipe:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.RBOP)
+	-- recipe:SetSkillLevels()
 
 	-- Bloodthirsty Embersilk Boots
 	--recipe = AddRecipe(, V.CATA, Q.RARE)
 	--recipe:SetRecipeItemID()
-	--recipe:AddFilters()
+	-- recipe:SetCraftedItemID()
+	-- recipe:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.RBOP)
+	-- recipe:SetSkillLevels()
 
 	-- Bloodthirsty Embersilk Bracers
 	--recipe = AddRecipe(, V.CATA, Q.RARE)
 	--recipe:SetRecipeItemID()
-	--recipe:AddFilters()
+	-- recipe:SetCraftedItemID()
+	-- recipe:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.RBOP)
+	-- recipe:SetSkillLevels()
 
 	-- Bloodthirsty Embersilk Cape
 	--recipe = AddRecipe(, V.CATA, Q.RARE)
 	--recipe:SetRecipeItemID()
-	--recipe:AddFilters()
+	-- recipe:SetCraftedItemID()
+	-- recipe:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.RBOP)
+	-- recipe:SetSkillLevels()
 
 	-- Bloodthirsty Embersilk Cowl
 	--recipe = AddRecipe(, V.CATA, Q.RARE)
 	--recipe:SetRecipeItemID()
-	--recipe:AddFilters()
+	-- recipe:SetCraftedItemID()
+	-- recipe:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.RBOP)
+	-- recipe:SetSkillLevels()
 
 	-- Bloodthirsty Embersilk Gloves
 	--recipe = AddRecipe(, V.CATA, Q.RARE)
 	--recipe:SetRecipeItemID()
-	--recipe:AddFilters()
+	-- recipe:SetCraftedItemID()
+	-- recipe:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.RBOP)
+	-- recipe:SetSkillLevels()
 
 	-- Bloodthirsty Embersilk Pants
 	--recipe = AddRecipe(, V.CATA, Q.RARE)
 	--recipe:SetRecipeItemID()
-	--recipe:AddFilters()
+	-- recipe:SetCraftedItemID()
+	-- recipe:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.RBOP)
+	-- recipe:SetSkillLevels()
 
 	-- Bloodthirsty Embersilk Robe
 	--recipe = AddRecipe(, V.CATA, Q.RARE)
 	--recipe:SetRecipeItemID()
-	--recipe:AddFilters()
+	-- recipe:SetCraftedItemID()
+	-- recipe:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.RBOP)
+	-- recipe:SetSkillLevels()
 
 	-- Bloodthirsty Embersilk Shoulders
 	--recipe = AddRecipe(, V.CATA, Q.RARE)
 	--recipe:SetRecipeItemID()
-	--recipe:AddFilters()
+	-- recipe:SetCraftedItemID()
+	-- recipe:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.RBOP)
+	-- recipe:SetSkillLevels()
 
 	-- Bloodthirsty Fireweave Belt
 	--recipe = AddRecipe(, V.CATA, Q.RARE)
 	--recipe:SetRecipeItemID()
-	--recipe:AddFilters()
+	-- recipe:SetCraftedItemID()
+	-- recipe:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.RBOP)
+	-- recipe:SetSkillLevels()
 
 	-- Bloodthirsty Fireweave Boots
 	--recipe = AddRecipe(, V.CATA, Q.RARE)
 	--recipe:SetRecipeItemID()
-	--recipe:AddFilters()
+	-- recipe:SetCraftedItemID()
+	-- recipe:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.RBOP)
+	-- recipe:SetSkillLevels()
 
 	-- Bloodthirsty Fireweave Bracers
 	--recipe = AddRecipe(, V.CATA, Q.RARE)
 	--recipe:SetRecipeItemID()
-	--recipe:AddFilters()
+	-- recipe:SetCraftedItemID()
+	-- recipe:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.RBOP)
+	-- recipe:SetSkillLevels()
 
 	-- Bloodthirsty Fireweave Cowl
 	--recipe = AddRecipe(, V.CATA, Q.RARE)
 	--recipe:SetRecipeItemID()
-	--recipe:AddFilters()
+	-- recipe:SetCraftedItemID()
+	-- recipe:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.RBOP)
+	-- recipe:SetSkillLevels()
 
 	-- Bloodthirsty Fireweave Gloves
 	--recipe = AddRecipe(, V.CATA, Q.RARE)
 	--recipe:SetRecipeItemID()
-	--recipe:AddFilters()
+	-- recipe:SetCraftedItemID()
+	-- recipe:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.RBOP)
+	-- recipe:SetSkillLevels()
 
 	-- Bloodthirsty Fireweave Pants
 	--recipe = AddRecipe(, V.CATA, Q.RARE)
 	--recipe:SetRecipeItemID()
-	--recipe:AddFilters()
+	-- recipe:SetCraftedItemID()
+	-- recipe:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.RBOP)
+	-- recipe:SetSkillLevels()
 
 	-- Bloodthirsty Fireweave Robe
 	--recipe = AddRecipe(, V.CATA, Q.RARE)
 	--recipe:SetRecipeItemID()
-	--recipe:AddFilters()
+	-- recipe:SetCraftedItemID()
+	-- recipe:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.RBOP)
+	-- recipe:SetSkillLevels()
 
 	-- Bloodthirsty Fireweave Shoulders
 	--recipe = AddRecipe(, V.CATA, Q.RARE)
 	--recipe:SetRecipeItemID()
-	--recipe:AddFilters()
+	-- recipe:SetCraftedItemID()
+	-- recipe:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.RBOP)
+	-- recipe:SetSkillLevels()
 	
 	self.InitTailoring = nil
 end
