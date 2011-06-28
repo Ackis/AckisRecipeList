@@ -4646,7 +4646,177 @@ function addon:InitLeatherworking()
 	-- Treads of the Craft
 	--recipe = AddRecipe(, V.CATA, Q.EPIC)
 	--recipe:SetRecipeItemID(69973)
-
+	
+	-- Bloodthirsty Charscale Belt
+	--recipe = AddRecipe(, V.CATA, Q.COMMON)
+	--recipe:SetRecipeItemID()
+	--recipe:AddFilters()
+	
+	-- Bloodthirsty Charscale Boots
+	--recipe = AddRecipe(, V.CATA, Q.COMMON)
+	--recipe:SetRecipeItemID()
+	--recipe:AddFilters()
+	
+	-- Bloodthirsty Charscale Bracers
+	--recipe = AddRecipe(, V.CATA, Q.COMMON)
+	--recipe:SetRecipeItemID()
+	--recipe:AddFilters()
+	
+	-- Bloodthirsty Charscale Chest
+	--recipe = AddRecipe(, V.CATA, Q.COMMON)
+	--recipe:SetRecipeItemID()
+	--recipe:AddFilters()
+	
+	-- Bloodthirsty Charscale Gloves
+	--recipe = AddRecipe(, V.CATA, Q.COMMON)
+	--recipe:SetRecipeItemID()
+	--recipe:AddFilters()
+	
+	-- Bloodthirsty Charscale Helm
+	--recipe = AddRecipe(, V.CATA, Q.COMMON)
+	--recipe:SetRecipeItemID()
+	--recipe:AddFilters()
+	
+	-- Bloodthirsty Charscale Legs
+	--recipe = AddRecipe(, V.CATA, Q.COMMON)
+	--recipe:SetRecipeItemID()
+	--recipe:AddFilters()
+	
+	-- Bloodthirsty Charscale Shoulders
+	--recipe = AddRecipe(, V.CATA, Q.COMMON)
+	--recipe:SetRecipeItemID()
+	--recipe:AddFilters()
+	
+	-- Bloodthirsty Dragonscale Belt
+	--recipe = AddRecipe(, V.CATA, Q.COMMON)
+	--recipe:SetRecipeItemID()
+	--recipe:AddFilters()
+	
+	-- Bloodthirsty Dragonscale Boots
+	--recipe = AddRecipe(, V.CATA, Q.COMMON)
+	--recipe:SetRecipeItemID()
+	--recipe:AddFilters()
+	
+	-- Bloodthirsty Dragonscale Bracers
+	--recipe = AddRecipe(, V.CATA, Q.COMMON)
+	--recipe:SetRecipeItemID()
+	--recipe:AddFilters()
+	
+	-- Bloodthirsty Dragonscale Chest
+	--recipe = AddRecipe(, V.CATA, Q.COMMON)
+	--recipe:SetRecipeItemID()
+	--recipe:AddFilters()
+	
+	-- Bloodthirsty Dragonscale Gloves
+	--recipe = AddRecipe(, V.CATA, Q.COMMON)
+	--recipe:SetRecipeItemID()
+	--recipe:AddFilters()
+	
+	-- Bloodthirsty Dragonscale Helm
+	--recipe = AddRecipe(, V.CATA, Q.COMMON)
+	--recipe:SetRecipeItemID()
+	--recipe:AddFilters()
+	
+	-- Bloodthirsty Dragonscale Legs
+	--recipe = AddRecipe(, V.CATA, Q.COMMON)
+	--recipe:SetRecipeItemID()
+	--recipe:AddFilters()
+	
+	-- Bloodthirsty Dragonscale Shoulders
+	--recipe = AddRecipe(, V.CATA, Q.COMMON)
+	--recipe:SetRecipeItemID()
+	--recipe:AddFilters()
+	
+	-- Bloodthirsty Leather Belt
+	--recipe = AddRecipe(, V.CATA, Q.COMMON)
+	--recipe:SetRecipeItemID()
+	--recipe:AddFilters()
+	
+	-- Bloodthirsty Leather Boots
+	--recipe = AddRecipe(, V.CATA, Q.COMMON)
+	--recipe:SetRecipeItemID()
+	--recipe:AddFilters()
+	
+	-- Bloodthirsty Leather Bracers
+	--recipe = AddRecipe(, V.CATA, Q.COMMON)
+	--recipe:SetRecipeItemID()
+	--recipe:AddFilters()
+	
+	-- Bloodthirsty Leather Chest
+	--recipe = AddRecipe(, V.CATA, Q.COMMON)
+	--recipe:SetRecipeItemID()
+	--recipe:AddFilters()
+	
+	-- Bloodthirsty Leather Gloves
+	--recipe = AddRecipe(, V.CATA, Q.COMMON)
+	--recipe:SetRecipeItemID()
+	--recipe:AddFilters()
+	
+	-- Bloodthirsty Leather Helm
+	--recipe = AddRecipe(, V.CATA, Q.COMMON)
+	--recipe:SetRecipeItemID()
+	--recipe:AddFilters()
+	
+	-- Bloodthirsty Leather Legs
+	--recipe = AddRecipe(, V.CATA, Q.COMMON)
+	--recipe:SetRecipeItemID()
+	--recipe:AddFilters()
+	
+	-- Bloodthirsty Leather Shoulders
+	--recipe = AddRecipe(, V.CATA, Q.COMMON)
+	--recipe:SetRecipeItemID()
+	--recipe:AddFilters()
+	
+	-- Bloodthirsty Wyrmhide Belt
+	--recipe = AddRecipe(, V.CATA, Q.COMMON)
+	--recipe:SetRecipeItemID()
+	--recipe:AddFilters()
+	
+	-- Bloodthirsty Wyrmhide Boots
+	--recipe = AddRecipe(, V.CATA, Q.COMMON)
+	--recipe:SetRecipeItemID()
+	--recipe:AddFilters()
+	
+	-- Bloodthirsty Wyrmhide Bracers
+	--recipe = AddRecipe(, V.CATA, Q.COMMON)
+	--recipe:SetRecipeItemID()
+	--recipe:AddFilters()
+	
+	-- Bloodthirsty Wyrmhide Chest
+	--recipe = AddRecipe(, V.CATA, Q.COMMON)
+	--recipe:SetRecipeItemID()
+	--recipe:AddFilters()
+	
+	-- Bloodthirsty Wyrmhide Gloves
+	--recipe = AddRecipe(, V.CATA, Q.COMMON)
+	--recipe:SetRecipeItemID()
+	--recipe:AddFilters()
+	
+	-- Bloodthirsty Wyrmhide Helm
+	--recipe = AddRecipe(, V.CATA, Q.COMMON)
+	--recipe:SetRecipeItemID()
+	--recipe:AddFilters()
+	
+	-- Bloodthirsty Wyrmhide Legs
+	--recipe = AddRecipe(, V.CATA, Q.COMMON)
+	--recipe:SetRecipeItemID()
+	--recipe:AddFilters()
+	
+	-- Bloodthirsty Wyrmhide Shoulders
+	--recipe = AddRecipe(, V.CATA, Q.COMMON)
+	--recipe:SetRecipeItemID()
+	--recipe:AddFilters()
+	
+	-- Bloodthirsty Fur Cloak
+	--recipe = AddRecipe(, V.CATA, Q.COMMON)
+	--recipe:SetRecipeItemID()
+	--recipe:AddFilters()
+	
+	-- Bloodthirsty Hide Cloak
+	--recipe = AddRecipe(, V.CATA, Q.COMMON)
+	--recipe:SetRecipeItemID()
+	--recipe:AddFilters()
+	
 	self.InitLeatherworking = nil
 end
 

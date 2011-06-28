@@ -4387,5 +4387,85 @@ function addon:InitBlacksmithing()
 	--recipe:SetRecipeItemID()
 	--recipe:AddFilters()
 	
+	-- Bloodthirsty Pyrium Belt
+	--recipe = AddRecipe(, V.CATA, Q.COMMON)
+	--recipe:SetRecipeItemID()
+	--recipe:AddFilters()
+
+	-- Bloodthirsty Pyrium Boots
+	--recipe = AddRecipe(, V.CATA, Q.COMMON)
+	--recipe:SetRecipeItemID()
+	--recipe:AddFilters()
+
+	-- Bloodthirsty Pyrium Bracers
+	--recipe = AddRecipe(, V.CATA, Q.COMMON)
+	--recipe:SetRecipeItemID()
+	--recipe:AddFilters()
+
+	-- Bloodthirsty Pyrium Breastplate
+	--recipe = AddRecipe(, V.CATA, Q.COMMON)
+	--recipe:SetRecipeItemID()
+	--recipe:AddFilters()
+
+	-- Bloodthirsty Pyrium Gauntlets
+	--recipe = AddRecipe(, V.CATA, Q.COMMON)
+	--recipe:SetRecipeItemID()
+	--recipe:AddFilters()
+
+	-- Bloodthirsty Pyrium Helm
+	--recipe = AddRecipe(, V.CATA, Q.COMMON)
+	--recipe:SetRecipeItemID()
+	--recipe:AddFilters()
+
+	-- Bloodthirsty Pyrium Legguards
+	--recipe = AddRecipe(, V.CATA, Q.COMMON)
+	--recipe:SetRecipeItemID()
+	--recipe:AddFilters()
+
+	-- Bloodthirsty Pyrium Shoulders
+	--recipe = AddRecipe(, V.CATA, Q.COMMON)
+	--recipe:SetRecipeItemID()
+	--recipe:AddFilters()
+
+	-- Bloodthirsty Ornate Pyrium Belt
+	--recipe = AddRecipe(, V.CATA, Q.COMMON)
+	--recipe:SetRecipeItemID()
+	--recipe:AddFilters()
+
+	-- Bloodthirsty Ornate Pyrium Boots
+	--recipe = AddRecipe(, V.CATA, Q.COMMON)
+	--recipe:SetRecipeItemID()
+	--recipe:AddFilters()
+
+	-- Bloodthirsty Ornate Pyrium Bracers
+	--recipe = AddRecipe(, V.CATA, Q.COMMON)
+	--recipe:SetRecipeItemID()
+	--recipe:AddFilters()
+
+	-- Bloodthirsty Ornate Pyrium Breastplate
+	--recipe = AddRecipe(, V.CATA, Q.COMMON)
+	--recipe:SetRecipeItemID()
+	--recipe:AddFilters()
+
+	-- Bloodthirsty Ornate Pyrium Gauntlets
+	--recipe = AddRecipe(, V.CATA, Q.COMMON)
+	--recipe:SetRecipeItemID()
+	--recipe:AddFilters()
+
+	-- Bloodthirsty Ornate Pyrium Helm
+	--recipe = AddRecipe(, V.CATA, Q.COMMON)
+	--recipe:SetRecipeItemID()
+	--recipe:AddFilters()
+
+	-- Bloodthirsty Ornate Pyrium Legguards
+	--recipe = AddRecipe(, V.CATA, Q.COMMON)
+	--recipe:SetRecipeItemID()
+	--recipe:AddFilters()
+
+	-- Bloodthirsty Ornate Pyrium Shoulders
+	--recipe = AddRecipe(, V.CATA, Q.COMMON)
+	--recipe:SetRecipeItemID()
+	--recipe:AddFilters()
+	
 	self.InitBlacksmithing = nil
 end

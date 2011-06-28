@@ -3602,6 +3602,91 @@ function addon:InitTailoring()
 	-- Grips of Altered Reality
 	--recipe = AddRecipe(, V.CATA, Q.EPIC)
 	--recipe:SetRecipeItemID(69965)
+	
+	-- Bloodthirsty Embersilk Belt
+	--recipe = AddRecipe(, V.CATA, Q.RARE)
+	--recipe:SetRecipeItemID()
+	--recipe:AddFilters()
 
+	-- Bloodthirsty Embersilk Boots
+	--recipe = AddRecipe(, V.CATA, Q.RARE)
+	--recipe:SetRecipeItemID()
+	--recipe:AddFilters()
+
+	-- Bloodthirsty Embersilk Bracers
+	--recipe = AddRecipe(, V.CATA, Q.RARE)
+	--recipe:SetRecipeItemID()
+	--recipe:AddFilters()
+
+	-- Bloodthirsty Embersilk Cape
+	--recipe = AddRecipe(, V.CATA, Q.RARE)
+	--recipe:SetRecipeItemID()
+	--recipe:AddFilters()
+
+	-- Bloodthirsty Embersilk Cowl
+	--recipe = AddRecipe(, V.CATA, Q.RARE)
+	--recipe:SetRecipeItemID()
+	--recipe:AddFilters()
+
+	-- Bloodthirsty Embersilk Gloves
+	--recipe = AddRecipe(, V.CATA, Q.RARE)
+	--recipe:SetRecipeItemID()
+	--recipe:AddFilters()
+
+	-- Bloodthirsty Embersilk Pants
+	--recipe = AddRecipe(, V.CATA, Q.RARE)
+	--recipe:SetRecipeItemID()
+	--recipe:AddFilters()
+
+	-- Bloodthirsty Embersilk Robe
+	--recipe = AddRecipe(, V.CATA, Q.RARE)
+	--recipe:SetRecipeItemID()
+	--recipe:AddFilters()
+
+	-- Bloodthirsty Embersilk Shoulders
+	--recipe = AddRecipe(, V.CATA, Q.RARE)
+	--recipe:SetRecipeItemID()
+	--recipe:AddFilters()
+
+	-- Bloodthirsty Fireweave Belt
+	--recipe = AddRecipe(, V.CATA, Q.RARE)
+	--recipe:SetRecipeItemID()
+	--recipe:AddFilters()
+
+	-- Bloodthirsty Fireweave Boots
+	--recipe = AddRecipe(, V.CATA, Q.RARE)
+	--recipe:SetRecipeItemID()
+	--recipe:AddFilters()
+
+	-- Bloodthirsty Fireweave Bracers
+	--recipe = AddRecipe(, V.CATA, Q.RARE)
+	--recipe:SetRecipeItemID()
+	--recipe:AddFilters()
+
+	-- Bloodthirsty Fireweave Cowl
+	--recipe = AddRecipe(, V.CATA, Q.RARE)
+	--recipe:SetRecipeItemID()
+	--recipe:AddFilters()
+
+	-- Bloodthirsty Fireweave Gloves
+	--recipe = AddRecipe(, V.CATA, Q.RARE)
+	--recipe:SetRecipeItemID()
+	--recipe:AddFilters()
+
+	-- Bloodthirsty Fireweave Pants
+	--recipe = AddRecipe(, V.CATA, Q.RARE)
+	--recipe:SetRecipeItemID()
+	--recipe:AddFilters()
+
+	-- Bloodthirsty Fireweave Robe
+	--recipe = AddRecipe(, V.CATA, Q.RARE)
+	--recipe:SetRecipeItemID()
+	--recipe:AddFilters()
+
+	-- Bloodthirsty Fireweave Shoulders
+	--recipe = AddRecipe(, V.CATA, Q.RARE)
+	--recipe:SetRecipeItemID()
+	--recipe:AddFilters()
+	
 	self.InitTailoring = nil
 end
