@@ -1,6 +1,17 @@
 ==ARL Change Log
 NOTE: Always remove the folder for old versions and install a fresh copy when upgrading.
 
+== 2.2.6
+
+==== Recipe Database:
+* Added new recipes for Firelands.
+* Fixed skill levels for:
+** Stormleather Sash
+** Dragonkiller Tunic
+** Dragonscale Leg Armor
+** Twilight Scale Chestguard
+* Marked Greater Frost Protection Potion as removed from the game.
+
 == 2.2.5
 
 ==== Recipe Database:
