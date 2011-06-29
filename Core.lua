@@ -576,7 +576,7 @@ function addon:OnInitialize()
 					       if ((not recipe:HasState("KNOWN") and has_level) or shifted) and player:HasRecipeFaction(recipe) then
 						       local _, _, _, hex = _G.GetItemQualityColor(recipe.quality)
 
-						       self:AddLine(("%s: %s%s|r (%d)"):format(recipe.profession, hex, recipe.name, recipe.skill_level))
+						       self:AddLine(("%s: |c%s%s|r (%d)"):format(recipe.profession, hex, recipe.name, recipe.skill_level))
 						       count = count + 1
 					       end
 				       end
