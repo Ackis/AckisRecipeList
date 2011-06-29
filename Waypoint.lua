@@ -497,9 +497,9 @@ function addon:AddWaypoint(recipe_id, acquire_id, location_id, npc_id)
 		local color_code = private.category_colors[acquire_str] or "ffffff"
 
 		if waypoint.acquire_type == A.QUEST then
-			name = string.format("Quest: |cff%s%s|r (%s%s|r)", color_code, private.quest_names[waypoint.reference_id], quality_color, recipe.name)
+			name = string.format("Quest: |cff%s%s|r (|c%s%s|r)", color_code, private.quest_names[waypoint.reference_id], quality_color, recipe.name)
 		else
-			name = string.format("|cff%s%s|r (%s%s|r)", color_code, waypoint.name or _G.UNKNOWN, quality_color, recipe.name)
+			name = string.format("|cff%s%s|r (|c%s%s|r)", color_code, waypoint.name or _G.UNKNOWN, quality_color, recipe.name)
 		end
 		waypoint.acquire_type = nil
 		waypoint.reference_id = nil

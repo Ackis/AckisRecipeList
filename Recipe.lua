@@ -207,7 +207,7 @@ do
 		else
 			diff_color = "trivial"
 		end
-		local display_name = ("%s%s|r"):format(quality_color, recipe_name)
+		local display_name = ("|c%s%s|r"):format(quality_color, recipe_name)
 		local level_text = private.SetTextColor(private.difficulty_colors[diff_color], SKILL_LEVEL_FORMAT):format(recipe_level)
 
 		if addon.db.profile.skill_view then

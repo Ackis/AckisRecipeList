@@ -1240,7 +1240,7 @@ function private.InitializeListFrame()
 		end
 		local t = AcquireTable()
 
-		t.text = string.format("%s%s%s|r%s", PADDING, select(4, _G.GetItemQualityColor(private.recipe_list[recipe_id].quality)), L["World Drop"], drop_location)
+		t.text = string.format("%s|c%s%s|r%s", PADDING, select(4, _G.GetItemQualityColor(private.recipe_list[recipe_id].quality)), L["World Drop"], drop_location)
 		t.recipe_id = recipe_id
 
 		return ListFrame:InsertEntry(t, parent_entry, entry_index, entry_type, true)
@@ -1686,7 +1686,7 @@ do
 			local recipe = private.recipe_list[recipe_id]
 			local recipe_item_id = recipe:RecipeItemID()
 			local recipe_item_level = recipe_item_id and select(4, _G.GetItemInfo(recipe_item_id))
-			local quality_color = string.gsub(select(4, _G.GetItemQualityColor(recipe.quality)), "|cff", "")
+			local quality_color = string.sub(select(4, _G.GetItemQualityColor(recipe.quality)), 3)
 			local location_text
 
 			if recipe_item_level then
@@ -1849,7 +1849,7 @@ do
 		InitializeTooltips(recipe.spell_id)
 
 		acquire_tip:AddHeader()
-		acquire_tip:SetCell(1, 1, select(4, _G.GetItemQualityColor(recipe.quality))..recipe.name, "CENTER", 2)
+		acquire_tip:SetCell(1, 1, "|c"..select(4, _G.GetItemQualityColor(recipe.quality))..recipe.name, "CENTER", 2)
 
 		if addon.db.profile.exclusionlist[list_entry.recipe_id] then
 			ttAdd(0, -1, true, L["RECIPE_EXCLUDED"], "ff0000")
