@@ -2469,17 +2469,21 @@ function addon:InitEngineering()
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	recipe:AddTrainer(8126, 8738, 29513)
 	
-	-- Flintlocke's Woodchucker
-	-- recipe = AddRecipe(, V.CATA, Q.COMMON)
-	-- recipe:SetCraftedItemID()
-	-- recipe:SetSkillLevels()
-	-- recipe:AddFilters()
+	-- Flintlocke's Woodchucker -- 100587
+	-- recipe = AddRecipe(100587, V.CATA, Q.RARE)
+	-- recipe:SetRecipeItemID(70177)
+	-- recipe:SetCraftedItemID(70139)
+	-- recipe:SetSkillLevels(515, 515, 525, 530, 535)
+	-- recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.HUNTER)
+	-- recipe:AddVendor(53214)
 	
-	-- Extreme-Impact Hole Puncher
-	-- recipe = AddRecipe(, V.CATA, Q.COMMON)
-	-- recipe:SetCraftedItemID()
-	-- recipe:SetSkillLevels()
-	-- recipe:AddFilters()
+	-- Extreme-Impact Hole Puncher -- 100687
+	-- recipe = AddRecipe(100687, V.CATA, Q.COMMON)
+	-- recipe:SetRecipeItemID(70178)
+	-- recipe:SetCraftedItemID(71077)
+	-- recipe:SetSkillLevels(525, 525, 525, 525, 525)
+	-- recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	-- recipe:AddVendor(53214)
 
 	self.InitEngineering = nil
 end

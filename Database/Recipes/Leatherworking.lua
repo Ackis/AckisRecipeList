@@ -4599,223 +4599,265 @@ function addon:InitLeatherworking()
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	recipe:AddTrainer(3007, 3365, 3967, 4212, 4588, 5127, 5564, 21087, 26998, 28700, 29507, 33581, 33612, 33635)
 	
-	-- Drakehide Leg Armor
-	--recipe = AddRecipe(, V.CATA, Q.COMMON)
-	--recipe:SetRecipeItemID()
-	--recipe:SetSkillLevels()
-	
-	-- Royal Scribe's Satchel
-	--recipe = AddRecipe(, V.CATA, Q.RARE)
-	--recipe:SetRecipeItemID()
-	--recipe:SetSkillLevels()
-	
-	-- Triple-Reinforced Mining Bag
-	--recipe = AddRecipe(, V.CATA, Q.RARE)
-	--recipe:SetRecipeItemID()
-	--recipe:SetSkillLevels()
+	-- Drakehide Leg Armor -- 101599
+	-- recipe = AddRecipe(101599, V.CATA, Q.COMMON)
+	-- recipe:SetRecipeItemID(71721)
+	-- recipe:SetCraftedItemID(71720)
+	-- recipe:SetSkillLevels(525, 525, 530, 535, 540)
+	-- recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	-- recipe:AddVendor(3366)	
 
-	-- Cluthes of Evil
-	--recipe = AddRecipe(, V.CATA, Q.EPIC)
-	--recipe:SetRecipeItemID(69962)
-	--recipe:SetSkillLevels()
+	-- Royal Scribe's Satchel -- 100583
+	-- recipe = AddRecipe(100583, V.CATA, Q.RARE)
+	-- recipe:SetRecipeItemID(70174)
+	-- recipe:SetCraftedItemID(70136)
+	-- recipe:SetSkillLevels(510, 510, 520, 527, 535)
+	-- recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	-- recipe:AddVendor(53881)
 
-	-- Dragonfire Gloves
-	--recipe = AddRecipe(, V.CATA, Q.EPIC)
-	--recipe:SetRecipeItemID(69960)
+	-- Triple-Reinforced Mining Bag -- 100586
+	-- recipe = AddRecipe(100586, V.CATA, Q.RARE)
+	-- recipe:SetRecipeItemID(70175)
+	-- recipe:SetCraftedItemID(70137)
+	-- recipe:SetSkillLevels(500, 500, 520, 527, 535)
+	-- recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	-- recipe:AddVendor(53881)
 
-	-- Earthen Scale Sabatons
-	--recipe = AddRecipe(, V.CATA, Q.EPIC)
-	--recipe:SetRecipeItemID(69971)
+	-- Cluthes of Evil -- 99446
+	-- recipe = AddRecipe(99446, V.CATA, Q.EPIC)
+	-- recipe:SetRecipeItemID(69962)
+	-- recipe:SetCraftedItemID(69942)
+	-- recipe:SetSkillLevels(525, 525, 525, 527, 530)
+	-- recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOE)
+	-- recipe:AddCustom("FIRELANDS_RANDOM")
 
-	-- Ethereal Footfalls
-	--recipe = AddRecipe(, V.CATA, Q.EPIC)
-	--recipe:SetRecipeItemID(69974)
+	-- Dragonfire Gloves -- 99443
+	-- recipe = AddRecipe(99443, V.CATA, Q.EPIC)
+	-- recipe:SetRecipeItemID(69960)
+	-- recipe:SetCraftedItemID(69939)
+	-- recipe:SetSkillLevels(525, 525, 525, 527, 530)
+	-- recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOE)
+	-- recipe:AddCustom("FIRELANDS_RANDOM")
 
-	-- Footwraps of Quenched Fire
-	--recipe = AddRecipe(, V.CATA, Q.EPIC)
-	--recipe:SetRecipeItemID(69972)
+	-- Earthen Scale Sabatons -- 99455
+	-- recipe = AddRecipe(99455, V.CATA, Q.EPIC)
+	-- recipe:SetRecipeItemID(69971)
+	-- recipe:SetCraftedItemID(69949)
+	-- recipe:SetSkillLevels(525, 525, 525, 527, 530)
+	-- recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOE)
+	-- recipe:AddCustom("FIRELANDS_RANDOM")
 
-	-- Gloves of Unforgiving Flame
-	--recipe = AddRecipe(, V.CATA, Q.EPIC)
-	--recipe:SetRecipeItemID(69961)
+	-- Ethereal Footfalls -- 99458
+	-- recipe = AddRecipe(99458, V.CATA, Q.EPIC)
+	-- recipe:SetRecipeItemID(69974)
+	-- recipe:SetCraftedItemID(69952)
+	-- recipe:SetSkillLevels(525, 525, 525, 527, 530)
+	-- recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOE)
+	-- recipe:AddCustom("FIRELANDS_RANDOM")
 
-	-- Heavenly Gloves of the Moon
-	--recipe = AddRecipe(, V.CATA, Q.EPIC)
-	--recipe:SetRecipeItemID(69963)
+	-- Footwraps of Quenched Fire -- 99456
+	-- recipe = AddRecipe(99456, V.CATA, Q.EPIC)
+	-- recipe:SetRecipeItemID(69972)
+	-- recipe:SetCraftedItemID(69950)
+	-- recipe:SetSkillLevels(525, 525, 525, 527, 530)
+	-- recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOE)
+	-- recipe:AddCustom("FIRELANDS_RANDOM")
 
-	-- Treads of the Craft
-	--recipe = AddRecipe(, V.CATA, Q.EPIC)
-	--recipe:SetRecipeItemID(69973)
+	-- Gloves of Unforgiving Flame -- 99445
+	-- recipe = AddRecipe(99445, V.CATA, Q.EPIC)
+	-- recipe:SetRecipeItemID(69961)
+	-- recipe:SetCraftedItemID(69941)
+	-- recipe:SetSkillLevels(525, 525, 525, 527, 530)
+	-- recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOE)
+	-- recipe:AddCustom("FIRELANDS_RANDOM")
+
+	-- Heavenly Gloves of the Moon -- 99447
+	-- recipe = AddRecipe(99447, V.CATA, Q.EPIC)
+	-- recipe:SetRecipeItemID(69963)
+	-- recipe:SetCraftedItemID(69943)
+	-- recipe:SetSkillLevels(525, 525, 525, 527, 530)
+	-- recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOE)
+	-- recipe:AddCustom("FIRELANDS_RANDOM")
+
+	-- Treads of the Craft -- 99457
+	-- recipe = AddRecipe(99457, V.CATA, Q.EPIC)
+	-- recipe:SetRecipeItemID(69973)
+	-- recipe:SetCraftedItemID(69951)
+	-- recipe:SetSkillLevels(525, 525, 525, 527, 530)
+	-- recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOE)
+	-- recipe:AddCustom("FIRELANDS_RANDOM")
 	
 	-- Bloodthirsty Charscale Belt
-	--recipe = AddRecipe(, V.CATA, Q.COMMON)
-	--recipe:SetRecipeItemID()
-	--recipe:AddFilters()
+	-- recipe = AddRecipe(, V.CATA, Q.COMMON)
+	-- recipe:SetRecipeItemID()
+		-- recipe:SetCraftedItemID()
+	-- recipe:AddFilters()
 	
 	-- Bloodthirsty Charscale Boots
-	--recipe = AddRecipe(, V.CATA, Q.COMMON)
-	--recipe:SetRecipeItemID()
-	--recipe:AddFilters()
+	-- recipe = AddRecipe(, V.CATA, Q.COMMON)
+	-- recipe:SetRecipeItemID()
+	
+	-- recipe:AddFilters()
 	
 	-- Bloodthirsty Charscale Bracers
-	--recipe = AddRecipe(, V.CATA, Q.COMMON)
-	--recipe:SetRecipeItemID()
-	--recipe:AddFilters()
+	-- recipe = AddRecipe(, V.CATA, Q.COMMON)
+	-- recipe:SetRecipeItemID()
+	-- recipe:AddFilters()
 	
 	-- Bloodthirsty Charscale Chest
-	--recipe = AddRecipe(, V.CATA, Q.COMMON)
-	--recipe:SetRecipeItemID()
-	--recipe:AddFilters()
+	-- recipe = AddRecipe(, V.CATA, Q.COMMON)
+	-- recipe:SetRecipeItemID()
+	-- recipe:AddFilters()
 	
 	-- Bloodthirsty Charscale Gloves
-	--recipe = AddRecipe(, V.CATA, Q.COMMON)
-	--recipe:SetRecipeItemID()
-	--recipe:AddFilters()
+	-- recipe = AddRecipe(, V.CATA, Q.COMMON)
+	-- recipe:SetRecipeItemID()
+	-- recipe:AddFilters()
 	
 	-- Bloodthirsty Charscale Helm
-	--recipe = AddRecipe(, V.CATA, Q.COMMON)
-	--recipe:SetRecipeItemID()
-	--recipe:AddFilters()
+	-- recipe = AddRecipe(, V.CATA, Q.COMMON)
+	-- recipe:SetRecipeItemID()
+	-- recipe:AddFilters()
 	
 	-- Bloodthirsty Charscale Legs
-	--recipe = AddRecipe(, V.CATA, Q.COMMON)
-	--recipe:SetRecipeItemID()
-	--recipe:AddFilters()
+	-- recipe = AddRecipe(, V.CATA, Q.COMMON)
+	-- recipe:SetRecipeItemID()
+	-- recipe:AddFilters()
 	
 	-- Bloodthirsty Charscale Shoulders
-	--recipe = AddRecipe(, V.CATA, Q.COMMON)
-	--recipe:SetRecipeItemID()
-	--recipe:AddFilters()
+	-- recipe = AddRecipe(, V.CATA, Q.COMMON)
+	-- recipe:SetRecipeItemID()
+	-- recipe:AddFilters()
 	
 	-- Bloodthirsty Dragonscale Belt
-	--recipe = AddRecipe(, V.CATA, Q.COMMON)
-	--recipe:SetRecipeItemID()
-	--recipe:AddFilters()
+	-- recipe = AddRecipe(, V.CATA, Q.COMMON)
+	-- recipe:SetRecipeItemID()
+	-- recipe:AddFilters()
 	
 	-- Bloodthirsty Dragonscale Boots
-	--recipe = AddRecipe(, V.CATA, Q.COMMON)
-	--recipe:SetRecipeItemID()
-	--recipe:AddFilters()
+	-- recipe = AddRecipe(, V.CATA, Q.COMMON)
+	-- recipe:SetRecipeItemID()
+	-- recipe:AddFilters()
 	
 	-- Bloodthirsty Dragonscale Bracers
-	--recipe = AddRecipe(, V.CATA, Q.COMMON)
-	--recipe:SetRecipeItemID()
-	--recipe:AddFilters()
+	-- recipe = AddRecipe(, V.CATA, Q.COMMON)
+	-- recipe:SetRecipeItemID()
+	-- recipe:AddFilters()
 	
 	-- Bloodthirsty Dragonscale Chest
-	--recipe = AddRecipe(, V.CATA, Q.COMMON)
-	--recipe:SetRecipeItemID()
-	--recipe:AddFilters()
+	-- recipe = AddRecipe(, V.CATA, Q.COMMON)
+	-- recipe:SetRecipeItemID()
+	-- recipe:AddFilters()
 	
 	-- Bloodthirsty Dragonscale Gloves
-	--recipe = AddRecipe(, V.CATA, Q.COMMON)
-	--recipe:SetRecipeItemID()
-	--recipe:AddFilters()
+	-- recipe = AddRecipe(, V.CATA, Q.COMMON)
+	-- recipe:SetRecipeItemID()
+	-- recipe:AddFilters()
 	
 	-- Bloodthirsty Dragonscale Helm
-	--recipe = AddRecipe(, V.CATA, Q.COMMON)
-	--recipe:SetRecipeItemID()
-	--recipe:AddFilters()
+	-- recipe = AddRecipe(, V.CATA, Q.COMMON)
+	-- recipe:SetRecipeItemID()
+	-- recipe:AddFilters()
 	
 	-- Bloodthirsty Dragonscale Legs
-	--recipe = AddRecipe(, V.CATA, Q.COMMON)
-	--recipe:SetRecipeItemID()
-	--recipe:AddFilters()
+	-- recipe = AddRecipe(, V.CATA, Q.COMMON)
+	-- recipe:SetRecipeItemID()
+	-- recipe:AddFilters()
 	
 	-- Bloodthirsty Dragonscale Shoulders
-	--recipe = AddRecipe(, V.CATA, Q.COMMON)
-	--recipe:SetRecipeItemID()
-	--recipe:AddFilters()
+	-- recipe = AddRecipe(, V.CATA, Q.COMMON)
+	-- recipe:SetRecipeItemID()
+	-- recipe:AddFilters()
 	
 	-- Bloodthirsty Leather Belt
-	--recipe = AddRecipe(, V.CATA, Q.COMMON)
-	--recipe:SetRecipeItemID()
-	--recipe:AddFilters()
+	-- recipe = AddRecipe(, V.CATA, Q.COMMON)
+	-- recipe:SetRecipeItemID()
+	-- recipe:AddFilters()
 	
 	-- Bloodthirsty Leather Boots
-	--recipe = AddRecipe(, V.CATA, Q.COMMON)
-	--recipe:SetRecipeItemID()
-	--recipe:AddFilters()
+	-- recipe = AddRecipe(, V.CATA, Q.COMMON)
+	-- recipe:SetRecipeItemID()
+	-- recipe:AddFilters()
 	
 	-- Bloodthirsty Leather Bracers
-	--recipe = AddRecipe(, V.CATA, Q.COMMON)
-	--recipe:SetRecipeItemID()
-	--recipe:AddFilters()
+	-- recipe = AddRecipe(, V.CATA, Q.COMMON)
+	-- recipe:SetRecipeItemID()
+	-- recipe:AddFilters()
 	
 	-- Bloodthirsty Leather Chest
-	--recipe = AddRecipe(, V.CATA, Q.COMMON)
-	--recipe:SetRecipeItemID()
-	--recipe:AddFilters()
+	-- recipe = AddRecipe(, V.CATA, Q.COMMON)
+	-- recipe:SetRecipeItemID()
+	-- recipe:AddFilters()
 	
 	-- Bloodthirsty Leather Gloves
-	--recipe = AddRecipe(, V.CATA, Q.COMMON)
-	--recipe:SetRecipeItemID()
-	--recipe:AddFilters()
+	-- recipe = AddRecipe(, V.CATA, Q.COMMON)
+	-- recipe:SetRecipeItemID()
+	-- recipe:AddFilters()
 	
 	-- Bloodthirsty Leather Helm
-	--recipe = AddRecipe(, V.CATA, Q.COMMON)
-	--recipe:SetRecipeItemID()
-	--recipe:AddFilters()
+	-- recipe = AddRecipe(, V.CATA, Q.COMMON)
+	-- recipe:SetRecipeItemID()
+	-- recipe:AddFilters()
 	
 	-- Bloodthirsty Leather Legs
-	--recipe = AddRecipe(, V.CATA, Q.COMMON)
-	--recipe:SetRecipeItemID()
-	--recipe:AddFilters()
+	-- recipe = AddRecipe(, V.CATA, Q.COMMON)
+	-- recipe:SetRecipeItemID()
+	-- recipe:AddFilters()
 	
 	-- Bloodthirsty Leather Shoulders
-	--recipe = AddRecipe(, V.CATA, Q.COMMON)
-	--recipe:SetRecipeItemID()
-	--recipe:AddFilters()
+	-- recipe = AddRecipe(, V.CATA, Q.COMMON)
+	-- recipe:SetRecipeItemID()
+	-- recipe:AddFilters()
 	
 	-- Bloodthirsty Wyrmhide Belt
-	--recipe = AddRecipe(, V.CATA, Q.COMMON)
-	--recipe:SetRecipeItemID()
-	--recipe:AddFilters()
+	-- recipe = AddRecipe(, V.CATA, Q.COMMON)
+	-- recipe:SetRecipeItemID()
+	-- recipe:AddFilters()
 	
 	-- Bloodthirsty Wyrmhide Boots
-	--recipe = AddRecipe(, V.CATA, Q.COMMON)
-	--recipe:SetRecipeItemID()
-	--recipe:AddFilters()
+	-- recipe = AddRecipe(, V.CATA, Q.COMMON)
+	-- recipe:SetRecipeItemID()
+	-- recipe:AddFilters()
 	
 	-- Bloodthirsty Wyrmhide Bracers
-	--recipe = AddRecipe(, V.CATA, Q.COMMON)
-	--recipe:SetRecipeItemID()
-	--recipe:AddFilters()
+	-- recipe = AddRecipe(, V.CATA, Q.COMMON)
+	-- recipe:SetRecipeItemID()
+	-- recipe:AddFilters()
 	
 	-- Bloodthirsty Wyrmhide Chest
-	--recipe = AddRecipe(, V.CATA, Q.COMMON)
-	--recipe:SetRecipeItemID()
-	--recipe:AddFilters()
+	-- recipe = AddRecipe(, V.CATA, Q.COMMON)
+	-- recipe:SetRecipeItemID()
+	-- recipe:AddFilters()
 	
 	-- Bloodthirsty Wyrmhide Gloves
-	--recipe = AddRecipe(, V.CATA, Q.COMMON)
-	--recipe:SetRecipeItemID()
-	--recipe:AddFilters()
+	-- recipe = AddRecipe(, V.CATA, Q.COMMON)
+	-- recipe:SetRecipeItemID()
+	-- recipe:AddFilters()
 	
 	-- Bloodthirsty Wyrmhide Helm
-	--recipe = AddRecipe(, V.CATA, Q.COMMON)
-	--recipe:SetRecipeItemID()
-	--recipe:AddFilters()
+	-- recipe = AddRecipe(, V.CATA, Q.COMMON)
+	-- recipe:SetRecipeItemID()
+	-- recipe:AddFilters()
 	
 	-- Bloodthirsty Wyrmhide Legs
-	--recipe = AddRecipe(, V.CATA, Q.COMMON)
-	--recipe:SetRecipeItemID()
-	--recipe:AddFilters()
+	-- recipe = AddRecipe(, V.CATA, Q.COMMON)
+	-- recipe:SetRecipeItemID()
+	-- recipe:AddFilters()
 	
 	-- Bloodthirsty Wyrmhide Shoulders
-	--recipe = AddRecipe(, V.CATA, Q.COMMON)
-	--recipe:SetRecipeItemID()
-	--recipe:AddFilters()
+	-- recipe = AddRecipe(, V.CATA, Q.COMMON)
+	-- recipe:SetRecipeItemID()
+	-- recipe:AddFilters()
 	
 	-- Bloodthirsty Fur Cloak
-	--recipe = AddRecipe(, V.CATA, Q.COMMON)
-	--recipe:SetRecipeItemID()
-	--recipe:AddFilters()
+	-- recipe = AddRecipe(, V.CATA, Q.COMMON)
+	-- recipe:SetRecipeItemID()
+	-- recipe:AddFilters()
 	
 	-- Bloodthirsty Hide Cloak
-	--recipe = AddRecipe(, V.CATA, Q.COMMON)
-	--recipe:SetRecipeItemID()
-	--recipe:AddFilters()
+	-- recipe = AddRecipe(, V.CATA, Q.COMMON)
+	-- recipe:SetRecipeItemID()
+	-- recipe:AddFilters()
 	
 	self.InitLeatherworking = nil
 end
