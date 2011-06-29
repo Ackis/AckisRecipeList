@@ -77,6 +77,7 @@ function addon:InitCustom(DB)
 	AddCustom("DEEPHOLM_RANDOM_INSC")
 	AddCustom("ULDUM_RANDOM_INSC")
 	AddCustom("ENG_DISC")
+	AddCustom("FIRELANDS_RANDOM")
 
 	self.InitCustom = nil
 end
