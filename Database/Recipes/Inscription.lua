@@ -3315,32 +3315,32 @@ function addon:InitInscription()
 	recipe:AddCustom("DISCOVERY_INSC_NORTHREND")
 	
 	-- Glyph of Unleashed Lightning -- 101057
-	-- recipe = AddRecipe(101057, V.CATA, Q.COMMON)
-	-- recipe:SetCraftedItemID(71155)
-	-- recipe:SetSkillLevels(430, 430, 430, 435, 440)
-	-- recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOE, F.SHAMAN)
-	-- recipe:AddCustom("DISCOVERY_INSC_NORTHREND")	
+	recipe = AddRecipe(101057, V.CATA, Q.COMMON)
+	recipe:SetCraftedItemID(71155)
+	recipe:SetSkillLevels(430, 430, 430, 435, 440)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOE, F.SHAMAN)
+	recipe:AddCustom("DISCOVERY_INSC_NORTHREND")	
 	
 	-- Bloodthirsty Charm of Triumph -- 99547
-	-- recipe = AddRecipe(99547, V.CATA, Q.COMMON)
-	-- recipe:SetCraftedItemID(70077)
-	-- recipe:SetSkillLevels(520, 520, 520, 525, 530)
-	-- recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	-- recipe:AddTrainer(30706)	
+	recipe = AddRecipe(99547, V.CATA, Q.COMMON)
+	recipe:SetCraftedItemID(70077)
+	recipe:SetSkillLevels(520, 520, 520, 525, 530)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	recipe:AddTrainer(30706)	
 	
 	-- Bloodthirsty Eyeball of Dominance -- 99548
-	-- recipe = AddRecipe(99548, V.CATA, Q.COMMON)
-	-- recipe:SetCraftedItemID(70078)
-	-- recipe:SetSkillLevels(520, 520, 520, 525, 530)
-	-- recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	-- recipe:AddTrainer(30706)
+	recipe = AddRecipe(99548, V.CATA, Q.COMMON)
+	recipe:SetCraftedItemID(70078)
+	recipe:SetSkillLevels(520, 520, 520, 525, 530)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	recipe:AddTrainer(30706)
 	
 	-- Bloodthirsty Jawbone of Conquest -- 99549
-	-- recipe = AddRecipe(99549, V.CATA, Q.COMMON)
-	-- recipe:SetCraftedItemID(70079)
-	-- recipe:SetSkillLevels(520, 520, 520, 525, 530)
-	-- recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	-- recipe:AddTrainer(30706)
+	recipe = AddRecipe(99549, V.CATA, Q.COMMON)
+	recipe:SetCraftedItemID(70079)
+	recipe:SetSkillLevels(520, 520, 520, 525, 530)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	recipe:AddTrainer(30706)
 
 	self.InitInscription = nil
 end
