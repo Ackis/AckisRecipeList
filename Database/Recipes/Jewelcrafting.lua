@@ -4522,29 +4522,47 @@ function addon:InitJewelcrafting()
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	recipe:AddVendor(50480, 50482)
 
-	-- Bloodthirsty Sapphire Ring
-	-- recipe = AddRecipe(, V.CATA, Q.COMMON)
-	-- recipe:AddFilters()
+	-- Bloodthirsty Sapphire Ring -- 99539
+	-- recipe = AddRecipe(99539, V.CATA, Q.COMMON)
+	-- recipe:SetCraftedItemID(70071)
+	-- recipe:SetSkillLevels(510, 510, 515, 520, 525)
+	-- recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	-- recipe:AddTrainer(28701)
 	
-	-- Bloodthirsty Amberjewel Band
-	-- recipe = AddRecipe(, V.CATA, Q.COMMON)
-	-- recipe:AddFilters()
+	-- Bloodthirsty Amberjewel Band -- 99540
+	-- recipe = AddRecipe(99540, V.CATA, Q.COMMON)
+	-- recipe:SetCraftedItemID(70072)
+	-- recipe:SetSkillLevels(510, 510, 515, 520, 525)
+	-- recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	-- recipe:AddTrainer(28701)
 	
-	-- Bloodthirsty Ruby Signet
-	-- recipe = AddRecipe(, V.CATA, Q.COMMON)
-	-- recipe:AddFilters()
+	-- Bloodthirsty Ruby Signet -- 99541
+	-- recipe = AddRecipe(99541, V.CATA, Q.COMMON)
+	-- recipe:SetCraftedItemID(70073)
+	-- recipe:SetSkillLevels(510, 510, 515, 520, 525)
+	-- recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	-- recipe:AddTrainer(28701)
 	
-	-- Bloodthirsty Sapphire Necklace	
-	-- recipe = AddRecipe(, V.CATA, Q.COMMON)
-	-- recipe:AddFilters()
+	-- Bloodthirsty Sapphire Necklace -- 99542
+	-- recipe = AddRecipe(99542, V.CATA, Q.COMMON)
+	-- recipe:SetCraftedItemID(70074)
+	-- recipe:SetSkillLevels(520, 520, 525, 530, 535)
+	-- recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	-- recipe:AddTrainer(28701)
 	
-	-- Bloodthirsty Amberjewel Pendant
-	-- recipe = AddRecipe(, V.CATA, Q.COMMON)
-	-- recipe:AddFilters()
+	-- Bloodthirsty Amberjewel Pendant -- 99543
+	-- recipe = AddRecipe(99543, V.CATA, Q.COMMON)
+	-- recipe:SetCraftedItemID(70075)
+	-- recipe:SetSkillLevels(520, 520, 525, 530, 535)
+	-- recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	-- recipe:AddTrainer(28701)
 	
-	-- Bloodthirsty Ruby Choker
-	-- recipe = AddRecipe(, V.CATA, Q.COMMON)
-	-- recipe:AddFilters()
+	-- Bloodthirsty Ruby Choker -- 99544
+	-- recipe = AddRecipe(99543, V.CATA, Q.COMMON)
+	-- recipe:SetCraftedItemID(70076)
+	-- recipe:SetSkillLevels(520, 520, 525, 530, 535)
+	-- recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	-- recipe:AddTrainer(28701)
 	
 	self.InitJewelcrafting = nil
 end
