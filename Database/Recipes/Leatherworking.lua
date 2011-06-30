@@ -4248,112 +4248,112 @@ function addon:InitLeatherworking()
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	recipe:AddTrainer(3007, 3365, 3967, 4212, 4588, 5127, 5564, 21087, 26998, 28700, 29507, 33581, 33612, 33635)
 
-	-- Bloodied Wyrmhide Bracers -- 78444
+	-- Bloodthirsty Wyrmhide Bracers -- 78444
 	recipe = AddRecipe(78444, V.CATA, Q.COMMON)
 	recipe:SetRecipeItemID(67042)
 	recipe:SetSkillLevels(510, 510, 515, 520, 525)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	recipe:AddVendor(3366, 50172, 50381)
 
-	-- Bloodied Wyrmhide Belt -- 78445
+	-- Bloodthirsty Wyrmhide Belt -- 78445
 	recipe = AddRecipe(78445, V.CATA, Q.COMMON)
 	recipe:SetRecipeItemID(67044)
 	recipe:SetSkillLevels(510, 510, 515, 520, 525)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	recipe:AddVendor(3366, 50172, 50381)
 
-	-- Bloodied Leather Bracers -- 78446
+	-- Bloodthirsty Leather Bracers -- 78446
 	recipe = AddRecipe(78446, V.CATA, Q.COMMON)
 	recipe:SetRecipeItemID(67046)
 	recipe:SetSkillLevels(510, 510, 515, 520, 525)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	recipe:AddVendor(3366, 50172, 50381)
 
-	-- Bloodied Leather Gloves -- 78447
+	-- Bloodthirsty Leather Gloves -- 78447
 	recipe = AddRecipe(78447, V.CATA, Q.COMMON)
 	recipe:SetRecipeItemID(67048)
 	recipe:SetSkillLevels(510, 510, 515, 520, 525)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	recipe:AddVendor(3366, 50172, 50381)
 
-	-- Bloodied Scale Bracers -- 78448
+	-- Bloodthirsty Charscale Bracers -- 78448
 	recipe = AddRecipe(78448, V.CATA, Q.COMMON)
 	recipe:SetRecipeItemID(67049)
 	recipe:SetSkillLevels(510, 510, 515, 520, 525)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	recipe:AddVendor(3366, 50172, 50381)
 
-	-- Bloodied Scale Gloves -- 78449
+	-- Bloodthirsty Charscale Gloves -- 78449
 	recipe = AddRecipe(78449, V.CATA, Q.COMMON)
 	recipe:SetRecipeItemID(67053)
 	recipe:SetSkillLevels(510, 510, 515, 520, 525)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	recipe:AddVendor(3366, 50172, 50381)
 
-	-- Bloodied Dragonscale Bracers -- 78450
+	-- Bloodthirsty Dragonscale Bracers -- 78450
 	recipe = AddRecipe(78450, V.CATA, Q.COMMON)
 	recipe:SetRecipeItemID(67054)
 	recipe:SetSkillLevels(510, 510, 515, 520, 525)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	recipe:AddVendor(3366, 50172, 50381)
 
-	-- Bloodied Dragonscale Shoulders -- 78451
+	-- Bloodthirsty Dragonscale Shoulders -- 78451
 	recipe = AddRecipe(78451, V.CATA, Q.COMMON)
 	recipe:SetRecipeItemID(67055)
 	recipe:SetSkillLevels(510, 510, 515, 520, 525)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	recipe:AddVendor(3366, 50172, 50381)
 
-	-- Bloodied Wyrmhide Gloves -- 78452
+	-- Bloodthirsty Wyrmhide Gloves -- 78452
 	recipe = AddRecipe(78452, V.CATA, Q.COMMON)
 	recipe:SetRecipeItemID(67056)
 	recipe:SetSkillLevels(515, 515, 520, 525, 530)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	recipe:AddVendor(3366, 50172, 50381)
 
-	-- Bloodied Wyrmhide Boots -- 78453
+	-- Bloodthirsty Wyrmhide Boots -- 78453
 	recipe = AddRecipe(78453, V.CATA, Q.COMMON)
 	recipe:SetRecipeItemID(67058)
 	recipe:SetSkillLevels(515, 515, 520, 525, 530)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	recipe:AddVendor(3366, 50172, 50381)
 
-	-- Bloodied Leather Boots -- 78454
+	-- Bloodthirsty Leather Boots -- 78454
 	recipe = AddRecipe(78454, V.CATA, Q.COMMON)
 	recipe:SetRecipeItemID(67060)
 	recipe:SetSkillLevels(515, 515, 520, 525, 530)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	recipe:AddVendor(3366, 50172, 50381)
 
-	-- Bloodied Leather Shoulders -- 78455
+	-- Bloodthirsty Leather Shoulders -- 78455
 	recipe = AddRecipe(78455, V.CATA, Q.COMMON)
 	recipe:SetRecipeItemID(67062)
 	recipe:SetSkillLevels(515, 515, 520, 525, 530)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	recipe:AddVendor(3366, 50172, 50381)
 
-	-- Bloodied Scale Boots -- 78456
+	-- Bloodthirsty Charscale Boots -- 78456
 	recipe = AddRecipe(78456, V.CATA, Q.COMMON)
 	recipe:SetRecipeItemID(67063)
 	recipe:SetSkillLevels(515, 515, 520, 525, 530)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	recipe:AddVendor(3366, 50172, 50381)
 
-	-- Bloodied Scale Belt -- 78457
+	-- Bloodthirsty Charscale Belt -- 78457
 	recipe = AddRecipe(78457, V.CATA, Q.COMMON)
 	recipe:SetRecipeItemID(67064)
 	recipe:SetSkillLevels(515, 515, 520, 525, 530)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	recipe:AddVendor(3366, 50172, 50381)
 
-	-- Bloodied Dragonscale Boots -- 78458
+	-- Bloodthirsty Dragonscale Boots -- 78458
 	recipe = AddRecipe(78458, V.CATA, Q.COMMON)
 	recipe:SetRecipeItemID(67065)
 	recipe:SetSkillLevels(515, 515, 520, 525, 530)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	recipe:AddVendor(3366, 50172, 50381)
 
-	-- Bloodied Dragonscale Gloves -- 78459
+	-- Bloodthirsty Dragonscale Gloves -- 78459
 	recipe = AddRecipe(78459, V.CATA, Q.COMMON)
 	recipe:SetRecipeItemID(67066)
 	recipe:SetSkillLevels(515, 515, 520, 525, 530)
@@ -4388,56 +4388,56 @@ function addon:InitLeatherworking()
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	recipe:AddVendor(3366, 50172, 50381)
 
-	-- Bloodied Wyrmhide Shoulders -- 78464
+	-- Bloodthirsty Wyrmhide Shoulders -- 78464
 	recipe = AddRecipe(78464, V.CATA, Q.COMMON)
 	recipe:SetRecipeItemID(67074)
 	recipe:SetSkillLevels(520, 520, 525, 530, 535)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	recipe:AddVendor(3366, 50172, 50381)
 
-	-- Bloodied Wyrmhide Chest -- 78467
+	-- Bloodthirsty Wyrmhide Chest -- 78467
 	recipe = AddRecipe(78467, V.CATA, Q.COMMON)
 	recipe:SetRecipeItemID(67075)
 	recipe:SetSkillLevels(520, 520, 525, 530, 535)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	recipe:AddVendor(3366, 50172, 50381)
 
-	-- Bloodied Leather Belt -- 78468
+	-- Bloodthirsty Leather Belt -- 78468
 	recipe = AddRecipe(78468, V.CATA, Q.COMMON)
 	recipe:SetRecipeItemID(67076)
 	recipe:SetSkillLevels(520, 520, 525, 530, 535)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	recipe:AddVendor(3366, 50172, 50381)
 
-	-- Bloodied Leather Helm -- 78469
+	-- Bloodthirsty Leather Helm -- 78469
 	recipe = AddRecipe(78469, V.CATA, Q.COMMON)
 	recipe:SetRecipeItemID(67077)
 	recipe:SetSkillLevels(520, 520, 525, 530, 535)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	recipe:AddVendor(3366, 50172, 50381)
 
-	-- Bloodied Scale Shoulders -- 78470
+	-- Bloodthirsty Charscale Shoulders -- 78470
 	recipe = AddRecipe(78470, V.CATA, Q.COMMON)
 	recipe:SetRecipeItemID(67078)
 	recipe:SetSkillLevels(520, 520, 525, 530, 535)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	recipe:AddVendor(3366, 50172, 50381)
 
-	-- Bloodied Scale Legs -- 78471
+	-- Bloodthirsty Charscale Legs -- 78471
 	recipe = AddRecipe(78471, V.CATA, Q.COMMON)
 	recipe:SetRecipeItemID(67079)
 	recipe:SetSkillLevels(520, 520, 525, 530, 535)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	recipe:AddVendor(3366, 50172, 50381)
 
-	-- Bloodied Dragonscale Belt -- 78473
+	-- Bloodthirsty Dragonscale Belt -- 78473
 	recipe = AddRecipe(78473, V.CATA, Q.COMMON)
 	recipe:SetRecipeItemID(67080)
 	recipe:SetSkillLevels(520, 520, 525, 530, 535)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	recipe:AddVendor(3366, 50172, 50381)
 
-	-- Bloodied Dragonscale Helm -- 78474
+	-- Bloodthirsty Dragonscale Helm -- 78474
 	recipe = AddRecipe(78474, V.CATA, Q.COMMON)
 	recipe:SetRecipeItemID(67081)
 	recipe:SetSkillLevels(520, 520, 525, 530, 535)
@@ -4472,56 +4472,56 @@ function addon:InitLeatherworking()
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	recipe:AddVendor(3366, 50172, 50381)
 
-	-- Bloodied Wyrmhide Legs -- 78479
+	-- Bloodthirsty Wyrmhide Legs -- 78479
 	recipe = AddRecipe(78479, V.CATA, Q.COMMON)
 	recipe:SetRecipeItemID(67085)
 	recipe:SetSkillLevels(525, 525, 530, 535, 540)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	recipe:AddVendor(3366, 50172, 50381)
 
-	-- Bloodied Wyrmhide Helm -- 78480
+	-- Bloodthirsty Wyrmhide Helm -- 78480
 	recipe = AddRecipe(78480, V.CATA, Q.COMMON)
 	recipe:SetRecipeItemID(67086)
 	recipe:SetSkillLevels(525, 525, 530, 535, 540)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	recipe:AddVendor(3366, 50172, 50381)
 
-	-- Bloodied Leather Chest -- 78481
+	-- Bloodthirsty Leather Chest -- 78481
 	recipe = AddRecipe(78481, V.CATA, Q.COMMON)
 	recipe:SetRecipeItemID(67087)
 	recipe:SetSkillLevels(525, 525, 530, 535, 540)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	recipe:AddVendor(3366, 50172, 50381)
 
-	-- Bloodied Leather Legs -- 78482
+	-- Bloodthirsty Leather Legs -- 78482
 	recipe = AddRecipe(78482, V.CATA, Q.COMMON)
 	recipe:SetRecipeItemID(67089)
 	recipe:SetSkillLevels(525, 525, 530, 535, 540)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	recipe:AddVendor(3366, 50172, 50381)
 
-	-- Bloodied Scale Chest -- 78483
+	-- Bloodthirsty Charscale Chest -- 78483
 	recipe = AddRecipe(78483, V.CATA, Q.COMMON)
 	recipe:SetRecipeItemID(67090)
 	recipe:SetSkillLevels(525, 525, 530, 535, 540)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	recipe:AddVendor(3366, 50172, 50381)
 
-	-- Bloodied Scale Helm -- 78484
+	-- Bloodthirsty Charscale Helm -- 78484
 	recipe = AddRecipe(78484, V.CATA, Q.COMMON)
 	recipe:SetRecipeItemID(67091)
 	recipe:SetSkillLevels(525, 525, 530, 535, 540)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	recipe:AddVendor(3366, 50172, 50381)
 
-	-- Bloodied Dragonscale Legs -- 78485
+	-- Bloodthirsty Dragonscale Legs -- 78485
 	recipe = AddRecipe(78485, V.CATA, Q.COMMON)
 	recipe:SetRecipeItemID(67092)
 	recipe:SetSkillLevels(525, 525, 530, 535, 540)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	recipe:AddVendor(3366, 50172, 50381)
 
-	-- Bloodied Dragonscale Chest -- 78486
+	-- Bloodthirsty Dragonscale Chest -- 78486
 	recipe = AddRecipe(78486, V.CATA, Q.COMMON)
 	recipe:SetRecipeItemID(67093)
 	recipe:SetSkillLevels(525, 525, 530, 535, 540)
@@ -4686,168 +4686,6 @@ function addon:InitLeatherworking()
 	-- recipe:SetSkillLevels(525, 525, 525, 527, 530)
 	-- recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOE)
 	-- recipe:AddCustom("FIRELANDS_RANDOM")
-	
-	-- Bloodthirsty Charscale Belt
-	-- recipe = AddRecipe(, V.CATA, Q.COMMON)
-	-- recipe:SetRecipeItemID()
-		-- recipe:SetCraftedItemID()
-	-- recipe:AddFilters()
-	
-	-- Bloodthirsty Charscale Boots
-	-- recipe = AddRecipe(, V.CATA, Q.COMMON)
-	-- recipe:SetRecipeItemID()
-	
-	-- recipe:AddFilters()
-	
-	-- Bloodthirsty Charscale Bracers
-	-- recipe = AddRecipe(, V.CATA, Q.COMMON)
-	-- recipe:SetRecipeItemID()
-	-- recipe:AddFilters()
-	
-	-- Bloodthirsty Charscale Chest
-	-- recipe = AddRecipe(, V.CATA, Q.COMMON)
-	-- recipe:SetRecipeItemID()
-	-- recipe:AddFilters()
-	
-	-- Bloodthirsty Charscale Gloves
-	-- recipe = AddRecipe(, V.CATA, Q.COMMON)
-	-- recipe:SetRecipeItemID()
-	-- recipe:AddFilters()
-	
-	-- Bloodthirsty Charscale Helm
-	-- recipe = AddRecipe(, V.CATA, Q.COMMON)
-	-- recipe:SetRecipeItemID()
-	-- recipe:AddFilters()
-	
-	-- Bloodthirsty Charscale Legs
-	-- recipe = AddRecipe(, V.CATA, Q.COMMON)
-	-- recipe:SetRecipeItemID()
-	-- recipe:AddFilters()
-	
-	-- Bloodthirsty Charscale Shoulders
-	-- recipe = AddRecipe(, V.CATA, Q.COMMON)
-	-- recipe:SetRecipeItemID()
-	-- recipe:AddFilters()
-	
-	-- Bloodthirsty Dragonscale Belt
-	-- recipe = AddRecipe(, V.CATA, Q.COMMON)
-	-- recipe:SetRecipeItemID()
-	-- recipe:AddFilters()
-	
-	-- Bloodthirsty Dragonscale Boots
-	-- recipe = AddRecipe(, V.CATA, Q.COMMON)
-	-- recipe:SetRecipeItemID()
-	-- recipe:AddFilters()
-	
-	-- Bloodthirsty Dragonscale Bracers
-	-- recipe = AddRecipe(, V.CATA, Q.COMMON)
-	-- recipe:SetRecipeItemID()
-	-- recipe:AddFilters()
-	
-	-- Bloodthirsty Dragonscale Chest
-	-- recipe = AddRecipe(, V.CATA, Q.COMMON)
-	-- recipe:SetRecipeItemID()
-	-- recipe:AddFilters()
-	
-	-- Bloodthirsty Dragonscale Gloves
-	-- recipe = AddRecipe(, V.CATA, Q.COMMON)
-	-- recipe:SetRecipeItemID()
-	-- recipe:AddFilters()
-	
-	-- Bloodthirsty Dragonscale Helm
-	-- recipe = AddRecipe(, V.CATA, Q.COMMON)
-	-- recipe:SetRecipeItemID()
-	-- recipe:AddFilters()
-	
-	-- Bloodthirsty Dragonscale Legs
-	-- recipe = AddRecipe(, V.CATA, Q.COMMON)
-	-- recipe:SetRecipeItemID()
-	-- recipe:AddFilters()
-	
-	-- Bloodthirsty Dragonscale Shoulders
-	-- recipe = AddRecipe(, V.CATA, Q.COMMON)
-	-- recipe:SetRecipeItemID()
-	-- recipe:AddFilters()
-	
-	-- Bloodthirsty Leather Belt
-	-- recipe = AddRecipe(, V.CATA, Q.COMMON)
-	-- recipe:SetRecipeItemID()
-	-- recipe:AddFilters()
-	
-	-- Bloodthirsty Leather Boots
-	-- recipe = AddRecipe(, V.CATA, Q.COMMON)
-	-- recipe:SetRecipeItemID()
-	-- recipe:AddFilters()
-	
-	-- Bloodthirsty Leather Bracers
-	-- recipe = AddRecipe(, V.CATA, Q.COMMON)
-	-- recipe:SetRecipeItemID()
-	-- recipe:AddFilters()
-	
-	-- Bloodthirsty Leather Chest
-	-- recipe = AddRecipe(, V.CATA, Q.COMMON)
-	-- recipe:SetRecipeItemID()
-	-- recipe:AddFilters()
-	
-	-- Bloodthirsty Leather Gloves
-	-- recipe = AddRecipe(, V.CATA, Q.COMMON)
-	-- recipe:SetRecipeItemID()
-	-- recipe:AddFilters()
-	
-	-- Bloodthirsty Leather Helm
-	-- recipe = AddRecipe(, V.CATA, Q.COMMON)
-	-- recipe:SetRecipeItemID()
-	-- recipe:AddFilters()
-	
-	-- Bloodthirsty Leather Legs
-	-- recipe = AddRecipe(, V.CATA, Q.COMMON)
-	-- recipe:SetRecipeItemID()
-	-- recipe:AddFilters()
-	
-	-- Bloodthirsty Leather Shoulders
-	-- recipe = AddRecipe(, V.CATA, Q.COMMON)
-	-- recipe:SetRecipeItemID()
-	-- recipe:AddFilters()
-	
-	-- Bloodthirsty Wyrmhide Belt
-	-- recipe = AddRecipe(, V.CATA, Q.COMMON)
-	-- recipe:SetRecipeItemID()
-	-- recipe:AddFilters()
-	
-	-- Bloodthirsty Wyrmhide Boots
-	-- recipe = AddRecipe(, V.CATA, Q.COMMON)
-	-- recipe:SetRecipeItemID()
-	-- recipe:AddFilters()
-	
-	-- Bloodthirsty Wyrmhide Bracers
-	-- recipe = AddRecipe(, V.CATA, Q.COMMON)
-	-- recipe:SetRecipeItemID()
-	-- recipe:AddFilters()
-	
-	-- Bloodthirsty Wyrmhide Chest
-	-- recipe = AddRecipe(, V.CATA, Q.COMMON)
-	-- recipe:SetRecipeItemID()
-	-- recipe:AddFilters()
-	
-	-- Bloodthirsty Wyrmhide Gloves
-	-- recipe = AddRecipe(, V.CATA, Q.COMMON)
-	-- recipe:SetRecipeItemID()
-	-- recipe:AddFilters()
-	
-	-- Bloodthirsty Wyrmhide Helm
-	-- recipe = AddRecipe(, V.CATA, Q.COMMON)
-	-- recipe:SetRecipeItemID()
-	-- recipe:AddFilters()
-	
-	-- Bloodthirsty Wyrmhide Legs
-	-- recipe = AddRecipe(, V.CATA, Q.COMMON)
-	-- recipe:SetRecipeItemID()
-	-- recipe:AddFilters()
-	
-	-- Bloodthirsty Wyrmhide Shoulders
-	-- recipe = AddRecipe(, V.CATA, Q.COMMON)
-	-- recipe:SetRecipeItemID()
-	-- recipe:AddFilters()
 	
 	-- Bloodthirsty Fur Cloak
 	-- recipe = AddRecipe(, V.CATA, Q.COMMON)
