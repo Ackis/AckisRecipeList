@@ -167,7 +167,13 @@ do
 		button:SetWidth(width)
 
 		if noTextures == 0 then
-			button:SetHighlightTexture("Interface\\QuestFrame\\UI-QuestTitleHighlight")
+			local highlight_texture = button:CreateTexture(nil, "BORDER")
+			highlight_texture:SetTexture([[Interface\ClassTrainerFrame\TrainerTextures]])
+			highlight_texture:SetTexCoord(0.00195313, 0.57421875, 0.75390625, 0.84570313)
+			highlight_texture:SetBlendMode("ADD")
+			highlight_texture:SetPoint("TOPLEFT", 2, 0)
+			highlight_texture:SetPoint("BOTTOMRIGHT", -2, 1)
+			button:SetHighlightTexture(highlight_texture)
 		elseif noTextures == 1 then
 			local left = button:CreateTexture(nil, "BACKGROUND")
 			button.left = left

@@ -30,6 +30,7 @@ local QTip	= LibStub("LibQTip-1.0")
 local NUM_RECIPE_LINES	= 25
 local SCROLL_DEPTH	= 5
 local LISTFRAME_WIDTH	= 295
+local LIST_ENTRY_WIDTH	= 286
 
 local CATEGORY_COLORS	= private.category_colors
 local BASIC_COLORS	= private.basic_colors
@@ -322,10 +323,10 @@ function private.InitializeListFrame()
 		local cur_container = _G.CreateFrame("Frame", nil, ListFrame)
 
 		cur_container:SetHeight(16)
-		cur_container:SetWidth(LISTFRAME_WIDTH)
+		cur_container:SetWidth(LIST_ENTRY_WIDTH)
 
 		local cur_state = GenericCreateButton(nil, ListFrame, 16, 16, nil, nil, nil, nil, 2)
-		local cur_entry = GenericCreateButton(nil, ListFrame, 16, LISTFRAME_WIDTH, "GameFontNormalSmall", "Blort", "LEFT", nil, 0)
+		local cur_entry = GenericCreateButton(nil, ListFrame, 16, LIST_ENTRY_WIDTH, "GameFontNormalSmall", "Blort", "LEFT", nil, 0)
 
 		if i == 1 then
 			cur_container:SetPoint("TOPLEFT", ListFrame, "TOPLEFT", 0, 0)
@@ -837,7 +838,7 @@ function private.InitializeListFrame()
 			entry:SetText("")
 			entry:SetScript("OnEnter", nil)
 			entry:SetScript("OnLeave", nil)
-			entry:SetWidth(LISTFRAME_WIDTH)
+			entry:SetWidth(LIST_ENTRY_WIDTH)
 			entry:Disable()
 
 			state.string_index = 0
@@ -974,7 +975,7 @@ function private.InitializeListFrame()
 				cur_state:SetPoint("TOPLEFT", cur_container, "TOPLEFT", 0, 0)
 			elseif cur_entry.type == "subheader" or cur_entry.type == "subentry" then
 				cur_state:SetPoint("TOPLEFT", cur_container, "TOPLEFT", 15, 0)
-				cur_button:SetWidth(LISTFRAME_WIDTH - 15)
+				cur_button:SetWidth(LIST_ENTRY_WIDTH - 15)
 			end
 			cur_button.string_index = string_index
 			cur_button:SetText(cur_entry.text)
