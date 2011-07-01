@@ -31,8 +31,8 @@ local SetTooltipScripts = private.SetTooltipScripts
 -------------------------------------------------------------------------------
 -- Constants
 -------------------------------------------------------------------------------
-local FILTERMENU_HEIGHT		= 312
-local FILTERMENU_WIDTH		= 210
+local FILTERMENU_WIDTH		= 306
+local FILTERMENU_HEIGHT		= 343
 
 local EXPANSION_FRAMES = {
 	["expansion0"]	= true,
@@ -69,8 +69,8 @@ do
 
 	local function CreateCheckButton(parent, ttText, scriptVal, row, col)
 		-- set the position of the new checkbox
-		local xPos = 2 + ((col - 1) * 175)
-		local yPos = -3 - ((row - 1) * 17)
+		local xPos = 10 + ((col - 1) * 175)
+		local yPos = -10 - ((row - 1) * 17)
 
 		local check = _G.CreateFrame("CheckButton", nil, parent, "UICheckButtonTemplate")
 		check:SetPoint("TOPLEFT", parent, "TOPLEFT", xPos, yPos)
@@ -140,9 +140,15 @@ function private.InitializeFilterPanel()
 	-------------------------------------------------------------------------------
 	-- The filter_reset button
 	-------------------------------------------------------------------------------
-	local filter_reset = GenericCreateButton(nil, MainPanel, 22, 78, "GameFontNormalSmall", _G.RESET, "CENTER", L["RESET_DESC"], 1)
-	filter_reset:SetPoint("BOTTOMRIGHT", MainPanel, "BOTTOMRIGHT", -95, 80)
+	local filter_reset_name = ("%s_FilterMenuResetButton"):format(FOLDER_NAME)
+	local filter_reset = _G.CreateFrame("Button", filter_reset_name, MainPanel, "UIPanelButtonTemplate")
+	filter_reset:SetWidth(78)
+	filter_reset:SetHeight(22)
+	filter_reset:SetPoint("BOTTOMRIGHT", MainPanel, "BOTTOMRIGHT", -95, 78)
+	filter_reset:SetText(_G.RESET)
 	filter_reset:Hide()
+
+	private.SetTooltipScripts(filter_reset, L["RESET_DESC"])
 
 	MainPanel.filter_reset = filter_reset
 
@@ -325,10 +331,10 @@ function private.InitializeFilterPanel()
 	-- Main filter_menu frame.
 	-------------------------------------------------------------------------------
 	local FilterPanel = _G.CreateFrame("Frame", nil, MainPanel)
-	FilterPanel:SetWidth(300)
+	FilterPanel:SetWidth(FILTERMENU_WIDTH)
 	FilterPanel:SetHeight(FILTERMENU_HEIGHT)
 	FilterPanel:SetFrameStrata("MEDIUM")
-	FilterPanel:SetPoint("TOPRIGHT", MainPanel, "TOPRIGHT", -135, -60)
+	FilterPanel:SetPoint("TOPRIGHT", MainPanel, "TOPRIGHT", -117, -71)
 	FilterPanel:EnableMouse(true)
 	FilterPanel:EnableKeyboard(true)
 	FilterPanel:SetMovable(false)
@@ -339,13 +345,10 @@ function private.InitializeFilterPanel()
 
 	function FilterPanel:CreateSubMenu(name)
 		local submenu = _G.CreateFrame("Frame", nil, self)
-
-		submenu:SetWidth(FILTERMENU_WIDTH)
-		submenu:SetHeight(FILTERMENU_HEIGHT)
 		submenu:EnableMouse(true)
 		submenu:EnableKeyboard(true)
 		submenu:SetMovable(false)
-		submenu:SetPoint("TOPLEFT", self, "TOPLEFT", 17, -16)
+		submenu:SetAllPoints()
 		submenu:Hide()
 
 		self[name] = submenu
@@ -375,10 +378,17 @@ function private.InitializeFilterPanel()
 	-------------------------------------------------------------------------------
 	-- Create the Class toggle and CheckButtons.
 	-------------------------------------------------------------------------------
-	local class_toggle = GenericCreateButton(nil, general_frame, 20, 105, "GameFontHighlight", L["Classes"] .. ":", "LEFT", L["CLASS_TEXT_DESC"], 0)
-	class_toggle:SetPoint("TOPLEFT", FilterPanel.general.unknown, "BOTTOMLEFT", -4, -10)
-	class_toggle:SetHighlightTexture("Interface\\Buttons\\UI-PlusButton-Hilight")
+	local class_toggle = _G.CreateFrame("Button", nil, general_frame)
+	class_toggle:SetWidth(105)
+	class_toggle:SetHeight(20)
+	class_toggle:SetNormalFontObject("QuestTitleFont")
+	class_toggle:SetHighlightFontObject("QuestTitleFontBlackShadow")
+	class_toggle:SetFormattedText(_G.ITEM_CLASSES_ALLOWED, "")
+	class_toggle:SetPoint("TOP", general_frame, "TOP", 0, -80)
 	class_toggle:RegisterForClicks("LeftButtonUp", "RightButtonUp")
+
+	private.SetTooltipScripts(class_toggle, L["CLASS_TEXT_DESC"])
+
 	class_toggle:SetScript("OnClick",
 			       function(self, button)
 				       local classes = addon.db.profile.filters.classes
@@ -474,10 +484,17 @@ function private.InitializeFilterPanel()
 		-------------------------------------------------------------------------------
 		-- Create the Armor toggle and CheckButtons
 		-------------------------------------------------------------------------------
-		local armor_toggle = GenericCreateButton(nil, item_frame, 20, 105, "GameFontHighlight", _G.ARMOR .. ":", "LEFT", L["ARMOR_TEXT_DESC"], 0)
-		armor_toggle:SetPoint("TOPLEFT", item_frame, "TOPLEFT", -2, -4)
-		armor_toggle:SetHighlightTexture("Interface\\Buttons\\UI-PlusButton-Hilight")
+		local armor_toggle = _G.CreateFrame("Button", nil, item_frame)
+		armor_toggle:SetWidth(105)
+		armor_toggle:SetHeight(20)
+		armor_toggle:SetNormalFontObject("QuestTitleFont")
+		armor_toggle:SetHighlightFontObject("QuestTitleFontBlackShadow")
+		armor_toggle:SetText(_G.ARMOR .. ":")
+		armor_toggle:SetPoint("TOP", item_frame, "TOP", 0, -7)
 		armor_toggle:RegisterForClicks("LeftButtonUp", "RightButtonUp")
+
+		private.SetTooltipScripts(armor_toggle, L["ARMOR_TEXT_DESC"])
+
 		armor_toggle:SetScript("OnClick",
 				       function(self, button)
 					       local armors = addon.db.profile.filters.item.armor
@@ -510,11 +527,17 @@ function private.InitializeFilterPanel()
 		-------------------------------------------------------------------------------
 		-- Create the Weapon toggle and CheckButtons
 		-------------------------------------------------------------------------------
-		local weapon_toggle = GenericCreateButton(nil, item_frame, 20, 105, "GameFontHighlight", L["Weapon"] .. ":", "LEFT", L["WEAPON_TEXT_DESC"], 0)
-		weapon_toggle:SetPoint("TOPLEFT", item_frame, "TOPLEFT", -2, -122)
-
-		weapon_toggle:SetHighlightTexture("Interface\\Buttons\\UI-PlusButton-Hilight")
+		local weapon_toggle = _G.CreateFrame("Button", nil, item_frame)
+		weapon_toggle:SetWidth(105)
+		weapon_toggle:SetHeight(20)
+		weapon_toggle:SetNormalFontObject("QuestTitleFont")
+		weapon_toggle:SetHighlightFontObject("QuestTitleFontBlackShadow")
+		weapon_toggle:SetText(L["Weapon"] .. ":")
+		weapon_toggle:SetPoint("TOP", item_frame, "TOP", 0, -122)
 		weapon_toggle:RegisterForClicks("LeftButtonUp", "RightButtonUp")
+
+		private.SetTooltipScripts(weapon_toggle, L["WEAPON_TEXT_DESC"])
+
 		weapon_toggle:SetScript("OnClick",
 					function(self, button)
 						local weapons = addon.db.profile.filters.item.weapon
@@ -588,19 +611,15 @@ function private.InitializeFilterPanel()
 	-------------------------------------------------------------------------------
 	do
 		local player_frame = FilterPanel:CreateSubMenu("player")
-		local tank_desc = string.format(L["ROLE_DESC_FORMAT"], _G.TANK)
-		local melee_desc = string.format(L["ROLE_DESC_FORMAT"], _G.MELEE)
-		local healer_desc = string.format(L["ROLE_DESC_FORMAT"], _G.HEALER)
-		local caster_desc = string.format(L["ROLE_DESC_FORMAT"], _G.DAMAGER)
 
 		-------------------------------------------------------------------------------
 		-- Create the CheckButtons
 		-------------------------------------------------------------------------------
 		local role_buttons = {
-			["tank"]	= { tt = tank_desc,	text = _G.TANK,		row = 1, col = 1 },
-			["melee"]	= { tt = melee_desc,	text = _G.MELEE,	row = 2, col = 1 },
-			["healer"]	= { tt = healer_desc,	text = _G.HEALER,	row = 3, col = 1 },
-			["caster"]	= { tt = caster_desc,	text = _G.DAMAGER,	row = 4, col = 1 },
+			["tank"]	= { tt = L["ROLE_DESC_FORMAT"]:format(_G.TANK),		text = _G.TANK,		row = 1, col = 1 },
+			["melee"]	= { tt = L["ROLE_DESC_FORMAT"]:format(_G.MELEE),	text = _G.MELEE,	row = 2, col = 1 },
+			["healer"]	= { tt = L["ROLE_DESC_FORMAT"]:format(_G.HEALER),	text = _G.HEALER,	row = 3, col = 1 },
+			["caster"]	= { tt = L["ROLE_DESC_FORMAT"]:format(_G.DAMAGER),	text = _G.DAMAGER,	row = 4, col = 1 },
 		}
 		GenerateCheckBoxes(player_frame, role_buttons)
 		role_buttons = nil
@@ -691,16 +710,16 @@ function private.InitializeFilterPanel()
 		-- Create the expansion toggles.
 		-------------------------------------------------------------------------------
 		local expansion0 = rep_frame:CreateExpansionButton("Glues-WoW-Logo", "expansion0")
-		expansion0:SetPoint("TOPLEFT", FilterPanel.rep, "TOPLEFT", 0, -10)
+		expansion0:SetPoint("TOPLEFT", FilterPanel.rep, "TOPLEFT", 2, -10)
 
 		local expansion1 = rep_frame:CreateExpansionButton("GLUES-WOW-BCLOGO", "expansion1")
-		expansion1:SetPoint("TOPLEFT", FilterPanel.rep, "TOPLEFT", 0, -60)
+		expansion1:SetPoint("TOP", expansion0, "BOTTOM", 0, 0)
 
 		local expansion2 = rep_frame:CreateExpansionButton("Glues-WOW-WotlkLogo", "expansion2")
-		expansion2:SetPoint("TOPLEFT", FilterPanel.rep, "TOPLEFT", 0, -110)
+		expansion2:SetPoint("TOP", expansion1, "BOTTOM", 0, 0)
 
 		local expansion3 = rep_frame:CreateExpansionButton("Glues-WOW-CCLogo", "expansion3")
-		expansion3:SetPoint("TOPLEFT", FilterPanel.rep, "TOPLEFT", 0, -160)
+		expansion3:SetPoint("TOP", expansion2, "BOTTOM", 0, 0)
 
 		rep_frame.toggle_expansion0 = expansion0
 		rep_frame.toggle_expansion1 = expansion1
@@ -750,12 +769,12 @@ function private.InitializeFilterPanel()
 	-------------------------------------------------------------------------------
 	do
 		local expansion0_frame = _G.CreateFrame("Frame", nil, FilterPanel.rep)
-		expansion0_frame:SetWidth(150)
-		expansion0_frame:SetHeight(280)
+		expansion0_frame:SetWidth(200)
+		expansion0_frame:SetHeight(FILTERMENU_HEIGHT)
 		expansion0_frame:EnableMouse(true)
 		expansion0_frame:EnableKeyboard(true)
 		expansion0_frame:SetMovable(false)
-		expansion0_frame:SetPoint("TOPRIGHT", FilterPanel, "TOPRIGHT", -30, -16)
+		expansion0_frame:SetPoint("TOPRIGHT", FilterPanel, "TOPRIGHT", 0, 0)
 		expansion0_frame:Hide()
 
 		FilterPanel.rep.expansion0 = expansion0_frame
@@ -772,10 +791,16 @@ function private.InitializeFilterPanel()
 		}
 		GenerateCheckBoxes(expansion0_frame, expansion0_buttons)
 
-		local expansion0_toggle = GenericCreateButton(nil, expansion0_frame, 15, 120, "GameFontHighlight", _G.REPUTATION .. ":", "LEFT", L["REP_TEXT_DESC"], 0)
-		expansion0_toggle:SetPoint("TOPLEFT", expansion0_frame, "TOPLEFT", -2, -4)
-		expansion0_toggle:SetHighlightTexture([[Interface\Buttons\UI-PlusButton-Hilight]])
+		local expansion0_toggle = _G.CreateFrame("Button", nil, expansion0_frame)
+		expansion0_toggle:SetWidth(105)
+		expansion0_toggle:SetHeight(20)
+		expansion0_toggle:SetNormalFontObject("QuestTitleFont")
+		expansion0_toggle:SetHighlightFontObject("QuestTitleFontBlackShadow")
+		expansion0_toggle:SetText(_G.REPUTATION .. ":")
+		expansion0_toggle:SetPoint("TOPLEFT", expansion0_frame, "TOPLEFT", -2, -7)
 		expansion0_toggle:RegisterForClicks("LeftButtonUp", "RightButtonUp")
+
+		private.SetTooltipScripts(expansion0_toggle, L["REP_TEXT_DESC"])
 
 		expansion0_toggle.buttons = expansion0_buttons
 		expansion0_toggle.frame = expansion0_frame
@@ -788,12 +813,12 @@ function private.InitializeFilterPanel()
 	-------------------------------------------------------------------------------
 	do
 		local expansion1_frame = _G.CreateFrame("Frame", nil, FilterPanel.rep)
-		expansion1_frame:SetWidth(150)
-		expansion1_frame:SetHeight(280)
+		expansion1_frame:SetWidth(200)
+		expansion1_frame:SetHeight(FILTERMENU_HEIGHT)
 		expansion1_frame:EnableMouse(true)
 		expansion1_frame:EnableKeyboard(true)
 		expansion1_frame:SetMovable(false)
-		expansion1_frame:SetPoint("TOPRIGHT", FilterPanel, "TOPRIGHT", -30, -16)
+		expansion1_frame:SetPoint("TOPRIGHT", FilterPanel, "TOPRIGHT", -0, -0)
 		expansion1_frame:Hide()
 
 		FilterPanel.rep.expansion1 = expansion1_frame
@@ -819,10 +844,16 @@ function private.InitializeFilterPanel()
 		}
 		GenerateCheckBoxes(expansion1_frame, expansion1_buttons)
 
-		local expansion1_toggle = GenericCreateButton(nil, expansion1_frame, 15, 120, "GameFontHighlight", _G.REPUTATION .. ":", "LEFT", L["REP_TEXT_DESC"], 0)
-		expansion1_toggle:SetPoint("TOPLEFT", expansion1_frame, "TOPLEFT", -2, -4)
-		expansion1_toggle:SetHighlightTexture([[Interface\Buttons\UI-PlusButton-Hilight]])
+		local expansion1_toggle = _G.CreateFrame("Button", nil, expansion1_frame)
+		expansion1_toggle:SetWidth(105)
+		expansion1_toggle:SetHeight(20)
+		expansion1_toggle:SetNormalFontObject("QuestTitleFont")
+		expansion1_toggle:SetHighlightFontObject("QuestTitleFontBlackShadow")
+		expansion1_toggle:SetText(_G.REPUTATION .. ":")
+		expansion1_toggle:SetPoint("TOPLEFT", expansion1_frame, "TOPLEFT", -2, -7)
 		expansion1_toggle:RegisterForClicks("LeftButtonUp", "RightButtonUp")
+
+		private.SetTooltipScripts(expansion1_toggle, L["REP_TEXT_DESC"])
 
 		expansion1_toggle.buttons = expansion1_buttons
 		expansion1_toggle.frame = expansion1_frame
@@ -835,12 +866,12 @@ function private.InitializeFilterPanel()
 	-------------------------------------------------------------------------------
 	do
 		local expansion2_frame = _G.CreateFrame("Frame", nil, FilterPanel.rep)
-		expansion2_frame:SetWidth(150)
-		expansion2_frame:SetHeight(280)
+		expansion2_frame:SetWidth(200)
+		expansion2_frame:SetHeight(FILTERMENU_HEIGHT)
 		expansion2_frame:EnableMouse(true)
 		expansion2_frame:EnableKeyboard(true)
 		expansion2_frame:SetMovable(false)
-		expansion2_frame:SetPoint("TOPRIGHT", FilterPanel, "TOPRIGHT", -30, -16)
+		expansion2_frame:SetPoint("TOPRIGHT", FilterPanel, "TOPRIGHT", 0, 0)
 		expansion2_frame:Hide()
 
 		FilterPanel.rep.expansion2 = expansion2_frame
@@ -876,10 +907,16 @@ function private.InitializeFilterPanel()
 		expansion2_frame.wrathcommon4:Disable()
 		expansion2_frame.wrathcommon5:Disable()
 
-		local expansion2_toggle = GenericCreateButton(nil, expansion2_frame, 15, 120, "GameFontHighlight", _G.REPUTATION .. ":", "LEFT", L["REP_TEXT_DESC"], 0)
-		expansion2_toggle:SetPoint("TOPLEFT", expansion2_frame, "TOPLEFT", -2, -4)
-		expansion2_toggle:SetHighlightTexture([[Interface\Buttons\UI-PlusButton-Hilight]])
+		local expansion2_toggle = _G.CreateFrame("Button", nil, expansion2_frame)
+		expansion2_toggle:SetWidth(105)
+		expansion2_toggle:SetHeight(20)
+		expansion2_toggle:SetNormalFontObject("QuestTitleFont")
+		expansion2_toggle:SetHighlightFontObject("QuestTitleFontBlackShadow")
+		expansion2_toggle:SetText(_G.REPUTATION .. ":")
+		expansion2_toggle:SetPoint("TOPLEFT", expansion2_frame, "TOPLEFT", -2, -7)
 		expansion2_toggle:RegisterForClicks("LeftButtonUp", "RightButtonUp")
+
+		private.SetTooltipScripts(expansion2_toggle, L["REP_TEXT_DESC"])
 
 		expansion2_toggle.buttons = expansion2_buttons
 		expansion2_toggle.frame = expansion2_frame
@@ -892,12 +929,12 @@ function private.InitializeFilterPanel()
 	-------------------------------------------------------------------------------
 	do
 		local expansion3_frame = _G.CreateFrame("Frame", nil, FilterPanel.rep)
-		expansion3_frame:SetWidth(150)
-		expansion3_frame:SetHeight(280)
+		expansion3_frame:SetWidth(200)
+		expansion3_frame:SetHeight(FILTERMENU_HEIGHT)
 		expansion3_frame:EnableMouse(true)
 		expansion3_frame:EnableKeyboard(true)
 		expansion3_frame:SetMovable(false)
-		expansion3_frame:SetPoint("TOPRIGHT", FilterPanel, "TOPRIGHT", -30, -16)
+		expansion3_frame:SetPoint("TOPRIGHT", FilterPanel, "TOPRIGHT", 0, 0)
 		expansion3_frame:Hide()
 
 		FilterPanel.rep.expansion3 = expansion3_frame
@@ -927,10 +964,16 @@ function private.InitializeFilterPanel()
 		expansion3_frame.earthenring:Disable()
 		expansion3_frame.therazane:Disable()
 
-		local expansion3_toggle = GenericCreateButton(nil, expansion3_frame, 15, 120, "GameFontHighlight", _G.REPUTATION .. ":", "LEFT", L["REP_TEXT_DESC"], 0)
-		expansion3_toggle:SetPoint("TOPLEFT", expansion3_frame, "TOPLEFT", -2, -4)
-		expansion3_toggle:SetHighlightTexture([[Interface\Buttons\UI-PlusButton-Hilight]])
+		local expansion3_toggle = _G.CreateFrame("Button", nil, expansion3_frame)
+		expansion3_toggle:SetWidth(105)
+		expansion3_toggle:SetHeight(20)
+		expansion3_toggle:SetNormalFontObject("QuestTitleFont")
+		expansion3_toggle:SetHighlightFontObject("QuestTitleFontBlackShadow")
+		expansion3_toggle:SetText(_G.REPUTATION .. ":")
+		expansion3_toggle:SetPoint("TOPLEFT", expansion3_frame, "TOPLEFT", -2, -7)
 		expansion3_toggle:RegisterForClicks("LeftButtonUp", "RightButtonUp")
+
+		private.SetTooltipScripts(expansion3_toggle, L["REP_TEXT_DESC"])
 
 		expansion3_toggle.buttons = expansion3_buttons
 		expansion3_toggle.frame = expansion3_frame
@@ -1065,8 +1108,8 @@ function private.InitializeFilterPanel()
 			tip:Clear()
 
 			if not click_info.realm then
-				local other_realms = nil
-				local header = nil
+				local other_realms
+				local header
 
 				for realm in pairs(tskl_list) do
 					if target_realm and realm ~= target_realm then
