@@ -327,17 +327,18 @@ function private.InitializeListFrame()
 
 		local cur_state = GenericCreateButton(nil, ListFrame, 16, 16, nil, nil, nil, nil, 2)
 		local cur_entry = GenericCreateButton(nil, ListFrame, 16, LIST_ENTRY_WIDTH, "GameFontNormalSmall", "Blort", "LEFT", nil, 0)
+		cur_entry.text:SetJustifyV("CENTER")
 
 		if i == 1 then
-			cur_container:SetPoint("TOPLEFT", ListFrame, "TOPLEFT", 0, 0)
-			cur_state:SetPoint("TOPLEFT", cur_container, "TOPLEFT", 0, 0)
-			cur_entry:SetPoint("TOPLEFT", cur_state, "TOPRIGHT", -3, 0)
+			cur_container:SetPoint("TOPLEFT", ListFrame, "TOPLEFT", 0, -3)
+			cur_state:SetPoint("LEFT", cur_container, "LEFT", 0, 0)
+			cur_entry:SetPoint("LEFT", cur_state, "RIGHT", -3, 0)
 		else
 			local prev_container = ListFrame.button_containers[i - 1]
 
 			cur_container:SetPoint("TOPLEFT", prev_container, "BOTTOMLEFT", 0, 3)
-			cur_state:SetPoint("TOPLEFT", cur_container, "TOPLEFT", 0, 0)
-			cur_entry:SetPoint("TOPLEFT", cur_state, "TOPRIGHT", -3, 0)
+			cur_state:SetPoint("LEFT", cur_container, "LEFT", 0, 0)
+			cur_entry:SetPoint("LEFT", cur_state, "RIGHT", -3, 0)
 		end
 		cur_state.container = cur_container
 
@@ -950,15 +951,13 @@ function private.InitializeListFrame()
 				cur_state:Show()
 
 				if cur_entry.is_expanded then
-					cur_state:SetNormalTexture("Interface\\Buttons\\UI-MinusButton-Up")
-					cur_state:SetPushedTexture("Interface\\Buttons\\UI-MinusButton-Down")
-					cur_state:SetHighlightTexture("Interface\\Buttons\\UI-PlusButton-Hilight")
-					cur_state:SetDisabledTexture("Interface\\Buttons\\UI-MinusButton-Disabled")
+					cur_state:SetNormalTexture([[Interface\MINIMAP\UI-Minimap-ZoomOutButton-Up]])
+					cur_state:SetPushedTexture([[Interface\MINIMAP\UI-Minimap-ZoomOutButton-Down]])
+					cur_state:SetHighlightTexture([[Interface\MINIMAP\UI-Minimap-ZoomButton-Highlight]])
 				else
-					cur_state:SetNormalTexture("Interface\\Buttons\\UI-PlusButton-Up")
-					cur_state:SetPushedTexture("Interface\\Buttons\\UI-PlusButton-Down")
-					cur_state:SetHighlightTexture("Interface\\Buttons\\UI-PlusButton-Hilight")
-					cur_state:SetDisabledTexture("Interface\\Buttons\\UI-PlusButton-Disabled")
+					cur_state:SetNormalTexture([[Interface\MINIMAP\UI-Minimap-ZoomInButton-Up]])
+					cur_state:SetPushedTexture([[Interface\MINIMAP\UI-Minimap-ZoomInButton-Down]])
+					cur_state:SetHighlightTexture([[Interface\MINIMAP\UI-Minimap-ZoomButton-Highlight]])
 				end
 				cur_state.string_index = string_index
 				cur_state:SetScript("OnEnter", Button_OnEnter)
