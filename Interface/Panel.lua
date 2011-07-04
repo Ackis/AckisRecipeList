@@ -796,42 +796,42 @@ function private.InitializeFrame()
 	-------------------------------------------------------------------------------
 	-- Create the expand button and set its scripts.
 	-------------------------------------------------------------------------------
-	local ExpandButtonFrame = _G.CreateFrame("Frame", nil, MainPanel)
+	local expand_button_frame = _G.CreateFrame("Frame", nil, MainPanel)
 
-	ExpandButtonFrame:SetHeight(20)
-	ExpandButtonFrame:SetPoint("TOPLEFT", SearchBox, "BOTTOMLEFT", -12, -5)
+	expand_button_frame:SetHeight(20)
+	expand_button_frame:SetPoint("TOPLEFT", SearchBox, "BOTTOMLEFT", -12, -5)
 
-	ExpandButtonFrame.left = ExpandButtonFrame:CreateTexture(nil, "BACKGROUND")
-	ExpandButtonFrame.left:SetWidth(8)
-	ExpandButtonFrame.left:SetHeight(22)
-	ExpandButtonFrame.left:SetPoint("TOPLEFT", ExpandButtonFrame, 0, 4)
-	ExpandButtonFrame.left:SetTexture("Interface\\QuestFrame\\UI-QuestLogSortTab-Left")
+	expand_button_frame.left = expand_button_frame:CreateTexture(nil, "BACKGROUND")
+	expand_button_frame.left:SetWidth(8)
+	expand_button_frame.left:SetHeight(22)
+	expand_button_frame.left:SetPoint("TOPLEFT", expand_button_frame, 0, 4)
+	expand_button_frame.left:SetTexture("Interface\\QuestFrame\\UI-QuestLogSortTab-Left")
 
-	ExpandButtonFrame.right = ExpandButtonFrame:CreateTexture(nil, "BACKGROUND")
-	ExpandButtonFrame.right:SetWidth(8)
-	ExpandButtonFrame.right:SetHeight(22)
-	ExpandButtonFrame.right:SetPoint("TOPRIGHT", ExpandButtonFrame, 0, 4)
-	ExpandButtonFrame.right:SetTexture("Interface\\QuestFrame\\UI-QuestLogSortTab-Right")
+	expand_button_frame.right = expand_button_frame:CreateTexture(nil, "BACKGROUND")
+	expand_button_frame.right:SetWidth(8)
+	expand_button_frame.right:SetHeight(22)
+	expand_button_frame.right:SetPoint("TOPRIGHT", expand_button_frame, 0, 4)
+	expand_button_frame.right:SetTexture("Interface\\QuestFrame\\UI-QuestLogSortTab-Right")
 
-	ExpandButtonFrame.middle = ExpandButtonFrame:CreateTexture(nil, "BACKGROUND")
-	ExpandButtonFrame.middle:SetHeight(22)
-	ExpandButtonFrame.middle:SetPoint("LEFT", ExpandButtonFrame.left, "RIGHT")
-	ExpandButtonFrame.middle:SetPoint("RIGHT", ExpandButtonFrame.right, "LEFT")
-	ExpandButtonFrame.middle:SetTexture("Interface\\QuestFrame\\UI-QuestLogSortTab-Middle")
+	expand_button_frame.middle = expand_button_frame:CreateTexture(nil, "BACKGROUND")
+	expand_button_frame.middle:SetHeight(22)
+	expand_button_frame.middle:SetPoint("LEFT", expand_button_frame.left, "RIGHT")
+	expand_button_frame.middle:SetPoint("RIGHT", expand_button_frame.right, "LEFT")
+	expand_button_frame.middle:SetTexture("Interface\\QuestFrame\\UI-QuestLogSortTab-Middle")
 
-	local ExpandButton = GenericCreateButton(nil, MainPanel, 16, 16, "GameFontNormalSmall", _G.ALL, "LEFT", L["EXPANDALL_DESC"], 2)
+	local expand_button = GenericCreateButton(nil, MainPanel, 16, 16, "GameFontNormalSmall", _G.ALL, "LEFT", L["EXPANDALL_DESC"], 2)
 
 	-- Make sure the button frame is large enough to hold the localized word for "All"
-	ExpandButtonFrame:SetWidth(27 + ExpandButton:GetFontString():GetStringWidth())
+	expand_button_frame:SetWidth(27 + expand_button:GetFontString():GetStringWidth())
 
-	MainPanel.expand_button = ExpandButton
+	MainPanel.expand_button = expand_button
 
-	ExpandButton:SetPoint("LEFT", ExpandButtonFrame.left, "RIGHT", -3, -3)
+	expand_button:SetPoint("LEFT", expand_button_frame.left, "RIGHT", -3, -3)
 
-	ExpandButton.text:ClearAllPoints()
-	ExpandButton.text:SetPoint("LEFT", ExpandButton, "Right", 0, 0)
+	expand_button.text:ClearAllPoints()
+	expand_button.text:SetPoint("LEFT", expand_button, "Right", 0, 0)
 
-	ExpandButton:SetScript("OnClick",
+	expand_button:SetScript("OnClick",
 			       function(self, mouse_button, down)
 				       local current_tab = MainPanel.tabs[MainPanel.current_tab]
 				       local expanded = current_tab["expand_button_"..MainPanel.profession]
@@ -860,7 +860,7 @@ function private.InitializeFrame()
 				       end
 			       end)
 
-	function ExpandButton:Expand(current_tab)
+	function expand_button:Expand(current_tab)
 		current_tab["expand_button_"..MainPanel.profession] = true
 
 		self:SetNormalTexture("Interface\\BUTTONS\\UI-MinusButton-Up")
@@ -871,7 +871,7 @@ function private.InitializeFrame()
 		SetTooltipScripts(self, L["CONTRACTALL_DESC"])
 	end
 
-	function ExpandButton:Contract(current_tab)
+	function expand_button:Contract(current_tab)
 		current_tab["expand_button_"..MainPanel.profession] = nil
 
 		self:SetNormalTexture("Interface\\Buttons\\UI-PlusButton-Up")
@@ -984,7 +984,7 @@ function private.InitializeFrame()
 
 	MainPanel.sort_button = SortToggle
 
-	SortToggle:SetPoint("LEFT", ExpandButtonFrame, "RIGHT", 0, 2)
+	SortToggle:SetPoint("LEFT", expand_button_frame, "RIGHT", 0, 2)
 
 	SortToggle:SetScript("OnClick",
 			     function(self, button, down)
