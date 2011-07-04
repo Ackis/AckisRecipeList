@@ -372,7 +372,7 @@ function private.InitializeFilterPanel()
 	general_toggle:SetPoint("TOP", general_frame, "TOP", 0, -7)
 	general_toggle:RegisterForClicks("LeftButtonUp", "RightButtonUp")
 
-	private.SetTooltipScripts(general_toggle, L["CLASS_TEXT_DESC"])
+	private.SetTooltipScripts(general_toggle, L["GENERAL_TEXT_DESC"])
 
 	general_toggle:SetScript("OnClick",
 			       function(self, button)
