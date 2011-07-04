@@ -3621,5 +3621,12 @@ function addon:InitTailoring()
 	recipe:SetSkillLevels(525, 525, 525, 527, 530)
 	recipe:AddCustom("FIRELANDS_RANDOM")
 	
+	-- Bloodthirsty Embersilk Cape -- 99537
+	recipe = AddRecipe(99537, V.CATA, Q.COMMON)
+	recipe:SetCraftedItemID(70070)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	recipe:SetSkillLevels(490, 490, 500, 502, 505)
+	recipe:AddTrainer(3363)
+	
 	self.InitTailoring = nil
 end
