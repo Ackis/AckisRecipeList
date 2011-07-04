@@ -48,7 +48,6 @@ local BFAC	= LibStub("LibBabble-Faction-3.0"):GetLookupTable()
 local AcquireTable = private.AcquireTable
 local ReleaseTable = private.ReleaseTable
 local SetTextColor = private.SetTextColor
-local GenericCreateButton = private.GenericCreateButton
 local SetTooltipScripts = private.SetTooltipScripts
 
 local A = private.acquire_types
@@ -796,42 +795,50 @@ function private.InitializeFrame()
 	-------------------------------------------------------------------------------
 	-- Create the expand button and set its scripts.
 	-------------------------------------------------------------------------------
-	local ExpandButtonFrame = _G.CreateFrame("Frame", nil, MainPanel)
+	local expand_button_frame = _G.CreateFrame("Frame", nil, MainPanel)
 
-	ExpandButtonFrame:SetHeight(20)
-	ExpandButtonFrame:SetPoint("TOPLEFT", SearchBox, "BOTTOMLEFT", -12, -5)
+	expand_button_frame:SetHeight(20)
+	expand_button_frame:SetPoint("TOPLEFT", SearchBox, "BOTTOMLEFT", -12, -5)
 
-	ExpandButtonFrame.left = ExpandButtonFrame:CreateTexture(nil, "BACKGROUND")
-	ExpandButtonFrame.left:SetWidth(8)
-	ExpandButtonFrame.left:SetHeight(22)
-	ExpandButtonFrame.left:SetPoint("TOPLEFT", ExpandButtonFrame, 0, 4)
-	ExpandButtonFrame.left:SetTexture("Interface\\QuestFrame\\UI-QuestLogSortTab-Left")
+	expand_button_frame.left = expand_button_frame:CreateTexture(nil, "BACKGROUND")
+	expand_button_frame.left:SetWidth(8)
+	expand_button_frame.left:SetHeight(22)
+	expand_button_frame.left:SetPoint("TOPLEFT", expand_button_frame, 0, 4)
+	expand_button_frame.left:SetTexture("Interface\\QuestFrame\\UI-QuestLogSortTab-Left")
 
-	ExpandButtonFrame.right = ExpandButtonFrame:CreateTexture(nil, "BACKGROUND")
-	ExpandButtonFrame.right:SetWidth(8)
-	ExpandButtonFrame.right:SetHeight(22)
-	ExpandButtonFrame.right:SetPoint("TOPRIGHT", ExpandButtonFrame, 0, 4)
-	ExpandButtonFrame.right:SetTexture("Interface\\QuestFrame\\UI-QuestLogSortTab-Right")
+	expand_button_frame.right = expand_button_frame:CreateTexture(nil, "BACKGROUND")
+	expand_button_frame.right:SetWidth(8)
+	expand_button_frame.right:SetHeight(22)
+	expand_button_frame.right:SetPoint("TOPRIGHT", expand_button_frame, 0, 4)
+	expand_button_frame.right:SetTexture("Interface\\QuestFrame\\UI-QuestLogSortTab-Right")
 
-	ExpandButtonFrame.middle = ExpandButtonFrame:CreateTexture(nil, "BACKGROUND")
-	ExpandButtonFrame.middle:SetHeight(22)
-	ExpandButtonFrame.middle:SetPoint("LEFT", ExpandButtonFrame.left, "RIGHT")
-	ExpandButtonFrame.middle:SetPoint("RIGHT", ExpandButtonFrame.right, "LEFT")
-	ExpandButtonFrame.middle:SetTexture("Interface\\QuestFrame\\UI-QuestLogSortTab-Middle")
+	expand_button_frame.middle = expand_button_frame:CreateTexture(nil, "BACKGROUND")
+	expand_button_frame.middle:SetHeight(22)
+	expand_button_frame.middle:SetPoint("LEFT", expand_button_frame.left, "RIGHT")
+	expand_button_frame.middle:SetPoint("RIGHT", expand_button_frame.right, "LEFT")
+	expand_button_frame.middle:SetTexture("Interface\\QuestFrame\\UI-QuestLogSortTab-Middle")
 
-	local ExpandButton = GenericCreateButton(nil, MainPanel, 16, 16, "GameFontNormalSmall", _G.ALL, "LEFT", L["EXPANDALL_DESC"], 2)
+	local expand_button = _G.CreateFrame("Button", nil, MainPanel)
+	expand_button:SetWidth(16)
+	expand_button:SetHeight(16)
+
+	local expand_label = expand_button:CreateFontString(nil, "ARTWORK")
+	expand_label:SetFontObject("GameFontNormalSmall")
+	expand_label:SetPoint("LEFT", expand_button, "Right", 0, 0)
+	expand_label:SetJustifyH("LEFT")
+	expand_label:SetText(_G.ALL)
+
+	expand_button:SetFontString(expand_label)
+	private.SetTooltipScripts(expand_button, L["EXPANDALL_DESC"])
 
 	-- Make sure the button frame is large enough to hold the localized word for "All"
-	ExpandButtonFrame:SetWidth(27 + ExpandButton:GetFontString():GetStringWidth())
+	expand_button_frame:SetWidth(27 + expand_button:GetFontString():GetStringWidth())
 
-	MainPanel.expand_button = ExpandButton
+	MainPanel.expand_button = expand_button
 
-	ExpandButton:SetPoint("LEFT", ExpandButtonFrame.left, "RIGHT", -3, -3)
+	expand_button:SetPoint("LEFT", expand_button_frame.left, "RIGHT", -3, -3)
 
-	ExpandButton.text:ClearAllPoints()
-	ExpandButton.text:SetPoint("LEFT", ExpandButton, "Right", 0, 0)
-
-	ExpandButton:SetScript("OnClick",
+	expand_button:SetScript("OnClick",
 			       function(self, mouse_button, down)
 				       local current_tab = MainPanel.tabs[MainPanel.current_tab]
 				       local expanded = current_tab["expand_button_"..MainPanel.profession]
@@ -860,7 +867,7 @@ function private.InitializeFrame()
 				       end
 			       end)
 
-	function ExpandButton:Expand(current_tab)
+	function expand_button:Expand(current_tab)
 		current_tab["expand_button_"..MainPanel.profession] = true
 
 		self:SetNormalTexture("Interface\\BUTTONS\\UI-MinusButton-Up")
@@ -871,7 +878,7 @@ function private.InitializeFrame()
 		SetTooltipScripts(self, L["CONTRACTALL_DESC"])
 	end
 
-	function ExpandButton:Contract(current_tab)
+	function expand_button:Contract(current_tab)
 		current_tab["expand_button_"..MainPanel.profession] = nil
 
 		self:SetNormalTexture("Interface\\Buttons\\UI-PlusButton-Up")
@@ -947,8 +954,12 @@ function private.InitializeFrame()
 	-- Create MainPanel.filter_toggle, and set its scripts.
 	-------------------------------------------------------------------------------
 	do
-		local filter_toggle = GenericCreateButton(nil, MainPanel, 24, 24, nil, nil, nil, L["FILTER_OPEN_DESC"], 2)
+		local filter_toggle = _G.CreateFrame("Button", nil, MainPanel)
+		filter_toggle:SetWidth(24)
+		filter_toggle:SetHeight(24)
 		filter_toggle:SetPoint("TOPLEFT", MainPanel, "TOPLEFT", 323, -41)
+
+		private.SetTooltipScripts(filter_toggle, L["FILTER_OPEN_DESC"])
 
 		filter_toggle:SetScript("OnClick", function(self, button, down)
 			-- The first time this button is clicked, everything in the expanded section of the MainPanel must be created.
@@ -980,13 +991,16 @@ function private.InitializeFrame()
 	-------------------------------------------------------------------------------
 	-- Sort-mode toggle button.
 	-------------------------------------------------------------------------------
-	local SortToggle = GenericCreateButton(nil, MainPanel, 24, 24, nil, nil, nil, L["SORTING_DESC"], 2)
+	local sort_toggle = _G.CreateFrame("Button", nil, MainPanel)
+	sort_toggle:SetWidth(24)
+	sort_toggle:SetHeight(24)
+	sort_toggle:SetPoint("LEFT", expand_button_frame, "RIGHT", 0, 2)
 
-	MainPanel.sort_button = SortToggle
+	private.SetTooltipScripts(sort_toggle, L["SORTING_DESC"])
 
-	SortToggle:SetPoint("LEFT", ExpandButtonFrame, "RIGHT", 0, 2)
+	MainPanel.sort_button = sort_toggle
 
-	SortToggle:SetScript("OnClick",
+	sort_toggle:SetScript("OnClick",
 			     function(self, button, down)
 				     local sort_type = addon.db.profile.sorting
 
@@ -996,9 +1010,9 @@ function private.InitializeFrame()
 				     MainPanel.list_frame:Update(nil, false)
 			     end)
 
-	SortToggle:SetHighlightTexture([[Interface\CHATFRAME\UI-ChatIcon-BlinkHilight]])
+	sort_toggle:SetHighlightTexture([[Interface\CHATFRAME\UI-ChatIcon-BlinkHilight]])
 
-	function SortToggle:SetTextures()
+	function sort_toggle:SetTextures()
 		local sort_type = addon.db.profile.sorting
 
 		if sort_type == "Ascending" then
@@ -1051,14 +1065,19 @@ function private.InitializeFrame()
 	-------------------------------------------------------------------------------
 	-- Create the close button, and set its scripts.
 	-------------------------------------------------------------------------------
-	MainPanel.close_button = GenericCreateButton(nil, MainPanel, 24, 111, "GameFontNormalSmall", _G.EXIT, "CENTER", L["CLOSE_DESC"], 1)
-	MainPanel.close_button:SetPoint("LEFT", MainPanel.progress_bar, "RIGHT", 3, 1)
+	local close_button = _G.CreateFrame("Button", ("%s_CloseButton"):format(FOLDER_NAME), MainPanel, "UIPanelButtonTemplate")
+	close_button:SetWidth(111)
+	close_button:SetHeight(24)
+	close_button:SetPoint("LEFT", MainPanel.progress_bar, "RIGHT", 3, 1)
+	close_button:SetText(_G.EXIT)
 
-	MainPanel.close_button:SetScript("OnClick",
-					 function(self, button, down)
-						 MainPanel:Hide()
-					 end)
+	MainPanel.close_button = close_button
 
+	close_button:SetScript("OnClick", function(self, button, down)
+		MainPanel:Hide()
+	end)
+
+	private.SetTooltipScripts(close_button, L["CLOSE_DESC"])
 	-------------------------------------------------------------------------------
 	-- Initialize components defined in other files.
 	-------------------------------------------------------------------------------

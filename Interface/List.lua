@@ -53,7 +53,6 @@ local spell_tip
 local AcquireTable = private.AcquireTable
 local ReleaseTable = private.ReleaseTable
 local SetTextColor = private.SetTextColor
-local GenericCreateButton = private.GenericCreateButton
 
 -------------------------------------------------------------------------------
 -- Frame creation and anchoring
@@ -319,24 +318,45 @@ function private.InitializeListFrame()
 	ListFrame.state_buttons = {}
 	ListFrame.entry_buttons = {}
 
-	for i = 1, NUM_RECIPE_LINES do
+	for index = 1, NUM_RECIPE_LINES do
 		local cur_container = _G.CreateFrame("Frame", nil, ListFrame)
 
 		cur_container:SetHeight(16)
 		cur_container:SetWidth(LIST_ENTRY_WIDTH)
 
-		local cur_state = GenericCreateButton(nil, ListFrame, 16, 16, nil, nil, nil, nil, 2)
-		local cur_entry = GenericCreateButton(nil, ListFrame, 16, LIST_ENTRY_WIDTH, "GameFontNormalSmall", "Blort", "LEFT", nil, 0)
-		cur_entry.text:SetJustifyV("CENTER")
+		local cur_state = _G.CreateFrame("Button", nil, ListFrame)
+		cur_state:SetWidth(16)
+		cur_state:SetHeight(16)
 
-		if i == 1 then
+		local entry_name = ("%s_ListEntryButton%d"):format(FOLDER_NAME, index)
+		local cur_entry = _G.CreateFrame("Button", entry_name, cur_container)
+		cur_entry:SetWidth(LIST_ENTRY_WIDTH)
+		cur_entry:SetHeight(16)
+
+		local highlight_texture = cur_entry:CreateTexture(nil, "BORDER")
+		highlight_texture:SetTexture([[Interface\ClassTrainerFrame\TrainerTextures]])
+		highlight_texture:SetTexCoord(0.00195313, 0.57421875, 0.75390625, 0.84570313)
+		highlight_texture:SetBlendMode("ADD")
+		highlight_texture:SetPoint("TOPLEFT", 2, 0)
+		highlight_texture:SetPoint("BOTTOMRIGHT", -2, 1)
+		cur_entry:SetHighlightTexture(highlight_texture)
+
+		local label = cur_entry:CreateFontString(nil, "ARTWORK")
+		label:SetPoint("LEFT", cur_entry, "LEFT", 7, 0)
+		label:SetPoint("RIGHT", cur_entry, "RIGHT", -7, 0)
+		label:SetFontObject("GameFontNormalSmall")
+		label:SetJustifyH("LEFT")
+		label:SetJustifyV("CENTER")
+
+		cur_entry:SetFontString(label)
+		cur_entry.text = label
+
+		if index == 1 then
 			cur_container:SetPoint("TOPLEFT", ListFrame, "TOPLEFT", 0, -3)
 			cur_state:SetPoint("LEFT", cur_container, "LEFT", 0, 0)
 			cur_entry:SetPoint("LEFT", cur_state, "RIGHT", -3, 0)
 		else
-			local prev_container = ListFrame.button_containers[i - 1]
-
-			cur_container:SetPoint("TOPLEFT", prev_container, "BOTTOMLEFT", 0, 3)
+			cur_container:SetPoint("TOPLEFT", ListFrame.button_containers[index - 1], "BOTTOMLEFT", 0, 3)
 			cur_state:SetPoint("LEFT", cur_container, "LEFT", 0, 0)
 			cur_entry:SetPoint("LEFT", cur_state, "RIGHT", -3, 0)
 		end
@@ -345,9 +365,9 @@ function private.InitializeListFrame()
 		cur_state:SetScript("OnClick", ListItem_OnClick)
 		cur_entry:SetScript("OnClick", ListItem_OnClick)
 
-		ListFrame.button_containers[i] = cur_container
-		ListFrame.state_buttons[i] = cur_state
-		ListFrame.entry_buttons[i] = cur_entry
+		ListFrame.button_containers[index] = cur_container
+		ListFrame.state_buttons[index] = cur_state
+		ListFrame.entry_buttons[index] = cur_entry
 	end
 
 	function ListFrame:InsertEntry(entry, parent_entry, entry_index, entry_type, entry_expanded, expand_mode)
@@ -356,27 +376,10 @@ function private.InitializeListFrame()
 		if parent_entry then
 			if parent_entry ~= entry then
 				entry.parent = parent_entry
-
-				local recipe_id = parent_entry.recipe_id
-				local acquire_id = parent_entry.acquire_id
-				local location_id = parent_entry.location_id
-				local npc_id = parent_entry.npc_id
-
-				if recipe_id then
-					entry.recipe_id = recipe_id
-				end
-
-				if acquire_id then
-					entry.acquire_id = acquire_id
-				end
-
-				if location_id then
-					entry.location_id = location_id
-				end
-
-				if npc_id then
-					entry.npc_id = npc_id
-				end
+				entry.recipe_id = parent_entry.recipe_id
+				entry.acquire_id = parent_entry.acquire_id
+				entry.location_id = parent_entry.location_id
+				entry.npc_id = parent_entry.npc_id
 			else
 				addon:Debug("Attempting to parent an entry to itself.")
 			end
