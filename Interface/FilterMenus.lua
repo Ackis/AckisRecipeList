@@ -25,7 +25,6 @@ local QTip	= LibStub("LibQTip-1.0")
 -- Upvalues
 -------------------------------------------------------------------------------
 local SetTextColor = private.SetTextColor
-local GenericCreateButton = private.GenericCreateButton
 local SetTooltipScripts = private.SetTooltipScripts
 
 -------------------------------------------------------------------------------
