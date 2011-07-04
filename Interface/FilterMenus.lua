@@ -73,8 +73,8 @@ do
 
 		local check = _G.CreateFrame("CheckButton", nil, parent, "UICheckButtonTemplate")
 		check:SetPoint("TOPLEFT", parent, "TOPLEFT", xPos, yPos)
-		check:SetHeight(24)
-		check:SetWidth(24)
+		check:SetHeight(20)
+		check:SetWidth(20)
 
 		check.text = check:CreateFontString(nil, "OVERLAY", "QuestFontNormalSmall")
 		check.text:SetPoint("LEFT", check, "RIGHT", 0, 0)
@@ -361,15 +361,41 @@ function private.InitializeFilterPanel()
 	local general_frame = FilterPanel:CreateSubMenu("general")
 
 	-------------------------------------------------------------------------------
-	-- Create the general CheckButtons.
+	-- Create the General toggle and CheckButtons.
 	-------------------------------------------------------------------------------
+	local general_toggle = _G.CreateFrame("Button", nil, general_frame)
+	general_toggle:SetWidth(105)
+	general_toggle:SetHeight(20)
+	general_toggle:SetNormalFontObject("QuestTitleFont")
+	general_toggle:SetHighlightFontObject("QuestTitleFontBlackShadow")
+	general_toggle:SetText(_G.GENERAL_LABEL .. ":")
+	general_toggle:SetPoint("TOP", general_frame, "TOP", 0, -7)
+	general_toggle:RegisterForClicks("LeftButtonUp", "RightButtonUp")
+
+	private.SetTooltipScripts(general_toggle, L["CLASS_TEXT_DESC"])
+
+	general_toggle:SetScript("OnClick",
+			       function(self, button)
+				       local filters = addon.db.profile.filters.general
+				       local toggle = (button == "LeftButton") and true or false
+
+				       for filter in pairs(filters) do
+					       filters[filter] = toggle
+					       general_frame[filter]:SetChecked(toggle)
+				       end
+				       MainPanel:UpdateTitle()
+				       MainPanel.list_frame:Update(nil, false)
+			       end)
+
+	general_frame.general_toggle = general_toggle
+
 	local general_buttons = {
-		["specialty"]	= { tt = L["SPECIALTY_DESC"],	text = L["Specialties"],	row = 1, col = 1 },
-		["skill"]	= { tt = L["SKILL_DESC"],	text = _G.SKILL,		row = 1, col = 2 },
-		["faction"]	= { tt = L["FACTION_DESC"],	text = _G.FACTION,		row = 2, col = 1 },
-		["known"]	= { tt = L["KNOWN_DESC"],	text = L["Show Known"],		row = 2, col = 2 },
-		["unknown"]	= { tt = L["UNKNOWN_DESC"],	text = _G.UNKNOWN,		row = 3, col = 1 },
-		["retired"]	= { tt = L["RETIRED_DESC"],	text = L["Retired"],		row = 3, col = 2 },
+		["specialty"]	= { tt = L["SPECIALTY_DESC"],	text = L["Specialties"],	row = 2, col = 1 },
+		["skill"]	= { tt = L["SKILL_DESC"],	text = _G.SKILL,		row = 2, col = 2 },
+		["faction"]	= { tt = L["FACTION_DESC"],	text = _G.FACTION,		row = 3, col = 1 },
+		["known"]	= { tt = L["KNOWN_DESC"],	text = L["Show Known"],		row = 3, col = 2 },
+		["unknown"]	= { tt = L["UNKNOWN_DESC"],	text = _G.UNKNOWN,		row = 4, col = 1 },
+		["retired"]	= { tt = L["RETIRED_DESC"],	text = L["Retired"],		row = 4, col = 2 },
 	}
 	GenerateCheckBoxes(general_frame, general_buttons)
 	general_buttons = nil
@@ -432,24 +458,78 @@ function private.InitializeFilterPanel()
 		local obtain_frame = FilterPanel:CreateSubMenu("obtain")
 
 		-------------------------------------------------------------------------------
-		-- Create the CheckButtons
+		-- Create the Acquisition toggle and CheckButtons
 		-------------------------------------------------------------------------------
+		local obtain_toggle = _G.CreateFrame("Button", nil, obtain_frame)
+		obtain_toggle:SetWidth(105)
+		obtain_toggle:SetHeight(20)
+		obtain_toggle:SetNormalFontObject("QuestTitleFont")
+		obtain_toggle:SetHighlightFontObject("QuestTitleFontBlackShadow")
+		obtain_toggle:SetText(L["Acquisition"] .. ":")
+		obtain_toggle:SetPoint("TOP", obtain_frame, "TOP", 0, -7)
+		obtain_toggle:RegisterForClicks("LeftButtonUp", "RightButtonUp")
+
+		private.SetTooltipScripts(obtain_toggle, L["ACQUISITION_TEXT_DESC"])
+
+		obtain_toggle:SetScript("OnClick", function(self, button)
+			local filters = addon.db.profile.filters.obtain
+			local toggle = (button == "LeftButton") and true or false
+
+			for filter in pairs(filters) do
+				if not filter:match("expansion") then
+					filters[filter] = toggle
+					obtain_frame[filter]:SetChecked(toggle)
+				end
+			end
+			MainPanel:UpdateTitle()
+			MainPanel.list_frame:Update(nil, false)
+		end)
+
+		obtain_frame.obtain_toggle = obtain_toggle
+
+		local version_toggle = _G.CreateFrame("Button", nil, obtain_frame)
+		version_toggle:SetWidth(105)
+		version_toggle:SetHeight(20)
+		version_toggle:SetNormalFontObject("QuestTitleFont")
+		version_toggle:SetHighlightFontObject("QuestTitleFontBlackShadow")
+		version_toggle:SetText(_G.GAME_VERSION_LABEL .. ":")
+		version_toggle:SetPoint("TOP", obtain_frame, "TOP", 0, -130)
+		version_toggle:RegisterForClicks("LeftButtonUp", "RightButtonUp")
+
+		private.SetTooltipScripts(version_toggle, L["VERSION_TEXT_DESC"])
+
+		version_toggle:SetScript("OnClick", function(self, button)
+			local filters = addon.db.profile.filters.obtain
+			local toggle = (button == "LeftButton") and true or false
+
+			for filter in pairs(filters) do
+				if filter:match("expansion") then
+					filters[filter] = toggle
+					obtain_frame[filter]:SetChecked(toggle)
+				end
+			end
+			MainPanel:UpdateTitle()
+			MainPanel.list_frame:Update(nil, false)
+		end)
+
+		obtain_frame.version_toggle = version_toggle
+
 		local obtain_buttons = {
-			["instance"]	= { tt = L["INSTANCE_DESC"],		text = _G.INSTANCE,				row = 1, col = 1 },
-			["raid"]	= { tt = L["RAID_DESC"],		text = _G.RAID,					row = 1, col = 2 },
-			["quest"]	= { tt = L["QUEST_DESC"],		text = L["Quest"],				row = 2, col = 1 },
-			["seasonal"]	= { tt = L["SEASONAL_DESC"],		text = private.acquire_names[A.SEASONAL],	row = 2, col = 2 },
-			["trainer"]	= { tt = L["TRAINER_DESC"],		text = L["Trainer"],				row = 3, col = 1 },
-			["vendor"]	= { tt = L["VENDOR_DESC"],		text = L["Vendor"],				row = 3, col = 2 },
-			["pvp"]		= { tt = L["PVP_DESC"],			text = _G.PVP,					row = 4, col = 1 },
-			["discovery"]	= { tt = L["DISCOVERY_DESC"],		text = L["Discovery"],				row = 4, col = 2 },
-			["worlddrop"]	= { tt = L["WORLD_DROP_DESC"],		text = L["World Drop"],				row = 5, col = 1 },
-			["mobdrop"]	= { tt = L["MOB_DROP_DESC"],		text = L["Mob Drop"],				row = 5, col = 2 },
-			["achievement"]	= { tt = L["ACHIEVEMENT_DESC"],		text = _G.ACHIEVEMENTS,				row = 6, col = 1 },
-			["expansion0"]	= { tt = L["ORIGINAL_WOW_DESC"],	text = _G.EXPANSION_NAME0,			row = 8, col = 1 },
-			["expansion1"]	= { tt = L["BC_WOW_DESC"],		text = _G.EXPANSION_NAME1,			row = 9, col = 1 },
-			["expansion2"]	= { tt = L["LK_WOW_DESC"],		text = _G.EXPANSION_NAME2,			row = 10, col = 1 },
-			["expansion3"]	= { tt = L["CATA_WOW_DESC"],		text = _G.EXPANSION_NAME3,			row = 11, col = 1 },
+			["instance"]	= { tt = L["INSTANCE_DESC"],		text = _G.INSTANCE,				row = 2, col = 1 },
+			["raid"]	= { tt = L["RAID_DESC"],		text = _G.RAID,					row = 2, col = 2 },
+			["quest"]	= { tt = L["QUEST_DESC"],		text = L["Quest"],				row = 3, col = 1 },
+			["seasonal"]	= { tt = L["SEASONAL_DESC"],		text = private.acquire_names[A.SEASONAL],	row = 3, col = 2 },
+			["trainer"]	= { tt = L["TRAINER_DESC"],		text = L["Trainer"],				row = 4, col = 1 },
+			["vendor"]	= { tt = L["VENDOR_DESC"],		text = L["Vendor"],				row = 4, col = 2 },
+			["pvp"]		= { tt = L["PVP_DESC"],			text = _G.PVP,					row = 5, col = 1 },
+			["discovery"]	= { tt = L["DISCOVERY_DESC"],		text = L["Discovery"],				row = 5, col = 2 },
+			["worlddrop"]	= { tt = L["WORLD_DROP_DESC"],		text = L["World Drop"],				row = 6, col = 1 },
+			["mobdrop"]	= { tt = L["MOB_DROP_DESC"],		text = L["Mob Drop"],				row = 6, col = 2 },
+			["achievement"]	= { tt = L["ACHIEVEMENT_DESC"],		text = _G.ACHIEVEMENTS,				row = 7, col = 1 },
+			["expansion0"]	= { tt = L["ORIGINAL_WOW_DESC"],	text = _G.EXPANSION_NAME0,			row = 9, col = 1 },
+			["expansion1"]	= { tt = L["BC_WOW_DESC"],		text = _G.EXPANSION_NAME1,			row = 10, col = 1 },
+			["expansion2"]	= { tt = L["LK_WOW_DESC"],		text = _G.EXPANSION_NAME2,			row = 11, col = 1 },
+			["expansion3"]	= { tt = L["CATA_WOW_DESC"],		text = _G.EXPANSION_NAME3,			row = 12, col = 1 },
 		}
 		GenerateCheckBoxes(obtain_frame, obtain_buttons)
 		obtain_buttons = nil
@@ -462,13 +542,38 @@ function private.InitializeFilterPanel()
 		local binding_frame = FilterPanel:CreateSubMenu("binding")
 
 		-------------------------------------------------------------------------------
-		-- Create the CheckButtons
+		-- Create the toggle and CheckButtons
 		-------------------------------------------------------------------------------
+		local binding_toggle = _G.CreateFrame("Button", nil, binding_frame)
+		binding_toggle:SetWidth(105)
+		binding_toggle:SetHeight(20)
+		binding_toggle:SetNormalFontObject("QuestTitleFont")
+		binding_toggle:SetHighlightFontObject("QuestTitleFontBlackShadow")
+		binding_toggle:SetText(L["Binding"] .. ":")
+		binding_toggle:SetPoint("TOP", binding_frame, "TOP", 0, -7)
+		binding_toggle:RegisterForClicks("LeftButtonUp", "RightButtonUp")
+
+		private.SetTooltipScripts(binding_toggle, L["BINDING_TEXT_DESC"])
+
+		binding_toggle:SetScript("OnClick", function(self, button)
+			local filters = addon.db.profile.filters.binding
+			local toggle = (button == "LeftButton") and true or false
+
+			for filter in pairs(filters) do
+				filters[filter] = toggle
+				binding_frame[filter]:SetChecked(toggle)
+			end
+			MainPanel:UpdateTitle()
+			MainPanel.list_frame:Update(nil, false)
+		end)
+
+		binding_frame.binding_toggle = binding_toggle
+
 		local binding_buttons = {
-			["itemboe"]	= { tt = L["BOE_DESC"],		text = L["BOEFilter"],		row = 1, col = 1 },
-			["itembop"]	= { tt = L["BOP_DESC"],		text = L["BOPFilter"],		row = 2, col = 1 },
-			["recipeboe"]	= { tt = L["RECIPE_BOE_DESC"],	text = L["RecipeBOEFilter"],	row = 3, col = 1 },
-			["recipebop"]	= { tt = L["RECIPE_BOP_DESC"],	text = L["RecipeBOPFilter"],	row = 4, col = 1 },
+			["itemboe"]	= { tt = L["BOE_DESC"],		text = L["BOEFilter"],		row = 2, col = 1 },
+			["itembop"]	= { tt = L["BOP_DESC"],		text = L["BOPFilter"],		row = 3, col = 1 },
+			["recipeboe"]	= { tt = L["RECIPE_BOE_DESC"],	text = L["RecipeBOEFilter"],	row = 4, col = 1 },
+			["recipebop"]	= { tt = L["RECIPE_BOP_DESC"],	text = L["RecipeBOPFilter"],	row = 5, col = 1 },
 		}
 		GenerateCheckBoxes(binding_frame, binding_buttons)
 		binding_buttons = nil
@@ -532,7 +637,7 @@ function private.InitializeFilterPanel()
 		weapon_toggle:SetNormalFontObject("QuestTitleFont")
 		weapon_toggle:SetHighlightFontObject("QuestTitleFontBlackShadow")
 		weapon_toggle:SetText(L["Weapon"] .. ":")
-		weapon_toggle:SetPoint("TOP", item_frame, "TOP", 0, -122)
+		weapon_toggle:SetPoint("TOP", item_frame, "TOP", 0, -109)
 		weapon_toggle:RegisterForClicks("LeftButtonUp", "RightButtonUp")
 
 		private.SetTooltipScripts(weapon_toggle, L["WEAPON_TEXT_DESC"])
@@ -558,20 +663,20 @@ function private.InitializeFilterPanel()
 		local BASIC_COLORS = private.basic_colors
 
 		local weapon_buttons = {
-			["onehand"]	= { tt = L["ONEHAND_DESC"],	text = L["One Hand"],						row = 9,  col = 1 },
-			["twohand"]	= { tt = L["TWOHAND_DESC"],	text = L["Two Hand"],						row = 9,  col = 2 },
-			["dagger"]	= { tt = L["DAGGER_DESC"],	text = L["Dagger"],						row = 10, col = 1 },
-			["axe"]		= { tt = L["AXE_DESC"],		text = L["Axe"],						row = 10, col = 2 },
-			["mace"]	= { tt = L["MACE_DESC"],	text = L["Mace"],						row = 11, col = 1 },
-			["sword"]	= { tt = L["SWORD_DESC"],	text = L["Sword"],						row = 11, col = 2 },
-			["polearm"]	= { tt = L["POLEARM_DESC"],	text = L["Polearm"],						row = 12, col = 1 },
-			["fist"]	= { tt = L["FIST_DESC"],	text = L["Fist"],						row = 12, col = 2 },
-			["staff"]	= { tt = L["STAFF_DESC"],	text = SetTextColor(BASIC_COLORS["grey"], L["Staff"]),		row = 13, col = 1 },
-			["wand"]	= { tt = L["WAND_DESC"],	text = L["Wand"],						row = 13, col = 2 },
-			["thrown"]	= { tt = L["THROWN_DESC"],	text = L["Thrown"],						row = 14, col = 1 },
-			["bow"]		= { tt = L["BOW_DESC"],		text = SetTextColor(BASIC_COLORS["grey"], L["Bow"]),		row = 14, col = 2 },
-			["crossbow"]	= { tt = L["CROSSBOW_DESC"],	text = SetTextColor(BASIC_COLORS["grey"], L["Crossbow"]),	row = 15, col = 1 },
-			["gun"]		= { tt = L["GUN_DESC"],		text = L["Gun"],						row = 15, col = 2 },
+			["onehand"]	= { tt = L["ONEHAND_DESC"],	text = L["One Hand"],						row = 8,  col = 1 },
+			["twohand"]	= { tt = L["TWOHAND_DESC"],	text = L["Two Hand"],						row = 8,  col = 2 },
+			["dagger"]	= { tt = L["DAGGER_DESC"],	text = L["Dagger"],						row = 9, col = 1 },
+			["axe"]		= { tt = L["AXE_DESC"],		text = L["Axe"],						row = 9, col = 2 },
+			["mace"]	= { tt = L["MACE_DESC"],	text = L["Mace"],						row = 10, col = 1 },
+			["sword"]	= { tt = L["SWORD_DESC"],	text = L["Sword"],						row = 10, col = 2 },
+			["polearm"]	= { tt = L["POLEARM_DESC"],	text = L["Polearm"],						row = 11, col = 1 },
+			["fist"]	= { tt = L["FIST_DESC"],	text = L["Fist"],						row = 11, col = 2 },
+			["staff"]	= { tt = L["STAFF_DESC"],	text = SetTextColor(BASIC_COLORS["grey"], L["Staff"]),		row = 12, col = 1 },
+			["wand"]	= { tt = L["WAND_DESC"],	text = L["Wand"],						row = 12, col = 2 },
+			["thrown"]	= { tt = L["THROWN_DESC"],	text = L["Thrown"],						row = 13, col = 1 },
+			["bow"]		= { tt = L["BOW_DESC"],		text = SetTextColor(BASIC_COLORS["grey"], L["Bow"]),		row = 13, col = 2 },
+			["crossbow"]	= { tt = L["CROSSBOW_DESC"],	text = SetTextColor(BASIC_COLORS["grey"], L["Crossbow"]),	row = 14, col = 1 },
+			["gun"]		= { tt = L["GUN_DESC"],		text = L["Gun"],						row = 14, col = 2 },
 		}
 		GenerateCheckBoxes(item_frame, weapon_buttons)
 		weapon_buttons = nil
@@ -589,17 +694,42 @@ function private.InitializeFilterPanel()
 		local quality_frame = FilterPanel:CreateSubMenu("quality")
 
 		-------------------------------------------------------------------------------
-		-- Create the CheckButtons
+		-- Create the toggle and CheckButtons
 		-------------------------------------------------------------------------------
+		local quality_toggle = _G.CreateFrame("Button", nil, quality_frame)
+		quality_toggle:SetWidth(105)
+		quality_toggle:SetHeight(20)
+		quality_toggle:SetNormalFontObject("QuestTitleFont")
+		quality_toggle:SetHighlightFontObject("QuestTitleFontBlackShadow")
+		quality_toggle:SetText(_G.QUALITY .. ":")
+		quality_toggle:SetPoint("TOP", quality_frame, "TOP", 0, -7)
+		quality_toggle:RegisterForClicks("LeftButtonUp", "RightButtonUp")
+
+		private.SetTooltipScripts(quality_toggle, L["QUALITY_TEXT_DESC"])
+
+		quality_toggle:SetScript("OnClick", function(self, button)
+			local filters = addon.db.profile.filters.quality
+			local toggle = (button == "LeftButton") and true or false
+
+			for filter in pairs(filters) do
+				filters[filter] = toggle
+				quality_frame[filter]:SetChecked(toggle)
+			end
+			MainPanel:UpdateTitle()
+			MainPanel.list_frame:Update(nil, false)
+		end)
+
+		quality_frame.quality_toggle = quality_toggle
+
 		local function QualityDesc(text)
-			return string.format(L["QUALITY_GENERAL_DESC"], text)
+			return L["QUALITY_GENERAL_DESC"]:format(text)
 		end
 
 		local quality_buttons = {
-			["common"]	= { tt = QualityDesc(_G.ITEM_QUALITY1_DESC),	text = _G.ITEM_QUALITY1_DESC,	row = 1, col = 1 },
-			["uncommon"]	= { tt = QualityDesc(_G.ITEM_QUALITY2_DESC),	text = _G.ITEM_QUALITY2_DESC,	row = 2, col = 1 },
+			["common"]	= { tt = QualityDesc(_G.ITEM_QUALITY1_DESC),	text = _G.ITEM_QUALITY1_DESC,	row = 2, col = 1 },
+			["uncommon"]	= { tt = QualityDesc(_G.ITEM_QUALITY2_DESC),	text = _G.ITEM_QUALITY2_DESC,	row = 2, col = 2 },
 			["rare"]	= { tt = QualityDesc(_G.ITEM_QUALITY3_DESC),	text = _G.ITEM_QUALITY3_DESC,	row = 3, col = 1 },
-			["epic"]	= { tt = QualityDesc(_G.ITEM_QUALITY4_DESC),	text = _G.ITEM_QUALITY4_DESC,	row = 4, col = 1 },
+			["epic"]	= { tt = QualityDesc(_G.ITEM_QUALITY4_DESC),	text = _G.ITEM_QUALITY4_DESC,	row = 3, col = 2 },
 		}
 		GenerateCheckBoxes(quality_frame, quality_buttons)
 		quality_buttons = nil
@@ -612,13 +742,38 @@ function private.InitializeFilterPanel()
 		local player_frame = FilterPanel:CreateSubMenu("player")
 
 		-------------------------------------------------------------------------------
-		-- Create the CheckButtons
+		-- Create the toggle and CheckButtons
 		-------------------------------------------------------------------------------
+		local role_toggle = _G.CreateFrame("Button", nil, player_frame)
+		role_toggle:SetWidth(105)
+		role_toggle:SetHeight(20)
+		role_toggle:SetNormalFontObject("QuestTitleFont")
+		role_toggle:SetHighlightFontObject("QuestTitleFontBlackShadow")
+		role_toggle:SetText(_G.LFG_TOOLTIP_ROLES)
+		role_toggle:SetPoint("TOP", player_frame, "TOP", 0, -7)
+		role_toggle:RegisterForClicks("LeftButtonUp", "RightButtonUp")
+
+		private.SetTooltipScripts(role_toggle, L["ROLE_TEXT_DESC"])
+
+		role_toggle:SetScript("OnClick", function(self, button)
+			local filters = addon.db.profile.filters.player
+			local toggle = (button == "LeftButton") and true or false
+
+			for filter in pairs(filters) do
+				filters[filter] = toggle
+				player_frame[filter]:SetChecked(toggle)
+			end
+			MainPanel:UpdateTitle()
+			MainPanel.list_frame:Update(nil, false)
+		end)
+
+		player_frame.role_toggle = role_toggle
+
 		local role_buttons = {
-			["tank"]	= { tt = L["ROLE_DESC_FORMAT"]:format(_G.TANK),		text = _G.TANK,		row = 1, col = 1 },
-			["melee"]	= { tt = L["ROLE_DESC_FORMAT"]:format(_G.MELEE),	text = _G.MELEE,	row = 2, col = 1 },
+			["tank"]	= { tt = L["ROLE_DESC_FORMAT"]:format(_G.TANK),		text = _G.TANK,		row = 2, col = 1 },
+			["melee"]	= { tt = L["ROLE_DESC_FORMAT"]:format(_G.MELEE),	text = _G.MELEE,	row = 2, col = 2 },
 			["healer"]	= { tt = L["ROLE_DESC_FORMAT"]:format(_G.HEALER),	text = _G.HEALER,	row = 3, col = 1 },
-			["caster"]	= { tt = L["ROLE_DESC_FORMAT"]:format(_G.DAMAGER),	text = _G.DAMAGER,	row = 4, col = 1 },
+			["caster"]	= { tt = L["ROLE_DESC_FORMAT"]:format(_G.DAMAGER),	text = _G.DAMAGER,	row = 3, col = 2 },
 		}
 		GenerateCheckBoxes(player_frame, role_buttons)
 		role_buttons = nil

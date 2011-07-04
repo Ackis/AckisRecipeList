@@ -23,6 +23,8 @@ if not L then return end
 L["\"Cookie\" McWeaksauce"] = "\"Cookie\" McWeaksauce"
 L["ACHIEVEMENT_DESC"] = "Recipes obtained via Achievements should be included in the scan."
 L["ACQUIRETOOLTIPPOSITION_DESC"] = "Changes the location of the tooltip containing the acquire information."
+L["ACQUISITION_TEXT_DESC"] = [[Left-click here to select all acquisition filters.
+Right-click here to deselect all acquisition filters.]]
 L["ALL_FILTERED"] = "Although you have already scanned this profession, your filters are currently preventing any recipes from being displayed. Please change your filters and try again."
 L["ALT_CLICK"] = "Alt-Click to add/remove this recipe to your ignore list."
 L["ALT_TRADESKILL_DESC"] = [[This will display a list of alts which have had trade skills scanned.
@@ -131,6 +133,8 @@ L["Awilo Lon'gomba"] = "Awilo Lon'gomba"
 L["Axe"] = "Axe"
 L["BBCode"] = "BBCode"
 L["BC_WOW_DESC"] = "Recipes available with The Burning Crusade."
+L["BINDING_TEXT_DESC"] = [[Left-click here to select all binding filters.
+Right-click here to deselect all binding filters.]]
 L["BOAFilter"] = "Item Bind to Account"
 L["BOA_DESC"] = "Recipes that make Bind to Account items should be included in the scan."
 L["BOEFilter"] = "Item Bind on Equip"
@@ -545,6 +549,8 @@ L["Geen"] = "Geen"
 L["Gelanthis"] = "Gelanthis"
 L["Gelman Stonehand"] = "Gelman Stonehand"
 L["General Options"] = "General Options"
+L["GENERAL_TEXT_DESC"] = [[Left-click here to select all general filters.
+Right-click here to deselect all general filters.]]
 L["Generate Tradeskill Links"] = "Generate Tradeskill Links"
 L["Geofram Bouldertoe"] = "Geofram Bouldertoe"
 L["George Candarte"] = "George Candarte"
@@ -929,6 +935,8 @@ L["Provisioner Nasela"] = "Provisioner Nasela"
 L["Pyall Silentstride"] = "Pyall Silentstride"
 L["Pyrewood Tailor"] = "Pyrewood Tailor"
 L["QUALITY_GENERAL_DESC"] = "Include %s quality recipe items in the scan."
+L["QUALITY_TEXT_DESC"] = [[Left-click here to select all binding filters.
+Right-click here to deselect all binding filters.]]
 L["QUEST_DESC"] = "Recipes obtained as quest rewards should be included in the scan."
 L["Qia"] = "Qia"
 L["Quarelestra"] = "Quarelestra"
@@ -961,6 +969,8 @@ L["RESET_WINDOW_DESC"] = "Resets the ARL GUI to default position."
 L["RETIRED_DESC"] = "Include recipes which can no longer be acquired."
 L["RING_DESC"] = "Recipes that make rings should be included in the scan."
 L["ROLE_DESC_FORMAT"] = "Show recipes favored by %s classes."
+L["ROLE_TEXT_DESC"] = [[Left-click here to select all role filters.
+Right-click here to deselect all role filters.]]
 L["Raenah"] = "Raenah"
 L["Raging Skeleton"] = "Raging Skeleton"
 L["Ranik"] = "Ranik"
@@ -1220,6 +1230,8 @@ L["Using Filters"] = "Using Filters"
 L["Uthok"] = "Uthok"
 L["VASHJ'IR_RANDOM_INSC"] = "This recipe drops from mobs in Vashj'ir."
 L["VENDOR_DESC"] = "Recipes purchased from vendors should be included in the scan."
+L["VERSION_TEXT_DESC"] = [[Left-click here to select all version filters.
+Right-click here to deselect all version filters.]]
 L["VIEW_EXCLUSION_LIST_DESC"] = "Prints out a list of all recipes on the exclusion list."
 L["Vaean"] = "Vaean"
 L["Vance Undergloom"] = "Vance Undergloom"

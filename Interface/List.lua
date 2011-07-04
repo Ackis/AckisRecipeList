@@ -380,6 +380,7 @@ function private.InitializeListFrame()
 				local location_id = parent_entry.location_id
 				local npc_id = parent_entry.npc_id
 
+				-- These checks are necessary: Simply nilling fields will break things.
 				if recipe_id then
 					entry.recipe_id = recipe_id
 				end
