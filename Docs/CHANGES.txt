@@ -5,12 +5,26 @@ NOTE: Always remove the folder for old versions and install a fresh copy when up
 
 ==== Recipe Database:
 * Added new recipes for Firelands.
-* Fixed skill levels for:
+* Fixed skill levels for the following recipes:
 ** Stormleather Sash
 ** Dragonkiller Tunic
 ** Dragonscale Leg Armor
 ** Twilight Scale Chestguard
+** Smelt Bronze
+** Smelt Tin
+** Smelt Iron
+** Smelt Gold
+** Smelt Steel
+** Smelt Mithril
+** Smelt Truesilver
+** Smelt Thorium
 * Marked Greater Frost Protection Potion as removed from the game.
+
+==== Interface:
+* The list-entry highlighting texture has been changed.
+* The expand and collapse button textures in the list have been changed.
+* The font for filter sections has been changed and in most cases re-positioned.
+* Expansion reputation lists no longer write outside of the filter menu frame.
 
 == 2.2.5
 
