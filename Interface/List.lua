@@ -375,11 +375,26 @@ function private.InitializeListFrame()
 
 		if parent_entry then
 			if parent_entry ~= entry then
-				entry.parent = parent_entry
-				entry.recipe_id = parent_entry.recipe_id
-				entry.acquire_id = parent_entry.acquire_id
-				entry.location_id = parent_entry.location_id
-				entry.npc_id = parent_entry.npc_id
+				local recipe_id = parent_entry.recipe_id
+				local acquire_id = parent_entry.acquire_id
+				local location_id = parent_entry.location_id
+				local npc_id = parent_entry.npc_id
+
+				if recipe_id then
+					entry.recipe_id = recipe_id
+				end
+
+				if acquire_id then
+					entry.acquire_id = acquire_id
+				end
+
+				if location_id then
+					entry.location_id = location_id
+				end
+
+				if npc_id then
+					entry.npc_id = npc_id
+				end
 			else
 				addon:Debug("Attempting to parent an entry to itself.")
 			end
