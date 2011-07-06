@@ -836,7 +836,7 @@ function private.InitializeListFrame()
 			local percentage = cur_value / max_value * 100
 
 			if (math.floor(percentage) < 101) and cur_value >= 0 and max_value >= 0 then
-				local results = string.format(_G.SINGLE_PAGE_RESULTS_TEMPLATE, recipe_count)
+				local results = _G.SINGLE_PAGE_RESULTS_TEMPLATE:format(recipe_count)
 				progress_bar.text:SetFormattedText("%d/%d - %1.2f%% (%s)", cur_value, max_value, percentage, results)
 			else
 				progress_bar.text:SetFormattedText("%s", L["NOT_YET_SCANNED"])
@@ -1063,11 +1063,11 @@ function private.InitializeListFrame()
 		local coord_text = ""
 
 		if trainer.coord_x ~= 0 and trainer.coord_y ~= 0 then
-			coord_text = SetTextColor(CATEGORY_COLORS["coords"], "(" .. trainer.coord_x .. ", " .. trainer.coord_y .. ")")
+			coord_text = SetTextColor(CATEGORY_COLORS["coords"], ("(%d, %d)"):format(trainer.coord_x, trainer.coord_y))
 		end
 		local t = AcquireTable()
 
-		t.text = string.format("%s%s %s", PADDING, hide_type and "" or SetTextColor(CATEGORY_COLORS["trainer"], L["Trainer"])..":", name)
+		t.text = ("%s%s %s"):format(PADDING, hide_type and "" or SetTextColor(CATEGORY_COLORS["trainer"], L["Trainer"]) .. ":", name)
 		t.recipe_id = recipe_id
 		t.npc_id = id_num
 
@@ -1077,8 +1077,7 @@ function private.InitializeListFrame()
 			return entry_index
 		end
 		t = AcquireTable()
-		t.text = string.format("%s%s%s %s", PADDING, PADDING,
-				       hide_location and "" or SetTextColor(CATEGORY_COLORS["location"], trainer.location), coord_text)
+		t.text = ("%s%s%s %s"):format(PADDING, PADDING, hide_location and "" or SetTextColor(CATEGORY_COLORS["location"], trainer.location), coord_text)
 		t.recipe_id = recipe_id
 		t.npc_id = id_num
 
@@ -1104,9 +1103,7 @@ function private.InitializeListFrame()
 		local t = AcquireTable()
 		local quantity = vendor.item_list[recipe_id]
 
-		t.text = string.format("%s%s %s%s", PADDING,
-				       hide_type and "" or SetTextColor(CATEGORY_COLORS["vendor"], L["Vendor"])..":", name,
-				       type(quantity) == "number" and SetTextColor(BASIC_COLORS["white"], string.format(" (%d)", quantity)) or "")
+		t.text = ("%s%s %s%s"):format(PADDING, hide_type and "" or SetTextColor(CATEGORY_COLORS["vendor"], L["Vendor"]) .. ":", name, type(quantity) == "number" and SetTextColor(BASIC_COLORS["white"], (" (%d)"):format(quantity)) or "")
 		t.recipe_id = recipe_id
 		t.npc_id = id_num
 
@@ -1116,8 +1113,7 @@ function private.InitializeListFrame()
 			return entry_index
 		end
 		t = AcquireTable()
-		t.text = string.format("%s%s%s %s", PADDING, PADDING,
-				       hide_location and "" or SetTextColor(CATEGORY_COLORS["location"], vendor.location), coord_text)
+		t.text = ("%s%s%s %s"):format(PADDING, PADDING, hide_location and "" or SetTextColor(CATEGORY_COLORS["location"], vendor.location), coord_text)
 		t.recipe_id = recipe_id
 		t.npc_id = id_num
 
@@ -1134,8 +1130,7 @@ function private.InitializeListFrame()
 		end
 		local t = AcquireTable()
 
-		t.text = string.format("%s%s %s", PADDING, hide_type and "" or SetTextColor(CATEGORY_COLORS["mobdrop"], L["Mob Drop"])..":",
-				       SetTextColor(private.reputation_colors["hostile"], mob.name))
+		t.text = ("%s%s %s"):format(PADDING, hide_type and "" or SetTextColor(CATEGORY_COLORS["mobdrop"], L["Mob Drop"]) .. ":", SetTextColor(private.reputation_colors["hostile"], mob.name))
 		t.recipe_id = recipe_id
 		t.npc_id = id_num
 
@@ -1145,8 +1140,7 @@ function private.InitializeListFrame()
 			return entry_index
 		end
 		t = AcquireTable()
-		t.text = string.format("%s%s%s %s", PADDING, PADDING, hide_location and "" or SetTextColor(CATEGORY_COLORS["location"], mob.location),
-				       coord_text)
+		t.text = ("%s%s%s %s"):format(PADDING, PADDING, hide_location and "" or SetTextColor(CATEGORY_COLORS["location"], mob.location), coord_text)
 		t.recipe_id = recipe_id
 		t.npc_id = id_num
 
@@ -1167,8 +1161,7 @@ function private.InitializeListFrame()
 			coord_text = SetTextColor(CATEGORY_COLORS["coords"], "(" .. quest.coord_x .. ", " .. quest.coord_y .. ")")
 		end
 		local t = AcquireTable()
-
-		t.text = string.format("%s%s %s", PADDING, hide_type and "" or SetTextColor(CATEGORY_COLORS["quest"], L["Quest"])..":", name)
+		t.text = ("%s%s %s"):format(PADDING, hide_type and "" or SetTextColor(CATEGORY_COLORS["quest"], L["Quest"]) .. ":", name)
 		t.recipe_id = recipe_id
 
 		entry_index = ListFrame:InsertEntry(t, parent_entry, entry_index, entry_type, true)
@@ -1177,8 +1170,7 @@ function private.InitializeListFrame()
 			return entry_index
 		end
 		t = AcquireTable()
-		t.text = string.format("%s%s%s %s", PADDING, PADDING,
-				       hide_location and "" or SetTextColor(CATEGORY_COLORS["location"], quest.location), coord_text)
+		t.text = ("%s%s%s %s"):format(PADDING, PADDING, hide_location and "" or SetTextColor(CATEGORY_COLORS["location"], quest.location), coord_text)
 		t.recipe_id = recipe_id
 
 		return ListFrame:InsertEntry(t, parent_entry, entry_index, entry_type, true)
@@ -1186,10 +1178,7 @@ function private.InitializeListFrame()
 
 	local function ExpandSeasonalData(entry_index, entry_type, parent_entry, id_num, recipe_id, hide_location, hide_type)
 		local t = AcquireTable()
-
-		t.text = string.format("%s%s %s", PADDING,
-				       hide_type and "" or SetTextColor(CATEGORY_COLORS["seasonal"], private.acquire_names[A.SEASONAL])..":",
-				       SetTextColor(CATEGORY_COLORS["seasonal"], private.seasonal_list[id_num].name))
+		t.text = ("%s%s %s"):format(PADDING, hide_type and "" or SetTextColor(CATEGORY_COLORS["seasonal"], private.acquire_names[A.SEASONAL]) .. ":", SetTextColor(CATEGORY_COLORS["seasonal"], private.seasonal_list[id_num].name))
 		t.recipe_id = recipe_id
 
 		return ListFrame:InsertEntry(t, parent_entry, entry_index, entry_type, true)
@@ -1216,9 +1205,7 @@ function private.InitializeListFrame()
 
 		local name = ColorNameByFaction(rep_vendor.name, rep_vendor.faction)
 		local t = AcquireTable()
-
-		t.text = string.format("%s%s %s", PADDING, hide_type and "" or SetTextColor(CATEGORY_COLORS["reputation"], _G.REPUTATION)..":",
-				       SetTextColor(CATEGORY_COLORS["repname"], private.reputation_list[rep_id].name))
+		t.text = ("%s%s %s"):format(PADDING, hide_type and "" or SetTextColor(CATEGORY_COLORS["reputation"], _G.REPUTATION) .. ":", SetTextColor(CATEGORY_COLORS["repname"], private.reputation_list[rep_id].name))
 		t.recipe_id = recipe_id
 		t.npc_id = vendor_id
 
@@ -1241,8 +1228,7 @@ function private.InitializeListFrame()
 			return entry_index
 		end
 		t = AcquireTable()
-		t.text = string.format("%s%s%s%s %s", PADDING, PADDING, PADDING,
-				       hide_location and "" or SetTextColor(CATEGORY_COLORS["location"], rep_vendor.location), coord_text)
+		t.text = ("%s%s%s%s %s"):format(PADDING, PADDING, PADDING, hide_location and "" or SetTextColor(CATEGORY_COLORS["location"], rep_vendor.location), coord_text)
 		t.recipe_id = recipe_id
 		t.npc_id = vendor_id
 
@@ -1253,13 +1239,12 @@ function private.InitializeListFrame()
 		local drop_location = type(id_num) == "string" and BZ[id_num]
 
 		if drop_location then
-			drop_location = string.format(": %s", SetTextColor(CATEGORY_COLORS["location"], drop_location))
+			drop_location = (": %s"):format(SetTextColor(CATEGORY_COLORS["location"], drop_location))
 		else
 			drop_location = ""
 		end
 		local t = AcquireTable()
-
-		t.text = string.format("%s|c%s%s|r%s", PADDING, select(4, _G.GetItemQualityColor(private.recipe_list[recipe_id].quality)), L["World Drop"], drop_location)
+		t.text = ("%s|c%s%s|r%s"):format(PADDING, select(4, _G.GetItemQualityColor(private.recipe_list[recipe_id].quality)), L["World Drop"], drop_location)
 		t.recipe_id = recipe_id
 
 		return ListFrame:InsertEntry(t, parent_entry, entry_index, entry_type, true)
@@ -1267,7 +1252,6 @@ function private.InitializeListFrame()
 
 	local function ExpandCustomData(entry_index, entry_type, parent_entry, id_num, recipe_id, hide_location, hide_type)
 		local t = AcquireTable()
-
 		t.text = PADDING .. SetTextColor(CATEGORY_COLORS["custom"], private.custom_list[id_num].name)
 		t.recipe_id = recipe_id
 
@@ -1276,7 +1260,6 @@ function private.InitializeListFrame()
 
 	local function ExpandAchievementData(entry_index, entry_type, parent_entry, id_num, recipe_id, hide_location, hide_type)
 		local entry = AcquireTable()
-
 		entry.text = ("%s%s %s"):format(PADDING, hide_type and "" or SetTextColor(CATEGORY_COLORS["achievement"], _G.ACHIEVEMENTS) .. ":",
 					    SetTextColor(BASIC_COLORS["normal"], select(2, _G.GetAchievementInfo(id_num))))
 		entry.recipe_id = recipe_id
@@ -1321,7 +1304,6 @@ function private.InitializeListFrame()
 				func = ExpandAchievementData
 			elseif acquire_type > num_acquire_types then
 				local t = AcquireTable()
-
 				t.text = "Unhandled Acquire Case - Type: " .. acquire_type
 				t.recipe_id = recipe_id
 
@@ -1622,7 +1604,7 @@ do
 			local quantity = vendor.item_list[recipe_id]
 
 			if type(quantity) == "number" then
-				addline_func(2, -2, true, L["LIMITED_SUPPLY"], CATEGORY_COLORS["vendor"], string.format("(%d)", quantity), BASIC_COLORS["white"])
+				addline_func(2, -2, true, L["LIMITED_SUPPLY"], CATEGORY_COLORS["vendor"], ("(%d)"):format(quantity), BASIC_COLORS["white"])
 			end
 		end,
 		[A.MOB_DROP] = function(recipe_id, identifier, location, acquire_info, addline_func)
@@ -1705,7 +1687,7 @@ do
 			local recipe = private.recipe_list[recipe_id]
 			local recipe_item_id = recipe:RecipeItemID()
 			local recipe_item_level = recipe_item_id and select(4, _G.GetItemInfo(recipe_item_id))
-			local quality_color = string.sub(select(4, _G.GetItemQualityColor(recipe.quality)), 3)
+			local quality_color = select(4, _G.GetItemQualityColor(recipe.quality)):sub(3)
 			local location_text
 
 			if recipe_item_level then
@@ -1878,17 +1860,17 @@ do
 		local skill_level = private.current_profession_scanlevel
 
 		if recipe.skill_level > skill_level then
-			ttAdd(0, -1, false, string.format("%s:", _G.SKILL_LEVEL), BASIC_COLORS["normal"], recipe.skill_level, private.difficulty_colors["impossible"])
+			ttAdd(0, -1, false, ("%s:"):format(_G.SKILL_LEVEL), BASIC_COLORS["normal"], recipe.skill_level, private.difficulty_colors["impossible"])
 		elseif skill_level >= recipe.trivial_level then
-			ttAdd(0, -1, false, string.format("%s:", _G.SKILL_LEVEL), BASIC_COLORS["normal"], recipe.skill_level, private.difficulty_colors["trivial"])
+			ttAdd(0, -1, false, ("%s:"):format(_G.SKILL_LEVEL), BASIC_COLORS["normal"], recipe.skill_level, private.difficulty_colors["trivial"])
 		elseif skill_level >= recipe.easy_level then
-			ttAdd(0, -1, false, string.format("%s:", _G.SKILL_LEVEL), BASIC_COLORS["normal"], recipe.skill_level, private.difficulty_colors["easy"])
+			ttAdd(0, -1, false, ("%s:"):format(_G.SKILL_LEVEL), BASIC_COLORS["normal"], recipe.skill_level, private.difficulty_colors["easy"])
 		elseif skill_level >= recipe.medium_level then
-			ttAdd(0, -1, false, string.format("%s:", _G.SKILL_LEVEL), BASIC_COLORS["normal"], recipe.skill_level, private.difficulty_colors["medium"])
+			ttAdd(0, -1, false, ("%s:"):format(_G.SKILL_LEVEL), BASIC_COLORS["normal"], recipe.skill_level, private.difficulty_colors["medium"])
 		elseif skill_level >= recipe.optimal_level then
-			ttAdd(0, -1, false, string.format("%s:", _G.SKILL_LEVEL), BASIC_COLORS["normal"], recipe.skill_level, private.difficulty_colors["optimal"])
+			ttAdd(0, -1, false, ("%s:"):format(_G.SKILL_LEVEL), BASIC_COLORS["normal"], recipe.skill_level, private.difficulty_colors["optimal"])
 		else
-			ttAdd(0, -1, false, string.format("%s:", _G.SKILL_LEVEL), BASIC_COLORS["normal"], recipe.skill_level, private.difficulty_colors["trivial"])
+			ttAdd(0, -1, false, ("%s:"):format(_G.SKILL_LEVEL), BASIC_COLORS["normal"], recipe.skill_level, private.difficulty_colors["trivial"])
 		end
 		acquire_tip:AddSeparator()
 

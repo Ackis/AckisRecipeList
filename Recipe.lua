@@ -186,7 +186,7 @@ do
 		local recipe_name = self.name
 
 		if private.ordered_professions[addon.Frame.profession] == SPELL_ENCHANTING then
-			recipe_name = string.gsub(recipe_name, _G.ENSCRIBE .. " ", "")
+			recipe_name = recipe_name:gsub(_G.ENSCRIBE .. " ","")
 		end
 		local has_faction = private.Player:HasProperRepLevel(self.acquire_data[A.REPUTATION])
 		local skill_level = private.current_profession_scanlevel

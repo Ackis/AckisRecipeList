@@ -173,7 +173,7 @@ do
 		table.wipe(output)
 
 		-- Dump out trainer info
-		local trainer_id = tonumber(string.sub(_G.UnitGUID("target"), -12, -9), 16)
+		local trainer_id = tonumber(_G.UnitGUID("target"):sub(-12,-9), 16)
 		local trainer_name = _G.UnitName("target")
 
 		for spell_id, recipe in pairs(recipe_list) do
@@ -346,7 +346,7 @@ function addon:GenerateLinks()
 	-- This code adopted from Gnomish Yellow Pages with permission
 
 	local guid = _G.UnitGUID("player")
-	local playerGUID = string.gsub(guid, "0x0+", "")
+	local playerGUID = guid:gsub("0x0+","")
 
 	-- Listing of all tradeskill professions
 	local tradelist = {51304, 51300, 51313, 51306, 45363, 51311, 51302, 51309, 51296, 45542}
@@ -354,7 +354,7 @@ function addon:GenerateLinks()
 --[[
 	local encodingLength = floor((#recipeList+5) / 6)
 
-	local encodedString = string.rep("/", encodingLength)
+	local encodedString = ("/"):rep(encodingLength)
 ]]--
 	local bitmap = {}
 	bitmap[45542] = "8bffAA" -- First Aid  100%   17/17 recipes
@@ -389,7 +389,7 @@ function addon:GenerateLinks()
 		else
 			self:Print("There currently is not a generated tradeskill link for: " .. tradeName)
 		end
-		-- /script DEFAULT_CHAT_FRAME:AddMessage(string.gsub(GetTradeSkillListLink(), "\124", "\124\124"))
+--		/script DEFAULT_CHAT_FRAME:AddMessage(GetTradeSkillListLink():gsub("\124","\124\124"))
 	end
 
 end
@@ -433,7 +433,7 @@ do
 		end
 
 		for i in pairs(master_list) do
-			local prof = string.lower(master_list[i].profession)
+			local prof = master_list[i].profession:lower()
 
 			if prof and prof == prof_name then
 				recipe_list[i] = master_list[i]
@@ -469,7 +469,7 @@ do
 		end
 
 		local found = false
-		prof_name = string.lower(prof_name)
+		prof_name = prof_name:lower()
 
 		local scan_all = prof_name == "all"
 
@@ -520,7 +520,7 @@ do
 			prof_name = private.mining_name:lower()
 		end
 		for i in pairs(master_list) do
-			local prof = string.lower(master_list[i].profession)
+			local prof = master_list[i].profession:lower()
 
 			if prof and prof == prof_name then
 				recipe_list[i] = master_list[i]
@@ -547,7 +547,7 @@ do
 		end
 
 		local found = false
-		prof_name = string.lower(prof_name)
+		prof_name = prof_name:lower()
 
 		local scan_all = prof_name == "all"
 
@@ -704,7 +704,7 @@ do
 			return
 		end
 		local vendor_name = _G.UnitName("target")
-		local vendor_id = tonumber(string.sub(_G.UnitGUID("target"), -12, -9), 16)
+		local vendor_id = tonumber(_G.UnitGUID("target"):sub(-12,-9), 16)
 		local added_output = false
 
 		table.wipe(output)
@@ -730,7 +730,7 @@ do
 			local item_name, _, _, _, supply = _G.GetMerchantItemInfo(index)
 
 			if item_name then
-				local match_text = string.match(item_name, "%a+: ")
+				local match_text = item_name:match("%a+: ")
 
 				if match_text and RECIPE_TYPES[match_text:lower()] then
 					local item_id = private.ItemLinkToID(_G.GetMerchantItemLink(index))
@@ -1002,10 +1002,10 @@ do
 		ARLDatamineTT:SetHyperlink(recipe_link)
 
 		-- Check to see if this is a recipe tooltip.
-		local text = string.lower(_G["ARLDatamineTTTextLeft1"]:GetText())
-		local match_text = string.match(text, "%a+: ")
+		local text = _G["ARLDatamineTTTextLeft1"]:GetText():lower()
+		local match_text = text:match("%a+: ")
 
-		if not RECIPE_TYPES[match_text] and not (string.find(text, "smelt") or string.find(text, "sunder") or string.find(text, "shatter")) then
+		if not RECIPE_TYPES[match_text] and not (text:find("smelt") or text:find("sunder") or text:find("shatter")) then
 			ARLDatamineTT:Hide()
 			return
 		end
@@ -1220,7 +1220,7 @@ do
 
 			-- Check for recipe/item binding
 			-- The recipe binding is within the first few lines of the tooltip always
-			if string.match(text, "binds when picked up") then
+			if text:match("binds when picked up") then
 				if (i < 3) then
 					scan_data.recipe_bop = true
 				else
@@ -1234,7 +1234,7 @@ do
 			end
 
 			-- Recipe Reputations
-			local rep, replevel = string.match(text_l, "Requires (.+) %- (.+)")
+			local rep, replevel = text_l:match("Requires (.+) %- (.+)")
 
 			if rep and replevel and FACTION_TEXT[rep] then
 				scan_data.repid = FACTION_TEXT[rep]
@@ -1248,78 +1248,78 @@ do
 
 			if not scan_data.verifiedclass then
 				-- Certain stats can be considered for a specific role (aka spell hit == caster dps).
-				if string.match(text, "strength") and not string.match(text, "strength of the clefthoof") and not string.match(text,  "set:") then
+				if text:match("strength") and not text:match("strength of the clefthoof") and not text:match("set:") then
 					scan_data.dps = true
-				elseif string.match(text, "agility") then
+				elseif text:match("agility") then
 					scan_data.dps = true
-				elseif string.match(text, "spirit") or string.match(text, "intellect") then
+				elseif text:match("spirit") or text:match("intellect") then
 					scan_data.caster = true
 					scan_data.healer = true
-				elseif string.match(text, "spell power") then
+				elseif text:match("spell power") then
 					scan_data.caster = true
 					scan_data.healer = true
-				elseif string.match(text, "spell crit") then
+				elseif text:match("spell crit") then
 					scan_data.caster = true
 					scan_data.healer = true
-				elseif string.match(text, "spell hit") then
+				elseif text:match("spell hit") then
 					scan_data.caster = true
 					scan_data.verifiedclass = true
-				elseif string.match(text, "spell penetration") then
+				elseif text:match("spell penetration") then
 					scan_data.caster = true
 					scan_data.verifiedclass = true
-				elseif string.match(text, "mana per 5 sec.") or string.match(text, "mana every 5 seconds") then
+				elseif text:match("mana per 5 sec.") or text:match("mana every 5 seconds") then
 					scan_data.caster = true
 					scan_data.healer = true
-				elseif string.match(text, "attack power") then
+				elseif text:match("attack power") then
 					scan_data.dps = true
-				elseif string.match(text, "expertise") then
+				elseif text:match("expertise") then
 					scan_data.dps = true
 					scan_data.tank = true
-				elseif string.match(text, "melee crit") then
+				elseif text:match("melee crit") then
 					scan_data.dps = true
-				elseif string.match(text, "critical hit") then
+				elseif text:match("critical hit") then
 					scan_data.dps = true
-				elseif string.match(text, "weapon damage") then
+				elseif text:match("weapon damage") then
 					scan_data.dps = true
-				elseif string.match(text, "ranged crit") then
-					scan_data.dps = true
-					scan_data.verifiedclass = true
-				elseif string.match(text, "melee haste") then
-					scan_data.dps = true
-				elseif string.match(text, "ranged haste") then
+				elseif text:match("ranged crit") then
 					scan_data.dps = true
 					scan_data.verifiedclass = true
-				elseif string.match(text, "melee hit") then
+				elseif text:match("melee haste") then
 					scan_data.dps = true
-				elseif string.match(text, "ranged hit") then
+				elseif text:match("ranged haste") then
 					scan_data.dps = true
 					scan_data.verifiedclass = true
-				elseif string.match(text, "armor pen") then
+				elseif text:match("melee hit") then
 					scan_data.dps = true
-				elseif string.match(text, "feral attack power") then
+				elseif text:match("ranged hit") then
+					scan_data.dps = true
+					scan_data.verifiedclass = true
+				elseif text:match("armor pen") then
+					scan_data.dps = true
+				elseif text:match("feral attack power") then
 					scan_data.tank = true
 					scan_data.dps = true
-				elseif string.match(text, "defense") and not string.match(text, "defenseless") then
+				elseif text:match("defense") and not text:match("defenseless") then
 					scan_data.tank = true
 					scan_data.verifiedclass = true
-				elseif string.match(text, "block") then
+				elseif text:match("block") then
 					scan_data.tank = true
 					scan_data.verifiedclass = true
-				elseif string.match(text, "parry") then
+				elseif text:match("parry") then
 					scan_data.tank = true
 					scan_data.verifiedclass = true
-				elseif string.match(text, "dodge") and not string.match(text,  "set:") then
+				elseif text:match("dodge") and not text:match("set:") then
 					scan_data.tank = true
 					scan_data.verifiedclass = true
 				end
 			end
 
 			-- Classes
-			local class_type = string.match(text_l, "Classes: (.+)")
+			local class_type = text_l:match("Classes: (.+)")
 
 			if class_type then
 				for idx, class in ipairs(ORDERED_CLASS_TYPES) do
-					if string.match(class_type, class) then
+					if class_type:match(class) then
 						scan_data[class] = true
 						scan_data.found_class = true
 					end
@@ -1338,7 +1338,7 @@ do
 			end
 
 			-- Enchantment voodoo
-			local ench_type, _ = string.match(text_l, "Enchant (.+) %- (.+)")
+			local ench_type, _ = text_l:match("Enchant (.+) %- (.+)")
 
 			if ench_type then
 				if ITEM_TYPES[ench_type] then
@@ -1387,7 +1387,7 @@ do
 		end
 
 		-- Parse the recipe database until we get a match on the name
-		local recipe_name = string.gsub(scan_data.match_name, "%a+%?: ", "")
+		local recipe_name = scan_data.match_name:gsub("%a+%?: ","")
 		local spell_id = scan_data.reverse_lookup[recipe_name]
 
 		if not spell_id then
@@ -1408,16 +1408,16 @@ do
 		if scan_data.is_vendor then
 			-- Check to see if the vendor flag is set
 			if not recipe:HasFilter("common1", "VENDOR") then
-				table.insert(missing_flags, string.format(flag_format, FS[F.VENDOR]))
+				table.insert(missing_flags, flag_format:format(FS[F.VENDOR]))
 			end
 
 			-- Check to see if we're in a PVP zone
 			local subzone_text = _G.GetSubZoneText()
 
 			if (subzone_text == "Wintergrasp Fortress" or subzone_text == "Halaa") and not recipe:HasFilter("common1", "PVP") then
-				table.insert(missing_flags, string.format(flag_format, FS[F.PVP]))
+				table.insert(missing_flags, flag_format:format(FS[F.PVP]))
 			elseif recipe:HasFilter("common1", "PVP") and not (subzone_text == "Wintergrasp Fortress" or subzone_text == "Halaa") then
-				table.insert(extra_flags, string.format(flag_format, FS[F.PVP]))
+				table.insert(extra_flags, flag_format:format(FS[F.PVP]))
 			end
 		end
 
@@ -1425,55 +1425,55 @@ do
 		if scan_data.found_class then
 			for k, v in ipairs(ORDERED_CLASS_TYPES) do
 				if scan_data[v] and not recipe:HasFilter("class1", FS[CLASS_TYPES[v]]) then
-					table.insert(missing_flags, string.format(flag_format, FS[CLASS_TYPES[v]]))
+					table.insert(missing_flags, flag_format:format(FS[CLASS_TYPES[v]]))
 				elseif not scan_data[v] and recipe:HasFilter("class1", FS[CLASS_TYPES[v]]) then
-					table.insert(extra_flags, string.format(flag_format, FS[CLASS_TYPES[v]]))
+					table.insert(extra_flags, flag_format:format(FS[CLASS_TYPES[v]]))
 				end
 			end
 		end
 
 		if scan_data.item_bop and not recipe:HasFilter("common1", "IBOP") then
-			table.insert(missing_flags, string.format(flag_format, FS[F.IBOP]))
+			table.insert(missing_flags, flag_format:format(FS[F.IBOP]))
 
 			if recipe:HasFilter("common1", "IBOE") then
-				table.insert(extra_flags, string.format(flag_format, FS[F.IBOE]))
+				table.insert(extra_flags, flag_format:format(FS[F.IBOE]))
 			end
 
 			if recipe:HasFilter("common1", "IBOA") then
-				table.insert(extra_flags, string.format(flag_format, FS[F.IBOA]))
+				table.insert(extra_flags, flag_format:format(FS[F.IBOA]))
 			end
 		elseif not recipe:HasFilter("common1", "IBOE") and not scan_data.item_bop then
-			table.insert(missing_flags, string.format(flag_format, FS[F.IBOE]))
+			table.insert(missing_flags, flag_format:format(FS[F.IBOE]))
 
 			if recipe:HasFilter("common1", "IBOP") then
-				table.insert(extra_flags, string.format(flag_format, FS[F.IBOP]))
+				table.insert(extra_flags, flag_format:format(FS[F.IBOP]))
 			end
 
 			if recipe:HasFilter("common1", "IBOA") then
-				table.insert(extra_flags, string.format(flag_format, FS[F.IBOA]))
+				table.insert(extra_flags, flag_format:format(FS[F.IBOA]))
 			end
 		end
 
 		if scan_data.recipe_bop and not recipe:HasFilter("common1", "RBOP") then
-			table.insert(missing_flags, string.format(flag_format, FS[F.RBOP]))
+			table.insert(missing_flags, flag_format:format(FS[F.RBOP]))
 
 			if recipe:HasFilter("common1", "RBOE") then
-				table.insert(extra_flags, string.format(flag_format, FS[F.RBOE]))
+				table.insert(extra_flags, flag_format:format(FS[F.RBOE]))
 			end
 
 			if recipe:HasFilter("common1", "RBOA") then
-				table.insert(extra_flags, string.format(flag_format, FS[F.RBOA]))
+				table.insert(extra_flags, flag_format:format(FS[F.RBOA]))
 			end
 
 		elseif not recipe:HasFilter("common1", "TRAINER") and not recipe:HasFilter("common1", "RBOE") and not scan_data.recipe_bop then
-			table.insert(missing_flags, string.format(flag_format, FS[F.RBOE]))
+			table.insert(missing_flags, flag_format:format(FS[F.RBOE]))
 
 			if recipe:HasFilter("common1", "RBOP") then
-				table.insert(extra_flags, string.format(flag_format, FS[F.RBOP]))
+				table.insert(extra_flags, flag_format:format(FS[F.RBOP]))
 			end
 
 			if recipe:HasFilter("common1", "RBOA") then
-				table.insert(extra_flags, string.format(flag_format, FS[F.RBOA]))
+				table.insert(extra_flags, flag_format:format(FS[F.RBOA]))
 			end
 		end
 
@@ -1481,17 +1481,17 @@ do
 			local role_string = FS[ROLE_TYPES[v]]
 
 			if scan_data[v] and not recipe:HasFilter("common1", role_string) then
-				table.insert(missing_flags, string.format(flag_format, role_string))
+				table.insert(missing_flags, flag_format:format(role_string))
 			elseif not scan_data[v] and recipe:HasFilter("common1", role_string) then
-				table.insert(extra_flags, string.format(flag_format, role_string))
+				table.insert(extra_flags, flag_format:format(role_string))
 			end
 		end
 
 		for k, v in ipairs(ORDERED_ITEM_TYPES) do
 			if scan_data[v] and not recipe:HasFilter("item1", FS[ITEM_TYPES[v]]) then
-				table.insert(missing_flags, string.format(flag_format, FS[ITEM_TYPES[v]]))
+				table.insert(missing_flags, flag_format:format(FS[ITEM_TYPES[v]]))
 			elseif not scan_data[v] and recipe:HasFilter("item1", FS[ITEM_TYPES[v]]) then
-				table.insert(extra_flags, string.format(flag_format, FS[ITEM_TYPES[v]]))
+				table.insert(extra_flags, flag_format:format(FS[ITEM_TYPES[v]]))
 			end
 		end
 
@@ -1528,29 +1528,29 @@ do
 			local flag = ACQUIRE_TO_FILTER_MAP[acquire_type]
 
 			if flag and not recipe:HasFilter("common1", FS[flag]) then
-				table.insert(missing_flags, string.format(flag_format, FS[flag]))
+				table.insert(missing_flags, flag_format:format(FS[flag]))
 			end
 		end
 
 		if (acquire_data[A.VENDOR] or acquire_data[A.REPUTATION]) and not recipe:HasFilter("common1", "VENDOR") then
-			table.insert(missing_flags, string.format(flag_format, FS[F.VENDOR]))
+			table.insert(missing_flags, flag_format:format(FS[F.VENDOR]))
 		end
 
 		if recipe:HasFilter("common1", "VENDOR") and not (acquire_data[A.VENDOR] or acquire_data[A.REPUTATION]) then
-			table.insert(extra_flags, string.format(flag_format, FS[F.VENDOR]))
+			table.insert(extra_flags, flag_format:format(FS[F.VENDOR]))
 		end
 
 		if acquire_data[A.TRAINER] and not recipe:HasFilter("common1", "TRAINER") then
-			table.insert(missing_flags, string.format(flag_format, FS[F.TRAINER]))
+			table.insert(missing_flags, flag_format:format(FS[F.TRAINER]))
 		end
 
 		if recipe:HasFilter("common1", "TRAINER") and not acquire_data[A.TRAINER] and not acquire_data[A.CUSTOM] then
-			table.insert(extra_flags, string.format(flag_format, FS[F.TRAINER]))
+			table.insert(extra_flags, flag_format:format(FS[F.TRAINER]))
 		end
 
 		for flag, acquire_type in pairs(FILTER_TO_ACQUIRE_MAP) do
 			if recipe:HasFilter("common1", FS[flag]) and not acquire_data[acquire_type] then
-				table.insert(extra_flags, string.format(flag_format, FS[flag]))
+				table.insert(extra_flags, flag_format:format(FS[flag]))
 			end
 		end
 
@@ -1625,13 +1625,13 @@ do
 		if scan_data.specialty then
 			if not recipe.specialty then
 				found_problem = true
-				table.insert(output, string.format("    Missing Specialty: %s", scan_data.specialty))
+				table.insert(output, ("    Missing Specialty: %s"):format(scan_data.specialty))
 			elseif recipe.specialty ~= scan_data.specialty then
-				table.insert(output, string.format("    Wrong Specialty: %s - should be %s ", recipe.specialty, scan_data.specialty))
+				table.insert(output, ("    Wrong Specialty: %s - should be %s "):format(recipe.specialty,scan_data.specialty))
 			end
 		elseif recipe.specialty then
 			found_problem = true
-			table.insert(output, string.format("    Extra Specialty: %s", recipe.specialty))
+			table.insert(output, ("    Extra Specialty: %s"):format(recipe.specialty))
 		end
 
 		if scan_data.quality and scan_data.quality ~= recipe.quality then
@@ -1642,7 +1642,7 @@ do
 		end
 
 		if found_problem then
-			table.insert(output, 1, string.format("%s: <a href=\"http://www.wowhead.com/?spell=%d\">%d</a>", recipe_name, spell_id, spell_id))
+			table.insert(output, 1, ("%s: <a href=\"http://www.wowhead.com/?spell=%d\">%d</a>"):format(recipe_name,spell_id,spell_id))
 			return table.concat(output, "\n")
 		else
 			return
