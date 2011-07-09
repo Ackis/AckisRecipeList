@@ -1514,7 +1514,7 @@ function addon:InitCooking()
 	recipe = AddRecipe(88018, V.CATA, Q.UNCOMMON)
 	recipe:SetRecipeItemID(65423)
 	recipe:SetCraftedItemID(62677)
-	recipe:SetSkillLevels(500, 500, 500, 500, 510)
+	recipe:SetSkillLevels(475, 475, 490, 500, 510)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	recipe:AddVendor(3027, 4553, 49701, 49737)
 
