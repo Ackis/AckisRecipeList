@@ -745,7 +745,7 @@ function addon:InitCooking()
 	recipe:SetSkillLevels(300, 300, 320, 330, 340)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
 	recipe:AddVendor(16585, 16826)
-	
+
 	-- Blackened Basilisk -- 33286
 	recipe = AddRecipe(33286, V.TBC, Q.COMMON)
 	recipe:SetRecipeItemID(27690)
