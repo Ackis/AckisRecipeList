@@ -372,7 +372,7 @@ function private.InitializeFilterPanel()
 	general_toggle:SetPoint("TOP", general_frame, "TOP", 0, -7)
 	general_toggle:RegisterForClicks("LeftButtonUp", "RightButtonUp")
 
-	private.SetTooltipScripts(general_toggle, L["CLASS_TEXT_DESC"])
+	private.SetTooltipScripts(general_toggle, L["GENERAL_TEXT_DESC"])
 
 	general_toggle:SetScript("OnClick",
 			       function(self, button)
@@ -899,7 +899,7 @@ function private.InitializeFilterPanel()
 
 	-- Used for the tooltip of every reputation checkbox.
 	local function ReputationDesc(text)
-		return string.format(L["SPECIFIC_REP_DESC"], text)
+		return L["SPECIFIC_REP_DESC"]:format(text)
 	end
 
 	-- Toggle the SavedVariables and CheckButtons for the given expansion frame.
@@ -1234,9 +1234,9 @@ function private.InitializeFilterPanel()
 			local saved_link = tskl_list[click_info.realm][click_info.name][arg]
 
 			if click_info.realm ~= _G.GetRealmName() then
-				local player_guid = string.gsub(_G.UnitGUID("player"), "0x0+", "")
-				local color, trade_id, cur_lev, max_lev, guid, bitmask = string.split(":", saved_link)
-				local trade_link = string.join(":", color, trade_id, cur_lev, max_lev, player_guid, bitmask)
+				local player_guid = _G.UnitGUID("player"):gsub("0x0+","")
+				local color, trade_id, cur_lev, max_lev, guid, bitmask = (":"):split(saved_link)
+				local trade_link = (":"):join(color,trade_id,cur_lev,max_lev,player_guid,bitmask)
 
 				addon:Printf("%s (%s): %s", click_info.name, click_info.realm, trade_link)
 			else

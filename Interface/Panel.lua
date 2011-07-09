@@ -19,9 +19,6 @@ This source code is released under All Rights Reserved.
 local _G = getfenv(0)
 
 local string = _G.string
-local sformat = string.format
-local strlower = string.lower
-local smatch = string.match
 
 local select = _G.select
 

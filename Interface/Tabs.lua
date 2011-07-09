@@ -241,11 +241,11 @@ function private.InitializeTabs()
 			if count > 0 then
 				local t = AcquireTable()
 
-				local acquire_str = string.gsub(private.acquire_strings[acquire_type]:lower(), "_", "")
+				local acquire_str = private.acquire_strings[acquire_type]:lower():gsub("_","")
 				local color_code = private.category_colors[acquire_str] or "ffffff"
 				local is_expanded = self[prof_name.." expanded"][private.acquire_names[acquire_type]]
 
-				t.text = string.format("%s (%d)", SetTextColor(color_code, private.acquire_names[acquire_type]), count)
+				t.text = ("%s (%d)"):format(SetTextColor(color_code, private.acquire_names[acquire_type]),count)
 				t.acquire_id = acquire_type
 
 				insert_index = ListFrame:InsertEntry(t, nil, insert_index, "header", is_expanded or expand_mode, is_expanded or expand_mode)
@@ -349,7 +349,7 @@ function private.InitializeTabs()
 
 				local is_expanded = self[prof_name.." expanded"][loc_name]
 
-				t.text = string.format("%s (%d)", SetTextColor(private.category_colors["location"], loc_name), count)
+				t.text = ("%s (%d)"):format(SetTextColor(private.category_colors["location"], loc_name),count)
 				t.location_id = loc_name
 
 				insert_index = ListFrame:InsertEntry(t, nil, insert_index, "header", is_expanded or expand_mode, is_expanded or expand_mode)
