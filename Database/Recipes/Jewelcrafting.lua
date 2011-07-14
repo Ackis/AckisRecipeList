@@ -2424,6 +2424,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(390, 390, 410, 425, 440)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.FRENZYHEART)
 	recipe:AddRepVendor(FAC.FRENZYHEART, REP.REVERED, 31911)
+	recipe:AddVendor(28721)
 
 	-- Nimble Forest Emerald -- 53997
 	recipe = AddRecipe(53997, V.WOTLK, Q.RARE)
@@ -2462,9 +2463,10 @@ function addon:InitJewelcrafting()
 	recipe:SetRecipeItemID(41781)
 	recipe:SetCraftedItemID(40095)
 	recipe:SetSkillLevels(390, 390, 410, 425, 440)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
 	recipe:AddWorldDrop("Northrend")
-
+	recipe:AddRepVendor(FAC.ORACLES, REP.REVERED, 31910)
+	
 	-- Turbid Forest Emerald -- 54005
 	recipe = AddRecipe(54005, V.WOTLK, Q.RARE)
 	recipe:SetRecipeItemID(41737)
