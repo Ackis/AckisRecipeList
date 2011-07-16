@@ -969,7 +969,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItemID(43412)
 	recipe:SetSkillLevels(385, 385, 390, 397, 405)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.WARRIOR)
-	recipe:AddCustom("DISCOVERY_INSC_NORTHREND")
+	recipe:AddCustom("DISCOVERY_INSC_MINOR")
 
 	-- Glyph of Cleaving -- 57154
 	recipe = AddRecipe(57154, V.WOTLK, Q.COMMON)
