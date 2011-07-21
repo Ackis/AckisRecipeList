@@ -288,6 +288,7 @@ function addon:InitCooking()
 	recipe:SetCraftedItemID(5478)
 	recipe:SetSkillLevels(90, 90, 130, 150, 170)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOE, F.RBOP)
+	recipe:AddMobDrop(39153, 3376, 3377, 3378)
 	recipe:AddCustom("DIG_STEW")
 
 	-- Crispy Lizard Tail -- 6418

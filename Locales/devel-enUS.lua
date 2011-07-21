@@ -1326,3 +1326,7 @@ L["Zurai"] = "Zurai"
 L["Zurii"] = "Zurii"
 
 L["Ayla Shadowstorm"] = "Ayla Shadowstorm"
+L["Excavation Raider"] = "Excavation Raider"
+L["Bael'dun Soldier"] = "Bael'dun Soldier"
+L["Bael'dun Rifleman"]= "Bael'dun Rifleman"
+L["Bael'dun Officer"] = "Bael'dun Officer"
