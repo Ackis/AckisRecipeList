@@ -302,7 +302,6 @@ L["DATAMINE_OPTIONS_DESC"] = "Allows you to customize in-game ARL datamining."
 L["DATAMINE_WARNING_DESC"] = "Please note that enabling Auto Load Recipe Database will increase the amount of memory used by ARL.  Enabling Auto Scan Trainers may cause a slight bit of lag when the trainer is opened.  This will be more noticeable on the first scan of a trainer."
 L["DEEPHOLM_RANDOM_INSC"] = "This recipe drops from mobs in Deepholm."
 L["DEFAULT_RECIPE"] = "Learned by default when learning the profession."
-L["DIG_STEW"] = "Horde - Kill the Bael'dun Rifleman/Soldier/Officer mobs.  Alliance - Kill the Excavation Raider mobs.  Southern Barrens."
 L["DISCOVERY_ALCH_ELIXIRFLASK"] = "Discovered by making elixirs or flasks using Burning Crusade or higher ingredients."
 L["DISCOVERY_ALCH_NORTHREND_RESEARCH"] = "Obtained randomly by conducting Northrend alchemy research."
 L["DISCOVERY_ALCH_NORTHREND_XMUTE"] = "Discovered by doing transmutes using Northrend or higher ingredients (transmute tooltip mentions that there is a chance to discovery something)."
@@ -1326,6 +1325,8 @@ L["Zurai"] = "Zurai"
 L["Zurii"] = "Zurii"
 
 L["Ayla Shadowstorm"] = "Ayla Shadowstorm"
+L["DIG_STEW"] = [[Horde - Kill the Bael'dun Rifleman/Soldier/Officer mobs.
+Alliance - Kill the Excavation Raider mobs.  Southern Barrens.]]
 L["Excavation Raider"] = "Excavation Raider"
 L["Bael'dun Soldier"] = "Bael'dun Soldier"
 L["Bael'dun Rifleman"]= "Bael'dun Rifleman"
