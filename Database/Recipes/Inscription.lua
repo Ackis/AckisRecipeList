@@ -3071,14 +3071,16 @@ function addon:InitInscription()
 	recipe:SetCraftedItemID(62239)
 	recipe:SetSkillLevels(480, 480, 480, 480, 490)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOP)
-	recipe:AddCustom("VASHJ'IR_RANDOM_INSC")
+	--recipe:AddCustom("VASHJ'IR_RANDOM_INSC")
+	recipe:AddWorldDrop("Vashj'ir")
 
 	-- Origami Rock -- 86645
 	recipe = AddRecipe(86645, V.CATA, Q.COMMON)
 	recipe:SetCraftedItemID(62238)
 	recipe:SetSkillLevels(490, 490, 490, 490, 500)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOP)
-	recipe:AddCustom("DEEPHOLM_RANDOM_INSC")
+	recipe:AddWorldDrop("Deepholm")
+	--recipe:AddCustom("DEEPHOLM_RANDOM_INSC")
 	
 	-- Origami Beetle -- 86646
 	recipe = AddRecipe(86646, V.CATA, Q.COMMON)
@@ -3086,7 +3088,8 @@ function addon:InitInscription()
 	recipe:SetCraftedItemID(63246)
 	recipe:SetSkillLevels(500, 500, 500, 500, 510)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOP)
-	recipe:AddCustom("ULDUM_RANDOM_INSC")
+	recipe:AddWorldDrop("Uldum")
+	--recipe:AddCustom("ULDUM_RANDOM_INSC")
 
 	-- Etched Horn -- 86647
 	recipe = AddRecipe(86647, V.CATA, Q.COMMON)
