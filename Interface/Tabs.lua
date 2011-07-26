@@ -90,7 +90,7 @@ function private.InitializeTabs()
 		MainPanel.current_tab = id_num
 
 		ListFrame:Update(nil, false)
-		PlaySound("igCharacterInfoTab")
+		_G.PlaySound("igCharacterInfoTab")
 	end
 
 	-- Expands or collapses a list entry in the current active tab.
@@ -111,7 +111,7 @@ function private.InitializeTabs()
 	end
 
 	local function CreateTab(id_num, text, ...)
-		local tab = CreateFrame("Button", nil, MainPanel)
+		local tab = _G.CreateFrame("Button", nil, MainPanel)
 
 		tab:SetID(id_num)
 		tab:SetHeight(32)
