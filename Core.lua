@@ -935,6 +935,10 @@ do
 	-- List of tradeskill headers, used in addon:Scan()
 	local header_list = {}
 
+	-- Indices of the spells in the spell book which may contain a speciality
+	local specialtices_indices = {}
+
+
 	-- Toggles a recipe's stats based on whether it's linked or actually known.
 	local function SetRecipeAsKnownOrLinked(recipe, is_linked)
 		if is_linked then
@@ -972,26 +976,28 @@ do
 		if not tradeskill_is_linked then
 			player.scanned_professions[current_prof] = true
 		end
+		local button1_top = _G.PrimaryProfession1SpellButtonTop
+		local button1_bottom = _G.PrimaryProfession1SpellButtonBottom
+		local button2_top = _G.PrimaryProfession2SpellButtonTop
+		local button2_bottom = _G.PrimaryProfession2SpellButtonBottom
 
-		-- Get the current profession Specialty
+		table.wipe(specialtices_indices)
+
+		specialtices_indices[1] = button1_top:GetID() + button1_top:GetParent().spellOffset
+		specialtices_indices[2] = button1_bottom:GetID() + button1_bottom:GetParent().spellOffset
+		specialtices_indices[3] = button2_top:GetID() + button2_top:GetParent().spellOffset
+		specialtices_indices[4] = button2_bottom:GetID() + button2_bottom:GetParent().spellOffset
+
 		local specialty = SpecialtyTable[current_prof]
 
-		-- Get the indexes of the spells in the spell book which may contain a speciality
-		local ProfessionSpecialIndex = {}
+		for index, book_index in pairs(specialtices_indices) do
+			local spell_name = _G.GetSpellBookItemName(book_index, "profession")
 
-		ProfessionSpecialIndex[1] = PrimaryProfession1SpellButtonTop:GetID() + PrimaryProfession1SpellButtonTop:GetParent().spellOffset
-		ProfessionSpecialIndex[2] = PrimaryProfession1SpellButtonBottom:GetID() + PrimaryProfession1SpellButtonBottom:GetParent().spellOffset
-		ProfessionSpecialIndex[3] = PrimaryProfession2SpellButtonTop:GetID() + PrimaryProfession2SpellButtonTop:GetParent().spellOffset
-		ProfessionSpecialIndex[4] = PrimaryProfession2SpellButtonBottom:GetID() + PrimaryProfession2SpellButtonBottom:GetParent().spellOffset
-
-		for i,j in pairs(ProfessionSpecialIndex) do
-
-			local spellName = GetSpellBookItemName(j, "profession")
-			if not spellName then
+			if not spell_name then
 				player["Specialty"] = nil
 				break
-			elseif specialty and specialty[spellName] then
-				player["Specialty"] = specialty[spellName]
+			elseif specialty and specialty[spell_name] then
+				player["Specialty"] = specialty[spell_name]
 			end
 
 		end
