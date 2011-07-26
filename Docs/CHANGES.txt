@@ -1,6 +1,11 @@
 ==ARL Change Log
 NOTE: Always remove the folder for old versions and install a fresh copy when upgrading.
 
+== In development
+
+==== Interface:
+* Specialty filter did not work since 4.x.  My bad.  Redid code so it now works, this would have only affected engineers.
+
 == 2.2.7
 
 ==== Recipe Database:
