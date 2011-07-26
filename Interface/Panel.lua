@@ -651,31 +651,29 @@ function private.InitializeFrame()
 	do
 		local old_x, old_y, click_time
 
-		_G.WorldFrame:HookScript("OnMouseDown",
-				      function(frame, ...)
-					      if not SearchBox:HasFocus() then
-						      return
-					      end
-					      old_x, old_y = _G.GetCursorPosition()
-					      click_time = _G.GetTime()
-				      end)
+		_G.WorldFrame:HookScript("OnMouseDown", function(frame, ...)
+			if not SearchBox:HasFocus() then
+				return
+			end
+			old_x, old_y = _G.GetCursorPosition()
+			click_time = _G.GetTime()
+		end)
 
-		_G.WorldFrame:HookScript("OnMouseUp",
-				      function(frame, ...)
-					      if not SearchBox:HasFocus() then
-						      return
-					      end
-					      local x, y = _G.GetCursorPosition()
+		_G.WorldFrame:HookScript("OnMouseUp", function(frame, ...)
+			if not SearchBox:HasFocus() then
+				return
+			end
+			local x, y = _G.GetCursorPosition()
 
-					      if not old_x or not old_y or not x or not y or not click_time then
-						      SearchBox:ClearFocus()
-						      return
-					      end
+			if not old_x or not old_y or not x or not y or not click_time then
+				SearchBox:ClearFocus()
+				return
+			end
 
-					      if (_G.math.abs(x - old_x) + _G.math.abs(y - old_y)) <= 5 and _G.GetTime() - click_time < .5 then
-						      SearchBox:ClearFocus()
-					      end
-				      end)
+			if (_G.math.abs(x - old_x) + _G.math.abs(y - old_y)) <= 5 and _G.GetTime() - click_time < .5 then
+				SearchBox:ClearFocus()
+			end
+		end)
 	end
 
 	-- Resets the SearchBox text and the state of all MainPanel.list_frame and recipe_list entries.
