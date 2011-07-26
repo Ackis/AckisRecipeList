@@ -990,7 +990,7 @@ do
 
 		local specialty = SpecialtyTable[current_prof]
 
-		for index, book_index in pairs(specialtices_indices) do
+		for index, book_index in ipairs(specialtices_indices) do
 			local spell_name = _G.GetSpellBookItemName(book_index, "profession")
 
 			if not spell_name then
