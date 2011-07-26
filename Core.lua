@@ -998,10 +998,10 @@ do
 		-- Get the indexes of the spells in the spell book which may contain a speciality
 		local ProfessionSpecialIndex = {}
 
-		local ProfessionSpecialIndex[1] = PrimaryProfession1SpellButtonTop:GetID() + PrimaryProfession1SpellButtonTop:GetParent().spellOffset
-		local ProfessionSpecialIndex[2] = PrimaryProfession1SpellButtonBottom:GetID() + PrimaryProfession1SpellButtonBottom:GetParent().spellOffset
-		local ProfessionSpecialIndex[3] = PrimaryProfession2SpellButtonTop:GetID() + PrimaryProfession2SpellButtonTop:GetParent().spellOffset
-		local ProfessionSpecialIndex[4] = PrimaryProfession2SpellButtonBottom:GetID() + PrimaryProfession2SpellButtonBottom:GetParent().spellOffset
+		ProfessionSpecialIndex[1] = PrimaryProfession1SpellButtonTop:GetID() + PrimaryProfession1SpellButtonTop:GetParent().spellOffset
+		ProfessionSpecialIndex[2] = PrimaryProfession1SpellButtonBottom:GetID() + PrimaryProfession1SpellButtonBottom:GetParent().spellOffset
+		ProfessionSpecialIndex[3] = PrimaryProfession2SpellButtonTop:GetID() + PrimaryProfession2SpellButtonTop:GetParent().spellOffset
+		ProfessionSpecialIndex[4] = PrimaryProfession2SpellButtonBottom:GetID() + PrimaryProfession2SpellButtonBottom:GetParent().spellOffset
 
 		for i,j in pairs(ProfessionSpecialIndex) do
 
