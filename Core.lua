@@ -476,45 +476,42 @@ function addon:OnInitialize()
 	scan_button:SetHeight(20)
 
 	scan_button:RegisterForClicks("LeftButtonUp")
-	scan_button:SetScript("OnClick",
-			      function(self, button, down)
-				      local cur_profession = _G.GetTradeSkillLine()
-				      local MainPanel = addon.Frame
-				      local prev_profession
+	scan_button:SetScript("OnClick", function(self, button, down)
+		local MainPanel = addon.Frame
+		local prev_profession
 
-				      if MainPanel then
-					      prev_profession = MainPanel.prof_name or private.ordered_professions[MainPanel.profession]
-				      end
+		if MainPanel then
+			prev_profession = MainPanel.prof_name or private.ordered_professions[MainPanel.profession]
+		end
 
-				      local shift_key = _G.IsShiftKeyDown()
-				      local alt_key = _G.IsAltKeyDown()
-				      local ctrl_key = _G.IsControlKeyDown()
+		local shift_key = _G.IsShiftKeyDown()
+		local alt_key = _G.IsAltKeyDown()
+		local ctrl_key = _G.IsControlKeyDown()
 
-				      if shift_key and not alt_key and not ctrl_key then
-					      addon:Scan(true)
-				      elseif alt_key and not shift_key and not ctrl_key then
-					      addon:ClearWaypoints()
-				      elseif ctrl_key and not shift_key and not alt_key then
-					      local current_prof = _G.GetTradeSkillLine()
-					      addon:DumpProfession(current_prof)
-				      elseif not shift_key and not alt_key and not ctrl_key then
-					      if MainPanel and MainPanel:IsVisible() and prev_profession == cur_profession then
-						      MainPanel:Hide()
-					      else
-						      addon:Scan(false)
-						      addon:AddWaypoint()
-					      end
-				      end
-			      end)
+		if shift_key and not alt_key and not ctrl_key then
+			addon:Scan(true)
+		elseif alt_key and not shift_key and not ctrl_key then
+			addon:ClearWaypoints()
+		elseif ctrl_key and not shift_key and not alt_key then
+			local current_prof = _G.GetTradeSkillLine()
+			addon:DumpProfession(current_prof)
+		elseif not shift_key and not alt_key and not ctrl_key then
+			if MainPanel and MainPanel:IsVisible() and prev_profession == _G.GetTradeSkillLine() then
+				MainPanel:Hide()
+			else
+				addon:Scan(false)
+				addon:AddWaypoint()
+			end
+		end
+	end)
 
-	scan_button:SetScript("OnEnter",
-			      function(self)
-				      local tooltip = _G.GameTooltip
+	scan_button:SetScript("OnEnter", function(self)
+		local tooltip = _G.GameTooltip
 
-				      _G.GameTooltip_SetDefaultAnchor(tooltip, self)
-				      tooltip:SetText(L["SCAN_RECIPES_DESC"])
-				      tooltip:Show()
-			      end)
+		_G.GameTooltip_SetDefaultAnchor(tooltip, self)
+		tooltip:SetText(L["SCAN_RECIPES_DESC"])
+		tooltip:Show()
+	end)
 	scan_button:SetScript("OnLeave", function() _G.GameTooltip:Hide() end)
 	scan_button:SetText(L["Scan"])
 
@@ -539,53 +536,52 @@ function addon:OnInitialize()
 	-------------------------------------------------------------------------------
 	-- Hook GameTooltip so we can show information on mobs that drop/sell/train
 	-------------------------------------------------------------------------------
-        _G.GameTooltip:HookScript("OnTooltipSetUnit",
-		       function(self)
-			       if not addon.db.profile.recipes_in_tooltips then
-				       return
-			       end
-			       local name, unit = self:GetUnit()
+	_G.GameTooltip:HookScript("OnTooltipSetUnit", function(self)
+		if not addon.db.profile.recipes_in_tooltips then
+			return
+		end
+		local name, unit = self:GetUnit()
 
-			       if not unit then
-				       return
-			       end
-			       local guid = _G.UnitGUID(unit)
+		if not unit then
+			return
+		end
+		local guid = _G.UnitGUID(unit)
 
-			       if not guid then
-				       return
-			       end
-			       local id_num = tonumber(guid:sub(-12,-9), 16)
-			       local unit = private.mob_list[id_num] or private.vendor_list[id_num] or private.trainer_list[id_num]
+		if not guid then
+			return
+		end
+		local id_num = tonumber(guid:sub(-12, -9), 16)
+		local unit = private.mob_list[id_num] or private.vendor_list[id_num] or private.trainer_list[id_num]
 
-			       if not unit or not unit.item_list then
-				       return
-			       end
-			       local player = private.Player
-			       local recipe_list = private.recipe_list
-			       local shifted = _G.IsShiftKeyDown()
-			       local count = 0
+		if not unit or not unit.item_list then
+			return
+		end
+		local player = private.Player
+		local recipe_list = private.recipe_list
+		local shifted = _G.IsShiftKeyDown()
+		local count = 0
 
-			       for spell_id in pairs(unit.item_list) do
-				       local recipe = recipe_list[spell_id]
-				       local recipe_prof = _G.GetSpellInfo(recipe.profession)
+		for spell_id in pairs(unit.item_list) do
+			local recipe = recipe_list[spell_id]
+			local recipe_prof = _G.GetSpellInfo(recipe.profession)
 
-				       if player.scanned_professions[recipe_prof] then
-					       local skill_level = player.professions[recipe_prof]
-					       local has_level = skill_level and (type(skill_level) == "boolean" and true or skill_level >= recipe.skill_level)
+			if player.scanned_professions[recipe_prof] then
+				local skill_level = player.professions[recipe_prof]
+				local has_level = skill_level and (type(skill_level) == "boolean" and true or skill_level >= recipe.skill_level)
 
-					       if ((not recipe:HasState("KNOWN") and has_level) or shifted) and player:HasRecipeFaction(recipe) then
-						       local _, _, _, hex = _G.GetItemQualityColor(recipe.quality)
+				if ((not recipe:HasState("KNOWN") and has_level) or shifted) and player:HasRecipeFaction(recipe) then
+					local _, _, _, hex = _G.GetItemQualityColor(recipe.quality)
 
-						       self:AddLine(("%s: |c%s%s|r (%d)"):format(recipe.profession, hex, recipe.name, recipe.skill_level))
-						       count = count + 1
-					       end
-				       end
+					self:AddLine(("%s: |c%s%s|r (%d)"):format(recipe.profession, hex, recipe.name, recipe.skill_level))
+					count = count + 1
+				end
+			end
 
-				       if count >= addon.db.profile.max_recipes_in_tooltips then
-					       break
-				       end
-			       end
-		       end)
+			if count >= addon.db.profile.max_recipes_in_tooltips then
+				break
+			end
+		end
+	end)
 end
 
 ---Function run when the addon is enabled.  Registers events and pre-loads certain variables.
@@ -612,15 +608,14 @@ function addon:OnEnable()
 		_G.Skillet:AddButtonToTradeskillWindow(scan_button)
 		scan_button:SetWidth(80)
 	elseif _G.MRTAPI then
-		_G.MRTAPI:RegisterHandler("TradeSkillWindowOnShow",
-						function()
-							scan_button:SetParent(_G.MRTSkillFrame)
-							scan_button:ClearAllPoints()
-							scan_button:SetPoint("RIGHT", _G.MRTSkillFrameCloseButton, "LEFT", 4, 0)
-							scan_button:SetWidth(scan_button:GetTextWidth() + 10)
-							scan_button:Show()
-						end)
-  	elseif _G.ATSWFrame then
+		_G.MRTAPI:RegisterHandler("TradeSkillWindowOnShow", function()
+			scan_button:SetParent(_G.MRTSkillFrame)
+			scan_button:ClearAllPoints()
+			scan_button:SetPoint("RIGHT", _G.MRTSkillFrameCloseButton, "LEFT", 4, 0)
+			scan_button:SetWidth(scan_button:GetTextWidth() + 10)
+			scan_button:Show()
+		end)
+	elseif _G.ATSWFrame then
 		scan_button:SetParent(_G.ATSWFrame)
 		scan_button:ClearAllPoints()
 
@@ -725,7 +720,6 @@ function addon:OnEnable()
 	end	-- do
 end
 
----Run when the addon is disabled. Ace3 takes care of unregistering events, etc.
 function addon:OnDisable()
 	if addon.Frame then
 		addon.Frame:Hide()
@@ -740,65 +734,54 @@ end
 -------------------------------------------------------------------------------
 -- Event handling functions
 -------------------------------------------------------------------------------
-
----Event used for datamining when a trainer is shown.
 function addon:TRAINER_SHOW()
 	self:ScanTrainerData(true)
 end
 
----Event used for datamining when a vendor is shown.
 function addon:MERCHANT_SHOW()
 	self:ScanVendor()
 end
 
-do
-	local GetTradeSkillListLink = _G.GetTradeSkillListLink
-	local UnitName = _G.UnitName
-	local GetRealmName = _G.GetRealmName
+function addon:TRADE_SKILL_SHOW()
+	local is_linked = _G.IsTradeSkillLinked() or _G.IsTradeSkillGuild()
+	local pname = _G.UnitName("player")
+	local prealm = _G.GetRealmName()
 
-	function addon:TRADE_SKILL_SHOW()
-		local is_linked = _G.IsTradeSkillLinked() or _G.IsTradeSkillGuild()
-		local tradelink = GetTradeSkillListLink()
+	-- Actual alt information saved here. -Torhal
+	addon.db.global.tradeskill = addon.db.global.tradeskill or {}
+	addon.db.global.tradeskill[prealm] = addon.db.global.tradeskill[prealm] or {}
+	addon.db.global.tradeskill[prealm][pname] = addon.db.global.tradeskill[prealm][pname] or {}
 
-		local pname = UnitName("player")
-		local prealm = GetRealmName()
-		local tradename = _G.GetTradeSkillLine()
+	-- If this is our own skill, save it. Otherwise, make sure it's gone.
+	addon.db.global.tradeskill[prealm][pname][_G.GetTradeSkillLine()] = (not is_linked) and _G.GetTradeSkillListLink()
 
-		-- Actual alt information saved here. -Torhal
-		addon.db.global.tradeskill = addon.db.global.tradeskill or {}
-		addon.db.global.tradeskill[prealm] = addon.db.global.tradeskill[prealm] or {}
-		addon.db.global.tradeskill[prealm][pname] = addon.db.global.tradeskill[prealm][pname] or {}
+	local scan_button = self.scan_button
+	local scan_parent = scan_button:GetParent()
 
-		-- If this is our own skill, save it. Otherwise, make sure it's gone.
-		addon.db.global.tradeskill[prealm][pname][tradename] = (not is_linked) and tradelink or nil
-
-		local scan_button = self.scan_button
-		local scan_parent = scan_button:GetParent()
-
-		if not scan_parent or scan_parent == _G.UIParent then
-			scan_button:SetParent(_G.TradeSkillFrame)
-			scan_parent = scan_button:GetParent()
-		end
-
-		if scan_parent == _G.TradeSkillFrame then
-			scan_button:ClearAllPoints()
-
-			local loc = addon.db.profile.scanbuttonlocation
-
-			if loc == "TR" then
-				scan_button:SetPoint("RIGHT", _G.TradeSkillFrameCloseButton, "LEFT",4,0)
-			elseif loc == "TL" then
-				scan_button:SetPoint("LEFT", _G.TradeSkillFramePortrait, "RIGHT",2,12)
-			elseif loc == "BR" then
-				scan_button:SetPoint("TOP", _G.TradeSkillCancelButton, "BOTTOM",0,-5)
-			elseif loc == "BL" then
-				scan_button:SetPoint("TOP", _G.TradeSkillCreateAllButton, "BOTTOM",0,-5)
-			end
-			scan_button:SetWidth(scan_button:GetTextWidth() + 10)
-		end
-		scan_button:Show()
+	if not scan_parent or scan_parent == _G.UIParent then
+		scan_button:SetParent(_G.TradeSkillFrame)
+		scan_parent = scan_button:GetParent()
 	end
+
+	if scan_parent == _G.TradeSkillFrame then
+		scan_button:ClearAllPoints()
+
+		local loc = addon.db.profile.scanbuttonlocation
+
+		if loc == "TR" then
+			scan_button:SetPoint("RIGHT", _G.TradeSkillFrameCloseButton, "LEFT", 4, 0)
+		elseif loc == "TL" then
+			scan_button:SetPoint("LEFT", _G.TradeSkillFramePortrait, "RIGHT", 2, 12)
+		elseif loc == "BR" then
+			scan_button:SetPoint("TOP", _G.TradeSkillCancelButton, "BOTTOM", 0, -5)
+		elseif loc == "BL" then
+			scan_button:SetPoint("TOP", _G.TradeSkillCreateAllButton, "BOTTOM", 0, -5)
+		end
+		scan_button:SetWidth(scan_button:GetTextWidth() + 10)
+	end
+	scan_button:Show()
 end
+
 
 function addon:TRADE_SKILL_CLOSE()
 	if self.Frame and addon.db.profile.closeguionskillclose then
@@ -829,7 +812,7 @@ do
 				  end
 			  end)
 
-	function addon:TRADE_SKILL_UPDATE(arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10)
+	function addon:TRADE_SKILL_UPDATE()
 		if not self.Frame or not self.Frame:IsVisible() then
 			return
 		end
@@ -970,25 +953,23 @@ do
 	function addon:Scan(textdump, is_refresh)
 		local current_prof, prof_level = _G.GetTradeSkillLine()
 
-		if current_prof == private.runeforging_name then
-			prof_level = _G.UnitLevel("player")
-		end
-
-		-- Bail if we haven't opened a tradeskill frame.
-		if current_prof == "UNKNOWN" then
+		if current_prof == _G.UNKNOWN then
 			self:Print(L["OpenTradeSkillWindow"])
 			return
+		end
+
+		if current_prof == private.runeforging_name then
+			prof_level = _G.UnitLevel("player")
 		end
 		local player = private.Player
 		player:SetProfessions()
 
-		-- Set the current profession level, and update the cached data.
 		private.current_profession_scanlevel = prof_level
 
 		-- Make sure we're only updating a profession the character actually knows - this could be a scan from a tradeskill link.
-		local is_linked = _G.IsTradeSkillLinked() or _G.IsTradeSkillGuild()
+		local tradeskill_is_linked = _G.IsTradeSkillLinked() or _G.IsTradeSkillGuild()
 
-		if not is_linked then
+		if not tradeskill_is_linked then
 			player.scanned_professions[current_prof] = true
 		end
 
@@ -1078,12 +1059,12 @@ do
 						local overwrite_recipe = recipe_list[spell_overwrite_map[spell_id]]
 
 						if overwrite_recipe then
-							SetRecipeAsKnownOrLinked(overwrite_recipe, is_linked)
+							SetRecipeAsKnownOrLinked(overwrite_recipe, tradeskill_is_linked)
 						else
 							self:Debug(tradeName .. " " .. spell_overwrite_map[spell_id] .. L["MissingFromDB"])
 						end
 					end
-					SetRecipeAsKnownOrLinked(recipe, is_linked)
+					SetRecipeAsKnownOrLinked(recipe, tradeskill_is_linked)
 					recipes_found = recipes_found + 1
 				else
 					self:Debug(tradeName .. " " .. spell_string .. L["MissingFromDB"])
@@ -1127,7 +1108,7 @@ do
 			if private.InitializeFrame then
 				private.InitializeFrame()
 			end
-			self.Frame:Display(current_prof, is_linked)
+			self.Frame:Display(current_prof, tradeskill_is_linked)
 		end
 	end
 end
