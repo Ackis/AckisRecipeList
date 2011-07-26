@@ -121,58 +121,53 @@ function private.InitializeListFrame()
 		end
 	end
 
-	ScrollUpButton:SetScript("OnClick",
-				 function(self, button, down)
-					 if _G.IsAltKeyDown() then
-						 local min_val = ScrollBar:GetMinMaxValues()
-						 ScrollBar:SetValue(min_val)
-					 else
-						 ScrollBar_Scroll(1)
-					 end
-				 end)
+	ScrollUpButton:SetScript("OnClick", function(self, button, down)
+		if _G.IsAltKeyDown() then
+			local min_val = ScrollBar:GetMinMaxValues()
+			ScrollBar:SetValue(min_val)
+		else
+			ScrollBar_Scroll(1)
+		end
+	end)
 
-	ScrollDownButton:SetScript("OnClick",
-				   function(self, button, down)
-					   if _G.IsAltKeyDown() then
-						   local _, max_val = ScrollBar:GetMinMaxValues()
-						   ScrollBar:SetValue(max_val)
-					   else
-						   ScrollBar_Scroll(-1)
-					   end
-				   end)
+	ScrollDownButton:SetScript("OnClick", function(self, button, down)
+		if _G.IsAltKeyDown() then
+			local _, max_val = ScrollBar:GetMinMaxValues()
+			ScrollBar:SetValue(max_val)
+		else
+			ScrollBar_Scroll(-1)
+		end
+	end)
 
-	ScrollBar:SetScript("OnMouseWheel",
-			    function(self, delta)
-				    ScrollBar_Scroll(delta)
-			    end)
+	ScrollBar:SetScript("OnMouseWheel", function(self, delta)
+		ScrollBar_Scroll(delta)
+	end)
 
-	ListFrame:SetScript("OnMouseWheel",
-			    function(self, delta)
-				    ScrollBar_Scroll(delta)
-			    end)
+	ListFrame:SetScript("OnMouseWheel", function(self, delta)
+		ScrollBar_Scroll(delta)
+	end)
 
 	-- This can be called either from ListFrame's OnMouseWheel script, manually
 	-- sliding the thumb, or from clicking the up/down buttons.
-	ScrollBar:SetScript("OnValueChanged",
-			    function(self, value)
-				    local min_val, max_val = self:GetMinMaxValues()
-				    local current_tab = MainPanel.tabs[MainPanel.current_tab]
-				    local member = "profession_"..MainPanel.profession.."_scroll_value"
+	ScrollBar:SetScript("OnValueChanged", function(self, value)
+		local min_val, max_val = self:GetMinMaxValues()
+		local current_tab = MainPanel.tabs[MainPanel.current_tab]
+		local member = "profession_" .. MainPanel.profession .. "_scroll_value"
 
-				    current_tab[member] = value
+		current_tab[member] = value
 
-				    if value == min_val then
-					    ScrollUpButton:Disable()
-					    ScrollDownButton:Enable()
-				    elseif value == max_val then
-					    ScrollUpButton:Enable()
-					    ScrollDownButton:Disable()
-				    else
-					    ScrollUpButton:Enable()
-					    ScrollDownButton:Enable()
-				    end
-				    ListFrame:Update(nil, true)
-			    end)
+		if value == min_val then
+			ScrollUpButton:Disable()
+			ScrollDownButton:Enable()
+		elseif value == max_val then
+			ScrollUpButton:Enable()
+			ScrollDownButton:Disable()
+		else
+			ScrollUpButton:Enable()
+			ScrollDownButton:Enable()
+		end
+		ListFrame:Update(nil, true)
+	end)
 
 	local function Button_OnEnter(self)
 		ListItem_ShowTooltip(self, ListFrame.entries[self.string_index])

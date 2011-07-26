@@ -116,40 +116,38 @@ function private.InitializeFrame()
 	-------------------------------------------------------------------------------
 	-- MainPanel scripts/functions.
 	-------------------------------------------------------------------------------
-	MainPanel:SetScript("OnHide",
-			    function(self)
-				    for spell_id, recipe in pairs(private.recipe_list) do
-					    recipe:RemoveState("RELEVANT")
-					    recipe:RemoveState("VISIBLE")
-				    end
-				    addon:ClosePopups()
-			    end)
+	MainPanel:SetScript("OnHide", function(self)
+		for spell_id, recipe in pairs(private.recipe_list) do
+			recipe:RemoveState("RELEVANT")
+			recipe:RemoveState("VISIBLE")
+		end
+		addon:ClosePopups()
+	end)
 
 	MainPanel:SetScript("OnMouseDown", MainPanel.StartMoving)
 
-	MainPanel:SetScript("OnMouseUp",
-			    function(self, button)
-				    self:StopMovingOrSizing()
+	MainPanel:SetScript("OnMouseUp", function(self, button)
+		self:StopMovingOrSizing()
 
-				    local opts = addon.db.profile.frameopts
-				    local from, _, to, x, y = self:GetPoint()
+		local opts = addon.db.profile.frameopts
+		local from, _, to, x, y = self:GetPoint()
 
-				    opts.anchorFrom = from
-				    opts.anchorTo = to
+		opts.anchorFrom = from
+		opts.anchorTo = to
 
-				    if self.is_expanded then
-					    if opts.anchorFrom == "TOPLEFT" or opts.anchorFrom == "LEFT" or opts.anchorFrom == "BOTTOMLEFT" then
-						    opts.offsetx = x
-					    elseif opts.anchorFrom == "TOP" or opts.anchorFrom == "CENTER" or opts.anchorFrom == "BOTTOM" then
-						    opts.offsetx = x - 151/2
-					    elseif opts.anchorFrom == "TOPRIGHT" or opts.anchorFrom == "RIGHT" or opts.anchorFrom == "BOTTOMRIGHT" then
-						    opts.offsetx = x - 151
-					    end
-				    else
-					    opts.offsetx = x
-				    end
-				    opts.offsety = y
-			    end)
+		if self.is_expanded then
+			if opts.anchorFrom == "TOPLEFT" or opts.anchorFrom == "LEFT" or opts.anchorFrom == "BOTTOMLEFT" then
+				opts.offsetx = x
+			elseif opts.anchorFrom == "TOP" or opts.anchorFrom == "CENTER" or opts.anchorFrom == "BOTTOM" then
+				opts.offsetx = x - 151 / 2
+			elseif opts.anchorFrom == "TOPRIGHT" or opts.anchorFrom == "RIGHT" or opts.anchorFrom == "BOTTOMRIGHT" then
+				opts.offsetx = x - 151
+			end
+		else
+			opts.offsetx = x
+		end
+		opts.offsety = y
+	end)
 
 	-------------------------------------------------------------------------------
 	-- Displays the main GUI frame.
@@ -354,110 +352,109 @@ function private.InitializeFrame()
 	-------------------------------------------------------------------------------
 	-- Create the profession-cycling button and assign its values.
 	-------------------------------------------------------------------------------
-	local ProfCycle = _G.CreateFrame("Button", nil, MainPanel, "UIPanelButtonTemplate")
-	ProfCycle:SetWidth(64)
-	ProfCycle:SetHeight(64)
-	ProfCycle:SetPoint("TOPLEFT", MainPanel, "TOPLEFT", 5, -4)
-	ProfCycle:RegisterForClicks("LeftButtonUp", "RightButtonUp")
+	local profession_cycling_button = _G.CreateFrame("Button", nil, MainPanel, "UIPanelButtonTemplate")
+	profession_cycling_button:SetWidth(64)
+	profession_cycling_button:SetHeight(64)
+	profession_cycling_button:SetPoint("TOPLEFT", MainPanel, "TOPLEFT", 5, -4)
+	profession_cycling_button:RegisterForClicks("LeftButtonUp", "RightButtonUp")
 
-	ProfCycle._normal = ProfCycle:CreateTexture(nil, "BACKGROUND")
-	ProfCycle._pushed = ProfCycle:CreateTexture(nil, "BACKGROUND")
-	ProfCycle._disabled = ProfCycle:CreateTexture(nil, "BACKGROUND")
+	profession_cycling_button._normal = profession_cycling_button:CreateTexture(nil, "BACKGROUND")
+	profession_cycling_button._pushed = profession_cycling_button:CreateTexture(nil, "BACKGROUND")
+	profession_cycling_button._disabled = profession_cycling_button:CreateTexture(nil, "BACKGROUND")
 
-	MainPanel.prof_button = ProfCycle
+	MainPanel.prof_button = profession_cycling_button
 
 	-------------------------------------------------------------------------------
 	-- ProfCycle scripts/functions.
 	-------------------------------------------------------------------------------
-	ProfCycle:SetScript("OnClick",
-			    function(self, button, down)
-				    -- Known professions should be in Player.professions
+	profession_cycling_button:SetScript("OnClick", function(self, button, down)
+	-- Known professions should be in Player.professions
 
-				    -- This loop is gonna be weird. The reason is because we need to
-				    -- ensure that we cycle through all the known professions, but also
-				    -- that we do so in order. That means that if the currently displayed
-				    -- profession is the last one in the list, we're actually going to
-				    -- iterate completely once to get to the currently displayed profession
-				    -- and then iterate again to make sure we display the next one in line.
-				    -- Further, there is the nuance that the person may not know any
-				    -- professions yet at all. Users are so annoying.
-				    local startLoop = 0
-				    local endLoop = 0
-				    local displayProf = 0
+	-- This loop is gonna be weird. The reason is because we need to
+	-- ensure that we cycle through all the known professions, but also
+	-- that we do so in order. That means that if the currently displayed
+	-- profession is the last one in the list, we're actually going to
+	-- iterate completely once to get to the currently displayed profession
+	-- and then iterate again to make sure we display the next one in line.
+	-- Further, there is the nuance that the person may not know any
+	-- professions yet at all. Users are so annoying.
+		local startLoop = 0
+		local endLoop = 0
+		local displayProf = 0
 
-				    local NUM_PROFESSIONS = 12
+		local NUM_PROFESSIONS = 12
 
-				    -- ok, so first off, if we've never done this before, there is no "current"
-				    -- and a single iteration will do nicely, thank you
-				    if button == "LeftButton" then
-					    -- normal profession switch
-					    if MainPanel.profession == 0 then
-						    startLoop = 1
-						    endLoop = NUM_PROFESSIONS + 1
-					    else
-						    startLoop = MainPanel.profession + 1
-						    endLoop = MainPanel.profession
-					    end
-					    local index = startLoop
+		-- ok, so first off, if we've never done this before, there is no "current"
+		-- and a single iteration will do nicely, thank you
+		if button == "LeftButton" then
+			-- normal profession switch
+			if MainPanel.profession == 0 then
+				startLoop = 1
+				endLoop = NUM_PROFESSIONS + 1
+			else
+				startLoop = MainPanel.profession + 1
+				endLoop = MainPanel.profession
+			end
+			local index = startLoop
 
-					    while index ~= endLoop do
-						    if index > NUM_PROFESSIONS then
-							    index = 1
-						    elseif private.Player.professions[ORDERED_PROFESSIONS[index]] then
-							    displayProf = index
-							    MainPanel.profession = index
-							    break
-						    else
-							    index = index + 1
-						    end
-					    end
-				    elseif button == "RightButton" then
-					    -- reverse profession switch
-					    if MainPanel.profession == 0 then
-						    startLoop = NUM_PROFESSIONS + 1
-						    endLoop = 0
-					    else
-						    startLoop = MainPanel.profession - 1
-						    endLoop = MainPanel.profession
-					    end
-					    local index = startLoop
+			while index ~= endLoop do
+				if index > NUM_PROFESSIONS then
+					index = 1
+				elseif private.Player.professions[ORDERED_PROFESSIONS[index]] then
+					displayProf = index
+					MainPanel.profession = index
+					break
+				else
+					index = index + 1
+				end
+			end
+		elseif button == "RightButton" then
+			-- reverse profession switch
+			if MainPanel.profession == 0 then
+				startLoop = NUM_PROFESSIONS + 1
+				endLoop = 0
+			else
+				startLoop = MainPanel.profession - 1
+				endLoop = MainPanel.profession
+			end
+			local index = startLoop
 
-					    while index ~= endLoop do
-						    if index < 1 then
-							    index = NUM_PROFESSIONS
-						    elseif private.Player.professions[ORDERED_PROFESSIONS[index]] then
-							    displayProf = index
-							    MainPanel.profession = index
-							    break
-						    else
-							    index = index - 1
-						    end
-					    end
-				    end
-				    local trade_frame = _G.GnomeWorksFrame or _G.Skillet or _G.MRTSkillFrame or _G.ATSWFrame or _G.CauldronFrame or _G.TradeSkillFrame
-				    local is_shown = trade_frame:IsVisible()
-				    local sfx
+			while index ~= endLoop do
+				if index < 1 then
+					index = NUM_PROFESSIONS
+				elseif private.Player.professions[ORDERED_PROFESSIONS[index]] then
+					displayProf = index
+					MainPanel.profession = index
+					break
+				else
+					index = index - 1
+				end
+			end
+		end
+		local trade_frame = _G.GnomeWorksFrame or _G.Skillet or _G.MRTSkillFrame or _G.ATSWFrame or _G.CauldronFrame or _G.TradeSkillFrame
+		local is_shown = trade_frame:IsVisible()
+		local sfx
 
-				    _G.PlaySound("igCharacterNPCSelect")
+		_G.PlaySound("igCharacterNPCSelect")
 
-				    -- If not shown, save the current sound effects setting then set it to 0.
-				    if not is_shown then
-					    sfx = tonumber(_G.GetCVar("Sound_EnableSFX"))
-					    _G.SetCVar("Sound_EnableSFX", 0)
-				    end
-				    _G.CastSpellByName(ORDERED_PROFESSIONS[MainPanel.profession])
-				    addon:Scan()
+		-- If not shown, save the current sound effects setting then set it to 0.
+		if not is_shown then
+			sfx = tonumber(_G.GetCVar("Sound_EnableSFX"))
+			_G.SetCVar("Sound_EnableSFX", 0)
+		end
+		_G.CastSpellByName(ORDERED_PROFESSIONS[MainPanel.profession])
+		addon:Scan()
 
-				    if not is_shown then
-					    _G.CloseTradeSkill()
-					    _G.SetCVar("Sound_EnableSFX", sfx)
-				    end
-			    end)
+		if not is_shown then
+			_G.CloseTradeSkill()
+			_G.SetCVar("Sound_EnableSFX", sfx)
+		end
+	end)
 
 	local TEXTURE_UP_FORMAT = ([[Interface\Addons\%s\img\]]):format(FOLDER_NAME) .. "%s_up"
 	local TEXTURE_DOWN_FORMAT = ([[Interface\Addons\%s\img\]]):format(FOLDER_NAME) .. "%s_down"
 
-	function ProfCycle:ChangeTexture(texture_name)
+	function profession_cycling_button:ChangeTexture(texture_name)
 		local normal, pushed, disabled = self._normal, self._pushed, self._disabled
 
 		normal:SetTexture(TEXTURE_UP_FORMAT:format(texture_name))
@@ -706,87 +703,82 @@ function private.InitializeFrame()
 		return true
 	end
 
-	SearchBox:SetScript("OnEnterPressed",
-			    function(self)
-				    local searchtext = self:GetText()
-				    searchtext = searchtext:trim()
+	SearchBox:SetScript("OnEnterPressed", function(self)
+		local searchtext = self:GetText()
+		searchtext = searchtext:trim()
 
-				    if not searchtext or searchtext == "" then
-					    self:Reset()
-					    return
-				    end
-				    self:HighlightText()
+		if not searchtext or searchtext == "" then
+			self:Reset()
+			return
+		end
+		self:HighlightText()
 
-				    if searchtext == _G.SEARCH then
-					    return
-				    end
-				    self.prev_search = searchtext
+		if searchtext == _G.SEARCH then
+			return
+		end
+		self.prev_search = searchtext
 
-				    self:AddHistoryLine(searchtext)
-				    SearchRecipes(searchtext)
-				    MainPanel.list_frame:Update(nil, false)
-			    end)
+		self:AddHistoryLine(searchtext)
+		SearchRecipes(searchtext)
+		MainPanel.list_frame:Update(nil, false)
+	end)
 
 	SearchBox:SetScript("OnEditFocusGained", SearchBox.HighlightText)
 
-	SearchBox:SetScript("OnEditFocusLost",
-			    function(self)
-				    local text = self:GetText()
+	SearchBox:SetScript("OnEditFocusLost", function(self)
+		local text = self:GetText()
 
-				    if text == "" or text == _G.SEARCH then
-					    self:Reset()
-					    return
-				    end
+		if text == "" or text == _G.SEARCH then
+			self:Reset()
+			return
+		end
 
-				    -- Ensure that the highlight is cleared.
-				    self:SetText(text)
+		-- Ensure that the highlight is cleared.
+		self:SetText(text)
 
-				    self:AddHistoryLine(text)
-			    end)
+		self:AddHistoryLine(text)
+	end)
 
 
-	SearchBox:SetScript("OnTextSet",
-			    function(self)
-				    local text = self:GetText()
+	SearchBox:SetScript("OnTextSet", function(self)
+		local text = self:GetText()
 
-				    if text ~= "" and text ~= _G.SEARCH and text ~= self.prev_search then
-					    self:HighlightText()
-				    else
-					    self:Reset()
-				    end
-			    end)
+		if text ~= "" and text ~= _G.SEARCH and text ~= self.prev_search then
+			self:HighlightText()
+		else
+			self:Reset()
+		end
+	end)
 
 	do
 		local last_update = 0
 		local updater = _G.CreateFrame("Frame", nil, _G.UIParent)
 
 		updater:Hide()
-		updater:SetScript("OnUpdate",
-				  function(self, elapsed)
-					  last_update = last_update + elapsed
+		updater:SetScript("OnUpdate", function(self, elapsed)
+			last_update = last_update + elapsed
 
-					  if last_update >= 0.5 then
-						  last_update = 0
+			if last_update >= 0.5 then
+				last_update = 0
 
-						  SearchRecipes(SearchBox:GetText())
-						  MainPanel.list_frame:Update(nil, false)
-						  self:Hide()
-					  end
-				  end)
+				SearchRecipes(SearchBox:GetText())
+				MainPanel.list_frame:Update(nil, false)
+				self:Hide()
+			end
+		end)
 
-		SearchBox:SetScript("OnTextChanged",
-				    function(self, is_typed)
-					    if not is_typed then
-						    return
-					    end
-					    local text = self:GetText()
+		SearchBox:SetScript("OnTextChanged", function(self, is_typed)
+			if not is_typed then
+				return
+			end
+			local text = self:GetText()
 
-					    if text ~= "" and text ~= _G.SEARCH and text ~= self.prev_search then
-						    updater:Show()
-					    else
-						    self:Reset()
-					    end
-				    end)
+			if text ~= "" and text ~= _G.SEARCH and text ~= self.prev_search then
+				updater:Show()
+			else
+				self:Reset()
+			end
+		end)
 	end	-- do
 
 	-------------------------------------------------------------------------------
@@ -835,34 +827,33 @@ function private.InitializeFrame()
 
 	expand_button:SetPoint("LEFT", expand_button_frame.left, "RIGHT", -3, -3)
 
-	expand_button:SetScript("OnClick",
-			       function(self, mouse_button, down)
-				       local current_tab = MainPanel.tabs[MainPanel.current_tab]
-				       local expanded = current_tab["expand_button_"..MainPanel.profession]
-				       local expand_mode
+	expand_button:SetScript("OnClick", function(self, mouse_button, down)
+		local current_tab = MainPanel.tabs[MainPanel.current_tab]
+		local expanded = current_tab["expand_button_" .. MainPanel.profession]
+		local expand_mode
 
-				       if not expanded then
-					       if _G.IsShiftKeyDown() then
-						       expand_mode = "deep"
-					       else
-						       expand_mode = "normal"
-					       end
-				       else
-					       local prof_name = ORDERED_PROFESSIONS[MainPanel.profession]
+		if not expanded then
+			if _G.IsShiftKeyDown() then
+				expand_mode = "deep"
+			else
+				expand_mode = "normal"
+			end
+		else
+			local prof_name = ORDERED_PROFESSIONS[MainPanel.profession]
 
-					       table.wipe(current_tab[prof_name.." expanded"])
-				       end
-				       -- MainPanel.list_frame:Update() must be called before the button can be expanded or contracted, since
-				       -- the button is contracted from there.
-				       -- If expand_mode is nil, that means expand nothing.
-				       MainPanel.list_frame:Update(expand_mode, false)
+			table.wipe(current_tab[prof_name .. " expanded"])
+		end
+		-- MainPanel.list_frame:Update() must be called before the button can be expanded or contracted, since
+		-- the button is contracted from there.
+		-- If expand_mode is nil, that means expand nothing.
+		MainPanel.list_frame:Update(expand_mode, false)
 
-				       if expanded then
-					       self:Contract(current_tab)
-				       else
-					       self:Expand(current_tab)
-				       end
-			       end)
+		if expanded then
+			self:Contract(current_tab)
+		else
+			self:Expand(current_tab)
+		end
+	end)
 
 	function expand_button:Expand(current_tab)
 		current_tab["expand_button_"..MainPanel.profession] = true
@@ -897,16 +888,14 @@ function private.InitializeFrame()
 	SkillToggle.text = SkillToggle:CreateFontString(nil, "ARTWORK", "GameFontNormalSmall")
 	SkillToggle.text:SetPoint("LEFT", SkillToggle, "RIGHT", 0, 0)
 
-	SkillToggle:SetScript("OnClick",
-			      function(self, button, down)
-				      addon.db.profile.skill_view = not addon.db.profile.skill_view
-				      MainPanel.list_frame:Update(nil, false)
-			      end)
+	SkillToggle:SetScript("OnClick", function(self, button, down)
+		addon.db.profile.skill_view = not addon.db.profile.skill_view
+		MainPanel.list_frame:Update(nil, false)
+	end)
 
-	SkillToggle:SetScript("OnShow",
-			      function(self)
-				      self:SetChecked(addon.db.profile.skill_view)
-			      end)
+	SkillToggle:SetScript("OnShow", function(self)
+		self:SetChecked(addon.db.profile.skill_view)
+	end)
 
 	SkillToggle.text:SetText(_G.SKILL)
 	SetTooltipScripts(SkillToggle, L["SKILL_TOGGLE_DESC"], 1)
@@ -922,16 +911,14 @@ function private.InitializeFrame()
 	ExcludeToggle.text = ExcludeToggle:CreateFontString(nil, "ARTWORK", "GameFontNormalSmall")
 	ExcludeToggle.text:SetPoint("LEFT", ExcludeToggle, "RIGHT", 0, 0)
 
-	ExcludeToggle:SetScript("OnClick",
-				function(self, button, down)
-					addon.db.profile.ignoreexclusionlist = not addon.db.profile.ignoreexclusionlist
-					MainPanel.list_frame:Update(nil, false)
-				end)
+	ExcludeToggle:SetScript("OnClick", function(self, button, down)
+		addon.db.profile.ignoreexclusionlist = not addon.db.profile.ignoreexclusionlist
+		MainPanel.list_frame:Update(nil, false)
+	end)
 
-	ExcludeToggle:SetScript("OnShow",
-				function(self)
-					self:SetChecked(addon.db.profile.ignoreexclusionlist)
-				end)
+	ExcludeToggle:SetScript("OnShow", function(self)
+		self:SetChecked(addon.db.profile.ignoreexclusionlist)
+	end)
 
 	ExcludeToggle.text:SetText(L["Display Exclusions"])
 	SetTooltipScripts(ExcludeToggle, L["DISPLAY_EXCLUSION_DESC"], 1)
@@ -942,10 +929,9 @@ function private.InitializeFrame()
 	MainPanel.xclose_button = _G.CreateFrame("Button", nil, MainPanel, "UIPanelCloseButton")
 	MainPanel.xclose_button:SetPoint("TOPRIGHT", MainPanel, "TOPRIGHT", -30, -8)
 
-	MainPanel.xclose_button:SetScript("OnClick",
-					  function(self, button, down)
-						  MainPanel:Hide()
-					  end)
+	MainPanel.xclose_button:SetScript("OnClick", function(self, button, down)
+		MainPanel:Hide()
+	end)
 
 	-------------------------------------------------------------------------------
 	-- Create MainPanel.filter_toggle, and set its scripts.
@@ -997,15 +983,14 @@ function private.InitializeFrame()
 
 	MainPanel.sort_button = sort_toggle
 
-	sort_toggle:SetScript("OnClick",
-			     function(self, button, down)
-				     local sort_type = addon.db.profile.sorting
+	sort_toggle:SetScript("OnClick", function(self, button, down)
+		local sort_type = addon.db.profile.sorting
 
-				     addon.db.profile.sorting = (sort_type == "Ascending" and "Descending" or "Ascending")
+		addon.db.profile.sorting = (sort_type == "Ascending" and "Descending" or "Ascending")
 
-				     self:SetTextures()
-				     MainPanel.list_frame:Update(nil, false)
-			     end)
+		self:SetTextures()
+		MainPanel.list_frame:Update(nil, false)
+	end)
 
 	sort_toggle:SetHighlightTexture([[Interface\CHATFRAME\UI-ChatIcon-BlinkHilight]])
 

@@ -152,8 +152,8 @@ function private.InitializeFilterPanel()
 	MainPanel.filter_reset = filter_reset
 
 	do
+		-- Thanks to Antiarc for this code
 		local function recursiveReset(t)
-			-- Thanks to Antiarc for this code
 			for k, v in pairs(t) do
 				if _G.type(v) == "table" then
 					recursiveReset(v)
@@ -163,31 +163,30 @@ function private.InitializeFilterPanel()
 			end
 		end
 
-		filter_reset:SetScript("OnClick",
-				       function(self, button, down)
-					       local filterdb = addon.db.profile.filters
+		filter_reset:SetScript("OnClick", function(self, button, down)
+			local filterdb = addon.db.profile.filters
 
-					       -- Reset all filters to true.
-					       recursiveReset(addon.db.profile.filters)
+			-- Reset all filters to true.
+			recursiveReset(addon.db.profile.filters)
 
-					       -- Reset specific filters to false.
-					       filterdb.general.specialty = false
-					       filterdb.general.known = false
-					       filterdb.general.retired = false
+			-- Reset specific filters to false.
+			filterdb.general.specialty = false
+			filterdb.general.known = false
+			filterdb.general.retired = false
 
-					       -- Reset all classes to false.
-					       for class in pairs(filterdb.classes) do
-						       filterdb.classes[class] = false
-					       end
-					       -- Set your own class to true.
-					       filterdb.classes[private.Player.class:lower()] = true
+			-- Reset all classes to false.
+			for class in pairs(filterdb.classes) do
+				filterdb.classes[class] = false
+			end
+			-- Set your own class to true.
+			filterdb.classes[private.Player.class:lower()] = true
 
-					       if MainPanel:IsVisible() then
-						       MainPanel:UpdateTitle()
-						       UpdateFilterMarks()
-						       MainPanel.list_frame:Update(nil, false)
-					       end
-				       end)
+			if MainPanel:IsVisible() then
+				MainPanel:UpdateTitle()
+				UpdateFilterMarks()
+				MainPanel.list_frame:Update(nil, false)
+			end
+		end)
 	end	-- do
 
 	-------------------------------------------------------------------------------
@@ -247,12 +246,11 @@ function private.InitializeFilterPanel()
 
 		cButton:SetWidth(button_size)
 		cButton:SetHeight(button_size)
-		cButton:SetScript("OnClick",
-				  function(self, button, down)
-					  -- The button must be unchecked for ToggleFilterMenu() to work correctly.
-					  cButton:SetChecked(false)
-					  ToggleFilterMenu(category)
-				  end)
+		cButton:SetScript("OnClick", function(self, button, down)
+		-- The button must be unchecked for ToggleFilterMenu() to work correctly.
+			cButton:SetChecked(false)
+			ToggleFilterMenu(category)
+		end)
 
 		local bgTex = cButton:CreateTexture(nil, "BACKGROUND")
 		bgTex:SetTexture("Interface/SpellBook/UI-Spellbook-SpellBackground")
@@ -374,18 +372,17 @@ function private.InitializeFilterPanel()
 
 	private.SetTooltipScripts(general_toggle, L["GENERAL_TEXT_DESC"])
 
-	general_toggle:SetScript("OnClick",
-			       function(self, button)
-				       local filters = addon.db.profile.filters.general
-				       local toggle = (button == "LeftButton") and true or false
+	general_toggle:SetScript("OnClick", function(self, button)
+		local filters = addon.db.profile.filters.general
+		local toggle = (button == "LeftButton") and true or false
 
-				       for filter in pairs(filters) do
-					       filters[filter] = toggle
-					       general_frame[filter]:SetChecked(toggle)
-				       end
-				       MainPanel:UpdateTitle()
-				       MainPanel.list_frame:Update(nil, false)
-			       end)
+		for filter in pairs(filters) do
+			filters[filter] = toggle
+			general_frame[filter]:SetChecked(toggle)
+		end
+		MainPanel:UpdateTitle()
+		MainPanel.list_frame:Update(nil, false)
+	end)
 
 	general_frame.general_toggle = general_toggle
 
@@ -414,24 +411,23 @@ function private.InitializeFilterPanel()
 
 	private.SetTooltipScripts(class_toggle, L["CLASS_TEXT_DESC"])
 
-	class_toggle:SetScript("OnClick",
-			       function(self, button)
-				       local classes = addon.db.profile.filters.classes
-				       local toggle = (button == "LeftButton") and true or false
+	class_toggle:SetScript("OnClick", function(self, button)
+		local classes = addon.db.profile.filters.classes
+		local toggle = (button == "LeftButton") and true or false
 
-				       for class in pairs(classes) do
-					       classes[class] = toggle
-					       general_frame[class]:SetChecked(toggle)
-				       end
+		for class in pairs(classes) do
+			classes[class] = toggle
+			general_frame[class]:SetChecked(toggle)
+		end
 
-				       if toggle == false then
-					       local class = private.Player.class:lower()
-					       classes[class] = true
-					       general_frame[class]:SetChecked(true)
-				       end
-				       MainPanel:UpdateTitle()
-				       MainPanel.list_frame:Update(nil, false)
-			       end)
+		if toggle == false then
+			local class = private.Player.class:lower()
+			classes[class] = true
+			general_frame[class]:SetChecked(true)
+		end
+		MainPanel:UpdateTitle()
+		MainPanel.list_frame:Update(nil, false)
+	end)
 
 	general_frame.class_toggle = class_toggle
 
@@ -599,18 +595,17 @@ function private.InitializeFilterPanel()
 
 		private.SetTooltipScripts(armor_toggle, L["ARMOR_TEXT_DESC"])
 
-		armor_toggle:SetScript("OnClick",
-				       function(self, button)
-					       local armors = addon.db.profile.filters.item.armor
-					       local toggle = (button == "LeftButton") and true or false
+		armor_toggle:SetScript("OnClick", function(self, button)
+			local armors = addon.db.profile.filters.item.armor
+			local toggle = (button == "LeftButton") and true or false
 
-					       for armor in pairs(armors) do
-						       armors[armor] = toggle
-						       item_frame[armor]:SetChecked(toggle)
-					       end
-					       MainPanel:UpdateTitle()
-					       MainPanel.list_frame:Update(nil, false)
-				       end)
+			for armor in pairs(armors) do
+				armors[armor] = toggle
+				item_frame[armor]:SetChecked(toggle)
+			end
+			MainPanel:UpdateTitle()
+			MainPanel.list_frame:Update(nil, false)
+		end)
 
 		item_frame.armor_toggle = armor_toggle
 
@@ -642,21 +637,20 @@ function private.InitializeFilterPanel()
 
 		private.SetTooltipScripts(weapon_toggle, L["WEAPON_TEXT_DESC"])
 
-		weapon_toggle:SetScript("OnClick",
-					function(self, button)
-						local weapons = addon.db.profile.filters.item.weapon
-						local toggle = (button == "LeftButton") and true or false
+		weapon_toggle:SetScript("OnClick", function(self, button)
+			local weapons = addon.db.profile.filters.item.weapon
+			local toggle = (button == "LeftButton") and true or false
 
-						for weapon in pairs(weapons) do
-							weapons[weapon] = toggle
+			for weapon in pairs(weapons) do
+				weapons[weapon] = toggle
 
-							if FilterPanel.value_map[weapon].svroot then
-								item_frame[weapon]:SetChecked(toggle)
-							end
-						end
-						MainPanel:UpdateTitle()
-						MainPanel.list_frame:Update(nil, false)
-					end)
+				if FilterPanel.value_map[weapon].svroot then
+					item_frame[weapon]:SetChecked(toggle)
+				end
+			end
+			MainPanel:UpdateTitle()
+			MainPanel.list_frame:Update(nil, false)
+		end)
 
 		item_frame.weapon_toggle = weapon_toggle
 
@@ -828,8 +822,8 @@ function private.InitializeFilterPanel()
 			cButton:SetHeight(46)
 			cButton:SetChecked(false)
 			cButton:SetScript("OnClick", function(self, button, down)
-							     ToggleExpansionMenu(expansion)
-						     end)
+				ToggleExpansionMenu(expansion)
+			end)
 
 			local iconTex = cButton:CreateTexture(nil, "BORDER")
 			iconTex:SetTexture(([[Interface\Glues\Common\%s]]):format(texture))
@@ -1337,32 +1331,30 @@ function private.InitializeFilterPanel()
 			tip:Show()
 		end
 
-		ARL_MiscAltBtn:SetScript("OnClick",
-					 function(self, button)
-						 if clicktip then
-							 if not click_info.modified then
-								 clicktip = QTip:Release(clicktip)
-								 table.wipe(click_info)
-							 else
-								 table.wipe(click_info)
-								 GenerateClickableTT(self)
-							 end
-						 else
-							 clicktip = QTip:Acquire("ARL_Clickable", 1, "CENTER")
-							 table.wipe(click_info)
+		ARL_MiscAltBtn:SetScript("OnClick", function(self, button)
+			if clicktip then
+				if not click_info.modified then
+					clicktip = QTip:Release(clicktip)
+					table.wipe(click_info)
+				else
+					table.wipe(click_info)
+					GenerateClickableTT(self)
+				end
+			else
+				clicktip = QTip:Acquire("ARL_Clickable", 1, "CENTER")
+				table.wipe(click_info)
 
-							 if _G.TipTac and _G.TipTac.AddModifiedTip then
-								 _G.TipTac:AddModifiedTip(clicktip, true)
-							 end
-							 GenerateClickableTT(self)
-						 end
-					 end)
+				if _G.TipTac and _G.TipTac.AddModifiedTip then
+					_G.TipTac:AddModifiedTip(clicktip, true)
+				end
+				GenerateClickableTT(self)
+			end
+		end)
 
-		ARL_MiscAltBtn:SetScript("OnHide",
-					 function(self, button)
-						 clicktip = QTip:Release(clicktip)
-						 table.wipe(click_info)
-					 end)
+		ARL_MiscAltBtn:SetScript("OnHide", function(self, button)
+			clicktip = QTip:Release(clicktip)
+			table.wipe(click_info)
+		end)
 	end
 
 	-------------------------------------------------------------------------------

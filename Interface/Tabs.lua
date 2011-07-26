@@ -140,9 +140,9 @@ function private.InitializeTabs()
 		tab_highlight:SetPoint("TOPLEFT", tab, "TOPLEFT", 8, 1)
 		tab_highlight:SetPoint("BOTTOMRIGHT", tab, "BOTTOMRIGHT", -8, 1)
 
-		tab:SetDisabledFontObject(GameFontHighlightSmall)
-		tab:SetHighlightFontObject(GameFontHighlightSmall)
-		tab:SetNormalFontObject(GameFontNormalSmall)
+		tab:SetDisabledFontObject(_G.GameFontHighlightSmall)
+		tab:SetHighlightFontObject(_G.GameFontHighlightSmall)
+		tab:SetNormalFontObject(_G.GameFontNormalSmall)
 		tab.Real_SetText = tab.SetText
 
 		tab.SetText = Tab_SetText
