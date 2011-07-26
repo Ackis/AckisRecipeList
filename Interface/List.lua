@@ -1847,7 +1847,7 @@ do
 		acquire_tip:AddHeader()
 		acquire_tip:SetCell(1, 1, "|c"..select(4, _G.GetItemQualityColor(recipe.quality))..recipe.name, "CENTER", 2)
 
-		local recipe_item_texture = _G.select(10, _G.GetItemInfo(recipe.crafted_item_id))
+		local recipe_item_texture = recipe.crafted_item_id and _G.select(10, _G.GetItemInfo(recipe.crafted_item_id))
 
 		if recipe_item_texture then
 			acquire_tip:AddHeader()
