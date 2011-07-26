@@ -1847,6 +1847,13 @@ do
 		acquire_tip:AddHeader()
 		acquire_tip:SetCell(1, 1, "|c"..select(4, _G.GetItemQualityColor(recipe.quality))..recipe.name, "CENTER", 2)
 
+		local recipe_item_texture = _G.select(10, _G.GetItemInfo(recipe.crafted_item_id))
+
+		if recipe_item_texture then
+			acquire_tip:AddHeader()
+			acquire_tip:SetCell(2, 1, ("|T%s:30:30|t"):format(recipe_item_texture), "CENTER", 2)
+		end
+
 		if addon.db.profile.exclusionlist[list_entry.recipe_id] then
 			ttAdd(0, -1, true, L["RECIPE_EXCLUDED"], "ff0000")
 		end
