@@ -995,6 +995,27 @@ do
 		-- Get the current profession Specialty
 		local specialty = SpecialtyTable[current_prof]
 
+		-- Get the indexes of the spells in the spell book which may contain a speciality
+		local ProfessionSpecialIndex = {}
+
+		local ProfessionSpecialIndex[1] = PrimaryProfession1SpellButtonTop:GetID() + PrimaryProfession1SpellButtonTop:GetParent().spellOffset
+		local ProfessionSpecialIndex[2] = PrimaryProfession1SpellButtonBottom:GetID() + PrimaryProfession1SpellButtonBottom:GetParent().spellOffset
+		local ProfessionSpecialIndex[3] = PrimaryProfession2SpellButtonTop:GetID() + PrimaryProfession2SpellButtonTop:GetParent().spellOffset
+		local ProfessionSpecialIndex[4] = PrimaryProfession2SpellButtonBottom:GetID() + PrimaryProfession2SpellButtonBottom:GetParent().spellOffset
+
+		for i,j in pairs(ProfessionSpecialIndex) do
+
+			local spellName = GetSpellBookItemName(j, "profession")
+			if not spellName then
+				player["Specialty"] = nil
+				break
+			elseif specialty and specialty[spellName] then
+				player["Specialty"] = specialty[spellName]
+			end
+
+		end
+
+--[[
 		for index = 1, 25, 1 do
 			local spell_name = _G.GetSpellBookItemName(index, _G.BOOKTYPE_SPELL)
 
@@ -1006,7 +1027,7 @@ do
 				break
 			end
 		end
-
+]]--
 		if self.InitializeLookups then
 			self:InitializeLookups()
 		end
