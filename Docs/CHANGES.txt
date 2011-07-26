@@ -1,6 +1,14 @@
 ==ARL Change Log
 NOTE: Always remove the folder for old versions and install a fresh copy when upgrading.
 
+== 2.2.7
+
+==== Recipe Database:
+* Updated a few Inscription recipes.
+* Updated Dig Rat Stew
+* Updated Misty and Jagged Forest Emerald
+
+
 == 2.2.6
 
 ==== Recipe Database:
