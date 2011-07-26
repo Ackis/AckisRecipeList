@@ -1015,19 +1015,6 @@ do
 
 		end
 
---[[
-		for index = 1, 25, 1 do
-			local spell_name = _G.GetSpellBookItemName(index, _G.BOOKTYPE_SPELL)
-
-			if not spell_name or index == 25 then
-				player["Specialty"] = nil
-				break
-			elseif specialty and specialty[spell_name] then
-				player["Specialty"] = specialty[spell_name]
-				break
-			end
-		end
-]]--
 		if self.InitializeLookups then
 			self:InitializeLookups()
 		end
