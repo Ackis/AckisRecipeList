@@ -938,6 +938,12 @@ do
 	-- Indices of the spells in the spell book which may contain a speciality
 	local specialtices_indices = {}
 
+	local PROFESSION_BUTTONS = {
+		_G.PrimaryProfession1SpellButtonTop,
+		_G.PrimaryProfession1SpellButtonBottom,
+		_G.PrimaryProfession2SpellButtonTop,
+		_G.PrimaryProfession2SpellButtonBottom,
+	}
 
 	-- Toggles a recipe's stats based on whether it's linked or actually known.
 	local function SetRecipeAsKnownOrLinked(recipe, is_linked)
@@ -976,31 +982,19 @@ do
 		if not tradeskill_is_linked then
 			player.scanned_professions[current_prof] = true
 		end
-		local button1_top = _G.PrimaryProfession1SpellButtonTop
-		local button1_bottom = _G.PrimaryProfession1SpellButtonBottom
-		local button2_top = _G.PrimaryProfession2SpellButtonTop
-		local button2_bottom = _G.PrimaryProfession2SpellButtonBottom
+		local insert_index = 1
 
 		table.wipe(specialtices_indices)
-		local 1 = 1
 
-		if button1_top then
-			specialtices_indices[i] = button1_top:GetID() + button1_top:GetParent().spellOffset
-			i = i + 1
-		end
-		if button1_bottom then
-			specialtices_indices[i] = button1_bottom:GetID() + button1_bottom:GetParent().spellOffset
-			i = i + 1
-		end
-		if button2_top then
-			specialtices_indices[i] = button2_top:GetID() + button2_top:GetParent().spellOffset
-			i = i + 1
-		end
-		if button2_bottom then
-			specialtices_indices[i] = button2_bottom:GetID() + button2_bottom:GetParent().spellOffset
-			i = i + 1
-		end
+		for index = 1, #PROFESSION_BUTTONS do
+			local button = PROFESSION_BUTTONS[index]
+			local spell_offset = button:GetParent().spellOffset
 
+			if spell_offset then
+				specialtices_indices[insert_index] = button:GetID() + spell_offset
+				insert_index = insert_index + 1
+			end
+		end
 		local specialty = SpecialtyTable[current_prof]
 
 		for index, book_index in ipairs(specialtices_indices) do
