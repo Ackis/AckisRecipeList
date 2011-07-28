@@ -982,11 +982,24 @@ do
 		local button2_bottom = _G.PrimaryProfession2SpellButtonBottom
 
 		table.wipe(specialtices_indices)
+		local 1 = 1
 
-		specialtices_indices[1] = button1_top:GetID() + button1_top:GetParent().spellOffset
-		specialtices_indices[2] = button1_bottom:GetID() + button1_bottom:GetParent().spellOffset
-		specialtices_indices[3] = button2_top:GetID() + button2_top:GetParent().spellOffset
-		specialtices_indices[4] = button2_bottom:GetID() + button2_bottom:GetParent().spellOffset
+		if button1_top then
+			specialtices_indices[i] = button1_top:GetID() + button1_top:GetParent().spellOffset
+			i = i + 1
+		end
+		if button1_bottom then
+			specialtices_indices[i] = button1_bottom:GetID() + button1_bottom:GetParent().spellOffset
+			i = i + 1
+		end
+		if button2_top then
+			specialtices_indices[i] = button2_top:GetID() + button2_top:GetParent().spellOffset
+			i = i + 1
+		end
+		if button2_bottom then
+			specialtices_indices[i] = button2_bottom:GetID() + button2_bottom:GetParent().spellOffset
+			i = i + 1
+		end
 
 		local specialty = SpecialtyTable[current_prof]
 
