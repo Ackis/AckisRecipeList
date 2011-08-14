@@ -431,8 +431,7 @@ function private.InitializeFrame()
 				end
 			end
 		end
-		local trade_frame = _G.GnomeWorksFrame or (_G.Skillet and _G.Skillet.tradeSkillFrame) or _G.MRTSkillFrame or _G.ATSWFrame or _G.CauldronFrame or _G.TradeSkillFrame
-		local is_shown = trade_frame:IsVisible()
+		local is_shown = addon.scan_button:GetParent():IsVisible()
 		local sfx
 
 		_G.PlaySound("igCharacterNPCSelect")
