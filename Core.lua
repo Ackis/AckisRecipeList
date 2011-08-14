@@ -742,14 +742,17 @@ function addon:CreateScanButton()
 end
 
 function addon:TRADE_SKILL_SHOW()
-	if not _G.IsTradeSkillLinked() and not _G.IsTradeSkillGuild() then
-		local player_name = _G.UnitName("player")
-		local realm_name = _G.GetRealmName()
+	local player_name = _G.UnitName("player")
+	local realm_name = _G.GetRealmName()
 
-		self.db.global.tradeskill = self.db.global.tradeskill or {}
-		self.db.global.tradeskill[realm_name] = self.db.global.tradeskill[realm_name] or {}
-		self.db.global.tradeskill[realm_name][player_name] = self.db.global.tradeskill[realm_name][player_name] or {}
+	self.db.global.tradeskill = self.db.global.tradeskill or {}
+	self.db.global.tradeskill[realm_name] = self.db.global.tradeskill[realm_name] or {}
+	self.db.global.tradeskill[realm_name][player_name] = self.db.global.tradeskill[realm_name][player_name] or {}
+
+	if not _G.IsTradeSkillLinked() and not _G.IsTradeSkillGuild() then
 		self.db.global.tradeskill[realm_name][player_name][_G.GetTradeSkillLine()] = _G.GetTradeSkillListLink()
+	else
+		self.db.global.tradeskill[realm_name][player_name][_G.GetTradeSkillLine()] = nil
 	end
 	local scan_button = self.scan_button
 
