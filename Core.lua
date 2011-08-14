@@ -701,30 +701,29 @@ function addon:CreateScanButton()
 	scan_button:Enable()
 
 	scan_button:SetScript("OnClick", function(self, button, down)
-		local main_panel = self.Frame
+		local main_panel = addon.Frame
 		local prev_profession
 
 		if main_panel then
 			prev_profession = main_panel.prof_name or private.ordered_professions[main_panel.profession]
 		end
+		local shift_pressed = _G.IsShiftKeyDown()
+		local alt_pressed = _G.IsAltKeyDown()
+		local ctrl_pressed = _G.IsControlKeyDown()
 
-		local shift_key = _G.IsShiftKeyDown()
-		local alt_key = _G.IsAltKeyDown()
-		local ctrl_key = _G.IsControlKeyDown()
-
-		if shift_key and not alt_key and not ctrl_key then
-			self:Scan(true)
-		elseif alt_key and not shift_key and not ctrl_key then
-			self:ClearWaypoints()
-		elseif ctrl_key and not shift_key and not alt_key then
+		if shift_pressed and not alt_pressed and not ctrl_pressed then
+			addon:Scan(true)
+		elseif alt_pressed and not shift_pressed and not ctrl_pressed then
+			addon:ClearWaypoints()
+		elseif ctrl_pressed and not shift_pressed and not alt_pressed then
 			local current_prof = _G.GetTradeSkillLine()
-			self:DumpProfession(current_prof)
-		elseif not shift_key and not alt_key and not ctrl_key then
+			addon:DumpProfession(current_prof)
+		elseif not shift_pressed and not alt_pressed and not ctrl_pressed then
 			if main_panel and main_panel:IsVisible() and prev_profession == _G.GetTradeSkillLine() then
 				main_panel:Hide()
 			else
-				self:Scan(false)
-				self:AddWaypoint()
+				addon:Scan(false)
+				addon:AddWaypoint()
 			end
 		end
 	end)
@@ -790,21 +789,20 @@ end
 do
 	local last_update = 0
 	local updater = _G.CreateFrame("Frame", nil, _G.UIParent)
-
 	updater:Hide()
-	updater:SetScript("OnUpdate",
-			  function(self, elapsed)
-				  last_update = last_update + elapsed
 
-				  if last_update >= 0.5 then
-					  local profession = _G.GetTradeSkillLine()
+	updater:SetScript("OnUpdate", function(self, elapsed)
+		last_update = last_update + elapsed
 
-					  if profession ~= "UNKNOWN" then
-						  addon:Scan(false, true)
-					  end
-					  self:Hide()
-				  end
-			  end)
+		if last_update >= 0.5 then
+			local profession = _G.GetTradeSkillLine()
+
+			if profession ~= "UNKNOWN" then
+				addon:Scan(false, true)
+			end
+			self:Hide()
+		end
+	end)
 
 	function addon:TRADE_SKILL_UPDATE()
 		if not self.Frame or not self.Frame:IsVisible() then
