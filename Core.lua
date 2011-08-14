@@ -470,54 +470,6 @@ function addon:OnInitialize()
 	self:RegisterChatCommand("ackisrecipelist", "ChatCommand")
 
 	-------------------------------------------------------------------------------
-	-- Create the scan button
-	-------------------------------------------------------------------------------
-	local scan_button = _G.CreateFrame("Button", nil, _G.UIParent, "UIPanelButtonTemplate")
-	scan_button:SetHeight(20)
-
-	scan_button:RegisterForClicks("LeftButtonUp")
-	scan_button:SetScript("OnClick", function(self, button, down)
-		local MainPanel = addon.Frame
-		local prev_profession
-
-		if MainPanel then
-			prev_profession = MainPanel.prof_name or private.ordered_professions[MainPanel.profession]
-		end
-
-		local shift_key = _G.IsShiftKeyDown()
-		local alt_key = _G.IsAltKeyDown()
-		local ctrl_key = _G.IsControlKeyDown()
-
-		if shift_key and not alt_key and not ctrl_key then
-			addon:Scan(true)
-		elseif alt_key and not shift_key and not ctrl_key then
-			addon:ClearWaypoints()
-		elseif ctrl_key and not shift_key and not alt_key then
-			local current_prof = _G.GetTradeSkillLine()
-			addon:DumpProfession(current_prof)
-		elseif not shift_key and not alt_key and not ctrl_key then
-			if MainPanel and MainPanel:IsVisible() and prev_profession == _G.GetTradeSkillLine() then
-				MainPanel:Hide()
-			else
-				addon:Scan(false)
-				addon:AddWaypoint()
-			end
-		end
-	end)
-
-	scan_button:SetScript("OnEnter", function(self)
-		local tooltip = _G.GameTooltip
-
-		_G.GameTooltip_SetDefaultAnchor(tooltip, self)
-		tooltip:SetText(L["SCAN_RECIPES_DESC"])
-		tooltip:Show()
-	end)
-	scan_button:SetScript("OnLeave", function() _G.GameTooltip:Hide() end)
-	scan_button:SetText(L["Scan"])
-
-	self.scan_button = scan_button
-
-	-------------------------------------------------------------------------------
 	-- Populate the profession initialization functions.
 	-------------------------------------------------------------------------------
 	PROFESSION_INIT_FUNCS[_G.GetSpellInfo(51304)] = addon.InitAlchemy
@@ -602,51 +554,6 @@ function addon:OnEnable()
 	-- Set the parent and scripts for addon.scan_button.
 	-------------------------------------------------------------------------------
 	local scan_button = self.scan_button
-
-	if _G.Skillet and _G.Skillet:IsActive() then
-		scan_button:SetParent(_G.SkilletFrame)
-		_G.Skillet:AddButtonToTradeskillWindow(scan_button)
-		scan_button:SetWidth(80)
-	elseif _G.MRTAPI then
-		_G.MRTAPI:RegisterHandler("TradeSkillWindowOnShow", function()
-			scan_button:SetParent(_G.MRTSkillFrame)
-			scan_button:ClearAllPoints()
-			scan_button:SetPoint("RIGHT", _G.MRTSkillFrameCloseButton, "LEFT", 4, 0)
-			scan_button:SetWidth(scan_button:GetTextWidth() + 10)
-			scan_button:Show()
-		end)
-	elseif _G.ATSWFrame then
-		scan_button:SetParent(_G.ATSWFrame)
-		scan_button:ClearAllPoints()
-
-		if _G.TradeJunkieMain and _G.TJ_OpenButtonATSW then
-			scan_button:SetPoint("RIGHT", _G.TJ_OpenButtonATSW, "LEFT", 0, 0)
-		else
-			scan_button:SetPoint("RIGHT", _G.ATSWOptionsButton, "LEFT", 0, 0)
-		end
-		scan_button:SetHeight(_G.ATSWOptionsButton:GetHeight())
-		scan_button:SetWidth(_G.ATSWOptionsButton:GetWidth())
-	elseif _G.CauldronFrame then
-		scan_button:SetParent(_G.CauldronFrame)
-		scan_button:ClearAllPoints()
-		scan_button:SetPoint("TOP", _G.CauldronFrame, "TOPRIGHT", -58, -52)
-		scan_button:SetWidth(90)
-	elseif _G.BPM_ShowTrainerFrame then
-		scan_button:SetParent(_G.BPM_ShowTrainerFrame)
-		scan_button:ClearAllPoints()
-		scan_button:SetPoint("RIGHT", _G.BPM_ShowTrainerFrame, "LEFT", 4, 0)
-		scan_button:SetWidth(scan_button:GetTextWidth() + 10)
-		scan_button:Show()
-	end
-
-	local buttonparent = scan_button:GetParent()
-	local framelevel = buttonparent:GetFrameLevel()
-	local framestrata = buttonparent:GetFrameStrata()
-
-	-- Set the frame level of the button to be 1 deeper than its parent
-	scan_button:SetFrameLevel(framelevel + 1)
-	scan_button:SetFrameStrata(framestrata)
-	scan_button:Enable()
 
 	-- Add an option so that ARL will work with Manufac
 	if _G.Manufac then
@@ -742,28 +649,120 @@ function addon:MERCHANT_SHOW()
 	self:ScanVendor()
 end
 
-function addon:TRADE_SKILL_SHOW()
-	local is_linked = _G.IsTradeSkillLinked() or _G.IsTradeSkillGuild()
-	local pname = _G.UnitName("player")
-	local prealm = _G.GetRealmName()
+-------------------------------------------------------------------------------
+-- Create the scan button
+-------------------------------------------------------------------------------
+function addon:CreateScanButton()
+	local scan_button = _G.CreateFrame("Button", nil, _G.TradeSkillFrame, "UIPanelButtonTemplate")
+	scan_button:SetHeight(20)
+	scan_button:RegisterForClicks("LeftButtonUp")
+	scan_button:SetText(L["Scan"])
 
-	-- Actual alt information saved here. -Torhal
-	addon.db.global.tradeskill = addon.db.global.tradeskill or {}
-	addon.db.global.tradeskill[prealm] = addon.db.global.tradeskill[prealm] or {}
-	addon.db.global.tradeskill[prealm][pname] = addon.db.global.tradeskill[prealm][pname] or {}
+	if _G.Skillet and _G.Skillet:IsActive() then
+		scan_button:SetParent(_G.SkilletFrame)
+		_G.Skillet:AddButtonToTradeskillWindow(scan_button)
+		scan_button:SetWidth(80)
+	elseif _G.MRTAPI then
+		_G.MRTAPI:RegisterHandler("TradeSkillWindowOnShow", function()
+			scan_button:SetParent(_G.MRTSkillFrame)
+			scan_button:ClearAllPoints()
+			scan_button:SetPoint("RIGHT", _G.MRTSkillFrameCloseButton, "LEFT", 4, 0)
+			scan_button:SetWidth(scan_button:GetTextWidth() + 10)
+			scan_button:Show()
+		end)
+	elseif _G.ATSWFrame then
+		scan_button:SetParent(_G.ATSWFrame)
+		scan_button:ClearAllPoints()
 
-	-- If this is our own skill, save it. Otherwise, make sure it's gone.
-	addon.db.global.tradeskill[prealm][pname][_G.GetTradeSkillLine()] = (not is_linked) and _G.GetTradeSkillListLink()
-
-	local scan_button = self.scan_button
+		if _G.TradeJunkieMain and _G.TJ_OpenButtonATSW then
+			scan_button:SetPoint("RIGHT", _G.TJ_OpenButtonATSW, "LEFT", 0, 0)
+		else
+			scan_button:SetPoint("RIGHT", _G.ATSWOptionsButton, "LEFT", 0, 0)
+		end
+		scan_button:SetHeight(_G.ATSWOptionsButton:GetHeight())
+		scan_button:SetWidth(_G.ATSWOptionsButton:GetWidth())
+	elseif _G.CauldronFrame then
+		scan_button:SetParent(_G.CauldronFrame)
+		scan_button:ClearAllPoints()
+		scan_button:SetPoint("TOP", _G.CauldronFrame, "TOPRIGHT", -58, -52)
+		scan_button:SetWidth(90)
+	elseif _G.BPM_ShowTrainerFrame then
+		scan_button:SetParent(_G.BPM_ShowTrainerFrame)
+		scan_button:ClearAllPoints()
+		scan_button:SetPoint("RIGHT", _G.BPM_ShowTrainerFrame, "LEFT", 4, 0)
+		scan_button:SetWidth(scan_button:GetTextWidth() + 10)
+		scan_button:Show()
+	end
 	local scan_parent = scan_button:GetParent()
 
-	if not scan_parent or scan_parent == _G.UIParent then
-		scan_button:SetParent(_G.TradeSkillFrame)
-		scan_parent = scan_button:GetParent()
+	-- Set the frame level of the button to be 1 higher than its parent
+	scan_button:SetFrameLevel(scan_parent:GetFrameLevel() + 1)
+	scan_button:SetFrameStrata(scan_parent:GetFrameStrata())
+	scan_button:Enable()
+
+	scan_button:SetScript("OnClick", function(self, button, down)
+		local main_panel = self.Frame
+		local prev_profession
+
+		if main_panel then
+			prev_profession = main_panel.prof_name or private.ordered_professions[main_panel.profession]
+		end
+
+		local shift_key = _G.IsShiftKeyDown()
+		local alt_key = _G.IsAltKeyDown()
+		local ctrl_key = _G.IsControlKeyDown()
+
+		if shift_key and not alt_key and not ctrl_key then
+			self:Scan(true)
+		elseif alt_key and not shift_key and not ctrl_key then
+			self:ClearWaypoints()
+		elseif ctrl_key and not shift_key and not alt_key then
+			local current_prof = _G.GetTradeSkillLine()
+			self:DumpProfession(current_prof)
+		elseif not shift_key and not alt_key and not ctrl_key then
+			if main_panel and main_panel:IsVisible() and prev_profession == _G.GetTradeSkillLine() then
+				main_panel:Hide()
+			else
+				self:Scan(false)
+				self:AddWaypoint()
+			end
+		end
+	end)
+
+	scan_button:SetScript("OnEnter", function(self)
+		local tooltip = _G.GameTooltip
+
+		_G.GameTooltip_SetDefaultAnchor(tooltip, self)
+		tooltip:SetText(L["SCAN_RECIPES_DESC"])
+		tooltip:Show()
+	end)
+	scan_button:SetScript("OnLeave", function() _G.GameTooltip:Hide() end)
+
+	self.scan_button = scan_button
+	return scan_button
+end
+
+function addon:TRADE_SKILL_SHOW()
+	local is_linked = _G.IsTradeSkillLinked() or _G.IsTradeSkillGuild()
+	local player_name = _G.UnitName("player")
+	local realm_name = _G.GetRealmName()
+
+	-- Actual alt information saved here. -Torhal
+	self.db.global.tradeskill = self.db.global.tradeskill or {}
+	self.db.global.tradeskill[realm_name] = self.db.global.tradeskill[realm_name] or {}
+	self.db.global.tradeskill[realm_name][player_name] = self.db.global.tradeskill[realm_name][player_name] or {}
+
+	-- If this is our own skill, save it. Otherwise, make sure it's gone.
+	self.db.global.tradeskill[realm_name][player_name][_G.GetTradeSkillLine()] = (not is_linked) and _G.GetTradeSkillListLink()
+
+	local scan_button = self.scan_button
+
+	if not scan_button then
+		scan_button = self:CreateScanButton()
+		self.CreateScanButton = nil
 	end
 
-	if scan_parent == _G.TradeSkillFrame then
+	if scan_button:GetParent() == _G.TradeSkillFrame then
 		scan_button:ClearAllPoints()
 
 		local loc = addon.db.profile.scanbuttonlocation
