@@ -781,14 +781,9 @@ function addon:TRADE_SKILL_SHOW()
 	scan_button:Show()
 end
 
-
 function addon:TRADE_SKILL_CLOSE()
 	if self.Frame and addon.db.profile.closeguionskillclose then
 		self.Frame:Hide()
-	end
-
-	if not _G.Skillet then
-		addon.scan_button:Hide()
 	end
 end
 
