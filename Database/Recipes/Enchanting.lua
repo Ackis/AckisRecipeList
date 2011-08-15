@@ -941,7 +941,7 @@ function addon:InitEnchanting()
 	recipe:SetRecipeItemID(20728)
 	recipe:SetSkillLevels(300, 300, 310, 325, 340)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
-	recipe:AddCustom("AQ40_RANDOM_BOP", "Temple of Ahn'Qiraj")
+	recipe:AddCustom("AQ40_RANDOM_BOP")
 
 	-- Enchant Gloves - Fire Power -- 25078
 	recipe = AddRecipe(25078, V.ORIG, Q.RARE)
