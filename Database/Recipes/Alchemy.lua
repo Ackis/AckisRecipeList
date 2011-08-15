@@ -2223,7 +2223,7 @@ function addon:InitAlchemy()
 	recipe:SetCraftedItemID(65891)
 	recipe:SetSkillLevels(525, 525, 525, 530, 535)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOP)
-	recipe:AddCustom("ARCH_DROP")
+	recipe:AddCustom("ARCH_DROP_ULD")
 
 	-- Draught of War -- 93935
 	recipe = AddRecipe(93935, V.CATA, Q.COMMON)
