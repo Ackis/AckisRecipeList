@@ -31,7 +31,7 @@ L["ALT_TRADESKILL_DESC"] = [[This will display a list of alts which have had tra
 Clicking on the alt's name will output the tradeskill to chat.
 Alt-Clicking on the alt's name will delete the alt from the list.]]
 L["AQ40_RANDOM_BOP"] = "Random BoP drop off of bosses in AQ40."
-L["ARCH_DROP"] = "This recipe is a random drop from a \"Canopic Jar\" while collecting artifacts for Archaeology."
+L["ARCH_DROP_ULD"] = "This recipe is a random drop from a \"Canopic Jar\" while collecting artifacts for Archaeology."
 L["ARL_ALLEXCLUDED"] = "Although you have already scanned this profession, your exclusions are currently preventing any recipes from being displayed. Please change your exclusions and try again."
 L["ARL_ALLKNOWN"] = "You know all the recipes for this profession."
 L["ARL_SEARCHFILTERED"] = "Your search has no results."
