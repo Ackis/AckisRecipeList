@@ -1165,10 +1165,9 @@ do
 	edit_box:SetFontObject("ChatFontNormal")
 	edit_box:SetWidth(650)
 	edit_box:SetHeight(270)
-	edit_box:SetScript("OnEscapePressed",
-			   function()
-				   copy_frame:Hide()
-			   end)
+	edit_box:SetScript("OnEscapePressed", function()
+		copy_frame:Hide()
+	end)
 	edit_box:HighlightText(0)
 
 	scrollArea:SetScrollChild(edit_box)
