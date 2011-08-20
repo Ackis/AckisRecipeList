@@ -7,7 +7,7 @@ Please read below very carefully //before// attempting to report a bug. Read ''e
 # ALWAYS **check [[http://www.wowace.com/addons/arl/tickets/?status=+|the current filed tickets]]** first
 # Disable all other addons and retry
 # Remember to confirm your version number
-# Finally, read [[http://www.wowace.com/knowledge-base/how-to-file-tickets/|this]]
+# Finally, read [[http://www.wowace.com/wiki/projects/how-to-file-tickets/|this]]
 
 If you've understood all that, then **[[http://www.wowace.com/addons/arl/create-ticket/|report a bug here]]** and I thank you for your time. Check back later in case we need further feedback or confirmation that a bug has been fixed for you.
 
