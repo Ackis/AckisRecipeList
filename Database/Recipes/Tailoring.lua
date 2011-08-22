@@ -694,8 +694,8 @@ function addon:InitTailoring()
 	recipe:SetRecipeItemID(7089)
 	recipe:SetCraftedItemID(7053)
 	recipe:SetSkillLevels(175, 175, 195, 210, 225)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOAK)
-	recipe:AddLimitedVendor(6574, 1, 6576, 1)
+	recipe:AddFilters(F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOAK)
+	recipe:AddLimitedVendor(6574, 1)
 
 	-- Crimson Silk Cloak -- 8789
 	recipe = AddRecipe(8789, V.ORIG, Q.COMMON)
