@@ -166,7 +166,6 @@ function addon:InitVendor(DB)
 	AddVendor(6777,		L["Zan Shivsproket"],			BZ["Hillsbrad Foothills"],		71.5, 45.5, "Neutral") -- COMPLETELY UPDATED
 	AddVendor(6779,		L["Smudge Thunderwood"],		BZ["Hillsbrad Foothills"],		71.5, 45.5, "Neutral") -- COMPLETELY UPDATED
 	AddVendor(7733,		L["Innkeeper Fizzgrimble"],		BZ["Tanaris"],				52.6, 27.0, "Neutral") -- COMPLETELY UPDATED
-	AddVendor(7852,		L["Pratt McGrubben"],			BZ["Feralas"],				30.6, 42.7, "Alliance")
 	AddVendor(7854,		L["Jangdor Swiftstrider"],		BZ["Feralas"],				52.8, 47.1, "Horde") -- COMPLETELY UPDATED
 	AddVendor(7940,		L["Darnall"],				BZ["Moonglade"],			51.6, 33.3, "Neutral")
 	AddVendor(7947,		L["Vivianna"],				BZ["Feralas"],				31.3, 43.5, "Alliance")
@@ -373,6 +372,7 @@ function addon:InitVendor(DB)
 	AddVendor(35826,	L["Kaye Toogie"],			BZ["Dalaran"],				34.0, 35.6, "Neutral")
 	AddVendor(37687,	L["Alchemist Finklestein"],		BZ["Icecrown Citadel"],			   0,	 0, "Neutral")
 	AddVendor(40160,	L["Frozo the Renowned"],		BZ["Dalaran"],				41.0, 28.5, "Neutral")
+	AddVendor(40226,	L["Pratt McGrubben"],			BZ["Feralas"],				45.4, 41.2, "Alliance")
 	AddVendor(40572,	L["Haughty Modiste"],			BZ["Tanaris"],				50.7, 28.6, "Neutral") -- COMPLETELY UPDATED
 	AddVendor(40589,	L["Dirge Quikcleave"],			BZ["Tanaris"],				52.6, 29.1, "Neutral") -- COMPLETELY UPDATED
 	AddVendor(49701,	L["Bario Matalli"],			BZ["Stormwind City"], 			50.4, 71.9, "Alliance") -- COMPLETELY UPDATED

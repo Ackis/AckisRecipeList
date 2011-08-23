@@ -660,7 +660,7 @@ function addon:InitLeatherworking()
 	recipe:SetCraftedItemID(7386)
 	recipe:SetSkillLevels(190, 190, 210, 220, 230)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.LEATHER)
-	recipe:AddVendor(7852)
+	recipe:AddVendor(40226)
 	recipe:AddLimitedVendor(4225, 1, 4589, 1, 7854, 1)
 
 	-- Dusky Belt -- 9206
@@ -728,7 +728,7 @@ function addon:InitLeatherworking()
 	recipe:SetCraftedItemID(8187)
 	recipe:SetSkillLevels(205, 205, 225, 235, 245)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.MAIL)
-	recipe:AddVendor(7852)
+	recipe:AddVendor(40226)
 	recipe:AddLimitedVendor(7854, 1)
 
 	-- Turtle Scale Breastplate -- 10511
@@ -1061,7 +1061,7 @@ function addon:InitLeatherworking()
 	recipe:SetCraftedItemID(15061)
 	recipe:SetSkillLevels(270, 270, 290, 300, 310)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.LEATHER)
-	recipe:AddVendor(7852)
+	recipe:AddVendor(40226)
 	recipe:AddLimitedVendor(7854, 1)
 
 	-- Ironfeather Shoulders -- 19062
