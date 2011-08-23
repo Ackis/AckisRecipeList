@@ -66,7 +66,7 @@ private.seasonal_list	= {}
 private.vendor_list	= {}
 private.location_list	= {}
 private.acquire_list	= {}
-private.research_list	= {}
+private.discovery_list	= {}
 
 ------------------------------------------------------------------------------
 -- Constants.

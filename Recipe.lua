@@ -352,8 +352,8 @@ function recipe_prototype:AddCustom(...)
 	self:AddAcquireData(A.CUSTOM, "Custom", private.custom_list, ...)
 end
 
-function recipe_prototype:AddResearch(...)
-	self:AddAcquireData(A.RESEARCH, "Research", private.research_list, ...)
+function recipe_prototype:AddDiscovery(...)
+	self:AddAcquireData(A.DISCOVERY, "Discovery", private.discovery_list, ...)
 end
 
 function recipe_prototype:AddSeason(...)
