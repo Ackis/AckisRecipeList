@@ -163,7 +163,6 @@ function addon:InitVendor(DB)
 	AddVendor(6567,		L["Ghok'kah"],				BZ["Dustwallow Marsh"],			35.2, 30.8, "Horde")
 	AddVendor(6574,		L["Jun'ha"],				BZ["Arathi Highlands"],			72.7, 36.5, "Horde")
 	AddVendor(6730,		L["Jinky Twizzlefixxit"],		BZ["Thousand Needles"],			77.7, 77.8, "Alliance")
-	AddVendor(6731,		L["Harlown Darkweave"],			BZ["Ashenvale"],			18.2, 60.0, "Alliance")
 	AddVendor(6777,		L["Zan Shivsproket"],			BZ["Hillsbrad Foothills"],		71.5, 45.5, "Neutral") -- COMPLETELY UPDATED
 	AddVendor(6779,		L["Smudge Thunderwood"],		BZ["Hillsbrad Foothills"],		71.5, 45.5, "Neutral") -- COMPLETELY UPDATED
 	AddVendor(7733,		L["Innkeeper Fizzgrimble"],		BZ["Tanaris"],				52.6, 27.0, "Neutral") -- COMPLETELY UPDATED
@@ -370,6 +369,7 @@ function addon:InitVendor(DB)
 	AddVendor(33602,	L["Anuur"],				BZ["Icecrown"],				71.4, 20.8, "Neutral")
 	AddVendor(33637,	L["Kirembri Silvermane"],		BZ["Shattrath City"],			58.1, 75.0, "Neutral") -- COMPLETELY UPDATED
 	AddVendor(33680,	L["Nemiha"],				BZ["Shattrath City"],			36.1, 47.7, "Neutral")
+	AddVendor(34601,	L["Harlown Darkweave"],			BZ["Ashenvale"],			18.2, 60.0, "Alliance")
 	AddVendor(35826,	L["Kaye Toogie"],			BZ["Dalaran"],				34.0, 35.6, "Neutral")
 	AddVendor(37687,	L["Alchemist Finklestein"],		BZ["Icecrown Citadel"],			   0,	 0, "Neutral")
 	AddVendor(40160,	L["Frozo the Renowned"],		BZ["Dalaran"],				41.0, 28.5, "Neutral")

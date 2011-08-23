@@ -591,7 +591,7 @@ function addon:InitLeatherworking()
 	recipe:SetCraftedItemID(7349)
 	recipe:SetSkillLevels(135, 135, 160, 172, 185)
 	recipe:AddFilters(F.ALLIANCE, F.VENDOR, F.IBOE, F.RBOE, F.LEATHER)
-	recipe:AddVendor(6731)
+	recipe:AddVendor(34601)
 
 	-- Earthen Leather Shoulders -- 9147
 	recipe = AddRecipe(9147, V.ORIG, Q.COMMON)
