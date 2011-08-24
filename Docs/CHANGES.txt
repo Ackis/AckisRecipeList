@@ -1,10 +1,25 @@
 ==ARL Change Log
 NOTE: Always remove the folder for old versions and install a fresh copy when upgrading.
 
-== In development
+== 2.2.8
 
 ==== Interface:
-* Specialty filter did not work since 4.x.  My bad.  Redid code so it now works, this would have only affected engineers.
+* Specialty filter was broken for Engineers in 4.x, and has now been fixed.
+* Recipe tooltips will now display the icon for the crafted item, if available to the WoW client.
+* The Scan button should now be available at all times: with certain TradeSkill AddOns, it would sometimes render beneath the parent frame.
+* Archaeology drops in Uldum will now appear in the Location tab.
+* A Discovery category has been added to the Acquisition tab for applicable Alchemy, Engineering, and Inscription recipes.
+* Tooltips for recipes acquired via Achievements now use the color for Achievements instead of the color for Custom entries.
+* World Drop entries which are expanded in the list will now show the level range of the mobs the recipe can be found on.
+
+==== Backend:
+* Many miscellaneous cleanups and optimizations.
+* TradeSkill links will now be saved more reliably.
+
+==== Recipe Database:
+* Removed several recipes which are no longer in the game.
+* Removed several NPCs which are either no longer in the game or no longer have recipes.
+
 
 == 2.2.7
 
