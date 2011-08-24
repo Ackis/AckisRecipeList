@@ -103,19 +103,18 @@ private.item_quality_names = {
 -------------------------------------------------------------------------------
 -- Game/expansion versions.
 -------------------------------------------------------------------------------
-private.game_versions = {
-	["ORIG"]	= 1,
-	["TBC"]		= 2,
-	["WOTLK"]	= 3,
-	["CATA"]	= 4,
-}
-
 private.game_version_names = {
 	[1] = "ORIG",
 	[2] = "TBC",
 	[3] = "WOTLK",
 	[4] = "CATA",
 }
+
+private.game_versions = {}
+
+for index = 1, #private.game_version_names do
+	private.game_versions[private.game_version_names[index]] = index
+end
 
 -------------------------------------------------------------------------------
 -- Filters.
