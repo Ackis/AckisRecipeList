@@ -462,9 +462,9 @@ private.category_colors = {
 	-- Acquire type colors
 	["achievement"]	= "faeb98",
 	["custom"]	= "73b7ff",
+	["discovery"]	= "ff9500",
 	["mobdrop"]	= "962626",
 	["quest"]	= "dbdb2c",
-
 	["reputation"]	= "855a99",
 	["seasonal"]	= "80590e",
 	["trainer"]	= "c98e26",

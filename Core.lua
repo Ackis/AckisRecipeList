@@ -909,6 +909,7 @@ end
 -- @usage if AckisRecipeList.InitializeLookups then AckisRecipeList:InitializeLookups() end
 function addon:InitializeLookups()
 	self:InitCustom(private.custom_list)
+	self:InitDiscovery(private.discovery_list)
 	self:InitMob(private.mob_list)
 	self:InitQuest(private.quest_list)
 	self:InitReputation(private.reputation_list)

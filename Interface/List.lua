@@ -1253,6 +1253,14 @@ function private.InitializeListFrame()
 		return ListFrame:InsertEntry(t, parent_entry, entry_index, entry_type, true)
 	end
 
+	local function ExpandDiscoveryData(entry_index, entry_type, parent_entry, id_num, recipe_id, hide_location, hide_type)
+		local t = AcquireTable()
+		t.text = PADDING .. SetTextColor(CATEGORY_COLORS["discovery"], private.discovery_list[id_num].name)
+		t.recipe_id = recipe_id
+
+		return ListFrame:InsertEntry(t, parent_entry, entry_index, entry_type, true)
+	end
+
 	local function ExpandAchievementData(entry_index, entry_type, parent_entry, id_num, recipe_id, hide_location, hide_type)
 		local entry = AcquireTable()
 		entry.text = ("%s%s %s"):format(PADDING, hide_type and "" or SetTextColor(CATEGORY_COLORS["achievement"], _G.ACHIEVEMENTS) .. ":",
@@ -1435,6 +1443,9 @@ function private.InitializeListFrame()
 						elseif acquire_type == A.CUSTOM and private.custom_list[id_num].location == location_id then
 							entry_index = ExpandCustomData(entry_index, "subentry", current_entry,
 										       id_num, current_entry.recipe_id, true, true)
+						elseif acquire_type == A.DISCOVERY and private.discovery_list[id_num].location == location_id then
+							entry_index = ExpandDiscoveryData(entry_index, "subentry", current_entry,
+											  id_num, current_entry.recipe_id, true, true)
 						elseif acquire_type == A.REPUTATION then
 							for rep_level, level_info in pairs(info) do
 								for vendor_id in pairs(level_info) do
@@ -1692,9 +1703,6 @@ do
 			end
 			addline_func(0, -1, false, L["World Drop"], quality_color, location_text, CATEGORY_COLORS["location"])
 		end,
-		[A.CUSTOM] = function(recipe_id, identifier, location, acquire_info, addline_func)
-			addline_func(0, -1, false, private.custom_list[identifier].name, CATEGORY_COLORS["custom"])
-		end,
 		[A.ACHIEVEMENT] = function(recipe_id, identifier, location, acquire_info, addline_func)
 			local recipe = private.recipe_list[recipe_id]
 			local _, achievement_name, _, _, _, _, _, achievement_desc = _G.GetAchievementInfo(identifier)
@@ -1704,6 +1712,12 @@ do
 				addline_func(0, -1, false, _G.ACHIEVEMENTS, CATEGORY_COLORS["achievement"], achievement_name, BASIC_COLORS["normal"])
 			end
 			addline_func(0, -1, false, achievement_desc, CATEGORY_COLORS["achievement"])
+		end,
+		[A.DISCOVERY] = function(recipe_id, identifier, location, acquire_info, addline_func)
+			addline_func(0, -1, false, private.discovery_list[identifier].name, CATEGORY_COLORS["discovery"])
+		end,
+		[A.CUSTOM] = function(recipe_id, identifier, location, acquire_info, addline_func)
+			addline_func(0, -1, false, private.custom_list[identifier].name, CATEGORY_COLORS["custom"])
 		end,
 	}
 
