@@ -1703,7 +1703,7 @@ do
 			if recipe:HasFilter("common1", "ACHIEVEMENT") then
 				addline_func(0, -1, false, _G.ACHIEVEMENTS, CATEGORY_COLORS["achievement"], achievement_name, BASIC_COLORS["normal"])
 			end
-			addline_func(0, -1, false, achievement_desc, CATEGORY_COLORS["custom"])
+			addline_func(0, -1, false, achievement_desc, CATEGORY_COLORS["achievement"])
 		end,
 	}
 
