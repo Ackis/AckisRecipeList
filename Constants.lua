@@ -118,45 +118,8 @@ private.game_version_names = {
 }
 
 -------------------------------------------------------------------------------
--- Filter flags.
+-- Filters.
 -------------------------------------------------------------------------------
-private.filter_ids = {
-	["ALLIANCE"]		= 1,		["HORDE"]	= 2,		["TRAINER"]	= 3,		["VENDOR"]	= 4,
-	["INSTANCE"]		= 5,		["RAID"]	= 6,		["SEASONAL"]	= 7,		["QUEST"]	= 8,
-	["PVP"]			= 9,		["WORLD_DROP"]	= 10,		["MOB_DROP"]	= 11,		["DISC"]	= 12,
-	["RETIRED"]		= 13,		["ACHIEVEMENT"]	= 14,		["RESERVED_15"]	= 15,		["RESERVED_16"]	= 16,
-	["RESERVED_17"]		= 17,		["RESERVED_18"]	= 18,		["RESERVED_19"]	= 19,		["RESERVED_20"]	= 20,
-	["DK"]			= 21,		["DRUID"]	= 22,		["HUNTER"]	= 23,		["MAGE"]	= 24,
-	["PALADIN"]		= 25,		["PRIEST"]	= 26,		["SHAMAN"]	= 27,		["ROGUE"]	= 28,
-	["WARLOCK"]		= 29,		["WARRIOR"]	= 30,		["RESERVED_31"]	= 31,		["RESERVED_32"]	= 32,
-	["RESERVED_33"]		= 33,		["RESERVED_34"]	= 34,		["RESERVED_35"]	= 35,		["IBOE"]	= 36,
-	["IBOP"]		= 37,		["IBOA"]	= 38,		["RESERVED_39"]	= 39,		["RBOE"]	= 40,
-	["RBOP"]		= 41,		["RBOA"]	= 42,		["RESERVED_43"]	= 43,		["RESERVED_44"]	= 44,
-	["RESERVED_45"]		= 45,		["RESERVED_46"]	= 46,		["RESERVED_47"]	= 47,		["RESERVED_48"]	= 48,
-	["RESERVED_49"]		= 49,		["RESERVED_50"]	= 50,		["DPS"]		= 51,		["TANK"]	= 52,
-	["HEALER"]		= 53,		["CASTER"]	= 54,		["RESERVED_55"]	= 55,		["CLOTH"]	= 56,
-	["LEATHER"]		= 57,		["MAIL"]	= 58,		["PLATE"]	= 59,		["CLOAK"]	= 60,
-	["TRINKET"]		= 61,		["RING"]	= 62,		["NECK"]	= 63,		["SHIELD"]	= 64,
-	["RESERVED_65"]		= 65,		["ONE_HAND"]	= 66,		["TWO_HAND"]	= 67,		["AXE"]		= 68,
-	["SWORD"]		= 69,		["MACE"]	= 70,		["POLEARM"]	= 71,		["DAGGER"]	= 72,
-	["STAFF"]		= 73,		["WAND"]	= 74,		["THROWN"]	= 75,		["BOW"]		= 76,
-	["XBOW"]		= 77,		["RESERVED_78"]	= 78,		["FIST"]	= 79,		["GUN"]		= 80,
-	["RESERVED_81"]		= 81,		["RESERVED_82"]	= 82,		["RESERVED_83"]	= 83,		["RESERVED_84"]	= 84,
-	["RESERVED_85"]		= 85,		["RESERVED_86"]	= 86,		["RESERVED_87"]	= 87,		["RESERVED_88"]	= 88,
-	["RESERVED_89"]		= 89,		["RESERVED_90"]	= 90,		["RESERVED_91"]	= 91,		["RESERVED_92"]	= 92,
-	["RESERVED_93"]		= 93,		["RESERVED_94"]	= 94,		["RESERVED_95"]	= 95,		["ARGENTDAWN"]	= 96,
-	["CENARION_CIRCLE"]	= 97,		["THORIUM_BROTHERHOOD"]	= 98,	["TIMBERMAW_HOLD"] = 99,	["ZANDALAR"]    = 100,
-	["ALDOR"]		= 101,		["ASHTONGUE"]	= 102,		["CENARION_EXPEDITION"] = 103,	["HELLFIRE"]    = 104,
-	["CONSORTIUM"]		= 105,		["KOT"]		= 106,		["LOWERCITY"]	= 107,		["NAGRAND"]     = 108,
-	["SCALE_SANDS"]		= 109,		["SCRYER"]	= 110,		["SHATAR"]	= 111,		["SHATTEREDSUN"]= 112,
-	["SPOREGGAR"]		= 113,		["VIOLETEYE"]	= 114,		["ARGENTCRUSADE"] = 115,	["FRENZYHEART"] = 116,
-	["EBONBLADE"]		= 117,		["KIRINTOR"]	= 118,		["HODIR"]	= 119,		["KALUAK"]	= 120,
-	["ORACLES"]		= 121,		["WYRMREST"]	= 122,		["WRATHCOMMON1"]	= 123,	["WRATHCOMMON2"]= 124,
-	["WRATHCOMMON3"]	= 125,		["WRATHCOMMON4"]= 126,		["WRATHCOMMON5"]	= 127,	["ASHEN_VERDICT"]=128,
-	["CATACOMMON1"]		= 129,		["CATACOMMON2"]	= 130,		["GUARDIANS"]		= 131,	["RAMKAHEN"]	= 132,
-	["EARTHEN_RING"]	= 133,		["THERAZANE"]	= 134,
-}
-
 private.filter_strings = {
 	[1]	= "ALLIANCE",		[2]	= "HORDE",		[3]	= "TRAINER",		[4]	= "VENDOR",
 	[5]	= "INSTANCE",		[6]	= "RAID",		[7]	= "SEASONAL",		[8]	= "QUEST",
@@ -193,6 +156,12 @@ private.filter_strings = {
 	[129]	= "CATACOMMON1",	[130]	= "CATACOMMON2",	[131]	= "GUARDIANS",		[132]	= "RAMKAHEN",
 	[133]	= "EARTHEN_RING",	[134]	= "THERAZANE",
 }
+
+private.filter_ids = {}
+
+for index = 1, #private.filter_strings do
+	private.filter_ids[private.filter_strings[index]] = index
+end
 
 -------------------------------------------------------------------------------
 -- Common filter bitfield word 1.
