@@ -68,11 +68,7 @@ function addon:InitMob(DB)
 	AddMob(27333,	L["Onslaught Mason"],			BZ["Dragonblight"], 85.8, 36.0)
 
 	-- Dustwallow Marsh
-	AddMob(4364,	L["Strashaz Warrior"],			BZ["Dustwallow Marsh"], 76.5, 22.3)
-	AddMob(4366,	L["Strashaz Serpent Guard"],		BZ["Dustwallow Marsh"], 74.1, 18.2)
-	AddMob(4368,	L["Strashaz Myrmidon"],			BZ["Dustwallow Marsh"], 75.1, 14.2)
 	AddMob(4834,	L["Theramore Infiltrator"],		BZ["Dustwallow Marsh"], 44.0, 27.3)
-	AddMob(16072,	L["Tidelord Rrurgaz"],			BZ["Dustwallow Marsh"], 76.7, 19.5)
 
 	-- Eastern Plaguelands
 	AddMob(1844,	L["Foreman Marcrid"],			BZ["Eastern Plaguelands"], 54.0, 68.0)
@@ -236,7 +232,6 @@ function addon:InitMob(DB)
 	AddMob(1783,	L["Skeletal Flayer"],			BZ["Western Plaguelands"], 50.7, 80.5)
 	AddMob(1791,	L["Slavering Ghoul"],			BZ["Western Plaguelands"], 36.0, 56.5)
 	AddMob(1812,	L["Rotting Behemoth"],			BZ["Western Plaguelands"], 64.5, 36.6)
-	AddMob(1885,	L["Scarlet Smith"],			BZ["Western Plaguelands"], 53.8, 44.2)
 	AddMob(4494,	L["Scarlet Spellbinder"],		BZ["Western Plaguelands"], 52.7, 38.4)
 
 	-- Westfall

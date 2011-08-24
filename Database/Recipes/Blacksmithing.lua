@@ -1254,8 +1254,8 @@ function addon:InitBlacksmithing()
 	recipe:SetRecipeItemID(12706)
 	recipe:SetCraftedItemID(12610)
 	recipe:SetSkillLevels(300, 300, 320, 330, 340)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOE, F.RBOP, F.PLATE)
-	recipe:AddMobDrop(4366)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOE, F.RBOP, F.PLATE)
+	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Runic Plate Boots -- 16665
 	recipe = AddRecipe(16665, V.ORIG, Q.UNCOMMON)
@@ -1294,8 +1294,8 @@ function addon:InitBlacksmithing()
 	recipe:SetRecipeItemID(12714)
 	recipe:SetCraftedItemID(12612)
 	recipe:SetSkillLevels(300, 300, 320, 330, 340)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOE, F.RBOP, F.PLATE)
-	recipe:AddMobDrop(4364)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOE, F.RBOP, F.PLATE)
+	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Helm of the Great Chief -- 16728
 	recipe = AddRecipe(16728, V.ORIG, Q.RARE)
@@ -1326,16 +1326,16 @@ function addon:InitBlacksmithing()
 	recipe:SetRecipeItemID(12718)
 	recipe:SetCraftedItemID(12613)
 	recipe:SetSkillLevels(300, 300, 320, 330, 340)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOE, F.RBOP, F.PLATE)
-	recipe:AddMobDrop(4368, 16072)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOE, F.RBOP, F.PLATE)
+	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Runic Plate Leggings -- 16732
 	recipe = AddRecipe(16732, V.ORIG, Q.UNCOMMON)
 	recipe:SetRecipeItemID(12719)
 	recipe:SetCraftedItemID(12614)
 	recipe:SetSkillLevels(300, 300, 320, 330, 340)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOE, F.RBOP, F.PLATE)
-	recipe:AddMobDrop(1885)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOE, F.RBOP, F.PLATE)
+	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Stronghold Gauntlets -- 16741
 	recipe = AddRecipe(16741, V.ORIG, Q.EPIC)
