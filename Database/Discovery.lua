@@ -36,17 +36,14 @@ function addon:InitDiscovery(DB)
 
 	AddDiscovery("DISCOVERY_ALCH_ELIXIRFLASK")
 	AddDiscovery("DISCOVERY_ALCH_POTION")
-	AddDiscovery("DISCOVERY_ALCH_XMUTE")
 	AddDiscovery("DISCOVERY_ALCH_PROT")
+	AddDiscovery("DISCOVERY_ALCH_XMUTE")
+	AddDiscovery("DISCOVERY_INSC_BOOK")
 	AddDiscovery("DISCOVERY_INSC_MINOR")
 	AddDiscovery("DISCOVERY_INSC_NORTHREND")
 	AddDiscovery("DISCOVERY_ALCH_NORTHREND_RESEARCH")
 	AddDiscovery("DISCOVERY_ALCH_NORTHREND_XMUTE")
-	AddDiscovery("DISCOVERY_INSC_BOOK")
 	AddDiscovery("ENG_DISC")
-	AddDiscovery("DISCOVERY_INSC_MINOR")
-	AddDiscovery("DISCOVERY_INSC_NORTHREND")
-	AddDiscovery("DISCOVERY_INSC_BOOK")
 
 	self.InitDiscovery = nil
 end
