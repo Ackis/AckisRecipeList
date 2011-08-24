@@ -80,7 +80,7 @@ local AllSpecialtiesTable = {}
 local SpecialtyTable
 
 -- Filter flags and acquire types - defined in Constants.lua
-local F 	= private.filter_flags
+local F 	= private.filter_ids
 local A		= private.acquire_types
 
 -- Global Frame Variables
@@ -1382,13 +1382,13 @@ do
 								if prev then
 									table.insert(text_table, ",")
 								end
-								table.insert(text_table, filter_names[private.filter_flags[flag_name]])
+								table.insert(text_table, filter_names[private.filter_ids[flag_name]])
 								prev = true
 								-- BBCode
 							elseif output == "BBCode" then
-								table.insert(text_table, "[*]"..filter_names[private.filter_flags[flag_name]])
+								table.insert(text_table, "[*]"..filter_names[private.filter_ids[flag_name]])
 							elseif output == "XML" then
-								table.insert(text_table, "    <flag>"..filter_names[private.filter_flags[flag_name]].."</flag>")
+								table.insert(text_table, "    <flag>"..filter_names[private.filter_ids[flag_name]].."</flag>")
 							end
 						end
 					end

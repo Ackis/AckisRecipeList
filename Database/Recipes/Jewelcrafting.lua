@@ -25,7 +25,7 @@ local L = LibStub("AceLocale-3.0"):GetLocale(private.addon_name)
 -------------------------------------------------------------------------------
 -- Filter flags. Acquire types, and Reputation levels.
 -------------------------------------------------------------------------------
-local F = private.filter_flags
+local F = private.filter_ids
 local A = private.acquire_types
 local Q = private.item_qualities
 local REP = private.rep_levels
@@ -2466,7 +2466,7 @@ function addon:InitJewelcrafting()
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
 	recipe:AddWorldDrop("Northrend")
 	recipe:AddRepVendor(FAC.ORACLES, REP.REVERED, 31910)
-	
+
 	-- Turbid Forest Emerald -- 54005
 	recipe = AddRecipe(54005, V.WOTLK, Q.RARE)
 	recipe:SetRecipeItemID(41737)
@@ -4530,41 +4530,41 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(510, 510, 515, 520, 525)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	recipe:AddTrainer(28701)
-	
+
 	-- Bloodthirsty Amberjewel Band -- 99540
 	recipe = AddRecipe(99540, V.CATA, Q.COMMON)
 	recipe:SetCraftedItemID(70072)
 	recipe:SetSkillLevels(510, 510, 515, 520, 525)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	recipe:AddTrainer(28701)
-	
+
 	-- Bloodthirsty Ruby Signet -- 99541
 	recipe = AddRecipe(99541, V.CATA, Q.COMMON)
 	recipe:SetCraftedItemID(70073)
 	recipe:SetSkillLevels(510, 510, 515, 520, 525)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	recipe:AddTrainer(28701)
-	
+
 	-- Bloodthirsty Sapphire Necklace -- 99542
 	recipe = AddRecipe(99542, V.CATA, Q.COMMON)
 	recipe:SetCraftedItemID(70074)
 	recipe:SetSkillLevels(520, 520, 525, 530, 535)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	recipe:AddTrainer(28701)
-	
+
 	-- Bloodthirsty Amberjewel Pendant -- 99543
 	recipe = AddRecipe(99543, V.CATA, Q.COMMON)
 	recipe:SetCraftedItemID(70075)
 	recipe:SetSkillLevels(520, 520, 525, 530, 535)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	recipe:AddTrainer(28701)
-	
+
 	-- Bloodthirsty Ruby Choker -- 99544
 	recipe = AddRecipe(99544, V.CATA, Q.COMMON)
 	recipe:SetCraftedItemID(70076)
 	recipe:SetSkillLevels(520, 520, 525, 530, 535)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	recipe:AddTrainer(28701)
-	
+
 	self.InitJewelcrafting = nil
 end

@@ -24,7 +24,7 @@ local L = LibStub("AceLocale-3.0"):GetLocale(private.addon_name)
 -------------------------------------------------------------------------------
 -- Filter flags. Acquire types, and Reputation levels.
 -------------------------------------------------------------------------------
-local F = private.filter_flags
+local F = private.filter_ids
 local A = private.acquire_types
 local Q = private.item_qualities
 local REP = private.rep_levels
@@ -3580,7 +3580,7 @@ function addon:InitTailoring()
 	recipe:SetSkillLevels(525, 525, 525, 530, 535)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	recipe:AddTrainer(1346, 2399, 3004, 3363, 4159, 4576, 5153, 9584, 16640, 28699, 33580, 33613, 33636, 44783, 45559)
-	
+
 	-- Luxurious Silk Gem Bag -- 100585
 	recipe = AddRecipe(100585, V.CATA, Q.RARE)
 	recipe:SetCraftedItemID(70138)
@@ -3620,13 +3620,13 @@ function addon:InitTailoring()
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOE, F.HEALER, F.CLOTH)
 	recipe:SetSkillLevels(525, 525, 525, 527, 530)
 	recipe:AddCustom("FIRELANDS_RANDOM")
-	
+
 	-- Bloodthirsty Embersilk Cape -- 99537
 	recipe = AddRecipe(99537, V.CATA, Q.COMMON)
 	recipe:SetCraftedItemID(70070)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	recipe:SetSkillLevels(490, 490, 500, 502, 505)
 	recipe:AddTrainer(3363)
-	
+
 	self.InitTailoring = nil
 end

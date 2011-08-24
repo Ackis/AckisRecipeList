@@ -484,9 +484,9 @@ function recipe_prototype:Dump(output)
 
 			if bitfield and bit.band(bitfield, flag) == flag then
 				if not flag_string then
-					flag_string = ("F.%s"):format(private.filter_strings[private.filter_flags[reverse_map[flag]]])
+					flag_string = ("F.%s"):format(private.filter_strings[private.filter_ids[reverse_map[flag]]])
 				else
-					flag_string = ("%s, F.%s"):format(flag_string, private.filter_strings[private.filter_flags[reverse_map[flag]]])
+					flag_string = ("%s, F.%s"):format(flag_string, private.filter_strings[private.filter_ids[reverse_map[flag]]])
 				end
 			end
 		end

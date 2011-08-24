@@ -25,7 +25,7 @@ local L = LibStub("AceLocale-3.0"):GetLocale(private.addon_name)
 -------------------------------------------------------------------------------
 -- Filter flags. Acquire types, and Reputation levels.
 -------------------------------------------------------------------------------
-local F = private.filter_flags
+local F = private.filter_ids
 local A = private.acquire_types
 local Q = private.item_qualities
 local REP = private.rep_levels
@@ -4598,14 +4598,14 @@ function addon:InitLeatherworking()
 	recipe:SetSkillLevels(465, 465, 465, 465, 470)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	recipe:AddTrainer(3007, 3365, 3967, 4212, 4588, 5127, 5564, 21087, 26998, 28700, 29507, 33581, 33612, 33635)
-	
+
 	-- Drakehide Leg Armor -- 101599
 	recipe = AddRecipe(101599, V.CATA, Q.COMMON)
 	recipe:SetRecipeItemID(71721)
 	recipe:SetCraftedItemID(71720)
 	recipe:SetSkillLevels(525, 525, 530, 535, 540)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	recipe:AddVendor(3366)	
+	recipe:AddVendor(3366)
 
 	-- Royal Scribe's Satchel -- 100583
 	recipe = AddRecipe(100583, V.CATA, Q.RARE)
@@ -4686,21 +4686,21 @@ function addon:InitLeatherworking()
 	recipe:SetSkillLevels(525, 525, 525, 527, 530)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOE)
 	recipe:AddCustom("FIRELANDS_RANDOM")
-	
+
 	-- Bloodthirsty Fur Cloak -- 99536
 	recipe = AddRecipe(99536, V.CATA, Q.COMMON)
 	recipe:SetCraftedItemID(70068)
 	recipe:SetSkillLevels(500, 500, 510, 512, 515)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	recipe:AddTrainer(3365)
-	
+
 	-- Bloodthirsty Hide Cloak -- 99535
 	recipe = AddRecipe(99535, V.CATA, Q.COMMON)
 	recipe:SetCraftedItemID(70069)
 	recipe:SetSkillLevels(500, 500, 510, 512, 515)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	recipe:AddTrainer(3365)
-	
+
 	self.InitLeatherworking = nil
 end
 

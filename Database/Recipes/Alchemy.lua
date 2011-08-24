@@ -31,7 +31,7 @@ local L = LibStub("AceLocale-3.0"):GetLocale(private.addon_name)
 -------------------------------------------------------------------------------
 -- Filter flags. Acquire types, and Reputation levels.
 -------------------------------------------------------------------------------
-local F = private.filter_flags
+local F = private.filter_ids
 local A = private.acquire_types
 local Q = private.item_qualities
 local REP = private.rep_levels

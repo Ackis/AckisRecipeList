@@ -30,7 +30,7 @@ local L = LibStub("AceLocale-3.0"):GetLocale(private.addon_name)
 -------------------------------------------------------------------------------
 -- Filter flags. Acquire types, and Reputation levels.
 -------------------------------------------------------------------------------
-local F = private.filter_flags
+local F = private.filter_ids
 local A = private.acquire_types
 local Q = private.item_qualities
 local REP = private.rep_levels
@@ -4324,7 +4324,7 @@ function addon:InitBlacksmithing()
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOE)
 	recipe:SetSkillLevels(525, 525, 525, 527, 530)
 	recipe:AddCustom("FIRELANDS_RANDOM")
-	
+
 	-- Eternal Elementium Handguards -- 99440
 	recipe = AddRecipe(99440, V.CATA, Q.EPIC)
 	recipe:SetRecipeItemID(69958)
@@ -4332,7 +4332,7 @@ function addon:InitBlacksmithing()
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOE)
 	recipe:SetSkillLevels(525, 525, 525, 527, 530)
 	recipe:AddCustom("FIRELANDS_RANDOM")
-	
+
 	-- Fists of Fury -- 99439
 	recipe = AddRecipe(99439, V.CATA, Q.EPIC)
 	recipe:SetRecipeItemID(69957)
@@ -4340,7 +4340,7 @@ function addon:InitBlacksmithing()
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOE)
 	recipe:SetSkillLevels(525, 525, 525, 527, 530)
 	recipe:AddCustom("FIRELANDS_RANDOM")
-	
+
 	-- Holy Flame Gauntlets -- 99441
 	recipe = AddRecipe(99441, V.CATA, Q.EPIC)
 	recipe:SetRecipeItemID(69959)
@@ -4348,7 +4348,7 @@ function addon:InitBlacksmithing()
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOE)
 	recipe:SetSkillLevels(525, 525, 525, 527, 530)
 	recipe:AddCustom("FIRELANDS_RANDOM")
-	
+
 	-- Mirrored Boots -- 99453
 	recipe = AddRecipe(99453, V.CATA, Q.EPIC)
 	recipe:SetRecipeItemID(69969)
@@ -4356,7 +4356,7 @@ function addon:InitBlacksmithing()
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOE)
 	recipe:SetSkillLevels(525, 525, 525, 527, 530)
 	recipe:AddCustom("FIRELANDS_RANDOM")
-	
+
 	-- Warboots of Might Lords -- 99452
 	recipe = AddRecipe(99452, V.CATA, Q.EPIC)
 	recipe:SetRecipeItemID(69968)
@@ -4364,7 +4364,7 @@ function addon:InitBlacksmithing()
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOE)
 	recipe:SetSkillLevels(525, 525, 525, 527, 530)
 	recipe:AddCustom("FIRELANDS_RANDOM")
-	
+
 	-- Brainsplinter -- 99652
 	recipe = AddRecipe(99652, V.CATA, Q.RARE)
 	recipe:SetRecipeItemID(70166)
@@ -4372,7 +4372,7 @@ function addon:InitBlacksmithing()
 	recipe:SetSkillLevels(525, 525, 525, 527, 530)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	recipe:AddVendor(53214)
-	
+
 	-- Elementium-Edged Scalper -- 99655
 	recipe = AddRecipe(99655, V.CATA, Q.RARE)
 	recipe:SetRecipeItemID(70169)
@@ -4380,7 +4380,7 @@ function addon:InitBlacksmithing()
 	recipe:SetSkillLevels(525, 525, 525, 527, 530)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	recipe:AddVendor(53214)
-	
+
 	-- Lightforged Elementium Hammer -- 99654
 	recipe = AddRecipe(99654, V.CATA, Q.RARE)
 	recipe:SetRecipeItemID(70168)
@@ -4388,7 +4388,7 @@ function addon:InitBlacksmithing()
 	recipe:SetSkillLevels(525, 525, 525, 527, 530)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	recipe:AddVendor(53214)
-	
+
 	-- Masterwork Elementium Deathblade	-- 99658
 	recipe = AddRecipe(99658, V.CATA, Q.RARE)
 	recipe:SetRecipeItemID(70172)
@@ -4396,7 +4396,7 @@ function addon:InitBlacksmithing()
 	recipe:SetSkillLevels(525, 525, 525, 527, 530)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	recipe:AddVendor(53214)
-	
+
 	-- Masterwork Elementium Spellblade	-- 99653
 	recipe = AddRecipe(99653, V.CATA, Q.RARE)
 	recipe:SetRecipeItemID(70167)
@@ -4404,7 +4404,7 @@ function addon:InitBlacksmithing()
 	recipe:SetSkillLevels(525, 525, 525, 527, 530)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	recipe:AddVendor(53214)
-	
+
 	-- Pyrium Spellward	-- 99656
 	recipe = AddRecipe(99656, V.CATA, Q.RARE)
 	recipe:SetRecipeItemID(70170)
@@ -4412,7 +4412,7 @@ function addon:InitBlacksmithing()
 	recipe:SetSkillLevels(525, 525, 525, 527, 530)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	recipe:AddVendor(53214)
-	
+
 	-- Unbreakable Guardian -- 99657
 	recipe = AddRecipe(99657, V.CATA, Q.RARE)
 	recipe:SetRecipeItemID(70171)
@@ -4420,7 +4420,7 @@ function addon:InitBlacksmithing()
 	recipe:SetSkillLevels(525, 525, 525, 527, 530)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	recipe:AddVendor(53214)
-	
+
 	-- Witch-Hunter's Harvester -- 99660
 	recipe = AddRecipe(99660, V.CATA, Q.RARE)
 	recipe:SetRecipeItemID(70173)
@@ -4428,6 +4428,6 @@ function addon:InitBlacksmithing()
 	recipe:SetSkillLevels(525, 525, 525, 527, 530)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	recipe:AddVendor(53214)
-	
+
 	self.InitBlacksmithing = nil
 end

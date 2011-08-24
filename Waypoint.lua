@@ -33,7 +33,6 @@ local BFAC	= LibStub("LibBabble-Faction-3.0"):GetLookupTable()
 local BZ	= LibStub("LibBabble-Zone-3.0"):GetLookupTable()
 
 local A = private.acquire_types
-local F = private.filter_flags
 
 -------------------------------------------------------------------------------
 -- Constants.

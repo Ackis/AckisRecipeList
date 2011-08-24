@@ -120,7 +120,7 @@ private.game_version_names = {
 -------------------------------------------------------------------------------
 -- Filter flags.
 -------------------------------------------------------------------------------
-private.filter_flags = {
+private.filter_ids = {
 	["ALLIANCE"]		= 1,		["HORDE"]	= 2,		["TRAINER"]	= 3,		["VENDOR"]	= 4,
 	["INSTANCE"]		= 5,		["RAID"]	= 6,		["SEASONAL"]	= 7,		["QUEST"]	= 8,
 	["PVP"]			= 9,		["WORLD_DROP"]	= 10,		["MOB_DROP"]	= 11,		["DISC"]	= 12,
@@ -177,7 +177,7 @@ private.filter_strings = {
 	[65]	= "RESERVED_65",	[66]	= "ONE_HAND",		[67]	= "TWO_HAND",		[68]	= "AXE",
 	[69]	= "SWORD",		[70]	= "MACE",		[71]	= "POLEARM",		[72]	= "DAGGER",
 	[73]	= "STAFF",		[74]	= "WAND",		[75]	= "THROWN",		[76]	= "BOW",
-	[77]	= "XBOW",		[78]	= "RESERVED_78",		[79]	= "FIST",		[80]	= "GUN",
+	[77]	= "XBOW",		[78]	= "RESERVED_78",	[79]	= "FIST",		[80]	= "GUN",
 	[81]	= "RESERVED_81",	[82]	= "RESERVED_82",	[83]	= "RESERVED_83",	[84]	= "RESERVED_84",
 	[85]	= "RESERVED_85",	[86]	= "RESERVED_86",	[87]	= "RESERVED_87",	[88]	= "RESERVED_88",
 	[89]	= "RESERVED_89",	[90]	= "RESERVED_90",	[91]	= "RESERVED_91",	[92]	= "RESERVED_92",

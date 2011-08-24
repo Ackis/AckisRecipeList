@@ -31,7 +31,7 @@ local L = LibStub("AceLocale-3.0"):GetLocale(private.addon_name)
 -------------------------------------------------------------------------------
 -- Filter flags. Acquire types, and Reputation levels.
 -------------------------------------------------------------------------------
-local F = private.filter_flags
+local F = private.filter_ids
 local A = private.acquire_types
 local Q = private.item_qualities
 local REP = private.rep_levels
@@ -2468,7 +2468,7 @@ function addon:InitEngineering()
 	recipe:SetSpecialty(20222)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	recipe:AddTrainer(8126, 8738, 29513)
-	
+
 	-- Flintlocke's Woodchucker -- 100587
 	recipe = AddRecipe(100587, V.CATA, Q.RARE)
 	recipe:SetRecipeItemID(70177)
@@ -2476,7 +2476,7 @@ function addon:InitEngineering()
 	recipe:SetSkillLevels(515, 515, 525, 530, 535)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.HUNTER)
 	recipe:AddVendor(53214)
-	
+
 	-- Extreme-Impact Hole Puncher -- 100687
 	recipe = AddRecipe(100687, V.CATA, Q.RARE)
 	recipe:SetRecipeItemID(70178)

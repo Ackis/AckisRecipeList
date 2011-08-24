@@ -28,7 +28,7 @@ local L = LibStub("AceLocale-3.0"):GetLocale(private.addon_name)
 -------------------------------------------------------------------------------
 -- Filter flags. Acquire types, and Reputation levels.
 -------------------------------------------------------------------------------
-local F = private.filter_flags
+local F = private.filter_ids
 local A = private.acquire_types
 local Q = private.item_qualities
 local REP = private.rep_levels
@@ -3079,7 +3079,7 @@ function addon:InitInscription()
 	recipe:SetSkillLevels(490, 490, 490, 490, 500)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOP)
 	recipe:AddWorldDrop("Deepholm")
-	
+
 	-- Origami Beetle -- 86646
 	recipe = AddRecipe(86646, V.CATA, Q.COMMON)
 	recipe:SetRecipeItemID(65651)
@@ -3306,35 +3306,35 @@ function addon:InitInscription()
 	recipe:SetSkillLevels(275, 275, 280, 287, 295)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	recipe:AddTrainer(28702, 30706, 30709, 30711, 30713, 30715, 30717, 33603, 33615, 33638, 46716)
-	
+
 	-- Glyph of Frost Armor -- 98398
 	recipe = AddRecipe(98398, V.CATA, Q.COMMON)
 	recipe:SetCraftedItemID(69773)
 	recipe:SetSkillLevels(430, 430, 430, 435, 440)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOE, F.MAGE)
 	recipe:AddCustom("DISCOVERY_INSC_NORTHREND")
-	
+
 	-- Glyph of Unleashed Lightning -- 101057
 	recipe = AddRecipe(101057, V.CATA, Q.COMMON)
 	recipe:SetCraftedItemID(71155)
 	recipe:SetSkillLevels(430, 430, 430, 435, 440)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOE, F.SHAMAN)
-	recipe:AddCustom("DISCOVERY_INSC_NORTHREND")	
-	
+	recipe:AddCustom("DISCOVERY_INSC_NORTHREND")
+
 	-- Bloodthirsty Charm of Triumph -- 99547
 	recipe = AddRecipe(99547, V.CATA, Q.COMMON)
 	recipe:SetCraftedItemID(70077)
 	recipe:SetSkillLevels(520, 520, 520, 525, 530)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(30706)	
-	
+	recipe:AddTrainer(30706)
+
 	-- Bloodthirsty Eyeball of Dominance -- 99548
 	recipe = AddRecipe(99548, V.CATA, Q.COMMON)
 	recipe:SetCraftedItemID(70078)
 	recipe:SetSkillLevels(520, 520, 520, 525, 530)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	recipe:AddTrainer(30706)
-	
+
 	-- Bloodthirsty Jawbone of Conquest -- 99549
 	recipe = AddRecipe(99549, V.CATA, Q.COMMON)
 	recipe:SetCraftedItemID(70079)
