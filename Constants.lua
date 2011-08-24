@@ -353,19 +353,18 @@ end
 -------------------------------------------------------------------------------
 -- Reputation levels.
 -------------------------------------------------------------------------------
-private.rep_levels = {
-	["FRIENDLY"]	= 1,
-	["HONORED"]	= 2,
-	["REVERED"]	= 3,
-	["EXALTED"]	= 4,
-}
-
 private.rep_level_strings = {
 	[1]	= "FRIENDLY",
 	[2]	= "HONORED",
 	[3]	= "REVERED",
 	[4]	= "EXALTED",
 }
+
+private.rep_levels = {}
+
+for index = 1, #private.rep_level_strings do
+	private.rep_levels[private.rep_level_strings[index]] = index
+end
 
 -------------------------------------------------------------------------------
 -- Factions.
