@@ -82,15 +82,6 @@ private.profession_textures = {
 -------------------------------------------------------------------------------
 -- Item qualities.
 -------------------------------------------------------------------------------
-private.item_qualities = {
-	["COMMON"]	= 1,
-	["UNCOMMON"]	= 2,
-	["RARE"]	= 3,
-	["EPIC"]	= 4,
-	["LEGENDARY"]	= 5,
-	["ARTIFACT"]	= 6,
-}
-
 private.item_quality_names = {
 	[1] = "COMMON",
 	[2] = "UNCOMMON",
@@ -99,6 +90,12 @@ private.item_quality_names = {
 	[5] = "LEGENDARY",
 	[6] = "ARTIFACT",
 }
+
+private.item_qualities = {}
+
+for index = 1, #private.item_quality_names do
+	private.item_qualities[private.item_quality_names[index]] = index
+end
 
 -------------------------------------------------------------------------------
 -- Game/expansion versions.
