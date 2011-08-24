@@ -1230,11 +1230,18 @@ function private.InitializeListFrame()
 		return ListFrame:InsertEntry(t, parent_entry, entry_index, entry_type, true)
 	end
 
-	local function ExpandWorldDropData(entry_index, entry_type, parent_entry, id_num, recipe_id, hide_location, hide_type)
-		local drop_location = type(id_num) == "string" and BZ[id_num]
+	local function ExpandWorldDropData(entry_index, entry_type, parent_entry, identifier, recipe_id, hide_location, hide_type)
+		local drop_location = type(identifier) == "string" and SetTextColor(CATEGORY_COLORS["location"], BZ[identifier])
 
 		if drop_location then
-			drop_location = (": %s"):format(SetTextColor(CATEGORY_COLORS["location"], drop_location))
+			local recipe_item_id = private.recipe_list[recipe_id]:RecipeItemID()
+			local recipe_item_level = recipe_item_id and select(4, _G.GetItemInfo(recipe_item_id))
+
+			if recipe_item_level then
+				drop_location = (": %s %s"):format(drop_location, SetTextColor(CATEGORY_COLORS["location"], "(%d - %d)"):format(recipe_item_level - 5, recipe_item_level + 5))
+			else
+				drop_location = (": %s"):format(drop_location)
+			end
 		else
 			drop_location = ""
 		end
