@@ -318,17 +318,17 @@ private.recipe_state_flags = {
 -------------------------------------------------------------------------------
 -- Acquire types.
 -------------------------------------------------------------------------------
-private.acquire_types = {
-	["TRAINER"]	= 1,
-	["VENDOR"]	= 2,
-	["MOB_DROP"]	= 3,
-	["QUEST"]	= 4,
-	["SEASONAL"]	= 5,
-	["REPUTATION"]	= 6,
-	["WORLD_DROP"]	= 7,
-	["ACHIEVEMENT"]	= 8,
-	["DISCOVERY"] = 9,
-	["CUSTOM"]	= 10,
+private.acquire_names = {
+	[1]	= L["Trainer"],
+	[2]	= L["Vendor"],
+	[3]	= L["Mob Drop"],
+	[4]	= L["Quest"],
+	[5]	= _G.GetCategoryInfo(155),
+	[6]	= _G.REPUTATION,
+	[7]	= L["World Drop"],
+	[8]	= _G.ACHIEVEMENTS,
+	[9]	= L["Discovery"],
+	[10]	= _G.MISCELLANEOUS,
 }
 
 private.acquire_strings = {
@@ -340,22 +340,15 @@ private.acquire_strings = {
 	[6]	= "REPUTATION",
 	[7]	= "WORLD_DROP",
 	[8]	= "ACHIEVEMENT",
-	[9] = "DISCOVERY",
+	[9]	= "DISCOVERY",
 	[10]	= "CUSTOM",
 }
 
-private.acquire_names = {
-	[1]	= L["Trainer"],
-	[2]	= L["Vendor"],
-	[3]	= L["Mob Drop"],
-	[4]	= L["Quest"],
-	[5]	= _G.GetCategoryInfo(155),
-	[6]	= _G.REPUTATION,
-	[7]	= L["World Drop"],
-	[8]	= _G.ACHIEVEMENTS,
-	[9] = L["Discovery"],
-	[10]	= _G.MISCELLANEOUS,
-}
+private.acquire_types = {}
+
+for index = 1, #private.acquire_strings do
+	private.acquire_types[private.acquire_strings[index]] = index
+end
 
 -------------------------------------------------------------------------------
 -- Reputation levels.
