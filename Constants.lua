@@ -369,50 +369,6 @@ end
 -------------------------------------------------------------------------------
 -- Factions.
 -------------------------------------------------------------------------------
-private.faction_ids = {
-	["THORIUM_BROTHERHOOD"]	= 59,
-	["ZANDALAR"]		= 270,
-	["ARGENTDAWN"]		= 529,
-	["TIMBERMAW_HOLD"]	= 576,
-	["WINTERSPRING"]	= 589,
-	["CENARION_CIRCLE"]	= 609,
-	["ALDOR"]		= 932,
-	["CONSORTIUM"]		= 933,
-	["SCRYER"]		= 934,
-	["SHATAR"]		= 935,
-	["MAGHAR"]		= 941,
-	["CENARION_EXPEDITION"]	= 942,
-	["HONOR_HOLD"]		= 946,
-	["THRALLMAR"]		= 947,
-	["VIOLETEYE"]		= 967,
-	["SPOREGGAR"]		= 970,
-	["KURENAI"]		= 978,
-	["KEEPERS_OF_TIME"]	= 989,
-	["SCALE_OF_SANDS"]	= 990,
-	["LOWERCITY"]		= 1011,
-	["ASHTONGUE"]		= 1012,
-	["ALLIANCE_VANGUARD"]	= 1037,
-	["HORDE_EXPEDITION"]	= 1052,
-	["KALUAK"]		= 1073,
-	["SHATTEREDSUN"]	= 1077,
-	["KIRINTOR"]		= 1090,
-	["WYRMREST"]		= 1091,
-	["EBONBLADE"]		= 1098,
-	["FRENZYHEART"]		= 1104,
-	["ORACLES"]		= 1105,
-	["ARGENTCRUSADE"]	= 1106,
-	["HODIR"]		= 1119,
-	["ASHEN_VERDICT"]	= 1156,
-	["EARTHEN_RING"]	= 1135,
-	["GUARDIANS"]		= 1158,
-	["THERAZANE"]		= 1171,
-	["DRAGONMAW"]		= 1172,
-	["RAMKAHEN"]		= 1173,
-	["WILDHAMMER"]		= 1174,
-	["WARDENS"]		= 1177,
-	["HELLSCREAM"]		= 1178,
-}
-
 private.faction_strings = {
 	[59]	= "THORIUM_BROTHERHOOD",
 	[270]	= "ZANDALAR",
@@ -456,6 +412,12 @@ private.faction_strings = {
 	[1177]	= "WARDENS",
 	[1178]	= "HELLSCREAM",
 }
+
+private.faction_ids = {}
+
+for id, name in _G.pairs(private.faction_strings) do
+	private.faction_ids[name] = id
+end
 
 -------------------------------------------------------------------------------
 -- Colors.
