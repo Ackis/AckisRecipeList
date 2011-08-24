@@ -1302,6 +1302,10 @@ function private.InitializeListFrame()
 				if not hide_type then
 					func = ExpandCustomData
 				end
+			elseif acquire_type == A.DISCOVERY then
+				if not hide_type then
+					func = ExpandDiscoveryData
+				end
 				--@alpha@
 			elseif acquire_type == A.ACHIEVEMENT and obtain_filters.achievement then
 				func = ExpandAchievementData
@@ -1355,7 +1359,7 @@ function private.InitializeListFrame()
 						local expand = false
 						local type = "subheader"
 
-						if acquire_id == A.WORLD_DROP or acquire_id == A.CUSTOM or acquire_id == A.ACHIEVEMENT then
+						if acquire_id == A.WORLD_DROP or acquire_id == A.CUSTOM or acquire_id == A.ACHIEVEMENT or acquire_id == A.DISCOVERY then
 							expand = true
 							type = "entry"
 						end
@@ -1845,6 +1849,7 @@ do
 		[A.WORLD_DROP] = true,
 		[A.CUSTOM] = true,
 		[A.ACHIEVEMENT] = true,
+		[A.DISCOVERY] = true,
 	}
 
 	function ListItem_ShowTooltip(owner, list_entry)
