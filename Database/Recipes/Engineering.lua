@@ -2260,31 +2260,31 @@ function addon:InitEngineering()
 	recipe = AddRecipe(82175, V.CATA, Q.COMMON)
 	recipe:SetSkillLevels(425, 425, 425, 437, 450)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOP, F.RBOP)
-	recipe:AddCustom("ENG_DISC")
+	recipe:AddDiscovery("ENG_DISC")
 
 	-- Quickflip Deflection Plates -- 82177
 	recipe = AddRecipe(82177, V.CATA, Q.COMMON)
 	recipe:SetSkillLevels(425, 425, 425, 437, 450)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOP, F.RBOP)
-	recipe:AddCustom("ENG_DISC")
+	recipe:AddDiscovery("ENG_DISC")
 
 	-- Tazik Shocker -- 82180
 	recipe = AddRecipe(82180, V.CATA, Q.COMMON)
 	recipe:SetSkillLevels(425, 425, 425, 437, 450)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOP, F.RBOP)
-	recipe:AddCustom("ENG_DISC")
+	recipe:AddDiscovery("ENG_DISC")
 
 	-- Spinal Healing Injector -- 82200
 	recipe = AddRecipe(82200, V.CATA, Q.COMMON)
 	recipe:SetSkillLevels(425, 425, 425, 437, 450)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOP, F.RBOP)
-	recipe:AddCustom("ENG_DISC")
+	recipe:AddDiscovery("ENG_DISC")
 
 	-- Z50 Mana Gulper -- 82201
 	recipe = AddRecipe(82201, V.CATA, Q.COMMON)
 	recipe:SetSkillLevels(425, 425, 425, 437, 450)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOP, F.RBOP)
-	recipe:AddCustom("ENG_DISC")
+	recipe:AddDiscovery("ENG_DISC")
 
 	-- Handful of Obsidium Bolts -- 84403
 	recipe = AddRecipe(84403, V.CATA, Q.COMMON)
@@ -2390,19 +2390,19 @@ function addon:InitEngineering()
 	recipe = AddRecipe(84424, V.CATA, Q.COMMON)
 	recipe:SetSkillLevels(425, 425, 425, 437, 450)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOP, F.RBOP)
-	recipe:AddCustom("ENG_DISC")
+	recipe:AddDiscovery("ENG_DISC")
 
 	-- Cardboard Assassin -- 84425
 	recipe = AddRecipe(84425, V.CATA, Q.COMMON)
 	recipe:SetSkillLevels(425, 425, 425, 437, 450)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOP, F.RBOP)
-	recipe:AddCustom("ENG_DISC")
+	recipe:AddDiscovery("ENG_DISC")
 
 	-- Grounded Plasma Shield -- 84427
 	recipe = AddRecipe(84427, V.CATA, Q.COMMON)
 	recipe:SetSkillLevels(425, 425, 425, 437, 450)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOP, F.RBOP)
-	recipe:AddCustom("ENG_DISC")
+	recipe:AddDiscovery("ENG_DISC")
 
 	-- Gnomish X-Ray Scope -- 84428
 	recipe = AddRecipe(84428, V.CATA, Q.COMMON)
