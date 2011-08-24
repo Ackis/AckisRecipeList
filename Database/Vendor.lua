@@ -82,7 +82,7 @@ function addon:InitVendor(DB)
 	AddVendor(2812,		L["Drovnar Strongbrew"],		BZ["Arathi Highlands"],			46.4, 47.1, "Alliance")
 	AddVendor(2814,		L["Narj Deepslice"],			BZ["Arathi Highlands"],			45.6, 47.6, "Alliance")
 	AddVendor(2816,		L["Androd Fadran"],			BZ["Arathi Highlands"],			45.0, 46.9, "Alliance")
-	AddVendor(2819,		L["Tunkk"],				BZ["Arathi Highlands"],			74.8, 34.5, "Horde")
+	AddVendor(2819,		L["Tunkk"],				BZ["Arathi Highlands"],			70.0, 35.4, "Horde")
 	AddVendor(2821,		L["Keena"],				BZ["Arathi Highlands"],			74.0, 32.7, "Horde")
 	AddVendor(2838,		L["Crazk Sparks"],			BZ["The Cape of Stranglethorn"],	43.0, 72.8, "Neutral")   -- UPDATED
 	AddVendor(2843,		L["Jutak"],				BZ["The Cape of Stranglethorn"],	41.6, 74.1, "Neutral")   -- UPDATED
