@@ -425,6 +425,7 @@ end
 local DUMP_FUNCTION_FORMATS = {
 	[A.ACHIEVEMENT] = "recipe:AddAchievement(%s)",
 	[A.CUSTOM] = "recipe:AddCustom(%s)",
+	[A.DISCOVERY] = "recipe:AddDiscovery(%s)",
 	[A.SEASONAL] = "recipe:AddSeason(%s)",
 	[A.TRAINER] = "recipe:AddTrainer(%s)",
 	[A.MOB_DROP] = "recipe:AddMobDrop(%s)",
