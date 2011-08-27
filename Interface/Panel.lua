@@ -562,6 +562,10 @@ function private.InitializeFrame()
 			return SearchByList(recipe, search_pattern, private.custom_list)
 		end
 
+		local function SearchByDiscovery(recipe, search_pattern)
+			return SearchByList(recipe, search_pattern, private.discovery_list)
+		end
+
 		local function SearchByReputation(recipe, search_pattern)
 			local reputation_list = private.reputation_list
 
@@ -622,6 +626,10 @@ function private.InitializeFrame()
 
 					if not found then
 						found = SearchByCustom(recipe, search_pattern)
+					end
+
+					if not found then
+						found = SearchByDiscovery(recipe, search_pattern)
 					end
 				end
 			end
