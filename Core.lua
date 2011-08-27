@@ -51,6 +51,7 @@ _G.ARL = addon
 
 local L		= LibStub("AceLocale-3.0"):GetLocale(private.addon_name)
 local BFAC 	= LibStub("LibBabble-Faction-3.0"):GetLookupTable()
+local Toast	= LibStub("LibToast-1.0")
 
 local debugger	= _G.tekDebug and _G.tekDebug:GetFrame(private.addon_name)
 
@@ -185,12 +186,22 @@ end
 function addon:Debug(...)
 	if debugger then
 		debugger:AddMessage(string.format(...))
+
+		--@debug@
+		Toast:Spawn("ARL_DebugToast")
+		--@end-debug@
 	else
 		--@debug@
 		self:Printf(...)
 		--@end-debug@
 	end
 end
+
+Toast:Register("ARL_DebugToast", function(toast, ...)
+	toast:SetTitle(("%s"):format(private.addon_name))
+	toast:SetText("New debug message.")
+	toast:SetIconTexture([[Interface\HELPFRAME\HotIssueIcon]])
+end, true)
 
 do
 	local output = {}
