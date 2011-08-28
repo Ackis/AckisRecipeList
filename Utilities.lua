@@ -24,11 +24,7 @@ function private.SetTextColor(color_code, text)
 	return ("|cff%s%s|r"):format(color_code or "ffffff", text)
 end
 
-local NO_LOCATION_LISTS = {
-	[private.custom_list] = true,
-	[private.discovery_list] = true,
-	[private.reputation_list] = true,
-}
+local NO_LOCATION_LISTS
 
 function private:AddListEntry(lookup_list, identifier, name, location, coord_x, coord_y, faction)
 	if lookup_list[identifier] then
@@ -49,6 +45,14 @@ function private:AddListEntry(lookup_list, identifier, name, location, coord_x, 
 	end
 
 	--@alpha@
+	if not NO_LOCATION_LISTS then
+		NO_LOCATION_LISTS = {
+			[private.custom_list] = true,
+			[private.discovery_list] = true,
+			[private.reputation_list] = true,
+		}
+	end
+
 	if not location and not NO_LOCATION_LISTS[lookup_list] then
 		addon:Debug("Lookup ID: %s (%s) has an unknown location.", identifier, lookup_list[identifier].name or _G.UNKNOWN)
 	end
