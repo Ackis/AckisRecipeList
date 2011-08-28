@@ -239,16 +239,16 @@ function private.InitializeTabs()
 			end
 
 			if count > 0 then
-				local t = AcquireTable()
+				local entry = AcquireTable()
 
 				local acquire_str = private.acquire_strings[acquire_type]:lower():gsub("_","")
 				local color_code = private.category_colors[acquire_str] or "ffffff"
 				local is_expanded = self[prof_name.." expanded"][private.acquire_names[acquire_type]]
 
-				t.text = ("%s (%d)"):format(SetTextColor(color_code, private.acquire_names[acquire_type]),count)
-				t.acquire_id = acquire_type
+				entry.text = ("%s (%d)"):format(SetTextColor(color_code, private.acquire_names[acquire_type]),count)
+				entry.acquire_id = acquire_type
 
-				insert_index = ListFrame:InsertEntry(t, nil, insert_index, "header", is_expanded or expand_mode, is_expanded or expand_mode)
+				insert_index = ListFrame:InsertEntry(entry, nil, insert_index, "header", is_expanded or expand_mode, is_expanded or expand_mode)
 			else
 				self[prof_name.." expanded"][private.acquire_names[acquire_type]] = nil
 			end
@@ -345,14 +345,12 @@ function private.InitializeTabs()
 			end
 
 			if count > 0 then
-				local t = AcquireTable()
-
 				local is_expanded = self[prof_name.." expanded"][loc_name]
+				local entry = AcquireTable()
+				entry.text = ("%s (%d)"):format(SetTextColor(private.category_colors["location"], loc_name),count)
+				entry.location_id = loc_name
 
-				t.text = ("%s (%d)"):format(SetTextColor(private.category_colors["location"], loc_name),count)
-				t.location_id = loc_name
-
-				insert_index = ListFrame:InsertEntry(t, nil, insert_index, "header", is_expanded or expand_mode, is_expanded or expand_mode)
+				insert_index = ListFrame:InsertEntry(entry, nil, insert_index, "header", is_expanded or expand_mode, is_expanded or expand_mode)
 			else
 				self[prof_name.." expanded"][loc_name] = nil
 			end
@@ -378,16 +376,14 @@ function private.InitializeTabs()
 			local recipe = recipe_list[recipe_index]
 
 			if recipe:HasState("VISIBLE") and search_box:MatchesRecipe(recipe) then
-				local t = AcquireTable()
-
 				local is_expanded = self[prof_name.." expanded"][recipe_index]
-
-				t.text = recipe:GetDisplayName()
-				t.recipe_id = recipe_index
+				local entry = AcquireTable()
+				entry.text = recipe:GetDisplayName()
+				entry.recipe_id = recipe_index
 
 				recipe_count = recipe_count + 1
 
-				insert_index = ListFrame:InsertEntry(t, nil, insert_index, "header", is_expanded or expand_mode, is_expanded or expand_mode)
+				insert_index = ListFrame:InsertEntry(entry, nil, insert_index, "header", is_expanded or expand_mode, is_expanded or expand_mode)
 			else
 				self[prof_name.." expanded"][recipe_index] = nil
 			end
