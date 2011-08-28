@@ -402,12 +402,10 @@ function private.InitializeListFrame()
 		-- If we have acquire information for this entry, push the data table into the list
 		-- and start processing the acquires.
 		if expand_mode then
-			local current_tab = MainPanel.tabs[MainPanel.current_tab]
-
 			entry.is_expanded = true
 			table.insert(self.entries, insert_index, entry)
 
-			current_tab:ModifyEntry(entry, entry_expanded)
+			MainPanel.tabs[MainPanel.current_tab]:ModifyEntry(entry, entry_expanded)
 
 			if entry_type == "header" or entry_type == "subheader" then
 				insert_index = self:ExpandEntry(insert_index, expand_mode)
@@ -1060,23 +1058,23 @@ function private.InitializeListFrame()
 		if trainer.coord_x ~= 0 and trainer.coord_y ~= 0 then
 			coord_text = SetTextColor(CATEGORY_COLORS["coords"], ("(%d, %d)"):format(trainer.coord_x, trainer.coord_y))
 		end
-		local t = AcquireTable()
+		local entry = AcquireTable()
 
-		t.text = ("%s%s %s"):format(PADDING, hide_type and "" or SetTextColor(CATEGORY_COLORS["trainer"], L["Trainer"]) .. ":", name)
-		t.recipe_id = recipe_id
-		t.npc_id = id_num
+		entry.text = ("%s%s %s"):format(PADDING, hide_type and "" or SetTextColor(CATEGORY_COLORS["trainer"], L["Trainer"]) .. ":", name)
+		entry.recipe_id = recipe_id
+		entry.npc_id = id_num
 
-		entry_index = ListFrame:InsertEntry(t, parent_entry, entry_index, entry_type, true)
+		entry_index = ListFrame:InsertEntry(entry, parent_entry, entry_index, entry_type, true)
 
 		if coord_text == "" and hide_location then
 			return entry_index
 		end
-		t = AcquireTable()
-		t.text = ("%s%s%s %s"):format(PADDING, PADDING, hide_location and "" or SetTextColor(CATEGORY_COLORS["location"], trainer.location), coord_text)
-		t.recipe_id = recipe_id
-		t.npc_id = id_num
+		entry = AcquireTable()
+		entry.text = ("%s%s%s %s"):format(PADDING, PADDING, hide_location and "" or SetTextColor(CATEGORY_COLORS["location"], trainer.location), coord_text)
+		entry.recipe_id = recipe_id
+		entry.npc_id = id_num
 
-		return ListFrame:InsertEntry(t, parent_entry, entry_index, entry_type, true)
+		return ListFrame:InsertEntry(entry, parent_entry, entry_index, entry_type, true)
 	end
 
 	-- Right now PVP obtained items are located on vendors so they have the vendor and PVP flag.
@@ -1095,24 +1093,24 @@ function private.InitializeListFrame()
 		if vendor.coord_x ~= 0 and vendor.coord_y ~= 0 then
 			coord_text = SetTextColor(CATEGORY_COLORS["coords"], "(" .. vendor.coord_x .. ", " .. vendor.coord_y .. ")")
 		end
-		local t = AcquireTable()
+		local entry = AcquireTable()
 		local quantity = vendor.item_list[recipe_id]
 
-		t.text = ("%s%s %s%s"):format(PADDING, hide_type and "" or SetTextColor(CATEGORY_COLORS["vendor"], L["Vendor"]) .. ":", name, type(quantity) == "number" and SetTextColor(BASIC_COLORS["white"], (" (%d)"):format(quantity)) or "")
-		t.recipe_id = recipe_id
-		t.npc_id = id_num
+		entry.text = ("%s%s %s%s"):format(PADDING, hide_type and "" or SetTextColor(CATEGORY_COLORS["vendor"], L["Vendor"]) .. ":", name, type(quantity) == "number" and SetTextColor(BASIC_COLORS["white"], (" (%d)"):format(quantity)) or "")
+		entry.recipe_id = recipe_id
+		entry.npc_id = id_num
 
-		entry_index = ListFrame:InsertEntry(t, parent_entry, entry_index, entry_type, true)
+		entry_index = ListFrame:InsertEntry(entry, parent_entry, entry_index, entry_type, true)
 
 		if coord_text == "" and hide_location then
 			return entry_index
 		end
-		t = AcquireTable()
-		t.text = ("%s%s%s %s"):format(PADDING, PADDING, hide_location and "" or SetTextColor(CATEGORY_COLORS["location"], vendor.location), coord_text)
-		t.recipe_id = recipe_id
-		t.npc_id = id_num
+		entry = AcquireTable()
+		entry.text = ("%s%s%s %s"):format(PADDING, PADDING, hide_location and "" or SetTextColor(CATEGORY_COLORS["location"], vendor.location), coord_text)
+		entry.recipe_id = recipe_id
+		entry.npc_id = id_num
 
-		return ListFrame:InsertEntry(t, parent_entry, entry_index, entry_type, true)
+		return ListFrame:InsertEntry(entry, parent_entry, entry_index, entry_type, true)
 	end
 
 	-- Mobs can be in instances, raids, or specific mob related drops.
@@ -1123,23 +1121,23 @@ function private.InitializeListFrame()
 		if mob.coord_x ~= 0 and mob.coord_y ~= 0 then
 			coord_text = SetTextColor(CATEGORY_COLORS["coords"], "(" .. mob.coord_x .. ", " .. mob.coord_y .. ")")
 		end
-		local t = AcquireTable()
+		local entry = AcquireTable()
 
-		t.text = ("%s%s %s"):format(PADDING, hide_type and "" or SetTextColor(CATEGORY_COLORS["mobdrop"], L["Mob Drop"]) .. ":", SetTextColor(private.reputation_colors["hostile"], mob.name))
-		t.recipe_id = recipe_id
-		t.npc_id = id_num
+		entry.text = ("%s%s %s"):format(PADDING, hide_type and "" or SetTextColor(CATEGORY_COLORS["mobdrop"], L["Mob Drop"]) .. ":", SetTextColor(private.reputation_colors["hostile"], mob.name))
+		entry.recipe_id = recipe_id
+		entry.npc_id = id_num
 
-		entry_index = ListFrame:InsertEntry(t, parent_entry, entry_index, entry_type, true)
+		entry_index = ListFrame:InsertEntry(entry, parent_entry, entry_index, entry_type, true)
 
 		if coord_text == "" and hide_location then
 			return entry_index
 		end
-		t = AcquireTable()
-		t.text = ("%s%s%s %s"):format(PADDING, PADDING, hide_location and "" or SetTextColor(CATEGORY_COLORS["location"], mob.location), coord_text)
-		t.recipe_id = recipe_id
-		t.npc_id = id_num
+		entry = AcquireTable()
+		entry.text = ("%s%s%s %s"):format(PADDING, PADDING, hide_location and "" or SetTextColor(CATEGORY_COLORS["location"], mob.location), coord_text)
+		entry.recipe_id = recipe_id
+		entry.npc_id = id_num
 
-		return ListFrame:InsertEntry(t, parent_entry, entry_index, entry_type, true)
+		return ListFrame:InsertEntry(entry, parent_entry, entry_index, entry_type, true)
 	end
 
 	local function ExpandQuestData(entry_index, entry_type, parent_entry, id_num, recipe_id, hide_location, hide_type)
@@ -1155,28 +1153,28 @@ function private.InitializeListFrame()
 		if quest.coord_x ~= 0 and quest.coord_y ~= 0 then
 			coord_text = SetTextColor(CATEGORY_COLORS["coords"], "(" .. quest.coord_x .. ", " .. quest.coord_y .. ")")
 		end
-		local t = AcquireTable()
-		t.text = ("%s%s %s"):format(PADDING, hide_type and "" or SetTextColor(CATEGORY_COLORS["quest"], L["Quest"]) .. ":", name)
-		t.recipe_id = recipe_id
+		local entry = AcquireTable()
+		entry.text = ("%s%s %s"):format(PADDING, hide_type and "" or SetTextColor(CATEGORY_COLORS["quest"], L["Quest"]) .. ":", name)
+		entry.recipe_id = recipe_id
 
-		entry_index = ListFrame:InsertEntry(t, parent_entry, entry_index, entry_type, true)
+		entry_index = ListFrame:InsertEntry(entry, parent_entry, entry_index, entry_type, true)
 
 		if coord_text == "" and hide_location then
 			return entry_index
 		end
-		t = AcquireTable()
-		t.text = ("%s%s%s %s"):format(PADDING, PADDING, hide_location and "" or SetTextColor(CATEGORY_COLORS["location"], quest.location), coord_text)
-		t.recipe_id = recipe_id
+		entry = AcquireTable()
+		entry.text = ("%s%s%s %s"):format(PADDING, PADDING, hide_location and "" or SetTextColor(CATEGORY_COLORS["location"], quest.location), coord_text)
+		entry.recipe_id = recipe_id
 
-		return ListFrame:InsertEntry(t, parent_entry, entry_index, entry_type, true)
+		return ListFrame:InsertEntry(entry, parent_entry, entry_index, entry_type, true)
 	end
 
 	local function ExpandSeasonalData(entry_index, entry_type, parent_entry, id_num, recipe_id, hide_location, hide_type)
-		local t = AcquireTable()
-		t.text = ("%s%s %s"):format(PADDING, hide_type and "" or SetTextColor(CATEGORY_COLORS["seasonal"], private.acquire_names[A.SEASONAL]) .. ":", SetTextColor(CATEGORY_COLORS["seasonal"], private.seasonal_list[id_num].name))
-		t.recipe_id = recipe_id
+		local entry = AcquireTable()
+		entry.text = ("%s%s %s"):format(PADDING, hide_type and "" or SetTextColor(CATEGORY_COLORS["seasonal"], private.acquire_names[A.SEASONAL]) .. ":", SetTextColor(CATEGORY_COLORS["seasonal"], private.seasonal_list[id_num].name))
+		entry.recipe_id = recipe_id
 
-		return ListFrame:InsertEntry(t, parent_entry, entry_index, entry_type, true)
+		return ListFrame:InsertEntry(entry, parent_entry, entry_index, entry_type, true)
 	end
 
 	local function ExpandReputationData(entry_index, entry_type, parent_entry, vendor_id, rep_id, rep_level, recipe_id, hide_location, hide_type)
@@ -1199,19 +1197,19 @@ function private.InitializeListFrame()
 		end
 
 		local name = ColorNameByFaction(rep_vendor.name, rep_vendor.faction)
-		local t = AcquireTable()
-		t.text = ("%s%s %s"):format(PADDING, hide_type and "" or SetTextColor(CATEGORY_COLORS["reputation"], _G.REPUTATION) .. ":", SetTextColor(CATEGORY_COLORS["repname"], private.reputation_list[rep_id].name))
-		t.recipe_id = recipe_id
-		t.npc_id = vendor_id
+		local entry = AcquireTable()
+		entry.text = ("%s%s %s"):format(PADDING, hide_type and "" or SetTextColor(CATEGORY_COLORS["reputation"], _G.REPUTATION) .. ":", SetTextColor(CATEGORY_COLORS["repname"], private.reputation_list[rep_id].name))
+		entry.recipe_id = recipe_id
+		entry.npc_id = vendor_id
 
-		entry_index = ListFrame:InsertEntry(t, parent_entry, entry_index, entry_type, true)
+		entry_index = ListFrame:InsertEntry(entry, parent_entry, entry_index, entry_type, true)
 
-		t = AcquireTable()
-		t.text = PADDING .. PADDING .. faction_strings[rep_level] .. name
-		t.recipe_id = recipe_id
-		t.npc_id = vendor_id
+		entry = AcquireTable()
+		entry.text = PADDING .. PADDING .. faction_strings[rep_level] .. name
+		entry.recipe_id = recipe_id
+		entry.npc_id = vendor_id
 
-		entry_index = ListFrame:InsertEntry(t, parent_entry, entry_index, entry_type, true)
+		entry_index = ListFrame:InsertEntry(entry, parent_entry, entry_index, entry_type, true)
 
 		local coord_text = ""
 
@@ -1222,12 +1220,12 @@ function private.InitializeListFrame()
 		if coord_text == "" and hide_location then
 			return entry_index
 		end
-		t = AcquireTable()
-		t.text = ("%s%s%s%s %s"):format(PADDING, PADDING, PADDING, hide_location and "" or SetTextColor(CATEGORY_COLORS["location"], rep_vendor.location), coord_text)
-		t.recipe_id = recipe_id
-		t.npc_id = vendor_id
+		entry = AcquireTable()
+		entry.text = ("%s%s%s%s %s"):format(PADDING, PADDING, PADDING, hide_location and "" or SetTextColor(CATEGORY_COLORS["location"], rep_vendor.location), coord_text)
+		entry.recipe_id = recipe_id
+		entry.npc_id = vendor_id
 
-		return ListFrame:InsertEntry(t, parent_entry, entry_index, entry_type, true)
+		return ListFrame:InsertEntry(entry, parent_entry, entry_index, entry_type, true)
 	end
 
 	local function ExpandWorldDropData(entry_index, entry_type, parent_entry, identifier, recipe_id, hide_location, hide_type)
@@ -1245,27 +1243,27 @@ function private.InitializeListFrame()
 		else
 			drop_location = ""
 		end
-		local t = AcquireTable()
-		t.text = ("%s|c%s%s|r%s"):format(PADDING, select(4, _G.GetItemQualityColor(private.recipe_list[recipe_id].quality)), L["World Drop"], drop_location)
-		t.recipe_id = recipe_id
+		local entry = AcquireTable()
+		entry.text = ("%s|c%s%s|r%s"):format(PADDING, select(4, _G.GetItemQualityColor(private.recipe_list[recipe_id].quality)), L["World Drop"], drop_location)
+		entry.recipe_id = recipe_id
 
-		return ListFrame:InsertEntry(t, parent_entry, entry_index, entry_type, true)
+		return ListFrame:InsertEntry(entry, parent_entry, entry_index, entry_type, true)
 	end
 
 	local function ExpandCustomData(entry_index, entry_type, parent_entry, id_num, recipe_id, hide_location, hide_type)
-		local t = AcquireTable()
-		t.text = PADDING .. SetTextColor(CATEGORY_COLORS["custom"], private.custom_list[id_num].name)
-		t.recipe_id = recipe_id
+		local entry = AcquireTable()
+		entry.text = PADDING .. SetTextColor(CATEGORY_COLORS["custom"], private.custom_list[id_num].name)
+		entry.recipe_id = recipe_id
 
-		return ListFrame:InsertEntry(t, parent_entry, entry_index, entry_type, true)
+		return ListFrame:InsertEntry(entry, parent_entry, entry_index, entry_type, true)
 	end
 
 	local function ExpandDiscoveryData(entry_index, entry_type, parent_entry, id_num, recipe_id, hide_location, hide_type)
-		local t = AcquireTable()
-		t.text = PADDING .. SetTextColor(CATEGORY_COLORS["discovery"], private.discovery_list[id_num].name)
-		t.recipe_id = recipe_id
+		local entry = AcquireTable()
+		entry.text = PADDING .. SetTextColor(CATEGORY_COLORS["discovery"], private.discovery_list[id_num].name)
+		entry.recipe_id = recipe_id
 
-		return ListFrame:InsertEntry(t, parent_entry, entry_index, entry_type, true)
+		return ListFrame:InsertEntry(entry, parent_entry, entry_index, entry_type, true)
 	end
 
 	local function ExpandAchievementData(entry_index, entry_type, parent_entry, id_num, recipe_id, hide_location, hide_type)
@@ -1317,11 +1315,11 @@ function private.InitializeListFrame()
 			elseif acquire_type == A.ACHIEVEMENT and obtain_filters.achievement then
 				func = ExpandAchievementData
 			elseif acquire_type > num_acquire_types then
-				local t = AcquireTable()
-				t.text = "Unhandled Acquire Case - Type: " .. acquire_type
-				t.recipe_id = recipe_id
+				local entry = AcquireTable()
+				entry.text = "Unhandled Acquire Case - Type: " .. acquire_type
+				entry.recipe_id = recipe_id
 
-				entry_index = ListFrame:InsertEntry(t, parent_entry, entry_index, entry_type, true)
+				entry_index = ListFrame:InsertEntry(entry, parent_entry, entry_index, entry_type, true)
 				--@end-alpha@
 			end
 
@@ -1362,7 +1360,7 @@ function private.InitializeListFrame()
 					local recipe_entry = private.recipe_list[spell_id]
 
 					if recipe_entry:HasState("VISIBLE") and search_box:MatchesRecipe(recipe_entry) then
-						local t = AcquireTable()
+						local entry = AcquireTable()
 						local expand = false
 						local type = "subheader"
 
@@ -1373,11 +1371,11 @@ function private.InitializeListFrame()
 						local is_expanded = (current_tab[prof_name.." expanded"][spell_id]
 								     and current_tab[prof_name.." expanded"][private.acquire_names[acquire_id]])
 
-						t.text = recipe_entry:GetDisplayName()
-						t.recipe_id = spell_id
-						t.acquire_id = acquire_id
+						entry.text = recipe_entry:GetDisplayName()
+						entry.recipe_id = spell_id
+						entry.acquire_id = acquire_id
 
-						entry_index = self:InsertEntry(t, current_entry, entry_index, type, expand or is_expanded,
+						entry_index = self:InsertEntry(entry, current_entry, entry_index, type, expand or is_expanded,
 									       expand_all or is_expanded)
 					end
 				end
@@ -1409,7 +1407,7 @@ function private.InitializeListFrame()
 					if recipe_entry:HasState("VISIBLE") and search_box:MatchesRecipe(recipe_entry) then
 						local expand = false
 						local type = "subheader"
-						local t = AcquireTable()
+						local entry = AcquireTable()
 
 						-- Add World Drop entries as normal entries.
 						if recipe_list[spell_id] == "world_drop" then
@@ -1419,11 +1417,11 @@ function private.InitializeListFrame()
 						local is_expanded = (current_tab[prof_name.." expanded"][spell_id]
 								     and current_tab[prof_name.." expanded"][location_id])
 
-						t.text = recipe_entry:GetDisplayName()
-						t.recipe_id = spell_id
-						t.location_id = location_id
+						entry.text = recipe_entry:GetDisplayName()
+						entry.recipe_id = spell_id
+						entry.location_id = location_id
 
-						entry_index = self:InsertEntry(t, current_entry, entry_index, type, expand or is_expanded,
+						entry_index = self:InsertEntry(entry, current_entry, entry_index, type, expand or is_expanded,
 									       expand_all or is_expanded)
 					end
 				end
