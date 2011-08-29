@@ -30,6 +30,7 @@ local A = private.acquire_types
 local SF = private.recipe_state_flags
 
 private.recipe_list = {}
+private.profession_recipe_list = {}
 private.num_profession_recipes = {}
 
 -----------------------------------------------------------------------
@@ -73,6 +74,11 @@ function addon:AddRecipe(spell_id, profession, genesis, quality)
 		self:Print(L["SpellIDCache"]:format(spell_id))
 	end
 	recipe_list[spell_id] = recipe
+
+	if not private.profession_recipe_list[recipe.profession] then
+		private.profession_recipe_list[recipe.profession] = {}
+	end
+	private.profession_recipe_list[recipe.profession][spell_id] = recipe
 	private.num_profession_recipes[recipe.profession] = (private.num_profession_recipes[recipe.profession] or 0) + 1
 
 	return recipe
