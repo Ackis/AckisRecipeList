@@ -52,7 +52,7 @@ local A = private.acquire_types
 -------------------------------------------------------------------------------
 -- Constants
 -------------------------------------------------------------------------------
-local ORDERED_PROFESSIONS	= private.ordered_professions
+local ORDERED_PROFESSIONS	= private.ORDERED_PROFESSIONS
 
 function private.InitializeFrame()
 	-------------------------------------------------------------------------------
@@ -157,7 +157,7 @@ function private.InitializeFrame()
 		local prev_profession = self.profession
 
 		if profession == private.MINING_PROFESSION_NAME then
-			self.profession = private.PROFESSION_IDS[private.profession_names.SMELTING]
+			self.profession = private.PROFESSION_IDS[private.PROFESSION_NAMES.SMELTING]
 			self.prof_name = profession
 		else
 			for index, name in ipairs(ORDERED_PROFESSIONS) do
@@ -172,7 +172,7 @@ function private.InitializeFrame()
 		if self.profession ~= prev_profession then
 			self.prev_profession = self.profession
 		end
-		self.prof_button:ChangeTexture(private.profession_textures[self.profession])
+		self.prof_button:ChangeTexture(private.PROFESSION_TEXTURES[self.profession])
 
 		local editbox = self.search_editbox
 
@@ -526,7 +526,7 @@ function private.InitializeFrame()
 		end
 
 		local function SearchByQuality(recipe, search_pattern)
-			if private.item_quality_names[recipe.quality]:lower():find(search_pattern) then
+			if private.item_qualityity[recipe.quality]:lower():find(search_pattern) then
 				recipe:AddState("RELEVANT")
 				return true
 			end

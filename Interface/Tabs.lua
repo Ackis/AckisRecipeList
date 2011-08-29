@@ -21,7 +21,7 @@ local BFAC	= LibStub("LibBabble-Faction-3.0"):GetLookupTable()
 -------------------------------------------------------------------------------
 -- Constants
 -------------------------------------------------------------------------------
-local ORDERED_PROFESSIONS	= private.ordered_professions
+local ORDERED_PROFESSIONS	= private.ORDERED_PROFESSIONS
 
 local A = private.acquire_types
 

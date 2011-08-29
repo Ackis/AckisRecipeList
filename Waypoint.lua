@@ -546,9 +546,9 @@ function addon:AddWaypoint(recipe_id, acquire_id, location_id, npc_id)
 					local icon_tex
 
 					-- Get the proper icon to put on the mini-map
-					for index, profession in pairs(private.ordered_professions) do
+					for index, profession in pairs(private.ORDERED_PROFESSIONS) do
 						if index == self.Frame.profession then
-							icon_tex = TEXTURE_UP_FORMAT:format(private.profession_textures[index])
+							icon_tex = TEXTURE_UP_FORMAT:format(private.PROFESSION_TEXTURES[index])
 							break
 						end
 					end

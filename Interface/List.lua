@@ -36,7 +36,7 @@ local CATEGORY_COLORS	= private.category_colors
 local BASIC_COLORS	= private.basic_colors
 
 local SF		= private.recipe_state_flags
-local COMMON1		= private.common_flags_word1
+local COMMON1		= private.COMMON_FLAGS_WORD1
 
 local A			= private.acquire_types
 
@@ -434,7 +434,7 @@ function private.InitializeListFrame()
 		local obtain_filters	= filter_db.obtain
 		local general_filters	= filter_db.general
 
-		local V = private.game_versions
+		local V = private.GAME_VERSIONS
 		local EXPANSION_FILTERS = {
 			[V.ORIG]	= "expansion0",
 			[V.TBC]		= "expansion1",
@@ -442,7 +442,7 @@ function private.InitializeListFrame()
 			[V.CATA]	= "expansion3",
 		}
 
-		local Q = private.item_qualities
+		local Q = private.ITEM_QUALITIES
 		local QUALITY_FILTERS = {
 			[Q.COMMON]	= "common",
 			[Q.UNCOMMON]	= "uncommon",
@@ -610,7 +610,7 @@ function private.InitializeListFrame()
 			end
 
 			-- Expansion filters.
-			if not obtain_filters[EXPANSION_FILTERS[private.game_versions[recipe.genesis]]] then
+			if not obtain_filters[EXPANSION_FILTERS[private.GAME_VERSIONS[recipe.genesis]]] then
 				return false
 			end
 			local quality_filters = filter_db.quality
@@ -730,7 +730,7 @@ function private.InitializeListFrame()
 			local recipes_known_filtered = 0
 
 			local recipe_list = private.recipe_list
-			local current_prof = MainPanel.prof_name or private.ordered_professions[MainPanel.profession]
+			local current_prof = MainPanel.prof_name or private.ORDERED_PROFESSIONS[MainPanel.profession]
 			local can_display = false
 
 			for recipe_id, recipe in pairs(recipe_list) do
@@ -1337,7 +1337,7 @@ function private.InitializeListFrame()
 		local expand_all = expand_mode == "deep"
 		local search_box = MainPanel.search_editbox
 		local current_tab = MainPanel.tabs[MainPanel.current_tab]
-		local prof_name = private.ordered_professions[MainPanel.profession]
+		local prof_name = private.ORDERED_PROFESSIONS[MainPanel.profession]
 
 		-- Entry_index is the position in self.entries that we want to expand. Since we are expanding the current entry, the return
 		-- value should be the index of the next button after the expansion occurs

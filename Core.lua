@@ -69,7 +69,7 @@ local AllSpecialtiesTable = {}
 local SpecialtyTable
 
 -- Filter flags and acquire types - defined in Constants.lua
-local F 	= private.filter_ids
+local F 	= private.FILTER_IDS
 local A		= private.acquire_types
 
 -- Global Frame Variables
@@ -473,18 +473,18 @@ function addon:OnInitialize()
 	-- Populate the profession initialization functions.
 	-------------------------------------------------------------------------------
 	PROFESSION_INIT_FUNCS = {
-		[private.profession_names.ALCHEMY] = addon.InitAlchemy,
-		[private.profession_names.BLACKSMITHING] = addon.InitBlacksmithing,
-		[private.profession_names.COOKING] = addon.InitCooking,
-		[private.profession_names.ENCHANTING] = addon.InitEnchanting,
-		[private.profession_names.ENGINEERING] = addon.InitEngineering,
-		[private.profession_names.FIRSTAID] = addon.InitFirstAid,
-		[private.profession_names.LEATHERWORKING] = addon.InitLeatherworking,
+		[private.PROFESSION_NAMES.ALCHEMY] = addon.InitAlchemy,
+		[private.PROFESSION_NAMES.BLACKSMITHING] = addon.InitBlacksmithing,
+		[private.PROFESSION_NAMES.COOKING] = addon.InitCooking,
+		[private.PROFESSION_NAMES.ENCHANTING] = addon.InitEnchanting,
+		[private.PROFESSION_NAMES.ENGINEERING] = addon.InitEngineering,
+		[private.PROFESSION_NAMES.FIRSTAID] = addon.InitFirstAid,
+		[private.PROFESSION_NAMES.LEATHERWORKING] = addon.InitLeatherworking,
 		[private.MINING_PROFESSION_NAME] = addon.InitSmelting,
-		[private.profession_names.TAILORING] = addon.InitTailoring,
-		[private.profession_names.JEWELCRAFTING] = addon.InitJewelcrafting,
-		[private.profession_names.INSCRIPTION] = addon.InitInscription,
-		[private.profession_names.RUNEFORGING] = addon.InitRuneforging,
+		[private.PROFESSION_NAMES.TAILORING] = addon.InitTailoring,
+		[private.PROFESSION_NAMES.JEWELCRAFTING] = addon.InitJewelcrafting,
+		[private.PROFESSION_NAMES.INSCRIPTION] = addon.InitInscription,
+		[private.PROFESSION_NAMES.RUNEFORGING] = addon.InitRuneforging,
 	}
 	-------------------------------------------------------------------------------
 	-- Hook GameTooltip so we can show information on mobs that drop/sell/train
@@ -706,7 +706,7 @@ function addon:CreateScanButton()
 		local prev_profession
 
 		if main_panel then
-			prev_profession = main_panel.prof_name or private.ordered_professions[main_panel.profession]
+			prev_profession = main_panel.prof_name or private.ORDERED_PROFESSIONS[main_panel.profession]
 		end
 		local shift_pressed = _G.IsShiftKeyDown()
 		local alt_pressed = _G.IsAltKeyDown()
@@ -828,7 +828,7 @@ function addon:InitializeProfession(profession)
 		return
 	end
 
-	if profession == private.profession_names.SMELTING then
+	if profession == private.PROFESSION_NAMES.SMELTING then
 		profession = private.MINING_PROFESSION_NAME
 	end
 	local func = PROFESSION_INIT_FUNCS[profession]
@@ -962,7 +962,7 @@ do
 			return
 		end
 
-		if current_prof == private.profession_names.RUNEFORGING then
+		if current_prof == private.PROFESSION_NAMES.RUNEFORGING then
 			prof_level = _G.UnitLevel("player")
 		end
 		local player = private.Player
@@ -1390,13 +1390,13 @@ do
 								if prev then
 									table.insert(text_table, ",")
 								end
-								table.insert(text_table, filter_names[private.filter_ids[flag_name]])
+								table.insert(text_table, filter_names[private.FILTER_IDS[flag_name]])
 								prev = true
 								-- BBCode
 							elseif output == "BBCode" then
-								table.insert(text_table, "[*]"..filter_names[private.filter_ids[flag_name]])
+								table.insert(text_table, "[*]"..filter_names[private.FILTER_IDS[flag_name]])
 							elseif output == "XML" then
-								table.insert(text_table, "    <flag>"..filter_names[private.filter_ids[flag_name]].."</flag>")
+								table.insert(text_table, "    <flag>"..filter_names[private.FILTER_IDS[flag_name]].."</flag>")
 							end
 						end
 					end

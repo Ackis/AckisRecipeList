@@ -32,7 +32,7 @@ local L		= LibStub("AceLocale-3.0"):GetLocale(private.addon_name)
 private.MINING_PROFESSION_NAME = _G.GetSpellInfo(32606)
 
 -- Special case for Runeforging is needed because the French translation is non-conformant.
-private.profession_names = {
+private.PROFESSION_NAMES = {
 	ALCHEMY		= _G.GetSpellInfo(51304),
 	BLACKSMITHING	= _G.GetSpellInfo(51300),
 	COOKING		= _G.GetSpellInfo(51296),
@@ -47,28 +47,28 @@ private.profession_names = {
 	TAILORING	= _G.GetSpellInfo(51309),
 }
 
-private.ordered_professions = {
-	private.profession_names.ALCHEMY, 		-- 1
-	private.profession_names.BLACKSMITHING, 	-- 2
-	private.profession_names.COOKING, 		-- 3
-	private.profession_names.ENCHANTING,		-- 4
-	private.profession_names.ENGINEERING,		-- 5
-	private.profession_names.FIRSTAID,		-- 6
-	private.profession_names.INSCRIPTION,		-- 7
-	private.profession_names.JEWELCRAFTING, 	-- 8
-	private.profession_names.LEATHERWORKING, 	-- 9
-	private.profession_names.RUNEFORGING,		-- 10
-	private.profession_names.SMELTING,		-- 11
-	private.profession_names.TAILORING,		-- 12
+private.ORDERED_PROFESSIONS = {
+	private.PROFESSION_NAMES.ALCHEMY, 		-- 1
+	private.PROFESSION_NAMES.BLACKSMITHING, 	-- 2
+	private.PROFESSION_NAMES.COOKING, 		-- 3
+	private.PROFESSION_NAMES.ENCHANTING,		-- 4
+	private.PROFESSION_NAMES.ENGINEERING,		-- 5
+	private.PROFESSION_NAMES.FIRSTAID,		-- 6
+	private.PROFESSION_NAMES.INSCRIPTION,		-- 7
+	private.PROFESSION_NAMES.JEWELCRAFTING, 	-- 8
+	private.PROFESSION_NAMES.LEATHERWORKING, 	-- 9
+	private.PROFESSION_NAMES.RUNEFORGING,		-- 10
+	private.PROFESSION_NAMES.SMELTING,		-- 11
+	private.PROFESSION_NAMES.TAILORING,		-- 12
 }
 
 private.PROFESSION_IDS = {}
 
-for index = 1, #private.ordered_professions do
-	private.PROFESSION_IDS[private.ordered_professions] = index
+for index = 1, #private.ORDERED_PROFESSIONS do
+	private.PROFESSION_IDS[private.ORDERED_PROFESSIONS] = index
 end
 
-private.profession_textures = {
+private.PROFESSION_TEXTURES = {
 	"alchemy",	-- 1
 	"blacksmith",	-- 2
 	"cooking",	-- 3
@@ -86,7 +86,7 @@ private.profession_textures = {
 -------------------------------------------------------------------------------
 -- Item qualities.
 -------------------------------------------------------------------------------
-private.item_quality_names = {
+private.ITEM_QUALITY_NAMES = {
 	[1] = "COMMON",
 	[2] = "UNCOMMON",
 	[3] = "RARE",
@@ -95,32 +95,32 @@ private.item_quality_names = {
 	[6] = "ARTIFACT",
 }
 
-private.item_qualities = {}
+private.ITEM_QUALITIES = {}
 
-for index = 1, #private.item_quality_names do
-	private.item_qualities[private.item_quality_names[index]] = index
+for index = 1, #private.ITEM_QUALITY_NAMES do
+	private.ITEM_QUALITIES[private.ITEM_QUALITY_NAMES[index]] = index
 end
 
 -------------------------------------------------------------------------------
 -- Game/expansion versions.
 -------------------------------------------------------------------------------
-private.game_version_names = {
+private.GAME_VERSION_NAMES = {
 	[1] = "ORIG",
 	[2] = "TBC",
 	[3] = "WOTLK",
 	[4] = "CATA",
 }
 
-private.game_versions = {}
+private.GAME_VERSIONS = {}
 
-for index = 1, #private.game_version_names do
-	private.game_versions[private.game_version_names[index]] = index
+for index = 1, #private.GAME_VERSION_NAMES do
+	private.GAME_VERSIONS[private.GAME_VERSION_NAMES[index]] = index
 end
 
 -------------------------------------------------------------------------------
 -- Filters.
 -------------------------------------------------------------------------------
-private.filter_strings = {
+private.FILTER_STRINGS = {
 	[1]	= "ALLIANCE",		[2]	= "HORDE",		[3]	= "TRAINER",		[4]	= "VENDOR",
 	[5]	= "INSTANCE",		[6]	= "RAID",		[7]	= "SEASONAL",		[8]	= "QUEST",
 	[9]	= "PVP",		[10]	= "WORLD_DROP",		[11]	= "MOB_DROP",		[12]	= "DISC",
@@ -157,16 +157,16 @@ private.filter_strings = {
 	[133]	= "EARTHEN_RING",	[134]	= "THERAZANE",
 }
 
-private.filter_ids = {}
+private.FILTER_IDS = {}
 
-for index = 1, #private.filter_strings do
-	private.filter_ids[private.filter_strings[index]] = index
+for index = 1, #private.FILTER_STRINGS do
+	private.FILTER_IDS[private.FILTER_STRINGS[index]] = index
 end
 
 -------------------------------------------------------------------------------
 -- Common filter bitfield word 1.
 -------------------------------------------------------------------------------
-private.common_flags_word1 = {
+private.COMMON_FLAGS_WORD1 = {
 	ALLIANCE	= 0x00000001,	-- 1
 	HORDE		= 0x00000002,	-- 2
 	TRAINER		= 0x00000004,	-- 3
@@ -293,7 +293,7 @@ private.item_flags_word1 = {
 -- Transitory mapping from boolean "flags" to bit flags.
 -------------------------------------------------------------------------------
 private.bit_flags = {
-	private.common_flags_word1,
+	private.COMMON_FLAGS_WORD1,
 	private.class_flags_word1,
 	private.rep_flags_word1,
 	private.rep_flags_word2,

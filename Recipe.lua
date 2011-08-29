@@ -65,7 +65,7 @@ function addon:AddRecipe(spell_id, profession, genesis, quality)
 	local recipe = _G.setmetatable({
 		spell_id = spell_id,
 		profession = _G.GetSpellInfo(profession),
-		genesis = private.game_version_names[genesis],
+		genesis = private.GAME_VERSION_NAMES[genesis],
 		quality = quality,
 		name = _G.GetSpellInfo(spell_id),
 		flags = {},
@@ -171,7 +171,7 @@ end
 
 do
 	local BITFIELD_MAP = {
-		common1 = private.common_flags_word1,
+		common1 = private.COMMON_FLAGS_WORD1,
 		class1 = private.class_flags_word1,
 		reputation1 = private.rep_flags_word1,
 		reputation2 = private.rep_flags_word2,
@@ -194,7 +194,7 @@ do
 		local _, _, _, quality_color = _G.GetItemQualityColor(self.quality)
 		local recipe_name = self.name
 
-		if private.ordered_professions[addon.Frame.profession] == private.profession_names.ENCHANTING then
+		if private.ORDERED_PROFESSIONS[addon.Frame.profession] == private.PROFESSION_NAMES.ENCHANTING then
 			recipe_name = recipe_name:gsub(_G.ENSCRIBE .. " ","")
 		end
 		local has_faction = private.Player:HasProperRepLevel(self.acquire_data[A.REPUTATION])
@@ -233,17 +233,17 @@ do
 end -- do-block
 
 function recipe_prototype:AddFilters(...)
-	local num_flags = select('#', ...)
+	local num_filters = select('#', ...)
 
-	for index = 1, num_flags, 1 do
-		local flag = select(index, ...)
-		local flag_name = private.filter_strings[flag]
+	for index = 1, num_filters, 1 do
+		local filter = select(index, ...)
+		local filter_name = private.FILTER_STRINGS[filter]
 
 		local bitfield
 		local member_name
 
 		for table_index, bits in ipairs(private.bit_flags) do
-			if bits[flag_name] then
+			if bits[filter_name] then
 				bitfield = bits
 				member_name = private.flag_members[table_index]
 			end
@@ -257,10 +257,10 @@ function recipe_prototype:AddFilters(...)
 			self.flags[member_name] = 0
 		end
 
-		if bit.band(self.flags[member_name], bitfield[flag_name]) == bitfield[flag_name] then
+		if bit.band(self.flags[member_name], bitfield[filter_name]) == bitfield[filter_name] then
 			return
 		end
-		self.flags[member_name] = bit.bxor(self.flags[member_name], bitfield[flag_name])
+		self.flags[member_name] = bit.bxor(self.flags[member_name], bitfield[filter_name])
 	end
 end
 
@@ -446,10 +446,10 @@ local sorted_data = {}
 local reverse_map = {}
 
 function recipe_prototype:Dump(output)
-	local genesis = private.game_versions[self.genesis]
+	local genesis = private.GAME_VERSIONS[self.genesis]
 
 	table.insert(output, ("-- %s -- %d"):format(self.name, self.spell_id))
-	table.insert(output, ("recipe = AddRecipe(%d, V.%s, Q.%s)"):format(self.spell_id, private.game_version_names[genesis], private.item_quality_names[self.quality]))
+	table.insert(output, ("recipe = AddRecipe(%d, V.%s, Q.%s)"):format(self.spell_id, private.GAME_VERSION_NAMES[genesis], private.ITEM_QUALITY_NAMES[self.quality]))
 
 	if self.recipe_item_id then
 		table.insert(output, ("recipe:SetRecipeItemID(%d)"):format(self.recipe_item_id))
@@ -494,9 +494,9 @@ function recipe_prototype:Dump(output)
 
 			if bitfield and bit.band(bitfield, flag) == flag then
 				if not flag_string then
-					flag_string = ("F.%s"):format(private.filter_strings[private.filter_ids[reverse_map[flag]]])
+					flag_string = ("F.%s"):format(private.FILTER_STRINGS[private.FILTER_IDS[reverse_map[flag]]])
 				else
-					flag_string = ("%s, F.%s"):format(flag_string, private.filter_strings[private.filter_ids[reverse_map[flag]]])
+					flag_string = ("%s, F.%s"):format(flag_string, private.FILTER_STRINGS[private.FILTER_IDS[reverse_map[flag]]])
 				end
 			end
 		end

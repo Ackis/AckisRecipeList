@@ -47,7 +47,7 @@ local L = LibStub("AceLocale-3.0"):GetLocale(private.addon_name)
 -------------------------------------------------------------------------------
 -- Constants
 -------------------------------------------------------------------------------
-local F = private.filter_ids
+local F = private.FILTER_IDS
 local A = private.acquire_types
 
 local NO_ROLE_FLAG	-- Populated at the end of the file.
@@ -64,7 +64,7 @@ local function LoadAllRecipes()
 			addon:InitializeLookups()
 		end
 
-		for identifier, name in pairs(private.profession_names) do
+		for identifier, name in pairs(private.PROFESSION_NAMES) do
 			addon:InitializeProfession(name)
 		end
 	end
@@ -326,7 +326,7 @@ do
 		if #output > 0 then
 			table.insert(output, 1, ("ARL Version: %s"):format(self.version))
 			table.insert(output, 2, L["DATAMINER_TRAINER_INFO"]:format(trainer_name, trainer_id))
-			if found_extra and trainer_profession == private.profession_names.ENGINEERING then
+			if found_extra and trainer_profession == private.PROFESSION_NAMES.ENGINEERING then
 				table.insert(output, "\nSome goggles may be listed as extra. These goggles ONLY show up for the classes who can make them, so they may be false positives.")
 			end
 
@@ -395,7 +395,7 @@ function addon:GenerateLinks()
 end
 
 do
-	local ORDERED_PROFESSIONS = private.ordered_professions
+	local ORDERED_PROFESSIONS = private.ORDERED_PROFESSIONS
 
 	local recipe_list = {}
 	local output = {}
@@ -428,7 +428,7 @@ do
 		end
 		table.wipe(recipe_list)
 
-		if prof_name == private.profession_names.SMELTING:lower() then
+		if prof_name == private.PROFESSION_NAMES.SMELTING:lower() then
 			prof_name = private.MINING_PROFESSION_NAME:lower()
 		end
 
@@ -516,7 +516,7 @@ do
 		end
 		table.wipe(recipe_list)
 
-		if prof_name == private.profession_names.SMELTING:lower() then
+		if prof_name == private.PROFESSION_NAMES.SMELTING:lower() then
 			prof_name = private.MINING_PROFESSION_NAME:lower()
 		end
 		for i in pairs(master_list) do
@@ -586,7 +586,7 @@ do
 		end
 		table.wipe(recipe_list)
 
-		if prof_name == private.profession_names.SMELTING:lower() then
+		if prof_name == private.PROFESSION_NAMES.SMELTING:lower() then
 			prof_name = private.MINING_PROFESSION_NAME:lower()
 		end
 		for i in pairs(master_list) do
@@ -958,13 +958,13 @@ do
 			return
 		end
 		local recipe_name = recipe.name
-		local game_vers = private.game_versions[recipe.genesis]
+		local game_vers = private.GAME_VERSIONS[recipe.genesis]
 
 		table.wipe(output)
 
 		if not game_vers then
 			table.insert(output, "No expansion information: " .. tostring(spell_id) .. " " .. recipe_name)
-		elseif game_vers > #private.game_version_names then
+		elseif game_vers > #private.GAME_VERSION_NAMES then
 			table.insert(output, "Expansion information too high: " .. tostring(spell_id) .. " " .. recipe_name)
 		end
 		local optimal = recipe.optimal_level
@@ -991,7 +991,7 @@ do
 		local recipe_link = _G.GetSpellLink(recipe.spell_id)
 
 		if not recipe_link then
-			if recipe.profession ~= private.profession_names.RUNEFORGING then
+			if recipe.profession ~= private.PROFESSION_NAMES.RUNEFORGING then
 				self:Printf("Missing spell_link for ID %d (%s).", spell_id, recipe_name)
 			end
 			return
@@ -1045,9 +1045,9 @@ do
 			-- Lets check the recipe flags to see if we have a data error and the item should exist
 			if recipe:HasFilter("common1", "VENDOR") or recipe:HasFilter("common1", "INSTANCE") or recipe:HasFilter("common1", "RAID") then
 				table.insert(output, ("Recipe %d (%s) is missing a recipe item ID."):format(spell_id, recipe.name))
-			elseif recipe:HasFilter("common1", "TRAINER") and recipe.quality ~= private.item_qualities["COMMON"] then
+			elseif recipe:HasFilter("common1", "TRAINER") and recipe.quality ~= private.ITEM_QUALITIES["COMMON"] then
 				table.insert(output, ("%s: %d"):format(recipe.name, spell_id))
-				table.insert(output, ("    Wrong quality: Q.%s - should be Q.COMMON."):format(private.item_quality_names[recipe.quality]))
+				table.insert(output, ("    Wrong quality: Q.%s - should be Q.COMMON."):format(private.ITEM_QUALITY_NAMES[recipe.quality]))
 			end
 		end
 		ARLDatamineTT:Hide()
@@ -1397,7 +1397,7 @@ do
 		local recipe = scan_data.recipe_list[spell_id]
 		local acquire_data = recipe["acquire_data"]
 
-		local FS = private.filter_strings
+		local FS = private.FILTER_STRINGS
 		local flag_format = "F.%s"
 
 		table.wipe(missing_flags)
@@ -1635,7 +1635,7 @@ do
 		end
 
 		if scan_data.quality and scan_data.quality ~= recipe.quality then
-			local QS = private.item_quality_names
+			local QS = private.ITEM_QUALITY_NAMES
 
 			found_problem = true
 			table.insert(output, ("    Wrong quality: Q.%s - should be Q.%s."):format(QS[recipe.quality], QS[scan_data.quality]))
@@ -1727,13 +1727,13 @@ NO_ROLE_FLAG = {
 	[6413]	=	true,	[6417]	=	true,	[42296]	=	true,	[45557]	=	true,	[6501]	=	true,
 	[45558]	=	true,	[18239]	=	true,	[7752]	=	true,	[7828]	=	true,	[45560]	=	true,
 	[64358]	=	true,	[57421]	=	true,	[45561]	=	true,	[13028]	=	true,	[2543]	=	true,
-	[2545]	=	true,	[25659]	=	true,	[58512]	=	true,	[45565]	=	true,	[42305]	=	true,	
+	[2545]	=	true,	[25659]	=	true,	[58512]	=	true,	[45565]	=	true,	[42305]	=	true,
 	[45566] =	true,	[62350]	=	true,	[7753]	=	true,	[45695]	=	true,	[9513]	=	true,
 	[18244]	=	true,	[20626]	=	true,	[45569]	=	true,	[43779]	=	true,	[18245]	=	true,
 	[45571]	=	true,	[18246]	=	true,	[37836]	=	true,	[57433]	=	true,	[20916]	=	true,
-	[58521]	=	true,	[18247]	=	true,	[57435]	=	true,	[7754]	=	true,	[53056]	=	true,	
-	[58523]	=	true,	[57437]	=	true,	[57438]	=	true,	[58525]	=	true,	[45570]	=	true,	
-	[2538]	=	true,	[2540]	=	true,	[2548]	=	true,	[33290]	=	true,	[45562]	=	true,	
+	[58521]	=	true,	[18247]	=	true,	[57435]	=	true,	[7754]	=	true,	[53056]	=	true,
+	[58523]	=	true,	[57437]	=	true,	[57438]	=	true,	[58525]	=	true,	[45570]	=	true,
+	[2538]	=	true,	[2540]	=	true,	[2548]	=	true,	[33290]	=	true,	[45562]	=	true,
 	[15906]	=	true,	[18241]	=	true,	[45559]	=	true,	[45551]	=	true,	[57443]	=	true,
 	[58527]	=	true,	[43758]	=	true,	[58528]	=	true,	[8238]	=	true,	[7751]	=	true,
 	[7755]	=	true,	[43761]	=	true,	[7827]	=	true,	[45552]	=	true,	[45553]	=	true,
