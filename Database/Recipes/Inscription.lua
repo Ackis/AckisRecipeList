@@ -2584,7 +2584,6 @@ function addon:InitInscription()
 	recipe:SetSkillLevels(425, 425, 430, 435, 440)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.WORLD_DROP, F.IBOE, F.RBOP, F.DRUID)
 	recipe:AddDiscovery("DISCOVERY_INSC_BOOK")
-	recipe:AddWorldDrop("Northrend")
 
 	-- Glyph of Ice Barrier -- 64257
 	recipe = AddRecipe(64257, V.WOTLK, Q.COMMON)
