@@ -189,13 +189,12 @@ end -- do-block
 
 do
 	local SKILL_LEVEL_FORMAT = "[%d]"
-	local SPELL_ENCHANTING = _G.GetSpellInfo(51313)
 
 	function recipe_prototype:GetDisplayName()
 		local _, _, _, quality_color = _G.GetItemQualityColor(self.quality)
 		local recipe_name = self.name
 
-		if private.ordered_professions[addon.Frame.profession] == SPELL_ENCHANTING then
+		if private.ordered_professions[addon.Frame.profession] == private.profession_names.ENCHANTING then
 			recipe_name = recipe_name:gsub(_G.ENSCRIBE .. " ","")
 		end
 		local has_faction = private.Player:HasProperRepLevel(self.acquire_data[A.REPUTATION])

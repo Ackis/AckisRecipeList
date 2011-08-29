@@ -156,8 +156,8 @@ function private.InitializeFrame()
 		-------------------------------------------------------------------------------
 		local prev_profession = self.profession
 
-		if profession == private.mining_name then
-			self.profession = 11 -- Smelting
+		if profession == private.MINING_PROFESSION_NAME then
+			self.profession = private.PROFESSION_IDS[private.profession_names.SMELTING]
 			self.prof_name = profession
 		else
 			for index, name in ipairs(ORDERED_PROFESSIONS) do

@@ -64,8 +64,8 @@ local function LoadAllRecipes()
 			addon:InitializeLookups()
 		end
 
-		for index, prof in pairs(private.professions) do
-			addon:InitializeProfession(prof)
+		for identifier, name in pairs(private.profession_names) do
+			addon:InitializeProfession(name)
 		end
 	end
 	return recipe_list
@@ -326,7 +326,7 @@ do
 		if #output > 0 then
 			table.insert(output, 1, ("ARL Version: %s"):format(self.version))
 			table.insert(output, 2, L["DATAMINER_TRAINER_INFO"]:format(trainer_name, trainer_id))
-			if found_extra and trainer_profession == private.professions.Engineering then
+			if found_extra and trainer_profession == private.profession_names.ENGINEERING then
 				table.insert(output, "\nSome goggles may be listed as extra. These goggles ONLY show up for the classes who can make them, so they may be false positives.")
 			end
 
@@ -428,8 +428,8 @@ do
 		end
 		table.wipe(recipe_list)
 
-		if prof_name == private.professions["Smelting"]:lower() then
-			prof_name = private.mining_name:lower()
+		if prof_name == private.profession_names.SMELTING:lower() then
+			prof_name = private.MINING_PROFESSION_NAME:lower()
 		end
 
 		for i in pairs(master_list) do
@@ -516,8 +516,8 @@ do
 		end
 		table.wipe(recipe_list)
 
-		if prof_name == private.professions["Smelting"]:lower() then
-			prof_name = private.mining_name:lower()
+		if prof_name == private.profession_names.SMELTING:lower() then
+			prof_name = private.MINING_PROFESSION_NAME:lower()
 		end
 		for i in pairs(master_list) do
 			local prof = master_list[i].profession:lower()
@@ -586,8 +586,8 @@ do
 		end
 		table.wipe(recipe_list)
 
-		if prof_name == private.professions["Smelting"]:lower() then
-			prof_name = private.mining_name:lower()
+		if prof_name == private.profession_names.SMELTING:lower() then
+			prof_name = private.MINING_PROFESSION_NAME:lower()
 		end
 		for i in pairs(master_list) do
 			local prof = master_list[i].profession:lower()
@@ -991,7 +991,7 @@ do
 		local recipe_link = _G.GetSpellLink(recipe.spell_id)
 
 		if not recipe_link then
-			if recipe.profession ~= private.runeforging_name then		-- Lets hide this output for runeforging.
+			if recipe.profession ~= private.profession_names.RUNEFORGING then
 				self:Printf("Missing spell_link for ID %d (%s).", spell_id, recipe_name)
 			end
 			return

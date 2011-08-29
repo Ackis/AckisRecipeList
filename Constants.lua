@@ -29,40 +29,44 @@ local L		= LibStub("AceLocale-3.0"):GetLocale(private.addon_name)
 -- Profession data.
 -------------------------------------------------------------------------------
 -- Needed for Smelting kludge.
-private.mining_name		= _G.GetSpellInfo(32606)
+private.MINING_PROFESSION_NAME = _G.GetSpellInfo(32606)
 
--- This is needed because the French translation is non-conformant.
-private.runeforging_name = _G.GetLocale() == "frFR" and "Runeforger" or _G.GetSpellInfo(53428)
-
-private.professions = {
-	["Alchemy"]		= _G.GetSpellInfo(51304),
-	["Blacksmithing"]	= _G.GetSpellInfo(51300),
-	["Cooking"]		= _G.GetSpellInfo(51296),
-	["Enchanting"]		= _G.GetSpellInfo(51313),
-	["Engineering"]		= _G.GetSpellInfo(51306),
-	["FirstAid"]		= _G.GetSpellInfo(45542),
-	["Inscription"]		= _G.GetSpellInfo(45363),
-	["Jewelcrafting"]	= _G.GetSpellInfo(51311),
-	["Leatherworking"]	= _G.GetSpellInfo(51302),
-	["Runeforging"]		= private.runeforging_name,
-	["Smelting"]		= _G.GetSpellInfo(2656),
-	["Tailoring"]		= _G.GetSpellInfo(51309),
+-- Special case for Runeforging is needed because the French translation is non-conformant.
+private.profession_names = {
+	ALCHEMY		= _G.GetSpellInfo(51304),
+	BLACKSMITHING	= _G.GetSpellInfo(51300),
+	COOKING		= _G.GetSpellInfo(51296),
+	ENCHANTING	= _G.GetSpellInfo(51313),
+	ENGINEERING	= _G.GetSpellInfo(51306),
+	FIRSTAID	= _G.GetSpellInfo(45542),
+	INSCRIPTION	= _G.GetSpellInfo(45363),
+	JEWELCRAFTING	= _G.GetSpellInfo(51311),
+	LEATHERWORKING	= _G.GetSpellInfo(51302),
+	RUNEFORGING	= _G.GetLocale() == "frFR" and "Runeforger" or _G.GetSpellInfo(53428),
+	SMELTING	= _G.GetSpellInfo(2656),
+	TAILORING	= _G.GetSpellInfo(51309),
 }
 
 private.ordered_professions = {
-	private.professions.Alchemy, 		-- 1
-	private.professions.Blacksmithing, 	-- 2
-	private.professions.Cooking, 		-- 3
-	private.professions.Enchanting,		-- 4
-	private.professions.Engineering,	-- 5
-	private.professions.FirstAid,		-- 6
-	private.professions.Inscription,	-- 7
-	private.professions.Jewelcrafting, 	-- 8
-	private.professions.Leatherworking, 	-- 9
-	private.professions.Runeforging,	-- 10
-	private.professions.Smelting,		-- 11
-	private.professions.Tailoring,		-- 12
+	private.profession_names.ALCHEMY, 		-- 1
+	private.profession_names.BLACKSMITHING, 	-- 2
+	private.profession_names.COOKING, 		-- 3
+	private.profession_names.ENCHANTING,		-- 4
+	private.profession_names.ENGINEERING,		-- 5
+	private.profession_names.FIRSTAID,		-- 6
+	private.profession_names.INSCRIPTION,		-- 7
+	private.profession_names.JEWELCRAFTING, 	-- 8
+	private.profession_names.LEATHERWORKING, 	-- 9
+	private.profession_names.RUNEFORGING,		-- 10
+	private.profession_names.SMELTING,		-- 11
+	private.profession_names.TAILORING,		-- 12
 }
+
+private.PROFESSION_IDS = {}
+
+for index = 1, #private.ordered_professions do
+	private.PROFESSION_IDS[private.ordered_professions] = index
+end
 
 private.profession_textures = {
 	"alchemy",	-- 1

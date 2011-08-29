@@ -174,8 +174,8 @@ do
 			if index then
 				local name, icon, rank, maxrank, numspells, spelloffset, skillline = _G.GetProfessionInfo(index)
 
-				if name == private.mining_name then
-					name = private.professions["Smelting"]
+				if name == private.MINING_PROFESSION_NAME then
+					name = private.profession_names.SMELTING
 				end
 				self.professions[name] = rank
 			end

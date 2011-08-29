@@ -60,7 +60,7 @@ private.build_num = select(2, _G.GetBuildInfo())
 ------------------------------------------------------------------------------
 -- Constants.
 ------------------------------------------------------------------------------
-local PROFESSION_INIT_FUNCS = {}
+local PROFESSION_INIT_FUNCS
 
 ------------------------------------------------------------------------------
 -- Database tables
@@ -472,19 +472,20 @@ function addon:OnInitialize()
 	-------------------------------------------------------------------------------
 	-- Populate the profession initialization functions.
 	-------------------------------------------------------------------------------
-	PROFESSION_INIT_FUNCS[_G.GetSpellInfo(51304)] = addon.InitAlchemy
-	PROFESSION_INIT_FUNCS[_G.GetSpellInfo(51300)] = addon.InitBlacksmithing
-	PROFESSION_INIT_FUNCS[_G.GetSpellInfo(51296)] = addon.InitCooking
-	PROFESSION_INIT_FUNCS[_G.GetSpellInfo(51313)] = addon.InitEnchanting
-	PROFESSION_INIT_FUNCS[_G.GetSpellInfo(51306)] = addon.InitEngineering
-	PROFESSION_INIT_FUNCS[_G.GetSpellInfo(45542)] = addon.InitFirstAid
-	PROFESSION_INIT_FUNCS[_G.GetSpellInfo(51302)] = addon.InitLeatherworking
-	PROFESSION_INIT_FUNCS[_G.GetSpellInfo(32606)] = addon.InitSmelting
-	PROFESSION_INIT_FUNCS[_G.GetSpellInfo(51309)] = addon.InitTailoring
-	PROFESSION_INIT_FUNCS[_G.GetSpellInfo(51311)] = addon.InitJewelcrafting
-	PROFESSION_INIT_FUNCS[_G.GetSpellInfo(45363)] = addon.InitInscription
-	PROFESSION_INIT_FUNCS[private.runeforging_name] = addon.InitRuneforging
-
+	PROFESSION_INIT_FUNCS = {
+		[private.profession_names.ALCHEMY] = addon.InitAlchemy,
+		[private.profession_names.BLACKSMITHING] = addon.InitBlacksmithing,
+		[private.profession_names.COOKING] = addon.InitCooking,
+		[private.profession_names.ENCHANTING] = addon.InitEnchanting,
+		[private.profession_names.ENGINEERING] = addon.InitEngineering,
+		[private.profession_names.FIRSTAID] = addon.InitFirstAid,
+		[private.profession_names.LEATHERWORKING] = addon.InitLeatherworking,
+		[private.MINING_PROFESSION_NAME] = addon.InitSmelting,
+		[private.profession_names.TAILORING] = addon.InitTailoring,
+		[private.profession_names.JEWELCRAFTING] = addon.InitJewelcrafting,
+		[private.profession_names.INSCRIPTION] = addon.InitInscription,
+		[private.profession_names.RUNEFORGING] = addon.InitRuneforging,
+	}
 	-------------------------------------------------------------------------------
 	-- Hook GameTooltip so we can show information on mobs that drop/sell/train
 	-------------------------------------------------------------------------------
@@ -827,8 +828,8 @@ function addon:InitializeProfession(profession)
 		return
 	end
 
-	if profession == private.professions["Smelting"] then
-		profession = private.mining_name
+	if profession == private.profession_names.SMELTING then
+		profession = private.MINING_PROFESSION_NAME
 	end
 	local func = PROFESSION_INIT_FUNCS[profession]
 
@@ -961,7 +962,7 @@ do
 			return
 		end
 
-		if current_prof == private.runeforging_name then
+		if current_prof == private.profession_names.RUNEFORGING then
 			prof_level = _G.UnitLevel("player")
 		end
 		local player = private.Player
