@@ -35,7 +35,6 @@ local LIST_ENTRY_WIDTH	= 286
 local CATEGORY_COLORS	= private.category_colors
 local BASIC_COLORS	= private.basic_colors
 
-local SF		= private.recipe_state_flags
 local COMMON1		= private.COMMON_FLAGS_WORD1
 
 local A			= private.acquire_types

@@ -27,7 +27,6 @@ local BZ = LibStub("LibBabble-Zone-3.0"):GetLookupTable()
 local BFAC = LibStub("LibBabble-Faction-3.0"):GetLookupTable()
 
 local A = private.acquire_types
-local SF = private.recipe_state_flags
 
 private.recipe_list = {}
 private.profession_recipe_list = {}
@@ -139,8 +138,19 @@ function recipe_prototype:RequiredFaction()
 	return self.required_faction
 end
 
+
+-------------------------------------------------------------------------------
+-- Recipe state flags.
+-------------------------------------------------------------------------------
+local RECIPE_STATE_FLAGS = {
+	KNOWN		= 0x00000001,
+	RELEVANT	= 0x00000002,
+	VISIBLE		= 0x00000004,
+	LINKED		= 0x00000008,
+}
+
 function recipe_prototype:HasState(state_name)
-	return self.state and (bit.band(self.state, SF[state_name]) == SF[state_name]) or false
+	return self.state and (bit.band(self.state, RECIPE_STATE_FLAGS[state_name]) == RECIPE_STATE_FLAGS[state_name]) or false
 end
 
 function recipe_prototype:AddState(state_name)
@@ -148,10 +158,10 @@ function recipe_prototype:AddState(state_name)
 		self.state = 0
 	end
 
-	if bit.band(self.state, SF[state_name]) == SF[state_name] then
+	if bit.band(self.state, RECIPE_STATE_FLAGS[state_name]) == RECIPE_STATE_FLAGS[state_name] then
 		return
 	end
-	self.state = bit.bxor(self.state, SF[state_name])
+	self.state = bit.bxor(self.state, RECIPE_STATE_FLAGS[state_name])
 end
 
 function recipe_prototype:RemoveState(state_name)
@@ -159,10 +169,10 @@ function recipe_prototype:RemoveState(state_name)
 		return
 	end
 
-	if bit.band(self.state, SF[state_name]) ~= SF[state_name] then
+	if bit.band(self.state, RECIPE_STATE_FLAGS[state_name]) ~= RECIPE_STATE_FLAGS[state_name] then
 		return
 	end
-	self.state = bit.bxor(self.state, SF[state_name])
+	self.state = bit.bxor(self.state, RECIPE_STATE_FLAGS[state_name])
 
 	if self.state == 0 then
 		self.state = nil

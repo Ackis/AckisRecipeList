@@ -1044,7 +1044,6 @@ do
 		end
 		local recipe_list = private.recipe_list
 		local recipes_found = 0
-		local SF = private.recipe_state_flags
 		local spell_overwrite_map = private.spell_overwrite_map
 
 		for spell_id, recipe in pairs(private.profession_recipe_list[current_prof]) do
@@ -1332,7 +1331,6 @@ do
 		end
 
 		local recipe_list = private.recipe_list
-		local SF = private.recipe_state_flags
 
 		for recipe_id in pairs(recipe_list) do
 			local recipe = recipe_list[recipe_id]
