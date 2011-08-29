@@ -29,8 +29,8 @@ local BFAC = LibStub("LibBabble-Faction-3.0"):GetLookupTable()
 local A = private.acquire_types
 local SF = private.recipe_state_flags
 
-private.num_recipes = {}
 private.recipe_list = {}
+private.num_profession_recipes = {}
 
 -----------------------------------------------------------------------
 -- Local constants.
@@ -73,7 +73,7 @@ function addon:AddRecipe(spell_id, profession, genesis, quality)
 		self:Print(L["SpellIDCache"]:format(spell_id))
 	end
 	recipe_list[spell_id] = recipe
-	private.num_recipes[recipe.profession] = (private.num_recipes[recipe.profession] or 0) + 1
+	private.num_profession_recipes[recipe.profession] = (private.num_profession_recipes[recipe.profession] or 0) + 1
 
 	return recipe
 end
@@ -122,7 +122,7 @@ function recipe_prototype:SetRequiredFaction(faction_name)
 
 	if faction_name and private.Player.faction ~= faction_name then
 		self.is_ignored = true
-		private.num_recipes[self.profession] = private.num_recipes[self.profession] - 1
+		private.num_profession_recipes[self.profession] = private.num_profession_recipes[self.profession] - 1
 	end
 end
 
