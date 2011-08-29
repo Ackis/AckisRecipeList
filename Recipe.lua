@@ -33,6 +33,9 @@ private.recipe_list = {}
 private.profession_recipe_list = {}
 private.num_profession_recipes = {}
 
+private.acquire_list	= {}
+private.location_list	= {}
+
 -----------------------------------------------------------------------
 -- Local constants.
 -----------------------------------------------------------------------
@@ -273,7 +276,7 @@ function recipe_prototype:AddAcquireData(acquire_type, type_string, unit_list, .
 	local cur_var = 1
 
 	while cur_var <= num_vars do
-		local location, affiliation
+		local location_name, affiliation
 		local identifier = select(cur_var, ...)
 		cur_var = cur_var + 1
 
@@ -292,9 +295,9 @@ function recipe_prototype:AddAcquireData(acquire_type, type_string, unit_list, .
 			if not unit_list then
 				local id_type = type(identifier)
 
-				location = id_type == "string" and BZ[identifier] or nil
+				location_name = id_type == "string" and BZ[identifier] or nil
 
-				if location then
+				if location_name then
 					affiliation = "world_drop"
 				else
 					if id_type == "string" then
@@ -305,7 +308,7 @@ function recipe_prototype:AddAcquireData(acquire_type, type_string, unit_list, .
 				local unit = unit_list[identifier]
 
 				affiliation = unit.faction
-				location = unit.location
+				location_name = unit.location
 
 				unit.item_list = unit.item_list or {}
 				unit.item_list[self.spell_id] = quantity
@@ -317,12 +320,12 @@ function recipe_prototype:AddAcquireData(acquire_type, type_string, unit_list, .
 		acquire_list[acquire_type].name = private.acquire_names[acquire_type]
 		acquire_list[acquire_type].recipes[self.spell_id] = affiliation or true
 
-		if location then
-			location_list[location] = location_list[location] or {}
-			location_list[location].recipes = location_list[location].recipes or {}
+		if location_name then
+			location_list[location_name] = location_list[location_name] or {}
+			location_list[location_name].recipes = location_list[location_name].recipes or {}
 
-			location_list[location].name = location
-			location_list[location].recipes[self.spell_id] = affiliation or true
+			location_list[location_name].name = location_name
+			location_list[location_name].recipes[self.spell_id] = affiliation or true
 		end
 	end
 end
@@ -384,7 +387,7 @@ function recipe_prototype:AddRepVendor(faction_id, rep_level, ...)
 	local cur_var = 1
 
 	while cur_var <= num_vars do
-		local location, affiliation
+		local location_name, affiliation
 		local vendor_id = select(cur_var, ...)
 		cur_var = cur_var + 1
 
@@ -407,7 +410,7 @@ function recipe_prototype:AddRepVendor(faction_id, rep_level, ...)
 				local rep_vendor = vendor_list[vendor_id]
 
 				affiliation = rep_vendor.faction
-				location = rep_vendor.location
+				location_name = rep_vendor.location
 
 				rep_vendor.item_list = rep_vendor.item_list or {}
 				rep_vendor.item_list[self.spell_id] = true
@@ -419,12 +422,12 @@ function recipe_prototype:AddRepVendor(faction_id, rep_level, ...)
 		acquire_list[A.REPUTATION].name = private.acquire_names[A.REPUTATION]
 		acquire_list[A.REPUTATION].recipes[self.spell_id] = affiliation or true
 
-		if location then
-			location_list[location] = location_list[location] or {}
-			location_list[location].recipes = location_list[location].recipes or {}
+		if location_name then
+			location_list[location_name] = location_list[location_name] or {}
+			location_list[location_name].recipes = location_list[location_name].recipes or {}
 
-			location_list[location].name = location
-			location_list[location].recipes[self.spell_id] = affiliation or true
+			location_list[location_name].name = location_name
+			location_list[location_name].recipes[self.spell_id] = affiliation or true
 		end
 	end
 end

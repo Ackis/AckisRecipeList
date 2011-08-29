@@ -57,9 +57,6 @@ local debugger	= _G.tekDebug and _G.tekDebug:GetFrame(private.addon_name)
 
 private.build_num = select(2, _G.GetBuildInfo())
 
-private.location_list	= {}
-private.acquire_list	= {}
-
 ------------------------------------------------------------------------------
 -- Constants.
 ------------------------------------------------------------------------------
