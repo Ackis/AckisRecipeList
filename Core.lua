@@ -60,7 +60,6 @@ private.build_num = select(2, _G.GetBuildInfo())
 private.custom_list	= {}
 private.mob_list	= {}
 private.quest_list	= {}
-private.recipe_list	= {}
 private.reputation_list	= {}
 private.trainer_list	= {}
 private.seasonal_list	= {}

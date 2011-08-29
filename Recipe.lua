@@ -30,6 +30,7 @@ local A = private.acquire_types
 local SF = private.recipe_state_flags
 
 private.num_recipes = {}
+private.recipe_list = {}
 
 -----------------------------------------------------------------------
 -- Local constants.
