@@ -47,7 +47,7 @@ local ReleaseTable = private.ReleaseTable
 local SetTextColor = private.SetTextColor
 local SetTooltipScripts = private.SetTooltipScripts
 
-local A = private.acquire_types
+local A = private.ACQUIRE_TYPES
 
 -------------------------------------------------------------------------------
 -- Constants
@@ -329,7 +329,7 @@ function private.InitializeFrame()
 		local current_prof = ORDERED_PROFESSIONS[self.profession]
 
 		if not self.is_expanded then
-			self.title_bar:SetFormattedText(SetTextColor(private.basic_colors["normal"], "ARL (%s) - %s"), addon.version, current_prof)
+			self.title_bar:SetFormattedText(SetTextColor(private.BASIC_COLORS["normal"], "ARL (%s) - %s"), addon.version, current_prof)
 			return
 		end
 		local total, active = 0, 0
@@ -342,7 +342,7 @@ function private.InitializeFrame()
 				total = total + 1
 			end
 		end
-		self.title_bar:SetFormattedText(SetTextColor(private.basic_colors["normal"], "ARL (%s) - %s (%d/%d %s)"), addon.version, current_prof, active, total, _G.FILTERS)
+		self.title_bar:SetFormattedText(SetTextColor(private.BASIC_COLORS["normal"], "ARL (%s) - %s (%d/%d %s)"), addon.version, current_prof, active, total, _G.FILTERS)
 	end
 
 	-------------------------------------------------------------------------------
@@ -492,11 +492,11 @@ function private.InitializeFrame()
 		end
 
 		local function SearchByAcquireType(recipe, search_pattern)
-			local acquire_names = private.acquire_names
+			local ACQUIRE_NAMES = private.ACQUIRE_NAMES
 
-			for acquire_type in pairs(acquire_names) do
+			for acquire_type in pairs(ACQUIRE_NAMES) do
 				if recipe.acquire_data[acquire_type] then
-					local acquire_name = acquire_names[acquire_type]:lower()
+					local acquire_name = ACQUIRE_NAMES[acquire_type]:lower()
 
 					if acquire_name:find(search_pattern) then
 						recipe:AddState("RELEVANT")

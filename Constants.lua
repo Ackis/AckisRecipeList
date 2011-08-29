@@ -196,7 +196,7 @@ private.COMMON_FLAGS_WORD1 = {
 -------------------------------------------------------------------------------
 -- Class filter bitfield word 1.
 -------------------------------------------------------------------------------
-private.class_flags_word1 = {
+private.CLASS_FLAGS_WORD1 = {
 	DK	= 0x00000001,	-- 1
 	DRUID	= 0x00000002,	-- 2
 	HUNTER	= 0x00000004,	-- 3
@@ -212,7 +212,7 @@ private.class_flags_word1 = {
 -------------------------------------------------------------------------------
 -- Reputation filter bitfield word 1.
 -------------------------------------------------------------------------------
-private.rep_flags_word1 = {
+private.REP_FLAGS_WORD1 = {
 	ARGENTDAWN		= 0x00000001,	-- 1
 	CENARION_CIRCLE		= 0x00000002,	-- 2
 	THORIUM_BROTHERHOOD	= 0x00000004,	-- 3
@@ -250,7 +250,7 @@ private.rep_flags_word1 = {
 -------------------------------------------------------------------------------
 -- Reputation filter bitfield word 2.
 -------------------------------------------------------------------------------
-private.rep_flags_word2 = {
+private.REP_FLAGS_WORD2 = {
 	ASHEN_VERDICT		= 0x00000001,	-- 1
 	CATACOMMON1		= 0x00000002,	-- 2
 	CATACOMMON2		= 0x00000004,	-- 3
@@ -263,7 +263,7 @@ private.rep_flags_word2 = {
 -------------------------------------------------------------------------------
 -- Item filter bitfield word 1.
 -------------------------------------------------------------------------------
-private.item_flags_word1 = {
+private.ITEM_FLAGS_WORD1 = {
 	CLOTH		= 0x00000001,	-- 1
 	LEATHER		= 0x00000002,	-- 2
 	MAIL		= 0x00000004,	-- 3
@@ -289,19 +289,16 @@ private.item_flags_word1 = {
 	GUN		= 0x00400000,	-- 23
 }
 
--------------------------------------------------------------------------------
--- Transitory mapping from boolean "flags" to bit flags.
--------------------------------------------------------------------------------
-private.bit_flags = {
+private.FLAG_WORDS = {
 	private.COMMON_FLAGS_WORD1,
-	private.class_flags_word1,
-	private.rep_flags_word1,
-	private.rep_flags_word2,
-	private.item_flags_word1,
+	private.CLASS_FLAGS_WORD1,
+	private.REP_FLAGS_WORD1,
+	private.REP_FLAGS_WORD2,
+	private.ITEM_FLAGS_WORD1,
 }
 
 -- Member names within a recipe's flags table.
-private.flag_members = {
+private.FLAG_MEMBERS = {
 	"common1",
 	"class1",
 	"reputation1",
@@ -312,7 +309,7 @@ private.flag_members = {
 -------------------------------------------------------------------------------
 -- Acquire types.
 -------------------------------------------------------------------------------
-private.acquire_names = {
+private.ACQUIRE_NAMES = {
 	[1]	= L["Trainer"],
 	[2]	= L["Vendor"],
 	[3]	= L["Mob Drop"],
@@ -325,7 +322,7 @@ private.acquire_names = {
 	[10]	= _G.MISCELLANEOUS,
 }
 
-private.acquire_strings = {
+private.ACQUIRE_STRINGS = {
 	[1]	= "TRAINER",
 	[2]	= "VENDOR",
 	[3]	= "MOB_DROP",
@@ -338,32 +335,32 @@ private.acquire_strings = {
 	[10]	= "CUSTOM",
 }
 
-private.acquire_types = {}
+private.ACQUIRE_TYPES = {}
 
-for index = 1, #private.acquire_strings do
-	private.acquire_types[private.acquire_strings[index]] = index
+for index = 1, #private.ACQUIRE_STRINGS do
+	private.ACQUIRE_TYPES[private.ACQUIRE_STRINGS[index]] = index
 end
 
 -------------------------------------------------------------------------------
 -- Reputation levels.
 -------------------------------------------------------------------------------
-private.rep_level_strings = {
+private.REP_LEVEL_STRINGS = {
 	[1]	= "FRIENDLY",
 	[2]	= "HONORED",
 	[3]	= "REVERED",
 	[4]	= "EXALTED",
 }
 
-private.rep_levels = {}
+private.REP_LEVELS = {}
 
-for index = 1, #private.rep_level_strings do
-	private.rep_levels[private.rep_level_strings[index]] = index
+for index = 1, #private.REP_LEVEL_STRINGS do
+	private.REP_LEVELS[private.REP_LEVEL_STRINGS[index]] = index
 end
 
 -------------------------------------------------------------------------------
 -- Factions.
 -------------------------------------------------------------------------------
-private.faction_strings = {
+private.FACTION_STRINGS = {
 	[59]	= "THORIUM_BROTHERHOOD",
 	[270]	= "ZANDALAR",
 	[529]	= "ARGENTDAWN",
@@ -407,10 +404,10 @@ private.faction_strings = {
 	[1178]	= "HELLSCREAM",
 }
 
-private.faction_ids = {}
+private.FACTION_IDS = {}
 
-for id, name in _G.pairs(private.faction_strings) do
-	private.faction_ids[name] = id
+for id, name in _G.pairs(private.FACTION_STRINGS) do
+	private.FACTION_IDS[name] = id
 end
 
 -------------------------------------------------------------------------------
@@ -424,7 +421,7 @@ local function GetColorsFromTable(dict)
 	return dict.r, dict.g, dict.b
 end
 
-private.reputation_colors = {
+private.REPUTATION_COLORS = {
 	["exalted"]	= RGBtoHEX(GetColorsFromTable(_G.FACTION_BAR_COLORS[8])),
 	["revered"]	= RGBtoHEX(GetColorsFromTable(_G.FACTION_BAR_COLORS[7])),
 	["honored"]	= RGBtoHEX(GetColorsFromTable(_G.FACTION_BAR_COLORS[6])),
@@ -436,7 +433,7 @@ private.reputation_colors = {
 }
 
 -- Recipe difficulty colors.
-private.difficulty_colors = {
+private.DIFFICULTY_COLORS = {
 	["trivial"]	= "808080",
 	["easy"]	= "40bf40",
 	["medium"]	= "ffff00",
@@ -444,7 +441,7 @@ private.difficulty_colors = {
 	["impossible"]	= "ff0000",
 }
 
-private.basic_colors = {
+private.BASIC_COLORS = {
 	["grey"]	= "666666",
 	["white"]	= "ffffff",
 	["yellow"]	= "ffff00",
@@ -452,7 +449,7 @@ private.basic_colors = {
 }
 
 -- Colors used in tooltips and the recipe list.
-private.category_colors = {
+private.CATEGORY_COLORS = {
 	-- Acquire type colors
 	["achievement"]	= "faeb98",
 	["custom"]	= "73b7ff",
@@ -475,7 +472,7 @@ private.category_colors = {
 -- For example, when you learn Darkglow Embroidery Rank 2 (75175),
 -- you no longer know Darkglow Embroidery Rank 1 (55769)
 
-private.spell_overwrite_map = {
+private.SPELL_OVERWRITE_MAP = {
 	-------------------------------------------------------------------------------
 	-- Tailoring
 	-------------------------------------------------------------------------------

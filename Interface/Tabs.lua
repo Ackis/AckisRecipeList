@@ -23,7 +23,7 @@ local BFAC	= LibStub("LibBabble-Faction-3.0"):GetLookupTable()
 -------------------------------------------------------------------------------
 local ORDERED_PROFESSIONS	= private.ORDERED_PROFESSIONS
 
-local A = private.acquire_types
+local A = private.ACQUIRE_TYPES
 
 -------------------------------------------------------------------------------
 -- Upvalues
@@ -98,7 +98,7 @@ function private.InitializeTabs()
 		local member = ORDERED_PROFESSIONS[MainPanel.profession] .. " expanded"
 
 		if entry.acquire_id then
-			self[member][private.acquire_names[entry.acquire_id]] = expanded or nil
+			self[member][private.ACQUIRE_NAMES[entry.acquire_id]] = expanded or nil
 		end
 
 		if entry.location_id then
@@ -241,16 +241,16 @@ function private.InitializeTabs()
 			if count > 0 then
 				local entry = AcquireTable()
 
-				local acquire_str = private.acquire_strings[acquire_type]:lower():gsub("_","")
-				local color_code = private.category_colors[acquire_str] or "ffffff"
-				local is_expanded = self[prof_name.." expanded"][private.acquire_names[acquire_type]]
+				local acquire_str = private.ACQUIRE_STRINGS[acquire_type]:lower():gsub("_","")
+				local color_code = private.CATEGORY_COLORS[acquire_str] or "ffffff"
+				local is_expanded = self[prof_name.." expanded"][private.ACQUIRE_NAMES[acquire_type]]
 
-				entry.text = ("%s (%d)"):format(SetTextColor(color_code, private.acquire_names[acquire_type]),count)
+				entry.text = ("%s (%d)"):format(SetTextColor(color_code, private.ACQUIRE_NAMES[acquire_type]),count)
 				entry.acquire_id = acquire_type
 
 				insert_index = ListFrame:InsertEntry(entry, nil, insert_index, "header", is_expanded or expand_mode, is_expanded or expand_mode)
 			else
-				self[prof_name.." expanded"][private.acquire_names[acquire_type]] = nil
+				self[prof_name.." expanded"][private.ACQUIRE_NAMES[acquire_type]] = nil
 			end
 		end
 		return recipe_count
@@ -347,7 +347,7 @@ function private.InitializeTabs()
 			if count > 0 then
 				local is_expanded = self[prof_name.." expanded"][loc_name]
 				local entry = AcquireTable()
-				entry.text = ("%s (%d)"):format(SetTextColor(private.category_colors["location"], loc_name),count)
+				entry.text = ("%s (%d)"):format(SetTextColor(private.CATEGORY_COLORS["location"], loc_name),count)
 				entry.location_id = loc_name
 
 				insert_index = ListFrame:InsertEntry(entry, nil, insert_index, "header", is_expanded or expand_mode, is_expanded or expand_mode)

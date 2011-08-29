@@ -32,7 +32,7 @@ local L		= LibStub("AceLocale-3.0"):GetLocale(private.addon_name)
 local BFAC	= LibStub("LibBabble-Faction-3.0"):GetLookupTable()
 local BZ	= LibStub("LibBabble-Zone-3.0"):GetLookupTable()
 
-local A = private.acquire_types
+local A = private.ACQUIRE_TYPES
 
 -------------------------------------------------------------------------------
 -- Constants.
@@ -492,8 +492,8 @@ function addon:AddWaypoint(recipe_id, acquire_id, location_id, npc_id)
 		local continent, zone
 		local recipe = recipe_list[spell_id]
 		local _, _, _, quality_color = _G.GetItemQualityColor(recipe.quality)
-		local acquire_str = private.acquire_strings[waypoint.acquire_type]:lower():gsub("_","")
-		local color_code = private.category_colors[acquire_str] or "ffffff"
+		local acquire_str = private.ACQUIRE_STRINGS[waypoint.acquire_type]:lower():gsub("_","")
+		local color_code = private.CATEGORY_COLORS[acquire_str] or "ffffff"
 
 		if waypoint.acquire_type == A.QUEST then
 			name = ("Quest: |cff%s%s|r (|c%s%s|r)"):format(color_code, private.quest_names[waypoint.reference_id], quality_color, recipe.name)

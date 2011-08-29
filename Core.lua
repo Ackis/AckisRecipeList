@@ -68,10 +68,6 @@ local PROFESSION_INIT_FUNCS
 local AllSpecialtiesTable = {}
 local SpecialtyTable
 
--- Filter flags and acquire types - defined in Constants.lua
-local F 	= private.FILTER_IDS
-local A		= private.acquire_types
-
 -- Global Frame Variables
 addon.optionsFrame = {}
 
@@ -1044,7 +1040,7 @@ do
 		end
 		local recipe_list = private.recipe_list
 		local recipes_found = 0
-		local spell_overwrite_map = private.spell_overwrite_map
+		local SPELL_OVERWRITE_MAP = private.SPELL_OVERWRITE_MAP
 
 		for spell_id, recipe in pairs(private.profession_recipe_list[current_prof]) do
 			recipe:RemoveState("KNOWN")
@@ -1068,13 +1064,13 @@ do
 					-- ability to learn the lower rank.
 
 					-- If we have it in the mapping, set the lower rank spell to known
-					if spell_overwrite_map[spell_id] then
-						local overwrite_recipe = recipe_list[spell_overwrite_map[spell_id]]
+					if SPELL_OVERWRITE_MAP[spell_id] then
+						local overwrite_recipe = recipe_list[SPELL_OVERWRITE_MAP[spell_id]]
 
 						if overwrite_recipe then
 							SetRecipeAsKnownOrLinked(overwrite_recipe, tradeskill_is_linked)
 						else
-							self:Debug(tradeName .. " " .. spell_overwrite_map[spell_id] .. L["MissingFromDB"])
+							self:Debug(tradeName .. " " .. SPELL_OVERWRITE_MAP[spell_id] .. L["MissingFromDB"])
 						end
 					end
 					SetRecipeAsKnownOrLinked(recipe, tradeskill_is_linked)
@@ -1203,7 +1199,6 @@ do
 	-------------------------------------------------------------------------------
 	local text_table = {}
 	local acquire_list = {}
-	local ACQUIRE_NAMES = private.acquire_names
 
 	local GetFilterNames
 	do
@@ -1379,9 +1374,9 @@ do
 				local prev = false
 
 				-- Find out which flags are set
-				for table_index, bits in ipairs(private.bit_flags) do
+				for table_index, bits in ipairs(private.FLAG_WORDS) do
 					for flag_name, flag in pairs(bits) do
-						local bitfield = recipe.flags[private.flag_members[table_index]]
+						local bitfield = recipe.flags[private.FLAG_MEMBERS[table_index]]
 
 						if bitfield and bit.band(bitfield, flag) == flag then
 							if not output or output == "Comma" then
@@ -1414,7 +1409,7 @@ do
 				table.wipe(acquire_list)
 
 				for acquire_type in pairs(acquire_data) do
-					acquire_list[ACQUIRE_NAMES[acquire_type]] = true
+					acquire_list[private.ACQUIRE_NAMES[acquire_type]] = true
 				end
 
 				-- Add all the acquire methods in

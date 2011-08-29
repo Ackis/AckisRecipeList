@@ -26,7 +26,7 @@ local L = LibStub("AceLocale-3.0"):GetLocale(private.addon_name)
 local BZ = LibStub("LibBabble-Zone-3.0"):GetLookupTable()
 local BFAC = LibStub("LibBabble-Faction-3.0"):GetLookupTable()
 
-local A = private.acquire_types
+local A = private.ACQUIRE_TYPES
 
 private.recipe_list = {}
 private.profession_recipe_list = {}
@@ -182,10 +182,10 @@ end
 do
 	local BITFIELD_MAP = {
 		common1 = private.COMMON_FLAGS_WORD1,
-		class1 = private.class_flags_word1,
-		reputation1 = private.rep_flags_word1,
-		reputation2 = private.rep_flags_word2,
-		item1 = private.item_flags_word1,
+		class1 = private.CLASS_FLAGS_WORD1,
+		reputation1 = private.REP_FLAGS_WORD1,
+		reputation2 = private.REP_FLAGS_WORD2,
+		item1 = private.ITEM_FLAGS_WORD1,
 	}
 
 	function recipe_prototype:HasFilter(field_name, flag_name)
@@ -227,7 +227,7 @@ do
 			diff_color = "trivial"
 		end
 		local display_name = ("|c%s%s|r"):format(quality_color, recipe_name)
-		local level_text = private.SetTextColor(private.difficulty_colors[diff_color], SKILL_LEVEL_FORMAT):format(recipe_level)
+		local level_text = private.SetTextColor(private.DIFFICULTY_COLORS[diff_color], SKILL_LEVEL_FORMAT):format(recipe_level)
 
 		if addon.db.profile.skill_view then
 			display_name = ("%s - %s"):format(level_text, display_name)
@@ -252,10 +252,10 @@ function recipe_prototype:AddFilters(...)
 		local bitfield
 		local member_name
 
-		for table_index, bits in ipairs(private.bit_flags) do
+		for table_index, bits in ipairs(private.FLAG_WORDS) do
 			if bits[filter_name] then
 				bitfield = bits
-				member_name = private.flag_members[table_index]
+				member_name = private.FLAG_MEMBERS[table_index]
 			end
 		end
 
@@ -326,7 +326,7 @@ function recipe_prototype:AddAcquireData(acquire_type, type_string, unit_list, .
 		acquire_list[acquire_type] = acquire_list[acquire_type] or {}
 		acquire_list[acquire_type].recipes = acquire_list[acquire_type].recipes or {}
 
-		acquire_list[acquire_type].name = private.acquire_names[acquire_type]
+		acquire_list[acquire_type].name = private.ACQUIRE_NAMES[acquire_type]
 		acquire_list[acquire_type].recipes[self.spell_id] = affiliation or true
 
 		if location_name then
@@ -428,7 +428,7 @@ function recipe_prototype:AddRepVendor(faction_id, rep_level, ...)
 		acquire_list[A.REPUTATION] = acquire_list[A.REPUTATION] or {}
 		acquire_list[A.REPUTATION].recipes = acquire_list[A.REPUTATION].recipes or {}
 
-		acquire_list[A.REPUTATION].name = private.acquire_names[A.REPUTATION]
+		acquire_list[A.REPUTATION].name = private.ACQUIRE_NAMES[A.REPUTATION]
 		acquire_list[A.REPUTATION].recipes[self.spell_id] = affiliation or true
 
 		if location_name then
@@ -485,12 +485,12 @@ function recipe_prototype:Dump(output)
 	end
 	local flag_string
 
-	for table_index, bits in ipairs(private.bit_flags) do
+	for table_index, bits in ipairs(private.FLAG_WORDS) do
 		table.wipe(sorted_data)
 		table.wipe(reverse_map)
 
 		for flag_name, flag in pairs(bits) do
-			local bitfield = self.flags[private.flag_members[table_index]]
+			local bitfield = self.flags[private.FLAG_MEMBERS[table_index]]
 
 			if bitfield and bit.band(bitfield, flag) == flag then
 				table.insert(sorted_data, flag)
@@ -500,7 +500,7 @@ function recipe_prototype:Dump(output)
 		table.sort(sorted_data)
 
 		for index, flag in ipairs(sorted_data) do
-			local bitfield = self.flags[private.flag_members[table_index]]
+			local bitfield = self.flags[private.FLAG_MEMBERS[table_index]]
 
 			if bitfield and bit.band(bitfield, flag) == flag then
 				if not flag_string then
@@ -518,7 +518,7 @@ function recipe_prototype:Dump(output)
 	for acquire_type, acquire_info in pairs(self.acquire_data) do
 		if acquire_type == A.REPUTATION then
 			for rep_id, rep_info in pairs(acquire_info) do
-				local faction_string = private.faction_strings[rep_id]
+				local faction_string = private.FACTION_STRINGS[rep_id]
 
 				if not faction_string then
 					faction_string = rep_id
@@ -528,7 +528,7 @@ function recipe_prototype:Dump(output)
 				end
 
 				for rep_level, level_info in pairs(rep_info) do
-					local rep_string = ("REP.%s"):format(private.rep_level_strings[rep_level or 1])
+					local rep_string = ("REP.%s"):format(private.REP_LEVEL_STRINGS[rep_level or 1])
 					local values
 
 					table.wipe(sorted_data)
@@ -632,9 +632,9 @@ function recipe_prototype:Dump(output)
 				end
 
 				if flag_string then
-					flag_string = ("%s, A.%s, %s"):format(flag_string, private.acquire_strings[acquire_type], saved_id)
+					flag_string = ("%s, A.%s, %s"):format(flag_string, private.ACQUIRE_STRINGS[acquire_type], saved_id)
 				else
-					flag_string = ("A.%s, %s"):format(private.acquire_strings[acquire_type], saved_id)
+					flag_string = ("A.%s, %s"):format(private.ACQUIRE_STRINGS[acquire_type], saved_id)
 				end
 			end
 		end

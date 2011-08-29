@@ -116,7 +116,7 @@ function Player:HasProperRepLevel(rep_data)
 	end
 	local is_alliance = Player.faction == "Alliance"
 	local player_rep = Player["Reputation"]
-	local FAC = private.faction_ids
+	local FAC = private.FACTION_IDS
 	local has_faction = true
 
 	for rep_id, rep_info in pairs(rep_data) do

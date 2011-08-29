@@ -450,7 +450,7 @@ function private.InitializeFilterPanel()
 	-- Create FilterPanel.obtain, and set its scripts.
 	-------------------------------------------------------------------------------
 	do
-		local A = private.acquire_types
+		local A = private.ACQUIRE_TYPES
 		local obtain_frame = FilterPanel:CreateSubMenu("obtain")
 
 		-------------------------------------------------------------------------------
@@ -514,7 +514,7 @@ function private.InitializeFilterPanel()
 			["instance"]	= { tt = L["INSTANCE_DESC"],		text = _G.INSTANCE,				row = 2, col = 1 },
 			["raid"]	= { tt = L["RAID_DESC"],		text = _G.RAID,					row = 2, col = 2 },
 			["quest"]	= { tt = L["QUEST_DESC"],		text = L["Quest"],				row = 3, col = 1 },
-			["seasonal"]	= { tt = L["SEASONAL_DESC"],		text = private.acquire_names[A.SEASONAL],	row = 3, col = 2 },
+			["seasonal"]	= { tt = L["SEASONAL_DESC"],		text = private.ACQUIRE_NAMES[A.SEASONAL],	row = 3, col = 2 },
 			["trainer"]	= { tt = L["TRAINER_DESC"],		text = L["Trainer"],				row = 4, col = 1 },
 			["vendor"]	= { tt = L["VENDOR_DESC"],		text = L["Vendor"],				row = 4, col = 2 },
 			["pvp"]		= { tt = L["PVP_DESC"],			text = _G.PVP,					row = 5, col = 1 },
@@ -654,7 +654,7 @@ function private.InitializeFilterPanel()
 
 		item_frame.weapon_toggle = weapon_toggle
 
-		local BASIC_COLORS = private.basic_colors
+		local BASIC_COLORS = private.BASIC_COLORS
 
 		local weapon_buttons = {
 			["onehand"]	= { tt = L["ONEHAND_DESC"],	text = L["One Hand"],						row = 8,  col = 1 },
@@ -1028,7 +1028,7 @@ function private.InitializeFilterPanel()
 		-- Create the Reputation toggle and CheckButtons
 		-------------------------------------------------------------------------------
 		local function DisabledText(text)
-			return SetTextColor(private.basic_colors["grey"], text)
+			return SetTextColor(private.BASIC_COLORS["grey"], text)
 		end
 
 		local expansion2_buttons = {
@@ -1091,7 +1091,7 @@ function private.InitializeFilterPanel()
 		-- Create the Reputation toggle and CheckButtons
 		-------------------------------------------------------------------------------
 		local function DisabledText(text)
-			return SetTextColor(private.basic_colors["grey"], text)
+			return SetTextColor(private.BASIC_COLORS["grey"], text)
 		end
 
 		local expansion3_buttons = {

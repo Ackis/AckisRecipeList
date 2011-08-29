@@ -32,12 +32,12 @@ local SCROLL_DEPTH	= 5
 local LISTFRAME_WIDTH	= 295
 local LIST_ENTRY_WIDTH	= 286
 
-local CATEGORY_COLORS	= private.category_colors
-local BASIC_COLORS	= private.basic_colors
+local CATEGORY_COLORS	= private.CATEGORY_COLORS
+local BASIC_COLORS	= private.BASIC_COLORS
 
 local COMMON1		= private.COMMON_FLAGS_WORD1
 
-local A			= private.acquire_types
+local A			= private.ACQUIRE_TYPES
 
 local FACTION_NEUTRAL	= BFAC["Neutral"]
 
@@ -451,7 +451,7 @@ function private.InitializeListFrame()
 
 		-- HARD_FILTERS and SOFT_FILTERS are used to determine if a recipe should be shown based on the value of the key compared to the value
 		-- of its saved_var.
-		local ITEM1 = private.item_flags_word1
+		local ITEM1 = private.ITEM_FLAGS_WORD1
 		local HARD_FILTERS = {
 			------------------------------------------------------------------------------------------------
 			-- Binding flags.
@@ -515,7 +515,7 @@ function private.InitializeListFrame()
 			["retired"]	= { flag = COMMON1.RETIRED,	index = 1,	sv_root = general_filters },
 		}
 
-		local REP1 = private.rep_flags_word1
+		local REP1 = private.REP_FLAGS_WORD1
 		local REP_FILTERS = {
 			[REP1.ARGENTDAWN]		= "argentdawn",
 			[REP1.CENARION_CIRCLE]		= "cenarioncircle",
@@ -551,7 +551,7 @@ function private.InitializeListFrame()
 			[REP1.WRATHCOMMON5]		= "wrathcommon5",
 		}
 
-		local REP2 = private.rep_flags_word2
+		local REP2 = private.REP_FLAGS_WORD2
 		local REP_FILTERS_2 = {
 			[REP2.ASHEN_VERDICT]		= "ashenverdict",
 			[REP2.CATACOMMON1]		= "catacommon1",
@@ -562,7 +562,7 @@ function private.InitializeListFrame()
 			[REP2.THERAZANE]		= "therazane",
 		}
 
-		local CLASS1 = private.class_flags_word1
+		local CLASS1 = private.CLASS_FLAGS_WORD1
 		local CLASS_FILTERS = {
 			["deathknight"]	= CLASS1.DK,
 			["druid"]	= CLASS1.DRUID,
@@ -624,7 +624,7 @@ function private.InitializeListFrame()
 			-- Check the hard filter flags
 			-------------------------------------------------------------------------------
 			for filter, data in pairs(HARD_FILTERS) do
-				local bitfield = recipe.flags[private.flag_members[data.index]]
+				local bitfield = recipe.flags[private.FLAG_MEMBERS[data.index]]
 
 				if bitfield and bit.band(bitfield, data.flag) == data.flag and not data.sv_root[filter] then
 					return false
@@ -700,7 +700,7 @@ function private.InitializeListFrame()
 			-- If one of these is true (ie: we want to see trainers and there is a trainer flag) we display the recipe
 			------------------------------------------------------------------------------------------------
 			for filter, data in pairs(SOFT_FILTERS) do
-				local bitfield = recipe.flags[private.flag_members[data.index]]
+				local bitfield = recipe.flags[private.FLAG_MEMBERS[data.index]]
 
 				if bitfield and bit.band(bitfield, data.flag) == data.flag and data.sv_root[filter] then
 					return true
@@ -1020,7 +1020,7 @@ function private.InitializeListFrame()
 	-------------------------------------------------------------------------------
 	-- Functions and data pertaining to individual list entries.
 	-------------------------------------------------------------------------------
-	local faction_strings
+	local faction_labels
 
 	local function CanDisplayFaction(faction)
 		if addon.db.profile.filters.general.faction then
@@ -1035,11 +1035,11 @@ function private.InitializeListFrame()
 	-- Changes the color of "name" based on faction type.
 	local function ColorNameByFaction(name, faction)
 		if faction == FACTION_NEUTRAL then
-			name = SetTextColor(private.reputation_colors["neutral"], name)
+			name = SetTextColor(private.REPUTATION_COLORS["neutral"], name)
 		elseif faction == private.Player.faction then
-			name = SetTextColor(private.reputation_colors["exalted"], name)
+			name = SetTextColor(private.REPUTATION_COLORS["exalted"], name)
 		else
-			name = SetTextColor(private.reputation_colors["hated"], name)
+			name = SetTextColor(private.REPUTATION_COLORS["hated"], name)
 		end
 		return name
 	end
@@ -1122,7 +1122,7 @@ function private.InitializeListFrame()
 		end
 		local entry = AcquireTable()
 
-		entry.text = ("%s%s %s"):format(PADDING, hide_type and "" or SetTextColor(CATEGORY_COLORS["mobdrop"], L["Mob Drop"]) .. ":", SetTextColor(private.reputation_colors["hostile"], mob.name))
+		entry.text = ("%s%s %s"):format(PADDING, hide_type and "" or SetTextColor(CATEGORY_COLORS["mobdrop"], L["Mob Drop"]) .. ":", SetTextColor(private.REPUTATION_COLORS["hostile"], mob.name))
 		entry.recipe_id = recipe_id
 		entry.npc_id = id_num
 
@@ -1170,7 +1170,7 @@ function private.InitializeListFrame()
 
 	local function ExpandSeasonalData(entry_index, entry_type, parent_entry, id_num, recipe_id, hide_location, hide_type)
 		local entry = AcquireTable()
-		entry.text = ("%s%s %s"):format(PADDING, hide_type and "" or SetTextColor(CATEGORY_COLORS["seasonal"], private.acquire_names[A.SEASONAL]) .. ":", SetTextColor(CATEGORY_COLORS["seasonal"], private.seasonal_list[id_num].name))
+		entry.text = ("%s%s %s"):format(PADDING, hide_type and "" or SetTextColor(CATEGORY_COLORS["seasonal"], private.ACQUIRE_NAMES[A.SEASONAL]) .. ":", SetTextColor(CATEGORY_COLORS["seasonal"], private.seasonal_list[id_num].name))
 		entry.recipe_id = recipe_id
 
 		return ListFrame:InsertEntry(entry, parent_entry, entry_index, entry_type, true)
@@ -1183,10 +1183,10 @@ function private.InitializeListFrame()
 			return entry_index
 		end
 
-		if not faction_strings then
-			local rep_color = private.reputation_colors
+		if not faction_labels then
+			local rep_color = private.REPUTATION_COLORS
 
-			faction_strings = {
+			faction_labels = {
 				[0] = SetTextColor(rep_color["neutral"], FACTION_NEUTRAL .. " : "),
 				[1] = SetTextColor(rep_color["friendly"], BFAC["Friendly"] .. " : "),
 				[2] = SetTextColor(rep_color["honored"], BFAC["Honored"] .. " : "),
@@ -1204,7 +1204,7 @@ function private.InitializeListFrame()
 		entry_index = ListFrame:InsertEntry(entry, parent_entry, entry_index, entry_type, true)
 
 		entry = AcquireTable()
-		entry.text = PADDING .. PADDING .. faction_strings[rep_level] .. name
+		entry.text = PADDING .. PADDING .. faction_labels[rep_level] .. name
 		entry.recipe_id = recipe_id
 		entry.npc_id = vendor_id
 
@@ -1276,7 +1276,7 @@ function private.InitializeListFrame()
 
 	local function ExpandAcquireData(entry_index, entry_type, parent_entry, acquire_type, acquire_data, recipe_id, hide_location, hide_type)
 		local obtain_filters = addon.db.profile.filters.obtain
-		local num_acquire_types = #private.acquire_strings
+		local num_acquire_types = #private.ACQUIRE_STRINGS
 
 		for id_num, info in pairs(acquire_data) do
 			local func
@@ -1368,7 +1368,7 @@ function private.InitializeListFrame()
 							type = "entry"
 						end
 						local is_expanded = (current_tab[prof_name.." expanded"][spell_id]
-								     and current_tab[prof_name.." expanded"][private.acquire_names[acquire_id]])
+								     and current_tab[prof_name.." expanded"][private.ACQUIRE_NAMES[acquire_id]])
 
 						entry.text = recipe_entry:GetDisplayName()
 						entry.recipe_id = spell_id
@@ -1560,13 +1560,13 @@ do
 		local color
 
 		if comp_faction == FACTION_NEUTRAL then
-			color = private.reputation_colors["neutral"]
+			color = private.REPUTATION_COLORS["neutral"]
 			display_tip = true
 		elseif comp_faction == private.Player.faction then
-			color = private.reputation_colors["exalted"]
+			color = private.REPUTATION_COLORS["exalted"]
 			display_tip = true
 		else
-			color = private.reputation_colors["hated"]
+			color = private.REPUTATION_COLORS["hated"]
 			display_tip = addon.db.profile.filters.general.faction
 		end
 		return display_tip, color
@@ -1627,7 +1627,7 @@ do
 			if not mob or (location and mob.location ~= location) then
 				return
 			end
-			addline_func(0, -1, false, L["Mob Drop"], CATEGORY_COLORS["mobdrop"], mob.name, private.reputation_colors["hostile"])
+			addline_func(0, -1, false, L["Mob Drop"], CATEGORY_COLORS["mobdrop"], mob.name, private.REPUTATION_COLORS["hostile"])
 
 			if mob.coord_x ~= 0 and mob.coord_y ~= 0 then
 				addline_func(1, -2, true, mob.location, CATEGORY_COLORS["location"], COORD_FORMAT:format(mob.coord_x, mob.coord_y), CATEGORY_COLORS["coords"])
@@ -1657,7 +1657,7 @@ do
 		end,
 		[A.SEASONAL] = function(recipe_id, identifier, location, acquire_info, addline_func)
 			local hex_color = CATEGORY_COLORS["seasonal"]
-			addline_func(0, -1, 0, private.acquire_names[A.SEASONAL], hex_color, private.seasonal_list[identifier].name, hex_color)
+			addline_func(0, -1, 0, private.ACQUIRE_NAMES[A.SEASONAL], hex_color, private.seasonal_list[identifier].name, hex_color)
 		end,
 		[A.REPUTATION] = function(recipe_id, identifier, location, acquire_info, addline_func)
 			for rep_level, level_info in pairs(acquire_info) do
@@ -1671,15 +1671,15 @@ do
 							addline_func(0, -1, false, _G.REPUTATION, CATEGORY_COLORS["reputation"], private.reputation_list[identifier].name, CATEGORY_COLORS["repname"])
 
 							if rep_level == 0 then
-								addline_func(1, -2, false, FACTION_NEUTRAL, private.reputation_colors["neutral"], rep_vendor.name, name_color)
+								addline_func(1, -2, false, FACTION_NEUTRAL, private.REPUTATION_COLORS["neutral"], rep_vendor.name, name_color)
 							elseif rep_level == 1 then
-								addline_func(1, -2, false, BFAC["Friendly"], private.reputation_colors["friendly"], rep_vendor.name, name_color)
+								addline_func(1, -2, false, BFAC["Friendly"], private.REPUTATION_COLORS["friendly"], rep_vendor.name, name_color)
 							elseif rep_level == 2 then
-								addline_func(1, -2, false, BFAC["Honored"], private.reputation_colors["honored"], rep_vendor.name, name_color)
+								addline_func(1, -2, false, BFAC["Honored"], private.REPUTATION_COLORS["honored"], rep_vendor.name, name_color)
 							elseif rep_level == 3 then
-								addline_func(1, -2, false, BFAC["Revered"], private.reputation_colors["revered"], rep_vendor.name, name_color)
+								addline_func(1, -2, false, BFAC["Revered"], private.REPUTATION_COLORS["revered"], rep_vendor.name, name_color)
 							else
-								addline_func(1, -2, false, BFAC["Exalted"], private.reputation_colors["exalted"], rep_vendor.name, name_color)
+								addline_func(1, -2, false, BFAC["Exalted"], private.REPUTATION_COLORS["exalted"], rep_vendor.name, name_color)
 							end
 
 							if rep_vendor.coord_x ~= 0 and rep_vendor.coord_y ~= 0 then
@@ -1885,17 +1885,17 @@ do
 		local skill_level = private.current_profession_scanlevel
 
 		if recipe.skill_level > skill_level then
-			ttAdd(0, -1, false, ("%s:"):format(_G.SKILL_LEVEL), BASIC_COLORS["normal"], recipe.skill_level, private.difficulty_colors["impossible"])
+			ttAdd(0, -1, false, ("%s:"):format(_G.SKILL_LEVEL), BASIC_COLORS["normal"], recipe.skill_level, private.DIFFICULTY_COLORS["impossible"])
 		elseif skill_level >= recipe.trivial_level then
-			ttAdd(0, -1, false, ("%s:"):format(_G.SKILL_LEVEL), BASIC_COLORS["normal"], recipe.skill_level, private.difficulty_colors["trivial"])
+			ttAdd(0, -1, false, ("%s:"):format(_G.SKILL_LEVEL), BASIC_COLORS["normal"], recipe.skill_level, private.DIFFICULTY_COLORS["trivial"])
 		elseif skill_level >= recipe.easy_level then
-			ttAdd(0, -1, false, ("%s:"):format(_G.SKILL_LEVEL), BASIC_COLORS["normal"], recipe.skill_level, private.difficulty_colors["easy"])
+			ttAdd(0, -1, false, ("%s:"):format(_G.SKILL_LEVEL), BASIC_COLORS["normal"], recipe.skill_level, private.DIFFICULTY_COLORS["easy"])
 		elseif skill_level >= recipe.medium_level then
-			ttAdd(0, -1, false, ("%s:"):format(_G.SKILL_LEVEL), BASIC_COLORS["normal"], recipe.skill_level, private.difficulty_colors["medium"])
+			ttAdd(0, -1, false, ("%s:"):format(_G.SKILL_LEVEL), BASIC_COLORS["normal"], recipe.skill_level, private.DIFFICULTY_COLORS["medium"])
 		elseif skill_level >= recipe.optimal_level then
-			ttAdd(0, -1, false, ("%s:"):format(_G.SKILL_LEVEL), BASIC_COLORS["normal"], recipe.skill_level, private.difficulty_colors["optimal"])
+			ttAdd(0, -1, false, ("%s:"):format(_G.SKILL_LEVEL), BASIC_COLORS["normal"], recipe.skill_level, private.DIFFICULTY_COLORS["optimal"])
 		else
-			ttAdd(0, -1, false, ("%s:"):format(_G.SKILL_LEVEL), BASIC_COLORS["normal"], recipe.skill_level, private.difficulty_colors["trivial"])
+			ttAdd(0, -1, false, ("%s:"):format(_G.SKILL_LEVEL), BASIC_COLORS["normal"], recipe.skill_level, private.DIFFICULTY_COLORS["trivial"])
 		end
 		acquire_tip:AddSeparator()
 
@@ -1909,7 +1909,7 @@ do
 		local recipe_specialty = recipe.specialty
 
 		if recipe_specialty then
-			local hex_color = (recipe_specialty == private.Player["Specialty"]) and BASIC_COLORS["white"] or private.difficulty_colors["impossible"]
+			local hex_color = (recipe_specialty == private.Player["Specialty"]) and BASIC_COLORS["white"] or private.DIFFICULTY_COLORS["impossible"]
 
 			ttAdd(0, -1, false, _G.ITEM_REQ_SKILL:format(_G.GetSpellInfo(recipe_specialty)), hex_color)
 			acquire_tip:AddSeparator()
