@@ -1057,11 +1057,18 @@ do
 		local SF = private.recipe_state_flags
 		local spell_overwrite_map = private.spell_overwrite_map
 
-		for i = 1, _G.GetNumTradeSkills() do
-			local tradeName, tradeType = _G.GetTradeSkillInfo(i)
+		for spell_id, recipe in pairs(private.profession_recipe_list[current_prof]) do
+			recipe:RemoveState("KNOWN")
+			recipe:RemoveState("RELEVANT")
+			recipe:RemoveState("VISIBLE")
+			recipe:RemoveState("LINKED")
+		end
+
+		for index = 1, _G.GetNumTradeSkills() do
+			local tradeName, tradeType = _G.GetTradeSkillInfo(index)
 
 			if tradeType ~= "header" then
-				local spell_link = _G.GetTradeSkillRecipeLink(i)
+				local spell_link = _G.GetTradeSkillRecipeLink(index)
 				local spell_string = spell_link:match("^|c%x%x%x%x%x%x%x%x|H%w+:(%d+)")
 				local spell_id = tonumber(spell_string)
 				local recipe = recipe_list[spell_id]
