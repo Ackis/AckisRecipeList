@@ -30,9 +30,11 @@ local L		= LibStub("AceLocale-3.0"):GetLocale(private.addon_name)
 local BZ	= LibStub("LibBabble-Zone-3.0"):GetLookupTable()
 local BB	= LibStub("LibBabble-Boss-3.0"):GetLookupTable()
 
-function addon:InitVendor(DB)
+private.vendor_list = {}
+
+function addon:InitVendor()
 	local function AddVendor(id_num, name, zone, x, y, faction)
-		private:AddListEntry(DB, id_num, name, zone, x, y, faction)
+		private:AddListEntry(private.vendor_list, id_num, name, zone, x, y, faction)
 	end
 
 	AddVendor(66,		L["Tharynn Bouden"],			BZ["Elwynn Forest"],			41.9, 67.1, "Alliance")

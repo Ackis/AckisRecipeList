@@ -29,9 +29,11 @@ local addon		= LibStub("AceAddon-3.0"):GetAddon(private.addon_name)
 local L			= LibStub("AceLocale-3.0"):GetLocale(private.addon_name)
 local BZ		= LibStub("LibBabble-Zone-3.0"):GetLookupTable()
 
-function addon:InitCustom(DB)
+private.custom_list	= {}
+
+function addon:InitCustom()
 	local function AddCustom(identifier, location, coord_x, coord_y, faction)
-		private:AddListEntry(DB, identifier, L[identifier], location, coord_x, coord_y, nil)
+		private:AddListEntry(private.custom_list, identifier, L[identifier], location, coord_x, coord_y, nil)
 	end
 	AddCustom("DAILY_COOKING_MEAT", BZ["Shattrath"])
 	AddCustom("DAILY_COOKING_FISH", BZ["Shattrath"])

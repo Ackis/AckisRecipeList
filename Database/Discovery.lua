@@ -29,9 +29,11 @@ local addon = LibStub("AceAddon-3.0"):GetAddon(private.addon_name)
 local L = LibStub("AceLocale-3.0"):GetLocale(private.addon_name)
 local BZ = LibStub("LibBabble-Zone-3.0"):GetLookupTable()
 
-function addon:InitDiscovery(DB)
+private.discovery_list	= {}
+
+function addon:InitDiscovery()
 	local function AddDiscovery(identifier, location, coord_x, coord_y, faction)
-		private:AddListEntry(DB, identifier, L[identifier], location, coord_x, coord_y, nil)
+		private:AddListEntry(private.discovery_list, identifier, L[identifier], location, coord_x, coord_y, nil)
 	end
 
 	AddDiscovery("DISCOVERY_ALCH_ELIXIRFLASK")

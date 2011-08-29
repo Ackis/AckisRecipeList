@@ -28,6 +28,8 @@ local LibStub = _G.LibStub
 local addon	= LibStub("AceAddon-3.0"):GetAddon(private.addon_name)
 local BZ	= LibStub("LibBabble-Zone-3.0"):GetLookupTable()
 
+private.quest_list	= {}
+
 -----------------------------------------------------------------------
 -- Memoizing table for quest names.
 -----------------------------------------------------------------------
@@ -47,9 +49,9 @@ private.quest_names = _G.setmetatable({}, {
 		  end,
 })
 
-function addon:InitQuest(DB)
+function addon:InitQuest()
 	local function AddQuest(quest_id, location, coord_x, coord_y, faction)
-		private:AddListEntry(DB, quest_id, nil, BZ[location], coord_x, coord_y, faction)
+		private:AddListEntry(private.quest_list, quest_id, nil, BZ[location], coord_x, coord_y, faction)
 	end
 
 	AddQuest(384,	"Dun Morogh",			46.8,	52.5,	"Alliance")

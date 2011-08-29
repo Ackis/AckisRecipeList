@@ -30,9 +30,11 @@ local LibStub = _G.LibStub
 local addon = LibStub("AceAddon-3.0"):GetAddon(private.addon_name)
 local L = LibStub("AceLocale-3.0"):GetLocale(private.addon_name)
 
-function addon:InitSeasons(DB)
+private.seasonal_list	= {}
+
+function addon:InitSeasons()
 	local function AddSeason(identifier, name)
-		private:AddListEntry(DB, identifier, name, _G.GetCategoryInfo(155))
+		private:AddListEntry(private.seasonal_list, identifier, name, _G.GetCategoryInfo(155))
 	end
 
 	AddSeason("WINTER_VEIL", _G.GetCategoryInfo(156))

@@ -57,16 +57,8 @@ local debugger	= _G.tekDebug and _G.tekDebug:GetFrame(private.addon_name)
 
 private.build_num = select(2, _G.GetBuildInfo())
 
-private.custom_list	= {}
-private.mob_list	= {}
-private.quest_list	= {}
-private.reputation_list	= {}
-private.trainer_list	= {}
-private.seasonal_list	= {}
-private.vendor_list	= {}
 private.location_list	= {}
 private.acquire_list	= {}
-private.discovery_list	= {}
 
 ------------------------------------------------------------------------------
 -- Constants.
@@ -918,14 +910,14 @@ end
 -- @name AckisRecipeList:InitializeLookups()
 -- @usage if AckisRecipeList.InitializeLookups then AckisRecipeList:InitializeLookups() end
 function addon:InitializeLookups()
-	self:InitCustom(private.custom_list)
-	self:InitDiscovery(private.discovery_list)
-	self:InitMob(private.mob_list)
-	self:InitQuest(private.quest_list)
-	self:InitReputation(private.reputation_list)
-	self:InitTrainer(private.trainer_list)
-	self:InitSeasons(private.seasonal_list)
-	self:InitVendor(private.vendor_list)
+	self:InitCustom()
+	self:InitDiscovery()
+	self:InitMob()
+	self:InitQuest()
+	self:InitReputation()
+	self:InitTrainer()
+	self:InitSeasons()
+	self:InitVendor()
 
 	self.InitializeLookups = nil
 end

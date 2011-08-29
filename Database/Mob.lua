@@ -23,9 +23,11 @@ local L			= LibStub("AceLocale-3.0"):GetLocale(private.addon_name)
 local BZ		= LibStub("LibBabble-Zone-3.0"):GetLookupTable()
 local BB		= LibStub("LibBabble-Boss-3.0"):GetLookupTable()
 
-function addon:InitMob(DB)
+private.mob_list	= {}
+
+function addon:InitMob()
 	local function AddMob(mob_id, mob_name, zone, coord_x, coord_y)
-		private:AddListEntry(DB, mob_id, mob_name, zone, coord_x, coord_y, nil)
+		private:AddListEntry(private.mob_list, mob_id, mob_name, zone, coord_x, coord_y, nil)
 	end
 
 	-- Arathi Highlands

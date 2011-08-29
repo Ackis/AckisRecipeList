@@ -29,9 +29,11 @@ local addon	= LibStub("AceAddon-3.0"):GetAddon(private.addon_name)
 local L		= LibStub("AceLocale-3.0"):GetLocale(private.addon_name)
 local BFAC	= LibStub("LibBabble-Faction-3.0"):GetLookupTable()
 
-function addon:InitReputation(DB)
+private.reputation_list	= {}
+
+function addon:InitReputation()
 	local function AddReputation(rep_id, name)
-		private:AddListEntry(DB, rep_id, BFAC[name])
+		private:AddListEntry(private.reputation_list, rep_id, BFAC[name])
 	end
 	AddReputation(59, "Thorium Brotherhood")
 	AddReputation(270, "Zandalar Tribe")
