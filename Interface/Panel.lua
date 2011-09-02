@@ -526,7 +526,7 @@ function private.InitializeFrame()
 		end
 
 		local function SearchByQuality(recipe, search_pattern)
-			if private.item_qualityity[recipe.quality]:lower():find(search_pattern) then
+			if private.item_quality[recipe.quality]:lower():find(search_pattern) then
 				recipe:AddState("RELEVANT")
 				return true
 			end
