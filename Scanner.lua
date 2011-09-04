@@ -1469,7 +1469,6 @@ do
 
 		-- Reputations
 		local repid = scan_data.repid
-		local found_problem = false
 
 		if repid and not recipe:HasFilter("reputation1", FS[repid]) and not recipe:HasFilter("reputation2", FS[repid]) then
 			table.insert(missing_flags, repid)
@@ -1527,8 +1526,6 @@ do
 		end
 
 		if #missing_flags > 0 or #extra_flags > 0 then
-			found_problem = true
-
 			-- Add a string of the missing flag numbers
 			if #missing_flags > 0 then
 				table.insert(output, "    Missing flags: " .. table.concat(missing_flags, ", "))
@@ -1554,7 +1551,6 @@ do
 
 		-- Check to see if we have a horde/alliance flag,  all recipes must have one of these
 		if not recipe:HasFilter("common1", "ALLIANCE") and not recipe:HasFilter("common1", "HORDE") then
-			found_problem = true
 			table.insert(output, "    Horde or Alliance not selected.")
 		end
 
@@ -1570,54 +1566,44 @@ do
 			end
 
 			if not matching_filter then
-				found_problem = true
 				table.insert(output, "    No obtain flag.")
 			end
 		end
 
 		-- Check for recipe binding information,  all recipes must have one of these
 		if not recipe:HasFilter("common1", "RBOE") and not recipe:HasFilter("common1", "RBOP") and not recipe:HasFilter("common1", "RBOA") then
-			found_problem = true
 			table.insert(output, "    No recipe binding information.")
 		end
 
 		-- Check for item binding information,  all recipes must have one of these
 		if not recipe:HasFilter("common1", "IBOE") and not recipe:HasFilter("common1", "IBOP") and not recipe:HasFilter("common1", "IBOA") then
-			found_problem = true
 			table.insert(output, "    No item binding information.")
 		end
 
 		-- We need to code this better.  Some items (aka bags) won't have a role at all.
 		-- Check for player role flags
 		if not scan_data.tank and not scan_data.healer and not scan_data.caster and not scan_data.dps and not NO_ROLE_FLAG[spell_id] then
-			found_problem = true
 			table.insert(output, "    No player role flag.")
 		end
 
 		if scan_data.specialty then
 			if not recipe.specialty then
-				found_problem = true
 				table.insert(output, ("    Missing Specialty: %s"):format(scan_data.specialty))
 			elseif recipe.specialty ~= scan_data.specialty then
 				table.insert(output, ("    Wrong Specialty: %s - should be %s "):format(recipe.specialty,scan_data.specialty))
 			end
 		elseif recipe.specialty then
-			found_problem = true
 			table.insert(output, ("    Extra Specialty: %s"):format(recipe.specialty))
 		end
 
 		if scan_data.quality and scan_data.quality ~= recipe.quality then
 			local QS = private.ITEM_QUALITY_NAMES
-
-			found_problem = true
 			table.insert(output, ("    Wrong quality: Q.%s - should be Q.%s."):format(QS[recipe.quality], QS[scan_data.quality]))
 		end
 
-		if found_problem then
-			table.insert(output, 1, ("%s: <a href=\"http://www.wowhead.com/?spell=%d\">%d</a>"):format(recipe_name,spell_id,spell_id))
+		if #output > 0 then
+			table.insert(output, 1, ("%s: <a href=\"http://www.wowhead.com/?spell=%d\">%d</a>"):format(recipe_name, spell_id, spell_id))
 			return table.concat(output, "\n")
-		else
-			return
 		end
 	end
 end
