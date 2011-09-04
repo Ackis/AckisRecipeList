@@ -469,30 +469,20 @@ do
 		if type(prof_name) == "number" then
 			prof_name = _G.GetSpellInfo(prof_name)
 		end
-
-		local found = false
 		prof_name = prof_name:lower()
 
-		local scan_all = prof_name == "all"
-
-		if not scan_all then
-			for idx, name in ipairs(ORDERED_PROFESSIONS) do
-				if prof_name == name:lower() then
-					found = true
-					break
-				end
-			end
-
-			if not found then
-				self:Debug(L["DATAMINER_NODB_ERROR"])
-				return
-			end
-
-			ProfessionScan(prof_name)
-		else
+		if prof_name == "all" then
 			for idx, name in ipairs(ORDERED_PROFESSIONS) do
 				ProfessionScan(name:lower())
 			end
+		else
+			for idx, name in ipairs(ORDERED_PROFESSIONS) do
+				if prof_name == name:lower() then
+					ProfessionScan(prof_name)
+					return
+				end
+			end
+			self:Debug(L["DATAMINER_NODB_ERROR"])
 		end
 	end
 
@@ -547,29 +537,20 @@ do
 		if type(prof_name) == "number" then
 			prof_name = _G.GetSpellInfo(prof_name)
 		end
-
-		local found = false
 		prof_name = prof_name:lower()
 
-		local scan_all = prof_name == "all"
-
-		if not scan_all then
-			for idx, name in ipairs(ORDERED_PROFESSIONS) do
-				if prof_name == name:lower() then
-					found = true
-					break
-				end
-			end
-
-			if not found then
-				self:Debug(L["DATAMINER_NODB_ERROR"])
-				return
-			end
-			ProfessionDump(prof_name)
-		else
+		if prof_name == "all" then
 			for idx, name in ipairs(ORDERED_PROFESSIONS) do
 				ProfessionDump(name:lower())
 			end
+		else
+			for idx, name in ipairs(ORDERED_PROFESSIONS) do
+				if prof_name == name:lower() then
+					ProfessionDump(prof_name)
+					return
+				end
+			end
+			self:Debug(L["DATAMINER_NODB_ERROR"])
 		end
 	end
 
@@ -591,6 +572,7 @@ do
 		if prof_name == private.PROFESSION_NAMES.SMELTING:lower() then
 			prof_name = private.MINING_PROFESSION_NAME:lower()
 		end
+
 		for i in pairs(master_list) do
 			local prof = master_list[i].profession:lower()
 
@@ -614,7 +596,6 @@ do
 
 		for index, identifier in ipairs(sorted_data) do
 			local trainer = private.trainer_list[identifier]
-			local trainer_name
 
 			if trainer then
 				if trainer.spell_id then
@@ -633,27 +614,18 @@ do
 		end
 		prof_name = prof_name:lower()
 
-		local scan_all = prof_name == "all"
-
-		if scan_all then
+		if prof_name == "all" then
 			for idx, name in ipairs(ORDERED_PROFESSIONS) do
 				ProfessionTrainerDump(name:lower())
 			end
 		else
-			local found = false
-
 			for idx, name in ipairs(ORDERED_PROFESSIONS) do
 				if prof_name == name:lower() then
-					found = true
-					break
+					ProfessionTrainerDump(prof_name)
+					return
 				end
 			end
-
-			if not found then
-				self:Debug(L["DATAMINER_NODB_ERROR"])
-				return
-			end
-			ProfessionTrainerDump(prof_name)
+			self:Debug(L["DATAMINER_NODB_ERROR"])
 		end
 	end
 end	-- do
@@ -827,8 +799,8 @@ do
 		end
 
 		if #output > 0 then
-			table.insert(output, 1, L["DATAMINER_VENDOR_INFO"]:format(vendor_name, vendor_id))
 			table.insert(output, 1, ("ARL Version: %s"):format(self.version))
+			table.insert(output, 2, L["DATAMINER_VENDOR_INFO"]:format(vendor_name, vendor_id))
 			self:DisplayTextDump(nil, nil, table.concat(output, "\n"))
 		end
 		ARLDatamineTT:Hide()
@@ -846,7 +818,7 @@ do
 		-- Get internal database
 		local recipe_list = LoadAllRecipes()
 
-		if (not recipe_list) then
+		if not recipe_list then
 			self:Debug(L["DATAMINER_NODB_ERROR"])
 			return
 		end
@@ -854,9 +826,9 @@ do
 
 		-- Parse the entire recipe database
 		for i in pairs(recipe_list) do
-
 			local ttscantext = addon:TooltipScanRecipe(i, false, true)
-			if (ttscantext) then
+
+			if ttscantext then
 				table.insert(output, ttscantext)
 			end
 		end
@@ -1040,7 +1012,7 @@ do
 					end
 				end
 			end
-		elseif not recipe_item_id and not recipe:HasFilter("common1", "RETIRED") then
+		elseif not recipe:HasFilter("common1", "RETIRED") then
 			-- We are dealing with a recipe that does not have an item to learn it from.
 			-- Lets check the recipe flags to see if we have a data error and the item should exist
 			if recipe:HasFilter("common1", "VENDOR") or recipe:HasFilter("common1", "INSTANCE") or recipe:HasFilter("common1", "RAID") then
