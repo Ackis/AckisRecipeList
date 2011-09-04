@@ -560,6 +560,7 @@ L["Gidge Spellweaver"] = "Gidge Spellweaver"
 L["Gigget Zipcoil"] = "Gigget Zipcoil"
 L["Gimble Thistlefuzz"] = "Gimble Thistlefuzz"
 L["Gina MacGregor"] = "Gina MacGregor"
+L["Gizzik Oregrab"] = true
 L["Gloria Femmel"] = "Gloria Femmel"
 L["Glutinous Ooze"] = "Glutinous Ooze"
 L["Glyx Brewright"] = "Glyx Brewright"
