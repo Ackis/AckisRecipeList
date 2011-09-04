@@ -72,39 +72,6 @@ local SpecialtyTable
 addon.optionsFrame = {}
 
 -------------------------------------------------------------------------------
--- Check to see if we have mandatory libraries loaded. If not, notify the user
--- which are missing and return.
--------------------------------------------------------------------------------
-local MissingLibraries
-do
-	local REQUIRED_LIBS = {
-		"AceLocale-3.0",
-		"LibBabble-Boss-3.0",
-		"LibBabble-Faction-3.0",
-		"LibBabble-Zone-3.0",
-	}
-	function MissingLibraries()
-		local missing = false
-
-		for idx, lib in ipairs(REQUIRED_LIBS) do
-			if not LibStub:GetLibrary(lib, true) then
-				missing = true
-				addon:Print(L["MISSING_LIBRARY"]:format(lib))
-			end
-		end
-		return missing
-	end
-end -- do
-
-if MissingLibraries() then
-	--@debug@
-	addon:Print("You are using a development version of ARL.  As per WowAce standards, externals are not set up.  You will have to install all necessary libraries in order for the addon to function correctly.")
-	--@end-debug@
-	_G.AckisRecipeList = nil
-	return
-end
-
--------------------------------------------------------------------------------
 -- Define the static popups we're going to call when people haven't scanned or
 -- when current filters are blocking all recipes from being displayed.
 -------------------------------------------------------------------------------
@@ -212,7 +179,40 @@ end	-- do
 -------------------------------------------------------------------------------
 -- Initialization functions
 -------------------------------------------------------------------------------
+local REQUIRED_LIBS = {
+	"AceLocale-3.0",
+	"LibBabble-Boss-3.0",
+	"LibBabble-Faction-3.0",
+	"LibBabble-Zone-3.0",
+	"LibQTip-1.0",
+	"LibToast-1.0"
+}
+
 function addon:OnInitialize()
+	-------------------------------------------------------------------------------
+	-- Check to see if we have mandatory libraries loaded. If not, notify the user
+	-- which are missing and return.
+	-------------------------------------------------------------------------------
+	local missing_libraries = false
+
+	for index = 1, #REQUIRED_LIBS do
+		local library_name = REQUIRED_LIBS[index]
+
+		if not LibStub:GetLibrary(library_name, true) then
+			missing_libraries = true
+			addon:Print(L["MISSING_LIBRARY"]:format(library_name))
+		end
+	end
+	REQUIRED_LIBS = nil
+
+	if missing_libraries then
+		--@debug@
+		addon:Print("You are using a development version of ARL.  As per WowAce standards, externals are not set up.  You will have to install all necessary libraries in order for the addon to function correctly.")
+		--@end-debug@
+		_G.AckisRecipeList = nil
+		return
+	end
+
 	-- Set default options, which are to include everything in the scan
 	local defaults = {
 		global = {
