@@ -692,6 +692,72 @@ do
 	local output = {}
 	local RECIPE_ITEM_TO_SPELL_MAP
 
+	local function NormalizeVendorData(spell_id, supply, vendor_id, vendor_name)
+		local recipe = private.recipe_list[spell_id]
+		local acquire_data = recipe and recipe.acquire_data
+		local vendor_data = acquire_data and acquire_data[A.VENDOR]
+		local rep_data = acquire_data and acquire_data[A.REPUTATION]
+		local matching_vendor = false
+
+		if vendor_data then
+			for id_num in pairs(vendor_data) do
+				if id_num == vendor_id then
+					matching_vendor = true
+					break
+				end
+			end
+		elseif rep_data then
+			for id_num, info in pairs(rep_data) do
+				if matching_vendor then
+					break
+				end
+
+				for rep_level, level_info in pairs(info) do
+					for rep_vendor_id in pairs(level_info) do
+						if rep_vendor_id == vendor_id then
+							matching_vendor = true
+						end
+					end
+				end
+			end
+		end
+
+		local vendor_entry = private.vendor_list[vendor_id]
+
+		if not vendor_entry then
+			table.insert(output, ("%s was not found in the vendor list"):format(vendor_name))
+		end
+
+		if matching_vendor and vendor_entry and vendor_entry.item_list then
+			local reported_supply = vendor_entry.item_list[spell_id]
+
+			if reported_supply == true and supply > -1 then
+				recipe:AddLimitedVendor(vendor_id, supply)
+				table.insert(output, ("Limited quantity for \"%s\" (%d) found on vendor %d - listed as unlimited quantity."):format(recipe.name, spell_id, vendor_id))
+			elseif type(reported_supply) ~= "boolean" and supply == -1 then
+				recipe:AddVendor(vendor_id)
+				table.insert(output, ("Unlimited quantity for \"%s\" (%d) found on vendor %d - listed as limited quantity."):format(recipe.name, spell_id, vendor_id))
+			end
+
+			if not recipe:HasFilter("common1", "VENDOR") then
+				recipe:AddFilters(F.VENDOR)
+				table.insert(output, ("%d: Vendor flag was not set."):format(spell_id))
+			end
+		elseif not matching_vendor then
+			if supply > -1 then
+				recipe:AddLimitedVendor(vendor_id, supply)
+			else
+				recipe:AddVendor(vendor_id)
+			end
+
+			if not recipe:HasFilter("common1", "VENDOR") then
+				recipe:AddFilters(F.VENDOR)
+				table.insert(output, ("%d: Vendor flag was not set."):format(spell_id))
+			end
+			table.insert(output, ("Vendor ID missing from \"%s\" %d."):format(recipe and recipe.name or _G.UNKNOWN, spell_id))
+		end
+	end
+
 	function addon:ScanVendor()
 		if not _G.UnitExists("target") or _G.UnitIsPlayer("target") or _G.UnitIsEnemy("player", "target") then
 			self:Debug(L["DATAMINER_VENDOR_NOTTARGETTED"])
@@ -705,12 +771,8 @@ do
 		end
 		local vendor_name = _G.UnitName("target")
 		local vendor_id = tonumber(_G.UnitGUID("target"):sub(-12,-9), 16)
-		local added_output = false
 
 		table.wipe(output)
-
-		table.insert(output, ("ARL Version: %s"):format(self.version))
-		table.insert(output, L["DATAMINER_VENDOR_INFO"]:format(vendor_name, vendor_id))
 
 		if not RECIPE_ITEM_TO_SPELL_MAP then
 			RECIPE_ITEM_TO_SPELL_MAP = {}
@@ -740,95 +802,31 @@ do
 						local scanned_text = addon:TooltipScanRecipe(spell_id, true, true)
 
 						if scanned_text and scanned_text ~= "" then
-							added_output = true
 							table.insert(output, scanned_text)
 						end
 
 						-- Check the database to see if the vendor is listed as an acquire method.
-						local recipe = recipe_list[spell_id]
-						local acquire_data = recipe and recipe.acquire_data
-						local vendor_data = acquire_data and acquire_data[A.VENDOR]
-						local rep_data = acquire_data and acquire_data[A.REPUTATION]
-						local matching_vendor = false
-
-						if vendor_data then
-							for id_num in pairs(vendor_data) do
-								if id_num == vendor_id then
-									matching_vendor = true
-									break
-								end
-							end
-						elseif rep_data then
-							for id_num, info in pairs(rep_data) do
-								if matching_vendor then
-									break
-								end
-
-								for rep_level, level_info in pairs(info) do
-									for rep_vendor_id in pairs(level_info) do
-										if rep_vendor_id == vendor_id then
-											matching_vendor = true
-										end
-									end
-								end
-							end
-						end
-						local vendor_entry = private.vendor_list[vendor_id]
-
-						if not vendor_entry then
-							table.insert(output, ("%s was not found in the vendor list"):format(vendor_name))
-						end
-
-						if matching_vendor and vendor_entry and vendor_entry.item_list then
-							local reported_supply = vendor_entry.item_list[spell_id]
-
-							if reported_supply == true and supply > -1 then
-								recipe:AddLimitedVendor(vendor_id, supply)
-								table.insert(output, ("Limited quantity for \"%s\" (%d) found on vendor %d - listed as unlimited quantity."):format(recipe.name, spell_id, vendor_id))
-								added_output = true
-							elseif type(reported_supply) ~= "boolean" and supply == -1 then
-								recipe:AddVendor(vendor_id)
-								table.insert(output, ("Unlimited quantity for \"%s\" (%d) found on vendor %d - listed as limited quantity."):format(recipe.name, spell_id, vendor_id))
-								added_output = true
-							end
-
-							if not recipe:HasFilter("common1", "VENDOR") then
-								recipe:AddFilters(F.VENDOR)
-								table.insert(output, ("%d: Vendor flag was not set."):format(spell_id))
-								added_output = true
-							end
-						elseif not matching_vendor then
-							if supply > -1 then
-								recipe:AddLimitedVendor(vendor_id, supply)
-							else
-								recipe:AddVendor(vendor_id)
-							end
-
-							if not recipe:HasFilter("common1", "VENDOR") then
-								recipe:AddFilters(F.VENDOR)
-								table.insert(output, ("%d: Vendor flag was not set."):format(spell_id))
-							end
-							added_output = true
-							table.insert(output, ("Vendor ID missing from \"%s\" %d."):format(recipe and recipe.name or _G.UNKNOWN, spell_id))
-						end
+						NormalizeVendorData(spell_id, supply, vendor_id, vendor_name)
 					else
 						for spell_id, recipe in pairs(private.recipe_list) do
 							local recipe_type, match_text = (":"):split(item_name, 2)
 
 							if recipe.name == match_text:trim() then
 								recipe:SetRecipeItemID(item_id)
+								NormalizeVendorData(spell_id, supply, vendor_id, vendor_name)
 							end
 						end
 						--@debug@
-						added_output = true
 						table.insert(output, ("Spell ID not found for recipe item %d (%s)"):format(item_id, item_name))
-					--@end-debug@
+						--@end-debug@
 					end
 				end
 			end
 		end
 
-		if added_output then
+		if #output > 0 then
+			table.insert(output, 1, L["DATAMINER_VENDOR_INFO"]:format(vendor_name, vendor_id))
+			table.insert(output, 1, ("ARL Version: %s"):format(self.version))
 			self:DisplayTextDump(nil, nil, table.concat(output, "\n"))
 		end
 		ARLDatamineTT:Hide()
