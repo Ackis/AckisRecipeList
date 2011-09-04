@@ -39,7 +39,7 @@
 
 ## X-Credits: FGWarmonger, Kagaro, Speeddymon, Xinhuan, Aesir, BWMerlin, everyone who translated stuff and more!
 ## X-Category: Tradeskill
-## X-Localizations: enUS, frFR, zhCN, zhTW, deDE, koKR, esES, esMX, ruRU
+## X-Localizations: enUS, frFR, zhCN, zhTW, deDE, koKR, esES, esMX, ruRU, ptBR
 ## X-Website: http://wow.curse.com/downloads/wow-addons/details/arl.aspx
 ## X-Feedback: http://www.wowace.com/addons/arl/forum/
 
