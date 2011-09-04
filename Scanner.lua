@@ -80,7 +80,7 @@ do
 
 	function GetReverseLookup(recipe_list)
 		if not recipe_list then
-			addon:Print(L["DATAMINER_NODB_ERROR"])
+			addon:Debug(L["DATAMINER_NODB_ERROR"])
 			return
 		end
 		table.wipe(reverse_lookup)
@@ -114,21 +114,21 @@ do
 	function addon:ScanTrainerData(autoscan)
 		if not _G.UnitExists("target") or _G.UnitIsPlayer("target") or _G.UnitIsEnemy("player", "target") then
 			if not autoscan then
-				self:Print(L["DATAMINER_TRAINER_NOTTARGETTED"])
+				self:Debug(L["DATAMINER_TRAINER_NOTTARGETTED"])
 			end
 			return
 		end
 
 		if not _G.IsTradeskillTrainer() then
 			if not autoscan then
-				self:Print(L["DATAMINER_SKILLLEVEL_ERROR"])
+				self:Debug(L["DATAMINER_SKILLLEVEL_ERROR"])
 			end
 			return
 		end
 		local recipe_list = LoadAllRecipes()	-- Get internal database
 
 		if not recipe_list then
-			self:Print(L["DATAMINER_NODB_ERROR"])
+			self:Debug(L["DATAMINER_NODB_ERROR"])
 			return
 		end
 
@@ -143,7 +143,7 @@ do
 		_G.SetTrainerServiceTypeFilter("used", 1)
 
 		if _G.GetNumTrainerServices() == 0 then
-			self:Print("Warning: Trainer is bugged, reporting 0 trainer items.")
+			self:Debug("Warning: Trainer is bugged, reporting 0 trainer items.")
 		end
 		table.wipe(scanned_items)
 		table.wipe(scanned_recipes)
@@ -423,7 +423,7 @@ do
 		local master_list = LoadAllRecipes()
 
 		if not master_list then
-			addon:Print(L["DATAMINER_NODB_ERROR"])
+			addon:Debug(L["DATAMINER_NODB_ERROR"])
 			return
 		end
 		table.wipe(recipe_list)
@@ -482,7 +482,7 @@ do
 			end
 
 			if not found then
-				self:Print(L["DATAMINER_NODB_ERROR"])
+				self:Debug(L["DATAMINER_NODB_ERROR"])
 				return
 			end
 
@@ -498,7 +498,7 @@ do
 		local recipe = private.recipe_list[id or 1]
 
 		if single and not recipe then
-			addon:Print("Invalid recipe ID.")
+			addon:Debug("Invalid recipe ID: %s", id or "nil")
 			return
 		end
 		recipe:Dump(output)
@@ -511,7 +511,7 @@ do
 		local master_list = LoadAllRecipes()
 
 		if not master_list then
-			addon:Print(L["DATAMINE_NODB_ERROR"])
+			addon:Debug(L["DATAMINE_NODB_ERROR"])
 			return
 		end
 		table.wipe(recipe_list)
@@ -560,7 +560,7 @@ do
 			end
 
 			if not found then
-				self:Print(L["DATAMINER_NODB_ERROR"])
+				self:Debug(L["DATAMINER_NODB_ERROR"])
 				return
 			end
 			ProfessionDump(prof_name)
@@ -581,7 +581,7 @@ do
 		local master_list = LoadAllRecipes()
 
 		if not master_list then
-			addon:Print(L["DATAMINE_NODB_ERROR"])
+			addon:Debug(L["DATAMINE_NODB_ERROR"])
 			return
 		end
 		table.wipe(recipe_list)
@@ -648,7 +648,7 @@ do
 			end
 
 			if not found then
-				self:Print(L["DATAMINER_NODB_ERROR"])
+				self:Debug(L["DATAMINER_NODB_ERROR"])
 				return
 			end
 			ProfessionTrainerDump(prof_name)
@@ -694,13 +694,13 @@ do
 
 	function addon:ScanVendor()
 		if not _G.UnitExists("target") or _G.UnitIsPlayer("target") or _G.UnitIsEnemy("player", "target") then
-			self:Print(L["DATAMINER_VENDOR_NOTTARGETTED"])
+			self:Debug(L["DATAMINER_VENDOR_NOTTARGETTED"])
 			return
 		end
 		local recipe_list = LoadAllRecipes()		-- Get internal database
 
 		if not recipe_list then
-			self:Print(L["DATAMINER_NODB_ERROR"])
+			self:Debug(L["DATAMINER_NODB_ERROR"])
 			return
 		end
 		local vendor_name = _G.UnitName("target")
@@ -847,7 +847,7 @@ do
 		local recipe_list = LoadAllRecipes()
 
 		if (not recipe_list) then
-			self:Print(L["DATAMINER_NODB_ERROR"])
+			self:Debug(L["DATAMINER_NODB_ERROR"])
 			return
 		end
 		table.wipe(output)
@@ -948,7 +948,7 @@ do
 		local recipe_list = LoadAllRecipes()
 
 		if not recipe_list then
-			self:Print(L["DATAMINER_NODB_ERROR"])
+			self:Debug(L["DATAMINER_NODB_ERROR"])
 			return
 		end
 		local recipe = recipe_list[spell_id]
@@ -992,7 +992,7 @@ do
 
 		if not recipe_link then
 			if recipe.profession ~= private.PROFESSION_NAMES.RUNEFORGING then
-				self:Printf("Missing spell_link for ID %d (%s).", spell_id, recipe_name)
+				self:Debug("Missing spell_link for ID %d (%s).", spell_id, recipe_name)
 			end
 			return
 		end
@@ -1391,7 +1391,7 @@ do
 		local spell_id = scan_data.reverse_lookup[recipe_name]
 
 		if not spell_id then
-			self:Print(recipe_name .. " has no reverse lookup")
+			self:Debug(recipe_name .. " has no reverse lookup")
 			return
 		end
 		local recipe = scan_data.recipe_list[spell_id]
