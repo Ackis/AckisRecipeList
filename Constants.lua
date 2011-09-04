@@ -65,7 +65,7 @@ private.ORDERED_PROFESSIONS = {
 private.PROFESSION_IDS = {}
 
 for index = 1, #private.ORDERED_PROFESSIONS do
-	private.PROFESSION_IDS[private.ORDERED_PROFESSIONS] = index
+	private.PROFESSION_IDS[private.ORDERED_PROFESSIONS[index]] = index
 end
 
 private.PROFESSION_TEXTURES = {
