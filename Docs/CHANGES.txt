@@ -1,6 +1,12 @@
 ==ARL Change Log
 NOTE: Always remove the folder for old versions and install a fresh copy when upgrading.
 
+== Under Development
+
+=== Interface:
+* Support for ptBR (Will be added in 4.3).  If you wish to help translate, please go to the [[http://www.wowace.com/addons/arl/localization/ptBR/ | localization]] page.
+* Added new Discovery Acquire section for recipe sorting.  This only affects inscription and alchemy.
+
 == 2.2.8
 
 ==== Interface:
