@@ -200,11 +200,13 @@ do
 				trainer_x = ("%.2f"):format(trainer_x * 100)
 				trainer_y = ("%.2f"):format(trainer_y * 100)
 
-				if trainer_entry and trainer_entry.coord_x ~= trainer_x or trainer_entry.coord_y ~= trainer_y then
-					table.insert(output, ("%s appears to have different coordinates (%s, %s) than those in the database (%s, %s) - a trainer dump for %s will fix this."):format(trainer_name, trainer_entry.coord_x, trainer_entry.coord_y, trainer_x, trainer_y, trainer_profession))
-					trainer_entry.coord_x = trainer_x
-					trainer_entry.coord_y = trainer_y
-				elseif not trainer_entry then
+				if trainer_entry then
+					if trainer_entry.coord_x ~= trainer_x or trainer_entry.coord_y ~= trainer_y then
+						table.insert(output, ("%s appears to have different coordinates (%s, %s) than those in the database (%s, %s) - a trainer dump for %s will fix this."):format(trainer_name, trainer_entry.coord_x, trainer_entry.coord_y, trainer_x, trainer_y, trainer_profession))
+						trainer_entry.coord_x = trainer_x
+						trainer_entry.coord_y = trainer_y
+					end
+				else
 					table.insert(output, ("%s was not found in the trainer list - a trainer dump for %s will fix this."):format(trainer_name, trainer_profession))
 					_G.SetMapToCurrentZone() -- Make sure were are looking at the right zone
 
