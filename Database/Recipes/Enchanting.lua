@@ -2032,7 +2032,6 @@ function addon:InitEnchanting()
 
 	-- Abyssal Shatter -- 69412
 	recipe = AddRecipe(69412, V.WOTLK, Q.COMMON)
-	recipe:SetCraftedItemID(49640)
 	recipe:SetSkillLevels(445, 445, 445, 447, 450)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	recipe:AddTrainer(3345, 26906, 26954, 26980, 26990, 28693, 33633)
