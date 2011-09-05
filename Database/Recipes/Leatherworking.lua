@@ -463,7 +463,8 @@ function addon:InitLeatherworking()
 	recipe:SetCraftedItemID(5963)
 	recipe:SetSkillLevels(170, 170, 190, 200, 210)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.DPS, F.LEATHER)
-	recipe:AddVendor(2810, 2821, 3958)
+	recipe:AddVendor(2810, 3958)
+	recipe:AddLimitedVendor(2821, 1)
 
 	-- Barbaric Shoulders -- 7151
 	recipe = AddRecipe(7151, V.ORIG, Q.COMMON)
@@ -4599,13 +4600,83 @@ function addon:InitLeatherworking()
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	recipe:AddTrainer(3007, 3365, 3967, 4212, 4588, 5127, 5564, 21087, 26998, 28700, 29507, 33581, 33612, 33635)
 
-	-- Drakehide Leg Armor -- 101599
-	recipe = AddRecipe(101599, V.CATA, Q.COMMON)
-	recipe:SetRecipeItemID(71721)
-	recipe:SetCraftedItemID(71720)
-	recipe:SetSkillLevels(525, 525, 530, 535, 540)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	recipe:AddVendor(3366)
+	-- Dragonfire Gloves -- 99443
+	recipe = AddRecipe(99443, V.CATA, Q.EPIC)
+	recipe:SetRecipeItemID(69960)
+	recipe:SetCraftedItemID(69939)
+	recipe:SetSkillLevels(525, 525, 525, 527, 530)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOE)
+	recipe:AddCustom("FIRELANDS_RANDOM")
+
+	-- Gloves of Unforgiving Flame -- 99445
+	recipe = AddRecipe(99445, V.CATA, Q.EPIC)
+	recipe:SetRecipeItemID(69961)
+	recipe:SetCraftedItemID(69941)
+	recipe:SetSkillLevels(525, 525, 525, 527, 530)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOE)
+	recipe:AddCustom("FIRELANDS_RANDOM")
+
+	-- Clutches of Evil -- 99446
+	recipe = AddRecipe(99446, V.CATA, Q.EPIC)
+	recipe:SetRecipeItemID(69962)
+	recipe:SetCraftedItemID(69942)
+	recipe:SetSkillLevels(525, 525, 525, 527, 530)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOE)
+	recipe:AddCustom("FIRELANDS_RANDOM")
+
+	-- Heavenly Gloves of the Moon -- 99447
+	recipe = AddRecipe(99447, V.CATA, Q.EPIC)
+	recipe:SetRecipeItemID(69963)
+	recipe:SetCraftedItemID(69943)
+	recipe:SetSkillLevels(525, 525, 525, 527, 530)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOE)
+	recipe:AddCustom("FIRELANDS_RANDOM")
+
+	-- Earthen Scale Sabatons -- 99455
+	recipe = AddRecipe(99455, V.CATA, Q.EPIC)
+	recipe:SetRecipeItemID(69971)
+	recipe:SetCraftedItemID(69949)
+	recipe:SetSkillLevels(525, 525, 525, 527, 530)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOE)
+	recipe:AddCustom("FIRELANDS_RANDOM")
+
+	-- Footwraps of Quenched Fire -- 99456
+	recipe = AddRecipe(99456, V.CATA, Q.EPIC)
+	recipe:SetRecipeItemID(69972)
+	recipe:SetCraftedItemID(69950)
+	recipe:SetSkillLevels(525, 525, 525, 527, 530)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOE)
+	recipe:AddCustom("FIRELANDS_RANDOM")
+
+	-- Treads of the Craft -- 99457
+	recipe = AddRecipe(99457, V.CATA, Q.EPIC)
+	recipe:SetRecipeItemID(69973)
+	recipe:SetCraftedItemID(69951)
+	recipe:SetSkillLevels(525, 525, 525, 527, 530)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOE)
+	recipe:AddCustom("FIRELANDS_RANDOM")
+
+	-- Ethereal Footfalls -- 99458
+	recipe = AddRecipe(99458, V.CATA, Q.EPIC)
+	recipe:SetRecipeItemID(69974)
+	recipe:SetCraftedItemID(69952)
+	recipe:SetSkillLevels(525, 525, 525, 527, 530)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOE)
+	recipe:AddCustom("FIRELANDS_RANDOM")
+
+	-- Bloodthirsty Hide Cloak -- 99535
+	recipe = AddRecipe(99535, V.CATA, Q.COMMON)
+	recipe:SetCraftedItemID(70069)
+	recipe:SetSkillLevels(500, 500, 510, 512, 515)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	recipe:AddTrainer(3365)
+
+	-- Bloodthirsty Fur Cloak -- 99536
+	recipe = AddRecipe(99536, V.CATA, Q.COMMON)
+	recipe:SetCraftedItemID(70068)
+	recipe:SetSkillLevels(500, 500, 510, 512, 515)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	recipe:AddTrainer(3365)
 
 	-- Royal Scribe's Satchel -- 100583
 	recipe = AddRecipe(100583, V.CATA, Q.RARE)
@@ -4623,83 +4694,13 @@ function addon:InitLeatherworking()
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	recipe:AddVendor(53881)
 
-	-- Cluthes of Evil -- 99446
-	recipe = AddRecipe(99446, V.CATA, Q.EPIC)
-	recipe:SetRecipeItemID(69962)
-	recipe:SetCraftedItemID(69942)
-	recipe:SetSkillLevels(525, 525, 525, 527, 530)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOE)
-	recipe:AddCustom("FIRELANDS_RANDOM")
-
-	-- Dragonfire Gloves -- 99443
-	recipe = AddRecipe(99443, V.CATA, Q.EPIC)
-	recipe:SetRecipeItemID(69960)
-	recipe:SetCraftedItemID(69939)
-	recipe:SetSkillLevels(525, 525, 525, 527, 530)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOE)
-	recipe:AddCustom("FIRELANDS_RANDOM")
-
-	-- Earthen Scale Sabatons -- 99455
-	recipe = AddRecipe(99455, V.CATA, Q.EPIC)
-	recipe:SetRecipeItemID(69971)
-	recipe:SetCraftedItemID(69949)
-	recipe:SetSkillLevels(525, 525, 525, 527, 530)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOE)
-	recipe:AddCustom("FIRELANDS_RANDOM")
-
-	-- Ethereal Footfalls -- 99458
-	recipe = AddRecipe(99458, V.CATA, Q.EPIC)
-	recipe:SetRecipeItemID(69974)
-	recipe:SetCraftedItemID(69952)
-	recipe:SetSkillLevels(525, 525, 525, 527, 530)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOE)
-	recipe:AddCustom("FIRELANDS_RANDOM")
-
-	-- Footwraps of Quenched Fire -- 99456
-	recipe = AddRecipe(99456, V.CATA, Q.EPIC)
-	recipe:SetRecipeItemID(69972)
-	recipe:SetCraftedItemID(69950)
-	recipe:SetSkillLevels(525, 525, 525, 527, 530)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOE)
-	recipe:AddCustom("FIRELANDS_RANDOM")
-
-	-- Gloves of Unforgiving Flame -- 99445
-	recipe = AddRecipe(99445, V.CATA, Q.EPIC)
-	recipe:SetRecipeItemID(69961)
-	recipe:SetCraftedItemID(69941)
-	recipe:SetSkillLevels(525, 525, 525, 527, 530)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOE)
-	recipe:AddCustom("FIRELANDS_RANDOM")
-
-	-- Heavenly Gloves of the Moon -- 99447
-	recipe = AddRecipe(99447, V.CATA, Q.EPIC)
-	recipe:SetRecipeItemID(69963)
-	recipe:SetCraftedItemID(69943)
-	recipe:SetSkillLevels(525, 525, 525, 527, 530)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOE)
-	recipe:AddCustom("FIRELANDS_RANDOM")
-
-	-- Treads of the Craft -- 99457
-	recipe = AddRecipe(99457, V.CATA, Q.EPIC)
-	recipe:SetRecipeItemID(69973)
-	recipe:SetCraftedItemID(69951)
-	recipe:SetSkillLevels(525, 525, 525, 527, 530)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOE)
-	recipe:AddCustom("FIRELANDS_RANDOM")
-
-	-- Bloodthirsty Fur Cloak -- 99536
-	recipe = AddRecipe(99536, V.CATA, Q.COMMON)
-	recipe:SetCraftedItemID(70068)
-	recipe:SetSkillLevels(500, 500, 510, 512, 515)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(3365)
-
-	-- Bloodthirsty Hide Cloak -- 99535
-	recipe = AddRecipe(99535, V.CATA, Q.COMMON)
-	recipe:SetCraftedItemID(70069)
-	recipe:SetSkillLevels(500, 500, 510, 512, 515)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(3365)
+	-- Drakehide Leg Armor -- 101599
+	recipe = AddRecipe(101599, V.CATA, Q.COMMON)
+	recipe:SetRecipeItemID(71721)
+	recipe:SetCraftedItemID(71720)
+	recipe:SetSkillLevels(525, 525, 530, 535, 540)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	recipe:AddVendor(3366)
 
 	self.InitLeatherworking = nil
 end
