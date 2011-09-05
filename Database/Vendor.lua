@@ -141,7 +141,6 @@ function addon:InitVendor()
 	AddVendor(4617,		L["Thaddeus Webb"],			BZ["Undercity"],			62.4, 61.0, "Horde") -- COMPLETELY UPDATED
 	AddVendor(4775,		L["Felicia Doan"],			BZ["Undercity"],			64.1, 50.6, "Horde") -- COMPLETELY UPDATED
 	AddVendor(4782,		L["Truk Wildbeard"],			BZ["The Hinterlands"],			14.4, 42.5, "Alliance")
-	AddVendor(4878,		L["Montarr"],				BZ["Thousand Needles"],			45.2, 50.7, "Horde")
 	AddVendor(4879,		L["Ogg'marr"],				BZ["Dustwallow Marsh"],			36.7, 31.0, "Horde")
 	AddVendor(4897,		L["Helenia Olden"],			BZ["Dustwallow Marsh"],			66.4, 51.5, "Alliance")
 	AddVendor(5128,		L["Bombus Finespindle"],		BZ["Ironforge"],			39.6, 34.1, "Alliance")
