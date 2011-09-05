@@ -716,7 +716,7 @@ do
 				table.insert(output, ("Unlimited quantity for \"%s\" (%d) found on vendor %d - listed as limited quantity."):format(recipe.name, spell_id, vendor_id))
 			end
 
-			if not recipe:HasFilter("common1", "VENDOR") then
+			if not recipe:HasFilter("common1", "VENDOR") and not recipe:HasFilter("common1", "SEASONAL") then
 				recipe:AddFilters(F.VENDOR)
 				table.insert(output, ("%d: Vendor flag was not set."):format(spell_id))
 			end
@@ -727,7 +727,7 @@ do
 				recipe:AddVendor(vendor_id)
 			end
 
-			if not recipe:HasFilter("common1", "VENDOR") then
+			if not recipe:HasFilter("common1", "VENDOR") and not recipe:HasFilter("common1", "SEASONAL") then
 				recipe:AddFilters(F.VENDOR)
 				table.insert(output, ("%d: Vendor flag was not set."):format(spell_id))
 			end
