@@ -202,8 +202,8 @@ function addon:InitAlchemy()
 	recipe:SetRecipeItemID(6068)
 	recipe:SetCraftedItemID(3824)
 	recipe:SetSkillLevels(165, 165, 190, 210, 230)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE)
-	recipe:AddLimitedVendor(4878, 1)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE)
+	recipe:AddTrainer(3347)
 
 	-- Elixir of Fortitude -- 3450
 	recipe = AddRecipe(3450, V.ORIG, Q.COMMON)
@@ -786,7 +786,7 @@ function addon:InitAlchemy()
 	recipe:AddMobDrop(1853)
 	recipe:AddVendor(11278)
 
-	-- Alchemist's Stone -- 17632
+	-- Alchemist Stone -- 17632
 	recipe = AddRecipe(17632, V.TBC, Q.COMMON)
 	recipe:SetRecipeItemID(13517)
 	recipe:SetCraftedItemID(13503)
