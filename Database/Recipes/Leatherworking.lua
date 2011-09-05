@@ -2756,7 +2756,7 @@ function addon:InitLeatherworking()
 	recipe:SetRecipeItemID(34262)
 	recipe:SetCraftedItemID(34086)
 	recipe:SetSkillLevels(285, 285, 285, 285, 285)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.SEASONAL, F.IBOE, F.RBOP, F.CLOTH)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.SEASONAL, F.IBOE, F.RBOP, F.CLOTH)
 	recipe:AddVendor(13420, 13433)
 	recipe:AddSeason("WINTER_VEIL")
 
