@@ -368,9 +368,8 @@ function addon:InitEnchanting()
 	recipe = AddRecipe(13646, V.ORIG, Q.UNCOMMON)
 	recipe:SetRecipeItemID(11163)
 	recipe:SetSkillLevels(170, 170, 190, 210, 230)
-	recipe:AddFilters(F.HORDE, F.TRAINER, F.VENDOR, F.IBOE, F.RBOE, F.TANK)
+	recipe:AddFilters(F.HORDE, F.TRAINER, F.IBOE, F.RBOE, F.TANK)
 	recipe:AddTrainer(3345)
-	recipe:AddLimitedVendor(2821, 1)
 
 	-- Enchant Bracer - Stamina -- 13648
 	recipe = AddRecipe(13648, V.ORIG, Q.COMMON)
@@ -737,7 +736,7 @@ function addon:InitEnchanting()
 	recipe:SetRecipeItemID(16224)
 	recipe:SetSkillLevels(285, 285, 300, 317, 335)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.TANK, F.CLOAK)
-	recipe:AddVendor(12022)
+	recipe:AddLimitedVendor(12022, 1)
 
 	-- Enchant Shield - Vitality -- 20016
 	recipe = AddRecipe(20016, V.ORIG, Q.COMMON)
@@ -856,9 +855,8 @@ function addon:InitEnchanting()
 	recipe:SetRecipeItemID(16243)
 	recipe:SetCraftedItemID(16207)
 	recipe:SetSkillLevels(290, 290, 305, 322, 340)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.VENDOR, F.IBOP, F.RBOE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOE)
 	recipe:AddTrainer(3345)
-	recipe:AddVendor(12022)
 
 	-- Enchant Weapon - Winter's Might -- 21931
 	recipe = AddRecipe(21931, V.ORIG, Q.UNCOMMON)
@@ -1363,9 +1361,8 @@ function addon:InitEnchanting()
 	recipe:SetRecipeItemID(25848)
 	recipe:SetCraftedItemID(22462)
 	recipe:SetSkillLevels(350, 350, 370, 375, 380)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.VENDOR, F.IBOP, F.RBOE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOE)
 	recipe:AddTrainer(3345)
-	recipe:AddVendor(18960, 19004)
 
 	-- Runed Eternium Rod -- 32667
 	recipe = AddRecipe(32667, V.TBC, Q.COMMON)
