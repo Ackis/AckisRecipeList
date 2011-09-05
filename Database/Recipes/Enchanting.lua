@@ -292,9 +292,9 @@ function addon:InitEnchanting()
 	recipe = AddRecipe(13612, V.ORIG, Q.UNCOMMON)
 	recipe:SetRecipeItemID(11150)
 	recipe:SetSkillLevels(145, 145, 170, 190, 210)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOE, F.RBOE)
-	recipe:AddMobDrop(1051, 1052, 1053, 1054, 1364)
-
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOE, F.RBOE)
+	recipe:AddCustom("REMOVED_FROM_GAME")
+	
 	-- Enchant Gloves - Herbalism -- 13617
 	recipe = AddRecipe(13617, V.ORIG, Q.UNCOMMON)
 	recipe:SetRecipeItemID(11151)
