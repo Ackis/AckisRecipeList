@@ -878,7 +878,7 @@ do
 		elseif arg1 == L["Documentation"]:lower() then
 			_G.InterfaceOptionsFrame_OpenToCategory(self.optionsFrame["Documentation"])
 		elseif arg1 == L["Scan"]:lower() then
-			if not arg2 then
+			if not arg2 or arg2 == "" then
 				self:Print(L["COMMAND_LINE_SCAN"])
 			else
 				_G.CastSpellByName(arg2)
