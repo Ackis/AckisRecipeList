@@ -202,7 +202,7 @@ function addon:InitAlchemy()
 	recipe:SetRecipeItemID(6068)
 	recipe:SetCraftedItemID(3824)
 	recipe:SetSkillLevels(165, 165, 190, 210, 230)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	recipe:AddTrainer(3347)
 
 	-- Elixir of Fortitude -- 3450
