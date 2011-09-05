@@ -294,7 +294,7 @@ function addon:InitEnchanting()
 	recipe:SetSkillLevels(145, 145, 170, 190, 210)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOE, F.RBOE)
 	recipe:AddCustom("REMOVED_FROM_GAME")
-	
+
 	-- Enchant Gloves - Herbalism -- 13617
 	recipe = AddRecipe(13617, V.ORIG, Q.UNCOMMON)
 	recipe:SetRecipeItemID(11151)
@@ -368,7 +368,8 @@ function addon:InitEnchanting()
 	recipe = AddRecipe(13646, V.ORIG, Q.UNCOMMON)
 	recipe:SetRecipeItemID(11163)
 	recipe:SetSkillLevels(170, 170, 190, 210, 230)
-	recipe:AddFilters(F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.TANK)
+	recipe:AddFilters(F.HORDE, F.TRAINER, F.VENDOR, F.IBOE, F.RBOE, F.TANK)
+	recipe:AddTrainer(3345)
 	recipe:AddLimitedVendor(2821, 1)
 
 	-- Enchant Bracer - Stamina -- 13648
@@ -670,7 +671,7 @@ function addon:InitEnchanting()
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.INSTANCE, F.MOB_DROP, F.IBOP, F.RBOP, F.TRINKET)
 	recipe:AddMobDrop(9025)
 
-	-- Enchanted Thorium -- 17180
+	-- Enchanted Thorium Bar -- 17180
 	recipe = AddRecipe(17180, V.ORIG, Q.COMMON)
 	recipe:SetCraftedItemID(12655)
 	recipe:SetSkillLevels(250, 250, 250, 255, 260)
@@ -855,7 +856,8 @@ function addon:InitEnchanting()
 	recipe:SetRecipeItemID(16243)
 	recipe:SetCraftedItemID(16207)
 	recipe:SetSkillLevels(290, 290, 305, 322, 340)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOP, F.RBOE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.VENDOR, F.IBOP, F.RBOE)
+	recipe:AddTrainer(3345)
 	recipe:AddVendor(12022)
 
 	-- Enchant Weapon - Winter's Might -- 21931
@@ -1079,7 +1081,7 @@ function addon:InitEnchanting()
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE)
 	recipe:AddTrainer(1317, 3011, 3345, 4213, 18753, 18773, 19251, 19252, 19540, 33583, 33610, 33633, 33676)
 
-	-- Enchant Bracer - Major Defense -- 27906
+	-- Enchant Bracer - Greater Dodge -- 27906
 	recipe = AddRecipe(27906, V.TBC, Q.UNCOMMON)
 	recipe:SetRecipeItemID(22530)
 	recipe:SetSkillLevels(320, 320, 330, 345, 360)
@@ -1361,7 +1363,8 @@ function addon:InitEnchanting()
 	recipe:SetRecipeItemID(25848)
 	recipe:SetCraftedItemID(22462)
 	recipe:SetSkillLevels(350, 350, 370, 375, 380)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOP, F.RBOE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.VENDOR, F.IBOP, F.RBOE)
+	recipe:AddTrainer(3345)
 	recipe:AddVendor(18960, 19004)
 
 	-- Runed Eternium Rod -- 32667
@@ -1552,7 +1555,7 @@ function addon:InitEnchanting()
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	recipe:AddTrainer(1317, 3011, 3345, 4213, 19251, 19252, 19540, 26906, 26954, 26980, 26990, 28693, 33583, 33610, 33633)
 
-	-- Enchant Shield - Defense -- 44489
+	-- Enchant Shield - Dodge -- 44489
 	recipe = AddRecipe(44489, V.WOTLK, Q.COMMON)
 	recipe:SetSkillLevels(420, 420, 430, 440, 450)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.TANK, F.SHIELD)
@@ -1626,7 +1629,7 @@ function addon:InitEnchanting()
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS)
 	recipe:AddTrainer(1317, 3011, 3345, 4213, 19251, 19252, 19540, 26906, 26954, 26980, 26990, 28693, 33583, 33610, 33633)
 
-	-- Enchant Bracers - Exceptional Intellect -- 44555
+	-- Enchant Bracer - Exceptional Intellect -- 44555
 	recipe = AddRecipe(44555, V.WOTLK, Q.COMMON)
 	recipe:SetSkillLevels(375, 375, 385, 392, 400)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
@@ -1639,7 +1642,7 @@ function addon:InitEnchanting()
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOE, F.RBOE, F.CLOAK)
 	recipe:AddMobDrop(30921)
 
-	-- Enchant Bracers - Greater Assault -- 44575
+	-- Enchant Bracer - Greater Assault -- 44575
 	recipe = AddRecipe(44575, V.WOTLK, Q.UNCOMMON)
 	recipe:SetRecipeItemID(44484)
 	recipe:SetSkillLevels(430, 430, 440, 450, 460)
@@ -1698,7 +1701,7 @@ function addon:InitEnchanting()
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
 	recipe:AddTrainer(1317, 3011, 3345, 4213, 19251, 19252, 19540, 26906, 26954, 26980, 26990, 28693, 33583, 33610, 33633)
 
-	-- Enchant Bracers - Major Spirit -- 44593
+	-- Enchant Bracer - Major Spirit -- 44593
 	recipe = AddRecipe(44593, V.WOTLK, Q.COMMON)
 	recipe:SetSkillLevels(420, 420, 430, 440, 450)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
@@ -1719,13 +1722,13 @@ function addon:InitEnchanting()
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOE, F.RBOE, F.CLOAK)
 	recipe:AddMobDrop(31702, 32297)
 
-	-- Enchant Bracers - Expertise -- 44598
+	-- Enchant Bracer - Expertise -- 44598
 	recipe = AddRecipe(44598, V.WOTLK, Q.COMMON)
 	recipe:SetSkillLevels(415, 415, 425, 435, 445)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS, F.TANK)
 	recipe:AddTrainer(1317, 3011, 3345, 4213, 19251, 19252, 19540, 26906, 26954, 26980, 26990, 28693, 33583, 33610, 33633)
 
-	-- Enchant Bracers - Greater Stats -- 44616
+	-- Enchant Bracer - Greater Stats -- 44616
 	recipe = AddRecipe(44616, V.WOTLK, Q.COMMON)
 	recipe:SetSkillLevels(400, 400, 410, 420, 430)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
@@ -1776,7 +1779,7 @@ function addon:InitEnchanting()
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS, F.ONE_HAND, F.TWO_HAND)
 	recipe:AddTrainer(1317, 3011, 3345, 4213, 19251, 19252, 19540, 26906, 26954, 26980, 26990, 28693, 33583, 33610, 33633)
 
-	-- Enchant Bracers - Greater Spellpower -- 44635
+	-- Enchant Bracer - Greater Spellpower -- 44635
 	recipe = AddRecipe(44635, V.WOTLK, Q.COMMON)
 	recipe:SetSkillLevels(395, 395, 405, 415, 425)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
@@ -1810,7 +1813,7 @@ function addon:InitEnchanting()
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.SEASONAL, F.IBOE, F.RBOP, F.ONE_HAND, F.TWO_HAND)
 	recipe:AddSeason("MIDSUMMER")
 
-	-- Enchant Chest - Defense -- 46594
+	-- Enchant Chest - Dodge -- 46594
 	recipe = AddRecipe(46594, V.WOTLK, Q.COMMON)
 	recipe:SetRecipeItemID(35500)
 	recipe:SetSkillLevels(360, 360, 370, 385, 400)
@@ -1831,7 +1834,7 @@ function addon:InitEnchanting()
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.CLOAK)
 	recipe:AddVendor(32514)
 
-	-- Enchant Chest - Greater Defense -- 47766
+	-- Enchant Chest - Greater Dodge -- 47766
 	recipe = AddRecipe(47766, V.WOTLK, Q.COMMON)
 	recipe:SetSkillLevels(400, 400, 410, 420, 430)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.TANK)
@@ -1903,7 +1906,7 @@ function addon:InitEnchanting()
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.CLOAK)
 	recipe:AddTrainer(1317, 3011, 3345, 4213, 19251, 19252, 19540, 26906, 26954, 26980, 26990, 28693, 33583, 33610, 33633)
 
-	-- Enchant Bracers - Striking -- 60616
+	-- Enchant Bracer - Striking -- 60616
 	recipe = AddRecipe(60616, V.WOTLK, Q.COMMON)
 	recipe:SetSkillLevels(360, 360, 370, 380, 390)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS)
@@ -1981,7 +1984,7 @@ function addon:InitEnchanting()
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS)
 	recipe:AddVendor(32514)
 
-	-- Enchant Bracers - Superior Spellpower -- 60767
+	-- Enchant Bracer - Superior Spellpower -- 60767
 	recipe = AddRecipe(60767, V.WOTLK, Q.UNCOMMON)
 	recipe:SetRecipeItemID(44498)
 	recipe:SetCraftedItemID(44498)
@@ -1989,7 +1992,7 @@ function addon:InitEnchanting()
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
 	recipe:AddVendor(32514)
 
-	-- Enchant Bracers - Major Stamina -- 62256
+	-- Enchant Bracer - Major Stamina -- 62256
 	recipe = AddRecipe(62256, V.WOTLK, Q.RARE)
 	recipe:SetRecipeItemID(44944)
 	recipe:SetCraftedItemID(44944)
@@ -2186,7 +2189,7 @@ function addon:InitEnchanting()
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP)
 	recipe:AddTrainer(1317, 3011, 3345, 4213, 4616, 5157, 16633, 19251, 19252, 19540, 28693, 33583, 33610, 33633)
 
-	-- Enchant Shield - Blocking -- 74226
+	-- Enchant Shield - Mastery -- 74226
 	recipe = AddRecipe(74226, V.CATA, Q.COMMON)
 	recipe:SetSkillLevels(485, 485, 495, 505, 515)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP)
