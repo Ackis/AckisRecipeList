@@ -256,13 +256,8 @@ do
 				end
 			end
 		end
-		local found_missing = #missing_spell_ids > 0
-		local found_extra = #extra_spell_ids > 0
-		local found_fixed_item = #fixed_item_spell_ids > 0
-		local found_wrong_level = #mismatched_levels > 0
-		local found_unconfirmed_level = #mismatched_levels_unconfirmed > 0
 
-		if found_missing then
+		if #missing_spell_ids > 0 then
 			table.insert(output, "\nTrainer is missing from the following entries:")
 			table.sort(missing_spell_ids)
 
@@ -272,7 +267,7 @@ do
 			end
 		end
 
-		if found_extra then
+		if #extra_spell_ids > 0 then
 			table.insert(output, "\nRecipes which are wrongly assigned to the trainer:")
 			table.sort(extra_spell_ids)
 
@@ -289,7 +284,7 @@ do
 			end
 		end
 
-		if found_fixed_item then
+		if #fixed_item_spell_ids > 0 then
 			table.insert(output, "\nRecipes which had no crafted item ID, but will once a dump is performed:")
 			table.sort(fixed_item_spell_ids)
 
@@ -299,7 +294,7 @@ do
 			end
 		end
 
-		if found_wrong_level then
+		if #mismatched_levels > 0 then
 			table.insert(output, "\nRecipes which had an incorrect skill level, but will not once a dump is performed:")
 			table.sort(mismatched_levels)
 
@@ -313,7 +308,7 @@ do
 			end
 		end
 
-		if found_unconfirmed_level then
+		if #mismatched_levels_unconfirmed > 0 then
 			table.insert(output, "\nRecipes with possible incorrect skill levels - unable to confirm:")
 			table.sort(mismatched_levels_unconfirmed)
 
@@ -328,10 +323,10 @@ do
 		if #output > 0 then
 			table.insert(output, 1, ("ARL Version: %s"):format(self.version))
 			table.insert(output, 2, L["DATAMINER_TRAINER_INFO"]:format(trainer_name, trainer_id))
-			if found_extra and trainer_profession == private.PROFESSION_NAMES.ENGINEERING then
+
+			if #extra_spell_ids > 0 and trainer_profession == private.PROFESSION_NAMES.ENGINEERING then
 				table.insert(output, "\nSome goggles may be listed as extra. These goggles ONLY show up for the classes who can make them, so they may be false positives.")
 			end
-
 			self:DisplayTextDump(nil, nil, table.concat(output, "\n"))
 		end
 		-- Reset the filters to what they were before
@@ -347,49 +342,57 @@ end	-- do
 function addon:GenerateLinks()
 	-- This code adopted from Gnomish Yellow Pages with permission
 
-	local guid = _G.UnitGUID("player")
-	local playerGUID = guid:gsub("0x0+","")
-
 	-- Listing of all tradeskill professions
-	local tradelist = {51304, 51300, 51313, 51306, 45363, 51311, 51302, 51309, 51296, 45542}
+	local tradelist = {
+		51304, -- Alchemy
+		51300, -- Blacksmithing
+		51313, -- Enchanting
+		51306, -- Engineering
+		45363, -- Inscription
+		51311, -- Jewelcrafting
+		51302, -- Leatherworking
+		51309, -- Tailoring
+		51296, -- Cooking
+		45542, -- First Aid
+	}
 
---[[
+	--[[
 	local encodingLength = floor((#recipeList+5) / 6)
 
 	local encodedString = ("/"):rep(encodingLength)
 ]]--
-	local bitmap = {}
-	bitmap[45542] = "8bffAA" -- First Aid  100%   17/17 recipes
-	--bitmap[51296] = "2/6///7///9f///7//////////g///B" -- Cooking  98.2%  166/169 recipes
-	bitmap[51296] = "GEgAGAjmFAwBAxAzfex//DgAgPA6HtgAI8lC"
-	--bitmap[51306] = "4/////////////3nFA+///9+/P7//f//n//9dgdJgHA87/3f/TolD" -- Engineering (53)
-	bitmap[51306] = "4/////////////3nFA+///9+/P7//f//n//9dgdJgHA87/3f/Tol3B" -- Engineering
-	bitmap[51302] = "e+//ff////d//u//v//n+vv7/+ujr7/9////bg/+////f344//dA4I8j/X//B4/vu5/////////////////nvA8/M8/D" -- Leatherworking  85.4%   451/528 recipes
-	bitmap[51304] = "2//v//////f////3//v///////5//////////9/////v" -- Alchemy 100%   251/251 recipes
-	bitmap[51300] = "2//////f7fM//f/f53/+//7///ze8c6q/f9///P2/////m4BAA2XIG+dFA8//PC////4//z//////////Pwvy//H" -- Blacksmithing 82.9%   413/498 recipes
-	bitmap[51309] = "4//+/76J7//v7/ve+/XR9fLb2f3nN3vLc6vS0+Hf8/XG7/VAIh9B+/f6/////3/////9/f1wCB" -- Tailoring   83.37%   341/409 recipes
-	bitmap[51311] = "8//3////fzj//u//////v/7///9///33////////Pw////////////////////////3///////////////////////////D" -- Jewelcrafting  97.5%   540/554 recipes
-	bitmap[45363] = "g////7////3///////////////////////////////////////////////////f///////////f" --Inscription 99.77%    439/440 recipes
-	bitmap[51313] = "4//////////7///////////w//+//9/n7///////3f//////ZsD" -- Enchanting   94.3%    279/296 recipes
-
+	local bitmap = {
+		[45542] = "8bffAA", -- First Aid  100%   17/17 recipes
+		--[51296] = "2/6///7///9f///7//////////g///B", -- Cooking  98.2%  166/169 recipes
+		[51296] = "GEgAGAjmFAwBAxAzfex//DgAgPA6HtgAI8lC",
+		--[51306] = "4/////////////3nFA+///9+/P7//f//n//9dgdJgHA87/3f/TolD", -- Engineering (53)
+		[51306] = "4/////////////3nFA+///9+/P7//f//n//9dgdJgHA87/3f/Tol3B", -- Engineering
+		[51302] = "e+//ff////d//u//v//n+vv7/+ujr7/9////bg/+////f344//dA4I8j/X//B4/vu5/////////////////nvA8/M8/D", -- Leatherworking  85.4%   451/528 recipes
+		[51304] = "2//v//////f////3//v///////5//////////9/////v", -- Alchemy 100%   251/251 recipes
+		[51300] = "2//////f7fM//f/f53/+//7///ze8c6q/f9///P2/////m4BAA2XIG+dFA8//PC////4//z//////////Pwvy//H", -- Blacksmithing 82.9%   413/498 recipes
+		[51309] = "4//+/76J7//v7/ve+/XR9fLb2f3nN3vLc6vS0+Hf8/XG7/VAIh9B+/f6/////3/////9/f1wCB", -- Tailoring   83.37%   341/409 recipes
+		[51311] = "8//3////fzj//u//////v/7///9///33////////Pw////////////////////////3///////////////////////////D", -- Jewelcrafting  97.5%   540/554 recipes
+		[45363] = "g////7////3///////////////////////////////////////////////////f///////////f", --Inscription 99.77%    439/440 recipes
+		[51313] = "4//////////7///////////w//+//9/n7///////3f//////ZsD", -- Enchanting   94.3%    279/296 recipes
+	}
 	for i in pairs(tradelist) do
-
 		local tradeName = _G.GetSpellInfo(tradelist[i])
-		local tradelink = {}
-		tradelink[1] = "|cffffd000|Htrade:"
-		tradelink[2] = tradelist[i]
-		tradelink[3] = ":450:450:"
-		tradelink[4] = playerGUID
-		tradelink[5] = ":"
-		tradelink[6] = bitmap[tradelist[i]]
-		tradelink[7] = "|h["
-		tradelink[8] = tradeName
-		tradelink[9] = "]|h|r"
+		local tradelink = {
+			"|cffffd000|Htrade:",
+			tradelist[i],
+			":525:525:",
+			_G.UnitGUID("player"):gsub("0x0+", ""),
+			":",
+			bitmap[tradelist[i]],
+			"|h[",
+			tradeName,
+			"]|h|r",
+		}
 
-		if (bitmap[tradelist[i]]) then
+		if bitmap[tradelist[i]] then
 			self:Print(table.concat(tradelink, ""))
 		else
-			self:Print("There currently is not a generated tradeskill link for: " .. tradeName)
+			self:Print("There currently is no generated tradeskill link for: " .. tradeName)
 		end
 --		/script DEFAULT_CHAT_FRAME:AddMessage(GetTradeSkillListLink():gsub("\124","\124\124"))
 	end
