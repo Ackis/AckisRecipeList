@@ -1382,7 +1382,7 @@ do
 		-- If we're a vendor scan,  do some extra checks
 		if scan_data.is_vendor then
 			-- Check to see if the vendor flag is set
-			if not recipe:HasFilter("common1", "VENDOR") then
+			if not recipe:HasFilter("common1", "VENDOR") and not recipe:HasFilter("common1", "SEASONAL") then
 				table.insert(missing_flags, flag_format:format(FS[F.VENDOR]))
 			end
 
@@ -1506,7 +1506,7 @@ do
 			end
 		end
 
-		if (acquire_data[A.VENDOR] or acquire_data[A.REPUTATION]) and not recipe:HasFilter("common1", "VENDOR") then
+		if (acquire_data[A.VENDOR] or acquire_data[A.REPUTATION]) and not recipe:HasFilter("common1", "VENDOR") and not recipe:HasFilter("common1", "SEASONAL") then
 			table.insert(missing_flags, flag_format:format(FS[F.VENDOR]))
 		end
 
