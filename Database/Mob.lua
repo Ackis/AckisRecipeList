@@ -240,12 +240,7 @@ function addon:InitMob()
 	AddMob(590,	L["Defias Looter"],			BZ["Westfall"], 37.5, 58.4)
 
 	-- Wetlands
-	AddMob(1051,	L["Dark Iron Dwarf"],			BZ["Wetlands"], 60.1, 25.7)
-	AddMob(1052,	L["Dark Iron Saboteur"],		BZ["Wetlands"], 58.5, 24.2)
-	AddMob(1053,	L["Dark Iron Tunneler"],		BZ["Wetlands"], 61.4, 27.7)
-	AddMob(1054,	L["Dark Iron Demolitionist"],		BZ["Wetlands"], 59.5, 29.7)
 	AddMob(1160,	L["Captain Halyndor"],			BZ["Wetlands"], 15.0, 24.0)
-	AddMob(1364,	L["Balgaras the Foul"],			BZ["Wetlands"], 60.0, 28.7)
 
 	-- Winterspring
 	AddMob(7438,	L["Winterfall Ursa"],			BZ["Winterspring"], 67.5, 36.3)
