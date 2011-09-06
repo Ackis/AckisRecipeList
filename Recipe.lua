@@ -277,43 +277,31 @@ end
 function recipe_prototype:AddAcquireData(acquire_type, type_string, unit_list, ...)
 	local location_list = private.location_list
 	local acquire_list = private.acquire_list
-	self.acquire_data[acquire_type] = self.acquire_data[acquire_type] or {}
-
 	local acquire = self.acquire_data[acquire_type]
 
+	if not acquire then
+		self.acquire_data[acquire_type] = {}
+		acquire = self.acquire_data[acquire_type]
+	end
+	local limited_vendor = type_string == "Limited Vendor"
 	local num_vars = select('#', ...)
 	local cur_var = 1
 
 	while cur_var <= num_vars do
+		-- A quantity of true means unlimited - normal vendor item.
+		local quantity = true
 		local location_name, affiliation
 		local identifier = select(cur_var, ...)
 		cur_var = cur_var + 1
 
-		-- A quantity of true means unlimited - normal vendor item.
-		local quantity = true
-
-		if type_string == "Limited Vendor" then
+		if limited_vendor then
 			quantity = select(cur_var, ...)
 			cur_var = cur_var + 1
 		end
 		acquire[identifier] = true
 
-		if unit_list and not unit_list[identifier] then
-			addon:Debug("Spell ID %d: %s ID %s does not exist in the database.", self.spell_id, type_string, identifier)
-		else
-			if not unit_list then
-				local id_type = type(identifier)
-
-				location_name = id_type == "string" and BZ[identifier] or nil
-
-				if location_name then
-					affiliation = "world_drop"
-				else
-					if id_type == "string" then
-						addon:Debug("WORLD_DROP with no location: %d %s", self.spell_id, self.name)
-					end
-				end
-			else
+		if unit_list then
+			if unit_list[identifier] then
 				local unit = unit_list[identifier]
 
 				affiliation = unit.faction
@@ -321,6 +309,18 @@ function recipe_prototype:AddAcquireData(acquire_type, type_string, unit_list, .
 
 				unit.item_list = unit.item_list or {}
 				unit.item_list[self.spell_id] = quantity
+			else
+				addon:Debug("Spell ID %d: %s ID %s does not exist in the database.", self.spell_id, type_string, identifier)
+			end
+		else
+			local string_id = type(identifier) == "string"
+
+			location_name = string_id and BZ[identifier] or nil
+
+			if location_name then
+				affiliation = "world_drop"
+			elseif string_id then
+				addon:Debug("WORLD_DROP with no location: %d %s", self.spell_id, self.name)
 			end
 		end
 		acquire_list[acquire_type] = acquire_list[acquire_type] or {}
@@ -383,15 +383,19 @@ function recipe_prototype:AddRepVendor(faction_id, rep_level, ...)
 	local location_list = private.location_list
 	local acquire_list = private.acquire_list
 	local vendor_list = private.vendor_list
-
-	self.acquire_data[A.REPUTATION] = self.acquire_data[A.REPUTATION] or {}
-
 	local acquire = self.acquire_data[A.REPUTATION]
-	acquire[faction_id] = acquire[faction_id] or {}
 
+	if not acquire then
+		self.acquire_data[A.REPUTATION] = {}
+		acquire = self.acquire_data[A.REPUTATION]
+	end
 	local faction = acquire[faction_id]
-	faction[rep_level] = faction[rep_level] or {}
 
+	if not faction then
+		acquire[faction_id] = {}
+		faction = acquire[faction_id]
+		faction[rep_level] = {}
+	end
 	local num_vars = select('#', ...)
 	local cur_var = 1
 
@@ -400,20 +404,8 @@ function recipe_prototype:AddRepVendor(faction_id, rep_level, ...)
 		local vendor_id = select(cur_var, ...)
 		cur_var = cur_var + 1
 
-		if not private.reputation_list[faction_id] then
-		--@alpha@
-			self:Printf("Spell ID %d: Faction ID %d does not exist in the database.", self.spell_id, faction_id)
-		--@end-alpha@
-		else
-			if not vendor_id then
-			--@alpha@
-				self:Printf("Spell ID %d: Reputation Vendor ID is nil.", self.spell_id)
-			--@end-alpha@
-			elseif not vendor_list[vendor_id] then
-			--@alpha@
-				self:Printf("Spell ID %d: Reputation Vendor ID %d does not exist in the database.", self.spell_id, vendor_id)
-			--@end-alpha@
-			else
+		if private.reputation_list[faction_id] then
+			if vendor_id and vendor_list[vendor_id] then
 				faction[rep_level][vendor_id] = true
 
 				local rep_vendor = vendor_list[vendor_id]
@@ -423,7 +415,11 @@ function recipe_prototype:AddRepVendor(faction_id, rep_level, ...)
 
 				rep_vendor.item_list = rep_vendor.item_list or {}
 				rep_vendor.item_list[self.spell_id] = true
+			else
+				self:Debug("Spell ID %d: Reputation Vendor ID %s does not exist in the database.", self.spell_id, tostring(vendor_id))
 			end
+		else
+			self:Debug("Spell ID %d: Faction ID %d does not exist in the database.", self.spell_id, faction_id)
 		end
 		acquire_list[A.REPUTATION] = acquire_list[A.REPUTATION] or {}
 		acquire_list[A.REPUTATION].recipes = acquire_list[A.REPUTATION].recipes or {}
