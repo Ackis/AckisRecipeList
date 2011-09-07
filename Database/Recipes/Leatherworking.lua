@@ -1336,7 +1336,7 @@ function addon:InitLeatherworking()
 	recipe:SetCraftedItemID(15062)
 	recipe:SetSkillLevels(300, 300, 320, 330, 340)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOE, F.RBOE, F.DPS, F.LEATHER)
-	recipe:AddMobDrop(6556, 6557, 6559, 9477)
+	recipe:AddMobDrop(6557, 6559)
 
 	-- Wicked Leather Armor -- 19098
 	recipe = AddRecipe(19098, V.ORIG, Q.COMMON)
