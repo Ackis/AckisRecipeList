@@ -34,7 +34,6 @@ function addon:InitMob()
 	AddMob(2556,	L["Witherbark Headhunter"],		BZ["Arathi Highlands"], 70.5, 70.4)
 	AddMob(2557,	L["Witherbark Shadow Hunter"],		BZ["Arathi Highlands"], 70.3, 78.9)
 	AddMob(2558,	L["Witherbark Berserker"],		BZ["Arathi Highlands"], 24.2, 66.2)
-	AddMob(2606,	L["Nimar the Slayer"],			BZ["Arathi Highlands"], 66.6, 64.0)
 
 	-- Ashenvale
 	AddMob(3834,	L["Crazed Ancient"],			BZ["Ashenvale"], 59.4, 43.0)
