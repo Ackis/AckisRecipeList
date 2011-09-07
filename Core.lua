@@ -494,12 +494,7 @@ function addon:OnInitialize()
 		if not unit then
 			return
 		end
-		local guid = _G.UnitGUID(unit)
-
-		if not guid then
-			return
-		end
-		local id_num = tonumber(guid:sub(-12, -9), 16)
+		local id_num = private.MobGUIDToIDNum(_G.UnitGUID(unit))
 		local unit = private.mob_list[id_num] or private.vendor_list[id_num] or private.trainer_list[id_num]
 
 		if not unit or not unit.item_list then

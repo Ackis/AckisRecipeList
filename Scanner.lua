@@ -173,7 +173,7 @@ do
 		table.wipe(output)
 
 		-- Dump out trainer info
-		local trainer_id = tonumber(_G.UnitGUID("target"):sub(-12,-9), 16)
+		local trainer_id = private.MobGUIDToIDNum(_G.UnitGUID("target"))
 		local trainer_name = _G.UnitName("target")
 
 		for spell_id, recipe in pairs(recipe_list) do
@@ -747,7 +747,7 @@ do
 			return
 		end
 		local vendor_name = _G.UnitName("target")
-		local vendor_id = tonumber(_G.UnitGUID("target"):sub(-12,-9), 16)
+		local vendor_id = private.MobGUIDToIDNum(_G.UnitGUID("target"))
 
 		table.wipe(output)
 
