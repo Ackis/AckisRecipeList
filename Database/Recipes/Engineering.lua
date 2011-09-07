@@ -471,8 +471,7 @@ function addon:InitEngineering()
 	recipe:SetSkillLevels(165, 165, 165, 180, 200)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.INSTANCE, F.MOB_DROP, F.IBOE, F.RBOE)
 	recipe:AddMobDrop(7800)
-	recipe:AddVendor(3134, 4086)
-	recipe:AddLimitedVendor(3537, 1)
+	recipe:AddLimitedVendor(3134, 1, 3537, 1)
 
 	-- Gold Power Core -- 12584
 	recipe = AddRecipe(12584, V.ORIG, Q.COMMON)
