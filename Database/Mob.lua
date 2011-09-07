@@ -169,11 +169,6 @@ function addon:InitMob()
 	AddMob(3530,	L["Pyrewood Tailor"],			BZ["Silverpine Forest"], 45.7, 71.0)
 	AddMob(3531,	L["Moonrage Tailor"],			BZ["Silverpine Forest"], 45.5, 73.3)
 
-	-- Stonetalon Mountains
-	AddMob(4028,	L["Charred Ancient"],			BZ["Stonetalon Mountains"], 34.0, 66.1)
-	AddMob(4029,	L["Blackened Ancient"],			BZ["Stonetalon Mountains"], 33.0, 70.7)
-	AddMob(4030,	L["Vengeful Ancient"],			BZ["Stonetalon Mountains"], 33.0, 72.4)
-
 	-- Northern Stranglethorn
 	AddMob(674,	L["Venture Co. Strip Miner"],		BZ["Northern Stranglethorn"], 54.1, 70.6)
 	AddMob(938,	L["Kurzen Commando"],			BZ["Northern Stranglethorn"], 60.9, 16.3)
