@@ -45,9 +45,9 @@ function private:AddListEntry(lookup_list, identifier, name, location, coord_x, 
 	--@alpha@
 	if not NO_LOCATION_LISTS then
 		NO_LOCATION_LISTS = {
-			[private.custom_list] = true,
-			[private.discovery_list] = true,
-			[private.reputation_list] = true,
+			[self.custom_list] = true,
+			[self.discovery_list] = true,
+			[self.reputation_list] = true,
 		}
 	end
 
@@ -55,7 +55,7 @@ function private:AddListEntry(lookup_list, identifier, name, location, coord_x, 
 		addon:Debug("Lookup ID: %s (%s) has an unknown location.", identifier, lookup_list[identifier].name or _G.UNKNOWN)
 	end
 
-	if faction and lookup_list == private.mob_list then
+	if faction and lookup_list == self.mob_list then
 		addon:Debug("Mob %d (%s) has been assigned to faction %s.", identifier, name, lookup_list[identifier].faction)
 	end
 	--@end-alpha@
@@ -75,3 +75,7 @@ function private.ItemLinkToID(item_link)
 	return tonumber(id)
 end
 
+-- This wrapper exists primarily because Blizzard keeps changing how NPC ID numbers are extracted from GUIDs, and fixing it in one place is less error-prone.
+function private.MobGUIDToIDNum(guid)
+	return tonumber(guid:sub(-12,-9), 16)
+end

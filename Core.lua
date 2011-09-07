@@ -494,12 +494,7 @@ function addon:OnInitialize()
 		if not unit then
 			return
 		end
-		local guid = _G.UnitGUID(unit)
-
-		if not guid then
-			return
-		end
-		local id_num = tonumber(guid:sub(-12, -9), 16)
+		local id_num = private.MobGUIDToIDNum(_G.UnitGUID(unit))
 		local unit = private.mob_list[id_num] or private.vendor_list[id_num] or private.trainer_list[id_num]
 
 		if not unit or not unit.item_list then
@@ -818,9 +813,7 @@ end
 -------------------------------------------------------------------------------
 function addon:InitializeProfession(profession)
 	if not profession then
-		--@alpha@
 		addon:Debug("nil profession passed to InitializeProfession()")
-		--@end-alpha@
 		return
 	end
 
@@ -836,8 +829,6 @@ function addon:InitializeProfession(profession)
 end
 
 do
-	local fa = _G.GetSpellInfo(45542)
-
 	-- Code snippet stolen from GearGuage by Torhal and butchered by Ackis
 	local function StrSplit(input)
 		if not input then return nil, nil end
@@ -848,7 +839,7 @@ do
 
 		if var1 then
 			-- Small hack to get code to work with first aid.
-			if var1:lower() == fa:lower() then
+			if var1:lower() == private.PROFESSION_NAMES.FIRSTAID:lower() then
 				arg2 = var1
 			else
 				local var2
@@ -861,7 +852,6 @@ do
 
 	-- Determines what to do when the slash command is called.
 	function addon:ChatCommand(input)
-
 		local arg1, arg2 = StrSplit(input)
 
 		-- Open About panel if there's no parameters or if we do /arl about
@@ -962,7 +952,7 @@ do
 			prof_level = _G.UnitLevel("player")
 		end
 		local player = private.Player
-		player:SetProfessions()
+		player:UpdateProfessions()
 
 		private.current_profession_scanlevel = prof_level
 
