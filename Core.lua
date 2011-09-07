@@ -962,7 +962,7 @@ do
 			prof_level = _G.UnitLevel("player")
 		end
 		local player = private.Player
-		player:SetProfessions()
+		player:UpdateProfessions()
 
 		private.current_profession_scanlevel = prof_level
 

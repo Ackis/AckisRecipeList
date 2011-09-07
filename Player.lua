@@ -61,7 +61,7 @@ function Player:Initialize()
 	self.scanned_professions = {}
 	self.professions = {}
 
-	self:SetProfessions()
+	self:UpdateProfessions()
 end
 
 do
@@ -152,25 +152,15 @@ function Player:HasRecipeFaction(recipe)
 end
 
 do
-	local known_professions = {
-		["prof1"]	= false,
-		["prof2"]	= false,
-		["archaeology"]	= false,
-		["fishing"]	= false,
-		["cooking"]	= false,
-		["firstaid"]	= false,
-	}
+	local known = {}
 
 	-- Sets the player's professions. Used when the AddOn initializes and when a profession has been learned or unlearned.
-	function Player:SetProfessions()
-		for i in pairs(self.professions) do
-			self.professions[i] = nil
-		end
-		local known = known_professions
-
+	function Player:UpdateProfessions()
 		known.prof1, known.prof2, known.archaeology, known.fishing, known.cooking, known.firstaid = _G.GetProfessions()
 
-		for profession, index in pairs(known_professions) do
+		table.wipe(self.professions)
+
+		for profession, index in pairs(known) do
 			if index then
 				local name, icon, rank, maxrank, numspells, spelloffset, skillline = _G.GetProfessionInfo(index)
 
