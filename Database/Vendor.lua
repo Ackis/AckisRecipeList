@@ -96,7 +96,7 @@ function addon:InitVendor()
 	AddVendor(3029,		L["Sewa Mistrunner"],			BZ["Thunder Bluff"],			55.8, 47.0, "Horde") -- COMPLETELY UPDATED
 	AddVendor(3081,		L["Wunna Darkmane"],			BZ["Mulgore"],				46.1, 58.2, "Horde")
 	AddVendor(3085,		L["Gloria Femmel"],			BZ["Redridge Mountains"],		26.7, 43.5, "Alliance")
-	AddVendor(3134,		L["Kzixx"],				BZ["Duskwood"],				81.9, 19.9, "Neutral")
+	AddVendor(3134,		L["Kzixx"],				BZ["Duskwood"],				81.9, 19.9, "Neutral") -- COMPLETELY UPDATED
 	AddVendor(3178,		L["Stuart Fleming"],			BZ["Wetlands"],				 8.1, 58.4, "Alliance")
 	AddVendor(3333,		L["Shankys"],				BZ["Orgrimmar"],			66.74, 41.86, "Horde") -- UPDATED
 	AddVendor(3335,		L["Hagrus"],				BZ["Orgrimmar"],			46.0, 45.9, "Horde")
@@ -123,7 +123,6 @@ function addon:InitVendor()
 	AddVendor(3954,		L["Dalria"],				BZ["Ashenvale"],			35.1, 52.1, "Alliance")
 	AddVendor(3958,		L["Lardan"],				BZ["Ashenvale"],			34.8, 49.8, "Alliance")
 	AddVendor(4083,		L["Jeeda"],				BZ["Stonetalon Mountains"],		50.5, 63.4, "Horde") -- COMPLETELY UPDATED
-	AddVendor(4086,		L["Veenix"],				BZ["Stonetalon Mountains"],		58.3, 51.7, "Neutral")
 	AddVendor(4168,		L["Elynna"],				BZ["Darnassus"],			60.6, 36.9, "Alliance") -- COMPLETELY UPDATED
 	AddVendor(4223,		L["Fyldan"],				BZ["Darnassus"],			49.5, 36.9, "Alliance") -- COMPLETELY UPDATED
 	AddVendor(4225,		L["Saenorion"],				BZ["Darnassus"],			60.0, 37.3, "Alliance") -- COMPLETELY UPDATED
