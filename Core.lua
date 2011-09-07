@@ -834,8 +834,6 @@ function addon:InitializeProfession(profession)
 end
 
 do
-	local fa = _G.GetSpellInfo(45542)
-
 	-- Code snippet stolen from GearGuage by Torhal and butchered by Ackis
 	local function StrSplit(input)
 		if not input then return nil, nil end
@@ -846,7 +844,7 @@ do
 
 		if var1 then
 			-- Small hack to get code to work with first aid.
-			if var1:lower() == fa:lower() then
+			if var1:lower() == private.PROFESSION_NAMES.FIRSTAID:lower() then
 				arg2 = var1
 			else
 				local var2
@@ -859,7 +857,6 @@ do
 
 	-- Determines what to do when the slash command is called.
 	function addon:ChatCommand(input)
-
 		local arg1, arg2 = StrSplit(input)
 
 		-- Open About panel if there's no parameters or if we do /arl about
