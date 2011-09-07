@@ -446,7 +446,7 @@ function addon:InitEnchanting()
 	recipe:SetRecipeItemID(11166)
 	recipe:SetSkillLevels(200, 200, 220, 240, 260)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOE, F.RBOE)
-	recipe:AddMobDrop(2556, 2557, 2558, 2606)
+	recipe:AddMobDrop(2556, 2557, 2558)
 
 	-- Enchant Chest - Lesser Stats -- 13700
 	recipe = AddRecipe(13700, V.ORIG, Q.COMMON)
