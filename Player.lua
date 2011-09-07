@@ -42,7 +42,7 @@ local BFAC	= LibStub("LibBabble-Faction-3.0"):GetLookupTable()
 -- @field known_filtered Total number of items known filtered during the scan.
 -- @field faction Player's faction
 -- @field class Player's class
--- @field ["Reputation"] Listing of players reputation levels
+-- @field reputation_levels Listing of players reputation levels
 local Player = {}
 private.Player = Player
 private.player_name = _G.UnitName("player")
@@ -68,7 +68,7 @@ do
 	local headers = {}
 
 	function Player:UpdateReputations()
-		self["Reputation"] = self["Reputation"] or {}
+		self.reputation_levels = self.reputation_levels or {}
 
 		table.wipe(headers)
 
@@ -95,7 +95,7 @@ do
 			-- If the rep is greater than neutral
 			if replevel > 4 then
 				-- We use levels of 0, 1, 2, 3, 4 internally for reputation levels, make it correspond here
-				self["Reputation"][name] = replevel - 4
+				self.reputation_levels[name] = replevel - 4
 			end
 		end
 
@@ -114,8 +114,8 @@ function Player:HasProperRepLevel(rep_data)
 	if not rep_data then
 		return true
 	end
-	local is_alliance = Player.faction == "Alliance"
-	local player_rep = Player["Reputation"]
+	local is_alliance = self.faction == "Alliance"
+	local reputation_levels = self.reputation_levels
 	local FAC = private.FACTION_IDS
 	local has_faction = true
 
@@ -128,7 +128,7 @@ function Player:HasProperRepLevel(rep_data)
 			end
 			local rep_name = private.reputation_list[rep_id].name
 
-			if not player_rep[rep_name] or player_rep[rep_name] < rep_level then
+			if not reputation_levels[rep_name] or reputation_levels[rep_name] < rep_level then
 				has_faction = false
 			else
 				has_faction = true
