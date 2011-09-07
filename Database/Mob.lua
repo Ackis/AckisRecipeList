@@ -219,10 +219,8 @@ function addon:InitMob()
 	AddMob(10760,	L["Grimtotem Geomancer"],		BZ["Thousand Needles"], 33.1, 35.4)
 
 	-- Un'Goro Crater
-	AddMob(6556,	L["Muculent Ooze"],			BZ["Un'Goro Crater"], 62.2, 25.4)
 	AddMob(6557,	L["Primal Ooze"],			BZ["Un'Goro Crater"], 51.8, 34.9)
 	AddMob(6559,	L["Glutinous Ooze"],			BZ["Un'Goro Crater"], 39.0, 37.7)
-	AddMob(9477,	L["Cloned Ooze"],			BZ["Un'Goro Crater"], 45.5, 22.7)
 
 	-- Western Plaguelands
 	AddMob(1783,	L["Skeletal Flayer"],			BZ["Western Plaguelands"], 50.7, 80.5)
