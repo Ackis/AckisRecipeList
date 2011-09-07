@@ -818,9 +818,7 @@ end
 -------------------------------------------------------------------------------
 function addon:InitializeProfession(profession)
 	if not profession then
-		--@alpha@
 		addon:Debug("nil profession passed to InitializeProfession()")
-		--@end-alpha@
 		return
 	end
 

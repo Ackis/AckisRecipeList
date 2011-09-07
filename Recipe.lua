@@ -55,9 +55,7 @@ function addon:AddRecipe(spell_id, profession, genesis, quality)
 	local recipe_list = private.recipe_list
 
 	if recipe_list[spell_id] then
-	--@alpha@
 		self:Debug("Duplicate recipe: %d - %s (%s)", spell_id, recipe_list[spell_id].name, recipe_list[spell_id].profession)
-		--@end-alpha@
 		return
 	end
 
