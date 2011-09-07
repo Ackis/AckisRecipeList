@@ -17,23 +17,6 @@ optional-dependencies:
  - tomtom
  - tiptac
 
-ignore:
- - Docs
- - Tools
- - Locales/devel-enUS.lua
- - libs/LibAboutPanel/LibAboutPanel.toc
- - libs/LibBabble-Boss-3.0/LibBabble-Boss-3.0.toc
- - libs/LibBabble-Faction-3.0/LibBabble-Faction-3.0.toc
- - libs/LibBabble-Zone-3.0/LibBabble-Zone-3.0.toc
- - libs/LibToast-1.0/LibToast-1.0.toc
- - libs/LibSharedMedia-3.0/LibSharedMedia-3.0.toc
- - libs/LibQTip-1.0/LibQTip-1.0.toc
- - libs/LibQTip-1.0/LICENSE.txt
- - libs/LibStub/LibStub.toc
- - libs/LibStub/tests
- - libs/LibToast-1.0/LibStub
- - libs/LibSharedMedia-3.0/LibStub
-
 tools-used:
  - data-tools
  - dlcount
@@ -80,3 +63,20 @@ externals:
  libs/LibToast-1.0:
   url: http://hg.curseforge.net/wow/libtoast-1-0/mainline
   tag: latest
+
+ignore:
+ - Docs
+ - Tools
+ - Locales/devel-enUS.lua
+ - libs/LibAboutPanel/LibAboutPanel.toc
+ - libs/LibBabble-Boss-3.0/LibBabble-Boss-3.0.toc
+ - libs/LibBabble-Faction-3.0/LibBabble-Faction-3.0.toc
+ - libs/LibBabble-Zone-3.0/LibBabble-Zone-3.0.toc
+ - libs/LibToast-1.0/LibToast-1.0.toc
+ - libs/LibSharedMedia-3.0/LibSharedMedia-3.0.toc
+ - libs/LibQTip-1.0/LibQTip-1.0.toc
+ - libs/LibQTip-1.0/LICENSE.txt
+ - libs/LibStub/LibStub.toc
+ - libs/LibStub/tests
+ - libs/LibToast-1.0/LibStub
+ - libs/LibSharedMedia-3.0/LibStub
