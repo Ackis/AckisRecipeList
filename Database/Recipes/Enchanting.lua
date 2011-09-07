@@ -300,7 +300,7 @@ function addon:InitEnchanting()
 	recipe:SetRecipeItemID(11151)
 	recipe:SetSkillLevels(145, 145, 170, 190, 210)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOE, F.RBOE)
-	recipe:AddMobDrop(3834, 3919, 4028, 4029, 4030)
+	recipe:AddMobDrop(3834, 3919)
 
 	-- Enchant Gloves - Fishing -- 13620
 	recipe = AddRecipe(13620, V.ORIG, Q.UNCOMMON)
