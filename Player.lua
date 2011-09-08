@@ -160,6 +160,9 @@ do
 
 		known.prof1, known.prof2, known.archaeology, known.fishing, known.cooking, known.firstaid = _G.GetProfessions()
 
+		addon.db.global.tradeskill[private.REALM_NAME] = addon.db.global.tradeskill[private.REALM_NAME] or {}
+		addon.db.global.tradeskill[private.REALM_NAME][private.PLAYER_NAME] = addon.db.global.tradeskill[private.REALM_NAME][private.PLAYER_NAME] or {}
+
 		for profession_name, link in pairs(addon.db.global.tradeskill[private.REALM_NAME][private.PLAYER_NAME]) do
 			if not known[profession_name] then
 				if not skills_to_purge then

@@ -737,10 +737,6 @@ function addon:TRADE_SKILL_SHOW()
 	local player_name = private.PLAYER_NAME
 	local realm_name = private.REALM_NAME
 
-	self.db.global.tradeskill = self.db.global.tradeskill or {}
-	self.db.global.tradeskill[realm_name] = self.db.global.tradeskill[realm_name] or {}
-	self.db.global.tradeskill[realm_name][player_name] = self.db.global.tradeskill[realm_name][player_name] or {}
-
 	if not _G.IsTradeSkillLinked() and not _G.IsTradeSkillGuild() then
 		self.db.global.tradeskill[realm_name][player_name][_G.GetTradeSkillLine()] = _G.GetTradeSkillListLink()
 	else
