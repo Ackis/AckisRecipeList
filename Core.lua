@@ -735,7 +735,7 @@ end
 
 function addon:TRADE_SKILL_SHOW()
 	local player_name = _G.UnitName("player")
-	local realm_name = _G.GetRealmName()
+	local realm_name = private.REALM_NAME
 
 	self.db.global.tradeskill = self.db.global.tradeskill or {}
 	self.db.global.tradeskill[realm_name] = self.db.global.tradeskill[realm_name] or {}

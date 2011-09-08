@@ -1227,7 +1227,7 @@ function private.InitializeFilterPanel()
 			local tskl_list = addon.db.global.tradeskill
 			local saved_link = tskl_list[click_info.realm][click_info.name][arg]
 
-			if click_info.realm ~= _G.GetRealmName() then
+			if click_info.realm ~= private.REALM_NAME then
 				local player_guid = _G.UnitGUID("player"):gsub("0x0+","")
 				local color, trade_id, cur_lev, max_lev, guid, bitmask = (":"):split(saved_link)
 				local trade_link = (":"):join(color,trade_id,cur_lev,max_lev,player_guid,bitmask)
@@ -1246,8 +1246,7 @@ function private.InitializeFilterPanel()
 			local tskl_list = addon.db.global.tradeskill
 			local tip = clicktip
 			local y, x
-			local prealm = _G.GetRealmName()
-			local target_realm = prealm
+			local target_realm = private.REALM_NAME
 
 			if click_info.change_realm then
 				target_realm = click_info.target_realm
@@ -1264,7 +1263,7 @@ function private.InitializeFilterPanel()
 						other_realms = true
 					end
 
-					if not target_realm and realm ~= prealm then
+					if not target_realm and realm ~= private.REALM_NAME then
 						if not header then
 							tip:AddHeader(L["Other Realms"])
 							tip:AddSeparator()
