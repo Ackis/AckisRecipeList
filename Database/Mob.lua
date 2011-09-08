@@ -226,7 +226,6 @@ function addon:InitMob()
 	AddMob(1783,	L["Skeletal Flayer"],			BZ["Western Plaguelands"], 50.7, 80.5)
 	AddMob(1791,	L["Slavering Ghoul"],			BZ["Western Plaguelands"], 36.0, 56.5)
 	AddMob(1812,	L["Rotting Behemoth"],			BZ["Western Plaguelands"], 64.5, 36.6)
-	AddMob(4494,	L["Scarlet Spellbinder"],		BZ["Western Plaguelands"], 52.7, 38.4)
 
 	-- Westfall
 	AddMob(590,	L["Defias Looter"],			BZ["Westfall"], 37.5, 58.4)
