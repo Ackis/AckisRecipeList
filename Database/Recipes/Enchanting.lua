@@ -834,7 +834,7 @@ function addon:InitEnchanting()
 	recipe:SetRecipeItemID(16252)
 	recipe:SetSkillLevels(300, 300, 310, 325, 340)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOE, F.RBOE, F.DPS, F.ONE_HAND, F.TWO_HAND)
-	recipe:AddMobDrop(4494, 9451)
+	recipe:AddMobDrop(9451)
 
 	-- Enchant 2H Weapon - Major Spirit -- 20035
 	recipe = AddRecipe(20035, V.ORIG, Q.UNCOMMON)
