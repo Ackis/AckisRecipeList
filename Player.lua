@@ -45,7 +45,6 @@ local BFAC	= LibStub("LibBabble-Faction-3.0"):GetLookupTable()
 -- @field reputation_levels Listing of players reputation levels
 local Player = {}
 private.Player = Player
-private.player_name = _G.UnitName("player")
 
 -------------------------------------------------------------------------------
 -- Constants
@@ -108,7 +107,7 @@ do
 			end
 		end
 	end
-end	-- do-block
+end -- do-block
 
 function Player:HasProperRepLevel(rep_data)
 	if not rep_data then
@@ -155,20 +154,35 @@ do
 	local known = {}
 
 	-- Sets the player's professions. Used when the AddOn initializes and when a profession has been learned or unlearned.
+	-- Also removes saved profession links if the profession is no longer known.
 	function Player:UpdateProfessions()
+		local skills_to_purge
+
 		known.prof1, known.prof2, known.archaeology, known.fishing, known.cooking, known.firstaid = _G.GetProfessions()
 
+		for profession_name, link in pairs(addon.db.global.tradeskill[private.REALM_NAME][private.PLAYER_NAME]) do
+			if not known[profession_name] then
+				if not skills_to_purge then
+					skills_to_purge = {}
+				end
+				skills_to_purge[profession_name] = true
+			end
+		end
+
+		if skills_to_purge then
+			for profession_name in pairs(skills_to_purge) do
+				addon.db.global.tradeskill[private.REALM_NAME][private.PLAYER_NAME][profession_name] = nil
+			end
+		end
 		table.wipe(self.professions)
 
 		for profession, index in pairs(known) do
-			if index then
-				local name, icon, rank, maxrank, numspells, spelloffset, skillline = _G.GetProfessionInfo(index)
+			local name, icon, rank, maxrank, numspells, spelloffset, skillline = _G.GetProfessionInfo(index)
 
-				if name == private.MINING_PROFESSION_NAME then
-					name = private.PROFESSION_NAMES.SMELTING
-				end
-				self.professions[name] = rank
+			if name == private.MINING_PROFESSION_NAME then
+				name = private.PROFESSION_NAMES.SMELTING
 			end
+			self.professions[name] = rank
 		end
 	end
-end	-- do-block
+end -- do-block
