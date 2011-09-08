@@ -1279,7 +1279,7 @@ function private.InitializeFilterPanel()
 						tip:AddSeparator()
 
 						for name in pairs(tskl_list[click_info.realm]) do
-							if name ~= _G.UnitName("player") then
+							if name ~= private.PLAYER_NAME then
 								y, x = tip:AddLine()
 								tip:SetCell(y, x, name)
 								tip:SetCellScript(y, x, "OnMouseUp", SelectName, name)

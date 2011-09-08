@@ -734,7 +734,7 @@ function addon:CreateScanButton()
 end
 
 function addon:TRADE_SKILL_SHOW()
-	local player_name = _G.UnitName("player")
+	local player_name = private.PLAYER_NAME
 	local realm_name = private.REALM_NAME
 
 	self.db.global.tradeskill = self.db.global.tradeskill or {}
@@ -1307,10 +1307,10 @@ do
 		table.wipe(text_table)
 
 		if not output or output == "Comma" then
-			table.insert(text_table, ("Ackis Recipe List Text Dump for %s's %s, in the form of Comma Separated Values.\n  "):format(private.player_name, profession))
+			table.insert(text_table, ("Ackis Recipe List Text Dump for %s's %s, in the form of Comma Separated Values.\n  "):format(private.PLAYER_NAME, profession))
 			table.insert(text_table, "Spell ID,Recipe Name,Skill Level,ARL Filter Flags,Acquire Methods,Known\n")
 		elseif output == "BBCode" then
-			table.insert(text_table, ("Ackis Recipe List Text Dump for %s's %s, in the form of BBCode.\n"):format(private.player_name, profession))
+			table.insert(text_table, ("Ackis Recipe List Text Dump for %s's %s, in the form of BBCode.\n"):format(private.PLAYER_NAME, profession))
 		elseif output == "XML" then
 			table.insert(text_table, "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>")
 		end

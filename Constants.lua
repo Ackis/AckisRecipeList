@@ -28,6 +28,7 @@ local L		= LibStub("AceLocale-3.0"):GetLocale(private.addon_name)
 -------------------------------------------------------------------------------
 -- General constants.
 -------------------------------------------------------------------------------
+private.PLAYER_NAME = _G.UnitName("player")
 private.REALM_NAME = _G.GetRealmName()
 
 -------------------------------------------------------------------------------
