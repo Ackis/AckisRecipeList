@@ -20,7 +20,7 @@ function private:InitializeCookingTrainers()
 	self:AddTrainer(4552, "Eunice Burch", "Undercity", 62.3, 44.6, "Horde")
 	self:AddTrainer(5159, "Daryl Riknussun", "Ironforge", 60.1, 36.8, "Alliance")
 	self:AddTrainer(5482, "Stephen Ryback", "Stormwind City", 77.2, 53.2, "Alliance") -- COMPLETELY UPDATED
-	self:AddTrainer(6286, "Zarrin", "Teldrassil", 57.1, 61.3, "Alliance")
+	self:AddTrainer(6286, "Zarrin", "Teldrassil", 56.6, 53.6, "Alliance") -- COMPLETELY UPDATED
 	self:AddTrainer(8306, "Duhng", "Northern Barrens", 55.4, 61.3, "Horde")
 	self:AddTrainer(16253, "Master Chef Mouldier", "Ghostlands", 48.3, 30.9, "Horde") -- COMPLETELY UPDATED
 	self:AddTrainer(16277, "Quarelestra", "Eversong Woods", 48.6, 47.1, "Horde")
