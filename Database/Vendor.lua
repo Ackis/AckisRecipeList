@@ -129,7 +129,7 @@ function addon:InitVendor()
 	AddVendor(4226,		L["Ulthir"],				BZ["Darnassus"],			54.6, 38.9, "Alliance") -- COMPLETELY UPDATED
 	AddVendor(4228,		L["Vaean"],				BZ["Darnassus"],			56.4, 32.2, "Alliance") -- COMPLETELY UPDATED
 	AddVendor(4229,		L["Mythrin'dir"],			BZ["Darnassus"],			58.1, 34.2, "Alliance") -- COMPLETELY UPDATED
-	AddVendor(4265,		L["Nyoma"],				BZ["Teldrassil"],			57.2, 61.2, "Alliance")
+	AddVendor(4265,		L["Nyoma"],				BZ["Teldrassil"],			56.6, 53.6, "Alliance") -- COMPLETELY UPDATED
 	AddVendor(4305,		L["Kriggon Talsone"],			BZ["Westfall"],				36.2, 90.1, "Alliance")
 	AddVendor(4553,		L["Ronald Burch"],			BZ["Undercity"],			62.3, 43.1, "Horde") -- COMPLETELY UPDATED
 	AddVendor(4561,		L["Daniel Bartlett"],			BZ["Undercity"],			64.1, 37.4, "Horde") -- COMPLETELY UPDATED
