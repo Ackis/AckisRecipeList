@@ -215,9 +215,6 @@ function addon:InitMob()
 	AddMob(30260,	L["Stoic Mammoth"],			BZ["The Storm Peaks"], 54.8, 64.9)
 	AddMob(30448,	L["Plains Mammoth"],			BZ["The Storm Peaks"], 66.1, 45.6)
 
-	-- Thousand Needles
-	AddMob(10760,	L["Grimtotem Geomancer"],		BZ["Thousand Needles"], 33.1, 35.4)
-
 	-- Un'Goro Crater
 	AddMob(6557,	L["Primal Ooze"],			BZ["Un'Goro Crater"], 51.8, 34.9)
 	AddMob(6559,	L["Glutinous Ooze"],			BZ["Un'Goro Crater"], 39.0, 37.7)
