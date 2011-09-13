@@ -484,8 +484,8 @@ function addon:InitTailoring()
 	recipe:SetRecipeItemID(5773)
 	recipe:SetCraftedItemID(5770)
 	recipe:SetSkillLevels(150, 150, 170, 185, 200)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
-	recipe:AddMobDrop(10760)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
+	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Green Silk Pack -- 6693
 	recipe = AddRecipe(6693, V.ORIG, Q.UNCOMMON)
