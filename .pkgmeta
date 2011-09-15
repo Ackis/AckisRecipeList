@@ -10,7 +10,6 @@ enable-nolib-creation: yes
 
 optional-dependencies:
  - advanced-trade-skill-window
- - atsw
  - skillet
  - manufac
  - cauldron
