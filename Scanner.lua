@@ -790,6 +790,7 @@ do
 
 							if recipe.name == match_text:trim() then
 								recipe:SetRecipeItemID(item_id)
+								RECIPE_ITEM_TO_SPELL_MAP[item_id] = spell_id
 								NormalizeVendorData(spell_id, supply, vendor_id, vendor_name)
 							end
 						end
