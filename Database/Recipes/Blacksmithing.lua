@@ -61,14 +61,14 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItemID(2851)
 	recipe:SetSkillLevels(35, 35, 75, 95, 115)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.MAIL)
-	recipe:AddTrainer(514, 1241, 2836, 2998, 3136, 3174, 3355, 3478, 3557, 4258, 4596, 5511, 6299, 7230, 7231, 11177, 11178, 15400, 16583, 16669, 16724, 16823, 17245, 19341, 20124, 20125, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 33609, 33631, 33675, 37072, 44781, 45548)
+	recipe:AddTrainer(514, 1241, 2836, 2998, 3136, 3174, 3355, 3478, 3557, 4258, 4596, 5511, 6299, 7230, 7231, 11177, 11178, 15400, 16583, 16669, 16724, 16823, 17245, 19341, 20124, 20125, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 33609, 33631, 33675, 37072, 44781, 45548, 47418)
 
 	-- Copper Chain Pants -- 2662
 	recipe = AddRecipe(2662, V.ORIG, Q.COMMON)
 	recipe:SetCraftedItemID(2852)
 	recipe:SetSkillLevels(1, 1, 50, 70, 90)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.MAIL)
-	recipe:AddTrainer(514, 1241, 2836, 2998, 3136, 3174, 3355, 3478, 3557, 4258, 4596, 5511, 6299, 7230, 7231, 11177, 11178, 15400, 16583, 16669, 16724, 16823, 17245, 19341, 20124, 20125, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 33609, 33631, 33675, 37072, 44781, 45548)
+	recipe:AddTrainer(514, 1241, 2836, 2998, 3136, 3174, 3355, 3478, 3557, 4258, 4596, 5511, 6299, 7230, 7231, 11177, 11178, 15400, 16583, 16669, 16724, 16823, 17245, 19341, 20124, 20125, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 33609, 33631, 33675, 37072, 44781, 45548, 47418)
 
 	-- Copper Bracers -- 2663
 	recipe = AddRecipe(2663, V.ORIG, Q.COMMON)
@@ -89,14 +89,14 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItemID(2863)
 	recipe:SetSkillLevels(65, 65, 65, 72, 80)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS)
-	recipe:AddTrainer(514, 1241, 2836, 2998, 3136, 3174, 3355, 3478, 3557, 4258, 4596, 5511, 6299, 7230, 7231, 11177, 11178, 15400, 16583, 16669, 16724, 16823, 17245, 19341, 20124, 20125, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 33609, 33631, 33675, 37072, 44781, 45548)
+	recipe:AddTrainer(514, 1241, 2836, 2998, 3136, 3174, 3355, 3478, 3557, 4258, 4596, 5511, 6299, 7230, 7231, 11177, 11178, 15400, 16583, 16669, 16724, 16823, 17245, 19341, 20124, 20125, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 33609, 33631, 33675, 37072, 44781, 45548, 47418)
 
 	-- Runed Copper Belt -- 2666
 	recipe = AddRecipe(2666, V.ORIG, Q.COMMON)
 	recipe:SetCraftedItemID(2857)
 	recipe:SetSkillLevels(70, 70, 110, 130, 150)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS, F.MAIL)
-	recipe:AddTrainer(514, 1241, 2836, 2998, 3136, 3174, 3355, 3478, 3557, 4258, 4596, 5511, 6299, 7230, 7231, 11177, 11178, 15400, 16583, 16669, 16724, 16823, 17245, 19341, 20124, 20125, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 33609, 33631, 33675, 37072, 44781, 45548)
+	recipe:AddTrainer(514, 1241, 2836, 2998, 3136, 3174, 3355, 3478, 3557, 4258, 4596, 5511, 6299, 7230, 7231, 11177, 11178, 15400, 16583, 16669, 16724, 16823, 17245, 19341, 20124, 20125, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 33609, 33631, 33675, 37072, 44781, 45548, 47418)
 
 	-- Runed Copper Breastplate -- 2667
 	recipe = AddRecipe(2667, V.ORIG, Q.UNCOMMON)
@@ -154,21 +154,21 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItemID(2844)
 	recipe:SetSkillLevels(15, 15, 55, 75, 95)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.ONE_HAND, F.MACE)
-	recipe:AddTrainer(514, 1241, 2836, 2998, 3136, 3174, 3355, 3478, 3557, 4258, 4596, 5511, 6299, 7230, 7231, 11177, 11178, 15400, 16583, 16669, 16724, 16823, 17245, 19341, 20124, 20125, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 33609, 33631, 33675, 37072, 44781, 45548)
+	recipe:AddTrainer(514, 1241, 2836, 2998, 3136, 3174, 3355, 3478, 3557, 4258, 4596, 5511, 6299, 7230, 7231, 11177, 11178, 15400, 16583, 16669, 16724, 16823, 17245, 19341, 20124, 20125, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 33609, 33631, 33675, 37072, 44781, 45548, 47418)
 
 	-- Copper Axe -- 2738
 	recipe = AddRecipe(2738, V.ORIG, Q.COMMON)
 	recipe:SetCraftedItemID(2845)
 	recipe:SetSkillLevels(20, 20, 60, 80, 100)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.ONE_HAND, F.AXE)
-	recipe:AddTrainer(514, 1241, 2836, 2998, 3136, 3174, 3355, 3478, 3557, 4258, 4596, 5511, 6299, 7230, 7231, 11177, 11178, 15400, 16583, 16669, 16724, 16823, 17245, 19341, 20124, 20125, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 33609, 33631, 33675, 37072, 44781, 45548)
+	recipe:AddTrainer(514, 1241, 2836, 2998, 3136, 3174, 3355, 3478, 3557, 4258, 4596, 5511, 6299, 7230, 7231, 11177, 11178, 15400, 16583, 16669, 16724, 16823, 17245, 19341, 20124, 20125, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 33609, 33631, 33675, 37072, 44781, 45548, 47418)
 
 	-- Copper Shortsword -- 2739
 	recipe = AddRecipe(2739, V.ORIG, Q.COMMON)
 	recipe:SetCraftedItemID(2847)
 	recipe:SetSkillLevels(25, 25, 65, 85, 105)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.ONE_HAND, F.SWORD)
-	recipe:AddTrainer(514, 1241, 2836, 2998, 3136, 3174, 3355, 3478, 3557, 4258, 4596, 5511, 6299, 7230, 7231, 11177, 11178, 15400, 16583, 16669, 16724, 16823, 17245, 19341, 20124, 20125, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 33609, 33631, 33675, 37072, 44781, 45548)
+	recipe:AddTrainer(514, 1241, 2836, 2998, 3136, 3174, 3355, 3478, 3557, 4258, 4596, 5511, 6299, 7230, 7231, 11177, 11178, 15400, 16583, 16669, 16724, 16823, 17245, 19341, 20124, 20125, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 33609, 33631, 33675, 37072, 44781, 45548, 47418)
 
 	-- Bronze Mace -- 2740
 	recipe = AddRecipe(2740, V.ORIG, Q.COMMON)
@@ -203,7 +203,7 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItemID(3240)
 	recipe:SetSkillLevels(65, 65, 65, 72, 80)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(514, 1241, 2836, 2998, 3136, 3174, 3355, 3478, 3557, 4258, 4596, 5511, 6299, 7230, 7231, 11177, 11178, 15400, 16583, 16669, 16724, 16823, 17245, 19341, 20124, 20125, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 33609, 33631, 33675, 37072, 44781, 45548)
+	recipe:AddTrainer(514, 1241, 2836, 2998, 3136, 3174, 3355, 3478, 3557, 4258, 4596, 5511, 6299, 7230, 7231, 11177, 11178, 15400, 16583, 16669, 16724, 16823, 17245, 19341, 20124, 20125, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 33609, 33631, 33675, 37072, 44781, 45548, 47418)
 
 	-- Heavy Weightstone -- 3117
 	recipe = AddRecipe(3117, V.ORIG, Q.COMMON)
@@ -224,14 +224,14 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItemID(3488)
 	recipe:SetSkillLevels(35, 35, 75, 95, 115)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.TWO_HAND, F.AXE)
-	recipe:AddTrainer(514, 1241, 2836, 2998, 3136, 3174, 3355, 3478, 3557, 4258, 4596, 5511, 6299, 7230, 7231, 11177, 11178, 15400, 16583, 16669, 16724, 16823, 17245, 19341, 20124, 20125, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 33609, 33631, 33675, 37072, 44781, 45548)
+	recipe:AddTrainer(514, 1241, 2836, 2998, 3136, 3174, 3355, 3478, 3557, 4258, 4596, 5511, 6299, 7230, 7231, 11177, 11178, 15400, 16583, 16669, 16724, 16823, 17245, 19341, 20124, 20125, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 33609, 33631, 33675, 37072, 44781, 45548, 47418)
 
 	-- Thick War Axe -- 3294
 	recipe = AddRecipe(3294, V.ORIG, Q.COMMON)
 	recipe:SetCraftedItemID(3489)
 	recipe:SetSkillLevels(70, 70, 110, 130, 150)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS, F.ONE_HAND, F.AXE)
-	recipe:AddTrainer(514, 1241, 2836, 2998, 3136, 3174, 3355, 3478, 3557, 4258, 4596, 5511, 6299, 7230, 7231, 11177, 11178, 15400, 16583, 16669, 16724, 16823, 17245, 19341, 20124, 20125, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 33609, 33631, 33675, 37072, 44781, 45548)
+	recipe:AddTrainer(514, 1241, 2836, 2998, 3136, 3174, 3355, 3478, 3557, 4258, 4596, 5511, 6299, 7230, 7231, 11177, 11178, 15400, 16583, 16669, 16724, 16823, 17245, 19341, 20124, 20125, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 33609, 33631, 33675, 37072, 44781, 45548, 47418)
 
 	-- Deadly Bronze Poniard -- 3295
 	recipe = AddRecipe(3295, V.ORIG, Q.UNCOMMON)
@@ -261,14 +261,14 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItemID(3469)
 	recipe:SetSkillLevels(20, 20, 60, 80, 100)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.MAIL)
-	recipe:AddTrainer(514, 1241, 2836, 2998, 3136, 3174, 3355, 3478, 3557, 4258, 4596, 5511, 6299, 7230, 7231, 11177, 11178, 15400, 16583, 16669, 16724, 16823, 17245, 19341, 20124, 20125, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 33609, 33631, 33675, 37072, 44781, 45548)
+	recipe:AddTrainer(514, 1241, 2836, 2998, 3136, 3174, 3355, 3478, 3557, 4258, 4596, 5511, 6299, 7230, 7231, 11177, 11178, 15400, 16583, 16669, 16724, 16823, 17245, 19341, 20124, 20125, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 33609, 33631, 33675, 37072, 44781, 45548, 47418)
 
 	-- Rough Grinding Stone -- 3320
 	recipe = AddRecipe(3320, V.ORIG, Q.COMMON)
 	recipe:SetCraftedItemID(3470)
 	recipe:SetSkillLevels(25, 25, 45, 65, 85)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(514, 1241, 2836, 2998, 3136, 3174, 3355, 3478, 3557, 4258, 4596, 5511, 6299, 7230, 7231, 11177, 11178, 15400, 16583, 16669, 16724, 16823, 17245, 20124, 20125, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 33609, 33631, 33675, 37072, 44781, 45548)
+	recipe:AddTrainer(514, 1241, 2836, 2998, 3136, 3174, 3355, 3478, 3557, 4258, 4596, 5511, 6299, 7230, 7231, 11177, 11178, 15400, 16583, 16669, 16724, 16823, 17245, 20124, 20125, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 33609, 33631, 33675, 37072, 44781, 45548, 47418)
 
 	-- Copper Chain Vest -- 3321
 	recipe = AddRecipe(3321, V.ORIG, Q.UNCOMMON)
@@ -283,14 +283,14 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItemID(3472)
 	recipe:SetSkillLevels(40, 40, 80, 100, 120)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS, F.MAIL)
-	recipe:AddTrainer(514, 1241, 2836, 2998, 3136, 3174, 3355, 3478, 3557, 4258, 4596, 5511, 6299, 7230, 7231, 11177, 11178, 15400, 16583, 16669, 16724, 16823, 17245, 19341, 20124, 20125, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 33609, 33631, 33675, 37072, 44781, 45548)
+	recipe:AddTrainer(514, 1241, 2836, 2998, 3136, 3174, 3355, 3478, 3557, 4258, 4596, 5511, 6299, 7230, 7231, 11177, 11178, 15400, 16583, 16669, 16724, 16823, 17245, 19341, 20124, 20125, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 33609, 33631, 33675, 37072, 44781, 45548, 47418)
 
 	-- Runed Copper Pants -- 3324
 	recipe = AddRecipe(3324, V.ORIG, Q.COMMON)
 	recipe:SetCraftedItemID(3473)
 	recipe:SetSkillLevels(45, 45, 85, 105, 125)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS, F.MAIL)
-	recipe:AddTrainer(514, 1241, 2836, 2998, 3136, 3174, 3355, 3478, 3557, 4258, 4596, 5511, 6299, 7230, 7231, 11177, 11178, 15400, 16583, 16669, 16724, 16823, 17245, 19341, 20124, 20125, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 33609, 33631, 33675, 37072, 44781, 45548)
+	recipe:AddTrainer(514, 1241, 2836, 2998, 3136, 3174, 3355, 3478, 3557, 4258, 4596, 5511, 6299, 7230, 7231, 11177, 11178, 15400, 16583, 16669, 16724, 16823, 17245, 19341, 20124, 20125, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 33609, 33631, 33675, 37072, 44781, 45548, 47418)
 
 	-- Gemmed Copper Gauntlets -- 3325
 	recipe = AddRecipe(3325, V.ORIG, Q.UNCOMMON)
@@ -305,7 +305,7 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItemID(3478)
 	recipe:SetSkillLevels(75, 75, 75, 87, 100)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(514, 1241, 2836, 2998, 3136, 3174, 3355, 3478, 3557, 4258, 4596, 5511, 6299, 7230, 7231, 11177, 11178, 15400, 16583, 16669, 16724, 16823, 17245, 20124, 20125, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 33609, 33631, 33675, 37072, 44781, 45548)
+	recipe:AddTrainer(514, 1241, 2836, 2998, 3136, 3174, 3355, 3478, 3557, 4258, 4596, 5511, 6299, 7230, 7231, 11177, 11178, 15400, 16583, 16669, 16724, 16823, 17245, 20124, 20125, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 33609, 33631, 33675, 37072, 44781, 45548, 47418)
 
 	-- Rough Bronze Shoulders -- 3328
 	recipe = AddRecipe(3328, V.ORIG, Q.COMMON)
@@ -565,7 +565,7 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItemID(6214)
 	recipe:SetSkillLevels(65, 65, 105, 125, 145)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS, F.TWO_HAND, F.MACE)
-	recipe:AddTrainer(514, 1241, 2836, 2998, 3136, 3174, 3355, 3478, 3557, 4258, 4596, 5511, 6299, 7230, 7231, 11177, 11178, 15400, 16583, 16669, 16724, 16823, 17245, 19341, 20124, 20125, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 33609, 33631, 33675, 37072, 44781, 45548)
+	recipe:AddTrainer(514, 1241, 2836, 2998, 3136, 3174, 3355, 3478, 3557, 4258, 4596, 5511, 6299, 7230, 7231, 11177, 11178, 15400, 16583, 16669, 16724, 16823, 17245, 19341, 20124, 20125, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 33609, 33631, 33675, 37072, 44781, 45548, 47418)
 
 	-- Rough Bronze Boots -- 7817
 	recipe = AddRecipe(7817, V.ORIG, Q.COMMON)
@@ -601,7 +601,7 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItemID(7166)
 	recipe:SetSkillLevels(30, 30, 70, 90, 110)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.ONE_HAND, F.DAGGER)
-	recipe:AddTrainer(514, 1241, 2836, 2998, 3136, 3174, 3355, 3478, 3557, 4258, 4596, 5511, 6299, 7230, 7231, 11177, 11178, 15400, 16583, 16669, 16724, 16823, 17245, 19341, 20124, 20125, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 33609, 33631, 33675, 37072, 44781, 45548)
+	recipe:AddTrainer(514, 1241, 2836, 2998, 3136, 3174, 3355, 3478, 3557, 4258, 4596, 5511, 6299, 7230, 7231, 11177, 11178, 15400, 16583, 16669, 16724, 16823, 17245, 19341, 20124, 20125, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 33609, 33631, 33675, 37072, 44781, 45548, 47418)
 
 	-- Barbaric Iron Shoulders -- 9811
 	recipe = AddRecipe(9811, V.ORIG, Q.UNCOMMON)
@@ -840,7 +840,7 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItemID(7955)
 	recipe:SetSkillLevels(30, 30, 70, 90, 110)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.TWO_HAND, F.SWORD)
-	recipe:AddTrainer(514, 1241, 2836, 2998, 3136, 3174, 3355, 3478, 3557, 4258, 4596, 5511, 6299, 7230, 7231, 11177, 11178, 15400, 16583, 16669, 16724, 16823, 17245, 19341, 20124, 20125, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 33609, 33631, 33675, 37072, 44781, 45548)
+	recipe:AddTrainer(514, 1241, 2836, 2998, 3136, 3174, 3355, 3478, 3557, 4258, 4596, 5511, 6299, 7230, 7231, 11177, 11178, 15400, 16583, 16669, 16724, 16823, 17245, 19341, 20124, 20125, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 33609, 33631, 33675, 37072, 44781, 45548, 47418)
 
 	-- Bronze Warhammer -- 9985
 	recipe = AddRecipe(9985, V.ORIG, Q.COMMON)
@@ -4195,97 +4195,97 @@ function addon:InitBlacksmithing()
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	recipe:AddVendor(50375, 50382)
 
-	-- Bloodied Pyrium Bracers -- 76456
+	-- Bloodthirsty Pyrium Bracers -- 76456
 	recipe = AddRecipe(76456, V.CATA, Q.COMMON)
 	recipe:SetSkillLevels(500, 500, 510, 512, 515)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	recipe:AddVendor(50375, 50382)
 
-	-- Bloodied Pyrium Gauntlets -- 76457
+	-- Bloodthirsty Pyrium Gauntlets -- 76457
 	recipe = AddRecipe(76457, V.CATA, Q.COMMON)
 	recipe:SetSkillLevels(505, 505, 515, 517, 520)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	recipe:AddVendor(50375, 50382)
 
-	-- Bloodied Pyrium Belt -- 76458
+	-- Bloodthirsty Pyrium Belt -- 76458
 	recipe = AddRecipe(76458, V.CATA, Q.COMMON)
 	recipe:SetSkillLevels(510, 510, 520, 522, 525)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	recipe:AddVendor(50375, 50382)
 
-	-- Bloodied Pyrium Boots -- 76459
+	-- Bloodthirsty Pyrium Boots -- 76459
 	recipe = AddRecipe(76459, V.CATA, Q.COMMON)
 	recipe:SetSkillLevels(515, 515, 525, 527, 530)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	recipe:AddVendor(50375, 50382)
 
-	-- Bloodied Pyrium Shoulders -- 76461
+	-- Bloodthirsty Pyrium Shoulders -- 76461
 	recipe = AddRecipe(76461, V.CATA, Q.COMMON)
 	recipe:SetSkillLevels(520, 520, 530, 532, 535)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	recipe:AddVendor(50375, 50382)
 
-	-- Bloodied Pyrium Legguards -- 76462
+	-- Bloodthirsty Pyrium Legguards -- 76462
 	recipe = AddRecipe(76462, V.CATA, Q.COMMON)
 	recipe:SetSkillLevels(525, 525, 535, 537, 540)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	recipe:AddVendor(50375, 50382)
 
-	-- Bloodied Pyrium Helm -- 76463
+	-- Bloodthirsty Pyrium Helm -- 76463
 	recipe = AddRecipe(76463, V.CATA, Q.COMMON)
 	recipe:SetSkillLevels(525, 525, 535, 537, 540)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	recipe:AddVendor(50375, 50382)
 
-	-- Bloodied Pyrium Breastplate -- 76464
+	-- Bloodthirsty Pyrium Breastplate -- 76464
 	recipe = AddRecipe(76464, V.CATA, Q.COMMON)
 	recipe:SetSkillLevels(525, 525, 535, 537, 540)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	recipe:AddVendor(50375, 50382)
 
-	-- Ornate Pyrium Bracers -- 76465
+	-- Bloodthirsty Ornate Pyrium Bracers -- 76465
 	recipe = AddRecipe(76465, V.CATA, Q.COMMON)
 	recipe:SetSkillLevels(500, 500, 510, 512, 515)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	recipe:AddVendor(50375, 50382)
 
-	-- Ornate Pyrium Gauntlets -- 76466
+	-- Bloodthirsty Ornate Pyrium Gauntlets -- 76466
 	recipe = AddRecipe(76466, V.CATA, Q.COMMON)
 	recipe:SetSkillLevels(505, 505, 515, 517, 520)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	recipe:AddVendor(50375, 50382)
 
-	-- Ornate Pyrium Belt -- 76467
+	-- Bloodthirsty Ornate Pyrium Belt -- 76467
 	recipe = AddRecipe(76467, V.CATA, Q.COMMON)
 	recipe:SetSkillLevels(510, 510, 520, 522, 525)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	recipe:AddVendor(50375, 50382)
 
-	-- Ornate Pyrium Boots -- 76468
+	-- Bloodthirsty Ornate Pyrium Boots -- 76468
 	recipe = AddRecipe(76468, V.CATA, Q.COMMON)
 	recipe:SetSkillLevels(515, 515, 525, 527, 530)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	recipe:AddVendor(50375, 50382)
 
-	-- Ornate Pyrium Shoulders -- 76469
+	-- Bloodthirsty Ornate Pyrium Shoulders -- 76469
 	recipe = AddRecipe(76469, V.CATA, Q.COMMON)
 	recipe:SetSkillLevels(520, 520, 530, 532, 535)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	recipe:AddVendor(50375, 50382)
 
-	-- Ornate Pyrium Legguards -- 76470
+	-- Bloodthirsty Ornate Pyrium Legguards -- 76470
 	recipe = AddRecipe(76470, V.CATA, Q.COMMON)
 	recipe:SetSkillLevels(525, 525, 535, 537, 540)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	recipe:AddVendor(50375, 50382)
 
-	-- Ornate Pyrium Helm -- 76471
+	-- Bloodthirsty Ornate Pyrium Helm -- 76471
 	recipe = AddRecipe(76471, V.CATA, Q.COMMON)
 	recipe:SetSkillLevels(525, 525, 535, 537, 540)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	recipe:AddVendor(50375, 50382)
 
-	-- Ornate Pyrium Breastplate -- 76472
+	-- Bloodthirsty Ornate Pyrium Breastplate -- 76472
 	recipe = AddRecipe(76472, V.CATA, Q.COMMON)
 	recipe:SetSkillLevels(525, 525, 535, 537, 540)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
@@ -4317,52 +4317,52 @@ function addon:InitBlacksmithing()
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	recipe:AddVendor(50375, 50382)
 
-	-- Emberforged Elementium Boots -- 99454
-	recipe = AddRecipe(99454, V.CATA, Q.EPIC)
-	recipe:SetRecipeItemID(69970)
-	recipe:SetCraftedItemID(69948)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOE)
+	-- Fists of Fury -- 99439
+	recipe = AddRecipe(99439, V.CATA, Q.EPIC)
+	recipe:SetRecipeItemID(69957)
+	recipe:SetCraftedItemID(69936)
 	recipe:SetSkillLevels(525, 525, 525, 527, 530)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOE)
 	recipe:AddCustom("FIRELANDS_RANDOM")
 
 	-- Eternal Elementium Handguards -- 99440
 	recipe = AddRecipe(99440, V.CATA, Q.EPIC)
 	recipe:SetRecipeItemID(69958)
 	recipe:SetCraftedItemID(69937)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOE)
 	recipe:SetSkillLevels(525, 525, 525, 527, 530)
-	recipe:AddCustom("FIRELANDS_RANDOM")
-
-	-- Fists of Fury -- 99439
-	recipe = AddRecipe(99439, V.CATA, Q.EPIC)
-	recipe:SetRecipeItemID(69957)
-	recipe:SetCraftedItemID(69936)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOE)
-	recipe:SetSkillLevels(525, 525, 525, 527, 530)
 	recipe:AddCustom("FIRELANDS_RANDOM")
 
 	-- Holy Flame Gauntlets -- 99441
 	recipe = AddRecipe(99441, V.CATA, Q.EPIC)
 	recipe:SetRecipeItemID(69959)
 	recipe:SetCraftedItemID(69938)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOE)
 	recipe:SetSkillLevels(525, 525, 525, 527, 530)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOE)
+	recipe:AddCustom("FIRELANDS_RANDOM")
+
+	-- Warboots of Mighty Lords -- 99452
+	recipe = AddRecipe(99452, V.CATA, Q.EPIC)
+	recipe:SetRecipeItemID(69968)
+	recipe:SetCraftedItemID(69946)
+	recipe:SetSkillLevels(525, 525, 525, 527, 530)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOE)
 	recipe:AddCustom("FIRELANDS_RANDOM")
 
 	-- Mirrored Boots -- 99453
 	recipe = AddRecipe(99453, V.CATA, Q.EPIC)
 	recipe:SetRecipeItemID(69969)
 	recipe:SetCraftedItemID(69947)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOE)
 	recipe:SetSkillLevels(525, 525, 525, 527, 530)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOE)
 	recipe:AddCustom("FIRELANDS_RANDOM")
 
-	-- Warboots of Might Lords -- 99452
-	recipe = AddRecipe(99452, V.CATA, Q.EPIC)
-	recipe:SetRecipeItemID(69968)
-	recipe:SetCraftedItemID(69946)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOE)
+	-- Emberforged Elementium Boots -- 99454
+	recipe = AddRecipe(99454, V.CATA, Q.EPIC)
+	recipe:SetRecipeItemID(69970)
+	recipe:SetCraftedItemID(69948)
 	recipe:SetSkillLevels(525, 525, 525, 527, 530)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOE)
 	recipe:AddCustom("FIRELANDS_RANDOM")
 
 	-- Brainsplinter -- 99652
@@ -4373,10 +4373,10 @@ function addon:InitBlacksmithing()
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	recipe:AddVendor(53214)
 
-	-- Elementium-Edged Scalper -- 99655
-	recipe = AddRecipe(99655, V.CATA, Q.RARE)
-	recipe:SetRecipeItemID(70169)
-	recipe:SetCraftedItemID(70158)
+	-- Masterwork Elementium Spellblade -- 99653
+	recipe = AddRecipe(99653, V.CATA, Q.RARE)
+	recipe:SetRecipeItemID(70167)
+	recipe:SetCraftedItemID(70156)
 	recipe:SetSkillLevels(525, 525, 525, 527, 530)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	recipe:AddVendor(53214)
@@ -4389,23 +4389,15 @@ function addon:InitBlacksmithing()
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	recipe:AddVendor(53214)
 
-	-- Masterwork Elementium Deathblade	-- 99658
-	recipe = AddRecipe(99658, V.CATA, Q.RARE)
-	recipe:SetRecipeItemID(70172)
-	recipe:SetCraftedItemID(70164)
+	-- Elementium-Edged Scalper -- 99655
+	recipe = AddRecipe(99655, V.CATA, Q.RARE)
+	recipe:SetRecipeItemID(70169)
+	recipe:SetCraftedItemID(70158)
 	recipe:SetSkillLevels(525, 525, 525, 527, 530)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	recipe:AddVendor(53214)
 
-	-- Masterwork Elementium Spellblade	-- 99653
-	recipe = AddRecipe(99653, V.CATA, Q.RARE)
-	recipe:SetRecipeItemID(70167)
-	recipe:SetCraftedItemID(70156)
-	recipe:SetSkillLevels(525, 525, 525, 527, 530)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	recipe:AddVendor(53214)
-
-	-- Pyrium Spellward	-- 99656
+	-- Pyrium Spellward -- 99656
 	recipe = AddRecipe(99656, V.CATA, Q.RARE)
 	recipe:SetRecipeItemID(70170)
 	recipe:SetCraftedItemID(70162)
@@ -4417,6 +4409,14 @@ function addon:InitBlacksmithing()
 	recipe = AddRecipe(99657, V.CATA, Q.RARE)
 	recipe:SetRecipeItemID(70171)
 	recipe:SetCraftedItemID(70163)
+	recipe:SetSkillLevels(525, 525, 525, 527, 530)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	recipe:AddVendor(53214)
+
+	-- Masterwork Elementium Deathblade -- 99658
+	recipe = AddRecipe(99658, V.CATA, Q.RARE)
+	recipe:SetRecipeItemID(70172)
+	recipe:SetCraftedItemID(70164)
 	recipe:SetSkillLevels(525, 525, 525, 527, 530)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	recipe:AddVendor(53214)
