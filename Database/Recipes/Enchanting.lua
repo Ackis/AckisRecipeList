@@ -129,7 +129,8 @@ function addon:InitEnchanting()
 	recipe:SetRecipeItemID(6346)
 	recipe:SetSkillLevels(80, 80, 115, 135, 155)
 	recipe:AddFilters(F.HORDE, F.VENDOR, F.IBOE, F.RBOE)
-	recipe:AddVendor(3346, 5757)
+	recipe:AddVendor(5757)
+	recipe:AddLimitedVendor(3346, 1)
 
 	-- Enchant Bracer - Minor Agility -- 7779
 	recipe = AddRecipe(7779, V.ORIG, Q.COMMON)
@@ -162,8 +163,8 @@ function addon:InitEnchanting()
 	recipe:SetRecipeItemID(6349)
 	recipe:SetSkillLevels(100, 100, 130, 150, 170)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.TWO_HAND)
-	recipe:AddVendor(3346, 5158, 5758)
-	recipe:AddLimitedVendor(3012, 1)
+	recipe:AddVendor(5158, 5758)
+	recipe:AddLimitedVendor(3012, 1, 3346, 1)
 
 	-- Runed Silver Rod -- 7795
 	recipe = AddRecipe(7795, V.ORIG, Q.COMMON)
@@ -2260,91 +2261,105 @@ function addon:InitEnchanting()
 
 	-- Enchant Weapon - Power Torrent -- 74242
 	recipe = AddRecipe(74242, V.CATA, Q.RARE)
+	recipe:SetRecipeItemID(52733)
 	recipe:SetSkillLevels(525, 525, 525, 532, 540)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOP, F.RBOP)
-	recipe:AddVendor(50134, 50146)
+	recipe:AddVendor(3346, 50134, 50146)
 
 	-- Enchant Weapon - Windwalk -- 74244
 	recipe = AddRecipe(74244, V.CATA, Q.RARE)
+	recipe:SetRecipeItemID(52735)
 	recipe:SetSkillLevels(525, 525, 525, 532, 540)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOP, F.RBOP)
-	recipe:AddVendor(50134, 50146)
+	recipe:AddVendor(3346, 50134, 50146)
 
 	-- Enchant Weapon - Landslide -- 74246
 	recipe = AddRecipe(74246, V.CATA, Q.RARE)
+	recipe:SetRecipeItemID(52736)
 	recipe:SetSkillLevels(525, 525, 525, 532, 540)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOP, F.RBOP)
-	recipe:AddVendor(50134, 50146)
+	recipe:AddVendor(3346, 50134, 50146)
 
 	-- Enchant Cloak - Greater Critical Strike -- 74247
 	recipe = AddRecipe(74247, V.CATA, Q.UNCOMMON)
+	recipe:SetRecipeItemID(52737)
 	recipe:SetSkillLevels(525, 525, 525, 532, 540)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOP, F.RBOP)
-	recipe:AddVendor(50134, 50146)
+	recipe:AddVendor(3346, 50134, 50146)
 
 	-- Enchant Bracer - Greater Critical Strike -- 74248
 	recipe = AddRecipe(74248, V.CATA, Q.UNCOMMON)
+	recipe:SetRecipeItemID(52738)
 	recipe:SetSkillLevels(525, 525, 525, 532, 540)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOP, F.RBOP)
-	recipe:AddVendor(50134, 50146)
+	recipe:AddVendor(3346, 50134, 50146)
 
 	-- Enchant Chest - Peerless Stats -- 74250
 	recipe = AddRecipe(74250, V.CATA, Q.UNCOMMON)
+	recipe:SetRecipeItemID(52739)
 	recipe:SetSkillLevels(525, 525, 525, 532, 540)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOP, F.RBOP)
-	recipe:AddVendor(50134, 50146)
+	recipe:AddVendor(3346, 50134, 50146)
 
 	-- Enchant Chest - Greater Stamina -- 74251
 	recipe = AddRecipe(74251, V.CATA, Q.UNCOMMON)
+	recipe:SetRecipeItemID(52740)
 	recipe:SetSkillLevels(525, 525, 525, 532, 540)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOP, F.RBOP)
-	recipe:AddVendor(50134, 50146)
+	recipe:AddVendor(3346, 50134, 50146)
 
 	-- Enchant Boots - Assassin's Step -- 74252
 	recipe = AddRecipe(74252, V.CATA, Q.UNCOMMON)
+	recipe:SetRecipeItemID(64411)
 	recipe:SetSkillLevels(525, 525, 525, 532, 540)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOP, F.RBOP)
-	recipe:AddVendor(50134, 50146)
+	recipe:AddVendor(3346, 50134, 50146)
 
 	-- Enchant Boots - Lavawalker -- 74253
 	recipe = AddRecipe(74253, V.CATA, Q.UNCOMMON)
+	recipe:SetRecipeItemID(64412)
 	recipe:SetSkillLevels(525, 525, 525, 532, 540)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOP, F.RBOP)
-	recipe:AddVendor(50134, 50146)
+	recipe:AddVendor(3346, 50134, 50146)
 
 	-- Enchant Gloves - Mighty Strength -- 74254
 	recipe = AddRecipe(74254, V.CATA, Q.UNCOMMON)
+	recipe:SetRecipeItemID(64415)
 	recipe:SetCraftedItemID(64415)
 	recipe:SetSkillLevels(525, 525, 525, 532, 540)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOP, F.RBOP)
-	recipe:AddVendor(50134, 50146)
+	recipe:AddVendor(3346, 50134, 50146)
 
 	-- Enchant Gloves - Greater Mastery -- 74255
 	recipe = AddRecipe(74255, V.CATA, Q.UNCOMMON)
+	recipe:SetRecipeItemID(64414)
 	recipe:SetSkillLevels(525, 525, 525, 532, 540)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOP, F.RBOP)
-	recipe:AddVendor(50134, 50146)
+	recipe:AddVendor(3346, 50134, 50146)
 
 	-- Enchant Bracer - Greater Speed -- 74256
 	recipe = AddRecipe(74256, V.CATA, Q.UNCOMMON)
+	recipe:SetRecipeItemID(64413)
 	recipe:SetSkillLevels(525, 525, 525, 532, 540)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOP, F.RBOP)
-	recipe:AddVendor(50134, 50146)
+	recipe:AddVendor(3346, 50134, 50146)
 
 	-- Runed Elementium Rod -- 92370
 	recipe = AddRecipe(92370, V.CATA, Q.COMMON)
+	recipe:SetRecipeItemID(65359)
 	recipe:SetCraftedItemID(65359)
 	recipe:SetSkillLevels(515, 515, 525, 525, 525)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOP, F.RBOP)
-	recipe:AddVendor(50134, 50146)
+	recipe:AddVendor(3346, 50134, 50146)
 
 	-- Enchanted Lantern -- 93841
 	recipe = AddRecipe(93841, V.CATA, Q.RARE)
+	recipe:SetRecipeItemID(67308)
 	recipe:SetCraftedItemID(67308)
 	recipe:SetSkillLevels(525, 525, 525, 525, 525)
 	recipe:SetRequiredFaction("Horde")
 	recipe:AddFilters(F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	recipe:AddVendor(50146)
+	recipe:AddVendor(3346, 50146)
 
 	-- Magic Lamp -- 93843
 	recipe = AddRecipe(93843, V.CATA, Q.RARE)
