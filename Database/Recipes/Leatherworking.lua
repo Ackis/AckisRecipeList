@@ -4694,8 +4694,8 @@ function addon:InitLeatherworking()
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	recipe:AddVendor(53881)
 
-	-- Drakehide Leg Armor -- 101599
-	recipe = AddRecipe(101599, V.CATA, Q.COMMON)
+	-- Drakehide Leg Reinforcements -- 101600
+	recipe = AddRecipe(101600, V.CATA, Q.COMMON)
 	recipe:SetRecipeItemID(71721)
 	recipe:SetCraftedItemID(71720)
 	recipe:SetSkillLevels(525, 525, 530, 535, 540)
