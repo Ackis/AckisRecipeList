@@ -406,9 +406,6 @@ function addon:InitMob()
 	AddMob(17797,	BB["Hydromancer Thespia"],		BZ["The Steamvault"], 0, 0)
 	AddMob(17798,	BB["Warlord Kalithresh"],		BZ["The Steamvault"], 0, 0)
 
-	-- The Temple of Atal'Hakkar
-	AddMob(5226,	L["Murk Worm"],				BZ["The Temple of Atal'Hakkar"], 0, 0)
-
 	-- The Violet Hold
 	AddMob(31134,	BB["Cyanigosa"],			BZ["The Violet Hold"], 0, 0)
 
