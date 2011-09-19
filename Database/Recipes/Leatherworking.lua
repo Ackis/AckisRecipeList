@@ -1048,7 +1048,7 @@ function addon:InitLeatherworking()
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOE, F.RBOE, F.LEATHER)
 	recipe:AddMobDrop(7035)
 
-	-- Green Dragonscale Leggings -- 19060
+	-- Green Dragonscale Leggings -- 19060 
 	recipe = AddRecipe(19060, V.ORIG, Q.RARE)
 	recipe:SetRecipeItemID(15733)
 	recipe:SetCraftedItemID(15046)
