@@ -1048,13 +1048,13 @@ function addon:InitLeatherworking()
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOE, F.RBOE, F.LEATHER)
 	recipe:AddMobDrop(7035)
 
-	-- Green Dragonscale Leggings -- 19060   
+	-- Green Dragonscale Leggings -- 19060
 	recipe = AddRecipe(19060, V.ORIG, Q.RARE)
 	recipe:SetRecipeItemID(15733)
 	recipe:SetCraftedItemID(15046)
 	recipe:SetSkillLevels(270, 270, 290, 300, 310)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.INSTANCE, F.MOB_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.MAIL)
-	recipe:AddMobDrop(5226)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.MAIL)
+	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Living Shoulders -- 19061
 	recipe = AddRecipe(19061, V.ORIG, Q.COMMON)
