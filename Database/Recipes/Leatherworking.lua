@@ -4701,6 +4701,12 @@ function addon:InitLeatherworking()
 	recipe:SetSkillLevels(525, 525, 530, 535, 540)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	recipe:AddVendor(3366)
+	
+	-- Drakehide Leg Reinforcements -- 101600
+	recipe = AddRecipe(101600, V.CATA, Q.COMMON)
+	recipe:SetSkillLevels(465, 465, 465, 465, 470)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS)
+	recipe:AddTrainer(3365, 4212, 5564, 21087, 26911, 26961, 26996, 26998, 28700, 33581, 33612, 33635)
 
 	self.InitLeatherworking = nil
 end
