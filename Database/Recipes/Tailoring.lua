@@ -3568,7 +3568,8 @@ function addon:InitTailoring()
 	recipe:AddVendor(50386, 50433)
 
 	-- Frosty Flying Carpet -- 75597
-	recipe = AddRecipe(75597, V.WOTLK, Q.EPIC)
+	recipe = AddRecipe(75597, V.WOTLK, Q.RARE)
+	recipe:SetRecipeItemID(54798)
 	recipe:SetCraftedItemID(54797)
 	recipe:SetSkillLevels(425, 425, 435, 445, 455)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOP, F.RBOP)
