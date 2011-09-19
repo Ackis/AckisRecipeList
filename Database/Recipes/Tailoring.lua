@@ -3570,8 +3570,8 @@ function addon:InitTailoring()
 	-- Frosty Flying Carpet -- 75597
 	recipe = AddRecipe(75597, V.WOTLK, Q.EPIC)
 	recipe:SetCraftedItemID(54797)
-	recipe:SetSkillLevels(450, 450, 475, 487, 500)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	recipe:SetSkillLevels(425, 425, 435, 445, 455)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOP, F.RBOP)
 	recipe:AddVendor(40160)
 
 	-- Dream of Destruction -- 94743
