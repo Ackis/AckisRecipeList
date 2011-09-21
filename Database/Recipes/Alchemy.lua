@@ -1169,42 +1169,42 @@ function addon:InitAlchemy()
 	recipe:SetCraftedItemID(21885)
 	recipe:SetSkillLevels(375, 375, 375, 377, 380)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP)
-	recipe:AddDiscovery("DISCOVERY_ALCH_XMUTE")
+	recipe:AddDiscovery("DISCOVERY_ALCH_BC_XMUTE")
 
 	-- Transmute: Primal Water to Shadow -- 28581
 	recipe = AddRecipe(28581, V.TBC, Q.UNCOMMON)
 	recipe:SetCraftedItemID(22456)
 	recipe:SetSkillLevels(375, 375, 375, 377, 380)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP)
-	recipe:AddDiscovery("DISCOVERY_ALCH_XMUTE")
+	recipe:AddDiscovery("DISCOVERY_ALCH_BC_XMUTE")
 
 	-- Transmute: Primal Mana to Fire -- 28582
 	recipe = AddRecipe(28582, V.TBC, Q.UNCOMMON)
 	recipe:SetCraftedItemID(21884)
 	recipe:SetSkillLevels(375, 375, 375, 377, 380)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP)
-	recipe:AddDiscovery("DISCOVERY_ALCH_XMUTE")
+	recipe:AddDiscovery("DISCOVERY_ALCH_BC_XMUTE")
 
 	-- Transmute: Primal Fire to Mana -- 28583
 	recipe = AddRecipe(28583, V.TBC, Q.UNCOMMON)
 	recipe:SetCraftedItemID(22457)
 	recipe:SetSkillLevels(375, 375, 375, 377, 380)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP)
-	recipe:AddDiscovery("DISCOVERY_ALCH_XMUTE")
+	recipe:AddDiscovery("DISCOVERY_ALCH_BC_XMUTE")
 
 	-- Transmute: Primal Life to Earth -- 28584
 	recipe = AddRecipe(28584, V.TBC, Q.UNCOMMON)
 	recipe:SetCraftedItemID(22452)
 	recipe:SetSkillLevels(375, 375, 375, 377, 380)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP)
-	recipe:AddDiscovery("DISCOVERY_ALCH_XMUTE")
+	recipe:AddDiscovery("DISCOVERY_ALCH_BC_XMUTE")
 
 	-- Transmute: Primal Earth to Life -- 28585
 	recipe = AddRecipe(28585, V.TBC, Q.UNCOMMON)
 	recipe:SetCraftedItemID(21886)
 	recipe:SetSkillLevels(375, 375, 375, 377, 380)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP)
-	recipe:AddDiscovery("DISCOVERY_ALCH_XMUTE")
+	recipe:AddDiscovery("DISCOVERY_ALCH_BC_XMUTE")
 
 	-- Super Rejuvenation Potion -- 28586
 	recipe = AddRecipe(28586, V.TBC, Q.COMMON)
