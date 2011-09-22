@@ -124,6 +124,7 @@ function recipe_prototype:Specialty()
 end
 
 -- Used to set the faction for recipes which only can be learned by one faction (e.g. BoP recipes, etc.)
+-- These recipes will never be able to be learned so we do not want to load them.
 function recipe_prototype:SetRequiredFaction(faction_name)
 	self.required_faction = faction_name
 
