@@ -6,6 +6,22 @@ NOTE: Always remove the folder for old versions and install a fresh copy when up
 === Interface:
 * Support for ptBR (Will be added in 4.3).  If you wish to help translate, please go to the [[http://www.wowace.com/addons/arl/localization/ptBR/ | localization]] page.
 
+== 2.2.9
+
+==== Backend:
+
+* Fixed a bug that would cause issues when browsing guild professions.
+* Fixed a bug with library detection.
+* When attempting to run a command line scan, check to make sure the profession name is not an empty string.
+* Fixed a few bugs when dealing with alt's professions.
+
+==== Recipes:
+
+* Recipes from World Event vendors are now just flagged as World Event.  This will let you filter out all World Event recipes properly now.
+* Added a Discovery type for acquisition.
+* Added Firelands and Trial of the Crusader as locations to recipes so they will show up in the locations tab properly.
+* Numerous data updates to recipes.
+
 == 2.2.8
 
 ==== Interface:
