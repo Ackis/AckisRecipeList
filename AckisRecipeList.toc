@@ -8,6 +8,7 @@
 ## Title-zhCN: @localization(locale="zhCN", key="Title", namespace="ToC")@
 ## Title-esES: @localization(locale="esES", key="Title", namespace="ToC")@
 ## Title-zhTW: @localization(locale="zhTW", key="Title", namespace="ToC")@
+## Title-ptBR: @localization(locale="ptBR", key="Title", namespace="ToC")@
 #@end-non-debug@
 #@debug@
 ## Title: Ackis Recipe List - Development Version
@@ -23,6 +24,7 @@
 ## Notes-zhCN: @localization(locale="zhCN", key="Description", namespace="ToC")@
 ## Notes-esES: @localization(locale="esES", key="Description", namespace="ToC")@
 ## Notes-zhTW: @localization(locale="zhTW", key="Description", namespace="ToC")@
+## Notes-ptBR: @localization(locale="ptBR", key="Description", namespace="ToC")@
 #@end-non-debug@
 #@debug@
 ## Notes: Latest alpha version of Ackis Recipe List
