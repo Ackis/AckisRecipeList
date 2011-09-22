@@ -123,6 +123,7 @@ function recipe_prototype:Specialty()
 	return self.specialty
 end
 
+-- Used to set the faction for recipes which only can be learned by one faction (e.g. BoP recipes, etc.)
 function recipe_prototype:SetRequiredFaction(faction_name)
 	self.required_faction = faction_name
 
