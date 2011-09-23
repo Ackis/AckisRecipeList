@@ -39,8 +39,6 @@ local COMMON1		= private.COMMON_FLAGS_WORD1
 
 local A			= private.ACQUIRE_TYPES
 
-local FACTION_NEUTRAL	= BFAC["Neutral"]
-
 -------------------------------------------------------------------------------
 -- Upvalues
 -------------------------------------------------------------------------------
@@ -1026,7 +1024,7 @@ function private.InitializeListFrame()
 		if addon.db.profile.filters.general.faction then
 			return true
 		end
-		return (not faction or faction == private.Player.faction or faction == FACTION_NEUTRAL)
+		return (not faction or faction == private.Player.faction or faction == "Neutral")
 	end
 
 	-- Padding for list entries/subentries
@@ -1034,7 +1032,7 @@ function private.InitializeListFrame()
 
 	-- Changes the color of "name" based on faction type.
 	local function ColorNameByFaction(name, faction)
-		if faction == FACTION_NEUTRAL then
+		if faction == "Neutral" then
 			name = SetTextColor(private.REPUTATION_COLORS["neutral"], name)
 		elseif faction == private.Player.faction then
 			name = SetTextColor(private.REPUTATION_COLORS["exalted"], name)
@@ -1187,7 +1185,7 @@ function private.InitializeListFrame()
 			local rep_color = private.REPUTATION_COLORS
 
 			faction_labels = {
-				[0] = SetTextColor(rep_color["neutral"], FACTION_NEUTRAL .. " : "),
+				[0] = SetTextColor(rep_color["neutral"], BFAC["Neutral"] .. " : "),
 				[1] = SetTextColor(rep_color["friendly"], BFAC["Friendly"] .. " : "),
 				[2] = SetTextColor(rep_color["honored"], BFAC["Honored"] .. " : "),
 				[3] = SetTextColor(rep_color["revered"], BFAC["Revered"] .. " : "),
@@ -1559,7 +1557,7 @@ do
 		local display_tip
 		local color
 
-		if comp_faction == FACTION_NEUTRAL then
+		if comp_faction == "Neutral" then
 			color = private.REPUTATION_COLORS["neutral"]
 			display_tip = true
 		elseif comp_faction == private.Player.faction then
@@ -1671,7 +1669,7 @@ do
 							addline_func(0, -1, false, _G.REPUTATION, CATEGORY_COLORS["reputation"], private.reputation_list[identifier].name, CATEGORY_COLORS["repname"])
 
 							if rep_level == 0 then
-								addline_func(1, -2, false, FACTION_NEUTRAL, private.REPUTATION_COLORS["neutral"], rep_vendor.name, name_color)
+								addline_func(1, -2, false, BFAC["Neutral"], private.REPUTATION_COLORS["neutral"], rep_vendor.name, name_color)
 							elseif rep_level == 1 then
 								addline_func(1, -2, false, BFAC["Friendly"], private.REPUTATION_COLORS["friendly"], rep_vendor.name, name_color)
 							elseif rep_level == 2 then
