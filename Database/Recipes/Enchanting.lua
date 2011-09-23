@@ -799,8 +799,8 @@ function addon:InitEnchanting()
 	recipe = AddRecipe(20029, V.ORIG, Q.UNCOMMON)
 	recipe:SetRecipeItemID(16223)
 	recipe:SetSkillLevels(285, 285, 300, 317, 335)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOE, F.RBOE, F.ONE_HAND, F.TWO_HAND)
-	recipe:AddMobDrop(7524)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOE, F.RBOE, F.ONE_HAND, F.TWO_HAND)
+	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Enchant 2H Weapon - Superior Impact -- 20030
 	recipe = AddRecipe(20030, V.ORIG, Q.UNCOMMON)
