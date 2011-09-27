@@ -528,10 +528,10 @@ function addon:InitEnchanting()
 
 	-- Enchant Cloak - Lesser Agility -- 13882
 	recipe = AddRecipe(13882, V.ORIG, Q.UNCOMMON)
-	recipe:SetRecipeItemID(11206)
+	recipe:SetRecipeItemID(71714)
 	recipe:SetSkillLevels(225, 225, 245, 265, 285)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOE, F.RBOE, F.DPS, F.CLOAK)
-	recipe:AddCustom("REMOVED_FROM_GAME")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOP, F.DPS, F.CLOAK)
+	recipe:AddWorldDrop("Tanaris")
 
 	-- Enchant Gloves - Strength -- 13887
 	recipe = AddRecipe(13887, V.ORIG, Q.COMMON)
