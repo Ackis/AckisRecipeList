@@ -20,6 +20,7 @@ local L = LibStub("AceLocale-3.0"):NewLocale("Ackis Recipe List", "enUS", true)
 
 if not L then return end
 
+L["\"Chef\" Overheat"] = "\"Chef\" Overheat"
 L["\"Cookie\" McWeaksauce"] = "\"Cookie\" McWeaksauce"
 L["ACHIEVEMENT_DESC"] = "Recipes obtained via Achievements should be included in the scan."
 L["ACQUIRETOOLTIPPOSITION_DESC"] = "Changes the location of the tooltip containing the acquire information."
@@ -819,6 +820,7 @@ L["Moonrage Tailor"] = "Moonrage Tailor"
 L["Moordo"] = "Moordo"
 L["Morgan Day"] = "Morgan Day"
 L["Mossflayer Shadowhunter"] = "Mossflayer Shadowhunter"
+L["Mrs. Gant"] = "Mrs. Gant"
 L["Muaat"] = "Muaat"
 L["Mudduk"] = "Mudduk"
 L["Muheru the Weaver"] = "Muheru the Weaver"

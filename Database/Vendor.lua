@@ -374,6 +374,7 @@ function addon:InitVendor()
 	AddVendor(40226,	L["Pratt McGrubben"],			BZ["Feralas"],				45.4, 41.2, "Alliance")
 	AddVendor(40572,	L["Haughty Modiste"],			BZ["Tanaris"],				50.7, 28.6, "Neutral") -- COMPLETELY UPDATED
 	AddVendor(40589,	L["Dirge Quikcleave"],			BZ["Tanaris"],				52.6, 29.1, "Neutral") -- COMPLETELY UPDATED
+	AddVendor(48060,	L["\"Chef\" Overheat"],			BZ["Badlands"],				65.1, 39.1, "Neutral") -- COMPLETELY UPDATED
 	AddVendor(49701,	L["Bario Matalli"],			BZ["Stormwind City"], 			50.4, 71.9, "Alliance") -- COMPLETELY UPDATED
 	AddVendor(49703,	L["Casandra Downs"],			BZ["Twilight Highlands"],		78.6, 76.2, "Alliance")
 	AddVendor(49737,	L["Shazdar"],				BZ["Orgrimmar"],			57.2, 62.0, "Horde")
@@ -390,6 +391,7 @@ function addon:InitVendor()
 	AddVendor(50482,	L["Marith Lazuria"],			BZ["Orgrimmar"],			72.5, 36.2, "Horde")
 	AddVendor(53214,	L["Damek Bloombeard"],			BZ["Hyjal"],			47.0, 90.2, "Neutral")
 	AddVendor(53881,	L["Ayla Shadowstorm"],			BZ["Hyjal"],				72.5, 36.2, "Neutral")
-
+	AddVendor(54232,	L["Mrs. Gant"],			BZ["The Cape of Stranglethorn"],				42.6, 72.8, "Neutral") -- COMPLETLY UPDATED
+	
 	self.InitVendor = nil
 end

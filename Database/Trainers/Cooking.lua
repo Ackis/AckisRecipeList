@@ -45,6 +45,7 @@ function private:InitializeCookingTrainers()
 	self:AddTrainer(46709, "Arugi", "Orgrimmar", 56.5, 61.5, "Horde")
 	self:AddTrainer(47405, "The Chef", "Tirisfal Glades", 61.2, 52.6, "Horde")
 	self:AddTrainer(49789, "Allison", "Hellfire Peninsula", 56.8, 37.4, "Horde")
+	self:AddTrainer(54232, "Mrs. Gant", "The Cape of Stranglethorn", 42.6, 72.8, "Neutral") -- COMPLETELY UPDATED
 
 	self.InitializeCookingTrainers = nil
 end
