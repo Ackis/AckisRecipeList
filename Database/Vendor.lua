@@ -91,6 +91,7 @@ function addon:InitVendor()
 	AddVendor(2846,		L["Blixrez Goodstitch"],		BZ["The Cape of Stranglethorn"],	42.8, 74.1, "Neutral")   -- UPDATED
 	AddVendor(2848,		L["Glyx Brewright"],			BZ["The Cape of Stranglethorn"],	42.6, 74.9, "Neutral")   -- UPDATED
 	AddVendor(3005,		L["Mahu"],				BZ["Thunder Bluff"],			43.8, 45.1, "Horde") -- COMPLETELY UPDATED
+	AddVendor(3008,		L["Mak"],				BZ["Thunder Bluff"],			42.0, 43.5, "Horde") -- COMPLETELY UPDATED
 	AddVendor(3012,		L["Nata Dawnstrider"],			BZ["Thunder Bluff"],			44.9, 37.7, "Horde") -- COMPLETELY UPDATED
 	AddVendor(3027,		L["Naal Mistrunner"],			BZ["Thunder Bluff"],			51.0, 52.5, "Horde") -- COMPLETELY UPDATED
 	AddVendor(3029,		L["Sewa Mistrunner"],			BZ["Thunder Bluff"],			55.8, 47.0, "Horde") -- COMPLETELY UPDATED
