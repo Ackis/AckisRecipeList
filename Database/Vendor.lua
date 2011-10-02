@@ -143,7 +143,7 @@ function addon:InitVendor()
 	AddVendor(4782,		L["Truk Wildbeard"],			BZ["The Hinterlands"],			14.4, 42.5, "Alliance")
 	AddVendor(4879,		L["Ogg'marr"],				BZ["Dustwallow Marsh"],			36.7, 31.0, "Horde")
 	AddVendor(4897,		L["Helenia Olden"],			BZ["Dustwallow Marsh"],			66.4, 51.5, "Alliance")
-	AddVendor(5128,		L["Bombus Finespindle"],		BZ["Ironforge"],			39.6, 34.1, "Alliance")
+	AddVendor(5128,		L["Bombus Finespindle"],		BZ["Ironforge"],			39.6, 34.5, "Alliance") -- COMPLETELY UPDATED
 	AddVendor(5158,		L["Tilli Thistlefuzz"],			BZ["Ironforge"],			60.7, 44.2, "Alliance")
 	AddVendor(5160,		L["Emrul Riknussun"],			BZ["Ironforge"],			59.9, 37.7, "Alliance")
 	AddVendor(5162,		L["Tansy Puddlefizz"],			BZ["Ironforge"],			48.0,  6.3, "Alliance")
@@ -154,6 +154,7 @@ function addon:InitVendor()
 	AddVendor(5483,		L["Erika Tate"],			BZ["Stormwind City"],			77.6, 53.0, "Alliance") -- COMPLETELY UPDATED
 	AddVendor(5494,		L["Catherine Leland"],			BZ["Stormwind City"],			55.1, 69.5, "Alliance") -- COMPLETELY UPDATED
 	AddVendor(5512,		L["Kaita Deepforge"],			BZ["Stormwind City"],			63.5, 37.6, "Alliance") -- COMPLETELY UPDATED
+	AddVendor(5565,		L["Jillian Tanner"],			BZ["Stormwind City"],			71.6, 62.8, "Alliance") -- COMPLETELY UPDATED
 	AddVendor(5594,		L["Alchemist Pestlezugg"],		BZ["Tanaris"],				50.8, 28.0, "Neutral") -- COMPLETELY UPDATED
 	AddVendor(5748,		L["Killian Sanatha"],			BZ["Silverpine Forest"],		33.0, 17.8, "Horde")
 	AddVendor(5757,		L["Lilly"],				BZ["Silverpine Forest"],		43.1, 50.8, "Horde")
