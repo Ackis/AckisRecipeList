@@ -709,6 +709,13 @@ do
 
 		if not vendor_entry then
 			table.insert(output, ("%s was not found in the vendor list"):format(vendor_name))
+
+			if not L[vendor_name] then
+				L[vendor_name] = true
+			end
+			_G.SetMapToCurrentZone() -- Make sure were are looking at the right zone
+			private:AddListEntry(private.vendor_list, vendor_id, L[vendor_name], _G.GetRealZoneText(), vendor_x, vendor_y, _G.UnitFactionGroup("target") or "Neutral")
+		end
 		end
 
 		if matching_vendor and vendor_entry and vendor_entry.item_list then
