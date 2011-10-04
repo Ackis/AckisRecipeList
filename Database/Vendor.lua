@@ -391,9 +391,9 @@ function addon:InitVendor()
 	AddVendor(50433,	L["Aristaleon Sunweaver"],		BZ["Twilight Highlands"],		75.2, 50.1, "Horde")
 	AddVendor(50480,	L["Isabel Jones"],			BZ["Stormwind City"],			63.7, 61.3, "Alliance") -- COMPLETELY UPDATED
 	AddVendor(50482,	L["Marith Lazuria"],			BZ["Orgrimmar"],			72.5, 36.2, "Horde")
-	AddVendor(53214,	L["Damek Bloombeard"],			BZ["Hyjal"],			47.0, 90.2, "Neutral")
+	AddVendor(53214,	L["Damek Bloombeard"],			BZ["Hyjal"],				47.0, 90.2, "Neutral")
 	AddVendor(53881,	L["Ayla Shadowstorm"],			BZ["Hyjal"],				72.5, 36.2, "Neutral")
-	AddVendor(54232,	L["Mrs. Gant"],			BZ["The Cape of Stranglethorn"],				42.6, 72.8, "Neutral") -- COMPLETLY UPDATED
-	
+	AddVendor(54232,	L["Mrs. Gant"],				BZ["The Cape of Stranglethorn"],	42.6, 72.8, "Neutral") -- COMPLETLY UPDATED
+
 	self.InitVendor = nil
 end
