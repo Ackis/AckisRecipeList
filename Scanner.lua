@@ -210,6 +210,9 @@ do
 					table.insert(output, ("%s was not found in the trainer list - a trainer dump for %s will fix this."):format(trainer_name, trainer_profession))
 					_G.SetMapToCurrentZone() -- Make sure were are looking at the right zone
 
+					if not L[trainer_name] then
+						L[trainer_name] = true
+					end
 					private:AddTrainer(trainer_id, trainer_name, _G.GetRealZoneText(), trainer_x, trainer_y, private.Player.faction)
 				end
 
@@ -217,6 +220,9 @@ do
 					if not matching_trainer then
 						table.insert(missing_spell_ids, spell_id)
 
+						if not L[trainer_name] then
+							L[trainer_name] = true
+						end
 						recipe:AddTrainer(trainer_id)
 
 						if not recipe:HasFilter("common1", "TRAINER") then
