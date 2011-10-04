@@ -23,6 +23,7 @@ local L		= LibStub("AceLocale-3.0"):GetLocale(private.addon_name)
 local BFAC	= LibStub("LibBabble-Faction-3.0"):GetLookupTable()
 local BZ	= LibStub("LibBabble-Zone-3.0"):GetLookupTable()
 local QTip	= LibStub("LibQTip-1.0")
+local Dialog	= LibStub("LibDialog-1.0")
 
 -------------------------------------------------------------------------------
 -- Constants
@@ -38,6 +39,73 @@ local BASIC_COLORS	= private.BASIC_COLORS
 local COMMON1		= private.COMMON_FLAGS_WORD1
 
 local A			= private.ACQUIRE_TYPES
+
+-------------------------------------------------------------------------------
+-- Dialogs.
+-------------------------------------------------------------------------------
+Dialog:Register("ARL_NotScanned", {
+	text = L["NOTSCANNED"],
+	buttons = {
+		{
+			text = _G.OKAY,
+		},
+	},
+	show_while_dead = true,
+	hide_on_escape = true,
+})
+
+Dialog:Register("ARL_AllFiltered", {
+	text = L["ALL_FILTERED"],
+	buttons = {
+		{
+			text = _G.OKAY
+		},
+	},
+	show_while_dead = true,
+	hide_on_escape = true,
+})
+
+Dialog:Register("ARL_AllKnown", {
+	text = L["ARL_ALLKNOWN"],
+	buttons = {
+		{
+			text = _G.OKAY
+		},
+	},
+	show_while_dead = true,
+	hide_on_escape = true,
+})
+
+Dialog:Register("ARL_AllExcluded", {
+	text = L["ARL_ALLEXCLUDED"],
+	buttons = {
+		{
+			text = _G.OKAY
+		},
+	},
+	show_while_dead = true,
+	hide_on_escape = true,
+})
+
+Dialog:Register("ARL_SearchFiltered", {
+	text = L["ARL_SEARCHFILTERED"],
+	buttons = {
+		{
+			text = _G.OKAY
+		},
+	},
+	show_while_dead = true,
+	hide_on_escape = true,
+})
+
+function private.DismissDialogs()
+	Dialog:Dismiss("ARL_NotScanned")
+	Dialog:Dismiss("ARL_AllFiltered")
+	Dialog:Dismiss("ARL_AllKnown")
+	Dialog:Dismiss("ARL_AllExcluded")
+	Dialog:Dismiss("ARL_SearchFiltered")
+end
+
 
 -------------------------------------------------------------------------------
 -- Upvalues
@@ -893,22 +961,22 @@ function private.InitializeListFrame()
 
 			if player.recipes_total == 0 then
 				if showpopup then
-					_G.StaticPopup_Show("ARL_NOTSCANNED")
+					Dialog:Spawn("ARL_NotScanned")
 				end
 			elseif player.recipes_known == player.recipes_total then
 				if showpopup then
-					_G.StaticPopup_Show("ARL_ALLKNOWN")
+					Dialog:Spawn("ARL_AllKnown")
 				end
 			elseif (player.recipes_total_filtered - player.recipes_known_filtered) == 0 then
 				if showpopup then
-					_G.StaticPopup_Show("ARL_ALLFILTERED")
+					Dialog:Spawn("ARL_AllFiltered")
 				end
 			elseif player.excluded_recipes_unknown ~= 0 then
 				if showpopup then
-					_G.StaticPopup_Show("ARL_ALLEXCLUDED")
+					Dialog:Spawn("ARL_AllExcluded")
 				end
 			elseif editbox_text ~= "" and editbox_text ~= _G.SEARCH then
-				_G.StaticPopup_Show("ARL_SEARCHFILTERED")
+				Dialog:Spawn("ARL_SearchFiltered")
 			else
 				addon:Print(L["NO_DISPLAY"])
 				addon:Debug("Current tab is %s", _G.tostring(addon.db.profile.current_tab))
@@ -927,7 +995,7 @@ function private.InitializeListFrame()
 		end
 		local offset = 0
 
-		addon:ClosePopups()
+		private.DismissDialogs()
 
 		MainPanel.expand_button:SetNormalFontObject("GameFontNormalSmall")
 		MainPanel.expand_button:Enable()

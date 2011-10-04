@@ -117,7 +117,7 @@ function private.InitializeFrame()
 	-- MainPanel scripts/functions.
 	-------------------------------------------------------------------------------
 	MainPanel:SetScript("OnHide", function(self)
-		addon:ClosePopups()
+		private.DismissDialogs()
 	end)
 
 	MainPanel:SetScript("OnMouseDown", MainPanel.StartMoving)
