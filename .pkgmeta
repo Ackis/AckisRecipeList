@@ -62,6 +62,9 @@ externals:
  libs/LibToast-1.0:
   url: http://hg.curseforge.net/wow/libtoast-1-0/mainline
   tag: latest
+ libs/LibDialog-1.0:
+  url: http://hg.wowace.com/wow/libdialog-1-0/mainline
+  tag: latest
 
 ignore:
  - Docs
