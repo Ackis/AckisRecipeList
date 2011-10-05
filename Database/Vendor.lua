@@ -247,7 +247,7 @@ function addon:InitVendor()
 	AddVendor(16713,	L["Arras"],				BZ["The Exodar"],			60.0, 89.5, "Alliance")
 	AddVendor(16718,	L["Phea"],				BZ["The Exodar"],			54.7, 26.5, "Alliance")
 	AddVendor(16722,	L["Egomis"],				BZ["The Exodar"],			39.1, 39.4, "Alliance")
-	AddVendor(16748,	L["Haferet"],				BZ["The Exodar"],			66.0, 74.6, "Alliance")
+	AddVendor(16748,	L["Haferet"],				BZ["The Exodar"],			66.6, 73.7, "Alliance") -- COMPLETELY UPDATED
 	AddVendor(16767,	L["Neii"],				BZ["The Exodar"],			64.5, 68.5, "Alliance")
 	AddVendor(16782,	L["Yatheon"],				BZ["Silvermoon City"],			75.6, 40.7, "Horde") -- COMPLETELY UPDATED
 	AddVendor(16826,	L["Sid Limbardi"],			BZ["Hellfire Peninsula"],		54.3, 63.6, "Alliance")
