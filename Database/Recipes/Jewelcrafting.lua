@@ -3809,378 +3809,378 @@ function addon:InitJewelcrafting()
 	recipe:SetRecipeItemID(52362)
 	recipe:SetSkillLevels(465, 465, 500, 507, 515)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	recipe:AddVendor(50480, 50482)
+	recipe:AddVendor(16624, 17512, 44583, 50480, 50482, 52584, 52588, 52644, 52658)
 
 	-- Delicate Inferno Ruby -- 73336
 	recipe = AddRecipe(73336, V.CATA, Q.RARE)
 	recipe:SetRecipeItemID(52380)
 	recipe:SetSkillLevels(465, 465, 500, 507, 515)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	recipe:AddVendor(50480, 50482)
+	recipe:AddVendor(16624, 17512, 44583, 50480, 50482, 52584, 52588, 52644, 52658)
 
 	-- Flashing Inferno Ruby -- 73337
 	recipe = AddRecipe(73337, V.CATA, Q.RARE)
 	recipe:SetRecipeItemID(52384)
 	recipe:SetSkillLevels(465, 465, 500, 507, 515)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	recipe:AddVendor(50480, 50482)
+	recipe:AddVendor(16624, 17512, 44583, 50480, 50482, 52584, 52588, 52644, 52658)
 
 	-- Brilliant Inferno Ruby -- 73338
 	recipe = AddRecipe(73338, V.CATA, Q.RARE)
 	recipe:SetRecipeItemID(52387)
 	recipe:SetSkillLevels(465, 465, 500, 507, 515)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	recipe:AddVendor(50480, 50482)
+	recipe:AddVendor(16624, 17512, 44583, 50480, 50482, 52584, 52588, 52644, 52658)
 
 	-- Precise Inferno Ruby -- 73339
 	recipe = AddRecipe(73339, V.CATA, Q.RARE)
 	recipe:SetRecipeItemID(52389)
 	recipe:SetSkillLevels(465, 465, 500, 507, 515)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	recipe:AddVendor(50480, 50482)
+	recipe:AddVendor(16624, 17512, 44583, 50480, 50482, 52584, 52588, 52644, 52658)
 
 	-- Solid Ocean Sapphire -- 73340
 	recipe = AddRecipe(73340, V.CATA, Q.RARE)
 	recipe:SetRecipeItemID(52390)
 	recipe:SetSkillLevels(465, 465, 500, 507, 515)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	recipe:AddVendor(50480, 50482)
+	recipe:AddVendor(16624, 17512, 44583, 50480, 50482, 52584, 52588, 52644, 52658)
 
 	-- Sparkling Ocean Sapphire -- 73341
 	recipe = AddRecipe(73341, V.CATA, Q.RARE)
 	recipe:SetRecipeItemID(52391)
 	recipe:SetSkillLevels(465, 465, 500, 507, 515)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	recipe:AddVendor(50480, 50482)
+	recipe:AddVendor(16624, 17512, 44583, 50480, 50482, 52584, 52588, 52644, 52658)
 
 	-- Stormy Ocean Sapphire -- 73343
 	recipe = AddRecipe(73343, V.CATA, Q.RARE)
 	recipe:SetRecipeItemID(52392)
 	recipe:SetSkillLevels(465, 465, 500, 507, 515)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	recipe:AddVendor(50480, 50482)
+	recipe:AddVendor(16624, 17512, 44583, 50480, 50482, 52584, 52588, 52644, 52658)
 
 	-- Rigid Ocean Sapphire -- 73344
 	recipe = AddRecipe(73344, V.CATA, Q.RARE)
 	recipe:SetRecipeItemID(52393)
 	recipe:SetSkillLevels(465, 465, 500, 507, 515)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	recipe:AddVendor(50480, 50482)
+	recipe:AddVendor(16624, 17512, 44583, 50480, 50482, 52584, 52588, 52644, 52658)
 
 	-- Subtle Amberjewel -- 73345
 	recipe = AddRecipe(73345, V.CATA, Q.RARE)
 	recipe:SetRecipeItemID(52394)
 	recipe:SetSkillLevels(465, 465, 500, 507, 515)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	recipe:AddVendor(50480, 50482)
+	recipe:AddVendor(16624, 17512, 44583, 50480, 50482, 52584, 52588, 52644, 52658)
 
 	-- Smooth Amberjewel -- 73346
 	recipe = AddRecipe(73346, V.CATA, Q.RARE)
 	recipe:SetRecipeItemID(52395)
 	recipe:SetSkillLevels(465, 465, 500, 507, 515)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	recipe:AddVendor(50480, 50482)
+	recipe:AddVendor(16624, 17512, 44583, 50480, 50482, 52584, 52588, 52644, 52658)
 
 	-- Mystic Amberjewel -- 73347
 	recipe = AddRecipe(73347, V.CATA, Q.RARE)
 	recipe:SetRecipeItemID(52396)
 	recipe:SetSkillLevels(465, 465, 500, 507, 515)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	recipe:AddVendor(50480, 50482)
+	recipe:AddVendor(16624, 17512, 44583, 50480, 50482, 52584, 52588, 52644, 52658)
 
 	-- Quick Amberjewel -- 73348
 	recipe = AddRecipe(73348, V.CATA, Q.RARE)
 	recipe:SetRecipeItemID(52397)
 	recipe:SetSkillLevels(465, 465, 500, 507, 515)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	recipe:AddVendor(50480, 50482)
+	recipe:AddVendor(16624, 17512, 44583, 50480, 50482, 52584, 52588, 52644, 52658)
 
 	-- Fractured Amberjewel -- 73349
 	recipe = AddRecipe(73349, V.CATA, Q.RARE)
 	recipe:SetRecipeItemID(52398)
 	recipe:SetSkillLevels(465, 465, 500, 507, 515)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	recipe:AddVendor(50480, 50482)
+	recipe:AddVendor(16624, 17512, 44583, 50480, 50482, 52584, 52588, 52644, 52658)
 
 	-- Sovereign Demonseye -- 73350
 	recipe = AddRecipe(73350, V.CATA, Q.RARE)
 	recipe:SetRecipeItemID(52399)
 	recipe:SetSkillLevels(465, 465, 500, 507, 515)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	recipe:AddVendor(50480, 50482)
+	recipe:AddVendor(16624, 17512, 44583, 50480, 50482, 52584, 52588, 52644, 52658)
 
 	-- Shifting Demonseye -- 73351
 	recipe = AddRecipe(73351, V.CATA, Q.RARE)
 	recipe:SetRecipeItemID(52400)
 	recipe:SetSkillLevels(465, 465, 500, 507, 515)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	recipe:AddVendor(50480, 50482)
+	recipe:AddVendor(16624, 17512, 44583, 50480, 50482, 52584, 52588, 52644, 52658)
 
 	-- Defender's Demonseye -- 73352
 	recipe = AddRecipe(73352, V.CATA, Q.RARE)
 	recipe:SetRecipeItemID(52401)
 	recipe:SetSkillLevels(465, 465, 500, 507, 515)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	recipe:AddVendor(50480, 50482)
+	recipe:AddVendor(16624, 17512, 44583, 50480, 50482, 52584, 52588, 52644, 52658)
 
 	-- Timeless Demonseye -- 73353
 	recipe = AddRecipe(73353, V.CATA, Q.RARE)
 	recipe:SetRecipeItemID(52402)
 	recipe:SetSkillLevels(465, 465, 500, 507, 515)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	recipe:AddVendor(50480, 50482)
+	recipe:AddVendor(16624, 17512, 44583, 50480, 50482, 52584, 52588, 52644, 52658)
 
 	-- Guardian's Demonseye -- 73354
 	recipe = AddRecipe(73354, V.CATA, Q.RARE)
 	recipe:SetRecipeItemID(52403)
 	recipe:SetSkillLevels(465, 465, 500, 507, 515)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	recipe:AddVendor(50480, 50482)
+	recipe:AddVendor(16624, 17512, 44583, 50480, 50482, 52584, 52588, 52644, 52658)
 
 	-- Purified Demonseye -- 73355
 	recipe = AddRecipe(73355, V.CATA, Q.RARE)
 	recipe:SetRecipeItemID(52404)
 	recipe:SetSkillLevels(465, 465, 500, 507, 515)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	recipe:AddVendor(50480, 50482)
+	recipe:AddVendor(16624, 17512, 44583, 50480, 50482, 52584, 52588, 52644, 52658)
 
 	-- Etched Demonseye -- 73356
 	recipe = AddRecipe(73356, V.CATA, Q.RARE)
 	recipe:SetRecipeItemID(52405)
 	recipe:SetSkillLevels(465, 465, 500, 507, 515)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	recipe:AddVendor(50480, 50482)
+	recipe:AddVendor(16624, 17512, 44583, 50480, 50482, 52584, 52588, 52644, 52658)
 
 	-- Glinting Demonseye -- 73357
 	recipe = AddRecipe(73357, V.CATA, Q.RARE)
 	recipe:SetRecipeItemID(52406)
 	recipe:SetSkillLevels(465, 465, 500, 507, 515)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	recipe:AddVendor(50480, 50482)
+	recipe:AddVendor(16624, 17512, 44583, 50480, 50482, 52584, 52588, 52644, 52658)
 
 	-- Retaliating Demonseye -- 73358
 	recipe = AddRecipe(73358, V.CATA, Q.RARE)
 	recipe:SetRecipeItemID(52407)
 	recipe:SetSkillLevels(465, 465, 500, 507, 515)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	recipe:AddVendor(50480, 50482)
+	recipe:AddVendor(16624, 17512, 44583, 50480, 50482, 52584, 52588, 52644, 52658)
 
 	-- Veiled Demonseye -- 73359
 	recipe = AddRecipe(73359, V.CATA, Q.RARE)
 	recipe:SetRecipeItemID(52408)
 	recipe:SetSkillLevels(465, 465, 500, 507, 515)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	recipe:AddVendor(50480, 50482)
+	recipe:AddVendor(16624, 17512, 44583, 50480, 50482, 52584, 52588, 52644, 52658)
 
 	-- Accurate Demonseye -- 73360
 	recipe = AddRecipe(73360, V.CATA, Q.RARE)
 	recipe:SetRecipeItemID(52409)
 	recipe:SetSkillLevels(465, 465, 500, 507, 515)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	recipe:AddVendor(50480, 50482)
+	recipe:AddVendor(16624, 17512, 44583, 50480, 50482, 52584, 52588, 52644, 52658)
 
 	-- Polished Ember Topaz -- 73361
 	recipe = AddRecipe(73361, V.CATA, Q.RARE)
 	recipe:SetRecipeItemID(52410)
 	recipe:SetSkillLevels(465, 465, 500, 507, 515)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	recipe:AddVendor(50480, 50482)
+	recipe:AddVendor(16624, 17512, 44583, 50480, 50482, 52584, 52588, 52644, 52658)
 
 	-- Resolute Ember Topaz -- 73362
 	recipe = AddRecipe(73362, V.CATA, Q.RARE)
 	recipe:SetRecipeItemID(52411)
 	recipe:SetSkillLevels(465, 465, 500, 507, 515)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	recipe:AddVendor(50480, 50482)
+	recipe:AddVendor(16624, 17512, 44583, 50480, 50482, 52584, 52588, 52644, 52658)
 
 	-- Inscribed Ember Topaz -- 73364
 	recipe = AddRecipe(73364, V.CATA, Q.RARE)
 	recipe:SetRecipeItemID(52412)
 	recipe:SetSkillLevels(465, 465, 500, 507, 515)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	recipe:AddVendor(50480, 50482)
+	recipe:AddVendor(16624, 17512, 44583, 50480, 50482, 52584, 52588, 52644, 52658)
 
 	-- Deadly Ember Topaz -- 73365
 	recipe = AddRecipe(73365, V.CATA, Q.RARE)
 	recipe:SetRecipeItemID(52413)
 	recipe:SetSkillLevels(465, 465, 500, 507, 515)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	recipe:AddVendor(50480, 50482)
+	recipe:AddVendor(16624, 17512, 44583, 50480, 50482, 52584, 52588, 52644, 52658)
 
 	-- Potent Ember Topaz -- 73366
 	recipe = AddRecipe(73366, V.CATA, Q.RARE)
 	recipe:SetRecipeItemID(52414)
 	recipe:SetSkillLevels(465, 465, 500, 507, 515)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	recipe:AddVendor(50480, 50482)
+	recipe:AddVendor(16624, 17512, 44583, 50480, 50482, 52584, 52588, 52644, 52658)
 
 	-- Fierce Ember Topaz -- 73367
 	recipe = AddRecipe(73367, V.CATA, Q.RARE)
 	recipe:SetRecipeItemID(52415)
 	recipe:SetSkillLevels(465, 465, 500, 507, 515)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	recipe:AddVendor(50480, 50482)
+	recipe:AddVendor(16624, 17512, 44583, 50480, 50482, 52584, 52588, 52644, 52658)
 
 	-- Deft Ember Topaz -- 73368
 	recipe = AddRecipe(73368, V.CATA, Q.RARE)
 	recipe:SetRecipeItemID(52416)
 	recipe:SetSkillLevels(465, 465, 500, 507, 515)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	recipe:AddVendor(50480, 50482)
+	recipe:AddVendor(16624, 17512, 44583, 50480, 50482, 52584, 52588, 52644, 52658)
 
 	-- Reckless Ember Topaz -- 73369
 	recipe = AddRecipe(73369, V.CATA, Q.RARE)
 	recipe:SetRecipeItemID(52417)
 	recipe:SetSkillLevels(465, 465, 500, 507, 515)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	recipe:AddVendor(50480, 50482)
+	recipe:AddVendor(16624, 17512, 44583, 50480, 50482, 52584, 52588, 52644, 52658)
 
 	-- Skillful Ember Topaz -- 73370
 	recipe = AddRecipe(73370, V.CATA, Q.RARE)
 	recipe:SetRecipeItemID(52418)
 	recipe:SetSkillLevels(465, 465, 500, 507, 515)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	recipe:AddVendor(50480, 50482)
+	recipe:AddVendor(16624, 17512, 44583, 50480, 50482, 52584, 52588, 52644, 52658)
 
 	-- Adept Ember Topaz -- 73371
 	recipe = AddRecipe(73371, V.CATA, Q.RARE)
 	recipe:SetRecipeItemID(52419)
 	recipe:SetSkillLevels(465, 465, 500, 507, 515)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	recipe:AddVendor(50480, 50482)
+	recipe:AddVendor(16624, 17512, 44583, 50480, 50482, 52584, 52588, 52644, 52658)
 
 	-- Fine Ember Topaz -- 73372
 	recipe = AddRecipe(73372, V.CATA, Q.RARE)
 	recipe:SetRecipeItemID(52420)
 	recipe:SetSkillLevels(465, 465, 500, 507, 515)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	recipe:AddVendor(50480, 50482)
+	recipe:AddVendor(16624, 17512, 44583, 50480, 50482, 52584, 52588, 52644, 52658)
 
 	-- Artful Ember Topaz -- 73373
 	recipe = AddRecipe(73373, V.CATA, Q.RARE)
 	recipe:SetRecipeItemID(52421)
 	recipe:SetSkillLevels(465, 465, 500, 507, 515)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	recipe:AddVendor(50480, 50482)
+	recipe:AddVendor(16624, 17512, 44583, 50480, 50482, 52584, 52588, 52644, 52658)
 
 	-- Keen Ember Topaz -- 73374
 	recipe = AddRecipe(73374, V.CATA, Q.RARE)
 	recipe:SetRecipeItemID(52422)
 	recipe:SetSkillLevels(465, 465, 500, 507, 515)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	recipe:AddVendor(50480, 50482)
+	recipe:AddVendor(16624, 17512, 44583, 50480, 50482, 52584, 52588, 52644, 52658)
 
 	-- Regal Dream Emerald -- 73375
 	recipe = AddRecipe(73375, V.CATA, Q.RARE)
 	recipe:SetRecipeItemID(52423)
 	recipe:SetSkillLevels(465, 465, 500, 507, 515)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	recipe:AddVendor(50480, 50482)
+	recipe:AddVendor(16624, 17512, 44583, 50480, 50482, 52584, 52588, 52644, 52658)
 
 	-- Nimble Dream Emerald -- 73376
 	recipe = AddRecipe(73376, V.CATA, Q.RARE)
 	recipe:SetRecipeItemID(52424)
 	recipe:SetSkillLevels(465, 465, 500, 507, 515)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	recipe:AddVendor(50480, 50482)
+	recipe:AddVendor(16624, 17512, 44583, 50480, 50482, 52584, 52588, 52644, 52658)
 
 	-- Jagged Dream Emerald -- 73377
 	recipe = AddRecipe(73377, V.CATA, Q.RARE)
 	recipe:SetRecipeItemID(52425)
 	recipe:SetSkillLevels(465, 465, 500, 507, 515)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	recipe:AddVendor(50480, 50482)
+	recipe:AddVendor(16624, 17512, 44583, 50480, 50482, 52584, 52588, 52644, 52658)
 
 	-- Piercing Dream Emerald -- 73378
 	recipe = AddRecipe(73378, V.CATA, Q.RARE)
 	recipe:SetRecipeItemID(52426)
 	recipe:SetSkillLevels(465, 465, 500, 507, 515)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	recipe:AddVendor(50480, 50482)
+	recipe:AddVendor(16624, 17512, 44583, 50480, 50482, 52584, 52588, 52644, 52658)
 
 	-- Steady Dream Emerald -- 73379
 	recipe = AddRecipe(73379, V.CATA, Q.RARE)
 	recipe:SetRecipeItemID(52427)
 	recipe:SetSkillLevels(465, 465, 500, 507, 515)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	recipe:AddVendor(50480, 50482)
+	recipe:AddVendor(16624, 17512, 44583, 50480, 50482, 52584, 52588, 52644, 52658)
 
 	-- Forceful Dream Emerald -- 73380
 	recipe = AddRecipe(73380, V.CATA, Q.RARE)
 	recipe:SetRecipeItemID(52428)
 	recipe:SetSkillLevels(465, 465, 500, 507, 515)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	recipe:AddVendor(50480, 50482)
+	recipe:AddVendor(16624, 17512, 44583, 50480, 50482, 52584, 52588, 52644, 52658)
 
 	-- Lightning Dream Emerald -- 73381
 	recipe = AddRecipe(73381, V.CATA, Q.RARE)
 	recipe:SetRecipeItemID(52429)
 	recipe:SetSkillLevels(465, 465, 500, 507, 515)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	recipe:AddVendor(50480, 50482)
+	recipe:AddVendor(16624, 17512, 44583, 50480, 50482, 52584, 52588, 52644, 52658)
 
 	-- Puissant Dream Emerald -- 73382
 	recipe = AddRecipe(73382, V.CATA, Q.RARE)
 	recipe:SetRecipeItemID(52430)
 	recipe:SetSkillLevels(465, 465, 500, 507, 515)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	recipe:AddVendor(50480, 50482)
+	recipe:AddVendor(16624, 17512, 44583, 50480, 50482, 52584, 52588, 52644, 52658)
 
 	-- Zen Dream Emerald -- 73383
 	recipe = AddRecipe(73383, V.CATA, Q.RARE)
 	recipe:SetRecipeItemID(52431)
 	recipe:SetSkillLevels(465, 465, 500, 507, 515)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	recipe:AddVendor(50480, 50482)
+	recipe:AddVendor(16624, 17512, 44583, 50480, 50482, 52584, 52588, 52644, 52658)
 
 	-- Sensei's Dream Emerald -- 73384
 	recipe = AddRecipe(73384, V.CATA, Q.RARE)
 	recipe:SetRecipeItemID(52432)
 	recipe:SetSkillLevels(465, 465, 500, 507, 515)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	recipe:AddVendor(50480, 50482)
+	recipe:AddVendor(16624, 17512, 44583, 50480, 50482, 52584, 52588, 52644, 52658)
 
 	-- Bold Chimera's Eye -- 73396
 	recipe = AddRecipe(73396, V.CATA, Q.EPIC)
 	recipe:SetRecipeItemID(52381)
 	recipe:SetSkillLevels(500, 500, 505, 507, 510)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	recipe:AddVendor(50480, 50482)
+	recipe:AddVendor(16624, 17512, 44583, 50480, 50482, 52584, 52588, 52644, 52658)
 
 	-- Delicate Chimera's Eye -- 73397
 	recipe = AddRecipe(73397, V.CATA, Q.EPIC)
 	recipe:SetRecipeItemID(52447)
 	recipe:SetSkillLevels(500, 500, 505, 507, 510)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	recipe:AddVendor(50480, 50482)
+	recipe:AddVendor(16624, 17512, 44583, 50480, 50482, 52584, 52588, 52644, 52658)
 
 	-- Flashing Chimera's Eye -- 73398
 	recipe = AddRecipe(73398, V.CATA, Q.EPIC)
 	recipe:SetRecipeItemID(52448)
 	recipe:SetSkillLevels(500, 500, 505, 507, 510)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	recipe:AddVendor(50480, 50482)
+	recipe:AddVendor(16624, 17512, 44583, 50480, 50482, 52584, 52588, 52644, 52658)
 
 	-- Brilliant Chimera's Eye -- 73399
 	recipe = AddRecipe(73399, V.CATA, Q.EPIC)
 	recipe:SetRecipeItemID(52449)
 	recipe:SetSkillLevels(500, 500, 505, 507, 510)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	recipe:AddVendor(50480, 50482)
+	recipe:AddVendor(16624, 17512, 44583, 50480, 50482, 52584, 52588, 52644, 52658)
 
 	-- Precise Chimera's Eye -- 73400
 	recipe = AddRecipe(73400, V.CATA, Q.EPIC)
 	recipe:SetRecipeItemID(52450)
 	recipe:SetSkillLevels(500, 500, 505, 507, 510)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	recipe:AddVendor(50480, 50482)
+	recipe:AddVendor(16624, 17512, 44583, 50480, 50482, 52584, 52588, 52644, 52658)
 
 	-- Solid Chimera's Eye -- 73401
 	recipe = AddRecipe(73401, V.CATA, Q.EPIC)
 	recipe:SetRecipeItemID(52451)
 	recipe:SetSkillLevels(500, 500, 505, 507, 510)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	recipe:AddVendor(50480, 50482)
+	recipe:AddVendor(16624, 17512, 44583, 50480, 50482, 52584, 52588, 52644, 52658)
 
 	-- Sparkling Chimera's Eye -- 73402
 	recipe = AddRecipe(73402, V.CATA, Q.EPIC)
@@ -4188,7 +4188,7 @@ function addon:InitJewelcrafting()
 	recipe:SetCraftedItemID(52262)
 	recipe:SetSkillLevels(500, 500, 505, 507, 510)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	recipe:AddVendor(50480, 50482)
+	recipe:AddVendor(16624, 17512, 44583, 50480, 50482, 52584, 52588, 52644, 52658)
 
 	-- Stormy Chimera's Eye -- 73403
 	recipe = AddRecipe(73403, V.CATA, Q.EPIC)
@@ -4196,14 +4196,14 @@ function addon:InitJewelcrafting()
 	recipe:SetCraftedItemID(52263)
 	recipe:SetSkillLevels(500, 500, 505, 507, 510)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	recipe:AddVendor(50480, 50482)
+	recipe:AddVendor(16624, 17512, 44583, 50480, 50482, 52584, 52588, 52644, 52658)
 
 	-- Rigid Chimera's Eye -- 73404
 	recipe = AddRecipe(73404, V.CATA, Q.EPIC)
 	recipe:SetRecipeItemID(52454)
 	recipe:SetSkillLevels(500, 500, 505, 507, 510)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	recipe:AddVendor(50480, 50482)
+	recipe:AddVendor(16624, 17512, 44583, 50480, 50482, 52584, 52588, 52644, 52658)
 
 	-- Subtle Chimera's Eye -- 73405
 	recipe = AddRecipe(73405, V.CATA, Q.EPIC)
@@ -4211,126 +4211,126 @@ function addon:InitJewelcrafting()
 	recipe:SetCraftedItemID(52265)
 	recipe:SetSkillLevels(500, 500, 505, 507, 510)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	recipe:AddVendor(50480, 50482)
+	recipe:AddVendor(16624, 17512, 44583, 50480, 50482, 52584, 52588, 52644, 52658)
 
 	-- Smooth Chimera's Eye -- 73406
 	recipe = AddRecipe(73406, V.CATA, Q.EPIC)
 	recipe:SetRecipeItemID(52456)
 	recipe:SetSkillLevels(500, 500, 505, 507, 510)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	recipe:AddVendor(50480, 50482)
+	recipe:AddVendor(16624, 17512, 44583, 50480, 50482, 52584, 52588, 52644, 52658)
 
 	-- Mystic Chimera's Eye -- 73407
 	recipe = AddRecipe(73407, V.CATA, Q.EPIC)
 	recipe:SetRecipeItemID(52457)
 	recipe:SetSkillLevels(500, 500, 505, 507, 510)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	recipe:AddVendor(50480, 50482)
+	recipe:AddVendor(16624, 17512, 44583, 50480, 50482, 52584, 52588, 52644, 52658)
 
 	-- Quick Chimera's Eye -- 73408
 	recipe = AddRecipe(73408, V.CATA, Q.EPIC)
 	recipe:SetRecipeItemID(52458)
 	recipe:SetSkillLevels(500, 500, 505, 507, 510)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	recipe:AddVendor(50480, 50482)
+	recipe:AddVendor(16624, 17512, 44583, 50480, 50482, 52584, 52588, 52644, 52658)
 
 	-- Fractured Chimera's Eye -- 73409
 	recipe = AddRecipe(73409, V.CATA, Q.EPIC)
 	recipe:SetRecipeItemID(52459)
 	recipe:SetSkillLevels(500, 500, 505, 507, 510)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	recipe:AddVendor(50480, 50482)
+	recipe:AddVendor(16624, 17512, 44583, 50480, 50482, 52584, 52588, 52644, 52658)
 
 	-- Fleet Shadowspirit Diamond -- 73464
 	recipe = AddRecipe(73464, V.CATA, Q.RARE)
 	recipe:SetRecipeItemID(52433)
 	recipe:SetSkillLevels(490, 490, 515, 520, 525)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	recipe:AddVendor(50480, 50482)
+	recipe:AddVendor(16624, 17512, 44583, 50480, 50482, 52584, 52588, 52644, 52658)
 
 	-- Chaotic Shadowspirit Diamond -- 73465
 	recipe = AddRecipe(73465, V.CATA, Q.RARE)
 	recipe:SetRecipeItemID(52434)
 	recipe:SetSkillLevels(490, 490, 515, 520, 525)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	recipe:AddVendor(50480, 50482)
+	recipe:AddVendor(16624, 17512, 44583, 50480, 50482, 52584, 52588, 52644, 52658)
 
 	-- Bracing Shadowspirit Diamond -- 73466
 	recipe = AddRecipe(73466, V.CATA, Q.RARE)
 	recipe:SetRecipeItemID(52435)
 	recipe:SetSkillLevels(490, 490, 515, 520, 525)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	recipe:AddVendor(50480, 50482)
+	recipe:AddVendor(16624, 17512, 44583, 50480, 50482, 52584, 52588, 52644, 52658)
 
 	-- Eternal Shadowspirit Diamond -- 73467
 	recipe = AddRecipe(73467, V.CATA, Q.RARE)
 	recipe:SetRecipeItemID(52436)
 	recipe:SetSkillLevels(490, 490, 515, 520, 525)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	recipe:AddVendor(50480, 50482)
+	recipe:AddVendor(16624, 17512, 44583, 50480, 50482, 52584, 52588, 52644, 52658)
 
 	-- Austere Shadowspirit Diamond -- 73468
 	recipe = AddRecipe(73468, V.CATA, Q.RARE)
 	recipe:SetRecipeItemID(52437)
 	recipe:SetSkillLevels(490, 490, 515, 520, 525)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	recipe:AddVendor(50480, 50482)
+	recipe:AddVendor(16624, 17512, 44583, 50480, 50482, 52584, 52588, 52644, 52658)
 
 	-- Effulgent Shadowspirit Diamond -- 73469
 	recipe = AddRecipe(73469, V.CATA, Q.RARE)
 	recipe:SetRecipeItemID(52438)
 	recipe:SetSkillLevels(490, 490, 515, 520, 525)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	recipe:AddVendor(50480, 50482)
+	recipe:AddVendor(16624, 17512, 44583, 50480, 50482, 52584, 52588, 52644, 52658)
 
 	-- Ember Shadowspirit Diamond -- 73470
 	recipe = AddRecipe(73470, V.CATA, Q.RARE)
 	recipe:SetRecipeItemID(52439)
 	recipe:SetSkillLevels(490, 490, 515, 520, 525)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	recipe:AddVendor(50480, 50482)
+	recipe:AddVendor(16624, 17512, 44583, 50480, 50482, 52584, 52588, 52644, 52658)
 
 	-- Revitalizing Shadowspirit Diamond -- 73471
 	recipe = AddRecipe(73471, V.CATA, Q.RARE)
 	recipe:SetRecipeItemID(52440)
 	recipe:SetSkillLevels(490, 490, 515, 520, 525)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	recipe:AddVendor(50480, 50482)
+	recipe:AddVendor(16624, 17512, 44583, 50480, 50482, 52584, 52588, 52644, 52658)
 
 	-- Destructive Shadowspirit Diamond -- 73472
 	recipe = AddRecipe(73472, V.CATA, Q.RARE)
 	recipe:SetRecipeItemID(52441)
 	recipe:SetSkillLevels(490, 490, 515, 520, 525)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	recipe:AddVendor(50480, 50482)
+	recipe:AddVendor(16624, 17512, 44583, 50480, 50482, 52584, 52588, 52644, 52658)
 
 	-- Powerful Shadowspirit Diamond -- 73473
 	recipe = AddRecipe(73473, V.CATA, Q.RARE)
 	recipe:SetRecipeItemID(52442)
 	recipe:SetSkillLevels(490, 490, 515, 520, 525)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	recipe:AddVendor(50480, 50482)
+	recipe:AddVendor(16624, 17512, 44583, 50480, 50482, 52584, 52588, 52644, 52658)
 
 	-- Enigmatic Shadowspirit Diamond -- 73474
 	recipe = AddRecipe(73474, V.CATA, Q.RARE)
 	recipe:SetRecipeItemID(52443)
 	recipe:SetSkillLevels(490, 490, 515, 520, 525)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	recipe:AddVendor(50480, 50482)
+	recipe:AddVendor(16624, 17512, 44583, 50480, 50482, 52584, 52588, 52644, 52658)
 
 	-- Impassive Shadowspirit Diamond -- 73475
 	recipe = AddRecipe(73475, V.CATA, Q.RARE)
 	recipe:SetRecipeItemID(52444)
 	recipe:SetSkillLevels(490, 490, 515, 520, 525)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	recipe:AddVendor(50480, 50482)
+	recipe:AddVendor(16624, 17512, 44583, 50480, 50482, 52584, 52588, 52644, 52658)
 
 	-- Forlorn Shadowspirit Diamond -- 73476
 	recipe = AddRecipe(73476, V.CATA, Q.RARE)
 	recipe:SetRecipeItemID(52445)
 	recipe:SetSkillLevels(490, 490, 515, 520, 525)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	recipe:AddVendor(50480, 50482)
+	recipe:AddVendor(16624, 17512, 44583, 50480, 50482, 52584, 52588, 52644, 52658)
 
 	-- Fire Prism -- 73478
 	recipe = AddRecipe(73478, V.CATA, Q.COMMON)
@@ -4373,7 +4373,7 @@ function addon:InitJewelcrafting()
 	recipe:SetCraftedItemID(52318)
 	recipe:SetSkillLevels(525, 525, 525, 525, 525)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	recipe:AddVendor(50480, 50482)
+	recipe:AddVendor(16624, 17512, 44583, 50480, 50482, 52584, 52588, 52644, 52658)
 
 	-- Ring of Warring Elements -- 73502
 	recipe = AddRecipe(73502, V.CATA, Q.EPIC)
@@ -4381,7 +4381,7 @@ function addon:InitJewelcrafting()
 	recipe:SetCraftedItemID(52319)
 	recipe:SetSkillLevels(525, 525, 525, 525, 525)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	recipe:AddVendor(50480, 50482)
+	recipe:AddVendor(16624, 17512, 44583, 50480, 50482, 52584, 52588, 52644, 52658)
 
 	-- Elementium Moebius Band -- 73503
 	recipe = AddRecipe(73503, V.CATA, Q.EPIC)
@@ -4389,7 +4389,7 @@ function addon:InitJewelcrafting()
 	recipe:SetCraftedItemID(52320)
 	recipe:SetSkillLevels(525, 525, 525, 525, 525)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	recipe:AddVendor(50480, 50482)
+	recipe:AddVendor(16624, 17512, 44583, 50480, 50482, 52584, 52588, 52644, 52658)
 
 	-- Entwined Elementium Choker -- 73504
 	recipe = AddRecipe(73504, V.CATA, Q.EPIC)
@@ -4397,7 +4397,7 @@ function addon:InitJewelcrafting()
 	recipe:SetCraftedItemID(52321)
 	recipe:SetSkillLevels(525, 525, 525, 525, 525)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	recipe:AddVendor(50480, 50482)
+	recipe:AddVendor(16624, 17512, 44583, 50480, 50482, 52584, 52588, 52644, 52658)
 
 	-- Eye of Many Deaths -- 73505
 	recipe = AddRecipe(73505, V.CATA, Q.EPIC)
@@ -4405,7 +4405,7 @@ function addon:InitJewelcrafting()
 	recipe:SetCraftedItemID(52322)
 	recipe:SetSkillLevels(525, 525, 525, 525, 525)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	recipe:AddVendor(50480, 50482)
+	recipe:AddVendor(16624, 17512, 44583, 50480, 50482, 52584, 52588, 52644, 52658)
 
 	-- Elementium Guardian -- 73506
 	recipe = AddRecipe(73506, V.CATA, Q.EPIC)
@@ -4413,7 +4413,7 @@ function addon:InitJewelcrafting()
 	recipe:SetCraftedItemID(52323)
 	recipe:SetSkillLevels(525, 525, 525, 525, 525)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	recipe:AddVendor(50480, 50482)
+	recipe:AddVendor(16624, 17512, 44583, 50480, 50482, 52584, 52588, 52644, 52658)
 
 	-- Elementium Destroyer's Ring -- 73520
 	recipe = AddRecipe(73520, V.CATA, Q.EPIC)
@@ -4421,7 +4421,7 @@ function addon:InitJewelcrafting()
 	recipe:SetCraftedItemID(52348)
 	recipe:SetSkillLevels(525, 525, 525, 525, 525)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	recipe:AddVendor(50480, 50482)
+	recipe:AddVendor(16624, 17512, 44583, 50480, 50482, 52584, 52588, 52644, 52658)
 
 	-- Brazen Elementium Medallion -- 73521
 	recipe = AddRecipe(73521, V.CATA, Q.EPIC)
@@ -4429,7 +4429,7 @@ function addon:InitJewelcrafting()
 	recipe:SetCraftedItemID(52350)
 	recipe:SetSkillLevels(525, 525, 525, 525, 525)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	recipe:AddVendor(50480, 50482)
+	recipe:AddVendor(16624, 17512, 44583, 50480, 50482, 52584, 52588, 52644, 52658)
 
 	-- Carnelian Spikes -- 73620
 	recipe = AddRecipe(73620, V.CATA, Q.COMMON)
@@ -4471,21 +4471,21 @@ function addon:InitJewelcrafting()
 	recipe:SetRecipeItemID(68359)
 	recipe:SetSkillLevels(465, 465, 500, 507, 515)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	recipe:AddVendor(50480, 50482)
+	recipe:AddVendor(16624, 17512, 44583, 50480, 50482, 52584, 52588, 52644, 52658)
 
 	-- Lucent Ember Topaz -- 95755
 	recipe = AddRecipe(95755, V.CATA, Q.RARE)
 	recipe:SetRecipeItemID(68360)
 	recipe:SetSkillLevels(465, 465, 500, 507, 515)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	recipe:AddVendor(50480, 50482)
+	recipe:AddVendor(16624, 17512, 44583, 50480, 50482, 52584, 52588, 52644, 52658)
 
 	-- Resplendent Ember Topaz -- 95756
 	recipe = AddRecipe(95756, V.CATA, Q.RARE)
 	recipe:SetRecipeItemID(68361)
 	recipe:SetSkillLevels(465, 465, 500, 507, 515)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	recipe:AddVendor(50480, 50482)
+	recipe:AddVendor(16624, 17512, 44583, 50480, 50482, 52584, 52588, 52644, 52658)
 
 	-- Vivid Dream Emerald -- 96226
 	recipe = AddRecipe(96226, V.CATA, Q.RARE)
@@ -4493,7 +4493,7 @@ function addon:InitJewelcrafting()
 	recipe:SetCraftedItemID(68741)
 	recipe:SetSkillLevels(465, 465, 500, 507, 515)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	recipe:AddVendor(50480, 50482)
+	recipe:AddVendor(16624, 17512, 44583, 50480, 50482, 52584, 52588, 52644, 52658)
 
 	-- Agile Shadowspirit Diamond -- 96255
 	recipe = AddRecipe(96255, V.CATA, Q.RARE)
@@ -4522,7 +4522,7 @@ function addon:InitJewelcrafting()
 	recipe:SetCraftedItemID(69852)
 	recipe:SetSkillLevels(525, 525, 525, 525, 525)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	recipe:AddVendor(50480, 50482)
+	recipe:AddVendor(16624, 17512, 44583, 50480, 50482, 52584, 52588, 52644, 52658)
 
 	-- Bloodthirsty Sapphire Ring -- 99539
 	recipe = AddRecipe(99539, V.CATA, Q.COMMON)

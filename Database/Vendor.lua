@@ -252,7 +252,7 @@ function addon:InitVendor()
 	AddVendor(16782,	L["Yatheon"],				BZ["Silvermoon City"],			75.6, 40.7, "Horde") -- COMPLETELY UPDATED
 	AddVendor(16826,	L["Sid Limbardi"],			BZ["Hellfire Peninsula"],		54.3, 63.6, "Alliance")
 	AddVendor(17246,	L["\"Cookie\" McWeaksauce"],		BZ["Azuremyst Isle"],			46.7, 70.5, "Alliance")
-	AddVendor(17512,	L["Arred"],				BZ["The Exodar"],			45.0, 26.0, "Alliance")
+	AddVendor(17512,	L["Arred"],				BZ["The Exodar"],			45.9, 24.9, "Alliance") -- COMPLETELY UPDATED
 	AddVendor(17518,	L["Ythyar"],				BZ["Karazhan"],				   0,	 0, "Neutral")
 	AddVendor(17585,	L["Quartermaster Urgronn"],		BZ["Hellfire Peninsula"],		54.9, 37.9, "Horde")
 	AddVendor(17657,	L["Logistics Officer Ulrike"],		BZ["Hellfire Peninsula"],		56.7, 62.6, "Alliance")
@@ -376,6 +376,7 @@ function addon:InitVendor()
 	AddVendor(40226,	L["Pratt McGrubben"],			BZ["Feralas"],				45.4, 41.2, "Alliance")
 	AddVendor(40572,	L["Haughty Modiste"],			BZ["Tanaris"],				50.7, 28.6, "Neutral") -- COMPLETELY UPDATED
 	AddVendor(40589,	L["Dirge Quikcleave"],			BZ["Tanaris"],				52.6, 29.1, "Neutral") -- COMPLETELY UPDATED
+	AddVendor(44583,	L["Terrance Denman"],			BZ["Stormwind City"], 			63.2, 61.7, "Alliance") -- COMPLETELY UPDATED	
 	AddVendor(48060,	L["\"Chef\" Overheat"],			BZ["Badlands"],				65.1, 39.1, "Neutral") -- COMPLETELY UPDATED
 	AddVendor(49701,	L["Bario Matalli"],			BZ["Stormwind City"], 			50.4, 71.9, "Alliance") -- COMPLETELY UPDATED
 	AddVendor(49703,	L["Casandra Downs"],			BZ["Twilight Highlands"],		78.6, 76.2, "Alliance")
@@ -390,7 +391,11 @@ function addon:InitVendor()
 	AddVendor(50386,	L["Sal Ferraga"],			BZ["Twilight Highlands"],		78.6, 76.9, "Alliance")
 	AddVendor(50433,	L["Aristaleon Sunweaver"],		BZ["Twilight Highlands"],		75.2, 50.1, "Horde")
 	AddVendor(50480,	L["Isabel Jones"],			BZ["Stormwind City"],			63.7, 61.3, "Alliance") -- COMPLETELY UPDATED
-	AddVendor(50482,	L["Marith Lazuria"],			BZ["Orgrimmar"],			72.5, 36.2, "Horde")
+	AddVendor(50482,	L["Marith Lazuria"],			BZ["Orgrimmar"],			72.5, 34.4, "Horde") -- COMPLETELY UPDATED
+	AddVendor(52584,	L["Laida Gembold"],			BZ["Ironforge"],			50.6, 27.5, "Alliance") -- COMPLETELY UPDATED
+	AddVendor(52588,	L["Sara Lanner"],			BZ["Undercity"],			56.7, 36.9, "Horde") -- COMPLETELY UPDATED
+	AddVendor(52644,	L["Tarien Silverdew"],			BZ["Darnassus"],			54.4, 30.7, "Alliance") -- COMPLETELY UPDATED
+	AddVendor(52658,	L["Paku Cloudchaser"],			BZ["Thunder Bluff"],			34.7, 53.5, "Horde") -- COMPLETELY UPDATED
 	AddVendor(53214,	L["Damek Bloombeard"],			BZ["Hyjal"],				47.0, 90.2, "Neutral")
 	AddVendor(53881,	L["Ayla Shadowstorm"],			BZ["Hyjal"],				72.5, 36.2, "Neutral")
 	AddVendor(54232,	L["Mrs. Gant"],				BZ["The Cape of Stranglethorn"],	42.6, 72.8, "Neutral") -- COMPLETLY UPDATED
