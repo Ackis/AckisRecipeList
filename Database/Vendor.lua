@@ -170,7 +170,7 @@ function addon:InitVendor()
 	AddVendor(7733,		L["Innkeeper Fizzgrimble"],		BZ["Tanaris"],				52.6, 27.0, "Neutral") -- COMPLETELY UPDATED
 	AddVendor(7854,		L["Jangdor Swiftstrider"],		BZ["Feralas"],				52.8, 47.1, "Horde") -- COMPLETELY UPDATED
 	AddVendor(7940,		L["Darnall"],				BZ["Moonglade"],			51.6, 33.3, "Neutral")
-	AddVendor(7947,		L["Vivianna"],				BZ["Feralas"],				31.3, 43.5, "Alliance")
+	AddVendor(7947,		L["Vivianna"],				BZ["Feralas"],				46.2, 41.6, "Alliance") -- NO CHARACTER HIGH ENOUGH LEVEL FOR ME TO SCAN THIS NPC
 	AddVendor(8131,		L["Blizrik Buckshot"],			BZ["Tanaris"],				50.7, 28.5, "Neutral") -- COMPLETELY UPDATED
 	AddVendor(8145,		L["Sheendra Tallgrass"],		BZ["Feralas"],				74.5, 42.8, "Horde")
 	AddVendor(8150,		L["Janet Hommers"],			BZ["Desolace"],				66.2,  6.7, "Alliance")
