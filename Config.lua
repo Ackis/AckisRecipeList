@@ -612,6 +612,10 @@ local function GetDisplayOptions()
 								  end,
 							set	= function(info, v)
 									  addon.db.profile.frameopts.uiscale = v
+
+									  if private.InitializeFrame then
+										  private.InitializeFrame()
+									  end
 									  addon.Frame:SetScale(v)
 								  end,
 						},
