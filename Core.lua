@@ -967,12 +967,14 @@ do
 		local recipe_list = private.recipe_list
 		local recipes_found = 0
 		local SPELL_OVERWRITE_MAP = private.SPELL_OVERWRITE_MAP
-
-		for spell_id, recipe in pairs(private.profession_recipe_list[current_prof]) do
-			recipe:RemoveState("KNOWN")
-			recipe:RemoveState("RELEVANT")
-			recipe:RemoveState("VISIBLE")
-			recipe:RemoveState("LINKED")
+		
+		if private.profession_recipe_list[current_prof] then
+			for spell_id, recipe in pairs(private.profession_recipe_list[current_prof]) do
+				recipe:RemoveState("KNOWN")
+				recipe:RemoveState("RELEVANT")
+				recipe:RemoveState("VISIBLE")
+				recipe:RemoveState("LINKED")
+			end
 		end
 
 		for index = 1, _G.GetNumTradeSkills() do
