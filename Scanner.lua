@@ -710,7 +710,13 @@ do
 		vendor_x = ("%.2f"):format(vendor_x * 100)
 		vendor_y = ("%.2f"):format(vendor_y * 100)
 
-		if not vendor_entry then
+		if vendor_entry then
+			if vendor_entry.coord_x ~= vendor_x or vendor_entry.coord_y ~= vendor_y then
+				table.insert(output, ("%s appears to have different coordinates (%s, %s) than those in the database (%s, %s)."):format(vendor_name, vendor_entry.coord_x, vendor_entry.coord_y, vendor_x, vendor_y))
+				vendor_entry.coord_x = vendor_x
+				vendor_entry.coord_y = vendor_y
+			end
+		else
 			table.insert(output, ("%s was not found in the vendor list"):format(vendor_name))
 
 			if not L[vendor_name] then
@@ -718,12 +724,6 @@ do
 			end
 			_G.SetMapToCurrentZone() -- Make sure were are looking at the right zone
 			private:AddListEntry(private.vendor_list, vendor_id, L[vendor_name], _G.GetRealZoneText(), vendor_x, vendor_y, _G.UnitFactionGroup("target") or "Neutral")
-		end
-
-		if vendor_entry and vendor_entry.coord_x ~= vendor_x or vendor_entry.coord_y ~= vendor_y then
-			table.insert(output, ("%s appears to have different coordinates (%s, %s) than those in the database (%s, %s)."):format(vendor_name, vendor_entry.coord_x, vendor_entry.coord_y, vendor_x, vendor_y))
-			vendor_entry.coord_x = vendor_x
-			vendor_entry.coord_y = vendor_y
 		end
 
 		if matching_vendor and vendor_entry and vendor_entry.item_list then
