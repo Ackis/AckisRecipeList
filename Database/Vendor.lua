@@ -104,7 +104,7 @@ function addon:InitVendor()
 	AddVendor(3346,		L["Kithas"],				BZ["Orgrimmar"],			53.3, 48.9, "Horde") -- COMPLETELY UPDATED
 	AddVendor(3348,		L["Kor'geld"],				BZ["Orgrimmar"],			55.23, 45.83, "Horde") -- UPDATED
 	AddVendor(3356,		L["Sumi"],				BZ["Orgrimmar"],			75.8, 35.2, "Horde") -- COMPLETELY UPDATED
-	AddVendor(3364,		L["Borya"],				BZ["Orgrimmar"],			63.0, 51.2, "Horde")
+	AddVendor(3364,		L["Borya"],				BZ["Orgrimmar"],			60.7, 58.6, "Horde") -- COMPLETELY UPDATED
 	AddVendor(3366,		L["Tamar"],				BZ["Orgrimmar"],			60.3, 54.3, "Horde") -- COMPLETELY UPDATED
 	AddVendor(3367,		L["Felika"],				BZ["Orgrimmar"],			60.5, 50.7, "Horde")
 	AddVendor(3400,		L["Xen'to"],				BZ["Orgrimmar"],			32.6, 68.6, "Horde") -- UPDATED
