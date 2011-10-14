@@ -376,7 +376,8 @@ function addon:InitVendor()
 	AddVendor(40226,	L["Pratt McGrubben"],			BZ["Feralas"],				45.4, 41.2, "Alliance")
 	AddVendor(40572,	L["Haughty Modiste"],			BZ["Tanaris"],				50.7, 28.6, "Neutral") -- COMPLETELY UPDATED
 	AddVendor(40589,	L["Dirge Quikcleave"],			BZ["Tanaris"],				52.6, 29.1, "Neutral") -- COMPLETELY UPDATED
-	AddVendor(44583,	L["Terrance Denman"],			BZ["Stormwind City"], 			63.2, 61.7, "Alliance") -- COMPLETELY UPDATED	
+	AddVendor(44583,	L["Terrance Denman"],			BZ["Stormwind City"], 			63.2, 61.7, "Alliance") -- COMPLETELY UPDATED
+	AddVendor(45558,	L["Lizna Goldweaver"],				BZ["Orgrimmar"],			41.3, 79.2, "Horde") -- COMPLETELY UPDATED
 	AddVendor(48060,	L["\"Chef\" Overheat"],			BZ["Badlands"],				65.1, 39.1, "Neutral") -- COMPLETELY UPDATED
 	AddVendor(49701,	L["Bario Matalli"],			BZ["Stormwind City"], 			50.4, 71.9, "Alliance") -- COMPLETELY UPDATED
 	AddVendor(49703,	L["Casandra Downs"],			BZ["Twilight Highlands"],		78.6, 76.2, "Alliance")
