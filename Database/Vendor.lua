@@ -144,6 +144,7 @@ function addon:InitVendor()
 	AddVendor(4879,		L["Ogg'marr"],				BZ["Dustwallow Marsh"],			36.7, 31.0, "Horde")
 	AddVendor(4897,		L["Helenia Olden"],			BZ["Dustwallow Marsh"],			66.4, 51.5, "Alliance")
 	AddVendor(5128,		L["Bombus Finespindle"],		BZ["Ironforge"],			39.6, 34.5, "Alliance") -- COMPLETELY UPDATED
+	AddVendor(5154,		L["Poranna Snowbraid"],		BZ["Ironforge"],			43.0, 28.3, "Alliance") -- COMPLETELY UPDATED
 	AddVendor(5158,		L["Tilli Thistlefuzz"],			BZ["Ironforge"],			60.7, 44.2, "Alliance")
 	AddVendor(5160,		L["Emrul Riknussun"],			BZ["Ironforge"],			59.9, 37.7, "Alliance")
 	AddVendor(5162,		L["Tansy Puddlefizz"],			BZ["Ironforge"],			48.0,  6.3, "Alliance")
@@ -248,7 +249,7 @@ function addon:InitVendor()
 	AddVendor(16718,	L["Phea"],				BZ["The Exodar"],			54.7, 26.5, "Alliance")
 	AddVendor(16722,	L["Egomis"],				BZ["The Exodar"],			39.1, 39.4, "Alliance")
 	AddVendor(16748,	L["Haferet"],				BZ["The Exodar"],			66.6, 73.7, "Alliance") -- COMPLETELY UPDATED
-	AddVendor(16767,	L["Neii"],				BZ["The Exodar"],			64.5, 68.5, "Alliance")
+	AddVendor(16767,	L["Neii"],				BZ["The Exodar"],			64.5, 68.5, "Alliance") -- COMPLETELY UPDATED
 	AddVendor(16782,	L["Yatheon"],				BZ["Silvermoon City"],			75.6, 40.7, "Horde") -- COMPLETELY UPDATED
 	AddVendor(16826,	L["Sid Limbardi"],			BZ["Hellfire Peninsula"],		54.3, 63.6, "Alliance")
 	AddVendor(17246,	L["\"Cookie\" McWeaksauce"],		BZ["Azuremyst Isle"],			46.7, 70.5, "Alliance")
@@ -390,7 +391,7 @@ function addon:InitVendor()
 	AddVendor(50381,	L["Misty Merriweather"],		BZ["Twilight Highlands"],		78.8, 76.2, "Alliance")
 	AddVendor(50382,	L["Brundall Chiselgut"],		BZ["Twilight Highlands"],		79.1, 76.5, "Alliance")
 	AddVendor(50386,	L["Sal Ferraga"],			BZ["Twilight Highlands"],		78.6, 76.9, "Alliance")
-	AddVendor(50433,	L["Aristaleon Sunweaver"],		BZ["Twilight Highlands"],		75.2, 50.1, "Horde")
+	AddVendor(50433,	L["Aristaleon Sunweaver"],		BZ["Twilight Highlands"],		75.2, 50.1, "Horde") -- COMPLETELY UPDATED
 	AddVendor(50480,	L["Isabel Jones"],			BZ["Stormwind City"],			63.7, 61.3, "Alliance") -- COMPLETELY UPDATED
 	AddVendor(50482,	L["Marith Lazuria"],			BZ["Orgrimmar"],			72.5, 34.4, "Horde") -- COMPLETELY UPDATED
 	AddVendor(52584,	L["Laida Gembold"],			BZ["Ironforge"],			50.6, 27.5, "Alliance") -- COMPLETELY UPDATED
