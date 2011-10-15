@@ -146,7 +146,7 @@ function addon:InitVendor()
 	AddVendor(5128,		L["Bombus Finespindle"],		BZ["Ironforge"],			39.6, 34.5, "Alliance") -- COMPLETELY UPDATED
 	AddVendor(5154,		L["Poranna Snowbraid"],		BZ["Ironforge"],			43.0, 28.3, "Alliance") -- COMPLETELY UPDATED
 	AddVendor(5158,		L["Tilli Thistlefuzz"],			BZ["Ironforge"],			60.7, 44.2, "Alliance")
-	AddVendor(5160,		L["Emrul Riknussun"],			BZ["Ironforge"],			59.9, 37.7, "Alliance")
+	AddVendor(5160,		L["Emrul Riknussun"],			BZ["Ironforge"],			59.9, 37.7, "Alliance") -- COMPLETELY UPDATED
 	AddVendor(5162,		L["Tansy Puddlefizz"],			BZ["Ironforge"],			48.0,  6.3, "Alliance")
 	AddVendor(5163,		L["Burbik Gearspanner"],		BZ["Ironforge"],			46.5, 27.1, "Alliance")
 	AddVendor(5175,		L["Gearcutter Cogspinner"],		BZ["Ironforge"],			68.0, 43.1, "Alliance")
@@ -382,7 +382,7 @@ function addon:InitVendor()
 	AddVendor(48060,	L["\"Chef\" Overheat"],			BZ["Badlands"],				65.1, 39.1, "Neutral") -- COMPLETELY UPDATED
 	AddVendor(49701,	L["Bario Matalli"],			BZ["Stormwind City"], 			50.4, 71.9, "Alliance") -- COMPLETELY UPDATED
 	AddVendor(49703,	L["Casandra Downs"],			BZ["Twilight Highlands"],		78.6, 76.2, "Alliance")
-	AddVendor(49737,	L["Shazdar"],				BZ["Orgrimmar"],			57.2, 62.0, "Horde")
+	AddVendor(49737,	L["Shazdar"],				BZ["Orgrimmar"],			56.8, 62.3, "Horde") -- COMPLETELY UPDATED
 	AddVendor(50134,	L["Senthii"],				BZ["Twilight Highlands"],		78.7, 77.0, "Alliance")
 	AddVendor(50146,	L["Agatian Fallanos"],			BZ["Twilight Highlands"],		76.7, 49.5, "Horde")
 	AddVendor(50172,	L["Threm Blackscalp"],			BZ["Twilight Highlands"],		75.2, 50.1, "Horde")
