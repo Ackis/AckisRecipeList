@@ -3419,7 +3419,7 @@ function addon:InitTailoring()
 	recipe:SetCraftedItemID(54441)
 	recipe:SetSkillLevels(500, 500, 505, 510, 515)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	recipe:AddVendor(3364, 45558, 50386, 50433)
+	recipe:AddVendor(1347, 3005, 3364, 4168, 4577, 5154, 16638, 16767, 45558, 50386, 50433)
 
 	-- Bloodthirsty Fireweave Bracers -- 75290
 	recipe = AddRecipe(75290, V.CATA, Q.COMMON)
@@ -3483,7 +3483,7 @@ function addon:InitTailoring()
 	recipe:SetCraftedItemID(54504)
 	recipe:SetSkillLevels(525, 525, 525, 530, 535)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	recipe:AddVendor(3364, 45558, 50386, 50433)
+	recipe:AddVendor(1347, 3005, 3364, 4168, 4577, 5154, 16638, 16767, 45558, 50386, 50433)
 
 	-- Dreamless Belt -- 75299
 	recipe = AddRecipe(75299, V.CATA, Q.RARE)
@@ -3491,7 +3491,7 @@ function addon:InitTailoring()
 	recipe:SetCraftedItemID(54503)
 	recipe:SetSkillLevels(525, 525, 525, 530, 535)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	recipe:AddVendor(3364, 45558, 50386, 50433)
+	recipe:AddVendor(1347, 3005, 3364, 4168, 4577, 5154, 16638, 16767, 45558, 50386, 50433)
 
 	-- Breeches of Mended Nightmares -- 75300
 	recipe = AddRecipe(75300, V.CATA, Q.RARE)
@@ -3499,7 +3499,7 @@ function addon:InitTailoring()
 	recipe:SetCraftedItemID(54505)
 	recipe:SetSkillLevels(525, 525, 525, 530, 535)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	recipe:AddVendor(3364, 45558, 50386, 50433)
+	recipe:AddVendor(1347, 3005, 3364, 4168, 4577, 5154, 16638, 16767, 45558, 50386, 50433)
 
 	-- Flame-Ascended Pantaloons -- 75301
 	recipe = AddRecipe(75301, V.CATA, Q.RARE)
@@ -3507,7 +3507,7 @@ function addon:InitTailoring()
 	recipe:SetCraftedItemID(54506)
 	recipe:SetSkillLevels(525, 525, 525, 530, 535)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	recipe:AddVendor(3364, 45558, 50386, 50433)
+	recipe:AddVendor(1347, 3005, 3364, 4168, 4577, 5154, 16638, 16767, 45558, 50386, 50433)
 
 	-- Bloodthirsty Fireweave Pants -- 75302
 	recipe = AddRecipe(75302, V.CATA, Q.RARE)
@@ -3515,7 +3515,7 @@ function addon:InitTailoring()
 	recipe:SetCraftedItemID(54491)
 	recipe:SetSkillLevels(525, 525, 525, 530, 535)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	recipe:AddVendor(3364, 45558, 50386, 50433)
+	recipe:AddVendor(1347, 3005, 3364, 4168, 4577, 5154, 16638, 16767, 45558, 50386, 50433)
 
 	-- Bloodthirsty Fireweave Robe -- 75303
 	recipe = AddRecipe(75303, V.CATA, Q.RARE)
@@ -3523,7 +3523,7 @@ function addon:InitTailoring()
 	recipe:SetCraftedItemID(54494)
 	recipe:SetSkillLevels(525, 525, 525, 530, 535)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	recipe:AddVendor(3364, 45558, 50386, 50433)
+	recipe:AddVendor(1347, 3005, 3364, 4168, 4577, 5154, 16638, 16767, 45558, 50386, 50433)
 
 	-- Bloodthirsty Fireweave Cowl -- 75304
 	recipe = AddRecipe(75304, V.CATA, Q.RARE)
@@ -3531,7 +3531,7 @@ function addon:InitTailoring()
 	recipe:SetCraftedItemID(54493)
 	recipe:SetSkillLevels(525, 525, 525, 530, 535)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	recipe:AddVendor(3364, 45558, 50386, 50433)
+	recipe:AddVendor(1347, 3005, 3364, 4168, 4577, 5154, 16638, 16767, 45558, 50386, 50433)
 
 	-- Bloodthirsty Embersilk Robe -- 75305
 	recipe = AddRecipe(75305, V.CATA, Q.RARE)
@@ -3539,7 +3539,7 @@ function addon:InitTailoring()
 	recipe:SetCraftedItemID(54495)
 	recipe:SetSkillLevels(525, 525, 525, 530, 535)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	recipe:AddVendor(3364, 45558, 50386, 50433)
+	recipe:AddVendor(1347, 3005, 3364, 4168, 4577, 5154, 16638, 16767, 45558, 50386, 50433)
 
 	-- Bloodthirsty Embersilk Cowl -- 75306
 	recipe = AddRecipe(75306, V.CATA, Q.RARE)
@@ -3547,7 +3547,7 @@ function addon:InitTailoring()
 	recipe:SetCraftedItemID(54496)
 	recipe:SetSkillLevels(525, 525, 525, 530, 535)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	recipe:AddVendor(3364, 45558, 50386, 50433)
+	recipe:AddVendor(1347, 3005, 3364, 4168, 4577, 5154, 16638, 16767, 45558, 50386, 50433)
 
 	-- Bloodthirsty Embersilk Pants -- 75307
 	recipe = AddRecipe(75307, V.CATA, Q.RARE)
@@ -3555,7 +3555,7 @@ function addon:InitTailoring()
 	recipe:SetCraftedItemID(54498)
 	recipe:SetSkillLevels(525, 525, 525, 530, 535)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	recipe:AddVendor(3364, 45558, 50386, 50433)
+	recipe:AddVendor(1347, 3005, 3364, 4168, 4577, 5154, 16638, 16767, 45558, 50386, 50433)
 
 	-- Illusionary Bag -- 75308
 	recipe = AddRecipe(75308, V.CATA, Q.RARE)
@@ -3563,7 +3563,7 @@ function addon:InitTailoring()
 	recipe:SetCraftedItemID(54444)
 	recipe:SetSkillLevels(525, 525, 525, 530, 535)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	recipe:AddVendor(3364, 45558, 50386, 50433)
+	recipe:AddVendor(1347, 3005, 3364, 4168, 4577, 5154, 16638, 16767, 45558, 50386, 50433)
 
 	-- Powerful Enchanted Spellthread -- 75309
 	recipe = AddRecipe(75309, V.CATA, Q.RARE)
@@ -3571,7 +3571,7 @@ function addon:InitTailoring()
 	recipe:SetCraftedItemID(54448)
 	recipe:SetSkillLevels(525, 525, 525, 530, 535)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	recipe:AddVendor(3364, 45558, 50386, 50433)
+	recipe:AddVendor(1347, 3005, 3364, 4168, 4577, 5154, 16638, 16767, 45558, 50386, 50433)
 
 	-- Powerful Ghostly Spellthread -- 75310
 	recipe = AddRecipe(75310, V.CATA, Q.RARE)
@@ -3579,7 +3579,7 @@ function addon:InitTailoring()
 	recipe:SetCraftedItemID(54450)
 	recipe:SetSkillLevels(525, 525, 525, 530, 535)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	recipe:AddVendor(3364, 45558, 50386, 50433)
+	recipe:AddVendor(1347, 3005, 3364, 4168, 4577, 5154, 16638, 16767, 45558, 50386, 50433)
 
 	-- Frosty Flying Carpet -- 75597
 	recipe = AddRecipe(75597, V.WOTLK, Q.RARE)
