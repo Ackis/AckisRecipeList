@@ -812,6 +812,9 @@ do
 				if self.Frame and self.Frame:IsVisible() then
 					self.Frame:Hide()
 				else
+					if private.InitializeFrame then
+						private.InitializeFrame()
+					end
 					self:Scan(false, false)
 				end
 			end

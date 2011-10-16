@@ -631,6 +631,10 @@ local function GetDisplayOptions()
 							set	= function(info, value)
 									  addon.db.profile.frameopts.small_list_font = value
 
+									  if private.InitializeFrame then
+										  private.InitializeFrame()
+									  end
+
 									  if addon.Frame:IsVisible() then
 										  addon:Scan()
 									  end
