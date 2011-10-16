@@ -887,6 +887,15 @@ do
 			return
 		end
 
+		if _G.TradeSkillFrame and _G.TradeSkillFrame:IsVisible() then
+			-- Clear the search box focus so the scan will have correct results.
+			local search_box = _G.TradeSkillFrameSearchBox
+			search_box:SetText("")
+			_G.TradeSkillSearch_OnTextChanged(search_box)
+			search_box:ClearFocus()
+			search_box:GetScript("OnEditFocusLost")(search_box)
+		end
+
 		if current_prof == private.PROFESSION_NAMES.RUNEFORGING then
 			prof_level = _G.UnitLevel("player")
 		end
