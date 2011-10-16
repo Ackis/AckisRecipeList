@@ -23,7 +23,7 @@ function private:InitializeTailoringTrainers()
 	self:AddTrainer(5153, "Jormund Stonebrow", "Ironforge", 43.2, 29, "Alliance")
 	self:AddTrainer(9584, "Jalane Ayrole", "Stormwind City", 40.4, 84.6, "Alliance") -- COMPLETELY UPDATED
 	self:AddTrainer(11052, "Timothy Worthington", "Dustwallow Marsh", 66.22, 51.7, "Alliance")
-	self:AddTrainer(11557, "Meilosh", "Felwood", 65.7, 2.9, "Horde")
+	self:AddTrainer(11557, "Meilosh", "Felwood", 65.7, 2.9, "Neutral")
 	self:AddTrainer(16366, "Sempstress Ambershine", "Eversong Woods", 37.4, 71.9, "Horde")
 	self:AddTrainer(16640, "Keelen Sheets", "Silvermoon City", 57, 50.1, "Horde")
 	self:AddTrainer(16729, "Refik", "The Exodar", 63, 67.9, "Alliance")
