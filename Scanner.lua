@@ -566,7 +566,7 @@ do
 	-------------------------------------------------------------------------------
 	--- Dumps the trainers for the specified recipe/profession
 	-------------------------------------------------------------------------------
-	local trainer_registry = {}
+	local source_registry = {}
 	local sorted_data = {}
 
 	local function ProfessionTrainerDump(prof_name)
@@ -591,14 +591,14 @@ do
 		end
 		SortRecipesByID()
 		table.wipe(output)
-		table.wipe(trainer_registry)
+		table.wipe(source_registry)
 		table.wipe(sorted_data)
 
 		for index, spell_id in ipairs(addon.sorted_recipes) do
-			private.recipe_list[spell_id]:DumpTrainers(trainer_registry)
+			private.recipe_list[spell_id]:DumpTrainers(source_registry)
 		end
 
-		for identifier in pairs(trainer_registry) do
+		for identifier in pairs(source_registry) do
 			table.insert(sorted_data, identifier)
 		end
 		table.sort(sorted_data)
