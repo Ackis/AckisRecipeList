@@ -41,19 +41,19 @@ local table = _G.table
 -------------------------------------------------------------------------------
 local FOLDER_NAME, private = ...
 
-local LibStub	= _G.LibStub
-local addon	= LibStub("AceAddon-3.0"):NewAddon(private.addon_name, "AceConsole-3.0", "AceEvent-3.0")
+local LibStub = _G.LibStub
+local addon = LibStub("AceAddon-3.0"):NewAddon(private.addon_name, "AceConsole-3.0", "AceEvent-3.0")
 _G.AckisRecipeList = addon
 
 --@alpha@
 _G.ARL = addon
 --@end-alpha@
 
-local L		= LibStub("AceLocale-3.0"):GetLocale(private.addon_name)
-local BFAC 	= LibStub("LibBabble-Faction-3.0"):GetLookupTable()
-local Toast	= LibStub("LibToast-1.0")
+local L = LibStub("AceLocale-3.0"):GetLocale(private.addon_name)
+local BFAC = LibStub("LibBabble-Faction-3.0"):GetLookupTable()
+local Toast = LibStub("LibToast-1.0")
 
-local debugger	= _G.tekDebug and _G.tekDebug:GetFrame(private.addon_name)
+local debugger = _G.tekDebug and _G.tekDebug:GetFrame(private.addon_name)
 
 private.build_num = select(2, _G.GetBuildInfo())
 
@@ -114,7 +114,7 @@ do
 		table.insert(output, ("\n%d found\n"):format(count))
 		self:DisplayTextDump(nil, nil, table.concat(output, "\n"))
 	end
-end	-- do
+end -- do
 
 -------------------------------------------------------------------------------
 -- Initialization functions
@@ -183,8 +183,8 @@ function addon:OnInitialize()
 			-- Sorting Options
 			-------------------------------------------------------------------------------
 			sorting = "Ascending",
-			current_tab = 3,		-- Name tab
-			skill_view = false,		-- Sort the recipes by skill level instead of name?
+			current_tab = 3, -- Name tab
+			skill_view = false, -- Sort the recipes by skill level instead of name?
 
 			-------------------------------------------------------------------------------
 			-- Display Options
@@ -468,10 +468,10 @@ function addon:OnInitialize()
 	end)
 end
 
----Function run when the addon is enabled.  Registers events and pre-loads certain variables.
+--- Function run when the addon is enabled.  Registers events and pre-loads certain variables.
 function addon:OnEnable()
-	self:RegisterEvent("TRADE_SKILL_SHOW")	-- Make addon respond to the tradeskill windows being shown
-	self:RegisterEvent("TRADE_SKILL_CLOSE")	-- Addon responds to tradeskill windows being closed.
+	self:RegisterEvent("TRADE_SKILL_SHOW") -- Make addon respond to the tradeskill windows being shown
+	self:RegisterEvent("TRADE_SKILL_CLOSE") -- Addon responds to tradeskill windows being closed.
 	self:RegisterEvent("TRADE_SKILL_UPDATE")
 
 	if addon.db.profile.scantrainers then
@@ -509,7 +509,7 @@ function addon:OnEnable()
 			[_G.GetSpellInfo(28678)] = 28678,
 			[_G.GetSpellInfo(28676)] = 28676,
 		}
-		]]--
+		]] --
 
 		--[[
 		local BlacksmithSpec = {
@@ -519,7 +519,7 @@ function addon:OnEnable()
 			[_G.GetSpellInfo(17039)] = 17039,	-- Master Swordsmith
 			[_G.GetSpellInfo(9787)] = 9787,		-- Weaponsmith
 		}
-		]]--
+		]] --
 
 		local EngineeringSpec = {
 			[_G.GetSpellInfo(20219)] = 20219, -- Gnomish
@@ -532,7 +532,7 @@ function addon:OnEnable()
 			[_G.GetSpellInfo(10659)] = 10659, -- Elemental
 			[_G.GetSpellInfo(10661)] = 10661, -- Tribal
 		}
-		]]--
+		]] --
 
 		--[[
 		local TailorSpec = {
@@ -540,7 +540,7 @@ function addon:OnEnable()
 			[_G.GetSpellInfo(26801)] = 26801, -- Shadoweave
 			[_G.GetSpellInfo(26798)] = 26798, -- Primal Mooncloth
 		}
-		]]--
+		]] --
 
 		SpecialtyTable = {
 			--[_G.GetSpellInfo(51304)] = AlchemySpec,
@@ -556,7 +556,7 @@ function addon:OnEnable()
 		for i in pairs(EngineeringSpec) do AllSpecialtiesTable[i] = true end
 		--for i in pairs(LeatherworkSpec) do AllSpecialtiesTable[i] = true end
 		--for i in pairs(TailorSpec) do AllSpecialtiesTable[i] = true end
-	end	-- do
+	end -- do
 end
 
 function addon:OnDisable()
@@ -922,7 +922,6 @@ do
 			elseif specialty and specialty[spell_name] then
 				player["Specialty"] = specialty[spell_name]
 			end
-
 		end
 
 		if self.InitializeLookups then
@@ -967,7 +966,7 @@ do
 		local recipe_list = private.recipe_list
 		local recipes_found = 0
 		local SPELL_OVERWRITE_MAP = private.SPELL_OVERWRITE_MAP
-		
+
 		if private.profession_recipe_list[current_prof] then
 			for spell_id, recipe in pairs(private.profession_recipe_list[current_prof]) do
 				recipe:RemoveState("KNOWN")
@@ -1065,18 +1064,18 @@ end
 do
 	local copy_frame = _G.CreateFrame("Frame", "ARLCopyFrame", _G.UIParent)
 	copy_frame:SetBackdrop({
-				       bgFile = [[Interface\DialogFrame\UI-DialogBox-Background]],
-				       edgeFile = [[Interface\DialogFrame\UI-DialogBox-Border]],
-				       tile = true,
-				       tileSize = 16,
-				       edgeSize = 16,
-				       insets = {
-					       left = 3,
-					       right = 3,
-					       top = 5,
-					       bottom = 3
-				       }
-			       })
+		bgFile = [[Interface\DialogFrame\UI-DialogBox-Background]],
+		edgeFile = [[Interface\DialogFrame\UI-DialogBox-Border]],
+		tile = true,
+		tileSize = 16,
+		edgeSize = 16,
+		insets = {
+			left = 3,
+			right = 3,
+			top = 5,
+			bottom = 3
+		}
+	})
 	copy_frame:SetBackdropColor(0, 0, 0, 1)
 	copy_frame:SetWidth(750)
 	copy_frame:SetHeight(400)
@@ -1119,7 +1118,7 @@ do
 			copy_frame:Show()
 		end
 	end
-end	-- do
+end -- do
 
 do
 	-------------------------------------------------------------------------------
@@ -1138,108 +1137,108 @@ do
 				local is_alliance = (private.Player.faction == "Alliance")
 
 				FILTER_NAMES = {
-					[1]	= BFAC["Alliance"],
-					[2]	= BFAC["Horde"],
-					[3]	= L["Trainer"],
-					[4]	= L["Vendor"],
-					[5]	= _G.INSTANCE,
-					[6]	= _G.RAID,
-					[7]	= _G.EVENTS_LABEL,
-					[8]	= L["Quest"],
-					[9]	= _G.PVP,
-					[10]	= L["World Drop"],
-					[11]	= L["Mob Drop"],
-					[12]	= L["Discovery"],
-					[13]	= L["Retired"],
-					[21]	= LC["DEATHKNIGHT"],
-					[22]	= LC["DRUID"],
-					[23]	= LC["HUNTER"],
-					[24]	= LC["MAGE"],
-					[25]	= LC["PALADIN"],
-					[26]	= LC["PRIEST"],
-					[27]	= LC["SHAMAN"],
-					[28]	= LC["ROGUE"],
-					[29]	= LC["WARLOCK"],
-					[30]	= LC["WARRIOR"],
-					[36]	= L["BOEFilter"],
-					[37]	= L["BOPFilter"],
-					[38]	= L["BOAFilter"],
-					[40]	= L["RecipeBOEFilter"],
-					[41]	= L["RecipeBOPFilter"],
-					[42]	= L["RecipeBOAFilter"],
-					[51]	= _G.MELEE,
-					[52]	= _G.TANK,
-					[53]	= _G.HEALER,
-					[54]	= _G.DAMAGER,
-					[56]	= L["Cloth"],
-					[57]	= L["Leather"],
-					[58]	= L["Mail"],
-					[59]	= L["Plate"],
-					[60]	= L["Cloak"],
-					[61]	= L["Trinket"],
-					[62]	= L["Ring"],
-					[63]	= L["Necklace"],
-					[64]	= L["Shield"],
-					[66]	= L["One Hand"],
-					[67]	= L["Two Hand"],
-					[68]	= L["Axe"],
-					[69]	= L["Sword"],
-					[70]	= L["Mace"],
-					[71]	= L["Polearm"],
-					[72]	= L["Dagger"],
-					[73]	= L["Staff"],
-					[74]	= L["Wand"],
-					[75]	= L["Thrown"],
-					[76]	= L["Bow"],
-					[77]	= L["Crossbow"],
-					[79]	= L["Fist"],
-					[80]	= L["Gun"],
-					[96]	= BFAC["Argent Dawn"],
-					[97]	= BFAC["Cenarion Circle"],
-					[98]	= BFAC["Thorium Brotherhood"],
-					[99]	= BFAC["Timbermaw Hold"],
-					[100]	= BFAC["Zandalar Tribe"],
-					[101]	= BFAC["The Aldor"],
-					[102]	= BFAC["Ashtongue Deathsworn"],
-					[103]	= BFAC["Cenarion Expedition"],
-					[104]	= (is_alliance and BFAC["Honor Hold"] or BFAC["Thrallmar"]),
-					[105]	= BFAC["The Consortium"],
-					[106]	= BFAC["Keepers of Time"],
-					[107]	= BFAC["Lower City"],
-					[108]	= (is_alliance and BFAC["Kurenai"] or BFAC["The Mag'har"]),
-					[109]	= BFAC["The Scale of the Sands"],
-					[110]	= BFAC["The Scryers"],
-					[111]	= BFAC["The Sha'tar"],
-					[112]	= BFAC["Shattered Sun Offensive"],
-					[113]	= BFAC["Sporeggar"],
-					[114]	= BFAC["The Violet Eye"],
-					[115]	= BFAC["Argent Crusade"],
-					[116]	= BFAC["Frenzyheart Tribe"],
-					[117]	= BFAC["Knights of the Ebon Blade"],
-					[118]	= BFAC["Kirin Tor"],
-					[119]	= BFAC["The Sons of Hodir"],
-					[120]	= BFAC["The Kalu'ak"],
-					[121]	= BFAC["The Oracles"],
-					[122]	= BFAC["The Wyrmrest Accord"],
-					[123]	= (is_alliance and BFAC["The Silver Covenant"] or BFAC["The Sunreavers"]),
-					[124]	= (is_alliance and BFAC["Explorers' League"] or BFAC["The Hand of Vengeance"]),
-					[125]	= (is_alliance and BFAC["Valiance Expedition"] or BFAC["Warsong Offensive"]),
-					[126]	= (is_alliance and BFAC["The Frostborn"] or BFAC["The Taunka"]),
-					[127]	= (is_alliance and BFAC["Alliance Vanguard"] or BFAC["Horde Expedition"]),
-					[128]	= BFAC["The Ashen Verdict"],
-					[129]	= (is_alliance and BFAC["Wildhammer Clan"] or BFAC["Dragonmaw Clan"]),
-					[130]	= (is_alliance and BFAC["Baradin's Wardens"] or BFAC["Hellscream's Reach"]),
-					[131]	= BFAC["Guardians of Hyjal"],
-					[132]	= BFAC["Ramkahen"],
-					[133]	= BFAC["The Earthen Ring"],
-					[134]	= BFAC["Therazane"],
+					[1] = BFAC["Alliance"],
+					[2] = BFAC["Horde"],
+					[3] = L["Trainer"],
+					[4] = L["Vendor"],
+					[5] = _G.INSTANCE,
+					[6] = _G.RAID,
+					[7] = _G.EVENTS_LABEL,
+					[8] = L["Quest"],
+					[9] = _G.PVP,
+					[10] = L["World Drop"],
+					[11] = L["Mob Drop"],
+					[12] = L["Discovery"],
+					[13] = L["Retired"],
+					[21] = LC["DEATHKNIGHT"],
+					[22] = LC["DRUID"],
+					[23] = LC["HUNTER"],
+					[24] = LC["MAGE"],
+					[25] = LC["PALADIN"],
+					[26] = LC["PRIEST"],
+					[27] = LC["SHAMAN"],
+					[28] = LC["ROGUE"],
+					[29] = LC["WARLOCK"],
+					[30] = LC["WARRIOR"],
+					[36] = L["BOEFilter"],
+					[37] = L["BOPFilter"],
+					[38] = L["BOAFilter"],
+					[40] = L["RecipeBOEFilter"],
+					[41] = L["RecipeBOPFilter"],
+					[42] = L["RecipeBOAFilter"],
+					[51] = _G.MELEE,
+					[52] = _G.TANK,
+					[53] = _G.HEALER,
+					[54] = _G.DAMAGER,
+					[56] = L["Cloth"],
+					[57] = L["Leather"],
+					[58] = L["Mail"],
+					[59] = L["Plate"],
+					[60] = L["Cloak"],
+					[61] = L["Trinket"],
+					[62] = L["Ring"],
+					[63] = L["Necklace"],
+					[64] = L["Shield"],
+					[66] = L["One Hand"],
+					[67] = L["Two Hand"],
+					[68] = L["Axe"],
+					[69] = L["Sword"],
+					[70] = L["Mace"],
+					[71] = L["Polearm"],
+					[72] = L["Dagger"],
+					[73] = L["Staff"],
+					[74] = L["Wand"],
+					[75] = L["Thrown"],
+					[76] = L["Bow"],
+					[77] = L["Crossbow"],
+					[79] = L["Fist"],
+					[80] = L["Gun"],
+					[96] = BFAC["Argent Dawn"],
+					[97] = BFAC["Cenarion Circle"],
+					[98] = BFAC["Thorium Brotherhood"],
+					[99] = BFAC["Timbermaw Hold"],
+					[100] = BFAC["Zandalar Tribe"],
+					[101] = BFAC["The Aldor"],
+					[102] = BFAC["Ashtongue Deathsworn"],
+					[103] = BFAC["Cenarion Expedition"],
+					[104] = (is_alliance and BFAC["Honor Hold"] or BFAC["Thrallmar"]),
+					[105] = BFAC["The Consortium"],
+					[106] = BFAC["Keepers of Time"],
+					[107] = BFAC["Lower City"],
+					[108] = (is_alliance and BFAC["Kurenai"] or BFAC["The Mag'har"]),
+					[109] = BFAC["The Scale of the Sands"],
+					[110] = BFAC["The Scryers"],
+					[111] = BFAC["The Sha'tar"],
+					[112] = BFAC["Shattered Sun Offensive"],
+					[113] = BFAC["Sporeggar"],
+					[114] = BFAC["The Violet Eye"],
+					[115] = BFAC["Argent Crusade"],
+					[116] = BFAC["Frenzyheart Tribe"],
+					[117] = BFAC["Knights of the Ebon Blade"],
+					[118] = BFAC["Kirin Tor"],
+					[119] = BFAC["The Sons of Hodir"],
+					[120] = BFAC["The Kalu'ak"],
+					[121] = BFAC["The Oracles"],
+					[122] = BFAC["The Wyrmrest Accord"],
+					[123] = (is_alliance and BFAC["The Silver Covenant"] or BFAC["The Sunreavers"]),
+					[124] = (is_alliance and BFAC["Explorers' League"] or BFAC["The Hand of Vengeance"]),
+					[125] = (is_alliance and BFAC["Valiance Expedition"] or BFAC["Warsong Offensive"]),
+					[126] = (is_alliance and BFAC["The Frostborn"] or BFAC["The Taunka"]),
+					[127] = (is_alliance and BFAC["Alliance Vanguard"] or BFAC["Horde Expedition"]),
+					[128] = BFAC["The Ashen Verdict"],
+					[129] = (is_alliance and BFAC["Wildhammer Clan"] or BFAC["Dragonmaw Clan"]),
+					[130] = (is_alliance and BFAC["Baradin's Wardens"] or BFAC["Hellscream's Reach"]),
+					[131] = BFAC["Guardians of Hyjal"],
+					[132] = BFAC["Ramkahen"],
+					[133] = BFAC["The Earthen Ring"],
+					[134] = BFAC["Therazane"],
 				}
 			end
 			return FILTER_NAMES
 		end
-	end	-- do
+	end -- do
 
-	---Dumps the recipe database in a format that is readable to humans (or machines)
+	--- Dumps the recipe database in a format that is readable to humans (or machines)
 	function addon:GetTextDump(profession)
 		local output = addon.db.profile.textdumpformat
 		table.wipe(text_table)
@@ -1261,7 +1260,6 @@ do
 			local is_known = recipe:HasState("KNOWN")
 
 			if recipe_prof == profession then
-				-- CSV
 				if not output or output == "Comma" then
 					-- Add Spell ID, Name and Skill Level to the list
 					table.insert(text_table, recipe_id)
@@ -1270,7 +1268,6 @@ do
 					table.insert(text_table, ",")
 					table.insert(text_table, recipe.skill_level)
 					table.insert(text_table, ",\"")
-				-- BBCode
 				elseif output == "BBCode" then
 					-- Make the entry red
 					if not is_known then
@@ -1284,15 +1281,13 @@ do
 					elseif is_known then
 						table.insert(text_table, "\nRecipe Flags:\n[list]")
 					end
-				--XML
 				elseif output == "XML" then
 					table.insert(text_table, "<recipe>")
 					table.insert(text_table, "  <id>..recipe_id..</id>")
-					table.insert(text_table, "  <name>"..recipe.name.."</name>")
+					table.insert(text_table, "  <name>" .. recipe.name .. "</name>")
 					table.insert(text_table, "  <skilllevel>..recipe.skill_level..</skilllevel>")
-					table.insert(text_table, "  <known>"..tostring(is_known).."</known>")
+					table.insert(text_table, "  <known>" .. tostring(is_known) .. "</known>")
 					table.insert(text_table, "  <flags>")
-				--Name
 				elseif output == "Name" then
 					table.insert(text_table, recipe.name)
 				end
@@ -1313,11 +1308,10 @@ do
 								end
 								table.insert(text_table, filter_names[private.FILTER_IDS[flag_name]])
 								prev = true
-								-- BBCode
 							elseif output == "BBCode" then
-								table.insert(text_table, "[*]"..filter_names[private.FILTER_IDS[flag_name]])
+								table.insert(text_table, "[*]" .. filter_names[private.FILTER_IDS[flag_name]])
 							elseif output == "XML" then
-								table.insert(text_table, "    <flag>"..filter_names[private.FILTER_IDS[flag_name]].."</flag>")
+								table.insert(text_table, "    <flag>" .. filter_names[private.FILTER_IDS[flag_name]] .. "</flag>")
 							end
 						end
 					end
@@ -1353,12 +1347,12 @@ do
 					elseif output == "BBCode" then
 						table.insert(text_table, "[*] " .. i)
 					elseif output == "XML" then
-						table.insert(text_table, "<acquiremethod>"..i.."</acquiremethod>")
+						table.insert(text_table, "<acquiremethod>" .. i .. "</acquiremethod>")
 					end
 				end
 
 				if not output or output == "Comma" then
-					table.insert(text_table, "\","..tostring(is_known).."\n")
+					table.insert(text_table, "\"," .. tostring(is_known) .. "\n")
 					--if is_known then
 					--	table.insert(text_table, "\",true\n")
 					--else
@@ -1371,7 +1365,7 @@ do
 					table.insert(text_table, "</recipe>")
 				end
 			end
-		end	-- for
+		end -- for
 		return table.concat(text_table, "")
 	end
 end
