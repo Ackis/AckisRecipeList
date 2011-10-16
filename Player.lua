@@ -27,12 +27,12 @@ local pairs = _G.pairs
 -------------------------------------------------------------------------------
 -- AddOn namespace.
 -------------------------------------------------------------------------------
-local FOLDER_NAME, private	= ...
+local FOLDER_NAME, private = ...
 
 local LibStub = _G.LibStub
-local addon	= LibStub("AceAddon-3.0"):GetAddon(private.addon_name)
-local L		= LibStub("AceLocale-3.0"):GetLocale(private.addon_name)
-local BFAC	= LibStub("LibBabble-Faction-3.0"):GetLookupTable()
+local addon = LibStub("AceAddon-3.0"):GetAddon(private.addon_name)
+local L = LibStub("AceLocale-3.0"):GetLocale(private.addon_name)
+local BFAC = LibStub("LibBabble-Faction-3.0"):GetLookupTable()
 
 ------------------------------------------------------------------------------
 -- Data which is stored regarding a players statistics (luadoc copied from Collectinator, needs updating)
@@ -156,15 +156,25 @@ do
 	-- Sets the player's professions. Used when the AddOn initializes and when a profession has been learned or unlearned.
 	-- Also removes saved profession links if the profession is no longer known.
 	function Player:UpdateProfessions()
-		local skills_to_purge
+		table.wipe(self.professions)
 
 		known.prof1, known.prof2, known.archaeology, known.fishing, known.cooking, known.firstaid = _G.GetProfessions()
 
+		for profession, index in pairs(known) do
+			local name, icon, rank, maxrank, numspells, spelloffset, skillline = _G.GetProfessionInfo(index)
+
+			if name == private.MINING_PROFESSION_NAME then
+				name = private.PROFESSION_NAMES.SMELTING
+			end
+			self.professions[name] = rank
+		end
 		addon.db.global.tradeskill[private.REALM_NAME] = addon.db.global.tradeskill[private.REALM_NAME] or {}
 		addon.db.global.tradeskill[private.REALM_NAME][private.PLAYER_NAME] = addon.db.global.tradeskill[private.REALM_NAME][private.PLAYER_NAME] or {}
 
+		local skills_to_purge
+
 		for profession_name, link in pairs(addon.db.global.tradeskill[private.REALM_NAME][private.PLAYER_NAME]) do
-			if not known[profession_name] then
+			if not self.professions[profession_name] then
 				if not skills_to_purge then
 					skills_to_purge = {}
 				end
@@ -176,16 +186,6 @@ do
 			for profession_name in pairs(skills_to_purge) do
 				addon.db.global.tradeskill[private.REALM_NAME][private.PLAYER_NAME][profession_name] = nil
 			end
-		end
-		table.wipe(self.professions)
-
-		for profession, index in pairs(known) do
-			local name, icon, rank, maxrank, numspells, spelloffset, skillline = _G.GetProfessionInfo(index)
-
-			if name == private.MINING_PROFESSION_NAME then
-				name = private.PROFESSION_NAMES.SMELTING
-			end
-			self.professions[name] = rank
 		end
 	end
 end -- do-block
