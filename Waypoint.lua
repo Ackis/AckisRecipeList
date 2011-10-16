@@ -527,13 +527,15 @@ function addon:AddWaypoint(recipe_id, acquire_id, location_id, npc_id)
 			self:Debug("No continent/zone map match for recipe ID %d. Location: %s.", spell_id, location_name)
 		end
 
-		--@alpha@
-		if not x or not y or (x < -100) or (x > 100) or (y < -100) or (y > 100) then
+		--@debug@
+		if x and ((x < -100) or (x > 100)) or y and ((y < -100) or (y > 100)) then
+			x = nil
+			y = nil
 			self:Debug("Invalid location coordinates for recipe ID %d. Location: %s.", spell_id, location_name)
 		end
-		--@end-alpha@
+		--@end-debug@
 
-		if zone and continent then
+		if x and y and zone and continent then
 			if x == 0 and y == 0 and not INSTANCE_LOCATIONS[location_name] then
 				self:Debug("Location is \"0, 0\" for recipe ID %d. Location: %s.", spell_id, location_name)
 			end
@@ -560,7 +562,7 @@ function addon:AddWaypoint(recipe_id, acquire_id, location_id, npc_id)
 				table.insert(iconlist, pt.WaypointID)
 			end
 		else
-			--@alpha@
+			--@debug@
 			if not zone then
 				self:Debug("No zone for recipe ID %d. Location: %s.", spell_id, location_name)
 			end
@@ -568,7 +570,7 @@ function addon:AddWaypoint(recipe_id, acquire_id, location_id, npc_id)
 			if not continent then
 				self:Debug("No continent for recipe ID %d. Location: %s.", spell_id, location_name)
 			end
-			--@end-alpha@
+			--@end-debug@
 		end
 	end
 end
