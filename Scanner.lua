@@ -405,6 +405,39 @@ function addon:GenerateLinks()
 
 end
 
+--@debug@
+local function find_empties(unit_list, description)
+	local count
+
+	for unit_id, unit in pairs(unit_list) do
+		count = 0
+
+		if unit.item_list then
+			for recipe_id in pairs(unit.item_list) do
+				count = count + 1
+			end
+		end
+
+		if count == 0 then
+			addon:Debug("%s %s (%s) has no recipes.", description, unit.name or _G.UNKNOWN, unit_id)
+		end
+	end
+end
+
+function addon:ShowEmptySources()
+	LoadAllRecipes()
+
+	find_empties(private.trainer_list, "Trainer")
+	find_empties(private.vendor_list, "Vendor")
+	find_empties(private.mob_list, "Mob")
+	find_empties(private.quest_list, "Quest")
+	find_empties(private.custom_list, "Custom Entry")
+	find_empties(private.discovery_list, "Discovery")
+	find_empties(private.seasonal_list, "World Event")
+end
+
+--@end-debug@
+
 do
 	local ORDERED_PROFESSIONS = private.ORDERED_PROFESSIONS
 
