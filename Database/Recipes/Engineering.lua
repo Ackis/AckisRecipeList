@@ -989,8 +989,8 @@ function addon:InitEngineering()
 	recipe:SetRecipeItemID(18647)
 	recipe:SetCraftedItemID(9318)
 	recipe:SetSkillLevels(150, 150, 150, 162, 175)
-	recipe:AddFilters(F.HORDE, F.VENDOR, F.IBOE, F.RBOE)
-	recipe:AddLimitedVendor(3413, 1)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE)
+	recipe:AddLimitedVendor(3413, 1, 45546, 1, 49918, 1, 52655, 1)
 
 	-- Blue Firework -- 23067
 	recipe = AddRecipe(23067, V.ORIG, Q.COMMON)
@@ -999,6 +999,7 @@ function addon:InitEngineering()
 	recipe:SetSkillLevels(150, 150, 150, 162, 175)
 	recipe:AddFilters(F.ALLIANCE, F.VENDOR, F.IBOE, F.RBOE)
 	recipe:AddVendor(5175)
+	recipe:AddLimitedVendor(49918, 1)
 
 	-- Green Firework -- 23068
 	recipe = AddRecipe(23068, V.ORIG, Q.COMMON)
@@ -1006,7 +1007,7 @@ function addon:InitEngineering()
 	recipe:SetCraftedItemID(9313)
 	recipe:SetSkillLevels(150, 150, 150, 162, 175)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE)
-	recipe:AddLimitedVendor(2838, 1, 3495, 1)
+	recipe:AddLimitedVendor(2838, 1, 3495, 1, 49918, 1)
 
 	-- EZ-Thro Dynamite II -- 23069
 	recipe = AddRecipe(23069, V.ORIG, Q.COMMON)
@@ -1014,7 +1015,7 @@ function addon:InitEngineering()
 	recipe:SetCraftedItemID(18588)
 	recipe:SetSkillLevels(200, 200, 200, 210, 220)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE)
-	recipe:AddLimitedVendor(8131, 1)
+	recipe:AddLimitedVendor(8131, 1, 49918, 1)
 
 	-- Dense Dynamite -- 23070
 	recipe = AddRecipe(23070, V.ORIG, Q.COMMON)
@@ -1278,7 +1279,7 @@ function addon:InitEngineering()
 	recipe:SetSkillLevels(275, 275, 275, 280, 285)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.QUEST, F.IBOE, F.RBOP)
 	recipe:AddVendor(5175)
-	recipe:AddLimitedVendor(3413, 1)
+	recipe:AddLimitedVendor(3413, 1, 45546, 1, 52655, 1)
 	recipe:AddQuest(9249)
 
 	-- Elemental Blasting Powder -- 30303
