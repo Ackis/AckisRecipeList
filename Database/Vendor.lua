@@ -108,7 +108,7 @@ function addon:InitVendor()
 	AddVendor(3366,		L["Tamar"],				"Orgrimmar",			60.3,	54.3,	"Horde") -- COMPLETELY UPDATED
 	AddVendor(3367,		L["Felika"],				"Orgrimmar",			60.5,	50.7,	"Horde")
 	AddVendor(3400,		L["Xen'to"],				"Orgrimmar",			32.6,	68.6,	"Horde") -- UPDATED
-	AddVendor(3413,		L["Sovik"],				"Orgrimmar",			75.6,	25.2,	"Horde")
+	AddVendor(3413,		L["Sovik"],				"Orgrimmar",			56.8,	56.3,	"Horde") -- COMPLETELY UPDATED
 	AddVendor(3482,		L["Tari'qa"],				"Northern Barrens",		49.0,	58.2,	"Horde")   -- UPDATED
 	AddVendor(3485,		L["Wrahk"],				"Northern Barrens",		50.0,	61.1,	"Horde")   -- UPDATED
 	AddVendor(3489,		L["Zargh"],				"Northern Barrens",		50.6,	57.8,	"Horde")   -- UPDATED
@@ -378,11 +378,13 @@ function addon:InitVendor()
 	AddVendor(40572,	L["Haughty Modiste"],			"Tanaris",			50.7,	28.6,	"Neutral") -- COMPLETELY UPDATED
 	AddVendor(40589,	L["Dirge Quikcleave"],			"Tanaris",			52.6,	29.1,	"Neutral") -- COMPLETELY UPDATED
 	AddVendor(44583,	L["Terrance Denman"],			"Stormwind City", 		63.2,	61.7,	"Alliance") -- COMPLETELY UPDATED
+	AddVendor(45546,	L["Vizna Bangwrench"],			"Orgrimmar",			36.4,	86.4,	"Horde") -- COMPLETELY UPDATED
 	AddVendor(45558,	L["Lizna Goldweaver"],			"Orgrimmar",			41.3,	79.2,	"Horde") -- COMPLETELY UPDATED
 	AddVendor(48060,	L["\"Chef\" Overheat"],			"Badlands",			65.1,	39.1,	"Neutral") -- COMPLETELY UPDATED
 	AddVendor(49701,	L["Bario Matalli"],			"Stormwind City", 		50.4,	71.9,	"Alliance") -- COMPLETELY UPDATED
 	AddVendor(49703,	L["Casandra Downs"],			"Twilight Highlands",		78.6,	76.2,	"Alliance")
 	AddVendor(49737,	L["Shazdar"],				"Orgrimmar",			56.8,	62.3,	"Horde") -- COMPLETELY UPDATED
+	AddVendor(49918,	L["Buckslappy"],			"Badlands",			90.9,	38.8,	"Neutral") -- COMPLETELY UPDATED
 	AddVendor(50134,	L["Senthii"],				"Twilight Highlands",		78.7,	77.0,	"Alliance")
 	AddVendor(50146,	L["Agatian Fallanos"],			"Twilight Highlands",		76.7,	49.5,	"Horde") -- COMPLETELY UPDATED
 	AddVendor(50172,	L["Threm Blackscalp"],			"Twilight Highlands",		75.2,	50.1,	"Horde")
@@ -397,6 +399,7 @@ function addon:InitVendor()
 	AddVendor(52584,	L["Laida Gembold"],			"Ironforge",			50.6,	27.5,	"Alliance") -- COMPLETELY UPDATED
 	AddVendor(52588,	L["Sara Lanner"],			"Undercity",			56.7,	36.9,	"Horde") -- COMPLETELY UPDATED
 	AddVendor(52644,	L["Tarien Silverdew"],			"Darnassus",			54.4,	30.7,	"Alliance") -- COMPLETELY UPDATED
+	AddVendor(52655,	L["Palehoof's Big Bag of Parts"],	"Thunder Bluff",		36.2,	60.2,	"Horde") -- COMPLETELY UPDATED
 	AddVendor(52658,	L["Paku Cloudchaser"],			"Thunder Bluff",		34.7,	53.5,	"Horde") -- COMPLETELY UPDATED
 	AddVendor(53214,	L["Damek Bloombeard"],			"Hyjal",			47.0,	90.2,	"Neutral")
 	AddVendor(53881,	L["Ayla Shadowstorm"],			"Hyjal",			72.5,	36.2,	"Neutral")
