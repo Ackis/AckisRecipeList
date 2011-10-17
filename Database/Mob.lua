@@ -213,7 +213,6 @@ function addon:InitMob()
 	AddMob(29370,	L["Stormforged Champion"],		"The Storm Peaks", 26.1, 47.5)
 	AddMob(29376,	L["Stormforged Artificer"],		"The Storm Peaks", 31.5, 44.2)
 	AddMob(29402,	L["Ironwool Mammoth"],			"The Storm Peaks", 36.0, 83.5)
-	AddMob(29570,	L["Nascent Val'kyr"],			"The Storm Peaks", 27.1, 60.0)
 	AddMob(29792,	L["Frostfeather Screecher"],		"The Storm Peaks", 33.5, 65.5)
 	AddMob(29793,	L["Frostfeather Witch"],		"The Storm Peaks", 33.0, 66.8)
 	AddMob(30208,	L["Stormforged Ambusher"],		"The Storm Peaks", 70.3, 57.5)
@@ -256,9 +255,6 @@ function addon:InitMob()
 	AddMob(18497,	L["Auchenai Monk"],			"Auchenai Crypts", 0, 0)
 	AddMob(18521,	L["Raging Skeleton"],			"Auchenai Crypts", 0, 0)
 
-	-- Azjol-Nerub
-	AddMob(29120,	BB["Anub'arak"],			"Azjol-Nerub", 0, 0)
-
 	-- Blackrock Depths
 	AddMob(8897,	L["Doomforge Craftsman"],		"Blackrock Depths", 0, 0)
 	AddMob(8898,	L["Anvilrage Marshal"],			"Blackrock Depths", 0, 0)
@@ -294,17 +290,11 @@ function addon:InitMob()
 	AddMob(11487,	BB["Magister Kalendris"],		"Dire Maul", 59.04, 48.82)
 	AddMob(14354,	BB["Pusillin"],				"Dire Maul", 59.04, 48.82)
 
-	-- Drak'Tharon Keep
-	AddMob(26632,	BB["The Prophet Tharon'ja"],		"Drak'Tharon Keep", 0, 0)
-
 	-- Gnomeregan
 	AddMob(7800,	BB["Mekgineer Thermaplugg"],		"Gnomeregan", 0, 0)
 
 	-- Halls of Lightning
 	AddMob(28923,	BB["Loken"],				"Halls of Lightning", 0, 0)
-
-	-- Halls of Stone
-	AddMob(27978,	BB["Sjonnir The Ironshaper"],		"Halls of Stone", 0, 0)
 
 	-- Karazhan
 	AddMob(16406,	L["Phantom Attendant"],			"Karazhan", 0, 0)
@@ -394,9 +384,6 @@ function addon:InitMob()
 	AddMob(19220,	BB["Pathaleon the Calculator"],		"The Mechanar", 0, 0)
 	AddMob(19221,	BB["Nethermancer Sepethrea"],		"The Mechanar", 0, 0)
 
-	-- The Nexus
-	AddMob(26723,	BB["Keristrasza"],			"The Nexus", 0, 0)
-
 	-- The Shattered Halls
 	AddMob(17465,	L["Shattered Hand Centurion"],		"The Shattered Halls", 0, 0)
 	AddMob(16807,	BB["Grand Warlock Nethekurse"],		"The Shattered Halls", 0, 0)
@@ -410,9 +397,6 @@ function addon:InitMob()
 	AddMob(17796,	BB["Mekgineer Steamrigger"],		"The Steamvault", 0, 0)
 	AddMob(17797,	BB["Hydromancer Thespia"],		"The Steamvault", 0, 0)
 	AddMob(17798,	BB["Warlord Kalithresh"],		"The Steamvault", 0, 0)
-
-	-- The Violet Hold
-	AddMob(31134,	BB["Cyanigosa"],			"The Violet Hold", 0, 0)
 
 	-- Utgarde Keep
 	AddMob(23954,	BB["Ingvar the Plunderer"],		"Utgarde Keep", 0, 0)
