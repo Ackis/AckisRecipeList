@@ -145,7 +145,7 @@ function addon:InitVendor()
 	AddVendor(4897,		L["Helenia Olden"],			"Dustwallow Marsh",		66.4, 51.5, "Alliance")
 	AddVendor(5128,		L["Bombus Finespindle"],		"Ironforge",			39.6, 34.5, "Alliance") -- COMPLETELY UPDATED
 	AddVendor(5154,		L["Poranna Snowbraid"],			"Ironforge",			43.0, 28.3, "Alliance") -- COMPLETELY UPDATED
-	AddVendor(5158,		L["Tilli Thistlefuzz"],			"Ironforge",			60.7, 44.2, "Alliance")
+	AddVendor(5158,		L["Tilli Thistlefuzz"],			"Ironforge",			61.0, 44.0, "Alliance") -- COMPLETELY UPDATEDM
 	AddVendor(5160,		L["Emrul Riknussun"],			"Ironforge",			59.9, 37.7, "Alliance") -- COMPLETELY UPDATED
 	AddVendor(5162,		L["Tansy Puddlefizz"],			"Ironforge",			48.0,  6.3, "Alliance")
 	AddVendor(5163,		L["Burbik Gearspanner"],		"Ironforge",			46.5, 27.1, "Alliance")
@@ -384,7 +384,7 @@ function addon:InitVendor()
 	AddVendor(49703,	L["Casandra Downs"],			"Twilight Highlands",		78.6, 76.2, "Alliance")
 	AddVendor(49737,	L["Shazdar"],				"Orgrimmar",			56.8, 62.3, "Horde") -- COMPLETELY UPDATED
 	AddVendor(50134,	L["Senthii"],				"Twilight Highlands",		78.7, 77.0, "Alliance")
-	AddVendor(50146,	L["Agatian Fallanos"],			"Twilight Highlands",		76.7, 49.5, "Horde")
+	AddVendor(50146,	L["Agatian Fallanos"],			"Twilight Highlands",		76.7, 49.5, "Horde") -- COMPLETELY UPDATED
 	AddVendor(50172,	L["Threm Blackscalp"],			"Twilight Highlands",		75.2, 50.1, "Horde")
 	AddVendor(50248,	L["Una Kobuna"],			"Twilight Highlands",		76.6, 49.4, "Horde")
 	AddVendor(50375,	L["Kuldar Steeltooth"],			"Twilight Highlands",		77.3, 53.1, "Horde")
