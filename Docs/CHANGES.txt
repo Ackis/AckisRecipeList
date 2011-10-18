@@ -1,7 +1,28 @@
 ==ARL Change Log
 NOTE: Always remove the folder for old versions and install a fresh copy when upgrading.
 
-== Under Development
+== 2.2.10
+
+==== Backend:
+
+* Fixed erroneous usage of LibBabble-Faction-3.0 in certain places which prevented certain acquire sources from appearing in the list for non-English locales.
+* Replaced all StaticPopupDialogs with LibDialog-1.0 versions.
+* Fixed an issue where changing the scale of the UI before it was initialized caused a Lua error.
+* When attempting to add waypoints, sources without valid coordinates will now be ignored instead of causing a Lua error.
+* Changed how detection of known professions works, so valid professions are no longer removed from the toon; this was preventing users from viewing alt tradeskill links.
+* Before running a scan, reset the TradeSkillFrame search so the list is complete - otherwise, ARL will only scan the recipes which match the search criteria.
+
+==== Recipes:
+
+* Removed several mobs which no longer drop recipes.
+* Removed the Triage quests for both factions; they no longer yield a First Aid recipe.
+* Added several new vendors and trainers.
+* Updated recipes for many vendors and trainers.
+* Marked the following recipes as removed from the game:
+** Enchant Weapon - Icy Chill
+** Enchant Cloak - Lesser Agility
+* Fixed Meilosh (Timbermaw Hold); he was marked as Horde instead of Neutral.
+* Changed the location of the daily cooking quests from "Shattrath" to "Shattrath City" so their waypoints will work properly.
 
 === Interface:
 * Support for ptBR (Will be added in 4.3).  If you wish to help translate, please go to the [[http://www.wowace.com/addons/arl/localization/ptBR/ | localization]] page.
