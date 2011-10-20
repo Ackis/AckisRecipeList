@@ -90,6 +90,7 @@ function addon:InitVendor()
 	AddVendor(2843,		L["Jutak"],				"The Cape of Stranglethorn",	41.6,	74.1,	"Neutral")   -- UPDATED
 	AddVendor(2846,		L["Blixrez Goodstitch"],		"The Cape of Stranglethorn",	42.8,	74.1,	"Neutral")   -- UPDATED
 	AddVendor(2848,		L["Glyx Brewright"],			"The Cape of Stranglethorn",	42.6,	74.9,	"Neutral")   -- UPDATED
+	AddVendor(2999,		L["Taur Stonehoof"],			"Thunder Bluff",		39.8,	55.7,	"Horde") -- COMPLETELY UPDATED
 	AddVendor(3005,		L["Mahu"],				"Thunder Bluff",		43.8,	45.1,	"Horde") -- COMPLETELY UPDATED
 	AddVendor(3008,		L["Mak"],				"Thunder Bluff",		42.0,	43.5,	"Horde") -- COMPLETELY UPDATED
 	AddVendor(3012,		L["Nata Dawnstrider"],			"Thunder Bluff",		44.9,	37.7,	"Horde") -- COMPLETELY UPDATED
@@ -137,6 +138,7 @@ function addon:InitVendor()
 	AddVendor(4574,		L["Lizbeth Cromwell"],			"Undercity",			81.0,	30.7,	"Horde") -- COMPLETELY UPDATED
 	AddVendor(4577,		L["Millie Gregorian"],			"Undercity",			70.6,	30.1,	"Horde") -- COMPLETELY UPDATED
 	AddVendor(4589,		L["Joseph Moore"],			"Undercity",			70.0,	58.5,	"Horde") -- COMPLETELY UPDATED
+	AddVendor(4597,		L["Samuel Van Brunt"],			"Undercity",			61.4,	30.1,	"Horde") -- COMPLETELY UPDATED
 	AddVendor(4610,		L["Algernon"],				"Undercity",			51.7,	74.7,	"Horde") -- COMPLETELY UPDATED
 	AddVendor(4617,		L["Thaddeus Webb"],			"Undercity",			62.4,	61.0,	"Horde") -- COMPLETELY UPDATED
 	AddVendor(4775,		L["Felicia Doan"],			"Undercity",			64.1,	50.6,	"Horde") -- COMPLETELY UPDATED
@@ -379,7 +381,9 @@ function addon:InitVendor()
 	AddVendor(40589,	L["Dirge Quikcleave"],			"Tanaris",			52.6,	29.1,	"Neutral") -- COMPLETELY UPDATED
 	AddVendor(44583,	L["Terrance Denman"],			"Stormwind City", 		63.2,	61.7,	"Alliance") -- COMPLETELY UPDATED
 	AddVendor(45546,	L["Vizna Bangwrench"],			"Orgrimmar",			36.4,	86.4,	"Horde") -- COMPLETELY UPDATED
+	AddVendor(45549,	L["Zido Helmbreaker"],			"Orgrimmar",			36.4,	83.0,	"Horde") -- COMPLETELY UPDATED
 	AddVendor(45558,	L["Lizna Goldweaver"],			"Orgrimmar",			41.3,	79.2,	"Horde") -- COMPLETELY UPDATED
+	AddVendor(46359,	L["Punra"],				"Orgrimmar",			45.0,	76.8,	"Horde") -- COMPLETELY UPDATED
 	AddVendor(48060,	L["\"Chef\" Overheat"],			"Badlands",			65.1,	39.1,	"Neutral") -- COMPLETELY UPDATED
 	AddVendor(49701,	L["Bario Matalli"],			"Stormwind City", 		50.4,	71.9,	"Alliance") -- COMPLETELY UPDATED
 	AddVendor(49703,	L["Casandra Downs"],			"Twilight Highlands",		78.6,	76.2,	"Alliance")
@@ -389,7 +393,7 @@ function addon:InitVendor()
 	AddVendor(50146,	L["Agatian Fallanos"],			"Twilight Highlands",		76.7,	49.5,	"Horde") -- COMPLETELY UPDATED
 	AddVendor(50172,	L["Threm Blackscalp"],			"Twilight Highlands",		75.2,	50.1,	"Horde")
 	AddVendor(50248,	L["Una Kobuna"],			"Twilight Highlands",		76.6,	49.4,	"Horde")
-	AddVendor(50375,	L["Kuldar Steeltooth"],			"Twilight Highlands",		77.3,	53.1,	"Horde")
+	AddVendor(50375,	L["Kuldar Steeltooth"],			"Twilight Highlands",		77.3,	53.1,	"Horde") -- COMPLETELY UPDATED
 	AddVendor(50381,	L["Misty Merriweather"],		"Twilight Highlands",		78.8,	76.2,	"Alliance")
 	AddVendor(50382,	L["Brundall Chiselgut"],		"Twilight Highlands",		79.1,	76.5,	"Alliance")
 	AddVendor(50386,	L["Sal Ferraga"],			"Twilight Highlands",		78.6,	76.9,	"Alliance")
