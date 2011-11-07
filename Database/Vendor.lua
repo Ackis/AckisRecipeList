@@ -372,6 +372,7 @@ function addon:InitVendor()
 	AddVendor(33602,	L["Anuur"],				"Icecrown",			71.4,	20.8,	"Neutral")
 	AddVendor(33637,	L["Kirembri Silvermane"],		"Shattrath City",		58.1,	75.0,	"Neutral") -- COMPLETELY UPDATED
 	AddVendor(33680,	L["Nemiha"],				"Shattrath City",		36.1,	47.7,	"Neutral")
+	AddVendor(34382,	L["Chapman"],				"Undercity",			68.1,	11.2,	"Horde") -- COMPLETELY UPDATED
 	AddVendor(34601,	L["Harlown Darkweave"],			"Ashenvale",			18.2,	60.0,	"Alliance")
 	AddVendor(35826,	L["Kaye Toogie"],			"Dalaran",			34.0,	35.6,	"Neutral")
 	AddVendor(37687,	L["Alchemist Finklestein"],		"Icecrown Citadel",		0,	0,	"Neutral")
