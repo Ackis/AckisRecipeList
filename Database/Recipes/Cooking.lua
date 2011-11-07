@@ -1384,8 +1384,9 @@ function addon:InitCooking()
 	recipe = AddRecipe(65454, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(46691)
 	recipe:SetSkillLevels(45, 45, 55, 60, 65)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.SEASONAL, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.SEASONAL, F.VENDOR, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
 	recipe:AddSeason("DAY_OF_THE_DEAD")
+	recipe:AddVendor(34382)
 
 	-- Candied Sweet Potato -- 66034
 	recipe = AddRecipe(66034, V.WOTLK, Q.COMMON)
