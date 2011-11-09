@@ -1076,8 +1076,6 @@ function private.InitializeListFrame()
 	-------------------------------------------------------------------------------
 	-- Functions and data pertaining to individual list entries.
 	-------------------------------------------------------------------------------
-	local faction_labels
-
 	local function CanDisplayFaction(faction)
 		if addon.db.profile.filters.general.faction then
 			return true
@@ -1232,6 +1230,8 @@ function private.InitializeListFrame()
 		return ListFrame:InsertEntry(entry, parent_entry, entry_index, entry_type, true)
 	end
 
+	local FACTION_LABELS
+
 	local function ExpandReputationData(entry_index, entry_type, parent_entry, vendor_id, rep_id, rep_level, recipe_id, hide_location, hide_type)
 		local rep_vendor = private.vendor_list[vendor_id]
 
@@ -1239,10 +1239,10 @@ function private.InitializeListFrame()
 			return entry_index
 		end
 
-		if not faction_labels then
+		if not FACTION_LABELS then
 			local rep_color = private.REPUTATION_COLORS
 
-			faction_labels = {
+			FACTION_LABELS = {
 				[0] = SetTextColor(rep_color["neutral"], BFAC["Neutral"] .. " : "),
 				[1] = SetTextColor(rep_color["friendly"], BFAC["Friendly"] .. " : "),
 				[2] = SetTextColor(rep_color["honored"], BFAC["Honored"] .. " : "),
@@ -1260,7 +1260,7 @@ function private.InitializeListFrame()
 		entry_index = ListFrame:InsertEntry(entry, parent_entry, entry_index, entry_type, true)
 
 		entry = AcquireTable()
-		entry.text = PADDING .. PADDING .. faction_labels[rep_level] .. name
+		entry.text = PADDING .. PADDING .. FACTION_LABELS[rep_level] .. name
 		entry.recipe_id = recipe_id
 		entry.npc_id = vendor_id
 
