@@ -260,16 +260,23 @@ function private.InitializeListFrame()
 			return
 		end
 		local clicked_line = ListFrame.entries[clickedIndex]
-		local traverseIndex = 0
 
 		if not clicked_line then
 			return
 		end
+		local traverseIndex = 0
 
 		-- First, check if this is a "modified" click, and react appropriately
 		if clicked_line.recipe_id and _G.IsModifierKeyDown() then
-			if _G.IsControlKeyDown() and _G.IsShiftKeyDown() then
-				addon:AddWaypoint(clicked_line.recipe_id, clicked_line.acquire_id, clicked_line.location_id, clicked_line.npc_id)
+			if _G.IsControlKeyDown() then
+				if _G.IsShiftKeyDown() then
+					addon:AddWaypoint(clicked_line.recipe_id, clicked_line.acquire_id, clicked_line.location_id, clicked_line.npc_id)
+				else
+					local edit_box = _G.ChatEdit_ChooseBoxForSend()
+
+					_G.ChatEdit_ActivateChat(edit_box)
+					edit_box:Insert(_G.GetSpellLink(private.recipe_list[clicked_line.recipe_id].spell_id))
+				end
 			elseif _G.IsShiftKeyDown() then
 				local crafted_item_id = private.recipe_list[clicked_line.recipe_id]:CraftedItemID()
 
@@ -287,11 +294,6 @@ function private.InitializeListFrame()
 				else
 					addon:Print(L["NoItemLink"])
 				end
-			elseif _G.IsControlKeyDown() then
-				local edit_box = _G.ChatEdit_ChooseBoxForSend()
-
-				_G.ChatEdit_ActivateChat(edit_box)
-				edit_box:Insert(_G.GetSpellLink(private.recipe_list[clicked_line.recipe_id].spell_id))
 			elseif _G.IsAltKeyDown() then
 				local exclusion_list = addon.db.profile.exclusionlist
 				local recipe_id = clicked_line.recipe_id
