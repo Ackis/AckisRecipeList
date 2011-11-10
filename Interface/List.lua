@@ -40,6 +40,8 @@ local COMMON1		= private.COMMON_FLAGS_WORD1
 
 local A			= private.ACQUIRE_TYPES
 
+local COORD_FORMAT	= "(%.2f, %.2f)"
+
 -------------------------------------------------------------------------------
 -- Dialogs.
 -------------------------------------------------------------------------------
@@ -1109,7 +1111,7 @@ function private.InitializeListFrame()
 		local coord_text = ""
 
 		if trainer.coord_x ~= 0 and trainer.coord_y ~= 0 then
-			coord_text = SetTextColor(CATEGORY_COLORS["coords"], ("(%d, %d)"):format(trainer.coord_x, trainer.coord_y))
+			coord_text = SetTextColor(CATEGORY_COLORS["coords"], COORD_FORMAT:format(trainer.coord_x, trainer.coord_y))
 		end
 		local entry = AcquireTable()
 
@@ -1144,7 +1146,7 @@ function private.InitializeListFrame()
 		local coord_text = ""
 
 		if vendor.coord_x ~= 0 and vendor.coord_y ~= 0 then
-			coord_text = SetTextColor(CATEGORY_COLORS["coords"], "(" .. vendor.coord_x .. ", " .. vendor.coord_y .. ")")
+			coord_text = SetTextColor(CATEGORY_COLORS["coords"], COORD_FORMAT:format(vendor.coord_x, vendor.coord_y))
 		end
 		local entry = AcquireTable()
 		local quantity = vendor.item_list[recipe_id]
@@ -1172,7 +1174,7 @@ function private.InitializeListFrame()
 		local coord_text = ""
 
 		if mob.coord_x ~= 0 and mob.coord_y ~= 0 then
-			coord_text = SetTextColor(CATEGORY_COLORS["coords"], "(" .. mob.coord_x .. ", " .. mob.coord_y .. ")")
+			coord_text = SetTextColor(CATEGORY_COLORS["coords"], COORD_FORMAT:format(mob.coord_x, mob.coord_y))
 		end
 		local entry = AcquireTable()
 
@@ -1204,7 +1206,7 @@ function private.InitializeListFrame()
 		local coord_text = ""
 
 		if quest.coord_x ~= 0 and quest.coord_y ~= 0 then
-			coord_text = SetTextColor(CATEGORY_COLORS["coords"], "(" .. quest.coord_x .. ", " .. quest.coord_y .. ")")
+			coord_text = SetTextColor(CATEGORY_COLORS["coords"], COORD_FORMAT:format(quest.coord_x, quest.coord_y))
 		end
 		local entry = AcquireTable()
 		entry.text = ("%s%s %s"):format(PADDING, hide_type and "" or SetTextColor(CATEGORY_COLORS["quest"], L["Quest"]) .. ":", name)
@@ -1269,7 +1271,7 @@ function private.InitializeListFrame()
 		local coord_text = ""
 
 		if rep_vendor.coord_x ~= 0 and rep_vendor.coord_y ~= 0 then
-			coord_text = SetTextColor(CATEGORY_COLORS["coords"], "(" .. rep_vendor.coord_x .. ", " .. rep_vendor.coord_y .. ")")
+			coord_text = SetTextColor(CATEGORY_COLORS["coords"], COORD_FORMAT:format(rep_vendor.coord_x, rep_vendor.coord_y))
 		end
 
 		if coord_text == "" and hide_location then
@@ -1631,8 +1633,6 @@ do
 	-------------------------------------------------------------------------------
 	-- Functions for adding individual acquire type data to the tooltip.
 	-------------------------------------------------------------------------------
-	local COORD_FORMAT = "(%.2f, %.2f)"
-
 	local TOOLTIP_ACQUIRE_FUNCS = {
 		[A.TRAINER] = function(recipe_id, identifier, location, acquire_info, addline_func)
 			local trainer = private.trainer_list[identifier]
