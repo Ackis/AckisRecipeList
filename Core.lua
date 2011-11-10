@@ -76,10 +76,11 @@ addon.optionsFrame = {}
 -------------------------------------------------------------------------------
 function addon:Debug(...)
 	if debugger then
-		debugger:AddMessage(string.format(...))
+		local text = string.format(...)
+		debugger:AddMessage(text)
 
 		--@debug@
-		Toast:Spawn("ARL_DebugToast")
+		Toast:Spawn("ARL_DebugToast", text)
 		--@end-debug@
 	else
 		--@debug@
@@ -89,8 +90,8 @@ function addon:Debug(...)
 end
 
 Toast:Register("ARL_DebugToast", function(toast, ...)
-	toast:SetTitle(("%s"):format(private.addon_name))
-	toast:SetText("New debug message.")
+	toast:SetTitle(("%s - Debug"):format(private.addon_name))
+	toast:SetText(...)
 	toast:SetIconTexture([[Interface\HELPFRAME\HotIssueIcon]])
 end, true)
 
