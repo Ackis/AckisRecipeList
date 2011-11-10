@@ -386,10 +386,12 @@ function private.InitializeFilterPanel()
 
 	general_frame.general_toggle = general_toggle
 
+	local faction_text = (private.Player.faction == "Alliance") and _G.FACTION_HORDE or _G.FACTION_ALLIANCE
+	local faction_desc = L["FACTION_DESC_FORMAT"]:format(faction_text)
 	local general_buttons = {
 		["specialty"]	= { tt = L["SPECIALTY_DESC"],	text = L["Specialties"],	row = 2, col = 1 },
 		["skill"]	= { tt = L["SKILL_DESC"],	text = _G.SKILL,		row = 2, col = 2 },
-		["faction"]	= { tt = L["FACTION_DESC"],	text = _G.FACTION,		row = 3, col = 1 },
+		["faction"]	= { tt = faction_desc,		text = faction_text,		row = 3, col = 1 },
 		["known"]	= { tt = L["KNOWN_DESC"],	text = L["Show Known"],		row = 3, col = 2 },
 		["unknown"]	= { tt = L["UNKNOWN_DESC"],	text = _G.UNKNOWN,		row = 4, col = 1 },
 		["retired"]	= { tt = L["RETIRED_DESC"],	text = L["Retired"],		row = 4, col = 2 },
