@@ -365,7 +365,7 @@ function private.InitializeListFrame()
 					ReleaseTable(table.remove(entries, child_index))
 				end
 			else
-				addon:Debug("Error: clicked_line has no parent.")
+				addon:Debug("Error: clicked_line (%s) has no parent.", clicked_line.type or _G.UNKNOWN)
 			end
 		end
 		QTip:Release(acquire_tip)
@@ -460,6 +460,7 @@ function private.InitializeListFrame()
 				if npc_id then
 					entry.npc_id = npc_id
 				end
+				entry.parent = parent_entry
 			else
 				addon:Debug("Attempting to parent an entry to itself.")
 			end
