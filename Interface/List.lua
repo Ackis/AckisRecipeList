@@ -255,18 +255,17 @@ function private.InitializeListFrame()
 	end
 
 	local function ListItem_OnClick(self, button, down)
-		local clickedIndex = self.string_index
+		local clicked_index = self.string_index
 
 		-- Don't do anything if they've clicked on an empty button
-		if not clickedIndex or clickedIndex == 0 then
+		if not clicked_index or clicked_index == 0 then
 			return
 		end
-		local clicked_line = ListFrame.entries[clickedIndex]
+		local clicked_line = ListFrame.entries[clicked_index]
 
 		if not clicked_line then
 			return
 		end
-		local traverseIndex = 0
 
 		-- First, check if this is a "modified" click, and react appropriately
 		if clicked_line.recipe_id and _G.IsModifierKeyDown() then
@@ -309,10 +308,9 @@ function private.InitializeListFrame()
 			-- 2) We clicked on the recipe button of an open recipe
 			-- 3) we clicked on the expanded text of an open recipe
 			if clicked_line.is_expanded then
-				traverseIndex = clickedIndex + 1
-
 				local check_type = clicked_line.type
-				local entry = ListFrame.entries[traverseIndex]
+				local removal_index = clicked_index + 1
+				local entry = ListFrame.entries[removal_index]
 				local current_tab = MainPanel.tabs[MainPanel.current_tab]
 
 				-- get rid of our expanded lines
@@ -322,8 +320,8 @@ function private.InitializeListFrame()
 						break
 					end
 					current_tab:ModifyEntry(entry, false)
-					ReleaseTable(table.remove(ListFrame.entries, traverseIndex))
-					entry = ListFrame.entries[traverseIndex]
+					ReleaseTable(table.remove(ListFrame.entries, removal_index))
+					entry = ListFrame.entries[removal_index]
 
 					if not entry then
 						break
@@ -332,7 +330,7 @@ function private.InitializeListFrame()
 				current_tab:ModifyEntry(clicked_line, false)
 				clicked_line.is_expanded = false
 			else
-				ListFrame:ExpandEntry(clickedIndex)
+				ListFrame:ExpandEntry(clicked_index)
 				clicked_line.is_expanded = true
 			end
 		else
