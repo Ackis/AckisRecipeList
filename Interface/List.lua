@@ -269,6 +269,8 @@ function private.InitializeListFrame()
 
 		-- First, check if this is a "modified" click, and react appropriately
 		if clicked_line.recipe_id and _G.IsModifierKeyDown() then
+			local profession_recipes = private.profession_recipe_list[private.ORDERED_PROFESSIONS[MainPanel.profession]]
+
 			if _G.IsControlKeyDown() then
 				if _G.IsShiftKeyDown() then
 					addon:AddWaypoint(clicked_line.recipe_id, clicked_line.acquire_id, clicked_line.location_id, clicked_line.npc_id)
@@ -276,10 +278,10 @@ function private.InitializeListFrame()
 					local edit_box = _G.ChatEdit_ChooseBoxForSend()
 
 					_G.ChatEdit_ActivateChat(edit_box)
-					edit_box:Insert(_G.GetSpellLink(private.recipe_list[clicked_line.recipe_id].spell_id))
+					edit_box:Insert(_G.GetSpellLink(profession_recipes[clicked_line.recipe_id].spell_id))
 				end
 			elseif _G.IsShiftKeyDown() then
-				local crafted_item_id = private.recipe_list[clicked_line.recipe_id]:CraftedItemID()
+				local crafted_item_id = profession_recipes[clicked_line.recipe_id]:CraftedItemID()
 
 				if crafted_item_id then
 					local _, item_link = _G.GetItemInfo(crafted_item_id)
@@ -793,14 +795,14 @@ function private.InitializeListFrame()
 			local recipes_total_filtered = 0
 			local recipes_known_filtered = 0
 
-			local recipe_list = private.recipe_list
-			local current_prof = MainPanel.prof_name or private.ORDERED_PROFESSIONS[MainPanel.profession]
-			local can_display = false
+			local profession_recipes = private.profession_recipe_list[private.ORDERED_PROFESSIONS[MainPanel.profession]]
+			local can_display
 
-			for recipe_id, recipe in pairs(recipe_list) do
+			for recipe_id, recipe in pairs(profession_recipes) do
+				can_display = false
 				recipe:RemoveState("VISIBLE")
 
-				if recipe.profession == current_prof and not recipe.is_ignored then
+				if not recipe.is_ignored then
 					local is_known
 
 					if MainPanel.is_linked then
@@ -825,8 +827,6 @@ function private.InitializeListFrame()
 							can_display = false
 						end
 					end
-				else
-					can_display = false
 				end
 
 				if can_display then
@@ -849,12 +849,12 @@ function private.InitializeListFrame()
 			local unknown_count = 0
 
 			for spell_id in pairs(exclusion_list) do
-				local recipe = recipe_list[spell_id]
+				local recipe = profession_recipes[spell_id]
 
 				if recipe then
-					if recipe:HasState("KNOWN") and recipe.profession == current_prof then
+					if recipe:HasState("KNOWN") then
 						known_count = known_count + 1
-					elseif recipe.profession == current_prof then
+					else
 						unknown_count = unknown_count + 1
 					end
 				end
@@ -1387,9 +1387,9 @@ function private.InitializeListFrame()
 		local orig_index = entry_index
 		local current_entry = self.entries[orig_index]
 		local expand_all = expand_mode == "deep"
-		local search_box = MainPanel.search_editbox
 		local current_tab = MainPanel.tabs[MainPanel.current_tab]
 		local prof_name = private.ORDERED_PROFESSIONS[MainPanel.profession]
+		local profession_recipes = private.profession_recipe_list[prof_name]
 
 		-- Entry_index is the position in self.entries that we want to expand. Since we are expanding the current entry, the return
 		-- value should be the index of the next button after the expansion occurs
@@ -1409,9 +1409,9 @@ function private.InitializeListFrame()
 
 				for index = 1, #sorted_recipes do
 					local spell_id = sorted_recipes[index]
-					local recipe_entry = private.recipe_list[spell_id]
+					local recipe_entry = profession_recipes[spell_id]
 
-					if recipe_entry:HasState("VISIBLE") and search_box:MatchesRecipe(recipe_entry) then
+					if recipe_entry:HasState("VISIBLE") and MainPanel.search_editbox:MatchesRecipe(recipe_entry) then
 						local entry = AcquireTable()
 						local expand = false
 						local type = "subheader"
@@ -1432,7 +1432,7 @@ function private.InitializeListFrame()
 					end
 				end
 			elseif current_entry.type == "subheader" then
-				for acquire_type, acquire_data in pairs(private.recipe_list[current_entry.recipe_id].acquire_data) do
+				for acquire_type, acquire_data in pairs(profession_recipes[current_entry.recipe_id].acquire_data) do
 					if acquire_type == acquire_id then
 						entry_index = ExpandAcquireData(entry_index, "subentry", current_entry, acquire_type, acquire_data,
 										current_entry.recipe_id, false, true)
@@ -1454,9 +1454,9 @@ function private.InitializeListFrame()
 
 				for index = 1, #sorted_recipes do
 					local spell_id = sorted_recipes[index]
-					local recipe_entry = private.recipe_list[spell_id]
+					local recipe_entry = profession_recipes[spell_id]
 
-					if recipe_entry:HasState("VISIBLE") and search_box:MatchesRecipe(recipe_entry) then
+					if recipe_entry:HasState("VISIBLE") and MainPanel.search_editbox:MatchesRecipe(recipe_entry) then
 						local expand = false
 						local type = "subheader"
 						local entry = AcquireTable()
@@ -1478,7 +1478,7 @@ function private.InitializeListFrame()
 					end
 				end
 			elseif current_entry.type == "subheader" then
-				local recipe_entry = private.recipe_list[current_entry.recipe_id]
+				local recipe_entry = profession_recipes[current_entry.recipe_id]
 
 				-- World Drops are not handled here because they are of type "entry".
 				for acquire_type, acquire_data in pairs(recipe_entry.acquire_data) do
@@ -1526,7 +1526,7 @@ function private.InitializeListFrame()
 		-- Normal entry - expand all acquire types.
 		local recipe_id = self.entries[orig_index].recipe_id
 
-		for acquire_type, acquire_data in pairs(private.recipe_list[recipe_id].acquire_data) do
+		for acquire_type, acquire_data in pairs(profession_recipes[recipe_id].acquire_data) do
 			entry_index = ExpandAcquireData(entry_index, "entry", current_entry, acquire_type, acquire_data, recipe_id)
 		end
 		return entry_index

@@ -586,47 +586,45 @@ function private.InitializeFrame()
 			end
 			search_pattern = search_pattern:lower()
 
-			for index, recipe in pairs(private.recipe_list) do
+			for index, recipe in pairs(private.profession_recipe_list[ORDERED_PROFESSIONS[MainPanel.profession]]) do
 				recipe:RemoveState("RELEVANT")
 
-				if recipe.profession == ORDERED_PROFESSIONS[MainPanel.profession] then
-					local found = SearchByField(recipe, search_pattern)
+				local found = SearchByField(recipe, search_pattern)
 
-					if not found then
-						found = SearchByQuality(recipe, search_pattern)
-					end
+				if not found then
+					found = SearchByQuality(recipe, search_pattern)
+				end
 
-					if not found then
-						found = SearchByAcquireType(recipe, search_pattern)
-					end
+				if not found then
+					found = SearchByAcquireType(recipe, search_pattern)
+				end
 
-					if not found then
-						found = SearchByLocation(recipe, search_pattern)
-					end
+				if not found then
+					found = SearchByLocation(recipe, search_pattern)
+				end
 
-					if not found then
-						found = SearchByReputation(recipe, search_pattern)
-					end
+				if not found then
+					found = SearchByReputation(recipe, search_pattern)
+				end
 
-					if not found then
-						found = SearchByTrainer(recipe, search_pattern)
-					end
+				if not found then
+					found = SearchByTrainer(recipe, search_pattern)
+				end
 
-					if not found then
-						found = SearchByVendor(recipe, search_pattern)
-					end
+				if not found then
+					found = SearchByVendor(recipe, search_pattern)
+				end
 
-					if not found then
-						found = SearchByMobDrop(recipe, search_pattern)
-					end
+				if not found then
+					found = SearchByMobDrop(recipe, search_pattern)
+				end
 
-					if not found then
-						found = SearchByCustom(recipe, search_pattern)
-					end
+				if not found then
+					found = SearchByCustom(recipe, search_pattern)
+				end
 
-					if not found then
-						found = SearchByDiscovery(recipe, search_pattern)
-					end
+				if not found then
+					found = SearchByDiscovery(recipe, search_pattern)
 				end
 			end
 		end

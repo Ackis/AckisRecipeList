@@ -191,8 +191,6 @@ function private.InitializeTabs()
 	local sorted_locations
 
 	function AcquisitionTab:Initialize(expand_mode)
-		local search_box = MainPanel.search_editbox
-
 		local recipe_count = 0
 		local insert_index = 1
 
@@ -210,11 +208,12 @@ function private.InitializeTabs()
 			sorted_acquires = {}
 
 			for acquire_name in pairs(private.acquire_list) do
-				table.insert(sorted_acquires, acquire_name)
+				sorted_acquires[#sorted_acquires + 1] = acquire_name
 			end
 			table.sort(sorted_acquires, Sort_Acquisition)
 		end
 		local prof_name = ORDERED_PROFESSIONS[MainPanel.profession]
+		local profession_recipes = private.profession_recipe_list[prof_name]
 
 		self[prof_name.." expanded"] = self[prof_name.." expanded"] or {}
 
@@ -224,9 +223,9 @@ function private.InitializeTabs()
 
 			-- Check to see if any recipes for this acquire type will be shown - otherwise, don't show the type in the list.
 			for spell_id, affiliation in pairs(private.acquire_list[acquire_type].recipes) do
-				local recipe = private.recipe_list[spell_id]
+				local recipe = profession_recipes[spell_id]
 
-				if recipe:HasState("VISIBLE") and search_box:MatchesRecipe(recipe) then
+				if recipe:HasState("VISIBLE") and MainPanel.search_editbox:MatchesRecipe(recipe) then
 					count = count + 1
 
 					if not recipe_registry[recipe] then
@@ -281,6 +280,7 @@ function private.InitializeTabs()
 			table.sort(sorted_locations, Sort_Location)
 		end
 		local prof_name = ORDERED_PROFESSIONS[MainPanel.profession]
+		local profession_recipes = private.profession_recipe_list[prof_name]
 
 		self[prof_name.." expanded"] = self[prof_name.." expanded"] or {}
 
@@ -290,7 +290,7 @@ function private.InitializeTabs()
 
 			-- Check to see if any recipes for this location will be shown - otherwise, don't show the location in the list.
 			for spell_id, affiliation in pairs(private.location_list[loc_name].recipes) do
-				local recipe = private.recipe_list[spell_id]
+				local recipe = profession_recipes[spell_id]
 
 				if recipe:HasState("VISIBLE") and search_box:MatchesRecipe(recipe) then
 					local trainer_data = recipe.acquire_data[A.TRAINER]
@@ -359,23 +359,22 @@ function private.InitializeTabs()
 	end
 
 	function RecipesTab:Initialize(expand_mode)
-		local sorted_recipes = addon.sorted_recipes
-		local recipe_list = private.recipe_list
-		local search_box = MainPanel.search_editbox
-
-		local recipe_count = 0
-		local insert_index = 1
 		local prof_name = ORDERED_PROFESSIONS[MainPanel.profession]
+		local profession_recipes = private.profession_recipe_list[prof_name]
 
 		self[prof_name.." expanded"] = self[prof_name.." expanded"] or {}
 
-		private.SortRecipeList(recipe_list)
+		private.SortRecipeList(profession_recipes)
+
+		local sorted_recipes = addon.sorted_recipes
+		local recipe_count = 0
+		local insert_index = 1
 
 		for i = 1, #sorted_recipes do
 			local recipe_index = sorted_recipes[i]
-			local recipe = recipe_list[recipe_index]
+			local recipe = profession_recipes[recipe_index]
 
-			if recipe:HasState("VISIBLE") and search_box:MatchesRecipe(recipe) then
+			if recipe:HasState("VISIBLE") and MainPanel.search_editbox:MatchesRecipe(recipe) then
 				local is_expanded = self[prof_name.." expanded"][recipe_index]
 				local entry = AcquireTable()
 				entry.text = recipe:GetDisplayName()

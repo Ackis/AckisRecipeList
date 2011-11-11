@@ -976,17 +976,15 @@ do
 				end
 			end
 		end
-		local recipe_list = private.recipe_list
+		local profession_recipes = private.profession_recipe_list[current_prof]
 		local recipes_found = 0
 		local SPELL_OVERWRITE_MAP = private.SPELL_OVERWRITE_MAP
 
-		if private.profession_recipe_list[current_prof] then
-			for spell_id, recipe in pairs(private.profession_recipe_list[current_prof]) do
-				recipe:RemoveState("KNOWN")
-				recipe:RemoveState("RELEVANT")
-				recipe:RemoveState("VISIBLE")
-				recipe:RemoveState("LINKED")
-			end
+		for spell_id, recipe in pairs(profession_recipes) do
+			recipe:RemoveState("KNOWN")
+			recipe:RemoveState("RELEVANT")
+			recipe:RemoveState("VISIBLE")
+			recipe:RemoveState("LINKED")
 		end
 
 		for index = 1, _G.GetNumTradeSkills() do
@@ -996,7 +994,7 @@ do
 				local spell_link = _G.GetTradeSkillRecipeLink(index)
 				local spell_string = spell_link:match("^|c%x%x%x%x%x%x%x%x|H%w+:(%d+)")
 				local spell_id = tonumber(spell_string)
-				local recipe = recipe_list[spell_id]
+				local recipe = profession_recipes[spell_id]
 
 				if recipe then
 					-- Mark the first rank of the spell as known if we know rank 2 for certain recipes.
@@ -1005,7 +1003,7 @@ do
 
 					-- If we have it in the mapping, set the lower rank spell to known
 					if SPELL_OVERWRITE_MAP[spell_id] then
-						local overwrite_recipe = recipe_list[SPELL_OVERWRITE_MAP[spell_id]]
+						local overwrite_recipe = profession_recipes[SPELL_OVERWRITE_MAP[spell_id]]
 
 						if overwrite_recipe then
 							SetRecipeAsKnownOrLinked(overwrite_recipe, tradeskill_is_linked)
@@ -1052,7 +1050,7 @@ do
 		-- Everything is ready - display the GUI or dump the list to text.
 		-------------------------------------------------------------------------------
 		if textdump then
-			self:DisplayTextDump(recipe_list, current_prof)
+			self:DisplayTextDump(profession_recipes, current_prof)
 		else
 			if private.InitializeFrame then
 				private.InitializeFrame()
@@ -1121,8 +1119,8 @@ do
 
 	copy_frame:Hide()
 
-	function addon:DisplayTextDump(RecipeDB, profession, text)
-		local display_text = (not RecipeDB and not profession) and text or self:GetTextDump(profession)
+	function addon:DisplayTextDump(recipe_list, profession, text)
+		local display_text = (not recipe_list and not profession) and text or self:GetTextDump(profession)
 
 		if display_text == "" then
 			return
@@ -1253,131 +1251,128 @@ do
 	end -- do
 
 	--- Dumps the recipe database in a format that is readable to humans (or machines)
-	function addon:GetTextDump(profession)
+	function addon:GetTextDump(profession_name)
 		local output = addon.db.profile.textdumpformat
 		table.wipe(text_table)
 
 		if not output or output == "Comma" then
-			table.insert(text_table, ("Ackis Recipe List Text Dump for %s's %s, in the form of Comma Separated Values.\n  "):format(private.PLAYER_NAME, profession))
+			table.insert(text_table, ("Ackis Recipe List Text Dump for %s's %s, in the form of Comma Separated Values.\n  "):format(private.PLAYER_NAME, profession_name))
 			table.insert(text_table, "Spell ID,Recipe Name,Skill Level,ARL Filter Flags,Acquire Methods,Known\n")
 		elseif output == "BBCode" then
-			table.insert(text_table, ("Ackis Recipe List Text Dump for %s's %s, in the form of BBCode.\n"):format(private.PLAYER_NAME, profession))
+			table.insert(text_table, ("Ackis Recipe List Text Dump for %s's %s, in the form of BBCode.\n"):format(private.PLAYER_NAME, profession_name))
 		elseif output == "XML" then
 			table.insert(text_table, "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>")
 		end
 
-		local recipe_list = private.recipe_list
+		local profession_recipes = private.profession_recipe_list[profession_name]
 
-		for recipe_id in pairs(recipe_list) do
-			local recipe = recipe_list[recipe_id]
-			local recipe_prof = _G.GetSpellInfo(recipe.profession)
+		for recipe_id in pairs(profession_recipes) do
+			local recipe = profession_recipes[recipe_id]
 			local is_known = recipe:HasState("KNOWN")
 
-			if recipe_prof == profession then
-				if not output or output == "Comma" then
-					-- Add Spell ID, Name and Skill Level to the list
-					table.insert(text_table, recipe_id)
-					table.insert(text_table, ",")
-					table.insert(text_table, recipe.name)
-					table.insert(text_table, ",")
-					table.insert(text_table, recipe.skill_level)
-					table.insert(text_table, ",\"")
-				elseif output == "BBCode" then
-					-- Make the entry red
-					if not is_known then
-						table.insert(text_table, "[color=red]")
-					end
-					table.insert(text_table, "\n[b]" .. recipe_id .. "[/b] - " .. recipe.name .. " (" .. recipe.skill_level .. ")\n")
-
-					-- Close Color tag
-					if not is_known then
-						table.insert(text_table, "[/color]\nRecipe Flags:\n[list]")
-					elseif is_known then
-						table.insert(text_table, "\nRecipe Flags:\n[list]")
-					end
-				elseif output == "XML" then
-					table.insert(text_table, "<recipe>")
-					table.insert(text_table, "  <id>..recipe_id..</id>")
-					table.insert(text_table, "  <name>" .. recipe.name .. "</name>")
-					table.insert(text_table, "  <skilllevel>..recipe.skill_level..</skilllevel>")
-					table.insert(text_table, "  <known>" .. tostring(is_known) .. "</known>")
-					table.insert(text_table, "  <flags>")
-				elseif output == "Name" then
-					table.insert(text_table, recipe.name)
+			if not output or output == "Comma" then
+				-- Add Spell ID, Name and Skill Level to the list
+				table.insert(text_table, recipe_id)
+				table.insert(text_table, ",")
+				table.insert(text_table, recipe.name)
+				table.insert(text_table, ",")
+				table.insert(text_table, recipe.skill_level)
+				table.insert(text_table, ",\"")
+			elseif output == "BBCode" then
+				-- Make the entry red
+				if not is_known then
+					table.insert(text_table, "[color=red]")
 				end
+				table.insert(text_table, "\n[b]" .. recipe_id .. "[/b] - " .. recipe.name .. " (" .. recipe.skill_level .. ")\n")
 
-				-- Add in all the filter flags
-				local filter_names = GetFilterNames()
-				local prev = false
+				-- Close Color tag
+				if not is_known then
+					table.insert(text_table, "[/color]\nRecipe Flags:\n[list]")
+				elseif is_known then
+					table.insert(text_table, "\nRecipe Flags:\n[list]")
+				end
+			elseif output == "XML" then
+				table.insert(text_table, "<recipe>")
+				table.insert(text_table, "  <id>..recipe_id..</id>")
+				table.insert(text_table, "  <name>" .. recipe.name .. "</name>")
+				table.insert(text_table, "  <skilllevel>..recipe.skill_level..</skilllevel>")
+				table.insert(text_table, "  <known>" .. tostring(is_known) .. "</known>")
+				table.insert(text_table, "  <flags>")
+			elseif output == "Name" then
+				table.insert(text_table, recipe.name)
+			end
 
-				-- Find out which flags are set
-				for table_index, bits in ipairs(private.FLAG_WORDS) do
-					for flag_name, flag in pairs(bits) do
-						local bitfield = recipe.flags[private.FLAG_MEMBERS[table_index]]
+			-- Add in all the filter flags
+			local filter_names = GetFilterNames()
+			local prev = false
 
-						if bitfield and bit.band(bitfield, flag) == flag then
-							if not output or output == "Comma" then
-								if prev then
-									table.insert(text_table, ",")
-								end
-								table.insert(text_table, filter_names[private.FILTER_IDS[flag_name]])
-								prev = true
-							elseif output == "BBCode" then
-								table.insert(text_table, "[*]" .. filter_names[private.FILTER_IDS[flag_name]])
-							elseif output == "XML" then
-								table.insert(text_table, "    <flag>" .. filter_names[private.FILTER_IDS[flag_name]] .. "</flag>")
+			-- Find out which flags are set
+			for table_index, bits in ipairs(private.FLAG_WORDS) do
+				for flag_name, flag in pairs(bits) do
+					local bitfield = recipe.flags[private.FLAG_MEMBERS[table_index]]
+
+					if bitfield and bit.band(bitfield, flag) == flag then
+						if not output or output == "Comma" then
+							if prev then
+								table.insert(text_table, ",")
 							end
+							table.insert(text_table, filter_names[private.FILTER_IDS[flag_name]])
+							prev = true
+						elseif output == "BBCode" then
+							table.insert(text_table, "[*]" .. filter_names[private.FILTER_IDS[flag_name]])
+						elseif output == "XML" then
+							table.insert(text_table, "    <flag>" .. filter_names[private.FILTER_IDS[flag_name]] .. "</flag>")
 						end
 					end
 				end
+			end
 
+			if not output or output == "Comma" then
+				table.insert(text_table, "\",\"")
+			elseif output == "BBCode" then
+				table.insert(text_table, "[/list]\nAcquire Methods:\n[list]")
+			elseif output == "XML" then
+				table.insert(text_table, "  </flags>")
+				table.insert(text_table, "  <acquire>")
+			end
+
+			-- Find out which unique acquire methods we have
+			local acquire_data = recipe["acquire_data"]
+			table.wipe(acquire_list)
+
+			for acquire_type in pairs(acquire_data) do
+				acquire_list[private.ACQUIRE_NAMES[acquire_type]] = true
+			end
+
+			-- Add all the acquire methods in
+			prev = false
+
+			for i in pairs(acquire_list) do
 				if not output or output == "Comma" then
-					table.insert(text_table, "\",\"")
-				elseif output == "BBCode" then
-					table.insert(text_table, "[/list]\nAcquire Methods:\n[list]")
-				elseif output == "XML" then
-					table.insert(text_table, "  </flags>")
-					table.insert(text_table, "  <acquire>")
-				end
-
-				-- Find out which unique acquire methods we have
-				local acquire_data = recipe["acquire_data"]
-				table.wipe(acquire_list)
-
-				for acquire_type in pairs(acquire_data) do
-					acquire_list[private.ACQUIRE_NAMES[acquire_type]] = true
-				end
-
-				-- Add all the acquire methods in
-				prev = false
-
-				for i in pairs(acquire_list) do
-					if not output or output == "Comma" then
-						if prev then
-							table.insert(text_table, ",")
-						end
-						table.insert(text_table, i)
-						prev = true
-					elseif output == "BBCode" then
-						table.insert(text_table, "[*] " .. i)
-					elseif output == "XML" then
-						table.insert(text_table, "<acquiremethod>" .. i .. "</acquiremethod>")
+					if prev then
+						table.insert(text_table, ",")
 					end
-				end
-
-				if not output or output == "Comma" then
-					table.insert(text_table, "\"," .. tostring(is_known) .. "\n")
-					--if is_known then
-					--	table.insert(text_table, "\",true\n")
-					--else
-					--	table.insert(text_table, "\",false\n")
-					--end
+					table.insert(text_table, i)
+					prev = true
 				elseif output == "BBCode" then
-					table.insert(text_table, "\n[/list]")
+					table.insert(text_table, "[*] " .. i)
 				elseif output == "XML" then
-					table.insert(text_table, "  </acquire>")
-					table.insert(text_table, "</recipe>")
+					table.insert(text_table, "<acquiremethod>" .. i .. "</acquiremethod>")
 				end
+			end
+
+			if not output or output == "Comma" then
+				table.insert(text_table, "\"," .. tostring(is_known) .. "\n")
+				--if is_known then
+				--	table.insert(text_table, "\",true\n")
+				--else
+				--	table.insert(text_table, "\",false\n")
+				--end
+			elseif output == "BBCode" then
+				table.insert(text_table, "\n[/list]")
+			elseif output == "XML" then
+				table.insert(text_table, "  </acquire>")
+				table.insert(text_table, "</recipe>")
 			end
 		end -- for
 		return table.concat(text_table, "")
