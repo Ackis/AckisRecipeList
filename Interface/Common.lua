@@ -88,8 +88,8 @@ do
 
 		table.wipe(sorted_recipes)
 
-		for n, v in pairs(recipe_list) do
-			table.insert(sorted_recipes, n)
+		for recipe_id, recipe in pairs(recipe_list) do
+			sorted_recipes[#sorted_recipes + 1] = recipe_id
 		end
 		table.sort(sorted_recipes, sort_func)
 	end

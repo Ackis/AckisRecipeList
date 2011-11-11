@@ -322,10 +322,6 @@ function private.InitializeListFrame()
 					current_tab:ModifyEntry(entry, false)
 					ReleaseTable(table.remove(ListFrame.entries, removal_index))
 					entry = ListFrame.entries[removal_index]
-
-					if not entry then
-						break
-					end
 				end
 				current_tab:ModifyEntry(clicked_line, false)
 				clicked_line.is_expanded = false
