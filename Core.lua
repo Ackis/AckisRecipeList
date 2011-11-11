@@ -93,7 +93,7 @@ Toast:Register("ARL_DebugToast", function(toast, ...)
 	toast:SetTitle(("%s - Debug"):format(private.addon_name))
 	toast:SetText(...)
 	toast:SetIconTexture([[Interface\HELPFRAME\HotIssueIcon]])
-end, true)
+end)
 
 do
 	local output = {}
