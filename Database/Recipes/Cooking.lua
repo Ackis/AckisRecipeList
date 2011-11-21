@@ -279,7 +279,7 @@ function addon:InitCooking()
 	recipe:SetRecipeItemID(5486)
 	recipe:SetCraftedItemID(5477)
 	recipe:SetSkillLevels(50, 50, 90, 110, 130)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
+	recipe:AddFilters(F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
 	recipe:AddVendor(3482)
 
 	-- Dig Rat Stew -- 6417
