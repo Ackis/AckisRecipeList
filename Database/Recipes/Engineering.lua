@@ -236,7 +236,7 @@ function addon:InitEngineering()
 	recipe:SetCraftedItemID(4381)
 	recipe:SetSkillLevels(140, 140, 165, 177, 190)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.TRINKET)
-	recipe:AddVendor(2683, 3495)
+	recipe:AddLimitedVendor(3495, 1, 41435, 1)
 
 	-- Bronze Framework -- 3953
 	recipe = AddRecipe(3953, V.ORIG, Q.COMMON)
