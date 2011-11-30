@@ -4706,6 +4706,22 @@ function addon:InitLeatherworking()
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS)
 	recipe:AddTrainer(3365, 4212, 5564, 21087, 26911, 26961, 26996, 26998, 28700, 33581, 33612, 33635)
 
+	-- Bladeshadow Leggings
+
+	-- Bladeshadow Wristguards
+
+	-- Bracers of Flowing Serenity
+
+	-- Bracers of the Hunter-Killer
+
+	-- Deathscale Leggings
+
+	-- Leggings of Nature's Champion
+
+	-- Rended Earth Leggings
+
+	-- Thundering Deathscale Wristguards
+
 	self.InitLeatherworking = nil
 end
 

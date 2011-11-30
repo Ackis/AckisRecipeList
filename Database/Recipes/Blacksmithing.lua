@@ -4463,5 +4463,17 @@ function addon:InitBlacksmithing()
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	recipe:AddVendor(53214)
 
+	-- Bracers of Destructive Strength
+
+	-- Foundations of Courage
+
+	-- Pyrium Legplates of Purified Evil
+
+	-- Soul Redeemer Bracers
+
+	-- Titanguard Wristplates
+
+	-- Unstoppable Destroyer's Legplates
+
 	self.InitBlacksmithing = nil
 end

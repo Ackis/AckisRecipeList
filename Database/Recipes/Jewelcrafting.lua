@@ -4566,5 +4566,137 @@ function addon:InitJewelcrafting()
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	recipe:AddTrainer(28701)
 
+	-- Accurate Shadow Spinel
+
+	-- Adept Lava Coral
+
+	-- Artful Lava Coral
+
+	-- Balanced Elven Peridot
+
+	-- Bold Queen's Garnet
+
+	-- Brilliant Queen's Garnet
+
+	-- Champion's Lava Coral
+
+	-- Crafty Lava Coral
+
+	-- Deadly Lava Coral
+
+	-- Defender's Shadow Spinel
+
+	-- Deft Lava Coral
+
+	-- Delicate Queen's Garnet
+
+	-- Energized Elven Peridot
+
+	-- Etched Shadow Spinel
+
+	-- Fierce Lava Coral
+
+	-- Fine Lava Coral
+
+	-- Flashing Queen's Garnet
+
+	-- Forceful Elven Peridot
+
+	-- Fractured Lightstone
+
+	-- Glinting Shadow Spinel
+
+	-- Guardian's Shadow Spinel
+
+	-- Infused Elven Peridot
+
+	-- Inscribed Lava Coral
+
+	-- Jagged Elven Peridot
+
+	-- Keen Lava Coral
+
+	-- Lightning Elven Peridot
+
+	-- Lucent Lava Coral
+
+	-- Misty Elven Peridot
+
+	-- Mysterious Shadow Spinel
+
+	-- Mystic Lightstone
+
+	-- Nimble Elven Peridot
+
+	-- Piercing Elven Peridot
+
+	-- Polished Lava Coral
+
+	-- Potent Lava Coral
+
+	-- Precise Queen's Garnet
+
+	-- Puissant Elven Peridot
+
+	-- Purified Shadow Spinel
+
+	-- Quick Lightstone
+
+	-- Radiant Elven Peridot
+
+	-- Reckless Lava Coral
+
+	-- Regal Elven Peridot
+
+	-- Resolute Lava Coral
+
+	-- Resplendent Lava Coral
+
+	-- Retaliating Shadow Spinel
+
+	-- Rigid Deepholm Iolite
+
+	-- Sensei's Elven Peridot
+
+	-- Shattered Elven Peridot
+
+	-- Shifting Shadow Spinel
+
+	-- Skillful Lava Coral
+
+	-- Smooth Lightstone
+
+	-- Solid Deepholm Iolite
+
+	-- Sovereign Shadow Spinel
+
+	-- Sparkling Deepholm Iolite
+
+	-- Splendid Lava Coral
+
+	-- Stalwart Lava Coral
+
+	-- Steady Elven Peridot
+
+	-- Stormy Deepholm Iolite
+
+	-- Subtle Lightstone
+
+	-- Tenuous Lava Coral
+
+	-- Timeless Shadow Spinel
+
+	-- Turbid Elven Peridot
+
+	-- Veiled Shadow Spinel
+
+	-- Vivid Elven Peridot
+
+	-- Wicked Lava Coral
+
+	-- Willful Lava Coral
+
+	-- Zen Elven Peridot
+
 	self.InitJewelcrafting = nil
 end

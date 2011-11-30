@@ -3643,5 +3643,13 @@ function addon:InitTailoring()
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	recipe:AddVendor(53881)
 
+	-- Bracers of Unconquered Power
+
+	-- Dreamwraps of the Light
+
+	-- Lavaquake Legwraps
+
+	-- World Mender's Pants
+
 	self.InitTailoring = nil
 end
