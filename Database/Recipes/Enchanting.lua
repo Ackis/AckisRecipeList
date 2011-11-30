@@ -2391,5 +2391,11 @@ function addon:InitEnchanting()
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
 	recipe:AddWorldDrop("Deepholm", "Eastern Kingdoms", "Kalimdor")
 
+	-- Maelstrom Shatter -- 104698
+	recipe = AddRecipe(104698, V.CATA, Q.COMMON)
+	recipe:SetSkillLevels(515, 515, 525, 530, 535)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP)
+	recipe:AddTrainer(1317, 3345)
+
 	self.InitEnchanting = nil
 end
