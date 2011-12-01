@@ -225,7 +225,7 @@ function private.InitializeTabs()
 			for spell_id, affiliation in pairs(private.acquire_list[acquire_type].recipes) do
 				local recipe = profession_recipes[spell_id]
 
-				if recipe:HasState("VISIBLE") and MainPanel.search_editbox:MatchesRecipe(recipe) then
+				if recipe and recipe:HasState("VISIBLE") and MainPanel.search_editbox:MatchesRecipe(recipe) then
 					count = count + 1
 
 					if not recipe_registry[recipe] then
@@ -292,7 +292,7 @@ function private.InitializeTabs()
 			for spell_id, affiliation in pairs(private.location_list[loc_name].recipes) do
 				local recipe = profession_recipes[spell_id]
 
-				if recipe:HasState("VISIBLE") and search_box:MatchesRecipe(recipe) then
+				if recipe and recipe:HasState("VISIBLE") and search_box:MatchesRecipe(recipe) then
 					local trainer_data = recipe.acquire_data[A.TRAINER]
 					local good_count, bad_count = 0, 0
 					local fac_toggle = addon.db.profile.filters.general.faction
@@ -374,7 +374,7 @@ function private.InitializeTabs()
 			local recipe_index = sorted_recipes[i]
 			local recipe = profession_recipes[recipe_index]
 
-			if recipe:HasState("VISIBLE") and MainPanel.search_editbox:MatchesRecipe(recipe) then
+			if recipe and recipe:HasState("VISIBLE") and MainPanel.search_editbox:MatchesRecipe(recipe) then
 				local is_expanded = self[prof_name.." expanded"][recipe_index]
 				local entry = AcquireTable()
 				entry.text = recipe:GetDisplayName()
