@@ -165,7 +165,7 @@ function addon:InitJewelcrafting()
 	recipe:SetCraftedItemID(20950)
 	recipe:SetSkillLevels(120, 120, 150, 165, 180)
 	recipe:AddFilters(F.ALLIANCE, F.TRAINER, F.VENDOR, F.IBOE, F.RBOE, F.TANK, F.NECK)
-	recipe:AddTrainer(33637)
+	recipe:AddTrainer(33637, 46675)
 	recipe:AddVendor(1448)
 
 	-- Heavy Iron Knuckles -- 25612
@@ -174,7 +174,7 @@ function addon:InitJewelcrafting()
 	recipe:SetCraftedItemID(20954)
 	recipe:SetSkillLevels(125, 125, 155, 170, 185)
 	recipe:AddFilters(F.HORDE, F.TRAINER, F.VENDOR, F.IBOE, F.RBOE, F.DPS, F.ONE_HAND, F.FIST)
-	recipe:AddTrainer(33637)
+	recipe:AddTrainer(33637, 46675)
 	recipe:AddLimitedVendor(2393, 1)
 
 	-- Golden Dragon Ring -- 25613
@@ -197,7 +197,7 @@ function addon:InitJewelcrafting()
 	recipe:SetCraftedItemID(20958)
 	recipe:SetSkillLevels(150, 150, 180, 195, 210)
 	recipe:AddFilters(F.HORDE, F.TRAINER, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.RING)
-	recipe:AddTrainer(33637)
+	recipe:AddTrainer(33637, 46675)
 	recipe:AddLimitedVendor(9636, 1)
 
 	-- Jade Pendant of Blasting -- 25618
@@ -525,7 +525,7 @@ function addon:InitJewelcrafting()
 	recipe:SetCraftedItemID(23103)
 	recipe:SetSkillLevels(300, 300, 300, 320, 340)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.CASTER)
-	recipe:AddTrainer(18774, 19063, 19539, 26915, 26960, 26982, 26997, 28701, 33614, 33637, 33680)
+	recipe:AddTrainer(18774, 19063, 19539, 26915, 26960, 26982, 26997, 28701, 33614, 33637, 33680, 46675)
 
 	-- Jagged Deep Peridot -- 28917
 	recipe = AddRecipe(28917, V.TBC, Q.COMMON)
@@ -549,7 +549,7 @@ function addon:InitJewelcrafting()
 	recipe:SetCraftedItemID(23108)
 	recipe:SetSkillLevels(300, 300, 300, 320, 340)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
-	recipe:AddTrainer(18774, 19063, 19539, 26915, 26960, 26982, 26997, 28701, 33614, 33637, 33680)
+	recipe:AddTrainer(18774, 19063, 19539, 26915, 26960, 26982, 26997, 28701, 33614, 33637, 33680, 46675)
 
 	-- Purified Shadow Draenite -- 28927
 	recipe = AddRecipe(28927, V.TBC, Q.UNCOMMON)
@@ -605,7 +605,7 @@ function addon:InitJewelcrafting()
 	recipe:SetCraftedItemID(23118)
 	recipe:SetSkillLevels(300, 300, 300, 320, 340)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(18774, 19063, 19539, 26915, 26960, 26982, 26997, 28701, 33614, 33637, 33680)
+	recipe:AddTrainer(18774, 19063, 19539, 26915, 26960, 26982, 26997, 28701, 33614, 33637, 33680, 46675)
 
 	-- Sparkling Azure Moonstone -- 28953
 	recipe = AddRecipe(28953, V.TBC, Q.COMMON)
@@ -4524,42 +4524,42 @@ function addon:InitJewelcrafting()
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	recipe:AddVendor(16624, 17512, 44583, 50480, 50482, 52584, 52588, 52644, 52658)
 
-	-- Bloodthirsty Sapphire Ring -- 99539
+	-- Vicious Sapphire Ring -- 99539
 	recipe = AddRecipe(99539, V.CATA, Q.COMMON)
 	recipe:SetCraftedItemID(70071)
 	recipe:SetSkillLevels(510, 510, 515, 520, 525)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	recipe:AddTrainer(28701)
 
-	-- Bloodthirsty Amberjewel Band -- 99540
+	-- Vicious Amberjewel Band -- 99540
 	recipe = AddRecipe(99540, V.CATA, Q.COMMON)
 	recipe:SetCraftedItemID(70072)
 	recipe:SetSkillLevels(510, 510, 515, 520, 525)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	recipe:AddTrainer(28701)
 
-	-- Bloodthirsty Ruby Signet -- 99541
+	-- Vicious Ruby Signet -- 99541
 	recipe = AddRecipe(99541, V.CATA, Q.COMMON)
 	recipe:SetCraftedItemID(70073)
 	recipe:SetSkillLevels(510, 510, 515, 520, 525)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	recipe:AddTrainer(28701)
 
-	-- Bloodthirsty Sapphire Necklace -- 99542
+	-- Vicious Sapphire Necklace -- 99542
 	recipe = AddRecipe(99542, V.CATA, Q.COMMON)
 	recipe:SetCraftedItemID(70074)
 	recipe:SetSkillLevels(520, 520, 525, 530, 535)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	recipe:AddTrainer(28701)
 
-	-- Bloodthirsty Amberjewel Pendant -- 99543
+	-- Vicious Amberjewel Pendant -- 99543
 	recipe = AddRecipe(99543, V.CATA, Q.COMMON)
 	recipe:SetCraftedItemID(70075)
 	recipe:SetSkillLevels(520, 520, 525, 530, 535)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	recipe:AddTrainer(28701)
 
-	-- Bloodthirsty Ruby Choker -- 99544
+	-- Vicious Ruby Choker -- 99544
 	recipe = AddRecipe(99544, V.CATA, Q.COMMON)
 	recipe:SetCraftedItemID(70076)
 	recipe:SetSkillLevels(520, 520, 525, 530, 535)
