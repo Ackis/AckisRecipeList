@@ -3343,10 +3343,11 @@ function addon:InitInscription()
 	recipe:AddDiscovery("DISCOVERY_INSC_NORTHREND")
 	
 	-- Glyph of Shadow -- 107907
-	-- recipe = AddRecipe(107907, V.CATA, Q.COMMON)
-	-- recipe:SetCraftedItemID()
-	-- recipe:SetSkillLevels(105, 105, 105, 110, 115)
-	-- recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOE, F.PRIEST)
+	recipe = AddRecipe(107907, V.CATA, Q.COMMON)
+	recipe:SetCraftedItemID(77101)
+	recipe:SetSkillLevels(105, 105, 105, 110, 115)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOE, F.PRIEST)
+	recipe:AddDiscovery("DISCOVERY_INSC_MINOR")
 
 	self.InitInscription = nil
 end
