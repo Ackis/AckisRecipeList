@@ -4211,112 +4211,112 @@ function addon:InitBlacksmithing()
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	recipe:AddVendor(2999, 3356, 4597, 5512, 16670, 45549, 46359, 50375, 50382)
 
-	-- Bloodthirsty Pyrium Bracers -- 76456
+	-- Vicious Pyrium Bracers -- 76456
 	recipe = AddRecipe(76456, V.CATA, Q.COMMON)
 	recipe:SetRecipeItemID(66117)
 	recipe:SetSkillLevels(500, 500, 510, 512, 515)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	recipe:AddVendor(2999, 3356, 4597, 5512, 16670, 45549, 46359, 50375, 50382)
 
-	-- Bloodthirsty Pyrium Gauntlets -- 76457
+	-- Vicious Pyrium Gauntlets -- 76457
 	recipe = AddRecipe(76457, V.CATA, Q.COMMON)
 	recipe:SetRecipeItemID(66118)
 	recipe:SetSkillLevels(505, 505, 515, 517, 520)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	recipe:AddVendor(2999, 3356, 4597, 5512, 16670, 45549, 46359, 50375, 50382)
 
-	-- Bloodthirsty Pyrium Belt -- 76458
+	-- Vicious Pyrium Belt -- 76458
 	recipe = AddRecipe(76458, V.CATA, Q.COMMON)
 	recipe:SetRecipeItemID(66119)
 	recipe:SetSkillLevels(510, 510, 520, 522, 525)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	recipe:AddVendor(2999, 3356, 4597, 5512, 16670, 45549, 46359, 50375, 50382)
 
-	-- Bloodthirsty Pyrium Boots -- 76459
+	-- Vicious Pyrium Boots -- 76459
 	recipe = AddRecipe(76459, V.CATA, Q.COMMON)
 	recipe:SetRecipeItemID(66120)
 	recipe:SetSkillLevels(515, 515, 525, 527, 530)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	recipe:AddVendor(2999, 3356, 4597, 5512, 16670, 45549, 46359, 50375, 50382)
 
-	-- Bloodthirsty Pyrium Shoulders -- 76461
+	-- Vicious Pyrium Shoulders -- 76461
 	recipe = AddRecipe(76461, V.CATA, Q.COMMON)
 	recipe:SetRecipeItemID(66121)
 	recipe:SetSkillLevels(520, 520, 530, 532, 535)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	recipe:AddVendor(2999, 3356, 4597, 5512, 16670, 45549, 46359, 50375, 50382)
 
-	-- Bloodthirsty Pyrium Legguards -- 76462
+	-- Vicious Pyrium Legguards -- 76462
 	recipe = AddRecipe(76462, V.CATA, Q.COMMON)
 	recipe:SetRecipeItemID(66122)
 	recipe:SetSkillLevels(525, 525, 535, 537, 540)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	recipe:AddVendor(2999, 3356, 4597, 5512, 16670, 45549, 46359, 50375, 50382)
 
-	-- Bloodthirsty Pyrium Helm -- 76463
+	-- Vicious Pyrium Helm -- 76463
 	recipe = AddRecipe(76463, V.CATA, Q.COMMON)
 	recipe:SetRecipeItemID(66123)
 	recipe:SetSkillLevels(525, 525, 535, 537, 540)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	recipe:AddVendor(2999, 3356, 4597, 5512, 16670, 45549, 46359, 50375, 50382)
 
-	-- Bloodthirsty Pyrium Breastplate -- 76464
+	-- Vicious Pyrium Breastplate -- 76464
 	recipe = AddRecipe(76464, V.CATA, Q.COMMON)
 	recipe:SetRecipeItemID(66124)
 	recipe:SetSkillLevels(525, 525, 535, 537, 540)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	recipe:AddVendor(2999, 3356, 4597, 5512, 16670, 45549, 46359, 50375, 50382)
 
-	-- Bloodthirsty Ornate Pyrium Bracers -- 76465
+	-- Vicious Ornate Pyrium Bracers -- 76465
 	recipe = AddRecipe(76465, V.CATA, Q.COMMON)
 	recipe:SetRecipeItemID(66125)
 	recipe:SetSkillLevels(500, 500, 510, 512, 515)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	recipe:AddVendor(2999, 3356, 4597, 5512, 16670, 45549, 46359, 50375, 50382)
 
-	-- Bloodthirsty Ornate Pyrium Gauntlets -- 76466
+	-- Vicious Ornate Pyrium Gauntlets -- 76466
 	recipe = AddRecipe(76466, V.CATA, Q.COMMON)
 	recipe:SetRecipeItemID(66126)
 	recipe:SetSkillLevels(505, 505, 515, 517, 520)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	recipe:AddVendor(2999, 3356, 4597, 5512, 16670, 45549, 46359, 50375, 50382)
 
-	-- Bloodthirsty Ornate Pyrium Belt -- 76467
+	-- Vicious Ornate Pyrium Belt -- 76467
 	recipe = AddRecipe(76467, V.CATA, Q.COMMON)
 	recipe:SetRecipeItemID(66127)
 	recipe:SetSkillLevels(510, 510, 520, 522, 525)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	recipe:AddVendor(2999, 3356, 4597, 5512, 16670, 45549, 46359, 50375, 50382)
 
-	-- Bloodthirsty Ornate Pyrium Boots -- 76468
+	-- Vicious Ornate Pyrium Boots -- 76468
 	recipe = AddRecipe(76468, V.CATA, Q.COMMON)
 	recipe:SetRecipeItemID(66128)
 	recipe:SetSkillLevels(515, 515, 525, 527, 530)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	recipe:AddVendor(2999, 3356, 4597, 5512, 16670, 45549, 46359, 50375, 50382)
 
-	-- Bloodthirsty Ornate Pyrium Shoulders -- 76469
+	-- Vicious Ornate Pyrium Shoulders -- 76469
 	recipe = AddRecipe(76469, V.CATA, Q.COMMON)
 	recipe:SetRecipeItemID(66129)
 	recipe:SetSkillLevels(520, 520, 530, 532, 535)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	recipe:AddVendor(2999, 3356, 4597, 5512, 16670, 45549, 46359, 50375, 50382)
 
-	-- Bloodthirsty Ornate Pyrium Legguards -- 76470
+	-- Vicious Ornate Pyrium Legguards -- 76470
 	recipe = AddRecipe(76470, V.CATA, Q.COMMON)
 	recipe:SetRecipeItemID(66130)
 	recipe:SetSkillLevels(525, 525, 535, 537, 540)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	recipe:AddVendor(2999, 3356, 4597, 5512, 16670, 45549, 46359, 50375, 50382)
 
-	-- Bloodthirsty Ornate Pyrium Helm -- 76471
+	-- Vicious Ornate Pyrium Helm -- 76471
 	recipe = AddRecipe(76471, V.CATA, Q.COMMON)
 	recipe:SetRecipeItemID(66131)
 	recipe:SetSkillLevels(525, 525, 535, 537, 540)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	recipe:AddVendor(2999, 3356, 4597, 5512, 16670, 45549, 46359, 50375, 50382)
 
-	-- Bloodthirsty Ornate Pyrium Breastplate -- 76472
+	-- Vicious Ornate Pyrium Breastplate -- 76472
 	recipe = AddRecipe(76472, V.CATA, Q.COMMON)
 	recipe:SetRecipeItemID(66132)
 	recipe:SetSkillLevels(525, 525, 535, 537, 540)
