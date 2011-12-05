@@ -3679,7 +3679,7 @@ function addon:InitTailoring()
 	recipe = AddRecipe(102171, V.CATA, Q.UNCOMMON)
 	recipe:SetRecipeItemID(72102)
 	recipe:SetCraftedItemID(72101)
-	recipe:SetSkillLevels(525, 525, 525, 527, 530)
+	recipe:SetSkillLevels(150, 150, 170, 185, 200)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.RBOE, F.CLOTH)
 
 	self.InitTailoring = nil
