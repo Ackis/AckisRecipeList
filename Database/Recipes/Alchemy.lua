@@ -491,8 +491,8 @@ function addon:InitAlchemy()
 	recipe:SetRecipeItemID(9296)
 	recipe:SetCraftedItemID(9088)
 	recipe:SetSkillLevels(240, 240, 255, 275, 295)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOE, F.RBOE)
-	recipe:AddMobDrop(1783, 1791)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.MOB_DROP, F.IBOE, F.RBOE)
+	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Elixir of Greater Agility -- 11467
 	recipe = AddRecipe(11467, V.ORIG, Q.COMMON)
