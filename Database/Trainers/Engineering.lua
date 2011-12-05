@@ -22,7 +22,7 @@ function private:InitializeEngineeringTrainers()
 	self:AddTrainer(11025, "Mukdrak", "Durotar", 52.2, 40.8, "Horde") -- COMPLETELY UPDATED
 	self:AddTrainer(11031, "Franklin Lloyd", "Undercity", 75.9, 73.7, "Horde")
 	self:AddTrainer(11037, "Jenna Lemkenilli", "Darkshore", 38.3, 41.1, "Alliance")
-	self:AddTrainer(14742, "Zap Farflinger", "Winterspring", 61.2, 37.6, "Neutral")
+	self:AddTrainer(14742, "Zap Farflinger", "Winterspring", 59.7, 49.8, "Neutral") -- COMPLETELY UPDATED
 	self:AddTrainer(14743, "Jhordy Lapforge", "Tanaris", 52.2, 27.9, "Neutral") -- COMPLETELY UPDATED
 	self:AddTrainer(16667, "Danwe", "Silvermoon City", 76.5, 40.9, "Horde")
 	self:AddTrainer(16726, "Ockil", "The Exodar", 54, 92.1, "Alliance")

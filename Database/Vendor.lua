@@ -196,7 +196,7 @@ function addon:InitVendor()
 	AddVendor(10118,	L["Nessa Shadowsong"],			"Teldrassil",			56.3,	92.4,	"Alliance")
 	AddVendor(10856,	L["Argent Quartermaster Hasana"],	"Tirisfal Glades",		83.2,	68.1,	"Neutral")
 	AddVendor(10857,	L["Argent Quartermaster Lightspark"],	"Western Plaguelands",		42.8,	83.8,	"Neutral")
-	AddVendor(11185,	L["Xizzer Fizzbolt"],			"Winterspring",			60.8,	38.6,	"Neutral")
+	AddVendor(11185,	L["Xizzer Fizzbolt"],			"Winterspring",			59.2,	50.9,	"Neutral")
 	AddVendor(11187,	L["Himmik"],				"Winterspring",			59.8,	51.6,	"Neutral")  -- UPDATED
 	AddVendor(11189,	L["Qia"],				"Winterspring",			59.6,	49.2,	"Neutral")
 	AddVendor(11278,	L["Magnus Frostwake"],			"Western Plaguelands",		68.1,	77.6,	"Neutral")
