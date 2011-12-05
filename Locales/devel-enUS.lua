@@ -1321,3 +1321,5 @@ L["Bael'dun Rifleman"]= "Bael'dun Rifleman"
 L["Bael'dun Officer"] = "Bael'dun Officer"
 L["Discovery"] = true
 L["Dealer Jadyan"] = true
+L["Taryssa Lazuria"] = true
+L["Farrah Facet"] = true

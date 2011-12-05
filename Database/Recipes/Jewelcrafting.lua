@@ -4567,6 +4567,12 @@ function addon:InitJewelcrafting()
 	recipe:AddTrainer(28701)
 
 	-- Accurate Shadow Spinel
+	recipe = AddRecipe(101784, V.CATA, Q.EPIC)
+	recipe:SetCraftedItemID(71863)
+	recipe:SetRecipeItemID(71928)
+	recipe:SetSkillLevels(520, 520, 525, 530, 535)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	recipe:AddVendor(56925, 57922)
 
 	-- Adept Lava Coral
 
