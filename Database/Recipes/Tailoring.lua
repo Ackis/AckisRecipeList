@@ -3644,12 +3644,43 @@ function addon:InitTailoring()
 	recipe:AddVendor(53881)
 
 	-- Bracers of Unconquered Power
+	recipe = AddRecipe(101923, V.CATA, Q.EPIC)
+	recipe:SetRecipeItemID(72004)
+	recipe:SetCraftedItemID(71989)
+	recipe:SetSkillLevels(525, 525, 525, 527, 530)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOE, F.CASTER, F.CLOTH)
+	recipe:AddCustom("DRAGONSOUL_RANDOM")
 
 	-- Dreamwraps of the Light
+	recipe = AddRecipe(101922, V.CATA, Q.EPIC)
+	recipe:SetRecipeItemID(72003)
+	recipe:SetCraftedItemID(71990)
+	recipe:SetSkillLevels(525, 525, 525, 527, 530)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOE, F.HEALER, F.CLOTH)
+	recipe:AddCustom("DRAGONSOUL_RANDOM")
 
 	-- Lavaquake Legwraps
+	recipe = AddRecipe(101921, V.CATA, Q.EPIC)
+	recipe:SetRecipeItemID(72002)
+	recipe:SetCraftedItemID(71980)
+	recipe:SetSkillLevels(525, 525, 525, 527, 530)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOE, F.CASTER, F.CLOTH)
+	recipe:AddCustom("DRAGONSOUL_RANDOM")
 
 	-- World Mender's Pants
+	recipe = AddRecipe(101920, V.CATA, Q.EPIC)
+	recipe:SetRecipeItemID(72000)
+	recipe:SetCraftedItemID(71981)
+	recipe:SetSkillLevels(525, 525, 525, 527, 530)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOE, F.HEALER, F.CLOTH)
+	recipe:AddCustom("DRAGONSOUL_RANDOM")
+
+	-- Black Silk Vest
+	recipe = AddRecipe(102171, V.CATA, Q.UNCOMMON)
+	recipe:SetRecipeItemID(72102)
+	recipe:SetCraftedItemID(72101)
+	recipe:SetSkillLevels(525, 525, 525, 527, 530)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.RBOE, F.CLOTH)
 
 	self.InitTailoring = nil
 end
