@@ -775,7 +775,7 @@ function addon:InitAlchemy()
 	recipe:SetCraftedItemID(13459)
 	recipe:SetSkillLevels(290, 290, 305, 325, 345)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOE, F.RBOE)
-	recipe:AddMobDrop(8546, 8550)
+	recipe:AddMobDrop(8546)
 
 	-- Major Mana Potion -- 17580
 	recipe = AddRecipe(17580, V.ORIG, Q.UNCOMMON)
