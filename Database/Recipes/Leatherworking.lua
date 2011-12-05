@@ -4707,20 +4707,68 @@ function addon:InitLeatherworking()
 	recipe:AddTrainer(3365, 4212, 5564, 21087, 26911, 26961, 26996, 26998, 28700, 33581, 33612, 33635)
 
 	-- Bladeshadow Leggings
+	recipe = AddRecipe(101935, V.CATA, Q.EPIC)
+	recipe:SetRecipeItemID(72006)
+	recipe:SetCraftedItemID(71985)
+	recipe:SetSkillLevels(525, 525, 525, 527, 530)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOE)
+	recipe:AddCustom("DRAGONSOUL_RANDOM")
 
 	-- Bladeshadow Wristguards
+	recipe = AddRecipe(101940, V.CATA, Q.EPIC)
+	recipe:SetRecipeItemID(72010)
+	recipe:SetCraftedItemID(71994)
+	recipe:SetSkillLevels(525, 525, 525, 527, 530)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOE)
+	recipe:AddCustom("DRAGONSOUL_RANDOM")
 
 	-- Bracers of Flowing Serenity
+	recipe = AddRecipe(101937, V.CATA, Q.EPIC)
+	recipe:SetRecipeItemID(72008)
+	recipe:SetCraftedItemID(71995)
+	recipe:SetSkillLevels(525, 525, 525, 527, 530)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOE)
+	recipe:AddCustom("DRAGONSOUL_RANDOM")
 
 	-- Bracers of the Hunter-Killer
+	recipe = AddRecipe(101941, V.CATA, Q.EPIC)
+	recipe:SetRecipeItemID(72011)
+	recipe:SetCraftedItemID(71996)
+	recipe:SetSkillLevels(525, 525, 525, 527, 530)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOE)
+	recipe:AddCustom("DRAGONSOUL_RANDOM")
 
 	-- Deathscale Leggings
+	recipe = AddRecipe(101934, V.CATA, Q.EPIC)
+	recipe:SetRecipeItemID(72005)
+	recipe:SetCraftedItemID(71988)
+	recipe:SetSkillLevels(525, 525, 525, 527, 530)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOE)
+	recipe:AddCustom("DRAGONSOUL_RANDOM")
 
 	-- Leggings of Nature's Champion
+	recipe = AddRecipe(101933, V.CATA, Q.EPIC)
+	recipe:SetRecipeItemID(71999)
+	recipe:SetCraftedItemID(71986)
+	recipe:SetSkillLevels(525, 525, 525, 527, 530)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOE)
+	recipe:AddCustom("DRAGONSOUL_RANDOM")
 
 	-- Rended Earth Leggings
+	recipe = AddRecipe(101936, V.CATA, Q.EPIC)
+	recipe:SetRecipeItemID(72007)
+	recipe:SetCraftedItemID(71987)
+	recipe:SetSkillLevels(525, 525, 525, 527, 530)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOE)
+	recipe:AddCustom("DRAGONSOUL_RANDOM")
 
 	-- Thundering Deathscale Wristguards
+	recipe = AddRecipe(101939, V.CATA, Q.EPIC)
+	recipe:SetRecipeItemID(72009)
+	recipe:SetCraftedItemID(71997)
+	recipe:SetSkillLevels(525, 525, 525, 527, 530)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOE)
+	recipe:AddCustom("DRAGONSOUL_RANDOM")
 
 	self.InitLeatherworking = nil
 end
