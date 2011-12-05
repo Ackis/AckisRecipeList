@@ -68,6 +68,7 @@ function addon:InitCustom()
 	AddCustom("REMOVED_FROM_GAME")
 	AddCustom("FIRELANDS_RANDOM", BZ["Firelands"])
 	AddCustom("DIG_STEW")
+	AddCustom("DRAGONSOUL_RANDOM", BZ["Dragon Soul"])
 
 	self.InitCustom = nil
 end
