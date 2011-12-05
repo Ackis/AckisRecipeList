@@ -296,6 +296,7 @@ function addon:InitVendor()
 	AddVendor(19373,	L["Mari Stonehand"],			"Shadowmoon Valley",		36.8,	55.1,	"Alliance")
 	AddVendor(19383,	L["Captured Gnome"],			"Zangarmarsh",			32.5,	48.1,	"Horde") -- COMPLETELY UPDATED
 	AddVendor(19521,	L["Arrond"],				"Shadowmoon Valley",		55.9,	58.2,	"Neutral")
+	AddVendor(19536,	L["Dealer Jadyan"],			"Netherstorm",			44.0,	36.6,	"Neutral") -- COMPLETELY UPDATED
 	AddVendor(19537,	L["Dealer Malij"],			"Netherstorm",			44.2,	34.0,	"Neutral") -- COMPLETELY UPDATED
 	AddVendor(19540,	L["Asarnan"],				"Netherstorm",			44.2,	33.7,	"Neutral") -- COMPLETELY UPDATED
 	AddVendor(19661,	L["Viggz Shinesparked"],		"Shattrath City",		64.9,	69.1,	"Neutral")
