@@ -176,7 +176,7 @@ function addon:InitVendor()
 	AddVendor(8131,		L["Blizrik Buckshot"],			"Tanaris",			50.7,	28.5,	"Neutral") -- COMPLETELY UPDATED
 	AddVendor(8145,		L["Sheendra Tallgrass"],		"Feralas",			74.5,	42.8,	"Horde")
 	AddVendor(8150,		L["Janet Hommers"],			"Desolace",			66.2,	6.7,	"Alliance")
-	AddVendor(8157,		L["Logannas"],				"Feralas",			32.7,	44.0,	"Alliance")
+	AddVendor(8157,		L["Logannas"],				"Feralas",			46.6,	43.0,	"Alliance")
 	AddVendor(8158,		L["Bronk"],				"Feralas",			76.1,	43.3,	"Horde")
 	AddVendor(8160,		L["Nioma"],				"The Hinterlands",		13.4,	43.3,	"Alliance")
 	AddVendor(8161,		L["Harggan"],				"The Hinterlands",		13.4,	44.0,	"Alliance")
