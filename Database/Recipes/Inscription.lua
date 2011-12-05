@@ -1933,7 +1933,7 @@ function addon:InitInscription()
 	-- Glyph of Levitate -- 58319
 	recipe = AddRecipe(58319, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(43370)
-	recipe:SetSkillLevels(170, 170, 180, 185, 190)
+	recipe:SetSkillLevels(175, 175, 180, 185, 190)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.PRIEST)
 	recipe:AddDiscovery("DISCOVERY_INSC_MINOR")
 
