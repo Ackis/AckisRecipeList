@@ -328,7 +328,7 @@ function addon:InitAlchemy()
 	recipe:SetRecipeItemID(6055)
 	recipe:SetCraftedItemID(6049)
 	recipe:SetSkillLevels(165, 165, 210, 230, 250)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE)
+	recipe:AddFilters(F.HORDE, F.VENDOR, F.IBOE, F.RBOE)
 	recipe:AddLimitedVendor(4083, 1)
 
 	-- Frost Protection Potion -- 7258
