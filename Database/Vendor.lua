@@ -410,8 +410,8 @@ function addon:InitVendor()
 	AddVendor(53214,	L["Damek Bloombeard"],			"Hyjal",			47.0,	90.2,	"Neutral")
 	AddVendor(53881,	L["Ayla Shadowstorm"],			"Hyjal",			72.5,	36.2,	"Neutral")
 	AddVendor(54232,	L["Mrs. Gant"],				"The Cape of Stranglethorn",	42.6,	72.8,	"Neutral") -- COMPLETLY UPDATED
-	AddVendor(54232,	L["Farrah Facet"],			"Stormwind City",		63.8,	61.6,	"Alliance") -- COMPLETLY UPDATED
-	AddVendor(54232,	L["Taryssa Lazuria"],			"Orgrimmar",			72.4,	34.6,	"Horde") -- COMPLETLY UPDATED
+	AddVendor(56925,	L["Farrah Facet"],			"Stormwind City",		63.8,	61.6,	"Alliance") -- COMPLETLY UPDATED
+	AddVendor(57922,	L["Taryssa Lazuria"],			"Orgrimmar",			72.4,	34.6,	"Horde") -- COMPLETLY UPDATED
 
 	self.InitVendor = nil
 end
