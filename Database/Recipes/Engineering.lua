@@ -78,14 +78,6 @@ function addon:InitEngineering()
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	recipe:AddTrainer(1676, 1702, 3290, 3494, 5174, 5518, 8736, 11017, 11025, 11031, 11037, 16667, 16726, 17222, 17634, 17637, 18752, 18775, 19576, 25277, 26907, 26955, 26991, 28697, 33586, 33611, 33634, 47418)
 
-	-- Copper Tube -- 3924
-	recipe = AddRecipe(3924, V.ORIG, Q.COMMON)
-	recipe:SetCraftedItemID(4361)
-	recipe:SetSkillLevels(50, 50, 80, 95, 110)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.TRAINER, F.IBOE, F.RBOP)
-	--recipe:AddTrainer(1676, 1702, 3290, 3494, 5174, 5518, 8736, 11017, 11025, 11031, 11037, 16667, 16726, 17222, 17634, 17637, 18752, 18775, 19576, 25277, 26907, 26955, 26991, 28697, 33586, 33611, 33634, 47418)
-	recipe:AddCustom("REMOVED_FROM_GAME")
-
 	-- Rough Boomstick -- 3925
 	recipe = AddRecipe(3925, V.ORIG, Q.COMMON)
 	recipe:SetCraftedItemID(4362)
