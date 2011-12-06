@@ -4463,23 +4463,7 @@ function addon:InitBlacksmithing()
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	recipe:AddVendor(53214)
 
-	-- Bracers of Destructive Strength
-	recipe = AddRecipe(101931, V.CATA, Q.EPIC)
-	recipe:SetRecipeItemID(72015)
-	recipe:SetCraftedItemID(71992)
-	recipe:SetSkillLevels(525, 525, 525, 527, 530)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOE)
-	recipe:AddCustom("DRAGONSOUL_RANDOM")
-
-	-- Foundations of Courage
-	recipe = AddRecipe(101928, V.CATA, Q.EPIC)
-	recipe:SetRecipeItemID(72013)
-	recipe:SetCraftedItemID(71984)
-	recipe:SetSkillLevels(525, 525, 525, 527, 530)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOE)
-	recipe:AddCustom("DRAGONSOUL_RANDOM")
-
-	-- Pyrium Legplates of Purified Evil
+	-- Pyrium Legplates of Purified Evil -- 101924
 	recipe = AddRecipe(101924, V.CATA, Q.EPIC)
 	recipe:SetRecipeItemID(72001)
 	recipe:SetCraftedItemID(71982)
@@ -4487,7 +4471,23 @@ function addon:InitBlacksmithing()
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOE)
 	recipe:AddCustom("DRAGONSOUL_RANDOM")
 
-	-- Soul Redeemer Bracers
+	-- Unstoppable Destroyer's Legplates -- 101925
+	recipe = AddRecipe(101925, V.CATA, Q.EPIC)
+	recipe:SetRecipeItemID(72012)
+	recipe:SetCraftedItemID(71983)
+	recipe:SetSkillLevels(525, 525, 525, 527, 530)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOE)
+	recipe:AddCustom("DRAGONSOUL_RANDOM")
+
+	-- Foundations of Courage -- 101928
+	recipe = AddRecipe(101928, V.CATA, Q.EPIC)
+	recipe:SetRecipeItemID(72013)
+	recipe:SetCraftedItemID(71984)
+	recipe:SetSkillLevels(525, 525, 525, 527, 530)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOE)
+	recipe:AddCustom("DRAGONSOUL_RANDOM")
+
+	-- Soul Redeemer Bracers -- 101929
 	recipe = AddRecipe(101929, V.CATA, Q.EPIC)
 	recipe:SetRecipeItemID(72014)
 	recipe:SetCraftedItemID(71991)
@@ -4495,18 +4495,18 @@ function addon:InitBlacksmithing()
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOE)
 	recipe:AddCustom("DRAGONSOUL_RANDOM")
 
-	-- Titanguard Wristplates
-	recipe = AddRecipe(101932, V.CATA, Q.EPIC)
-	recipe:SetRecipeItemID(72016)
-	recipe:SetCraftedItemID(71993)
+	-- Bracers of Destructive Strength -- 101931
+	recipe = AddRecipe(101931, V.CATA, Q.EPIC)
+	recipe:SetRecipeItemID(72015)
+	recipe:SetCraftedItemID(71992)
 	recipe:SetSkillLevels(525, 525, 525, 527, 530)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOE)
 	recipe:AddCustom("DRAGONSOUL_RANDOM")
 
-	-- Unstoppable Destroyer's Legplates
-	recipe = AddRecipe(101925, V.CATA, Q.EPIC)
-	recipe:SetRecipeItemID(72012)
-	recipe:SetCraftedItemID(71983)
+	-- Titanguard Wristplates -- 101932
+	recipe = AddRecipe(101932, V.CATA, Q.EPIC)
+	recipe:SetRecipeItemID(72016)
+	recipe:SetCraftedItemID(71993)
 	recipe:SetSkillLevels(525, 525, 525, 527, 530)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOE)
 	recipe:AddCustom("DRAGONSOUL_RANDOM")
