@@ -4445,6 +4445,12 @@ function addon:InitJewelcrafting()
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	recipe:AddTrainer(18751, 19063, 19539, 19775, 19778, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675)
 
+	-- Stardust -- 73622
+	recipe = AddRecipe(73622, V.CATA, Q.COMMON)
+	recipe:SetSkillLevels(435, 435, 450, 457, 465)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP)
+	recipe:AddTrainer(44582, 46675)
+
 	-- Jeweler's Ruby Monocle -- 73625
 	recipe = AddRecipe(73625, V.CATA, Q.RARE)
 	recipe:SetCraftedItemID(52485)
