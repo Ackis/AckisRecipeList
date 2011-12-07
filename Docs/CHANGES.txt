@@ -1,6 +1,22 @@
 ==ARL Change Log
 NOTE: Always remove the folder for old versions and install a fresh copy when upgrading.
 
+== 2.2.11
+
+===Backend:
+
+* Various bugfixes.
+* ToC Interface version to 40300.
+
+===Recipes:
+
+* Added all the new recipes introduced in patch 4.3.
+* Cleaned up/removed/added many other database entries.
+
+=== Interface:
+
+* The "Faction" obtain filter now displays the name of the opposing faction, and its tooltip now more accurately describes its purpose.
+
 == 2.2.10
 
 ==== Backend:
