@@ -227,7 +227,7 @@ function addon:InitVendor()
 	AddVendor(15176,	L["Vargus"],				"Silithus",			51.2,	38.8,	"Neutral")
 	AddVendor(15179,	L["Mishta"],				"Silithus",			53.8,	34.4,	"Neutral")
 	AddVendor(15293,	L["Aendel Windspear"],			"Silithus",			62.6,	49.8,	"Neutral")
-	AddVendor(15419,	L["Kania"],				"Silithus",			52.0,	39.6,	"Neutral")
+	AddVendor(15419,	L["Kania"],				"Silithus",			55.6,	37.2,	"Neutral")
 	AddVendor(15471,	BB["Lieutenant General Andorov"],	"Ruins of Ahn'Qiraj",		0,	0,	"Neutral")
 	AddVendor(15909,	L["Fariel Starsong"],			"Moonglade",			54.0,	35.4,	"Neutral")
 	AddVendor(16224,	L["Rathis Tomber"],			"Ghostlands",			47.2,	28.7,	"Horde") -- COMPLETELY UPDATED
