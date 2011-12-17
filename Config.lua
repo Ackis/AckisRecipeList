@@ -140,7 +140,11 @@ local function fullOptions()
 									  local exclusion_list = addon.db.profile.exclusionlist
 
 									  for i in pairs(exclusion_list) do
-										  addon:Print(i .. ": " .. _G.GetSpellInfo(i))
+										if spellName ~= nil then 
+											addon:Print(i .. ": " .. _G.GetSpellInfo(i))
+										else
+											addon:Print(i .. ": " .. "**spell not found**")
+										end
 									  end
 								  end,
 							disabled = function(info)
