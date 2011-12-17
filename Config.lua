@@ -143,7 +143,8 @@ local function fullOptions()
 										if spellName ~= nil then 
 											addon:Print(i .. ": " .. _G.GetSpellInfo(i))
 										else
-											addon:Print(i .. ": " .. "**spell not found**")
+											addon:Print(i .. ": " .. "**spell not found**  Removing from exclusion list.")
+											exclusion_list[i] = nil
 										end
 									  end
 								  end,
