@@ -284,12 +284,11 @@ function addon:InitCooking()
 
 	-- Dig Rat Stew -- 6417
 	recipe = AddRecipe(6417, V.WOTLK, Q.COMMON)
-	recipe:SetRecipeItemID(44977)
+	recipe:SetRecipeItemID(78342)
 	recipe:SetCraftedItemID(5478)
 	recipe:SetSkillLevels(90, 90, 130, 150, 170)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOE, F.RBOP)
-	recipe:AddMobDrop(3376, 3377, 3378, 39153)
-	recipe:AddCustom("DIG_STEW")
+	recipe:AddMobDrop(3444)
 
 	-- Crispy Lizard Tail -- 6418
 	recipe = AddRecipe(6418, V.ORIG, Q.COMMON)

@@ -196,10 +196,7 @@ function addon:InitMob()
 	AddMob(22144,	L["Gordunni Elementalist"],		"Terokkar Forest", 21.3, 12.0)
 
 	-- Southern Barrens
-	AddMob(3376,	L["Excavation Raider"],			"Southern Barrens", 47.8, 88.6)
-	AddMob(3377,	L["Bael'dun Soldier"],			"Southern Barrens", 47.8, 88.6)
-	AddMob(3378,	L["Bael'dun Rifleman"],			"Southern Barrens", 47.8, 88.6)
-	AddMob(39153,	L["Bael'dun Officer"],			"Southern Barrens", 47.8, 88.6)
+	AddMob(3444,	L["Dig Rat"],					"Southern Barrens", 47.8, 88.6)
 
 	-- Northern Barrens
 	AddMob(3385,	L["Theramore Marine"],			"Northern Barrens", 71.5, 86.6)

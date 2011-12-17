@@ -1313,13 +1313,9 @@ L["Zurai"] = "Zurai"
 L["Zurii"] = "Zurii"
 
 L["Ayla Shadowstorm"] = "Ayla Shadowstorm"
-L["DIG_STEW"] = [[Horde - Kill the Bael'dun Rifleman/Soldier/Officer mobs.
-Alliance - Kill the Excavation Raider mobs.  Southern Barrens.]]
-L["Excavation Raider"] = "Excavation Raider"
-L["Bael'dun Soldier"] = "Bael'dun Soldier"
-L["Bael'dun Rifleman"]= "Bael'dun Rifleman"
-L["Bael'dun Officer"] = "Bael'dun Officer"
 L["Discovery"] = true
 L["Dealer Jadyan"] = true
 L["Taryssa Lazuria"] = true
 L["Farrah Facet"] = true
+
+L["Dig Rat"] = "Dig Rat"
