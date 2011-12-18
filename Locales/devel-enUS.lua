@@ -4,7 +4,7 @@ devel-enUS.lua
 These are localization strings used for the testing of ARL.
 Manually add entries here and then proceed to update the localization
 application located here:
-	http://www.wowace.com/addons/arl/localization/
+	http://www.wowace.com/addons/arl/localization/ 
 ************************************************************************
 File date: @file-date-iso@
 File revision: @file-revision@
