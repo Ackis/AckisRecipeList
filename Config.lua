@@ -138,9 +138,9 @@ local function fullOptions()
 							desc	= L["VIEW_EXCLUSION_LIST_DESC"],
 							func	= function(info)
 								local exclusion_list = addon.db.profile.exclusionlist
-                                local spellName = _G.GetSpellInfo(i)
+                                local spellName)
 									for i in pairs(exclusion_list) do
-											spellName = _G.GetSpellInfo(i)
+										spellName = _G.GetSpellInfo(i)
 										if spellName then 
 											addon:Print(i .. ": " .. spellName)
 										else
