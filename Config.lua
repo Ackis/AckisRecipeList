@@ -137,23 +137,24 @@ local function fullOptions()
 							name	= L["View Exclusion List"],
 							desc	= L["VIEW_EXCLUSION_LIST_DESC"],
 							func	= function(info)
-									  local exclusion_list = addon.db.profile.exclusionlist
-									  local spellName = _G.GetSpellInfo(i)
-									  for i in pairs(exclusion_list) do
-										if spellName ~= nil then 
+								local exclusion_list = addon.db.profile.exclusionlist
+                                local spellName = _G.GetSpellInfo(i)
+									for i in pairs(exclusion_list) do
+											spellName = _G.GetSpellInfo(i)
+										if spellName then 
 											addon:Print(i .. ": " .. spellName)
 										else
 											addon:Print(i .. ": " .. "**spell not found**  Removing from exclusion list.")
 											exclusion_list[i] = nil
 										end
-									  end
-								  end,
-							disabled = function(info)
-									   for spell_id in pairs(addon.db.profile.exclusionlist) do
-										   return false
-									   end
-									   return true
-								   end,
+									end
+								end,
+						disabled = function(info)
+							for spell_id in pairs(addon.db.profile.exclusionlist) do
+								return false
+							end
+							return true
+						end,
 						},
 						clearexclusionlist = {
 							order	= 40,
