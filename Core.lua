@@ -1262,6 +1262,7 @@ do
 			table.insert(text_table, ("Ackis Recipe List Text Dump for %s's %s, in the form of BBCode.\n"):format(private.PLAYER_NAME, profession_name))
 		elseif output == "XML" then
 			table.insert(text_table, "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>")
+			table.insert(text_table, "\n<profession>")
 		end
 
 		local profession_recipes = private.profession_recipe_list[profession_name]
@@ -1292,12 +1293,12 @@ do
 					table.insert(text_table, "\nRecipe Flags:\n[list]")
 				end
 			elseif output == "XML" then
-				table.insert(text_table, "<recipe>")
-				table.insert(text_table, "  <id>..recipe_id..</id>")
-				table.insert(text_table, "  <name>" .. recipe.name .. "</name>")
-				table.insert(text_table, "  <skilllevel>..recipe.skill_level..</skilllevel>")
-				table.insert(text_table, "  <known>" .. tostring(is_known) .. "</known>")
-				table.insert(text_table, "  <flags>")
+				table.insert(text_table, "\n<recipe>\n")
+				table.insert(text_table, "  <id>" .. recipe_id .. "</id>\n")
+				table.insert(text_table, "  <name>" .. recipe.name .. "</name>\n")
+				table.insert(text_table, "  <skilllevel>" .. recipe.skill_level .. "</skilllevel>\n")
+				table.insert(text_table, "  <known>" .. tostring(is_known) .. "</known>\n")
+				table.insert(text_table, "  <flags>\n")
 			elseif output == "Name" then
 				table.insert(text_table, recipe.name)
 			end
@@ -1375,6 +1376,9 @@ do
 				table.insert(text_table, "</recipe>")
 			end
 		end -- for
+		if output == "XML" then
+			table.insert(text_table, "\n</profession>")
+		end
 		return table.concat(text_table, "")
 	end
 end
