@@ -67,7 +67,6 @@ function addon:InitCustom()
 	AddCustom("ARCH_DROP_ULD", BZ["Uldum"])
 	AddCustom("REMOVED_FROM_GAME")
 	AddCustom("FIRELANDS_RANDOM", BZ["Firelands"])
-	AddCustom("DIG_STEW")
 	AddCustom("DRAGONSOUL_RANDOM", BZ["Dragon Soul"])
 
 	self.InitCustom = nil
