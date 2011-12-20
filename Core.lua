@@ -954,13 +954,16 @@ do
 		if _G.MRTAPI then
 			_G.MRTAPI:PushFilterSelection()
 		else
-			if not _G.Skillet and have_materials then
-				_G.TradeSkillFrame.filterTbl.hasMaterials = false
-				_G.TradeSkillOnlyShowMakeable(false)
-			end
-			if not _G.Skillet and have_skillup then
-				_G.TradeSkillFrame.filterTbl.hasSkillUp = false
-				_G.TradeSkillOnlyShowSkillUps(false)
+			if not _G.Skillet then
+				if have_materials then
+					_G.TradeSkillFrame.filterTbl.hasMaterials = false
+					_G.TradeSkillOnlyShowMakeable(false)
+				end
+
+				if have_skillup then
+					_G.TradeSkillFrame.filterTbl.hasSkillUp = false
+					_G.TradeSkillOnlyShowSkillUps(false)
+				end
 			end
 			_G.SetTradeSkillInvSlotFilter(0, 1, 1)
 			_G.TradeSkillUpdateFilterBar()
