@@ -670,7 +670,7 @@ function private.InitializeListFrame()
 			if not general_filters.specialty then
 				local specialty = recipe.specialty
 
-				if specialty and specialty ~= private.Player["Specialty"] then
+				if specialty and specialty ~= private.current_profession_specialty then
 					return false
 				end
 			end
@@ -1959,7 +1959,7 @@ do
 		local recipe_specialty = recipe.specialty
 
 		if recipe_specialty then
-			local hex_color = (recipe_specialty == private.Player["Specialty"]) and BASIC_COLORS["white"] or private.DIFFICULTY_COLORS["impossible"]
+			local hex_color = (recipe_specialty == private.current_profession_specialty) and BASIC_COLORS["white"] or private.DIFFICULTY_COLORS["impossible"]
 
 			ttAdd(0, -1, false, _G.ITEM_REQ_SKILL:format(_G.GetSpellInfo(recipe_specialty)), hex_color)
 			acquire_tip:AddSeparator()

@@ -930,10 +930,10 @@ do
 			local spell_name = _G.GetSpellBookItemName(book_index, "profession")
 
 			if not spell_name then
-				player["Specialty"] = nil
+				private.current_profession_specialty = nil
 				break
 			elseif specialty and specialty[spell_name] then
-				player["Specialty"] = specialty[spell_name]
+				private.current_profession_specialty = specialty[spell_name]
 			end
 		end
 
