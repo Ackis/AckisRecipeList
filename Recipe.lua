@@ -503,10 +503,10 @@ function recipe_prototype:Dump(output)
 			local bitfield = self.flags[private.FLAG_MEMBERS[table_index]]
 
 			if bitfield and bit.band(bitfield, flag) == flag then
-				if not flag_string then
-					flag_string = ("F.%s"):format(private.FILTER_STRINGS[private.FILTER_IDS[reverse_map[flag]]])
-				else
+				if flag_string then
 					flag_string = ("%s, F.%s"):format(flag_string, private.FILTER_STRINGS[private.FILTER_IDS[reverse_map[flag]]])
+				else
+					flag_string = ("F.%s"):format(private.FILTER_STRINGS[private.FILTER_IDS[reverse_map[flag]]])
 				end
 			end
 		end
@@ -520,11 +520,11 @@ function recipe_prototype:Dump(output)
 			for rep_id, rep_info in pairs(acquire_info) do
 				local faction_string = private.FACTION_STRINGS[rep_id]
 
-				if not faction_string then
+				if faction_string then
+					faction_string = ("FAC.%s"):format(faction_string)
+				else
 					faction_string = rep_id
 					addon:Printf("Recipe %d (%s) - no string for faction %d", self.spell_id, self.name, rep_id)
-				else
-					faction_string = ("FAC.%s"):format(faction_string)
 				end
 
 				for rep_level, level_info in pairs(rep_info) do
