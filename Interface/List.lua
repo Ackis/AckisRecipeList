@@ -679,11 +679,9 @@ function private.InitializeListFrame()
 			if not obtain_filters[EXPANSION_FILTERS[private.GAME_VERSIONS[recipe.genesis]]] then
 				return false
 			end
-			local quality_filters = filter_db.quality
-			local recipe_quality = recipe.quality
 
 			-- Quality filters.
-			if not quality_filters[QUALITY_FILTERS[recipe_quality]] then
+			if not filter_db.quality[QUALITY_FILTERS[recipe.quality]] then
 				return false
 			end
 
@@ -719,7 +717,6 @@ function private.InitializeListFrame()
 			if toggled_off > 0 and toggled_on == 0 then
 				return false
 			end
-
 			toggled_off, toggled_on = 0, 0
 
 			for flag, name in pairs(REP_FILTERS_2) do
@@ -788,21 +785,17 @@ function private.InitializeListFrame()
 			-- Update recipe filters.
 			-------------------------------------------------------------------------------
 			local general_filters = addon.db.profile.filters.general
-
-			local recipes_total = 0
-			local recipes_known = 0
-
-			local recipes_total_filtered = 0
-			local recipes_known_filtered = 0
-
 			local profession_recipes = private.profession_recipe_list[private.ORDERED_PROFESSIONS[MainPanel.profession]]
-			local can_display
+			local recipes_known, recipes_known_filtered = 0, 0
+			local recipes_total, recipes_total_filtered = 0, 0
 
 			for recipe_id, recipe in pairs(profession_recipes) do
-				can_display = false
+				local can_display = false
 				recipe:RemoveState("VISIBLE")
 
 				if not recipe.is_ignored then
+					recipes_total = recipes_total + 1
+
 					local is_known
 
 					if MainPanel.is_linked then
@@ -810,10 +803,9 @@ function private.InitializeListFrame()
 					else
 						is_known = recipe:HasState("KNOWN")
 					end
+					recipes_known = recipes_known + (is_known and 1 or 0)
 
 					can_display = CanDisplayRecipe(recipe)
-					recipes_total = recipes_total + 1
-					recipes_known = recipes_known + (is_known and 1 or 0)
 
 					if can_display then
 						recipes_total_filtered = recipes_total_filtered + 1
@@ -843,12 +835,10 @@ function private.InitializeListFrame()
 			-- Mark all exclusions in the recipe database to not be displayed, and update
 			-- the player's known and unknown counts.
 			-------------------------------------------------------------------------------
-			local exclusion_list = addon.db.profile.exclusionlist
-			local ignored = not addon.db.profile.ignoreexclusionlist
 			local known_count = 0
 			local unknown_count = 0
 
-			for spell_id in pairs(exclusion_list) do
+			for spell_id in pairs(addon.db.profile.exclusionlist) do
 				local recipe = profession_recipes[spell_id]
 
 				if recipe then

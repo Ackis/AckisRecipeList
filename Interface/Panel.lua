@@ -43,7 +43,6 @@ local BFAC	= LibStub("LibBabble-Faction-3.0"):GetLookupTable()
 -- Upvalues
 -------------------------------------------------------------------------------
 local AcquireTable = private.AcquireTable
-local ReleaseTable = private.ReleaseTable
 local SetTextColor = private.SetTextColor
 local SetTooltipScripts = private.SetTooltipScripts
 
