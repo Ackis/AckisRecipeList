@@ -213,18 +213,22 @@ do
 
 		local diff_color
 
-		if not has_faction or recipe_level > skill_level then
-			diff_color = "impossible"
-		elseif skill_level >= self.trivial_level then
-			diff_color = "trivial"
-		elseif skill_level >= self.easy_level then
-			diff_color = "easy"
-		elseif skill_level >= self.medium_level then
-			diff_color = "medium"
-		elseif skill_level >= self.optimal_level then
-			diff_color = "optimal"
+		if has_faction then
+			if recipe_level > skill_level then
+				diff_color = "impossible"
+			elseif skill_level >= self.trivial_level then
+				diff_color = "trivial"
+			elseif skill_level >= self.easy_level then
+				diff_color = "easy"
+			elseif skill_level >= self.medium_level then
+				diff_color = "medium"
+			elseif skill_level >= self.optimal_level then
+				diff_color = "optimal"
+			else
+				diff_color = "trivial"
+			end
 		else
-			diff_color = "trivial"
+			diff_color = "impossible"
 		end
 		local display_name = ("|c%s%s|r"):format(quality_color, recipe_name)
 		local level_text = private.SetTextColor(private.DIFFICULTY_COLORS[diff_color], SKILL_LEVEL_FORMAT):format(recipe_level)
