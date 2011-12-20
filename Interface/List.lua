@@ -1544,7 +1544,10 @@ local normalFont
 do
 	local LSM3 = LibStub("LibSharedMedia-3.0", true)
 
-	if not LSM3 then
+	if LSM3 then
+		narrowFont = LSM3:Fetch(LSM3.MediaType.FONT, "Arial Narrow")
+		normalFont = LSM3:Fetch(LSM3.MediaType.FONT, "Friz Quadrata TT")
+	else
 		-- Fix for font issues on koKR
 		if _G.GetLocale() == "koKR" then
 			narrowFont = "Fonts\\2002.TTF"
@@ -1553,9 +1556,6 @@ do
 			narrowFont = "Fonts\\ARIALN.TTF"
 			normalFont = "Fonts\\FRIZQT__.TTF"
 		end
-	else
-		narrowFont = LSM3:Fetch(LSM3.MediaType.FONT, "Arial Narrow")
-		normalFont = LSM3:Fetch(LSM3.MediaType.FONT, "Friz Quadrata TT")
 	end
 	local narrowFontObj = _G.CreateFont(("%s%s"):format(private.addon_name, "narrowFontObj"))
 	local normalFontObj = _G.CreateFont(("%s%s"):format(private.addon_name, "normalFontObj"))

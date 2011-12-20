@@ -184,15 +184,15 @@ function private.InitializeFrame()
 		-- If there is no current tab, this is the first time the panel has been
 		-- shown so things must be initialized. In this case, MainPanel.list_frame:Update()
 		-- will be called by the tab's OnClick handler.
-		if not self.current_tab then
+		if self.current_tab then
+			MainPanel.list_frame:Update(nil, false)
+		else
 			local current_tab = self.tabs[addon.db.profile.current_tab]
 			local on_click = current_tab:GetScript("OnClick")
 
 			on_click(current_tab)
 
 			self.current_tab = addon.db.profile.current_tab
-		else
-			MainPanel.list_frame:Update(nil, false)
 		end
 		self.sort_button:SetTextures()
 		self.filter_toggle:SetTextures()
