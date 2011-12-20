@@ -79,148 +79,153 @@ local function fullOptions()
 			name = private.addon_name,
 			args = {
 				general = {
-					order	= 1,
-					type	= "group",
-					name	= L["Main Options"],
-					desc	= L["MAIN_OPTIONS_DESC"],
-					args	= {
+					order = 1,
+					type = "group",
+					name = L["Main Options"],
+					desc = L["MAIN_OPTIONS_DESC"],
+					args = {
 						version = {
-							order	= 11,
-							type	= "description",
-							name	= _G.GAME_VERSION_LABEL .. ": " .. addon.version .. "\n",
+							order = 11,
+							type = "description",
+							name = _G.GAME_VERSION_LABEL .. ": " .. addon.version .. "\n",
 						},
 						spacer1 = {
-							order	= 12,
-							type	= "description",
-							name	= "\n",
+							order = 12,
+							type = "description",
+							name = "\n",
 						},
 						header1 = {
-							order	= 15,
-							type	= "header",
-							name	= L["Main Filter Options"],
+							order = 15,
+							type = "header",
+							name = L["Main Filter Options"],
 						},
 						mainfilter_desc = {
-							order	= 20,
-							type	= "description",
-							name	= L["MAINFILTER_OPTIONS_DESC"] .. "\n",
+							order = 20,
+							type = "description",
+							name = L["MAINFILTER_OPTIONS_DESC"] .. "\n",
 						},
 						includefiltered = {
-							order	= 25,
-							type	= "toggle",
-							name	= L["Include Filtered"],
-							desc	= L["FILTERCOUNT_DESC"],
-							get	= function() return addon.db.profile.includefiltered end,
-							set	= function()
-										addon.db.profile.includefiltered = not addon.db.profile.includefiltered
+							order = 25,
+							type = "toggle",
+							name = L["Include Filtered"],
+							desc = L["FILTERCOUNT_DESC"],
+							get = function()
+								return addon.db.profile.includefiltered
+							end,
+							set = function()
+								addon.db.profile.includefiltered = not addon.db.profile.includefiltered
 
-										if addon.Frame and addon.Frame:IsVisible() then
-											addon:Scan(false, false)
-										end
-									end,
+								if addon.Frame and addon.Frame:IsVisible() then
+									addon:Scan(false, false)
+								end
+							end,
 						},
 						includeexcluded = {
-							order	= 30,
-							type	= "toggle",
-							name	= L["Include Excluded"],
-							desc	= L["EXCLUDECOUNT_DESC"],
-							get	= function() return addon.db.profile.includeexcluded end,
-							set	= function()
-										addon.db.profile.includeexcluded = not addon.db.profile.includeexcluded
-										if addon.Frame and addon.Frame:IsVisible() then
-											addon:Scan(false, false)
-										end
-									end,
+							order = 30,
+							type = "toggle",
+							name = L["Include Excluded"],
+							desc = L["EXCLUDECOUNT_DESC"],
+							get = function()
+								return addon.db.profile.includeexcluded
+							end,
+							set = function()
+								addon.db.profile.includeexcluded = not addon.db.profile.includeexcluded
+
+								if addon.Frame and addon.Frame:IsVisible() then
+									addon:Scan(false, false)
+								end
+							end,
 						},
 						exclusionlist = {
-							order	= 35,
-							type	= "execute",
-							name	= L["View Exclusion List"],
-							desc	= L["VIEW_EXCLUSION_LIST_DESC"],
-							func	= function(info)
+							order = 35,
+							type = "execute",
+							name = L["View Exclusion List"],
+							desc = L["VIEW_EXCLUSION_LIST_DESC"],
+							func = function(info)
 								local exclusion_list = addon.db.profile.exclusionlist
-                                local spellName
-									for i in pairs(exclusion_list) do
-										spellName = _G.GetSpellInfo(i)
-										if spellName then 
-											addon:Print(i .. ": " .. spellName)
-										else
-											addon:Print(i .. ": " .. "**spell not found**  Removing from exclusion list.")
-											exclusion_list[i] = nil
-										end
+
+								for spell_id in pairs(exclusion_list) do
+									local spell_name = _G.GetSpellInfo(spell_id)
+
+									if spell_name then
+										addon:Printf("%d: %s", spell_id, spell_name)
+									else
+										addon:Printf("%d: **spell not found** Removing from exclusion list.", spell_id)
+										exclusion_list[spell_id] = nil
 									end
-								end,
-						disabled = function(info)
-							for spell_id in pairs(addon.db.profile.exclusionlist) do
-								return false
-							end
-							return true
-						end,
+								end
+							end,
+							disabled = function(info)
+								for spell_id in pairs(addon.db.profile.exclusionlist) do
+									return false
+								end
+								return true
+							end,
 						},
 						clearexclusionlist = {
-							order	= 40,
-							type	= "execute",
-							name	= L["Clear Exclusion List"],
-							desc	= L["CLEAR_EXCLUSION_LIST_DESC"],
-							func	= function(info)
-									  local exclusion_list = addon.db.profile.exclusionlist
+							order = 40,
+							type = "execute",
+							name = L["Clear Exclusion List"],
+							desc = L["CLEAR_EXCLUSION_LIST_DESC"],
+							func = function(info)
+								local exclusion_list = addon.db.profile.exclusionlist
 
-									  exclusion_list = table.wipe(exclusion_list)
+								exclusion_list = table.wipe(exclusion_list)
 
-									  if addon.Frame:IsVisible() then
-										  addon:Scan()
-									  end
-								  end,
+								if addon.Frame:IsVisible() then
+									addon:Scan()
+								end
+							end,
 							disabled = function(info)
-									   for spell_id in pairs(addon.db.profile.exclusionlist) do
-										   return false
-									   end
-									   return true
-								   end,
+								for spell_id in pairs(addon.db.profile.exclusionlist) do
+									return false
+								end
+								return true
+							end,
 						},
 						spacer1 = {
-							order	= 45,
-							type	= "description",
-							name	= "\n",
+							order = 45,
+							type = "description",
+							name = "\n",
 						},
 						header2 = {
-							order	= 51,
-							type	= "header",
-							name	= L["Text Dump Options"],
+							order = 51,
+							type = "header",
+							name = L["Text Dump Options"],
 						},
-						text_dump_desc =	{
-							order	= 52,
-							type	= "description",
-							name	= L["TEXTDUMP_OPTIONS_DESC"] .. "\n",
+						text_dump_desc = {
+							order = 52,
+							type = "description",
+							name = L["TEXTDUMP_OPTIONS_DESC"] .. "\n",
 						},
 						textdump = {
-							order	= 53,
-							type	= "select",
-							name	= L["Text Dump"],
-							desc	= L["TEXT_DUMP_DESC"],
-							get	= function()
-									  return addon.db.profile.textdumpformat
-								  end,
-							set	= function(info, name)
-									  addon.db.profile.textdumpformat = name
-								  end,
-							values	= function()
-									  return {
-										  Name = _G.NAME,
-										  Comma = L["CSV"],
-										  BBCode = L["BBCode"],
-										  XML = L["XML"],
-									  }
-								  end,
+							order = 53,
+							type = "select",
+							name = L["Text Dump"],
+							desc = L["TEXT_DUMP_DESC"],
+							get = function()
+								return addon.db.profile.textdumpformat
+							end,
+							set = function(info, name)
+								addon.db.profile.textdumpformat = name
+							end,
+							values = function()
+								return {
+									Name = _G.NAME,
+									Comma = L["CSV"],
+									BBCode = L["BBCode"],
+									XML = L["XML"],
+								}
+							end,
 						},
 					},
 				},
 			},
 		}
 
-		for k,v in pairs(modularOptions) do
-		 	options.args[k] = (type(v) == "function") and v() or v
+		for k, v in pairs(modularOptions) do
+			options.args[k] = (type(v) == "function") and v() or v
 		end
-
 	end
 	return options
 end
