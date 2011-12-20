@@ -1255,10 +1255,10 @@ do
 
 	--- Dumps the recipe database in a format that is readable to humans (or machines)
 	function addon:GetTextDump(profession_name)
-		local output = addon.db.profile.textdumpformat
+		local output = addon.db.profile.textdumpformat or "Comma"
 		table.wipe(text_table)
 
-		if not output or output == "Comma" then
+		if output == "Comma" then
 			table.insert(text_table, ("Ackis Recipe List Text Dump for %s's %s, in the form of Comma Separated Values.\n  "):format(private.PLAYER_NAME, profession_name))
 			table.insert(text_table, "Spell ID,Recipe Name,Skill Level,ARL Filter Flags,Acquire Methods,Known\n")
 		elseif output == "BBCode" then
@@ -1274,7 +1274,7 @@ do
 			local recipe = profession_recipes[recipe_id]
 			local is_known = recipe:HasState("KNOWN")
 
-			if not output or output == "Comma" then
+			if output == "Comma" then
 				-- Add Spell ID, Name and Skill Level to the list
 				table.insert(text_table, recipe_id)
 				table.insert(text_table, ",")
@@ -1316,7 +1316,7 @@ do
 					local bitfield = recipe.flags[private.FLAG_MEMBERS[table_index]]
 
 					if bitfield and bit.band(bitfield, flag) == flag then
-						if not output or output == "Comma" then
+						if output == "Comma" then
 							if prev then
 								table.insert(text_table, ",")
 							end
@@ -1331,7 +1331,7 @@ do
 				end
 			end
 
-			if not output or output == "Comma" then
+			if output == "Comma" then
 				table.insert(text_table, "\",\"")
 			elseif output == "BBCode" then
 				table.insert(text_table, "[/list]\nAcquire Methods:\n[list]")
@@ -1352,7 +1352,7 @@ do
 			prev = false
 
 			for i in pairs(acquire_list) do
-				if not output or output == "Comma" then
+				if output == "Comma" then
 					if prev then
 						table.insert(text_table, ",")
 					end
@@ -1365,7 +1365,7 @@ do
 				end
 			end
 
-			if not output or output == "Comma" then
+			if output == "Comma" then
 				table.insert(text_table, "\"," .. tostring(is_known) .. "\n")
 				--if is_known then
 				--	table.insert(text_table, "\",true\n")
@@ -1379,6 +1379,7 @@ do
 				table.insert(text_table, "</recipe>")
 			end
 		end -- for
+
 		if output == "XML" then
 			table.insert(text_table, "\n</profession>")
 		end
