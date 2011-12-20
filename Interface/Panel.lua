@@ -828,26 +828,24 @@ function private.InitializeFrame()
 
 	expand_button:SetScript("OnClick", function(self, mouse_button, down)
 		local current_tab = MainPanel.tabs[MainPanel.current_tab]
-		local expanded = current_tab["expand_button_" .. MainPanel.profession]
+		local is_expanded = current_tab["expand_button_" .. MainPanel.profession]
 		local expand_mode
 
-		if not expanded then
+		if is_expanded then
+			table.wipe(current_tab[ORDERED_PROFESSIONS[MainPanel.profession] .. " expanded"])
+		else
 			if _G.IsShiftKeyDown() then
 				expand_mode = "deep"
 			else
 				expand_mode = "normal"
 			end
-		else
-			local prof_name = ORDERED_PROFESSIONS[MainPanel.profession]
-
-			table.wipe(current_tab[prof_name .. " expanded"])
 		end
 		-- MainPanel.list_frame:Update() must be called before the button can be expanded or contracted, since
 		-- the button is contracted from there.
 		-- If expand_mode is nil, that means expand nothing.
 		MainPanel.list_frame:Update(expand_mode, false)
 
-		if expanded then
+		if is_expanded then
 			self:Contract(current_tab)
 		else
 			self:Expand(current_tab)
