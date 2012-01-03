@@ -43,7 +43,7 @@ local V = private.GAME_VERSIONS
 --------------------------------------------------------------------------------------------------------------------
 function addon:InitAlchemy()
 	local function AddRecipe(spell_id, genesis, quality)
-		return addon:AddRecipe(spell_id, 51304, genesis, quality)
+		return addon:AddRecipe(spell_id, private.PROFESSION_SPELL_IDS.ALCHEMY, genesis, quality)
 	end
 
 	private:InitializeAlchemyTrainers()

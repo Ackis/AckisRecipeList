@@ -41,7 +41,7 @@ local V = private.GAME_VERSIONS
 -------------------------------------------------------------------------------
 function addon:InitRuneforging()
 	local function AddRecipe(spell_id, genesis, quality)
-		return addon:AddRecipe(spell_id, 53428, genesis, quality)
+		return addon:AddRecipe(spell_id, private.PROFESSION_SPELL_IDS.RUNEFORGING, genesis, quality)
 	end
 
 	private:InitializeRuneforgingTrainers()

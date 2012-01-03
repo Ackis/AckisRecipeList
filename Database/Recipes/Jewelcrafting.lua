@@ -37,7 +37,7 @@ local V = private.GAME_VERSIONS
 --------------------------------------------------------------------------------------------------------------------
 function addon:InitJewelcrafting()
 	local function AddRecipe(spell_id, genesis, quality)
-		return addon:AddRecipe(spell_id, 25229, genesis, quality)
+		return addon:AddRecipe(spell_id, private.PROFESSION_SPELL_IDS.JEWELCRAFTING, genesis, quality)
 	end
 
 	private:InitializeJewelcraftingTrainers()

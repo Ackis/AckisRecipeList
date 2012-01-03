@@ -42,7 +42,7 @@ local V = private.GAME_VERSIONS
 --------------------------------------------------------------------------------------------------------------------
 function addon:InitEnchanting()
 	local function AddRecipe(spell_id, genesis, quality)
-		return addon:AddRecipe(spell_id, 7411, genesis, quality)
+		return addon:AddRecipe(spell_id, private.PROFESSION_SPELL_IDS.ENCHANTING, genesis, quality)
 	end
 
 	private:InitializeEnchantingTrainers()

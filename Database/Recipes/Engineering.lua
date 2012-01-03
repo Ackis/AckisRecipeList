@@ -43,7 +43,7 @@ local V = private.GAME_VERSIONS
 --------------------------------------------------------------------------------------------------------------------
 function addon:InitEngineering()
 	local function AddRecipe(spell_id, genesis, quality)
-		return addon:AddRecipe(spell_id, 4036, genesis, quality)
+		return addon:AddRecipe(spell_id, private.PROFESSION_SPELL_IDS.ENGINEERING, genesis, quality)
 	end
 
 	private:InitializeEngineeringTrainers()

@@ -37,7 +37,7 @@ local V = private.GAME_VERSIONS
 --------------------------------------------------------------------------------------------------------------------
 function addon:InitLeatherworking()
 	local function AddRecipe(spell_id, genesis, quality)
-		return addon:AddRecipe(spell_id, 2108, genesis, quality)
+		return addon:AddRecipe(spell_id, private.PROFESSION_SPELL_IDS.LEATHERWORKING, genesis, quality)
 	end
 
 	private:InitializeLeatherworkingTrainers()
