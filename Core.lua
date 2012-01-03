@@ -417,7 +417,7 @@ function addon:OnInitialize()
 		[private.PROFESSION_NAMES.ENGINEERING] = addon.InitEngineering,
 		[private.PROFESSION_NAMES.FIRSTAID] = addon.InitFirstAid,
 		[private.PROFESSION_NAMES.LEATHERWORKING] = addon.InitLeatherworking,
-		[private.MINING_PROFESSION_NAME] = addon.InitSmelting,
+		[private.PROFESSION_NAMES.SMELTING] = addon.InitSmelting,
 		[private.PROFESSION_NAMES.TAILORING] = addon.InitTailoring,
 		[private.PROFESSION_NAMES.JEWELCRAFTING] = addon.InitJewelcrafting,
 		[private.PROFESSION_NAMES.INSCRIPTION] = addon.InitInscription,
@@ -636,7 +636,7 @@ function addon:CreateScanButton()
 		local prev_profession
 
 		if main_panel then
-			prev_profession = main_panel.prof_name or private.ORDERED_PROFESSIONS[main_panel.profession]
+			prev_profession = private.ORDERED_PROFESSIONS[main_panel.profession]
 		end
 		local shift_pressed = _G.IsShiftKeyDown()
 		local alt_pressed = _G.IsAltKeyDown()
@@ -750,10 +750,6 @@ function addon:InitializeProfession(profession)
 	if not profession then
 		addon:Debug("nil profession passed to InitializeProfession()")
 		return
-	end
-
-	if profession == private.PROFESSION_NAMES.SMELTING then
-		profession = private.MINING_PROFESSION_NAME
 	end
 	local func = PROFESSION_INIT_FUNCS[profession]
 
@@ -879,9 +875,9 @@ do
 	-- @param textdump Boolean indicating if we want the output to be a text dump, or if we want to use the ARL GUI
 	-- @return A frame with either the text dump, or the ARL frame
 	function addon:Scan(textdump, is_refresh)
-		local current_prof, prof_level = _G.GetTradeSkillLine()
+		local profession_name, prof_level = _G.GetTradeSkillLine()
 
-		if current_prof == _G.UNKNOWN then
+		if profession_name == _G.UNKNOWN then
 			self:Print(L["OpenTradeSkillWindow"])
 			return
 		end
@@ -895,9 +891,12 @@ do
 			search_box:GetScript("OnEditFocusLost")(search_box)
 		end
 
-		if current_prof == private.PROFESSION_NAMES.RUNEFORGING then
+		if profession_name == private.PROFESSION_NAMES.RUNEFORGING then
 			prof_level = _G.UnitLevel("player")
+		elseif profession_name == private.MINING_PROFESSION_NAME then
+			profession_name = private.PROFESSION_NAMES.SMELTING
 		end
+
 		local player = private.Player
 		player:UpdateProfessions()
 
@@ -907,7 +906,7 @@ do
 		local tradeskill_is_linked = _G.IsTradeSkillLinked() or _G.IsTradeSkillGuild()
 
 		if not tradeskill_is_linked then
-			player.scanned_professions[current_prof] = true
+			player.scanned_professions[profession_name] = true
 		end
 		local insert_index = 1
 
@@ -922,7 +921,7 @@ do
 				insert_index = insert_index + 1
 			end
 		end
-		local specialty = SpecialtyTable[current_prof]
+		local specialty = SpecialtyTable[profession_name]
 
 		for index, book_index in ipairs(specialtices_indices) do
 			local spell_name = _G.GetSpellBookItemName(book_index, "profession")
@@ -938,7 +937,7 @@ do
 		if self.InitializeLookups then
 			self:InitializeLookups()
 		end
-		addon:InitializeProfession(current_prof)
+		addon:InitializeProfession(profession_name)
 
 		-------------------------------------------------------------------------------
 		-- Scan all recipes and mark the ones we know
@@ -977,7 +976,7 @@ do
 				end
 			end
 		end
-		local profession_recipes = private.profession_recipe_list[current_prof]
+		local profession_recipes = private.profession_recipe_list[profession_name]
 		local recipes_found = 0
 		local SPELL_OVERWRITE_MAP = private.SPELL_OVERWRITE_MAP
 
@@ -1051,12 +1050,12 @@ do
 		-- Everything is ready - display the GUI or dump the list to text.
 		-------------------------------------------------------------------------------
 		if textdump then
-			self:DisplayTextDump(profession_recipes, current_prof)
+			self:DisplayTextDump(profession_recipes, profession_name)
 		else
 			if private.InitializeFrame then
 				private.InitializeFrame()
 			end
-			self.Frame:Display(current_prof, tradeskill_is_linked)
+			self.Frame:Display(profession_name, tradeskill_is_linked)
 		end
 	end
 end

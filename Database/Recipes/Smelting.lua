@@ -34,7 +34,7 @@ local V = private.GAME_VERSIONS
 --------------------------------------------------------------------------------------------------------------------
 function addon:InitSmelting()
 	local function AddRecipe(spell_id, genesis, quality)
-		return addon:AddRecipe(spell_id, 32606, genesis, quality)
+		return addon:AddRecipe(spell_id, private.PROFESSION_SPELL_IDS.SMELTING, genesis, quality)
 	end
 
 	private:InitializeSmeltingTrainers()

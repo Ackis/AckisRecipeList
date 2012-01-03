@@ -472,10 +472,6 @@ do
 		end
 		table.wipe(recipe_list)
 
-		if prof_name == private.PROFESSION_NAMES.SMELTING:lower() then
-			prof_name = private.MINING_PROFESSION_NAME:lower()
-		end
-
 		for i in pairs(master_list) do
 			local prof = master_list[i].profession:lower()
 
@@ -550,9 +546,6 @@ do
 		end
 		table.wipe(recipe_list)
 
-		if prof_name == private.PROFESSION_NAMES.SMELTING:lower() then
-			prof_name = private.MINING_PROFESSION_NAME:lower()
-		end
 		for i in pairs(master_list) do
 			local prof = master_list[i].profession:lower()
 
@@ -610,10 +603,6 @@ do
 			return
 		end
 		table.wipe(recipe_list)
-
-		if prof_name == private.PROFESSION_NAMES.SMELTING:lower() then
-			prof_name = private.MINING_PROFESSION_NAME:lower()
-		end
 
 		for i in pairs(master_list) do
 			local prof = master_list[i].profession:lower()

@@ -147,7 +147,7 @@ function private.InitializeFrame()
 	-------------------------------------------------------------------------------
 	-- Displays the main GUI frame.
 	-------------------------------------------------------------------------------
-	function MainPanel:Display(profession, is_linked)
+	function MainPanel:Display(profession_name, is_linked)
 		self.is_linked = is_linked
 
 		-------------------------------------------------------------------------------
@@ -155,17 +155,11 @@ function private.InitializeFrame()
 		-------------------------------------------------------------------------------
 		local prev_profession = self.profession
 
-		if profession == private.MINING_PROFESSION_NAME then
-			self.profession = private.PROFESSION_IDS[private.PROFESSION_NAMES.SMELTING]
-			self.prof_name = profession
-		else
-			for index, name in ipairs(ORDERED_PROFESSIONS) do
-				if name == profession then
-					self.profession = index
-					break
-				end
+		for index, name in ipairs(ORDERED_PROFESSIONS) do
+			if name == profession_name then
+				self.profession = index
+				break
 			end
-			self.prof_name = nil
 		end
 
 		if self.profession ~= prev_profession then
