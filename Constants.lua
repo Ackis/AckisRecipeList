@@ -35,38 +35,33 @@ private.REALM_NAME = _G.GetRealmName()
 -- Profession data.
 -------------------------------------------------------------------------------
 -- Needed for Smelting kludge.
-private.MINING_PROFESSION_NAME = _G.GetSpellInfo(32606)
-
--- Special case for Runeforging is needed because the French translation is non-conformant.
-private.PROFESSION_NAMES = {
-	ALCHEMY		= _G.GetSpellInfo(51304),
-	BLACKSMITHING	= _G.GetSpellInfo(51300),
-	COOKING		= _G.GetSpellInfo(51296),
-	ENCHANTING	= _G.GetSpellInfo(51313),
-	ENGINEERING	= _G.GetSpellInfo(51306),
-	FIRSTAID	= _G.GetSpellInfo(45542),
-	INSCRIPTION	= _G.GetSpellInfo(45363),
-	JEWELCRAFTING	= _G.GetSpellInfo(51311),
-	LEATHERWORKING	= _G.GetSpellInfo(51302),
-	RUNEFORGING	= _G.GetLocale() == "frFR" and "Runeforger" or _G.GetSpellInfo(53428),
-	SMELTING	= _G.GetSpellInfo(2656),
-	TAILORING	= _G.GetSpellInfo(51309),
-}
+private.MINING_PROFESSION_NAME = _G.GetSpellInfo(2575)
 
 private.PROFESSION_SPELL_IDS = {
-	ALCHEMY		= 51304,
-	BLACKSMITHING	= 51300,
-	COOKING		= 51296,
-	ENCHANTING	= 51313,
-	ENGINEERING	= 51306,
-	FIRSTAID	= 45542,
-	INSCRIPTION	= 45363,
-	JEWELCRAFTING	= 51311,
-	LEATHERWORKING	= 51302,
+	ALCHEMY		= 2259,
+	BLACKSMITHING	= 2018,
+	COOKING		= 2550,
+	ENCHANTING	= 7411,
+	ENGINEERING	= 4036,
+	FIRSTAID	= 3273,
+	INSCRIPTION	= 45357,
+	JEWELCRAFTING	= 25229,
+	LEATHERWORKING	= 2108,
 	RUNEFORGING	= 53428,
 	SMELTING	= 2656,
-	TAILORING	= 51309,
+	TAILORING	= 3908,
 }
+
+private.PROFESSION_NAMES = {}
+
+for name, spell_id in _G.pairs(private.PROFESSION_SPELL_IDS) do
+	private.PROFESSION_NAMES[name] = _G.GetSpellInfo(spell_id)
+end
+
+-- Special case for Runeforging is needed because the French translation is non-conforming.
+if _G.GetLocale() == "frFR" then
+	private.PROFESSION_NAMES.RUNEFORGING = "Runeforger"
+end
 
 private.ORDERED_PROFESSIONS = {
 	private.PROFESSION_NAMES.ALCHEMY, 		-- 1
