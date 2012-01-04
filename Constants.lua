@@ -63,6 +63,21 @@ if _G.GetLocale() == "frFR" then
 	private.LOCALIZED_PROFESSION_NAMES.RUNEFORGING = "Runeforger"
 end
 
+private.PROFESSION_LABELS = {
+	"alchemy",		-- 1
+	"blacksmithing",	-- 2
+	"cooking",		-- 3
+	"enchanting",		-- 4
+	"engineering",		-- 5
+	"firstaid",		-- 6
+	"inscription",		-- 7
+	"jewelcrafting",	-- 8
+	"leatherworking",	-- 9
+	"runeforging",		-- 10
+	"smelting",		-- 11
+	"tailoring"	,	-- 12
+}
+
 private.ORDERED_PROFESSIONS = {
 	private.LOCALIZED_PROFESSION_NAMES.ALCHEMY, 		-- 1
 	private.LOCALIZED_PROFESSION_NAMES.BLACKSMITHING, 	-- 2
