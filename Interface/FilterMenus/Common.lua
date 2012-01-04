@@ -340,7 +340,7 @@ function private.InitializeFilterPanel()
 
 	FilterPanel:SetScript("OnShow", UpdateFilterMarks)
 
-	function FilterPanel:CreateSubMenu(name)
+	function FilterPanel:CreateSubMenu(menu_name)
 		local submenu = _G.CreateFrame("Frame", nil, self)
 		submenu:EnableMouse(true)
 		submenu:EnableKeyboard(true)
@@ -348,7 +348,7 @@ function private.InitializeFilterPanel()
 		submenu:SetAllPoints()
 		submenu:Hide()
 
-		self[name] = submenu
+		self[menu_name] = submenu
 		return submenu
 	end
 	MainPanel.filter_menu = FilterPanel

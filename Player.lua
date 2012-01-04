@@ -164,7 +164,7 @@ do
 			local name, icon, rank, maxrank, numspells, spelloffset, skillline = _G.GetProfessionInfo(index)
 
 			if name == private.MINING_PROFESSION_NAME then
-				name = private.PROFESSION_NAMES.SMELTING
+				name = private.LOCALIZED_PROFESSION_NAMES.SMELTING
 			end
 			self.professions[name] = rank
 		end

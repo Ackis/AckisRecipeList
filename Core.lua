@@ -410,18 +410,18 @@ function addon:OnInitialize()
 	-- Populate the profession initialization functions.
 	-------------------------------------------------------------------------------
 	PROFESSION_INIT_FUNCS = {
-		[private.PROFESSION_NAMES.ALCHEMY] = addon.InitAlchemy,
-		[private.PROFESSION_NAMES.BLACKSMITHING] = addon.InitBlacksmithing,
-		[private.PROFESSION_NAMES.COOKING] = addon.InitCooking,
-		[private.PROFESSION_NAMES.ENCHANTING] = addon.InitEnchanting,
-		[private.PROFESSION_NAMES.ENGINEERING] = addon.InitEngineering,
-		[private.PROFESSION_NAMES.FIRSTAID] = addon.InitFirstAid,
-		[private.PROFESSION_NAMES.LEATHERWORKING] = addon.InitLeatherworking,
-		[private.PROFESSION_NAMES.SMELTING] = addon.InitSmelting,
-		[private.PROFESSION_NAMES.TAILORING] = addon.InitTailoring,
-		[private.PROFESSION_NAMES.JEWELCRAFTING] = addon.InitJewelcrafting,
-		[private.PROFESSION_NAMES.INSCRIPTION] = addon.InitInscription,
-		[private.PROFESSION_NAMES.RUNEFORGING] = addon.InitRuneforging,
+		[private.LOCALIZED_PROFESSION_NAMES.ALCHEMY] = addon.InitAlchemy,
+		[private.LOCALIZED_PROFESSION_NAMES.BLACKSMITHING] = addon.InitBlacksmithing,
+		[private.LOCALIZED_PROFESSION_NAMES.COOKING] = addon.InitCooking,
+		[private.LOCALIZED_PROFESSION_NAMES.ENCHANTING] = addon.InitEnchanting,
+		[private.LOCALIZED_PROFESSION_NAMES.ENGINEERING] = addon.InitEngineering,
+		[private.LOCALIZED_PROFESSION_NAMES.FIRSTAID] = addon.InitFirstAid,
+		[private.LOCALIZED_PROFESSION_NAMES.LEATHERWORKING] = addon.InitLeatherworking,
+		[private.LOCALIZED_PROFESSION_NAMES.SMELTING] = addon.InitSmelting,
+		[private.LOCALIZED_PROFESSION_NAMES.TAILORING] = addon.InitTailoring,
+		[private.LOCALIZED_PROFESSION_NAMES.JEWELCRAFTING] = addon.InitJewelcrafting,
+		[private.LOCALIZED_PROFESSION_NAMES.INSCRIPTION] = addon.InitInscription,
+		[private.LOCALIZED_PROFESSION_NAMES.RUNEFORGING] = addon.InitRuneforging,
 	}
 	-------------------------------------------------------------------------------
 	-- Hook GameTooltip so we can show information on mobs that drop/sell/train
@@ -770,7 +770,7 @@ do
 
 		if var1 then
 			-- Small hack to get code to work with first aid.
-			if var1:lower() == private.PROFESSION_NAMES.FIRSTAID:lower() then
+			if var1:lower() == private.LOCALIZED_PROFESSION_NAMES.FIRSTAID:lower() then
 				arg2 = var1
 			else
 				local var2
@@ -891,10 +891,10 @@ do
 			search_box:GetScript("OnEditFocusLost")(search_box)
 		end
 
-		if profession_name == private.PROFESSION_NAMES.RUNEFORGING then
+		if profession_name == private.LOCALIZED_PROFESSION_NAMES.RUNEFORGING then
 			prof_level = _G.UnitLevel("player")
 		elseif profession_name == private.MINING_PROFESSION_NAME then
-			profession_name = private.PROFESSION_NAMES.SMELTING
+			profession_name = private.LOCALIZED_PROFESSION_NAMES.SMELTING
 		end
 
 		local player = private.Player

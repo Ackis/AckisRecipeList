@@ -64,7 +64,7 @@ local function LoadAllRecipes()
 			addon:InitializeLookups()
 		end
 
-		for identifier, name in pairs(private.PROFESSION_NAMES) do
+		for identifier, name in pairs(private.LOCALIZED_PROFESSION_NAMES) do
 			addon:InitializeProfession(name)
 		end
 	end
@@ -330,7 +330,7 @@ do
 			table.insert(output, 1, ("ARL Version: %s"):format(self.version))
 			table.insert(output, 2, L["DATAMINER_TRAINER_INFO"]:format(trainer_name, trainer_id))
 
-			if #extra_spell_ids > 0 and trainer_profession == private.PROFESSION_NAMES.ENGINEERING then
+			if #extra_spell_ids > 0 and trainer_profession == private.LOCALIZED_PROFESSION_NAMES.ENGINEERING then
 				table.insert(output, "\nSome goggles may be listed as extra. These goggles ONLY show up for the classes who can make them, so they may be false positives.")
 			end
 			self:DisplayTextDump(nil, nil, table.concat(output, "\n"))
@@ -1010,7 +1010,7 @@ do
 		local recipe_link = _G.GetSpellLink(recipe.spell_id)
 
 		if not recipe_link then
-			if recipe.profession ~= private.PROFESSION_NAMES.RUNEFORGING then
+			if recipe.profession ~= private.LOCALIZED_PROFESSION_NAMES.RUNEFORGING then
 				self:Debug("Missing spell_link for ID %d (%s).", spell_id, recipe_name)
 			end
 			return
