@@ -1,6 +1,20 @@
 ==ARL Change Log
 NOTE: Always remove the folder for old versions and install a fresh copy when upgrading.
 
+== 2.2.12
+
+===Recipes:
+
+* Removed "Copper Modulator" because Engineers can't craft it anymore.
+* Updated Dig Rat Stew's acquire information.
+* Updated Vendor/Trainer data
+
+===Backend:
+
+* The XML dump now properly outputs the code to display the data properly.
+* Scanning Smelting will now properly work again, breakage-proof for the future.
+* Fix the exclusion list issue when you have a spell in there that has been removed from the game.
+
 == 2.2.11
 
 ===Backend:
