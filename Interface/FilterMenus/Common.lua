@@ -55,7 +55,6 @@ local CATEGORY_TOOLTIP = {
 -- Function to create and initialize a check-button with the given values.
 -- Used in all of the sub-menus of MainPanel.filter_menu
 -------------------------------------------------------------------------------
-local GenerateCheckBoxes
 do
 	local function CheckButton_OnClick(self, button, down)
 		local script_val = self.script_val
@@ -88,7 +87,7 @@ do
 		return check
 	end
 
-	function GenerateCheckBoxes(parent, source)
+	function private.GenerateCheckBoxes(parent, source)
 		for section, data in pairs(source) do
 			parent[section] = CreateCheckButton(parent, data.tt, section, data.row, data.col)
 			parent[section].text:SetText(data.text)
@@ -396,7 +395,7 @@ function private.InitializeFilterPanel()
 		["unknown"]	= { tt = L["UNKNOWN_DESC"],	text = _G.UNKNOWN,		row = 4, col = 1 },
 		["retired"]	= { tt = L["RETIRED_DESC"],	text = L["Retired"],		row = 4, col = 2 },
 	}
-	GenerateCheckBoxes(general_frame, general_buttons)
+	private.GenerateCheckBoxes(general_frame, general_buttons)
 	general_buttons = nil
 
 	-------------------------------------------------------------------------------
@@ -445,7 +444,7 @@ function private.InitializeFilterPanel()
 		["warlock"]	= { tt = L["CLASS_DESC"],	text = _G.LOCALIZED_CLASS_NAMES_MALE["WARLOCK"],	row = 10, col = 1 },
 		["warrior"]	= { tt = L["CLASS_DESC"],	text = _G.LOCALIZED_CLASS_NAMES_MALE["WARRIOR"],	row = 10, col = 2 },
 	}
-	GenerateCheckBoxes(general_frame, class_buttons)
+	private.GenerateCheckBoxes(general_frame, class_buttons)
 	class_buttons = nil
 
 	-------------------------------------------------------------------------------
@@ -529,7 +528,7 @@ function private.InitializeFilterPanel()
 			["expansion2"]	= { tt = L["LK_WOW_DESC"],		text = _G.EXPANSION_NAME2,			row = 11, col = 1 },
 			["expansion3"]	= { tt = L["CATA_WOW_DESC"],		text = _G.EXPANSION_NAME3,			row = 12, col = 1 },
 		}
-		GenerateCheckBoxes(obtain_frame, obtain_buttons)
+		private.GenerateCheckBoxes(obtain_frame, obtain_buttons)
 		obtain_buttons = nil
 	end	-- do-block
 
@@ -573,7 +572,7 @@ function private.InitializeFilterPanel()
 			["recipeboe"]	= { tt = L["RECIPE_BOE_DESC"],	text = L["RecipeBOEFilter"],	row = 4, col = 1 },
 			["recipebop"]	= { tt = L["RECIPE_BOP_DESC"],	text = L["RecipeBOPFilter"],	row = 5, col = 1 },
 		}
-		GenerateCheckBoxes(binding_frame, binding_buttons)
+		private.GenerateCheckBoxes(binding_frame, binding_buttons)
 		binding_buttons = nil
 	end	-- do-block
 
@@ -727,7 +726,7 @@ function private.InitializeFilterPanel()
 			["rare"]	= { tt = QualityDesc(_G.ITEM_QUALITY3_DESC),	text = _G.ITEM_QUALITY3_DESC,	row = 3, col = 1 },
 			["epic"]	= { tt = QualityDesc(_G.ITEM_QUALITY4_DESC),	text = _G.ITEM_QUALITY4_DESC,	row = 3, col = 2 },
 		}
-		GenerateCheckBoxes(quality_frame, quality_buttons)
+		private.GenerateCheckBoxes(quality_frame, quality_buttons)
 		quality_buttons = nil
 	end	-- do-block
 
@@ -771,7 +770,7 @@ function private.InitializeFilterPanel()
 			["healer"]	= { tt = L["ROLE_DESC_FORMAT"]:format(_G.HEALER),	text = _G.HEALER,	row = 3, col = 1 },
 			["caster"]	= { tt = L["ROLE_DESC_FORMAT"]:format(_G.DAMAGER),	text = _G.DAMAGER,	row = 3, col = 2 },
 		}
-		GenerateCheckBoxes(player_frame, role_buttons)
+		private.GenerateCheckBoxes(player_frame, role_buttons)
 		role_buttons = nil
 	end	-- do-block
 
@@ -939,7 +938,7 @@ function private.InitializeFilterPanel()
 			["timbermaw"]		= { tt = ReputationDesc(BFAC["Timbermaw Hold"]),	text = BFAC["Timbermaw Hold"],		row = 5, col = 1 },
 			["zandalar"]		= { tt = ReputationDesc(BFAC["Zandalar Tribe"]),	text = BFAC["Zandalar Tribe"],		row = 6, col = 1 },
 		}
-		GenerateCheckBoxes(expansion0_frame, expansion0_buttons)
+		private.GenerateCheckBoxes(expansion0_frame, expansion0_buttons)
 
 		local expansion0_toggle = _G.CreateFrame("Button", nil, expansion0_frame)
 		expansion0_toggle:SetWidth(105)
@@ -992,7 +991,7 @@ function private.InitializeFilterPanel()
 			["sporeggar"]		= { tt = ReputationDesc(BFAC["Sporeggar"]),			text = BFAC["Sporeggar"],		row = 14,	col = 1 },
 			["violeteye"]		= { tt = ReputationDesc(BFAC["The Violet Eye"]),		text = BFAC["The Violet Eye"],		row = 15,	col = 1 },
 		}
-		GenerateCheckBoxes(expansion1_frame, expansion1_buttons)
+		private.GenerateCheckBoxes(expansion1_frame, expansion1_buttons)
 
 		local expansion1_toggle = _G.CreateFrame("Button", nil, expansion1_frame)
 		expansion1_toggle:SetWidth(105)
@@ -1049,7 +1048,7 @@ function private.InitializeFilterPanel()
 			["wyrmrest"]		= { tt = ReputationDesc(BFAC["The Wyrmrest Accord"]),		text = BFAC["The Wyrmrest Accord"],		row = 14,	col = 1 },
 			["ashenverdict"]	= { tt = ReputationDesc(BFAC["The Ashen Verdict"]),		text = BFAC["The Ashen Verdict"],		row = 15,	col = 1 },
 		}
-		GenerateCheckBoxes(expansion2_frame, expansion2_buttons)
+		private.GenerateCheckBoxes(expansion2_frame, expansion2_buttons)
 
 		-- Disable these for now, since they have no recipes.
 		expansion2_frame.wrathcommon2:Disable()
@@ -1104,7 +1103,7 @@ function private.InitializeFilterPanel()
 			["earthenring"]		= { tt = ReputationDesc(BFAC["The Earthen Ring"]),		text = DisabledText(BFAC["The Earthen Ring"]),		row = 6,	col = 1 },
 			["therazane"]		= { tt = ReputationDesc(BFAC["Therazane"]),			text = DisabledText(BFAC["Therazane"]),			row = 7,	col = 1 },
 		}
-		GenerateCheckBoxes(expansion3_frame, expansion3_buttons)
+		private.GenerateCheckBoxes(expansion3_frame, expansion3_buttons)
 
 		-- Disable them as the data isn't in yet.
 		expansion3_frame.catacommon1:Disable()
