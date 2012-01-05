@@ -147,6 +147,21 @@ function private.InitializeFrame()
 	-------------------------------------------------------------------------------
 	-- Displays the main GUI frame.
 	-------------------------------------------------------------------------------
+	local ITEM_FILTER_INIT_FUNCS = {
+		["alchemy"] = private.InitializeItemFilters_Alchemy,
+		["blacksmithing"] = private.InitializeItemFilters_Blacksmithing,
+		["cooking"] = private.InitializeItemFilters_Cooking,
+		["enchanting"] = private.InitializeItemFilters_Enchanting,
+		["engineering"] = private.InitializeItemFilters_Engineering,
+		["firstaid"] = private.InitializeItemFilters_FirstAid,
+		["leatherworking"] = private.InitializeItemFilters_Leatherworking,
+		["smelting"] = private.InitializeItemFilters_Smelting,
+		["tailoring"] = private.InitializeItemFilters_Tailoring,
+		["jewelcrafting"] = private.InitializeItemFilters_Jewelcrafting,
+		["inscription"] = private.InitializeItemFilters_Inscription,
+		["runeforging"] = private.InitializeItemFilters_Runeforging,
+	}
+
 	function MainPanel:Display(profession_name, is_linked)
 		self.is_linked = is_linked
 
@@ -173,6 +188,26 @@ function private.InitializeFrame()
 			editbox.prev_search = nil
 		end
 		editbox:SetText(editbox.prev_search or _G.SEARCH)
+
+		-- The first time this function is called, everything in the expanded section of the MainPanel must be created.
+		if private.InitializeFilterPanel then
+			private.InitializeFilterPanel()
+		end
+		local prof_name = private.PROFESSION_LABELS[self.profession]
+		local init_func = ITEM_FILTER_INIT_FUNCS[prof_name]
+		local panel_name = "items_" .. prof_name
+
+		if init_func then
+			local panel = self.filter_menu:CreateSubMenu(panel_name)
+
+			self.filter_menu.item[panel_name] = self.filter_menu[panel_name]
+			self.filter_menu[panel_name] = nil
+
+			init_func(private, panel)
+
+			ITEM_FILTER_INIT_FUNCS[prof_name] = nil
+		end
+		private.UpdateFilterMarks()
 
 		-- If there is no current tab, this is the first time the panel has been
 		-- shown so things must be initialized. In this case, MainPanel.list_frame:Update()
@@ -935,10 +970,6 @@ function private.InitializeFrame()
 		private.SetTooltipScripts(filter_toggle, L["FILTER_OPEN_DESC"])
 
 		filter_toggle:SetScript("OnClick", function(self, button, down)
-			-- The first time this button is clicked, everything in the expanded section of the MainPanel must be created.
-			if private.InitializeFilterPanel then
-				private.InitializeFilterPanel()
-			end
 			SetTooltipScripts(self, MainPanel.is_expanded and L["FILTER_OPEN_DESC"] or L["FILTER_CLOSE_DESC"])
 
 			MainPanel:ToggleState()

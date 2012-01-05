@@ -124,7 +124,7 @@ end
 -- end
 
 -- Set all the current options in the filter menu to make sure they are consistent with the SV options.
-local function UpdateFilterMarks()
+function private.UpdateFilterMarks()
 	for filter, info in pairs(addon.Frame.filter_menu.value_map) do
 		if info.svroot then
 			info.cb:SetChecked(info.svroot[filter])
@@ -182,7 +182,7 @@ function private.InitializeFilterPanel()
 
 			if MainPanel:IsVisible() then
 				MainPanel:UpdateTitle()
-				UpdateFilterMarks()
+				private.UpdateFilterMarks()
 				MainPanel.list_frame:Update(nil, false)
 			end
 		end)
@@ -336,8 +336,6 @@ function private.InitializeFilterPanel()
 	FilterPanel:SetMovable(false)
 	FilterPanel:SetHitRectInsets(5, 5, 5, 5)
 	FilterPanel:Hide()
-
-	FilterPanel:SetScript("OnShow", UpdateFilterMarks)
 
 	function FilterPanel:CreateSubMenu(menu_name)
 		local submenu = _G.CreateFrame("Frame", nil, self)
@@ -580,21 +578,6 @@ function private.InitializeFilterPanel()
 	-- Create FilterPanel.item, and set its scripts.
 	-------------------------------------------------------------------------------
 	do
-		local ITEM_FILTER_INIT_FUNCS = {
-			["alchemy"] = private.InitializeItemFilters_Alchemy,
-			["blacksmithing"] = private.InitializeItemFilters_Blacksmithing,
-			["cooking"] = private.InitializeItemFilters_Cooking,
-			["enchanting"] = private.InitializeItemFilters_Enchanting,
-			["engineering"] = private.InitializeItemFilters_Engineering,
-			["firstaid"] = private.InitializeItemFilters_FirstAid,
-			["leatherworking"] = private.InitializeItemFilters_Leatherworking,
-			["smelting"] = private.InitializeItemFilters_Smelting,
-			["tailoring"] = private.InitializeItemFilters_Tailoring,
-			["jewelcrafting"] = private.InitializeItemFilters_Jewelcrafting,
-			["inscription"] = private.InitializeItemFilters_Inscription,
-			["runeforging"] = private.InitializeItemFilters_Runeforging,
-		}
-
 		local item_frame = FilterPanel:CreateSubMenu("item")
 		item_frame:SetScript("OnHide", function(self)
 			local panel = self["items_" .. private.PROFESSION_LABELS[MainPanel.prev_profession]]
@@ -611,21 +594,7 @@ function private.InitializeFilterPanel()
 		end)
 
 		item_frame:SetScript("OnShow", function(self)
-			local prof_name = private.PROFESSION_LABELS[MainPanel.profession]
-			local init_func = ITEM_FILTER_INIT_FUNCS[prof_name]
-			local panel_name = "items_" .. prof_name
-
-			if init_func then
-				local panel = FilterPanel:CreateSubMenu(panel_name)
-
-				self[panel_name] = FilterPanel[panel_name]
-				FilterPanel[panel_name] = nil
-
-				init_func(private, panel)
-
-				ITEM_FILTER_INIT_FUNCS[prof_name] = nil
-			end
-			local sub_panel = self[panel_name]
+			local sub_panel = self["items_" .. private.PROFESSION_LABELS[MainPanel.profession]]
 
 			if sub_panel then
 				sub_panel:Show()
