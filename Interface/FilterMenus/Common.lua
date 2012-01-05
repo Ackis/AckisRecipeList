@@ -1336,35 +1336,6 @@ function private.InitializeFilterPanel()
 		["recipeboe"]		= { cb = FilterPanel.binding.recipeboe,		svroot = filterdb.binding },
 		["recipebop"]		= { cb = FilterPanel.binding.recipebop,		svroot = filterdb.binding },
 		------------------------------------------------------------------------------------------------
-		-- Armor Options
-		------------------------------------------------------------------------------------------------
-		["cloth"]		= { cb = FilterPanel.item.cloth,		svroot = filterdb.item.armor },
-		["leather"]		= { cb = FilterPanel.item.leather,		svroot = filterdb.item.armor },
-		["mail"]		= { cb = FilterPanel.item.mail,			svroot = filterdb.item.armor },
-		["plate"]		= { cb = FilterPanel.item.plate,		svroot = filterdb.item.armor },
-		["cloak"]		= { cb = FilterPanel.item.cloak,		svroot = filterdb.item.armor },
-		["necklace"]		= { cb = FilterPanel.item.necklace,		svroot = filterdb.item.armor },
-		["ring"]		= { cb = FilterPanel.item.ring,			svroot = filterdb.item.armor },
-		["trinket"]		= { cb = FilterPanel.item.trinket,		svroot = filterdb.item.armor },
-		["shield"]		= { cb = FilterPanel.item.shield,		svroot = filterdb.item.armor },
-		------------------------------------------------------------------------------------------------
-		-- Weapon Options
-		------------------------------------------------------------------------------------------------
-		["onehand"]		= { cb = FilterPanel.item.onehand,		svroot = filterdb.item.weapon },
-		["twohand"]		= { cb = FilterPanel.item.twohand,		svroot = filterdb.item.weapon },
-		["dagger"]		= { cb = FilterPanel.item.dagger,		svroot = filterdb.item.weapon },
-		["axe"]			= { cb = FilterPanel.item.axe,			svroot = filterdb.item.weapon },
-		["mace"]		= { cb = FilterPanel.item.mace,			svroot = filterdb.item.weapon },
-		["sword"]		= { cb = FilterPanel.item.sword,		svroot = filterdb.item.weapon },
-		["polearm"]		= { cb = FilterPanel.item.polearm,		svroot = filterdb.item.weapon },
-		["fist"]		= { cb = FilterPanel.item.fist,			svroot = filterdb.item.weapon },
-		["staff"]		= { cb = FilterPanel.item.staff,		svroot = nil },
-		["wand"]		= { cb = FilterPanel.item.wand,			svroot = filterdb.item.weapon },
-		["thrown"]		= { cb = FilterPanel.item.thrown,		svroot = filterdb.item.weapon },
-		["bow"]			= { cb = FilterPanel.item.bow,			svroot = nil },
-		["crossbow"]		= { cb = FilterPanel.item.crossbow,		svroot = nil },
-		["gun"]			= { cb = FilterPanel.item.gun,			svroot = filterdb.item.weapon },
-		------------------------------------------------------------------------------------------------
 		-- Quality Options
 		------------------------------------------------------------------------------------------------
 		["common"]		= { cb = FilterPanel.quality.common,		svroot = filterdb.quality },
