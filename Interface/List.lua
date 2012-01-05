@@ -523,63 +523,63 @@ function private.InitializeListFrame()
 			------------------------------------------------------------------------------------------------
 			-- Binding flags.
 			------------------------------------------------------------------------------------------------
-			["itemboe"]	= { flag = COMMON1.IBOE,	index = 1,	sv_root = binding_filters },
-			["itembop"]	= { flag = COMMON1.IBOP,	index = 1,	sv_root = binding_filters },
-			["itemboa"]	= { flag = COMMON1.IBOA,	index = 1,	sv_root = binding_filters },
-			["recipeboe"]	= { flag = COMMON1.RBOE,	index = 1,	sv_root = binding_filters },
-			["recipebop"]	= { flag = COMMON1.RBOP,	index = 1,	sv_root = binding_filters },
-			["recipeboa"]	= { flag = COMMON1.RBOA,	index = 1,	sv_root = binding_filters },
+			["itemboe"]	= { flag = COMMON1.IBOE,	field = "common1",	sv_root = binding_filters },
+			["itembop"]	= { flag = COMMON1.IBOP,	field = "common1",	sv_root = binding_filters },
+			["itemboa"]	= { flag = COMMON1.IBOA,	field = "common1",	sv_root = binding_filters },
+			["recipeboe"]	= { flag = COMMON1.RBOE,	field = "common1",	sv_root = binding_filters },
+			["recipebop"]	= { flag = COMMON1.RBOP,	field = "common1",	sv_root = binding_filters },
+			["recipeboa"]	= { flag = COMMON1.RBOA,	field = "common1",	sv_root = binding_filters },
 			------------------------------------------------------------------------------------------------
 			-- Player Type flags.
 			------------------------------------------------------------------------------------------------
-			["melee"]	= { flag = COMMON1.DPS,		index = 1,	sv_root = player_filters },
-			["tank"]	= { flag = COMMON1.TANK,	index = 1,	sv_root = player_filters },
-			["healer"]	= { flag = COMMON1.HEALER,	index = 1,	sv_root = player_filters },
-			["caster"]	= { flag = COMMON1.CASTER,	index = 1,	sv_root = player_filters },
+			["melee"]	= { flag = COMMON1.DPS,		field = "common1",	sv_root = player_filters },
+			["tank"]	= { flag = COMMON1.TANK,	field = "common1",	sv_root = player_filters },
+			["healer"]	= { flag = COMMON1.HEALER,	field = "common1",	sv_root = player_filters },
+			["caster"]	= { flag = COMMON1.CASTER,	field = "common1",	sv_root = player_filters },
 			------------------------------------------------------------------------------------------------
 			-- Armor flags.
 			------------------------------------------------------------------------------------------------
-			["cloth"]	= { flag = ITEM1.CLOTH,		index = 5,	sv_root = armor_filters },
-			["leather"]	= { flag = ITEM1.LEATHER,	index = 5,	sv_root = armor_filters },
-			["mail"]	= { flag = ITEM1.MAIL,		index = 5,	sv_root = armor_filters },
-			["plate"]	= { flag = ITEM1.PLATE,		index = 5,	sv_root = armor_filters },
-			["trinket"]	= { flag = ITEM1.TRINKET,	index = 5,	sv_root = armor_filters },
-			["cloak"]	= { flag = ITEM1.CLOAK,		index = 5,	sv_root = armor_filters },
-			["ring"]	= { flag = ITEM1.RING,		index = 5,	sv_root = armor_filters },
-			["necklace"]	= { flag = ITEM1.NECK,		index = 5,	sv_root = armor_filters },
-			["shield"]	= { flag = ITEM1.SHIELD,	index = 5,	sv_root = armor_filters },
+			["cloth"]	= { flag = ITEM1.CLOTH,		field = "item1",	sv_root = armor_filters },
+			["leather"]	= { flag = ITEM1.LEATHER,	field = "item1",	sv_root = armor_filters },
+			["mail"]	= { flag = ITEM1.MAIL,		field = "item1",	sv_root = armor_filters },
+			["plate"]	= { flag = ITEM1.PLATE,		field = "item1",	sv_root = armor_filters },
+			["trinket"]	= { flag = ITEM1.TRINKET,	field = "item1",	sv_root = armor_filters },
+			["cloak"]	= { flag = ITEM1.CLOAK,		field = "item1",	sv_root = armor_filters },
+			["ring"]	= { flag = ITEM1.RING,		field = "item1",	sv_root = armor_filters },
+			["necklace"]	= { flag = ITEM1.NECK,		field = "item1",	sv_root = armor_filters },
+			["shield"]	= { flag = ITEM1.SHIELD,	field = "item1",	sv_root = armor_filters },
 			------------------------------------------------------------------------------------------------
 			-- Weapon flags.
 			------------------------------------------------------------------------------------------------
-			["onehand"]	= { flag = ITEM1.ONE_HAND,	index = 5,	sv_root = weapon_filters },
-			["twohand"]	= { flag = ITEM1.TWO_HAND,	index = 5,	sv_root = weapon_filters },
-			["axe"]		= { flag = ITEM1.AXE,		index = 5,	sv_root = weapon_filters },
-			["sword"]	= { flag = ITEM1.SWORD,		index = 5,	sv_root = weapon_filters },
-			["mace"]	= { flag = ITEM1.MACE,		index = 5,	sv_root = weapon_filters },
-			["polearm"]	= { flag = ITEM1.POLEARM,	index = 5,	sv_root = weapon_filters },
-			["dagger"]	= { flag = ITEM1.DAGGER,	index = 5,	sv_root = weapon_filters },
-			["fist"]	= { flag = ITEM1.FIST,		index = 5,	sv_root = weapon_filters },
-			["gun"]		= { flag = ITEM1.GUN,		index = 5,	sv_root = weapon_filters },
-			["staff"]	= { flag = ITEM1.STAFF,		index = 5,	sv_root = weapon_filters },
-			["wand"]	= { flag = ITEM1.WAND,		index = 5,	sv_root = weapon_filters },
-			["thrown"]	= { flag = ITEM1.THROWN,	index = 5,	sv_root = weapon_filters },
-			["bow"]		= { flag = ITEM1.BOW,		index = 5,	sv_root = weapon_filters },
-			["crossbow"]	= { flag = ITEM1.XBOW,		index = 5,	sv_root = weapon_filters },
+			["onehand"]	= { flag = ITEM1.ONE_HAND,	field = "item1",	sv_root = weapon_filters },
+			["twohand"]	= { flag = ITEM1.TWO_HAND,	field = "item1",	sv_root = weapon_filters },
+			["axe"]		= { flag = ITEM1.AXE,		field = "item1",	sv_root = weapon_filters },
+			["sword"]	= { flag = ITEM1.SWORD,		field = "item1",	sv_root = weapon_filters },
+			["mace"]	= { flag = ITEM1.MACE,		field = "item1",	sv_root = weapon_filters },
+			["polearm"]	= { flag = ITEM1.POLEARM,	field = "item1",	sv_root = weapon_filters },
+			["dagger"]	= { flag = ITEM1.DAGGER,	field = "item1",	sv_root = weapon_filters },
+			["fist"]	= { flag = ITEM1.FIST,		field = "item1",	sv_root = weapon_filters },
+			["gun"]		= { flag = ITEM1.GUN,		field = "item1",	sv_root = weapon_filters },
+			["staff"]	= { flag = ITEM1.STAFF,		field = "item1",	sv_root = weapon_filters },
+			["wand"]	= { flag = ITEM1.WAND,		field = "item1",	sv_root = weapon_filters },
+			["thrown"]	= { flag = ITEM1.THROWN,	field = "item1",	sv_root = weapon_filters },
+			["bow"]		= { flag = ITEM1.BOW,		field = "item1",	sv_root = weapon_filters },
+			["crossbow"]	= { flag = ITEM1.XBOW,		field = "item1",	sv_root = weapon_filters },
 		}
 
 		local SOFT_FILTERS = {
-			["trainer"]	= { flag = COMMON1.TRAINER,	index = 1,	sv_root = obtain_filters },
-			["vendor"]	= { flag = COMMON1.VENDOR,	index = 1,	sv_root = obtain_filters },
-			["instance"]	= { flag = COMMON1.INSTANCE,	index = 1,	sv_root = obtain_filters },
-			["raid"]	= { flag = COMMON1.RAID,	index = 1,	sv_root = obtain_filters },
-			["seasonal"]	= { flag = COMMON1.SEASONAL,	index = 1,	sv_root = obtain_filters },
-			["quest"]	= { flag = COMMON1.QUEST,	index = 1,	sv_root = obtain_filters },
-			["pvp"]		= { flag = COMMON1.PVP,		index = 1,	sv_root = obtain_filters },
-			["worlddrop"]	= { flag = COMMON1.WORLD_DROP,	index = 1,	sv_root = obtain_filters },
-			["mobdrop"]	= { flag = COMMON1.MOB_DROP,	index = 1,	sv_root = obtain_filters },
-			["discovery"]	= { flag = COMMON1.DISC,	index = 1,	sv_root = obtain_filters },
-			["achievement"]	= { flag = COMMON1.ACHIEVEMENT,	index = 1,	sv_root = obtain_filters },
-			["retired"]	= { flag = COMMON1.RETIRED,	index = 1,	sv_root = general_filters },
+			["trainer"]	= { flag = COMMON1.TRAINER,	field = "common1",	sv_root = obtain_filters },
+			["vendor"]	= { flag = COMMON1.VENDOR,	field = "common1",	sv_root = obtain_filters },
+			["instance"]	= { flag = COMMON1.INSTANCE,	field = "common1",	sv_root = obtain_filters },
+			["raid"]	= { flag = COMMON1.RAID,	field = "common1",	sv_root = obtain_filters },
+			["seasonal"]	= { flag = COMMON1.SEASONAL,	field = "common1",	sv_root = obtain_filters },
+			["quest"]	= { flag = COMMON1.QUEST,	field = "common1",	sv_root = obtain_filters },
+			["pvp"]		= { flag = COMMON1.PVP,		field = "common1",	sv_root = obtain_filters },
+			["worlddrop"]	= { flag = COMMON1.WORLD_DROP,	field = "common1",	sv_root = obtain_filters },
+			["mobdrop"]	= { flag = COMMON1.MOB_DROP,	field = "common1",	sv_root = obtain_filters },
+			["discovery"]	= { flag = COMMON1.DISC,	field = "common1",	sv_root = obtain_filters },
+			["achievement"]	= { flag = COMMON1.ACHIEVEMENT,	field = "common1",	sv_root = obtain_filters },
+			["retired"]	= { flag = COMMON1.RETIRED,	field = "common1",	sv_root = general_filters },
 		}
 
 		local REP1 = private.REP_FLAGS_WORD1
@@ -689,7 +689,7 @@ function private.InitializeListFrame()
 			-- Check the hard filter flags
 			-------------------------------------------------------------------------------
 			for filter, data in pairs(HARD_FILTERS) do
-				local bitfield = recipe.flags[private.FLAG_MEMBERS[data.index]]
+				local bitfield = recipe.flags[data.field]
 
 				if bitfield and bit.band(bitfield, data.flag) == data.flag and not data.sv_root[filter] then
 					return false
@@ -764,7 +764,7 @@ function private.InitializeListFrame()
 			-- If one of these is true (ie: we want to see trainers and there is a trainer flag) we display the recipe
 			------------------------------------------------------------------------------------------------
 			for filter, data in pairs(SOFT_FILTERS) do
-				local bitfield = recipe.flags[private.FLAG_MEMBERS[data.index]]
+				local bitfield = recipe.flags[data.field]
 
 				if bitfield and bit.band(bitfield, data.flag) == data.flag and data.sv_root[filter] then
 					return true
