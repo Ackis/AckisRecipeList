@@ -261,13 +261,14 @@ function addon:OnInitialize()
 				-- Item Filters (Armor/Weapon)
 				-------------------------------------------------------------------------------
 				item = {
-					alchemy = {
-						cauldron = true,
-						elixir = true,
-						potion = true,
-						transmute = true,
-						trinket = true,
-					},
+					alchemy_cauldron = true,
+					alchemy_elixir = true,
+					alchemy_flask = true,
+					alchemy_misc = true,
+					alchemy_oil = true,
+					alchemy_potion = true,
+					alchemy_transmute = true,
+					alchemy_trinket = true,
 					armor = {
 						cloth = true,
 						leather = true,
