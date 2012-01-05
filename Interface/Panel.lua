@@ -195,9 +195,9 @@ function private.InitializeFrame()
 		end
 		local prof_name = private.PROFESSION_LABELS[self.profession]
 		local init_func = ITEM_FILTER_INIT_FUNCS[prof_name]
-		local panel_name = "items_" .. prof_name
 
 		if init_func then
+			local panel_name = "items_" .. prof_name
 			local panel = self.filter_menu:CreateSubMenu(panel_name)
 
 			self.filter_menu.item[panel_name] = self.filter_menu[panel_name]
