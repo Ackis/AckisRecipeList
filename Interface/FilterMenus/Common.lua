@@ -580,106 +580,57 @@ function private.InitializeFilterPanel()
 	-- Create FilterPanel.item, and set its scripts.
 	-------------------------------------------------------------------------------
 	do
-		local item_frame = FilterPanel:CreateSubMenu("item")
-
-		-------------------------------------------------------------------------------
-		-- Create the Armor toggle and CheckButtons
-		-------------------------------------------------------------------------------
-		local armor_toggle = _G.CreateFrame("Button", nil, item_frame)
-		armor_toggle:SetWidth(105)
-		armor_toggle:SetHeight(20)
-		armor_toggle:SetNormalFontObject("QuestTitleFont")
-		armor_toggle:SetHighlightFontObject("QuestTitleFontBlackShadow")
-		armor_toggle:SetText(_G.ARMOR .. ":")
-		armor_toggle:SetPoint("TOP", item_frame, "TOP", 0, -7)
-		armor_toggle:RegisterForClicks("LeftButtonUp", "RightButtonUp")
-
-		private.SetTooltipScripts(armor_toggle, L["ARMOR_TEXT_DESC"])
-
-		armor_toggle:SetScript("OnClick", function(self, button)
-			local armors = addon.db.profile.filters.item.armor
-			local toggle = (button == "LeftButton") and true or false
-
-			for armor in pairs(armors) do
-				armors[armor] = toggle
-				item_frame[armor]:SetChecked(toggle)
-			end
-			MainPanel:UpdateTitle()
-			MainPanel.list_frame:Update(nil, false)
-		end)
-
-		item_frame.armor_toggle = armor_toggle
-
-		local armor_buttons = {
-			["cloth"]	= { tt = L["CLOTH_DESC"],	text = L["Cloth"],	row = 2, col = 1 },
-			["leather"]	= { tt = L["LEATHER_DESC"],	text = L["Leather"],	row = 2, col = 2 },
-			["mail"]	= { tt = L["MAIL_DESC"],	text = L["Mail"],	row = 3, col = 1 },
-			["plate"]	= { tt = L["PLATE_DESC"],	text = L["Plate"],	row = 3, col = 2 },
-			["cloak"]	= { tt = L["CLOAK_DESC"],	text = L["Cloak"],	row = 4, col = 1 },
-			["necklace"]	= { tt = L["NECKLACE_DESC"],	text = L["Necklace"],	row = 4, col = 2 },
-			["ring"]	= { tt = L["RING_DESC"],	text = L["Ring"],	row = 5, col = 1 },
-			["trinket"]	= { tt = L["TRINKET_DESC"],	text = L["Trinket"],	row = 5, col = 2 },
-			["shield"]	= { tt = L["SHIELD_DESC"],	text = L["Shield"],	row = 6, col = 1 },
+		local ITEM_FILTER_INIT_FUNCS = {
+			["alchemy"] = private.InitializeItemFilters_Alchemy,
+			["blacksmithing"] = private.InitializeItemFilters_Blacksmithing,
+			["cooking"] = private.InitializeItemFilters_Cooking,
+			["enchanting"] = private.InitializeItemFilters_Enchanting,
+			["engineering"] = private.InitializeItemFilters_Engineering,
+			["firstaid"] = private.InitializeItemFilters_FirstAid,
+			["leatherworking"] = private.InitializeItemFilters_Leatherworking,
+			["smelting"] = private.InitializeItemFilters_Smelting,
+			["tailoring"] = private.InitializeItemFilters_Tailoring,
+			["jewelcrafting"] = private.InitializeItemFilters_Jewelcrafting,
+			["inscription"] = private.InitializeItemFilters_Inscription,
+			["runeforging"] = private.InitializeItemFilters_Runeforging,
 		}
-		GenerateCheckBoxes(item_frame, armor_buttons)
-		armor_buttons = nil
 
-		-------------------------------------------------------------------------------
-		-- Create the Weapon toggle and CheckButtons
-		-------------------------------------------------------------------------------
-		local weapon_toggle = _G.CreateFrame("Button", nil, item_frame)
-		weapon_toggle:SetWidth(105)
-		weapon_toggle:SetHeight(20)
-		weapon_toggle:SetNormalFontObject("QuestTitleFont")
-		weapon_toggle:SetHighlightFontObject("QuestTitleFontBlackShadow")
-		weapon_toggle:SetText(L["Weapon"] .. ":")
-		weapon_toggle:SetPoint("TOP", item_frame, "TOP", 0, -109)
-		weapon_toggle:RegisterForClicks("LeftButtonUp", "RightButtonUp")
+		local item_frame = FilterPanel:CreateSubMenu("item")
+		item_frame:SetScript("OnHide", function(self)
+			local panel = self["items_" .. private.PROFESSION_LABELS[MainPanel.prev_profession]]
 
-		private.SetTooltipScripts(weapon_toggle, L["WEAPON_TEXT_DESC"])
+			if panel then
+				panel:Hide()
+			else
+				panel = self["items_" .. private.PROFESSION_LABELS[MainPanel.prev_profession]]
 
-		weapon_toggle:SetScript("OnClick", function(self, button)
-			local weapons = addon.db.profile.filters.item.weapon
-			local toggle = (button == "LeftButton") and true or false
-
-			for weapon in pairs(weapons) do
-				weapons[weapon] = toggle
-
-				if FilterPanel.value_map[weapon].svroot then
-					item_frame[weapon]:SetChecked(toggle)
+				if panel then
+					panel:Hide()
 				end
 			end
-			MainPanel:UpdateTitle()
-			MainPanel.list_frame:Update(nil, false)
 		end)
 
-		item_frame.weapon_toggle = weapon_toggle
+		item_frame:SetScript("OnShow", function(self)
+			local prof_name = private.PROFESSION_LABELS[MainPanel.profession]
+			local init_func = ITEM_FILTER_INIT_FUNCS[prof_name]
+			local panel_name = "items_" .. prof_name
 
-		local BASIC_COLORS = private.BASIC_COLORS
+			if init_func then
+				local panel = FilterPanel:CreateSubMenu(panel_name)
 
-		local weapon_buttons = {
-			["onehand"]	= { tt = L["ONEHAND_DESC"],	text = L["One Hand"],						row = 8,  col = 1 },
-			["twohand"]	= { tt = L["TWOHAND_DESC"],	text = L["Two Hand"],						row = 8,  col = 2 },
-			["dagger"]	= { tt = L["DAGGER_DESC"],	text = L["Dagger"],						row = 9, col = 1 },
-			["axe"]		= { tt = L["AXE_DESC"],		text = L["Axe"],						row = 9, col = 2 },
-			["mace"]	= { tt = L["MACE_DESC"],	text = L["Mace"],						row = 10, col = 1 },
-			["sword"]	= { tt = L["SWORD_DESC"],	text = L["Sword"],						row = 10, col = 2 },
-			["polearm"]	= { tt = L["POLEARM_DESC"],	text = L["Polearm"],						row = 11, col = 1 },
-			["fist"]	= { tt = L["FIST_DESC"],	text = L["Fist"],						row = 11, col = 2 },
-			["staff"]	= { tt = L["STAFF_DESC"],	text = SetTextColor(BASIC_COLORS["grey"], L["Staff"]),		row = 12, col = 1 },
-			["wand"]	= { tt = L["WAND_DESC"],	text = L["Wand"],						row = 12, col = 2 },
-			["thrown"]	= { tt = L["THROWN_DESC"],	text = L["Thrown"],						row = 13, col = 1 },
-			["bow"]		= { tt = L["BOW_DESC"],		text = SetTextColor(BASIC_COLORS["grey"], L["Bow"]),		row = 13, col = 2 },
-			["crossbow"]	= { tt = L["CROSSBOW_DESC"],	text = SetTextColor(BASIC_COLORS["grey"], L["Crossbow"]),	row = 14, col = 1 },
-			["gun"]		= { tt = L["GUN_DESC"],		text = L["Gun"],						row = 14, col = 2 },
-		}
-		GenerateCheckBoxes(item_frame, weapon_buttons)
-		weapon_buttons = nil
+				self[panel_name] = FilterPanel[panel_name]
+				FilterPanel[panel_name] = nil
 
-		-- Some of these are disabled for now, since they currently have no recipes.
-		item_frame.staff:Disable()
-		item_frame.bow:Disable()
-		item_frame.crossbow:Disable()
+				init_func(private, panel)
+
+				ITEM_FILTER_INIT_FUNCS[prof_name] = nil
+			end
+			local sub_panel = self[panel_name]
+
+			if sub_panel then
+				sub_panel:Show()
+			end
+		end)
 	end	-- do-block
 
 	-------------------------------------------------------------------------------
