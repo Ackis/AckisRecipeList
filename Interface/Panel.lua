@@ -209,6 +209,11 @@ function private.InitializeFrame()
 		end
 		private.UpdateFilterMarks()
 
+		if self.filter_menu.item:IsVisible() then
+			self.filter_menu.item:Hide()
+			self.filter_menu.item:Show()
+		end
+
 		-- If there is no current tab, this is the first time the panel has been
 		-- shown so things must be initialized. In this case, MainPanel.list_frame:Update()
 		-- will be called by the tab's OnClick handler.
