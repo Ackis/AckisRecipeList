@@ -495,8 +495,6 @@ function private.InitializeListFrame()
 
 		local binding_filters	= filter_db.binding
 		local player_filters	= filter_db.player
-		local armor_filters	= filter_db.item.armor
-		local weapon_filters	= filter_db.item.weapon
 		local obtain_filters	= filter_db.obtain
 		local general_filters	= filter_db.general
 
@@ -518,8 +516,7 @@ function private.InitializeListFrame()
 
 		-- HARD_FILTERS and SOFT_FILTERS are used to determine if a recipe should be shown based on the value of the key compared to the value
 		-- of its saved_var.
-		local ITEM1 = private.ITEM_FLAGS_WORD1
-		local HARD_FILTERS = {
+		private.HARD_FILTERS = {
 			------------------------------------------------------------------------------------------------
 			-- Binding flags.
 			------------------------------------------------------------------------------------------------
@@ -536,35 +533,6 @@ function private.InitializeListFrame()
 			["tank"]	= { flag = COMMON1.TANK,	field = "common1",	sv_root = player_filters },
 			["healer"]	= { flag = COMMON1.HEALER,	field = "common1",	sv_root = player_filters },
 			["caster"]	= { flag = COMMON1.CASTER,	field = "common1",	sv_root = player_filters },
-			------------------------------------------------------------------------------------------------
-			-- Armor flags.
-			------------------------------------------------------------------------------------------------
-			["cloth"]	= { flag = ITEM1.CLOTH,		field = "item1",	sv_root = armor_filters },
-			["leather"]	= { flag = ITEM1.LEATHER,	field = "item1",	sv_root = armor_filters },
-			["mail"]	= { flag = ITEM1.MAIL,		field = "item1",	sv_root = armor_filters },
-			["plate"]	= { flag = ITEM1.PLATE,		field = "item1",	sv_root = armor_filters },
-			["trinket"]	= { flag = ITEM1.TRINKET,	field = "item1",	sv_root = armor_filters },
-			["cloak"]	= { flag = ITEM1.CLOAK,		field = "item1",	sv_root = armor_filters },
-			["ring"]	= { flag = ITEM1.RING,		field = "item1",	sv_root = armor_filters },
-			["necklace"]	= { flag = ITEM1.NECK,		field = "item1",	sv_root = armor_filters },
-			["shield"]	= { flag = ITEM1.SHIELD,	field = "item1",	sv_root = armor_filters },
-			------------------------------------------------------------------------------------------------
-			-- Weapon flags.
-			------------------------------------------------------------------------------------------------
-			["onehand"]	= { flag = ITEM1.ONE_HAND,	field = "item1",	sv_root = weapon_filters },
-			["twohand"]	= { flag = ITEM1.TWO_HAND,	field = "item1",	sv_root = weapon_filters },
-			["axe"]		= { flag = ITEM1.AXE,		field = "item1",	sv_root = weapon_filters },
-			["sword"]	= { flag = ITEM1.SWORD,		field = "item1",	sv_root = weapon_filters },
-			["mace"]	= { flag = ITEM1.MACE,		field = "item1",	sv_root = weapon_filters },
-			["polearm"]	= { flag = ITEM1.POLEARM,	field = "item1",	sv_root = weapon_filters },
-			["dagger"]	= { flag = ITEM1.DAGGER,	field = "item1",	sv_root = weapon_filters },
-			["fist"]	= { flag = ITEM1.FIST,		field = "item1",	sv_root = weapon_filters },
-			["gun"]		= { flag = ITEM1.GUN,		field = "item1",	sv_root = weapon_filters },
-			["staff"]	= { flag = ITEM1.STAFF,		field = "item1",	sv_root = weapon_filters },
-			["wand"]	= { flag = ITEM1.WAND,		field = "item1",	sv_root = weapon_filters },
-			["thrown"]	= { flag = ITEM1.THROWN,	field = "item1",	sv_root = weapon_filters },
-			["bow"]		= { flag = ITEM1.BOW,		field = "item1",	sv_root = weapon_filters },
-			["crossbow"]	= { flag = ITEM1.XBOW,		field = "item1",	sv_root = weapon_filters },
 		}
 
 		local SOFT_FILTERS = {
@@ -688,7 +656,7 @@ function private.InitializeListFrame()
 			-------------------------------------------------------------------------------
 			-- Check the hard filter flags
 			-------------------------------------------------------------------------------
-			for filter, data in pairs(HARD_FILTERS) do
+			for filter, data in pairs(private.HARD_FILTERS) do
 				local bitfield = recipe.flags[data.field]
 
 				if bitfield and bit.band(bitfield, data.flag) == data.flag and not data.sv_root[filter] then
