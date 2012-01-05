@@ -1999,13 +1999,13 @@ function addon:InitEnchanting()
 	recipe = AddRecipe(62948, V.WOTLK, Q.RARE)
 	recipe:SetRecipeItemID(45059)
 	recipe:SetSkillLevels(450, 450, 455, 460, 465)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.STAFF)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
 	recipe:AddVendor(32514)
 
 	-- Enchant Staff - Spellpower -- 62959
 	recipe = AddRecipe(62959, V.WOTLK, Q.COMMON)
 	recipe:SetSkillLevels(385, 385, 395, 405, 415)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.STAFF)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
 	recipe:AddTrainer(1317, 3011, 3345, 4213, 19251, 19252, 19540, 26906, 26954, 26980, 26990, 28693, 33583, 33610, 33633)
 
 	-- Enchant Boots - Lesser Accuracy -- 63746

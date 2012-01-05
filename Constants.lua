@@ -170,7 +170,7 @@ private.FILTER_STRINGS = {
 	[61]	= "TRINKET",		[62]	= "RING",		[63]	= "NECK",		[64]	= "SHIELD",
 	[65]	= "RESERVED_65",	[66]	= "ONE_HAND",		[67]	= "TWO_HAND",		[68]	= "AXE",
 	[69]	= "SWORD",		[70]	= "MACE",		[71]	= "POLEARM",		[72]	= "DAGGER",
-	[73]	= "STAFF",		[74]	= "WAND",		[75]	= "THROWN",		[76]	= "BOW",
+	[73]	= "RESERVED_73",	[74]	= "WAND",		[75]	= "THROWN",		[76]	= "BOW",
 	[77]	= "XBOW",		[78]	= "RESERVED_78",	[79]	= "FIST",		[80]	= "GUN",
 	[81]	= "ALCHEMY_MISC",	[82]	= "ALCHEMY_OIL",	[83]	= "RESERVED_83",	[84]	= "RESERVED_84",
 	[85]	= "RESERVED_85",	[86]	= "RESERVED_86",	[87]	= "RESERVED_87",	[88]	= "RESERVED_88",
@@ -337,7 +337,7 @@ private.ITEM_FLAGS_WORD2 = {
 		MACE		= 0x00002000,	-- 14
 		POLEARM		= 0x00004000,	-- 15
 		DAGGER		= 0x00008000,	-- 16
-		STAFF		= 0x00010000,	-- 17
+		UNUSED		= 0x00010000,	-- 17
 		WAND		= 0x00020000,	-- 18
 		THROWN		= 0x00040000,	-- 19
 		BOW		= 0x00080000,	-- 20
