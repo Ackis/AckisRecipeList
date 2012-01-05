@@ -155,8 +155,8 @@ private.FILTER_STRINGS = {
 	[1]	= "ALLIANCE",		[2]	= "HORDE",		[3]	= "TRAINER",		[4]	= "VENDOR",
 	[5]	= "INSTANCE",		[6]	= "RAID",		[7]	= "SEASONAL",		[8]	= "QUEST",
 	[9]	= "PVP",		[10]	= "WORLD_DROP",		[11]	= "MOB_DROP",		[12]	= "DISC",
-	[13]	= "RETIRED",		[14]	= "ACHIEVEMENT",	[15]	= "RESERVED_15",	[16]	= "RESERVED_16",
-	[17]	= "RESERVED_17",	[18]	= "RESERVED_18",	[19]	= "RESERVED_19",	[20]	= "RESERVED_20",
+	[13]	= "RETIRED",		[14]	= "ACHIEVEMENT",	[15]	= "ALCHEMY_CAULDRON",	[16]	= "ALCHEMY_ELIXIR",
+	[17]	= "ALCHEMY_FLASK",	[18]	= "ALCHEMY_POTION",	[19]	= "ALCHEMY_TRANSMUTE",	[20]	= "ALCHEMY_TRINKET",
 	[21]	= "DK",			[22]	= "DRUID",		[23]	= "HUNTER",		[24]	= "MAGE",
 	[25]	= "PALADIN",		[26]	= "PRIEST",		[27]	= "SHAMAN",		[28]	= "ROGUE",
 	[29]	= "WARLOCK",		[30]	= "WARRIOR",		[31]	= "RESERVED_31",	[32]	= "RESERVED_32",
@@ -172,7 +172,7 @@ private.FILTER_STRINGS = {
 	[69]	= "SWORD",		[70]	= "MACE",		[71]	= "POLEARM",		[72]	= "DAGGER",
 	[73]	= "STAFF",		[74]	= "WAND",		[75]	= "THROWN",		[76]	= "BOW",
 	[77]	= "XBOW",		[78]	= "RESERVED_78",	[79]	= "FIST",		[80]	= "GUN",
-	[81]	= "RESERVED_81",	[82]	= "RESERVED_82",	[83]	= "RESERVED_83",	[84]	= "RESERVED_84",
+	[81]	= "ALCHEMY_MISC",	[82]	= "ALCHEMY_OIL",	[83]	= "RESERVED_83",	[84]	= "RESERVED_84",
 	[85]	= "RESERVED_85",	[86]	= "RESERVED_86",	[87]	= "RESERVED_87",	[88]	= "RESERVED_88",
 	[89]	= "RESERVED_89",	[90]	= "RESERVED_90",	[91]	= "RESERVED_91",	[92]	= "RESERVED_92",
 	[93]	= "RESERVED_93",	[94]	= "RESERVED_94",	[95]	= "RESERVED_95",	[96]	= "ARGENTDAWN",
@@ -295,37 +295,63 @@ private.REP_FLAGS_WORD2 = {
 -- Item filter bitfield word 1.
 -------------------------------------------------------------------------------
 private.ITEM_FLAGS_WORD1 = {
-	CLOTH		= 0x00000001,	-- 1
-	LEATHER		= 0x00000002,	-- 2
-	MAIL		= 0x00000004,	-- 3
-	PLATE		= 0x00000008,	-- 4
-	CLOAK		= 0x00000010,	-- 5
-	TRINKET		= 0x00000020,	-- 6
-	RING		= 0x00000040,	-- 7
-	NECK		= 0x00000080,	-- 8
-	SHIELD		= 0x00000100,	-- 9
-	ONE_HAND	= 0x00000200,	-- 10
-	TWO_HAND	= 0x00000400,	-- 11
-	AXE		= 0x00000800,	-- 12
-	SWORD		= 0x00001000,	-- 13
-	MACE		= 0x00002000,	-- 14
-	POLEARM		= 0x00004000,	-- 15
-	DAGGER		= 0x00008000,	-- 16
-	STAFF		= 0x00010000,	-- 17
-	WAND		= 0x00020000,	-- 18
-	THROWN		= 0x00040000,	-- 19
-	BOW		= 0x00080000,	-- 20
-	XBOW		= 0x00100000,	-- 21
-	FIST		= 0x00200000,	-- 22
-	GUN		= 0x00400000,	-- 23
+	ALCHEMY_CAULDRON	= 0x00000001,	-- 1
+	ALCHEMY_ELIXIR		= 0x00000002,	-- 2
+	ALCHEMY_FLASK		= 0x00000004,	-- 3
+	ALCHEMY_MISC		= 0x00000008,	-- 4
+	ALCHEMY_OIL		= 0x00000010,	-- 5
+	ALCHEMY_POTION		= 0x00000020,	-- 6
+	ALCHEMY_TRANSMUTE	= 0x00000040,	-- 7
+	ALCHEMY_TRINKET		= 0x00000080,	-- 8
+--	UNUSED		= 0x00000100,	-- 9
+--	UNUSED	= 0x00000200,	-- 10
+--	UNUSED	= 0x00000400,	-- 11
+--	UNUSED		= 0x00000800,	-- 12
+--	UNUSED		= 0x00001000,	-- 13
+--	UNUSED		= 0x00002000,	-- 14
+--	UNUSED		= 0x00004000,	-- 15
+--	UNUSED		= 0x00008000,	-- 16
+--	UNUSED		= 0x00010000,	-- 17
+--	UNUSED		= 0x00020000,	-- 18
+--	UNUSED		= 0x00040000,	-- 19
+--	UNUSED		= 0x00080000,	-- 20
+--	UNUSED		= 0x00100000,	-- 21
+--	UNUSED		= 0x00200000,	-- 22
+--	UNUSED		= 0x00400000,	-- 23
 }
 
+private.ITEM_FLAGS_WORD2 = {
+	--	CLOTH		= 0x00000001,	-- 1
+		LEATHER		= 0x00000002,	-- 2
+		MAIL		= 0x00000004,	-- 3
+		PLATE		= 0x00000008,	-- 4
+		CLOAK		= 0x00000010,	-- 5
+		TRINKET		= 0x00000020,	-- 6
+		RING		= 0x00000040,	-- 7
+		NECK		= 0x00000080,	-- 8
+		SHIELD		= 0x00000100,	-- 9
+		ONE_HAND	= 0x00000200,	-- 10
+		TWO_HAND	= 0x00000400,	-- 11
+		AXE		= 0x00000800,	-- 12
+		SWORD		= 0x00001000,	-- 13
+		MACE		= 0x00002000,	-- 14
+		POLEARM		= 0x00004000,	-- 15
+		DAGGER		= 0x00008000,	-- 16
+		STAFF		= 0x00010000,	-- 17
+		WAND		= 0x00020000,	-- 18
+		THROWN		= 0x00040000,	-- 19
+		BOW		= 0x00080000,	-- 20
+		XBOW		= 0x00100000,	-- 21
+		FIST		= 0x00200000,	-- 22
+		GUN		= 0x00400000,	-- 23
+}
 private.FLAG_WORDS = {
 	private.COMMON_FLAGS_WORD1,
 	private.CLASS_FLAGS_WORD1,
 	private.REP_FLAGS_WORD1,
 	private.REP_FLAGS_WORD2,
 	private.ITEM_FLAGS_WORD1,
+	private.ITEM_FLAGS_WORD2,
 }
 
 -- Member names within a recipe's flags table.
@@ -335,6 +361,7 @@ private.FLAG_MEMBERS = {
 	"reputation1",
 	"reputation2",
 	"item1",
+	"item2",
 }
 
 -------------------------------------------------------------------------------
