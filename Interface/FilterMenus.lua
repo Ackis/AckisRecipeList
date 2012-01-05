@@ -67,7 +67,7 @@ do
 
 	local function CreateCheckButton(parent, ttText, scriptVal, row, col)
 		-- set the position of the new checkbox
-		local xPos = 10 + ((col - 1) * 175)
+		local xPos = 10 + ((col - 1) * 150)
 		local yPos = -10 - ((row - 1) * 17)
 
 		local check = _G.CreateFrame("CheckButton", nil, parent, "UICheckButtonTemplate")
