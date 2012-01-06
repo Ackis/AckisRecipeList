@@ -258,9 +258,12 @@ function addon:OnInitialize()
 					expansion3 = true,
 				},
 				-------------------------------------------------------------------------------
-				-- Item Filters (Armor/Weapon)
+				-- Profession Item Filters
 				-------------------------------------------------------------------------------
 				item = {
+					-------------------------------------------------------------------------------
+					-- Alchemy
+					-------------------------------------------------------------------------------
 					alchemy_cauldron = true,
 					alchemy_elixir = true,
 					alchemy_flask = true,
@@ -269,33 +272,28 @@ function addon:OnInitialize()
 					alchemy_potion = true,
 					alchemy_transmute = true,
 					alchemy_trinket = true,
-					armor = {
-						cloth = true,
-						leather = true,
-						mail = true,
-						plate = true,
-						trinket = true,
-						cloak = true,
-						ring = true,
-						necklace = true,
-						shield = true,
-					},
-					weapon = {
-						onehand = true,
-						twohand = true,
-						axe = true,
-						sword = true,
-						mace = true,
-						polearm = true,
-						dagger = true,
-						fist = true,
-						staff = true,
-						wand = true,
-						thrown = true,
-						bow = true,
-						crossbow = true,
-						gun = true,
-					},
+					-------------------------------------------------------------------------------
+					-- Blacksmithing - Armor
+					-------------------------------------------------------------------------------
+					blacksmithing_mail = true,
+					blacksmithing_plate = true,
+					blacksmithing_shield = true,
+					-------------------------------------------------------------------------------
+					-- Blacksmithing - Weapons
+					-------------------------------------------------------------------------------
+					blacksmithing_dagger = true,
+					blacksmithing_one_hand_axe = true,
+					blacksmithing_one_hand_mace = true,
+					blacksmithing_one_hand_sword = true,
+					blacksmithing_polearm = true,
+					blacksmithing_thrown = true,
+					blacksmithing_two_hand_axe = true,
+					blacksmithing_two_hand_mace = true,
+					blacksmithing_two_hand_sword = true,
+					blacksmithing_item_enhancement = true,
+					blacksmithing_materials = true,
+					blacksmithing_rod = true,
+					blacksmithing_skeleton_key = true,
 				},
 				-------------------------------------------------------------------------------
 				-- Quality Filters
