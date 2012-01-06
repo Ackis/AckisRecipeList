@@ -65,13 +65,13 @@ do
 		MainPanel.list_frame:Update(nil, false)
 	end
 
-	local function CreateCheckButton(parent, ttText, scriptVal, row, col)
+	local function CreateCheckButton(parent, anchor_frame, ttText, scriptVal, row, col)
 		-- set the position of the new checkbox
 		local xPos = 10 + ((col - 1) * 150)
 		local yPos = -10 - ((row - 1) * 17)
 
 		local check = _G.CreateFrame("CheckButton", nil, parent, "UICheckButtonTemplate")
-		check:SetPoint("TOPLEFT", parent, "TOPLEFT", xPos, yPos)
+		check:SetPoint("TOPLEFT", anchor_frame or parent, "TOPLEFT", xPos, yPos)
 		check:SetHeight(20)
 		check:SetWidth(20)
 
@@ -87,9 +87,9 @@ do
 		return check
 	end
 
-	function private.GenerateCheckBoxes(parent, source)
+	function private.GenerateCheckBoxes(parent, source, anchor_frame)
 		for section, data in pairs(source) do
-			parent[section] = CreateCheckButton(parent, data.tt, section, data.row, data.col)
+			parent[section] = CreateCheckButton(parent, anchor_frame, data.tt, section, data.row, data.col)
 			parent[section].text:SetText(data.text)
 		end
 	end
