@@ -268,6 +268,7 @@ function private.InitializeFilterPanel()
 		end)
 
 		local bg_texture = button:CreateTexture(nil, "BACKGROUND")
+		button.bg_texture = bg_texture
 		bg_texture:SetTexture("Interface/SpellBook/UI-Spellbook-SpellBackground")
 		bg_texture:SetHeight(button_size + 6)
 		bg_texture:SetWidth(button_size + 4)
@@ -275,6 +276,7 @@ function private.InitializeFilterPanel()
 		bg_texture:SetPoint("CENTER", button, "CENTER", 0, 0)
 
 		local icon_texture = button:CreateTexture(nil, "BORDER")
+		button.icon_texture = icon_texture
 		icon_texture:SetTexture("Interface/Icons/" .. button_texture)
 		icon_texture:SetAllPoints(button)
 

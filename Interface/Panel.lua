@@ -195,10 +195,11 @@ function private.InitializeFrame()
 		end
 		local prof_name = private.PROFESSION_LABELS[self.profession]
 		local init_func = ITEM_FILTER_INIT_FUNCS[prof_name]
+		local panel
 
 		if init_func then
 			local panel_name = "items_" .. prof_name
-			local panel = self.filter_menu:CreateSubMenu(panel_name)
+			panel = self.filter_menu:CreateSubMenu(panel_name)
 
 			self.filter_menu.item[panel_name] = self.filter_menu[panel_name]
 			self.filter_menu[panel_name] = nil
@@ -206,8 +207,27 @@ function private.InitializeFrame()
 			init_func(private, panel)
 
 			ITEM_FILTER_INIT_FUNCS[prof_name] = nil
+		else
+			panel = self.filter_menu.item["items_" .. prof_name]
 		end
 		private.UpdateFilterMarks()
+
+		if panel then
+			self.menu_toggle_item.icon_texture:SetVertexColor(1, 1, 1)
+			self.menu_toggle_item.bg_texture:SetVertexColor(1, 1, 1)
+			self.menu_toggle_item:Enable()
+		else
+			self.filter_menu.item:Hide()
+
+			self.menu_toggle_item:SetChecked(false)
+			self.menu_toggle_item.icon_texture:SetVertexColor(0.25, 0.25, 0.25)
+			self.menu_toggle_item.bg_texture:SetVertexColor(0.25, 0.25, 0.25)
+			self.menu_toggle_item:Disable()
+
+			self.menu_toggle_general:SetChecked(true)
+			self.filter_menu.general:Show()
+			self.filter_menu:Show()
+		end
 
 		if self.filter_menu.item:IsVisible() then
 			self.filter_menu.item:Hide()
