@@ -1319,7 +1319,7 @@ function addon:InitCooking()
 
 	-- Pumpkin Pie -- 62044
 	recipe = AddRecipe(62044, V.WOTLK, Q.COMMON)
-	recipe:SetCraftedItemID(44839)
+	recipe:SetCraftedItemID(44836)
 	recipe:SetSkillLevels(100, 100, 150, 162, 175)
 	recipe:SetRequiredFaction("Alliance")
 	recipe:AddFilters(F.ALLIANCE, F.SEASONAL, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
@@ -1405,7 +1405,7 @@ function addon:InitCooking()
 
 	-- Pumpkin Pie -- 66036
 	recipe = AddRecipe(66036, V.WOTLK, Q.COMMON)
-	recipe:SetCraftedItemID(44839)
+	recipe:SetCraftedItemID(44836)
 	recipe:SetSkillLevels(100, 100, 150, 162, 175)
 	recipe:SetRequiredFaction("Horde")
 	recipe:AddFilters(F.HORDE, F.SEASONAL, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
