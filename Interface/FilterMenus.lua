@@ -194,7 +194,6 @@ function private.InitializeFilterPanel()
 	-------------------------------------------------------------------------------
 	local function ToggleFilterMenu(panel)
 		local rep_menu = MainPanel.filter_menu.rep
-		local ChangeFilters = false
 
 		-- Make sure the expansion frames and toggle buttons are hidden/unchecked.
 		for expansion in pairs(EXPANSION_FRAMES) do
@@ -204,38 +203,21 @@ function private.InitializeFilterPanel()
 
 		local toggle = "menu_toggle_" .. panel
 
-		if not MainPanel[toggle]:GetChecked() then
-			local panel_menu = MainPanel.filter_menu[panel]
-
-			-- Display the selected filter_menu category frame
+		if MainPanel[toggle]:GetChecked() then
+			MainPanel[toggle]:SetChecked(false)
+			MainPanel.filter_menu:Hide()
+		else
 			MainPanel[toggle]:SetChecked(true)
-
-			-- if not panel_menu then
-			-- 	InitializeFilterMenu(panel)
-			-- else
-				panel_menu:Show()
-			-- end
+			MainPanel.filter_menu[panel]:Show()
 
 			-- Hide all of the other filter_menu category frames, and un-check them as well.
 			for category in pairs(MainPanel.filter_menu) do
 				if category ~= panel and CATEGORY_TOOLTIP[category] then
-					local tog = "menu_toggle_" .. category
-
-					MainPanel[tog]:SetChecked(false)
+					MainPanel["menu_toggle_" .. category]:SetChecked(false)
 					MainPanel.filter_menu[category]:Hide()
 				end
 			end
-			ChangeFilters = true
-		else
-			MainPanel[toggle]:SetChecked(false)
-			ChangeFilters = false
-		end
-
-		if ChangeFilters then
-			-- Change the filters to the current panel
 			MainPanel.filter_menu:Show()
-		else
-			MainPanel.filter_menu:Hide()
 		end
 	end
 
