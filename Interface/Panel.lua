@@ -216,22 +216,24 @@ function private.InitializeFrame()
 			self.menu_toggle_item.icon_texture:SetVertexColor(1, 1, 1)
 			self.menu_toggle_item.bg_texture:SetVertexColor(1, 1, 1)
 			self.menu_toggle_item:Enable()
-		else
-			self.filter_menu.item:Hide()
 
-			self.menu_toggle_item:SetChecked(false)
+			if self.filter_menu.item:IsVisible() then
+				self.filter_menu.item:Hide()
+				self.filter_menu.item:Show()
+			end
+		else
 			self.menu_toggle_item.icon_texture:SetVertexColor(0.25, 0.25, 0.25)
 			self.menu_toggle_item.bg_texture:SetVertexColor(0.25, 0.25, 0.25)
 			self.menu_toggle_item:Disable()
 
-			self.menu_toggle_general:SetChecked(true)
-			self.filter_menu.general:Show()
-			self.filter_menu:Show()
-		end
+			if self.filter_menu.item:IsVisible() then
+				self.filter_menu.item:Hide()
+				self.menu_toggle_item:SetChecked(false)
 
-		if self.filter_menu.item:IsVisible() then
-			self.filter_menu.item:Hide()
-			self.filter_menu.item:Show()
+				self.menu_toggle_general:SetChecked(true)
+				self.filter_menu.general:Show()
+				self.filter_menu:Show()
+			end
 		end
 
 		-- If there is no current tab, this is the first time the panel has been
