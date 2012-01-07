@@ -260,6 +260,7 @@ function private.InitializeFilterPanel()
 		local button = _G.CreateFrame("CheckButton", nil, toggle_container)
 		button:Hide()
 		button:SetSize(button_size, button_size)
+		button:SetMotionScriptsWhileDisabled(true)
 
 		-- The button must be unchecked for ToggleFilterMenu() to work correctly.
 		button:SetScript("OnClick", function(self, mouse_button, down)
