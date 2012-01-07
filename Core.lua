@@ -261,39 +261,7 @@ function addon:OnInitialize()
 				-- Profession Item Filters
 				-------------------------------------------------------------------------------
 				item = {
-					-------------------------------------------------------------------------------
-					-- Alchemy
-					-------------------------------------------------------------------------------
-					alchemy_cauldron = true,
-					alchemy_elixir = true,
-					alchemy_flask = true,
-					alchemy_misc = true,
-					alchemy_oil = true,
-					alchemy_potion = true,
-					alchemy_transmute = true,
-					alchemy_trinket = true,
-					-------------------------------------------------------------------------------
-					-- Blacksmithing - Armor
-					-------------------------------------------------------------------------------
-					blacksmithing_mail = true,
-					blacksmithing_plate = true,
-					blacksmithing_shield = true,
-					-------------------------------------------------------------------------------
-					-- Blacksmithing - Weapons
-					-------------------------------------------------------------------------------
-					blacksmithing_dagger = true,
-					blacksmithing_one_hand_axe = true,
-					blacksmithing_one_hand_mace = true,
-					blacksmithing_one_hand_sword = true,
-					blacksmithing_polearm = true,
-					blacksmithing_thrown = true,
-					blacksmithing_two_hand_axe = true,
-					blacksmithing_two_hand_mace = true,
-					blacksmithing_two_hand_sword = true,
-					blacksmithing_item_enhancement = true,
-					blacksmithing_materials = true,
-					blacksmithing_rod = true,
-					blacksmithing_skeleton_key = true,
+					-- These are populated from the item flags in Constants.lua
 				},
 				-------------------------------------------------------------------------------
 				-- Quality Filters
@@ -384,6 +352,15 @@ function addon:OnInitialize()
 			}
 		}
 	}
+
+	for flag_name in _G.pairs(private.ITEM_FLAGS_WORD1) do
+		defaults.profile.filters.item[flag_name:lower()] = true
+	end
+
+	for flag_name in _G.pairs(private.ITEM_FLAGS_WORD2) do
+		defaults.profile.filters.item[flag_name:lower()] = true
+	end
+
 	self.db = LibStub("AceDB-3.0"):New("ARLDB2", defaults)
 
 	if not self.db then

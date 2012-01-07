@@ -330,7 +330,7 @@ private.FLAG_MEMBERS = {
 private.FILTER_STRINGS = {}
 
 for index = 1, #private.FLAG_WORDS do
-	for flag_name in pairs(private.FLAG_WORDS[index]) do
+	for flag_name in _G.pairs(private.FLAG_WORDS[index]) do
 		private.FILTER_STRINGS[#private.FILTER_STRINGS + 1] = flag_name
 	end
 end
