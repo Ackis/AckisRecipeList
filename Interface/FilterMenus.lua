@@ -223,49 +223,48 @@ function private.InitializeFilterPanel()
 
 	local function CreateFilterMenuButton(button_texture, category)
 		local button_size = 22
-		local cButton = _G.CreateFrame("CheckButton", nil, MainPanel)
+		local button = _G.CreateFrame("CheckButton", nil, MainPanel)
+		button:Hide()
+		button:SetSize(button_size, button_size)
 
-		cButton:SetWidth(button_size)
-		cButton:SetHeight(button_size)
-		cButton:SetScript("OnClick", function(self, button, down)
 		-- The button must be unchecked for ToggleFilterMenu() to work correctly.
-			cButton:SetChecked(false)
+		button:SetScript("OnClick", function(self, mouse_button, down)
+			button:SetChecked(false)
 			ToggleFilterMenu(category)
 		end)
 
-		local bgTex = cButton:CreateTexture(nil, "BACKGROUND")
-		bgTex:SetTexture("Interface/SpellBook/UI-Spellbook-SpellBackground")
-		bgTex:SetHeight(button_size + 6)
-		bgTex:SetWidth(button_size + 4)
-		bgTex:SetTexCoord(0, (43/64), 0, (43/64))
-		bgTex:SetPoint("CENTER", cButton, "CENTER", 0, 0)
+		local bg_texture = button:CreateTexture(nil, "BACKGROUND")
+		bg_texture:SetTexture("Interface/SpellBook/UI-Spellbook-SpellBackground")
+		bg_texture:SetHeight(button_size + 6)
+		bg_texture:SetWidth(button_size + 4)
+		bg_texture:SetTexCoord(0, (43/64), 0, (43/64))
+		bg_texture:SetPoint("CENTER", button, "CENTER", 0, 0)
 
-		local iconTex = cButton:CreateTexture(nil, "BORDER")
-		iconTex:SetTexture("Interface/Icons/" .. button_texture)
-		iconTex:SetAllPoints(cButton)
+		local icon_texture = button:CreateTexture(nil, "BORDER")
+		icon_texture:SetTexture("Interface/Icons/" .. button_texture)
+		icon_texture:SetAllPoints(button)
 
-		local pushedTexture = cButton:CreateTexture(nil, "ARTWORK")
-		pushedTexture:SetTexture("Interface/Buttons/UI-Quickslot-Depress")
-		pushedTexture:SetAllPoints(cButton)
-		cButton:SetPushedTexture(pushedTexture)
+		local pushed_texture = button:CreateTexture(nil, "ARTWORK")
+		pushed_texture:SetTexture("Interface/Buttons/UI-Quickslot-Depress")
+		pushed_texture:SetAllPoints(button)
+		button:SetPushedTexture(pushed_texture)
 
-		local highlightTexture = cButton:CreateTexture()
-		highlightTexture:SetTexture("Interface/Buttons/ButtonHilight-Square")
-		highlightTexture:SetAllPoints(cButton)
-		highlightTexture:SetBlendMode("ADD")
-		cButton:SetHighlightTexture(highlightTexture)
+		local highlight_texture = button:CreateTexture()
+		highlight_texture:SetTexture("Interface/Buttons/ButtonHilight-Square")
+		highlight_texture:SetAllPoints(button)
+		highlight_texture:SetBlendMode("ADD")
+		button:SetHighlightTexture(highlight_texture)
 
-		local checkedTexture = cButton:CreateTexture()
-		checkedTexture:SetTexture("Interface/Buttons/CheckButtonHilight")
-		checkedTexture:SetAllPoints(cButton)
-		checkedTexture:SetBlendMode("ADD")
-		cButton:SetCheckedTexture(checkedTexture)
+		local checked_texture = button:CreateTexture()
+		checked_texture:SetTexture("Interface/Buttons/CheckButtonHilight")
+		checked_texture:SetAllPoints(button)
+		checked_texture:SetBlendMode("ADD")
+		button:SetCheckedTexture(checked_texture)
 
 		-- And throw up a tooltip
-		SetTooltipScripts(cButton, CATEGORY_TOOLTIP[category])
-		cButton:Hide()
+		SetTooltipScripts(button, CATEGORY_TOOLTIP[category])
 
-		return cButton
+		return button
 	end
 
 	-------------------------------------------------------------------------------
