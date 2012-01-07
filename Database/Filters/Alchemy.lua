@@ -25,7 +25,7 @@ function private:InitializeItemFilters_Alchemy(parent_panel)
 	items_toggle:SetPoint("TOP", parent_panel, "TOP", 0, -7)
 	items_toggle:RegisterForClicks("LeftButtonUp", "RightButtonUp")
 
-	private.SetTooltipScripts(items_toggle, L["ITEMS_FILTER_DESC"])
+	private.SetTooltipScripts(items_toggle, L["GROUP_TOGGLE_FORMAT"]:format(_G.ITEMS))
 
 	local item_types = {
 		"alchemy_cauldron",

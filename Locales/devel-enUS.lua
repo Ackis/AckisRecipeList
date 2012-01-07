@@ -24,8 +24,6 @@ L["\"Chef\" Overheat"] = "\"Chef\" Overheat"
 L["\"Cookie\" McWeaksauce"] = "\"Cookie\" McWeaksauce"
 L["ACHIEVEMENT_DESC"] = "Recipes obtained via Achievements should be included in the scan."
 L["ACQUIRETOOLTIPPOSITION_DESC"] = "Changes the location of the tooltip containing the acquire information."
-L["ACQUISITION_TEXT_DESC"] = [[Left-click here to select all acquisition filters.
-Right-click here to deselect all acquisition filters.]]
 L["ALL_FILTERED"] = "Although you have already scanned this profession, your filters are currently preventing any recipes from being displayed. Please change your filters and try again."
 L["ALT_CLICK"] = "Alt-Click to add/remove this recipe to your ignore list."
 L["ALT_TRADESKILL_DESC"] = [[This will display a list of alts which have had trade skills scanned.
@@ -36,8 +34,6 @@ L["ARCH_DROP_ULD"] = "This recipe is a random drop from a \"Canopic Jar\" while 
 L["ARL_ALLEXCLUDED"] = "Although you have already scanned this profession, your exclusions are currently preventing any recipes from being displayed. Please change your exclusions and try again."
 L["ARL_ALLKNOWN"] = "You know all the recipes for this profession."
 L["ARL_SEARCHFILTERED"] = "Your search has no results."
-L["ARMOR_TEXT_DESC"] = [[Left-click here to select all armor filters.
-Right-click here to deselect all armor filters.]]
 L["AUTOLOAD_DB_DESC"] = "Automatically loads all of the ARL recipe databases when doing a datamining scan."
 L["AUTOSCANMAP_DESC"] = "Auto show all waypoints when doing a recipe scan."
 L["AUTOSCAN_TRAINERS_DESC"] = "Turns on scanning at trainers to compare skill levels, and recipe acquire methods."
@@ -130,8 +126,6 @@ L["Awan Iceborn"] = "Awan Iceborn"
 L["Awilo Lon'gomba"] = "Awilo Lon'gomba"
 L["BBCode"] = "BBCode"
 L["BC_WOW_DESC"] = "Recipes available with The Burning Crusade."
-L["BINDING_TEXT_DESC"] = [[Left-click here to select all binding filters.
-Right-click here to deselect all binding filters.]]
 L["BOAFilter"] = "Item Bind to Account"
 L["BOA_DESC"] = "Recipes that make Bind to Account items should be included in the scan."
 L["BOEFilter"] = "Item Bind on Equip"
@@ -204,14 +198,10 @@ L["Byancie"] = "Byancie"
 L["CATA_WOW_DESC"] = "Recipes available with Cataclysm."
 L["Cauldron"] = true
 L["CLASS_DESC"] = "Include this class in the scan.  This will filter on two factors: 1) Can the class use the recipe and 2) can the class learn the recipe."
-L["CLASS_TEXT_DESC"] = [[Left-click here to select all classes.
-Right-click here to select your own class.]]
 L["CLEAR_EXCLUSION_LIST_DESC"] = "Removes all recipes from the exclusion list."
 L["CLEAR_WAYPOINTS_DESC"] = "Remove all ARL waypoints from TomTom."
-L["CLOAK_DESC"] = "Recipes that make cloaks should be included in the scan."
 L["CLOSEGUI_DESC"] = "Close the ARL window when the crafting window is closed."
 L["CLOSE_DESC"] = "Close the Recipe List Window."
-L["CLOTH_DESC"] = "Recipes that make cloth items should be included in the scan."
 L["COMMAND_LINE_SCAN"] = "To run a scan from a command line you need to specify the profession like: /arl scan enchanting"
 L["COMMON_ISSUES_DESC"] = [[Please refer to these common issues before submitting a bug report.
 1) Recipe X does not show up! - Check your filter settings to make sure that the recipe is not being filtered.
@@ -540,8 +530,6 @@ L["Geen"] = "Geen"
 L["Gelanthis"] = "Gelanthis"
 L["Gelman Stonehand"] = "Gelman Stonehand"
 L["General Options"] = "General Options"
-L["GENERAL_TEXT_DESC"] = [[Left-click here to select all general filters.
-Right-click here to deselect all general filters.]]
 L["Generate Tradeskill Links"] = "Generate Tradeskill Links"
 L["Geofram Bouldertoe"] = "Geofram Bouldertoe"
 L["George Candarte"] = "George Candarte"
@@ -573,6 +561,7 @@ L["Gretta Ganter"] = "Gretta Ganter"
 L["Grikka"] = "Grikka"
 L["Grimtak"] = "Grimtak"
 L["Grondal Moonbreeze"] = "Grondal Moonbreeze"
+L["GROUP_TOGGLE_FORMAT"] = "Left-click to select or Right-click to deselect all %s filters."
 L["Grumbol Stoutpick"] = "Grumbol Stoutpick"
 L["Grumnus Steelshaper"] = "Grumnus Steelshaper"
 L["Grutah"] = "Grutah"
@@ -628,8 +617,6 @@ L["Iron Rune-Shaper"] = "Iron Rune-Shaper"
 L["Ironus Coldsteel"] = "Ironus Coldsteel"
 L["Ironwool Mammoth"] = "Ironwool Mammoth"
 L["Isabel Jones"] = "Isabel Jones"
-L["ITEMS_FILTER_DESC"] = [[Left-click here to select all item filters.
-Right-click here to deselect all item filters.]]
 L["Item"] = "Item"
 L["Item Enhancement"] = true
 L["Jack Trapper"] = "Jack Trapper"
@@ -932,8 +919,6 @@ L["Punra"] = "Punra"
 L["Pyall Silentstride"] = "Pyall Silentstride"
 L["Pyrewood Tailor"] = "Pyrewood Tailor"
 L["QUALITY_GENERAL_DESC"] = "Include %s quality recipe items in the scan."
-L["QUALITY_TEXT_DESC"] = [[Left-click here to select all binding filters.
-Right-click here to deselect all binding filters.]]
 L["QUEST_DESC"] = "Recipes obtained as quest rewards should be included in the scan."
 L["Qia"] = "Qia"
 L["Quarelestra"] = "Quarelestra"
@@ -959,15 +944,10 @@ L["REPORTING_BUGS_DESC"] = [[When reporting a bug, please make sure you do the f
 5) If your problem is not listed and you are using the latest version verify your addon settings.  Verify filters, profiles, etc.
 6) You have found a bug that no one has reported before.  Create a new ticket at http://www.wowace.com/addons/arl/tickets/ with a descriptive heading about the problem.  In the ticket make sure you include the error message that you received (just the error message, I don't need a listing of the addons you use), the recipe/profession you were working with, and any other info that you think may help.
 When posting a bug report, do NOT include all of the addons from swatter.  This just makes it difficult to read.  If you want a good error reporting mod, get BugSack.  Do not post errors/missing recipes in the comments, or send them to me via a PM.  Post them as a ticket which I can address and track easily.]]
-L["REP_TEXT_DESC"] = [[Left-click here to select all reputation filters.
-Right-click here to deselect all reputation filters.]]
 L["RESET_DESC"] = "Reset All Filters to default values."
 L["RESET_WINDOW_DESC"] = "Resets the ARL GUI to default position."
 L["RETIRED_DESC"] = "Include recipes which can no longer be acquired."
-L["RING_DESC"] = "Recipes that make rings should be included in the scan."
 L["ROLE_DESC_FORMAT"] = "Show recipes favored by %s classes."
-L["ROLE_TEXT_DESC"] = [[Left-click here to select all role filters.
-Right-click here to deselect all role filters.]]
 L["Raenah"] = "Raenah"
 L["Raging Skeleton"] = "Raging Skeleton"
 L["Ranik"] = "Ranik"
@@ -1220,8 +1200,6 @@ L["Uriku"] = "Uriku"
 L["Using Filters"] = "Using Filters"
 L["Uthok"] = "Uthok"
 L["VENDOR_DESC"] = "Recipes purchased from vendors should be included in the scan."
-L["VERSION_TEXT_DESC"] = [[Left-click here to select all version filters.
-Right-click here to deselect all version filters.]]
 L["VIEW_EXCLUSION_LIST_DESC"] = "Prints out a list of all recipes on the exclusion list."
 L["Vaean"] = "Vaean"
 L["Vance Undergloom"] = "Vance Undergloom"
@@ -1246,11 +1224,8 @@ L["Vizzklick"] = "Vizzklick"
 L["Voidshrieker"] = "Voidshrieker"
 L["Volchan"] = "Volchan"
 L["Vosur Brakthel"] = "Vosur Brakthel"
-L["WAND_DESC"] = "Recipes that make wands should be included in the scan."
 L["WAYPOINT_MAP_FORMAT"] = "Create waypoints for missing recipes on the %s."
 L["WAYPOINT_TOGGLE_FORMAT"] = "Create waypoints for %s recipes."
-L["WEAPON_TEXT_DESC"] = [[Left-click here to select all weapon filters.
-Right-click here to deselect all weapon filters.]]
 L["WORLD_DROP_DESC"] = "Recipes that are World Drops should be included in the scan."
 L["Waldor"] = "Waldor"
 L["Wand"] = "Wand"

@@ -355,7 +355,7 @@ function private.InitializeFilterPanel()
 	general_toggle:SetPoint("TOP", general_frame, "TOP", 0, -7)
 	general_toggle:RegisterForClicks("LeftButtonUp", "RightButtonUp")
 
-	private.SetTooltipScripts(general_toggle, L["GENERAL_TEXT_DESC"])
+	private.SetTooltipScripts(general_toggle, L["GROUP_TOGGLE_FORMAT"]:format(_G.GENERAL_LABEL))
 
 	general_toggle:SetScript("OnClick", function(self, button)
 		local filters = addon.db.profile.filters.general
@@ -396,7 +396,7 @@ function private.InitializeFilterPanel()
 	class_toggle:SetPoint("TOP", general_frame, "TOP", 0, -80)
 	class_toggle:RegisterForClicks("LeftButtonUp", "RightButtonUp")
 
-	private.SetTooltipScripts(class_toggle, L["CLASS_TEXT_DESC"])
+	private.SetTooltipScripts(class_toggle, L["GROUP_TOGGLE_FORMAT"]:format(_G.CLASS))
 
 	class_toggle:SetScript("OnClick", function(self, button)
 		local classes = addon.db.profile.filters.classes
@@ -452,7 +452,7 @@ function private.InitializeFilterPanel()
 		obtain_toggle:SetPoint("TOP", obtain_frame, "TOP", 0, -7)
 		obtain_toggle:RegisterForClicks("LeftButtonUp", "RightButtonUp")
 
-		private.SetTooltipScripts(obtain_toggle, L["ACQUISITION_TEXT_DESC"])
+		private.SetTooltipScripts(obtain_toggle, L["GROUP_TOGGLE_FORMAT"]:format(L["Acquisition"]))
 
 		obtain_toggle:SetScript("OnClick", function(self, button)
 			local filters = addon.db.profile.filters.obtain
@@ -479,7 +479,7 @@ function private.InitializeFilterPanel()
 		version_toggle:SetPoint("TOP", obtain_frame, "TOP", 0, -130)
 		version_toggle:RegisterForClicks("LeftButtonUp", "RightButtonUp")
 
-		private.SetTooltipScripts(version_toggle, L["VERSION_TEXT_DESC"])
+		private.SetTooltipScripts(version_toggle, L["GROUP_TOGGLE_FORMAT"]:format(_G.GAME_VERSION_LABEL))
 
 		version_toggle:SetScript("OnClick", function(self, button)
 			local filters = addon.db.profile.filters.obtain
@@ -536,7 +536,7 @@ function private.InitializeFilterPanel()
 		binding_toggle:SetPoint("TOP", binding_frame, "TOP", 0, -7)
 		binding_toggle:RegisterForClicks("LeftButtonUp", "RightButtonUp")
 
-		private.SetTooltipScripts(binding_toggle, L["BINDING_TEXT_DESC"])
+		private.SetTooltipScripts(binding_toggle, L["GROUP_TOGGLE_FORMAT"]:format(L["Binding"]))
 
 		binding_toggle:SetScript("OnClick", function(self, button)
 			local filters = addon.db.profile.filters.binding
@@ -608,7 +608,7 @@ function private.InitializeFilterPanel()
 		quality_toggle:SetPoint("TOP", quality_frame, "TOP", 0, -7)
 		quality_toggle:RegisterForClicks("LeftButtonUp", "RightButtonUp")
 
-		private.SetTooltipScripts(quality_toggle, L["QUALITY_TEXT_DESC"])
+		private.SetTooltipScripts(quality_toggle, L["GROUP_TOGGLE_FORMAT"]:format(_G.QUALITY))
 
 		quality_toggle:SetScript("OnClick", function(self, button)
 			local filters = addon.db.profile.filters.quality
@@ -656,7 +656,7 @@ function private.InitializeFilterPanel()
 		role_toggle:SetPoint("TOP", player_frame, "TOP", 0, -7)
 		role_toggle:RegisterForClicks("LeftButtonUp", "RightButtonUp")
 
-		private.SetTooltipScripts(role_toggle, L["ROLE_TEXT_DESC"])
+		private.SetTooltipScripts(role_toggle, L["GROUP_TOGGLE_FORMAT"]:format(_G.ROLE))
 
 		role_toggle:SetScript("OnClick", function(self, button)
 			local filters = addon.db.profile.filters.player
@@ -857,7 +857,7 @@ function private.InitializeFilterPanel()
 		expansion0_toggle:SetPoint("TOPLEFT", expansion0_frame, "TOPLEFT", -2, -7)
 		expansion0_toggle:RegisterForClicks("LeftButtonUp", "RightButtonUp")
 
-		private.SetTooltipScripts(expansion0_toggle, L["REP_TEXT_DESC"])
+		private.SetTooltipScripts(expansion0_toggle, L["GROUP_TOGGLE_FORMAT"]:format(_G.REPUTATION))
 
 		expansion0_toggle.buttons = expansion0_buttons
 		expansion0_toggle.frame = expansion0_frame
@@ -910,7 +910,7 @@ function private.InitializeFilterPanel()
 		expansion1_toggle:SetPoint("TOPLEFT", expansion1_frame, "TOPLEFT", -2, -7)
 		expansion1_toggle:RegisterForClicks("LeftButtonUp", "RightButtonUp")
 
-		private.SetTooltipScripts(expansion1_toggle, L["REP_TEXT_DESC"])
+		private.SetTooltipScripts(expansion1_toggle, L["GROUP_TOGGLE_FORMAT"]:format(_G.REPUTATION))
 
 		expansion1_toggle.buttons = expansion1_buttons
 		expansion1_toggle.frame = expansion1_frame
@@ -973,7 +973,7 @@ function private.InitializeFilterPanel()
 		expansion2_toggle:SetPoint("TOPLEFT", expansion2_frame, "TOPLEFT", -2, -7)
 		expansion2_toggle:RegisterForClicks("LeftButtonUp", "RightButtonUp")
 
-		private.SetTooltipScripts(expansion2_toggle, L["REP_TEXT_DESC"])
+		private.SetTooltipScripts(expansion2_toggle, L["GROUP_TOGGLE_FORMAT"]:format(_G.REPUTATION))
 
 		expansion2_toggle.buttons = expansion2_buttons
 		expansion2_toggle.frame = expansion2_frame
@@ -1030,7 +1030,7 @@ function private.InitializeFilterPanel()
 		expansion3_toggle:SetPoint("TOPLEFT", expansion3_frame, "TOPLEFT", -2, -7)
 		expansion3_toggle:RegisterForClicks("LeftButtonUp", "RightButtonUp")
 
-		private.SetTooltipScripts(expansion3_toggle, L["REP_TEXT_DESC"])
+		private.SetTooltipScripts(expansion3_toggle, L["GROUP_TOGGLE_FORMAT"]:format(_G.REPUTATION))
 
 		expansion3_toggle.buttons = expansion3_buttons
 		expansion3_toggle.frame = expansion3_frame

@@ -26,7 +26,7 @@ function private:InitializeItemFilters_Blacksmithing(parent_panel)
 	armor_toggle:SetPoint("TOP", parent_panel, "TOP", 0, -7)
 	armor_toggle:RegisterForClicks("LeftButtonUp", "RightButtonUp")
 
-	private.SetTooltipScripts(armor_toggle, L["ARMOR_TEXT_DESC"])
+	private.SetTooltipScripts(armor_toggle, L["GROUP_TOGGLE_FORMAT"]:format(_G.ARMOR))
 
 	local armor_types = {
 		"blacksmithing_mail",
@@ -89,7 +89,7 @@ function private:InitializeItemFilters_Blacksmithing(parent_panel)
 	weapon_toggle:SetPoint("TOP", armor_panel, "BOTTOM", 0, 0)
 	weapon_toggle:RegisterForClicks("LeftButtonUp", "RightButtonUp")
 
-	private.SetTooltipScripts(weapon_toggle, L["WEAPON_TEXT_DESC"])
+	private.SetTooltipScripts(weapon_toggle, L["GROUP_TOGGLE_FORMAT"]:format(L["Weapon"]))
 
 	local weapon_types = {
 		"blacksmithing_dagger",
@@ -164,7 +164,7 @@ function private:InitializeItemFilters_Blacksmithing(parent_panel)
 	general_toggle:SetPoint("TOP", weapon_panel, "BOTTOM", 0, 0)
 	general_toggle:RegisterForClicks("LeftButtonUp", "RightButtonUp")
 
-	private.SetTooltipScripts(general_toggle, L["WEAPON_TEXT_DESC"])
+	private.SetTooltipScripts(general_toggle, L["GROUP_TOGGLE_FORMAT"]:format(_G.GENERAL))
 
 	local general_types = {
 		"blacksmithing_item_enhancement",
