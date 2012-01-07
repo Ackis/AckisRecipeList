@@ -221,9 +221,43 @@ function private.InitializeFilterPanel()
 		end
 	end
 
+	-------------------------------------------------------------------------------
+	-- Main filter_menu frame.
+	-------------------------------------------------------------------------------
+	local FilterPanel = _G.CreateFrame("Frame", nil, MainPanel)
+	FilterPanel:SetWidth(FILTERMENU_WIDTH)
+	FilterPanel:SetHeight(FILTERMENU_HEIGHT)
+	FilterPanel:SetFrameStrata("MEDIUM")
+	FilterPanel:SetPoint("TOPRIGHT", MainPanel, "TOPRIGHT", -117, -71)
+	FilterPanel:EnableMouse(true)
+	FilterPanel:EnableKeyboard(true)
+	FilterPanel:SetMovable(false)
+	FilterPanel:SetHitRectInsets(5, 5, 5, 5)
+	FilterPanel:Hide()
+
+	function FilterPanel:CreateSubMenu(menu_name)
+		local submenu = _G.CreateFrame("Frame", nil, self)
+		submenu:EnableMouse(true)
+		submenu:EnableKeyboard(true)
+		submenu:SetMovable(false)
+		submenu:SetAllPoints()
+		submenu:Hide()
+
+		self[menu_name] = submenu
+		return submenu
+	end
+	MainPanel.filter_menu = FilterPanel
+
+	-------------------------------------------------------------------------------
+	-- Create the seven buttons for opening/closing the filter menus
+	-------------------------------------------------------------------------------
+	local toggle_container = _G.CreateFrame("Frame", nil, MainPanel)
+	toggle_container:SetSize(283, 22)
+	toggle_container:SetPoint("BOTTOM", MainPanel.filter_menu, "TOP", 0, 5)
+
 	local function CreateFilterMenuButton(button_texture, category)
 		local button_size = 22
-		local button = _G.CreateFrame("CheckButton", nil, MainPanel)
+		local button = _G.CreateFrame("CheckButton", nil, toggle_container)
 		button:Hide()
 		button:SetSize(button_size, button_size)
 
@@ -267,11 +301,8 @@ function private.InitializeFilterPanel()
 		return button
 	end
 
-	-------------------------------------------------------------------------------
-	-- Create the seven buttons for opening/closing the filter menus
-	-------------------------------------------------------------------------------
 	local general = CreateFilterMenuButton("INV_Misc_Note_06", "general")
-	general:SetPoint("LEFT", MainPanel.filter_toggle, "RIGHT", 3, 0)
+	general:SetPoint("LEFT", toggle_container, "LEFT", 0, 0)
 
 	local obtain = CreateFilterMenuButton("INV_Misc_Bag_07", "obtain")
 	obtain:SetPoint("LEFT", general, "RIGHT", 15, 0)
@@ -303,33 +334,6 @@ function private.InitializeFilterPanel()
 	MainPanel.menu_toggle_player = player
 	MainPanel.menu_toggle_rep = rep
 	MainPanel.menu_toggle_misc = misc
-
-	-------------------------------------------------------------------------------
-	-- Main filter_menu frame.
-	-------------------------------------------------------------------------------
-	local FilterPanel = _G.CreateFrame("Frame", nil, MainPanel)
-	FilterPanel:SetWidth(FILTERMENU_WIDTH)
-	FilterPanel:SetHeight(FILTERMENU_HEIGHT)
-	FilterPanel:SetFrameStrata("MEDIUM")
-	FilterPanel:SetPoint("TOPRIGHT", MainPanel, "TOPRIGHT", -117, -71)
-	FilterPanel:EnableMouse(true)
-	FilterPanel:EnableKeyboard(true)
-	FilterPanel:SetMovable(false)
-	FilterPanel:SetHitRectInsets(5, 5, 5, 5)
-	FilterPanel:Hide()
-
-	function FilterPanel:CreateSubMenu(menu_name)
-		local submenu = _G.CreateFrame("Frame", nil, self)
-		submenu:EnableMouse(true)
-		submenu:EnableKeyboard(true)
-		submenu:SetMovable(false)
-		submenu:SetAllPoints()
-		submenu:Hide()
-
-		self[menu_name] = submenu
-		return submenu
-	end
-	MainPanel.filter_menu = FilterPanel
 
 	-------------------------------------------------------------------------------
 	-- Create FilterPanel.general, and set its scripts.
