@@ -149,52 +149,6 @@ for index = 1, #private.GAME_VERSION_NAMES do
 end
 
 -------------------------------------------------------------------------------
--- Filters.
--------------------------------------------------------------------------------
-private.FILTER_STRINGS = {
-	[1]	= "ALLIANCE",		[2]	= "HORDE",		[3]	= "TRAINER",		[4]	= "VENDOR",
-	[5]	= "INSTANCE",		[6]	= "RAID",		[7]	= "SEASONAL",		[8]	= "QUEST",
-	[9]	= "PVP",		[10]	= "WORLD_DROP",		[11]	= "MOB_DROP",		[12]	= "DISC",
-	[13]	= "RETIRED",		[14]	= "ACHIEVEMENT",	[15]	= "ALCHEMY_CAULDRON",	[16]	= "ALCHEMY_ELIXIR",
-	[17]	= "ALCHEMY_FLASK",	[18]	= "ALCHEMY_POTION",	[19]	= "ALCHEMY_TRANSMUTE",	[20]	= "ALCHEMY_TRINKET",
-	[21]	= "DK",			[22]	= "DRUID",		[23]	= "HUNTER",		[24]	= "MAGE",
-	[25]	= "PALADIN",		[26]	= "PRIEST",		[27]	= "SHAMAN",		[28]	= "ROGUE",
-	[29]	= "WARLOCK",		[30]	= "WARRIOR",		[31]	= "ALCHEMY_MISC",	[32]	= "ALCHEMY_OIL",
-	[33]	= "BLACKSMITHING_MATERIALS",	[34]	= "BLACKSMITHING_ITEM_ENHANCEMENT",	[35]	= "RESERVED_35",	[36]	= "IBOE",
-	[37]	= "IBOP",		[38]	= "IBOA",		[39]	= "RESERVED_39",	[40]	= "RBOE",
-	[41]	= "RBOP",		[42]	= "RBOA",		[43]	= "RESERVED_43",	[44]	= "RESERVED_44",
-	[45]	= "RESERVED_45",	[46]	= "RESERVED_46",	[47]	= "RESERVED_47",	[48]	= "RESERVED_48",
-	[49]	= "RESERVED_49",	[50]	= "RESERVED_50",	[51]	= "DPS",		[52]	= "TANK",
-	[53]	= "HEALER",		[54]	= "CASTER",		[55]	= "RESERVED_55",	[56]	= "CLOTH",
-	[57]	= "LEATHER",		[58]	= "BLACKSMITHING_MAIL",		[59]	= "BLACKSMITHING_PLATE",		[60]	= "CLOAK",
-	[61]	= "TRINKET",		[62]	= "RING",		[63]	= "NECK",		[64]	= "BLACKSMITHING_SHIELD",
-	[65]	= "BLACKSMITHING_ONE_HAND_AXE",	[66]	= "BLACKSMITHING_TWO_HAND_AXE",		[67]	= "BLACKSMITHING_TWO_HAND_AXE",		[68]	= "BLACKSMITHING_ONE_HAND_MACE",
-	[69]	= "BLACKSMITHING_ONE_HAND_SWORD",		[70]	= "BLACKSMITHING_TWO_HAND_MACE",		[71]	= "BLACKSMITHING_POLEARM",		[72]	= "BLACKSMITHING_DAGGER",
-	[73]	= "BLACKSMITHING_TWO_HAND_SWORD",	[74]	= "WAND",		[75]	= "BLACKSMITHING_THROWN",		[76]	= "RESERVED_76",
-	[77]	= "RESERVED_77",	[78]	= "RESERVED_78",	[79]	= "FIST",		[80]	= "GUN",
-	[81]	= "ALCHEMY_MISC",	[82]	= "ALCHEMY_OIL",	[83]	= "BLACKSMITHING_ROD",	[84]	= "BLACKSMITHING_SKELETON_KEY",
-	[85]	= "RESERVED_85",	[86]	= "RESERVED_86",	[87]	= "RESERVED_87",	[88]	= "RESERVED_88",
-	[89]	= "RESERVED_89",	[90]	= "RESERVED_90",	[91]	= "RESERVED_91",	[92]	= "RESERVED_92",
-	[93]	= "RESERVED_93",	[94]	= "RESERVED_94",	[95]	= "RESERVED_95",	[96]	= "ARGENTDAWN",
-	[97]	= "CENARION_CIRCLE",	[98]	= "THORIUM_BROTHERHOOD",[99]	= "TIMBERMAW_HOLD",	[100]	= "ZANDALAR",
-	[101]	= "ALDOR",		[102]	= "ASHTONGUE",		[103]	= "CENARION_EXPEDITION",[104]	= "HELLFIRE",
-	[105]	= "CONSORTIUM",		[106]	= "KOT",		[107]	= "LOWERCITY",		[108]	= "NAGRAND",
-	[109]	= "SCALE_SANDS",	[110]	= "SCRYER",		[111]	= "SHATAR",		[112]	= "SHATTEREDSUN",
-	[113]	= "SPOREGGAR",		[114]	= "VIOLETEYE",		[115]	= "ARGENTCRUSADE",	[116]	= "FRENZYHEART",
-	[117]	= "EBONBLADE",		[118]	= "KIRINTOR",		[119]	= "HODIR",		[120]	= "KALUAK",
-	[121]	= "ORACLES",		[122]	= "WYRMREST",		[123]	= "WRATHCOMMON1",	[124]	= "WRATHCOMMON2",
-	[125]	= "WRATHCOMMON3",	[126]	= "WRATHCOMMON4",	[127]	= "WRATHCOMMON5",	[128]	= "ASHEN_VERDICT",
-	[129]	= "CATACOMMON1",	[130]	= "CATACOMMON2",	[131]	= "GUARDIANS",		[132]	= "RAMKAHEN",
-	[133]	= "EARTHEN_RING",	[134]	= "THERAZANE",
-}
-
-private.FILTER_IDS = {}
-
-for index = 1, #private.FILTER_STRINGS do
-	private.FILTER_IDS[private.FILTER_STRINGS[index]] = index
-end
-
--------------------------------------------------------------------------------
 -- Common filter bitfield word 1.
 -------------------------------------------------------------------------------
 private.COMMON_FLAGS_WORD1 = {
@@ -372,6 +326,20 @@ private.FLAG_MEMBERS = {
 	"item1",
 	"item2",
 }
+
+private.FILTER_STRINGS = {}
+
+for index = 1, #private.FLAG_WORDS do
+	for flag_name in pairs(private.FLAG_WORDS[index]) do
+		private.FILTER_STRINGS[#private.FILTER_STRINGS + 1] = flag_name
+	end
+end
+
+private.FILTER_IDS = {}
+
+for index = 1, #private.FILTER_STRINGS do
+	private.FILTER_IDS[private.FILTER_STRINGS[index]] = index
+end
 
 -------------------------------------------------------------------------------
 -- Acquire types.
