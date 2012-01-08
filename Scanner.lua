@@ -1270,36 +1270,67 @@ do
 				scan_data.repidlevel = FACTION_LEVELS[replevel]
 			end
 
-			-- Do things the smart way and assign the glyph type here.
-			local spell_id = scan_data.reverse_lookup[recipe_name]
-			local recipe
-
-			if spell_id then
-				recipe = recipe_list[spell_id]
-			end
-
-			if recipe then
-				local glyph_type = text_l:match("Prime Glyph")
-
-				if glyph_type then
-					addon:Printf("%s: Prime Glyph", recipe_name)
-					recipe:SetItemFilterType("INSCRIPTION_PRIME_GLYPH")
-				end
-
-				local glyph_type = text_l:match("Major Glyph")
-
-				if glyph_type then
-					addon:Printf("%s: Major Glyph", recipe_name)
-					recipe:SetItemFilterType("INSCRIPTION_MAJOR_GLYPH")
-				end
-
-				local glyph_type = text_l:match("Minor Glyph")
-
-				if glyph_type then
-					addon:Printf("%s: Minor Glyph", recipe_name)
-					recipe:SetItemFilterType("INSCRIPTION_MINOR_GLYPH")
-				end
-			end
+			-------------------------------------------------------------------------------
+			-- Do things the smart way and assign the filter type here. Uncomment when needed.
+			-------------------------------------------------------------------------------
+--			local spell_id = scan_data.reverse_lookup[recipe_name]
+--			local recipe
+--
+--			if spell_id then
+--				recipe = recipe_list[spell_id]
+--			end
+--
+--			local inscription_type = text_l:match("Prime Glyph")
+--
+--			if inscription_type and recipe then
+--				addon:Printf("%s: Prime Glyph", recipe_name)
+--				recipe:SetItemFilterType("INSCRIPTION_PRIME_GLYPH")
+--			end
+--
+--			inscription_type = text_l:match("Major Glyph")
+--
+--			if inscription_type and recipe then
+--				addon:Printf("%s: Major Glyph", recipe_name)
+--				recipe:SetItemFilterType("INSCRIPTION_MAJOR_GLYPH")
+--			end
+--
+--			inscription_type = text_l:match("Minor Glyph")
+--
+--			if inscription_type and recipe then
+--				addon:Printf("%s: Minor Glyph", recipe_name)
+--				recipe:SetItemFilterType("INSCRIPTION_MINOR_GLYPH")
+--			end
+--
+--			inscription_type = text_l:match("Scroll of (.+)")
+--
+--			if inscription_type and recipe then
+--				addon:Printf("%s: Scroll", recipe_name)
+--				recipe:SetItemFilterType("INSCRIPTION_SCROLL")
+--			end
+--
+--			if recipe_name:match("Ink of(.+)") or recipe_name:match("(.+) Ink") then
+--				addon:Printf("%s: Material", recipe_name)
+--				recipe:SetItemFilterType("INSCRIPTION_MATERIALS")
+--			end
+--
+--			inscription_type = text_l:match("Permanently add(.+)")
+--
+--			if inscription_type and recipe then
+--				addon:Printf("%s: Enhancement", recipe_name)
+--				recipe:SetItemFilterType("INSCRIPTION_ITEM_ENHANCEMENT")
+--			end
+--
+--			if text_l == "Held In Off-hand" and recipe then
+--				addon:Printf("%s: Book", recipe_name)
+--				recipe:SetItemFilterType("INSCRIPTION_OFF_HAND")
+--			end
+--
+--			inscription_type = text_l:match("Relic")
+--
+--			if inscription_type and recipe then
+--				addon:Printf("%s: Relic", recipe_name)
+--				recipe:SetItemFilterType("INSCRIPTION_RELIC")
+--			end
 
 			-- Flag so that we don't bother checking for classes if we're sure of the class
 			-- AKA +spell hit == caster DPS only no matter what other stats are on it
