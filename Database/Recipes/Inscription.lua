@@ -2237,7 +2237,7 @@ function addon:InitInscription()
 	recipe = AddRecipe(58565, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(43515)
 	recipe:SetSkillLevels(85, 85, 95, 100, 105)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.ONE_HAND)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30709, 30710, 30711, 30713, 30715, 30716, 30717, 30721, 30722, 33603, 33615, 33638, 33679, 46716)
 
 	-- Glyph of Dash -- 59315
@@ -2287,14 +2287,14 @@ function addon:InitInscription()
 	recipe = AddRecipe(59475, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(43654)
 	recipe:SetSkillLevels(125, 125, 150, 162, 175)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.ONE_HAND)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30709, 30710, 30711, 30713, 30715, 30716, 30717, 30721, 30722, 33603, 33615, 33638, 33679, 46716)
 
 	-- Book of Survival -- 59478
 	recipe = AddRecipe(59478, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(43655)
 	recipe:SetSkillLevels(125, 125, 150, 162, 175)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.ONE_HAND)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30709, 30710, 30711, 30713, 30715, 30716, 30717, 30721, 30722, 33603, 33615, 33638, 33679, 46716)
 
 	-- Strange Tarot -- 59480
@@ -2308,14 +2308,14 @@ function addon:InitInscription()
 	recipe = AddRecipe(59484, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(43656)
 	recipe:SetSkillLevels(175, 175, 200, 205, 210)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.ONE_HAND)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30709, 30710, 30711, 30713, 30715, 30716, 30717, 30721, 30722, 33603, 33615, 33638, 33679, 46716)
 
 	-- Royal Guide of Escape Routes -- 59486
 	recipe = AddRecipe(59486, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(43657)
 	recipe:SetSkillLevels(175, 175, 200, 205, 210)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.ONE_HAND)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30709, 30710, 30711, 30713, 30715, 30716, 30717, 30721, 30722, 33603, 33615, 33638, 33679, 46716)
 
 	-- Arcane Tarot -- 59487
@@ -2329,14 +2329,14 @@ function addon:InitInscription()
 	recipe = AddRecipe(59489, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(43660)
 	recipe:SetSkillLevels(225, 225, 240, 245, 250)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.ONE_HAND)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30709, 30710, 30711, 30713, 30715, 30716, 30717, 30721, 30722, 33603, 33615, 33638, 33679, 46716)
 
 	-- Book of Stars -- 59490
 	recipe = AddRecipe(59490, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(43661)
 	recipe:SetSkillLevels(225, 225, 240, 245, 250)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.ONE_HAND)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30709, 30710, 30711, 30713, 30715, 30716, 30717, 30721, 30722, 33603, 33615, 33638, 33679, 46716)
 
 	-- Shadowy Tarot -- 59491
@@ -2350,42 +2350,42 @@ function addon:InitInscription()
 	recipe = AddRecipe(59493, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(43663)
 	recipe:SetSkillLevels(275, 275, 290, 295, 300)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.ONE_HAND)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
 	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30709, 30710, 30711, 30713, 30715, 30716, 30717, 30721, 30722, 33603, 33615, 33638, 33679, 46716)
 
 	-- Manual of Clouds -- 59494
 	recipe = AddRecipe(59494, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(43664)
 	recipe:SetSkillLevels(275, 275, 290, 295, 300)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.ONE_HAND)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
 	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30709, 30710, 30711, 30713, 30715, 30716, 30717, 30721, 30722, 33603, 33615, 33638, 33679, 46716)
 
 	-- Hellfire Tome -- 59495
 	recipe = AddRecipe(59495, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(43666)
 	recipe:SetSkillLevels(325, 325, 340, 345, 350)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.ONE_HAND)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
 	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30709, 30713, 30715, 30721, 30722, 33603, 33615, 33638, 33679, 46716)
 
 	-- Book of Clever Tricks -- 59496
 	recipe = AddRecipe(59496, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(43667)
 	recipe:SetSkillLevels(325, 325, 340, 345, 350)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.ONE_HAND)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30709, 30713, 30715, 30721, 30722, 33603, 33615, 33638, 33679, 46716)
 
 	-- Iron-bound Tome -- 59497
 	recipe = AddRecipe(59497, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(38322)
 	recipe:SetSkillLevels(400, 400, 425, 437, 450)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.ONE_HAND)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
 	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30709, 30713, 30715, 33603, 33615, 33638, 46716)
 
 	-- Faces of Doom -- 59498
 	recipe = AddRecipe(59498, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(44210)
 	recipe:SetSkillLevels(400, 400, 425, 437, 450)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.ONE_HAND)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
 	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30709, 30713, 30715, 33603, 33615, 33638, 46716)
 
 	-- Darkmoon Card -- 59502
@@ -2498,14 +2498,14 @@ function addon:InitInscription()
 	recipe = AddRecipe(64051, V.WOTLK, Q.UNCOMMON)
 	recipe:SetCraftedItemID(46108)
 	recipe:SetSkillLevels(350, 350, 375, 387, 400)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOE, F.RBOP, F.CASTER, F.ONE_HAND)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOE, F.RBOP, F.CASTER)
 	recipe:AddMobDrop(26679, 26708, 27546, 27676)
 
 	-- Twilight Tome -- 64053
 	recipe = AddRecipe(64053, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(45849)
 	recipe:SetSkillLevels(350, 350, 375, 387, 400)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.ONE_HAND)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
 	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30709, 30713, 30715, 33603, 33615, 33638, 46716)
 
 	-- Glyph of Raptor Strike -- 64246
