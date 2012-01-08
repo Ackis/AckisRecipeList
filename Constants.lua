@@ -340,6 +340,23 @@ private.ITEM_FILTER_TYPES = {
 	ENCHANTING_ROD = true,
 	ENCHANTING_WAND = true,
 	ENCHANTING_MISC = true,
+	-------------------------------------------------------------------------------
+	-- Tailoring
+	-------------------------------------------------------------------------------
+	TAILORING_BACK = true,
+	TAILORING_BAG = true,
+	TAILORING_CHEST = true,
+	TAILORING_FEET = true,
+	TAILORING_HANDS = true,
+	TAILORING_HEAD = true,
+	TAILORING_ITEM_ENHANCEMENT = true,
+	TAILORING_LEGS = true,
+	TAILORING_MATERIALS = true,
+	TAILORING_MISC = true,
+	TAILORING_SHIRT = true,
+	TAILORING_SHOULDER = true,
+	TAILORING_WAIST = true,
+	TAILORING_WRIST = true,
 }
 
 -------------------------------------------------------------------------------
