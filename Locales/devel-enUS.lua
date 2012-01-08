@@ -1029,6 +1029,7 @@ L["Scargil"] = "Scargil"
 L["Scarlet Archmage"] = "Scarlet Archmage"
 L["Scholomance Adept"] = "Scholomance Adept"
 L["Scribe Lanloer"] = "Scribe Lanloer"
+L["Scroll"] = true
 L["Se'Jib"] = "Se'Jib"
 L["Sebastian Crane"] = "Sebastian Crane"
 L["Sedana"] = "Sedana"
