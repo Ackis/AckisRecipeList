@@ -1270,6 +1270,37 @@ do
 				scan_data.repidlevel = FACTION_LEVELS[replevel]
 			end
 
+			-- Do things the smart way and assign the glyph type here.
+			local spell_id = scan_data.reverse_lookup[recipe_name]
+			local recipe
+
+			if spell_id then
+				recipe = recipe_list[spell_id]
+			end
+
+			if recipe then
+				local glyph_type = text_l:match("Prime Glyph")
+
+				if glyph_type then
+					addon:Printf("%s: Prime Glyph", recipe_name)
+					recipe:SetItemFilterType("INSCRIPTION_PRIME_GLYPH")
+				end
+
+				local glyph_type = text_l:match("Major Glyph")
+
+				if glyph_type then
+					addon:Printf("%s: Major Glyph", recipe_name)
+					recipe:SetItemFilterType("INSCRIPTION_MAJOR_GLYPH")
+				end
+
+				local glyph_type = text_l:match("Minor Glyph")
+
+				if glyph_type then
+					addon:Printf("%s: Minor Glyph", recipe_name)
+					recipe:SetItemFilterType("INSCRIPTION_MINOR_GLYPH")
+				end
+			end
+
 			-- Flag so that we don't bother checking for classes if we're sure of the class
 			-- AKA +spell hit == caster DPS only no matter what other stats are on it
 			-- Saves processing cycles and it won't cause the flags to be overwritten if a non-specific stat is found after
