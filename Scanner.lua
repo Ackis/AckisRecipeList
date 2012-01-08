@@ -1154,27 +1154,35 @@ do
 	}
 
 	local CLASS_TYPES = {
-		["Death Knight"]	= 21, 	["Druid"]	= 22, 	["Hunter"]	= 23,
-		["Mage"]		= 24, 	["Paladin"]	= 25, 	["Priest"]	= 26,
-		["Shaman"]		= 27, 	["Rogue"]	= 28, 	["Warlock"]	= 29,
-		["Warrior"]		= 30,
+		["Death Knight"]	= "DK", 	["Druid"]	= "DRUID", 	["Hunter"]	= "HUNTER",
+		["Mage"]		= "MAGE", 	["Paladin"]	= "PALADIN", 	["Priest"]	= "PRIEST",
+		["Shaman"]		= "SHAMAN", 	["Rogue"]	= "ROGUE", 	["Warlock"]	= "WARLOCK",
+		["Warrior"]		= "WARRIOR",
 	}
 
 	local ORDERED_CLASS_TYPES = {
-		[1]	= "Death Knight", 	[2]	= "Druid", 	[3]	= "Hunter",
-		[4]	= "Mage", 		[5]	= "Paladin", 	[6]	= "Priest",
-		[7]	= "Shaman", 		[8]	= "Rogue", 	[9]	= "Warlock",
-		[10]	= "Warrior",
+		"Death Knight",
+		"Druid",
+		"Hunter",
+		"Mage",
+		"Paladin",
+		"Priest",
+		"Shaman",
+		"Rogue",
+		"Warlock",
+		"Warrior",
 	}
 
 	local ROLE_TYPES = {
-		["dps"]		= 51, 	["tank"]	= 52, 	["healer"]	= 53,
-		["caster"]	= 54,
+		["dps"]		= "DPS", 	["tank"]	= "TANK", 	["healer"]	= "HEALER",
+		["caster"]	= "CASTER",
 	}
 
 	local ORDERED_ROLE_TYPES = {
-		[1]	= "dps", 	[2]	= "tank", 	[3]	= "healer",
-		[4]	= "caster",
+		"dps",
+		"tank",
+		"healer",
+		"caster",
 	}
 
 	local ENCHANT_TO_ITEM = {
@@ -1442,11 +1450,11 @@ do
 
 		-- -- If we've picked up at least one class flag
 		if scan_data.found_class then
-			for k, v in ipairs(ORDERED_CLASS_TYPES) do
-				if scan_data[v] and not recipe:HasFilter("class1", FS[CLASS_TYPES[v]]) then
-					table.insert(missing_flags, flag_format:format(FS[CLASS_TYPES[v]]))
-				elseif not scan_data[v] and recipe:HasFilter("class1", FS[CLASS_TYPES[v]]) then
-					table.insert(extra_flags, flag_format:format(FS[CLASS_TYPES[v]]))
+			for index, class_name in ipairs(ORDERED_CLASS_TYPES) do
+				if scan_data[class_name] and not recipe:HasFilter("class1", CLASS_TYPES[class_name]) then
+					table.insert(missing_flags, flag_format:format(CLASS_TYPES[class_name]))
+				elseif not scan_data[class_name] and recipe:HasFilter("class1", CLASS_TYPES[class_name]) then
+					table.insert(extra_flags, flag_format:format(CLASS_TYPES[class_name]))
 				end
 			end
 		end
@@ -1497,7 +1505,7 @@ do
 		end
 
 		for k, v in ipairs(ORDERED_ROLE_TYPES) do
-			local role_string = FS[ROLE_TYPES[v]]
+			local role_string = ROLE_TYPES[v]
 
 			if scan_data[v] and not recipe:HasFilter("common1", role_string) then
 				table.insert(missing_flags, flag_format:format(role_string))
@@ -1645,7 +1653,7 @@ do
 
 		if scan_data.quality and scan_data.quality ~= recipe.quality then
 			local QS = private.ITEM_QUALITY_NAMES
-			table.insert(output, ("    Wrong quality: Q.%s - should be Q.%s."):format(QS[recipe.quality], QS[scan_data.quality]))
+			table.insert(output, ("    Possible wrong quality: Q.%s - should be Q.%s."):format(QS[recipe.quality], QS[scan_data.quality]))
 		end
 
 		if #output > 0 then
