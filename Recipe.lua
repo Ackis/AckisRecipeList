@@ -499,6 +499,10 @@ function recipe_prototype:Dump(output)
 	if self.required_faction then
 		table.insert(output, ("recipe:SetRequiredFaction(\"%s\")"):format(self.required_faction))
 	end
+
+	if self.item_filter_type then
+		table.insert(output, ("recipe:SetItemFilterType(\"%s\")"):format(self.item_filter_type:upper()))
+	end
 	local flag_string
 
 	for table_index, bits in ipairs(private.FLAG_WORDS) do
