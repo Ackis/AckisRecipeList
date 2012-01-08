@@ -64,12 +64,6 @@ function private:InitializeItemFilters_Enchanting(parent_panel)
 			cb = MainPanel.filter_menu.item.items_enchanting[item_type],
 			svroot = addon.db.profile.filters.item
 		}
-
-		private.HARD_FILTERS[item_type] = {
-			flag = private.ITEM_FLAGS_WORD2[item_type:upper()],
-			field = "item2",
-			sv_root = addon.db.profile.filters.item
-		}
 	end
 
 	-------------------------------------------------------------------------------
@@ -117,12 +111,6 @@ function private:InitializeItemFilters_Enchanting(parent_panel)
 		MainPanel.filter_menu.value_map[item_type] = {
 			cb = MainPanel.filter_menu.item.items_enchanting[item_type],
 			svroot = addon.db.profile.filters.item
-		}
-
-		private.HARD_FILTERS[item_type] = {
-			flag = private.ITEM_FLAGS_WORD2[item_type:upper()],
-			field = "item2",
-			sv_root = addon.db.profile.filters.item
 		}
 	end
 
@@ -172,12 +160,6 @@ function private:InitializeItemFilters_Enchanting(parent_panel)
 		MainPanel.filter_menu.value_map[item_type] = {
 			cb = MainPanel.filter_menu.item.items_enchanting[item_type],
 			svroot = addon.db.profile.filters.item
-		}
-
-		private.HARD_FILTERS[item_type] = {
-			flag = private.ITEM_FLAGS_WORD2[item_type:upper()],
-			field = "item2",
-			sv_root = addon.db.profile.filters.item
 		}
 	end
 	self.InitializeItemFilters_Enchanting = nil

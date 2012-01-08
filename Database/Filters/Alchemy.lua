@@ -70,12 +70,6 @@ function private:InitializeItemFilters_Alchemy(parent_panel)
 			cb = MainPanel.filter_menu.item.items_alchemy[item_type],
 			svroot = addon.db.profile.filters.item
 		}
-
-		private.HARD_FILTERS[item_type] = {
-				flag = private.ITEM_FLAGS_WORD1[item_type:upper()],
-				field = "item1",
-				sv_root = addon.db.profile.filters.item
-		}
 	end
 
 	self.InitializeItemFilters_Alchemy = nil

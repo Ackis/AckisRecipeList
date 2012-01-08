@@ -69,12 +69,6 @@ function private:InitializeItemFilters_Blacksmithing(parent_panel)
 			cb = MainPanel.filter_menu.item.items_blacksmithing[item_type],
 			svroot = addon.db.profile.filters.item
 		}
-
-		private.HARD_FILTERS[item_type] = {
-			flag = private.ITEM_FLAGS_WORD1[item_type:upper()],
-			field = "item1",
-			sv_root = addon.db.profile.filters.item
-		}
 	end
 
 	-------------------------------------------------------------------------------
@@ -144,12 +138,6 @@ function private:InitializeItemFilters_Blacksmithing(parent_panel)
 			cb = MainPanel.filter_menu.item.items_blacksmithing[item_type],
 			svroot = addon.db.profile.filters.item
 		}
-
-		private.HARD_FILTERS[item_type] = {
-			flag = private.ITEM_FLAGS_WORD1[item_type:upper()],
-			field = "item1",
-			sv_root = addon.db.profile.filters.item
-		}
 	end
 
 	-------------------------------------------------------------------------------
@@ -208,12 +196,6 @@ function private:InitializeItemFilters_Blacksmithing(parent_panel)
 		MainPanel.filter_menu.value_map[item_type] = {
 			cb = MainPanel.filter_menu.item.items_blacksmithing[item_type],
 			svroot = addon.db.profile.filters.item
-		}
-
-		private.HARD_FILTERS[item_type] = {
-			flag = private.ITEM_FLAGS_WORD1[item_type:upper()],
-			field = "item1",
-			sv_root = addon.db.profile.filters.item
 		}
 	end
 	self.InitializeItemFilters_Blacksmithing = nil

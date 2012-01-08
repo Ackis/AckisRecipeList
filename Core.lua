@@ -353,14 +353,9 @@ function addon:OnInitialize()
 		}
 	}
 
-	for flag_name in _G.pairs(private.ITEM_FLAGS_WORD1) do
-		defaults.profile.filters.item[flag_name:lower()] = true
+	for filter_name in pairs(private.ITEM_FILTER_TYPES) do
+		defaults.profile.filters.item[filter_name:lower()] = true
 	end
-
-	for flag_name in _G.pairs(private.ITEM_FLAGS_WORD2) do
-		defaults.profile.filters.item[flag_name:lower()] = true
-	end
-
 	self.db = LibStub("AceDB-3.0"):New("ARLDB2", defaults)
 
 	if not self.db then

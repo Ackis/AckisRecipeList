@@ -246,6 +246,18 @@ do
 	end
 end -- do-block
 
+function recipe_prototype:SetItemFilterType(filter_type)
+	if not private.ITEM_FILTER_TYPES[filter_type:upper()] then
+		addon:Debug("Attempting to set invalid item filter type '%s' for '%s' (%d)", filter_type, self.name, self.spell_id)
+		return
+	end
+	self.item_filter_type = filter_type:lower()
+end
+
+function recipe_prototype:ItemFilterType()
+	return self.item_filter_type
+end
+
 function recipe_prototype:AddFilters(...)
 	local num_filters = select('#', ...)
 

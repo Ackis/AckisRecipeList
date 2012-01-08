@@ -249,73 +249,7 @@ private.REP_FLAGS_WORD2 = {
 -- Item filter bitfield word 1.
 -------------------------------------------------------------------------------
 private.ITEM_FLAGS_WORD1 = {
-	ALCHEMY_CAULDRON		= 0x00000001,	-- 1
-	ALCHEMY_ELIXIR			= 0x00000002,	-- 2
-	ALCHEMY_FLASK			= 0x00000004,	-- 3
-	ALCHEMY_MISC			= 0x00000008,	-- 4
-	ALCHEMY_OIL			= 0x00000010,	-- 5
-	ALCHEMY_POTION			= 0x00000020,	-- 6
-	ALCHEMY_TRANSMUTE		= 0x00000040,	-- 7
-	ALCHEMY_TRINKET			= 0x00000080,	-- 8
-	BLACKSMITHING_DAGGER		= 0x00000100,	-- 9
-	BLACKSMITHING_MATERIALS		= 0x00000200,	-- 10
-	BLACKSMITHING_ITEM_ENHANCEMENT	= 0x00000400,	-- 11
-	BLACKSMITHING_MAIL		= 0x00000800,	-- 12
-	BLACKSMITHING_ONE_HAND_AXE	= 0x00001000,	-- 13
-	BLACKSMITHING_ONE_HAND_MACE	= 0x00002000,	-- 14
-	BLACKSMITHING_ONE_HAND_SWORD	= 0x00004000,	-- 15
-	BLACKSMITHING_PLATE		= 0x00008000,	-- 16
-	BLACKSMITHING_POLEARM		= 0x00010000,	-- 17
-	BLACKSMITHING_SHIELD		= 0x00020000,	-- 18
-	BLACKSMITHING_THROWN		= 0x00040000,	-- 19
-	BLACKSMITHING_TWO_HAND_AXE	= 0x00080000,	-- 20
-	BLACKSMITHING_TWO_HAND_MACE	= 0x00100000,	-- 21
-	BLACKSMITHING_TWO_HAND_SWORD	= 0x00200000,	-- 22
-	BLACKSMITHING_ROD		= 0x00400000,	-- 23
-	BLACKSMITHING_SKELETON_KEY	= 0x00800000,	-- 24
-	--	UNUSED		= 0x01000000,	-- 25
-	--	UNUSED		= 0x02000000,	-- 26
-	--	UNUSED		= 0x04000000,	-- 27
-	--	UNUSED		= 0x08000000,	-- 28
-	--	UNUSED		= 0x10000000,	-- 29
-	--	UNUSED		= 0x20000000,	-- 30
-	--	UNUSED		= 0x40000000,	-- 31
-	--	UNUSED		= 0x80000000,	-- 32
-}
-
-private.ITEM_FLAGS_WORD2 = {
-	ENCHANTING_BOOTS		= 0x00000001,	-- 1
-	ENCHANTING_BRACER		= 0x00000002,	-- 2
-	ENCHANTING_CHEST		= 0x00000004,	-- 3
-	ENCHANTING_CLOAK		= 0x00000008,	-- 4
-	ENCHANTING_GLOVES		= 0x00000010,	-- 5
-	ENCHANTING_RING			= 0x00000020,	-- 6
-	ENCHANTING_SHIELD		= 0x00000040,	-- 7
-	ENCHANTING_WEAPON		= 0x00000080,	-- 8
-	ENCHANTING_2H_WEAPON		= 0x00000100,	-- 9
-	ENCHANTING_STAFF		= 0x00000200,	-- 10
-	ENCHANTING_OIL			= 0x00000400,	-- 11
-	ENCHANTING_ROD			= 0x00000800,	-- 12
-	ENCHANTING_WAND			= 0x00001000,	-- 13
-	ENCHANTING_MISC			= 0x00002000,	-- 14
-	--	UNUSED		= 0x00004000,	-- 15
-	--	UNUSED		= 0x00008000,	-- 16
-	--	UNUSED		= 0x00010000,	-- 17
-	--	UNUSED		= 0x00020000,	-- 18
-	--	UNUSED		= 0x00040000,	-- 19
-	--	UNUSED		= 0x00080000,	-- 20
-	--	UNUSED		= 0x00100000,	-- 21
-	--	UNUSED		= 0x00200000,	-- 22
-	--	UNUSED		= 0x00400000,	-- 23
-	--	UNUSED		= 0x00800000,	-- 24
-	--	UNUSED		= 0x01000000,	-- 25
-	--	UNUSED		= 0x02000000,	-- 26
-	--	UNUSED		= 0x04000000,	-- 27
-	--	UNUSED		= 0x08000000,	-- 28
-	--	UNUSED		= 0x10000000,	-- 29
-	--	UNUSED		= 0x20000000,	-- 30
-	--	UNUSED		= 0x40000000,	-- 31
-	--	UNUSED		= 0x80000000,	-- 32
+	--	UNUSED	= 0x00000001 -- 1
 }
 
 private.FLAG_WORDS = {
@@ -324,7 +258,6 @@ private.FLAG_WORDS = {
 	private.REP_FLAGS_WORD1,
 	private.REP_FLAGS_WORD2,
 	private.ITEM_FLAGS_WORD1,
-	private.ITEM_FLAGS_WORD2,
 }
 
 -- Member names within a recipe's flags table.
@@ -334,7 +267,6 @@ private.FLAG_MEMBERS = {
 	"reputation1",
 	"reputation2",
 	"item1",
-	"item2",
 }
 
 private.FILTER_STRINGS = {}
@@ -350,6 +282,59 @@ private.FILTER_IDS = {}
 for index = 1, #private.FILTER_STRINGS do
 	private.FILTER_IDS[private.FILTER_STRINGS[index]] = index
 end
+
+-------------------------------------------------------------------------------
+-- Item filter types.
+-------------------------------------------------------------------------------
+private.ITEM_FILTER_TYPES = {
+	-------------------------------------------------------------------------------
+	-- Alchemy
+	-------------------------------------------------------------------------------
+	ALCHEMY_CAULDRON = true,
+	ALCHEMY_ELIXIR = true,
+	ALCHEMY_FLASK = true,
+	ALCHEMY_MISC = true,
+	ALCHEMY_OIL = true,
+	ALCHEMY_POTION = true,
+	ALCHEMY_TRANSMUTE = true,
+	ALCHEMY_TRINKET = true,
+	-------------------------------------------------------------------------------
+	-- Blacksmithing
+	-------------------------------------------------------------------------------
+	BLACKSMITHING_DAGGER = true,
+	BLACKSMITHING_MATERIALS = true,
+	BLACKSMITHING_ITEM_ENHANCEMENT = true,
+	BLACKSMITHING_MAIL = true,
+	BLACKSMITHING_ONE_HAND_AXE = true,
+	BLACKSMITHING_ONE_HAND_MACE = true,
+	BLACKSMITHING_ONE_HAND_SWORD = true,
+	BLACKSMITHING_PLATE = true,
+	BLACKSMITHING_POLEARM = true,
+	BLACKSMITHING_SHIELD = true,
+	BLACKSMITHING_THROWN = true,
+	BLACKSMITHING_TWO_HAND_AXE = true,
+	BLACKSMITHING_TWO_HAND_MACE = true,
+	BLACKSMITHING_TWO_HAND_SWORD = true,
+	BLACKSMITHING_ROD = true,
+	BLACKSMITHING_SKELETON_KEY = true,
+	-------------------------------------------------------------------------------
+	-- Enchanting
+	-------------------------------------------------------------------------------
+	ENCHANTING_BOOTS = true,
+	ENCHANTING_BRACER = true,
+	ENCHANTING_CHEST = true,
+	ENCHANTING_CLOAK = true,
+	ENCHANTING_GLOVES = true,
+	ENCHANTING_RING = true,
+	ENCHANTING_SHIELD = true,
+	ENCHANTING_WEAPON = true,
+	ENCHANTING_2H_WEAPON = true,
+	ENCHANTING_STAFF = true,
+	ENCHANTING_OIL = true,
+	ENCHANTING_ROD = true,
+	ENCHANTING_WAND = true,
+	ENCHANTING_MISC = true,
+}
 
 -------------------------------------------------------------------------------
 -- Acquire types.
