@@ -251,30 +251,34 @@ function recipe_prototype:AddFilters(...)
 
 	for index = 1, num_filters, 1 do
 		local filter = select(index, ...)
-		local filter_name = private.FILTER_STRINGS[filter]
 
-		local bitfield
-		local member_name
+		if filter then
+			local filter_name = private.FILTER_STRINGS[filter]
+			local bitfield
+			local member_name
 
-		for table_index, bits in ipairs(private.FLAG_WORDS) do
-			if bits[filter_name] then
-				bitfield = bits
-				member_name = private.FLAG_MEMBERS[table_index]
+			for table_index, bits in ipairs(private.FLAG_WORDS) do
+				if bits[filter_name] then
+					bitfield = bits
+					member_name = private.FLAG_MEMBERS[table_index]
+				end
 			end
-		end
 
-		if not bitfield or not member_name then
-			return
-		end
+			if not bitfield or not member_name then
+				return
+			end
 
-		if not self.flags[member_name] then
-			self.flags[member_name] = 0
-		end
+			if not self.flags[member_name] then
+				self.flags[member_name] = 0
+			end
 
-		if bit.band(self.flags[member_name], bitfield[filter_name]) == bitfield[filter_name] then
-			return
+			if bit.band(self.flags[member_name], bitfield[filter_name]) == bitfield[filter_name] then
+				return
+			end
+			self.flags[member_name] = bit.bxor(self.flags[member_name], bitfield[filter_name])
+		else
+			addon:Debug("Recipe '%s' (spell ID %d): Attempting to assign non-existent filter flag.", self.name, self.spell_id)
 		end
-		self.flags[member_name] = bit.bxor(self.flags[member_name], bitfield[filter_name])
 	end
 end
 
