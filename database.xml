@@ -5,6 +5,7 @@
     <Include file="Database\Filters\Alchemy.lua"/>
     <Include file="Database\Filters\Blacksmithing.lua"/>
     <Include file="Database\Filters\Enchanting.lua"/>
+    <Include file="Database\Filters\Tailoring.lua"/>
 
     <Include file="Database\Recipes\Alchemy.lua"/>
     <Include file="Database\Recipes\Blacksmithing.lua"/>
