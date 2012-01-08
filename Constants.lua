@@ -341,6 +341,18 @@ private.ITEM_FILTER_TYPES = {
 	ENCHANTING_WAND = true,
 	ENCHANTING_MISC = true,
 	-------------------------------------------------------------------------------
+	-- Inscription
+	-------------------------------------------------------------------------------
+	INSCRIPTION_CREATED_ITEM = true,
+	INSCRIPTION_ITEM_ENHANCEMENT = true,
+	INSCRIPTION_MAJOR_GLYPH = true,
+	INSCRIPTION_MATERIALS = true,
+	INSCRIPTION_MINOR_GLYPH = true,
+	INSCRIPTION_OFF_HAND = true,
+	INSCRIPTION_PRIME_GLYPH = true,
+	INSCRIPTION_RELIC = true,
+	INSCRIPTION_SCROLL = true,
+	-------------------------------------------------------------------------------
 	-- Tailoring
 	-------------------------------------------------------------------------------
 	TAILORING_BACK = true,
