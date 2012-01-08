@@ -1029,6 +1029,7 @@ do
 			return
 		end
 		local reverse_lookup = GetReverseLookup(recipe_list)
+		self:ScanToolTip(recipe_name, recipe_list, reverse_lookup, is_vendor)
 
 		local recipe_item_id = recipe:RecipeItemID()
 
