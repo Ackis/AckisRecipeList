@@ -1029,7 +1029,7 @@ do
 			return
 		end
 		local reverse_lookup = GetReverseLookup(recipe_list)
-		self:ScanToolTip(recipe_name, recipe_list, reverse_lookup, is_vendor)
+		self:ScanTooltip(recipe_name, recipe_list, reverse_lookup, is_vendor)
 
 		local recipe_item_id = recipe:RecipeItemID()
 
@@ -1046,7 +1046,7 @@ do
 						scan_data.quality = item_quality
 
 						ARLDatamineTT:SetHyperlink(item_link)
-						self:ScanToolTip(recipe_name, recipe_list, reverse_lookup, is_vendor)
+						self:ScanTooltip(recipe_name, recipe_list, reverse_lookup, is_vendor)
 					else
 						table.insert(output, ("Recipe %d (%s): Recipe item quality is 0 (junk), which probably means it has been removed from the game."):format(recipe.spell_id, recipe.name))
 					end
@@ -1222,14 +1222,14 @@ do
 --	}
 
 	--- Parses the mining tooltip for certain keywords, comparing them with the database flags
-	-- @name AckisRecipeList:ScanToolTip
-	-- @param name The name of the recipe
+	-- @name AckisRecipeList:ScanTooltip
+	-- @param recipe_name The name of the recipe
 	-- @param recipe_list Recipe database
 	-- @param reverse_lookup Reverse lookup database
 	-- @param is_vendor Boolean to indicate if we're scanning a vendor
 	-- @return Scans a tooltip, and outputs the missing or extra filter flags
-	function addon:ScanToolTip(name, recipe_list, reverse_lookup, is_vendor)
-		scan_data.match_name = name
+	function addon:ScanTooltip(recipe_name, recipe_list, reverse_lookup, is_vendor)
+		scan_data.match_name = recipe_name
 		scan_data.recipe_list = recipe_list
 		scan_data.reverse_lookup = reverse_lookup
 		scan_data.is_vendor = is_vendor
