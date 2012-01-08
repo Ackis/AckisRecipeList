@@ -228,7 +228,6 @@ L["Celie Steelwing"] = "Celie Steelwing"
 L["Chapman"] = "Chapman"
 L["Charles Worth"] = "Charles Worth"
 L["Chaw Stronghide"] = "Chaw Stronghide"
-L["Chest"] = true
 L["Chief Engineer Leveny"] = "Chief Engineer Leveny"
 L["Christoph Jeffcoat"] = "Christoph Jeffcoat"
 L["Cielstrasza"] = "Cielstrasza"
