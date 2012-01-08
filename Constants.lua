@@ -301,22 +301,28 @@ private.ITEM_FILTER_TYPES = {
 	-------------------------------------------------------------------------------
 	-- Blacksmithing
 	-------------------------------------------------------------------------------
+	BLACKSMITHING_CHEST = true,
 	BLACKSMITHING_DAGGER = true,
-	BLACKSMITHING_MATERIALS = true,
+	BLACKSMITHING_FEET = true,
+	BLACKSMITHING_HANDS = true,
+	BLACKSMITHING_HEAD = true,
 	BLACKSMITHING_ITEM_ENHANCEMENT = true,
-	BLACKSMITHING_MAIL = true,
+	BLACKSMITHING_LEGS = true,
+	BLACKSMITHING_MATERIALS = true,
 	BLACKSMITHING_ONE_HAND_AXE = true,
 	BLACKSMITHING_ONE_HAND_MACE = true,
 	BLACKSMITHING_ONE_HAND_SWORD = true,
-	BLACKSMITHING_PLATE = true,
 	BLACKSMITHING_POLEARM = true,
+	BLACKSMITHING_ROD = true,
 	BLACKSMITHING_SHIELD = true,
+	BLACKSMITHING_SHOULDER = true,
+	BLACKSMITHING_SKELETON_KEY = true,
 	BLACKSMITHING_THROWN = true,
 	BLACKSMITHING_TWO_HAND_AXE = true,
 	BLACKSMITHING_TWO_HAND_MACE = true,
 	BLACKSMITHING_TWO_HAND_SWORD = true,
-	BLACKSMITHING_ROD = true,
-	BLACKSMITHING_SKELETON_KEY = true,
+	BLACKSMITHING_WAIST = true,
+	BLACKSMITHING_WRIST = true,
 	-------------------------------------------------------------------------------
 	-- Enchanting
 	-------------------------------------------------------------------------------
