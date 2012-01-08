@@ -1185,39 +1185,40 @@ do
 		"caster",
 	}
 
-	local ENCHANT_TO_ITEM = {
-		["Cloak"]	= "Back",
-		["Ring"]	= "Finger",
-		["2H Weapon"]	= "Two-Hand",
-	}
+	-- TODO: Make this work with the new item filters, perhaps?
+--	local ENCHANT_TO_ITEM = {
+--		["Cloak"]	= "Back",
+--		["Ring"]	= "Finger",
+--		["2H Weapon"]	= "Two-Hand",
+--	}
 
-	local ITEM_TYPES = {
-		-- Armor types
-		["Cloth"]	= 56, 	["Leather"]	= 57, 	["Mail"]	= 58,
-		["Plate"]	= 59, 	["Back"]	= 60, 	["Trinket"]	= 61,
-		["Finger"]	= 62, 	["Neck"]	= 63, 	["Shield"]	= 64,
+--	local ITEM_TYPES = {
+--		-- Armor types
+--		["Cloth"]	= 56, 	["Leather"]	= 57, 	["Mail"]	= 58,
+--		["Plate"]	= 59, 	["Back"]	= 60, 	["Trinket"]	= 61,
+--		["Finger"]	= 62, 	["Neck"]	= 63, 	["Shield"]	= 64,
+--
+--		-- Weapon types
+--		["One-Hand"]	= 66, 	["Two-Hand"]	= 67, 	["Axe"]		= 68,
+--		["Sword"]	= 69, 	["Mace"]	= 70, 	["Polearm"]	= 71,
+--		["Dagger"]	= 72, 	["Staff"]	= 73, 	["Wand"]	= 74,
+--		["Thrown"]	= 75, 	["Bow"]		= 76, 	["CrossBow"]	= 77,
+--		["Fist Weapon"]	= 79, 	["Gun"]		= 80,
+--	}
 
-		-- Weapon types
-		["One-Hand"]	= 66, 	["Two-Hand"]	= 67, 	["Axe"]		= 68,
-		["Sword"]	= 69, 	["Mace"]	= 70, 	["Polearm"]	= 71,
-		["Dagger"]	= 72, 	["Staff"]	= 73, 	["Wand"]	= 74,
-		["Thrown"]	= 75, 	["Bow"]		= 76, 	["CrossBow"]	= 77,
-		["Fist Weapon"]	= 79, 	["Gun"]		= 80,
-	}
-
-	local ORDERED_ITEM_TYPES = {
-		-- Armor types
-		[1]	= "Cloth", 	[2]	= "Leather", 	[3]	= "Mail",
-		[4]	= "Plate", 	[5]	= "Back", 	[6]	= "Trinket",
-		[7]	= "Finger", 	[8]	= "Neck", 	[9]	= "Shield",
-
-		-- Weapon types
-		[11]	= "One-Hand", 	[12]	= "Two-Hand", 	[13]	= "Axe",
-		[14]	= "Sword", 	[15]	= "Mace", 	[16]	= "Polearm",
-		[17]	= "Dagger", 	[18]	= "Staff", 	[19]	= "Wand",
-		[20]	= "Thrown", 	[21]	= "Bow", 	[22]	= "CrossBow",
-		[23]	= "Fist Weapon", 	[24]	= "Gun",
-	}
+--	local ORDERED_ITEM_TYPES = {
+--		-- Armor types
+--		[1]	= "Cloth", 	[2]	= "Leather", 	[3]	= "Mail",
+--		[4]	= "Plate", 	[5]	= "Back", 	[6]	= "Trinket",
+--		[7]	= "Finger", 	[8]	= "Neck", 	[9]	= "Shield",
+--
+--		-- Weapon types
+--		[11]	= "One-Hand", 	[12]	= "Two-Hand", 	[13]	= "Axe",
+--		[14]	= "Sword", 	[15]	= "Mace", 	[16]	= "Polearm",
+--		[17]	= "Dagger", 	[18]	= "Staff", 	[19]	= "Wand",
+--		[20]	= "Thrown", 	[21]	= "Bow", 	[22]	= "CrossBow",
+--		[23]	= "Fist Weapon", 	[24]	= "Gun",
+--	}
 
 	--- Parses the mining tooltip for certain keywords, comparing them with the database flags
 	-- @name AckisRecipeList:ScanToolTip
@@ -1353,30 +1354,31 @@ do
 				end
 			end
 
-			-- Armor types
-			if ITEM_TYPES[text_l] then
-				scan_data[text_l] = true
-			elseif text_l == "Held In Off-hand" or text_l == "Off Hand" or text_l == "Main Hand" then	-- Special cases.
-				scan_data["One-Hand"] = true
-			end
-
-			if text_r and ITEM_TYPES[text_r] then
-				scan_data[text_r] = true
-			end
-
-			-- Enchantment voodoo
-			local ench_type, _ = text_l:match("Enchant (.+) %- (.+)")
-
-			if ench_type then
-				if ITEM_TYPES[ench_type] then
-					scan_data[ench_type] = true
-				elseif ITEM_TYPES[ENCHANT_TO_ITEM[ench_type]] then
-					scan_data[ENCHANT_TO_ITEM[ench_type]] = true
-				elseif ench_type == "Weapon" then		-- Special case.
-					scan_data["One-Hand"] = true
-					scan_data["Two-Hand"] = true
-				end
-			end
+			-- TODO: Make this work with the new item filters, perhaps?
+--			-- Armor types
+--			if ITEM_TYPES[text_l] then
+--				scan_data[text_l] = true
+--			elseif text_l == "Held In Off-hand" or text_l == "Off Hand" or text_l == "Main Hand" then	-- Special cases.
+--				scan_data["One-Hand"] = true
+--			end
+--
+--			if text_r and ITEM_TYPES[text_r] then
+--				scan_data[text_r] = true
+--			end
+--
+--			-- Enchantment voodoo
+--			local ench_type, _ = text_l:match("Enchant (.+) %- (.+)")
+--
+--			if ench_type then
+--				if ITEM_TYPES[ench_type] then
+--					scan_data[ench_type] = true
+--				elseif ITEM_TYPES[ENCHANT_TO_ITEM[ench_type]] then
+--					scan_data[ENCHANT_TO_ITEM[ench_type]] = true
+--				elseif ench_type == "Weapon" then		-- Special case.
+--					scan_data["One-Hand"] = true
+--					scan_data["Two-Hand"] = true
+--				end
+--			end
 		end	-- for
 	end
 
@@ -1514,13 +1516,14 @@ do
 			end
 		end
 
-		for k, v in ipairs(ORDERED_ITEM_TYPES) do
-			if scan_data[v] and not recipe:HasFilter("item1", FS[ITEM_TYPES[v]]) then
-				table.insert(missing_flags, flag_format:format(FS[ITEM_TYPES[v]]))
-			elseif not scan_data[v] and recipe:HasFilter("item1", FS[ITEM_TYPES[v]]) then
-				table.insert(extra_flags, flag_format:format(FS[ITEM_TYPES[v]]))
-			end
-		end
+-- TODO: Make this work with the new item filters, perhaps?
+--		for k, v in ipairs(ORDERED_ITEM_TYPES) do
+--			if scan_data[v] and not recipe:HasFilter("item1", FS[ITEM_TYPES[v]]) then
+--				table.insert(missing_flags, flag_format:format(FS[ITEM_TYPES[v]]))
+--			elseif not scan_data[v] and recipe:HasFilter("item1", FS[ITEM_TYPES[v]]) then
+--				table.insert(extra_flags, flag_format:format(FS[ITEM_TYPES[v]]))
+--			end
+--		end
 
 		-- Reputations
 		local repid = scan_data.repid
@@ -1592,16 +1595,17 @@ do
 			end
 			local found_type = false
 
-			for k, v in ipairs(ORDERED_ITEM_TYPES) do
-				if scan_data[v] then
-					found_type = true
-					break
-				end
-			end
+			-- TODO: Make this work with the new item filters, perhaps?
+--			for k, v in ipairs(ORDERED_ITEM_TYPES) do
+--				if scan_data[v] then
+--					found_type = true
+--					break
+--				end
+--			end
 
-			if not found_type then
-				table.insert(output, "    Missing: item type flag")
-			end
+--			if not found_type then
+--				table.insert(output, "    Missing: item type flag")
+--			end
 		end
 
 		-- Check to see if we have a horde/alliance flag,  all recipes must have one of these
