@@ -353,6 +353,24 @@ private.ITEM_FILTER_TYPES = {
 	INSCRIPTION_RELIC = true,
 	INSCRIPTION_SCROLL = true,
 	-------------------------------------------------------------------------------
+	-- Jewelcrafting
+	-------------------------------------------------------------------------------
+	JEWELCRAFTING_CREATED_ITEM = true,
+	JEWELCRAFTING_FIST_WEAPON = true,
+	JEWELCRAFTING_HEAD = true,
+	JEWELCRAFTING_MATERIALS = true,
+	JEWELCRAFTING_NECK = true,
+	JEWELCRAFTING_RING = true,
+	JEWELCRAFTING_TRINKET = true,
+	JEWELCRAFTING_GEM_BLUE = true,
+	JEWELCRAFTING_GEM_GREEN = true,
+	JEWELCRAFTING_GEM_META = true,
+	JEWELCRAFTING_GEM_ORANGE = true,
+	JEWELCRAFTING_GEM_PRISMATIC = true,
+	JEWELCRAFTING_GEM_PURPLE = true,
+	JEWELCRAFTING_GEM_RED = true,
+	JEWELCRAFTING_GEM_YELLOW = true,
+	-------------------------------------------------------------------------------
 	-- Leatherworking
 	-------------------------------------------------------------------------------
 	LEATHERWORKING_BACK = true,
