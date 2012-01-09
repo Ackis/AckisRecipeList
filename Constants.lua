@@ -353,6 +353,24 @@ private.ITEM_FILTER_TYPES = {
 	INSCRIPTION_RELIC = true,
 	INSCRIPTION_SCROLL = true,
 	-------------------------------------------------------------------------------
+	-- Leatherworking
+	-------------------------------------------------------------------------------
+	LEATHERWORKING_BACK = true,
+	LEATHERWORKING_BAG = true,
+	LEATHERWORKING_CHEST = true,
+	LEATHERWORKING_CREATED_ITEM = true,
+	LEATHERWORKING_FEET = true,
+	LEATHERWORKING_HANDS = true,
+	LEATHERWORKING_HEAD = true,
+	LEATHERWORKING_ITEM_ENHANCEMENT = true,
+	LEATHERWORKING_LEGS = true,
+	LEATHERWORKING_MATERIALS = true,
+	LEATHERWORKING_SHIELD = true,
+	LEATHERWORKING_SHOULDER = true,
+	LEATHERWORKING_THROWN = true,
+	LEATHERWORKING_WAIST = true,
+	LEATHERWORKING_WRIST = true,
+	-------------------------------------------------------------------------------
 	-- Tailoring
 	-------------------------------------------------------------------------------
 	TAILORING_BACK = true,
