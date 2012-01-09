@@ -6,6 +6,7 @@
     <Include file="Database\Filters\Blacksmithing.lua"/>
     <Include file="Database\Filters\Enchanting.lua"/>
     <Include file="Database\Filters\Inscription.lua"/>
+    <Include file="Database\Filters\Jewelcrafting.lua"/>
     <Include file="Database\Filters\Leatherworking.lua"/>
     <Include file="Database\Filters\Tailoring.lua"/>
 
