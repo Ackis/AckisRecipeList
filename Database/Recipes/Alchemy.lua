@@ -969,6 +969,7 @@ function addon:InitAlchemy()
 	-- Gurubashi Mojo Madness -- 24266
 	recipe = AddRecipe(24266, V.ORIG, Q.RARE)
 	recipe:SetCraftedItemID(19931)
+	recipe:SetItemFilterType("ALCHEMY_MISC")
 	recipe:SetSkillLevels(300, 300, 315, 322, 330)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOE, F.RBOP)
 	recipe:AddCustom("REMOVED_FROM_GAME")
