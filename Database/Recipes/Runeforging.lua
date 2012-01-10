@@ -51,61 +51,61 @@ function addon:InitRuneforging()
 	-- Rune of Swordshattering -- 53323
 	recipe = AddRecipe(53323, V.WOTLK, Q.COMMON)
 	recipe:SetSkillLevels(63, 63, 63, 63, 63)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.DK, F.TWO_HAND, F.PVP)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.DK, F.PVP)
 	recipe:AddTrainer(29194, 29195, 29196, 31084)
 
 	-- Rune of Lichbane -- 53331
 	recipe = AddRecipe(53331, V.WOTLK, Q.COMMON)
 	recipe:SetSkillLevels(60, 60, 60, 60, 60)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.DK, F.TWO_HAND, F.DPS)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.DK, F.DPS)
 	recipe:AddTrainer(29194, 29195, 29196, 31084)
 
 	-- Rune of Cinderglacier -- 53341
 	recipe = AddRecipe(53341, V.WOTLK, Q.COMMON)
 	recipe:SetSkillLevels(55, 55, 55, 55, 55)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.DK, F.TWO_HAND, F.DPS)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.DK, F.DPS)
 	recipe:AddTrainer(29194, 29195, 29196, 31084)
 
 	-- Rune of Spellshattering -- 53342
 	recipe = AddRecipe(53342, V.WOTLK, Q.COMMON)
 	recipe:SetSkillLevels(57, 57, 57, 57, 57)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.DK, F.TWO_HAND, F.PVP)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.DK, F.PVP)
 	recipe:AddTrainer(29194, 29195, 29196, 31084)
 
 	-- Rune of Razorice -- 53343
 	recipe = AddRecipe(53343, V.WOTLK, Q.COMMON)
 	recipe:SetSkillLevels(55, 55, 55, 55, 55)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.DK, F.TWO_HAND, F.DPS)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.DK, F.DPS)
 	recipe:AddTrainer(29194, 29195, 29196, 31084)
 
 	-- Rune of the Fallen Crusader -- 53344
 	recipe = AddRecipe(53344, V.WOTLK, Q.COMMON)
 	recipe:SetSkillLevels(70, 70, 70, 70, 70)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.DK, F.TWO_HAND, F.DPS)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.DK, F.DPS)
 	recipe:AddTrainer(29194, 29195, 29196, 31084)
 
 	-- Rune of Swordbreaking -- 54446
 	recipe = AddRecipe(54446, V.WOTLK, Q.COMMON)
 	recipe:SetSkillLevels(63, 63, 63, 63, 63)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.DK, F.TWO_HAND, F.PVP)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.DK, F.PVP)
 	recipe:AddTrainer(29194, 29195, 29196, 31084)
 
 	-- Rune of Spellbreaking -- 54447
 	recipe = AddRecipe(54447, V.WOTLK, Q.COMMON)
 	recipe:SetSkillLevels(57, 57, 57, 57, 57)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.DK, F.TWO_HAND, F.PVP)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.DK, F.PVP)
 	recipe:AddTrainer(29194, 29195, 29196, 31084)
 
 	-- Rune of the Stoneskin Gargoyle -- 62158
 	recipe = AddRecipe(62158, V.WOTLK, Q.COMMON)
 	recipe:SetSkillLevels(72, 72, 72, 72, 72)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.DK, F.TWO_HAND, F.TANK)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.DK, F.TANK)
 	recipe:AddTrainer(29194, 29195, 29196, 31084)
 
 	-- Rune of the Nerubian Carapace -- 70164
 	recipe = AddRecipe(70164, V.WOTLK, Q.COMMON)
 	recipe:SetSkillLevels(72, 72, 72, 72, 72)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.DK, F.TWO_HAND, F.TANK)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.DK, F.TANK)
 	recipe:AddTrainer(29194, 29195, 29196, 31084)
 
 	self.InitRuneforging = nil
