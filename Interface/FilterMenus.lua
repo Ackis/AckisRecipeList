@@ -373,16 +373,23 @@ function private.InitializeFilterPanel()
 
 	local faction_text = (private.Player.faction == "Alliance") and _G.FACTION_HORDE or _G.FACTION_ALLIANCE
 	local faction_desc = L["FACTION_DESC_FORMAT"]:format(faction_text)
+
 	local general_buttons = {
-		["specialty"]	= { tt = L["SPECIALTY_DESC"],	text = L["Specialties"],	row = 2, col = 1 },
-		["skill"]	= { tt = L["SKILL_DESC"],	text = _G.SKILL,		row = 2, col = 2 },
-		["faction"]	= { tt = faction_desc,		text = faction_text,		row = 3, col = 1 },
-		["known"]	= { tt = L["KNOWN_DESC"],	text = L["Show Known"],		row = 3, col = 2 },
-		["unknown"]	= { tt = L["UNKNOWN_DESC"],	text = _G.UNKNOWN,		row = 4, col = 1 },
-		["retired"]	= { tt = L["RETIRED_DESC"],	text = L["Retired"],		row = 4, col = 2 },
+		faction		= { tt = faction_desc,		text = faction_text,		row = 1, col = 1 },
+		known		= { tt = L["KNOWN_DESC"],	text = L["Show Known"],		row = 1, col = 2 },
+		retired		= { tt = L["RETIRED_DESC"],	text = L["Retired"],		row = 2, col = 1 },
+		skill		= { tt = L["SKILL_DESC"],	text = _G.SKILL,		row = 2, col = 2 },
+		specialty	= { tt = L["SPECIALTY_DESC"],	text = L["Specialties"],	row = 3, col = 1 },
+		unknown		= { tt = L["UNKNOWN_DESC"],	text = _G.UNKNOWN,		row = 3, col = 2 },
 	}
-	private.GenerateCheckBoxes(general_frame, general_buttons)
-	general_buttons = nil
+
+	local general_panel = _G.CreateFrame("Frame", nil, general_frame)
+	general_panel:SetHeight(70)
+	general_panel:SetPoint("TOP", general_toggle, "BOTTOM")
+	general_panel:SetPoint("LEFT", general_frame, "LEFT")
+	general_panel:SetPoint("RIGHT", general_frame, "RIGHT")
+
+	private.GenerateCheckBoxes(general_frame, general_buttons, general_panel)
 
 	-------------------------------------------------------------------------------
 	-- Create the Class toggle and CheckButtons.
@@ -393,7 +400,7 @@ function private.InitializeFilterPanel()
 	class_toggle:SetNormalFontObject("QuestTitleFont")
 	class_toggle:SetHighlightFontObject("QuestTitleFontBlackShadow")
 	class_toggle:SetFormattedText(_G.ITEM_CLASSES_ALLOWED, "")
-	class_toggle:SetPoint("TOP", general_frame, "TOP", 0, -80)
+	class_toggle:SetPoint("TOP", general_panel, "BOTTOM", 0, 0)
 	class_toggle:RegisterForClicks("LeftButtonUp", "RightButtonUp")
 
 	private.SetTooltipScripts(class_toggle, L["GROUP_TOGGLE_FORMAT"]:format(_G.CLASS))
@@ -419,19 +426,25 @@ function private.InitializeFilterPanel()
 	general_frame.class_toggle = class_toggle
 
 	local class_buttons = {
-		["deathknight"]	= { tt = L["CLASS_DESC"],	text = _G.LOCALIZED_CLASS_NAMES_MALE["DEATHKNIGHT"],	row = 6,  col = 1 },
-		["druid"]	= { tt = L["CLASS_DESC"],	text = _G.LOCALIZED_CLASS_NAMES_MALE["DRUID"],		row = 6,  col = 2 },
-		["hunter"]	= { tt = L["CLASS_DESC"],	text = _G.LOCALIZED_CLASS_NAMES_MALE["HUNTER"],		row = 7,  col = 1 },
-		["mage"]	= { tt = L["CLASS_DESC"],	text = _G.LOCALIZED_CLASS_NAMES_MALE["MAGE"],		row = 7,  col = 2 },
-		["paladin"]	= { tt = L["CLASS_DESC"],	text = _G.LOCALIZED_CLASS_NAMES_MALE["PALADIN"],	row = 8,  col = 1 },
-		["priest"]	= { tt = L["CLASS_DESC"],	text = _G.LOCALIZED_CLASS_NAMES_MALE["PRIEST"],		row = 8,  col = 2 },
-		["rogue"]	= { tt = L["CLASS_DESC"],	text = _G.LOCALIZED_CLASS_NAMES_MALE["ROGUE"],		row = 9,  col = 1 },
-		["shaman"]	= { tt = L["CLASS_DESC"],	text = _G.LOCALIZED_CLASS_NAMES_MALE["SHAMAN"],		row = 9,  col = 2 },
-		["warlock"]	= { tt = L["CLASS_DESC"],	text = _G.LOCALIZED_CLASS_NAMES_MALE["WARLOCK"],	row = 10, col = 1 },
-		["warrior"]	= { tt = L["CLASS_DESC"],	text = _G.LOCALIZED_CLASS_NAMES_MALE["WARRIOR"],	row = 10, col = 2 },
+		deathknight	= { tt = L["CLASS_DESC"],	text = _G.LOCALIZED_CLASS_NAMES_MALE["DEATHKNIGHT"],	row = 1, col = 1 },
+		druid		= { tt = L["CLASS_DESC"],	text = _G.LOCALIZED_CLASS_NAMES_MALE["DRUID"],		row = 1, col = 2 },
+		hunter		= { tt = L["CLASS_DESC"],	text = _G.LOCALIZED_CLASS_NAMES_MALE["HUNTER"],		row = 2, col = 1 },
+		mage		= { tt = L["CLASS_DESC"],	text = _G.LOCALIZED_CLASS_NAMES_MALE["MAGE"],		row = 2, col = 2 },
+		paladin		= { tt = L["CLASS_DESC"],	text = _G.LOCALIZED_CLASS_NAMES_MALE["PALADIN"],	row = 3, col = 1 },
+		priest		= { tt = L["CLASS_DESC"],	text = _G.LOCALIZED_CLASS_NAMES_MALE["PRIEST"],		row = 3, col = 2 },
+		rogue		= { tt = L["CLASS_DESC"],	text = _G.LOCALIZED_CLASS_NAMES_MALE["ROGUE"],		row = 4, col = 1 },
+		shaman		= { tt = L["CLASS_DESC"],	text = _G.LOCALIZED_CLASS_NAMES_MALE["SHAMAN"],		row = 4, col = 2 },
+		warlock		= { tt = L["CLASS_DESC"],	text = _G.LOCALIZED_CLASS_NAMES_MALE["WARLOCK"],	row = 5, col = 1 },
+		warrior		= { tt = L["CLASS_DESC"],	text = _G.LOCALIZED_CLASS_NAMES_MALE["WARRIOR"],	row = 5, col = 2 },
 	}
-	private.GenerateCheckBoxes(general_frame, class_buttons)
-	class_buttons = nil
+
+	local class_panel = _G.CreateFrame("Frame", nil, general_frame)
+	class_panel:SetHeight(110)
+	class_panel:SetPoint("TOP", class_toggle, "BOTTOM")
+	class_panel:SetPoint("LEFT", general_frame, "LEFT")
+	class_panel:SetPoint("RIGHT", general_frame, "RIGHT")
+
+	private.GenerateCheckBoxes(general_frame, class_buttons, class_panel)
 
 	-------------------------------------------------------------------------------
 	-- Create FilterPanel.obtain, and set its scripts.
@@ -443,18 +456,18 @@ function private.InitializeFilterPanel()
 		-------------------------------------------------------------------------------
 		-- Create the Acquisition toggle and CheckButtons
 		-------------------------------------------------------------------------------
-		local obtain_toggle = _G.CreateFrame("Button", nil, obtain_frame)
-		obtain_toggle:SetWidth(105)
-		obtain_toggle:SetHeight(20)
-		obtain_toggle:SetNormalFontObject("QuestTitleFont")
-		obtain_toggle:SetHighlightFontObject("QuestTitleFontBlackShadow")
-		obtain_toggle:SetText(L["Acquisition"] .. ":")
-		obtain_toggle:SetPoint("TOP", obtain_frame, "TOP", 0, -7)
-		obtain_toggle:RegisterForClicks("LeftButtonUp", "RightButtonUp")
+		local acquire_toggle = _G.CreateFrame("Button", nil, obtain_frame)
+		acquire_toggle:SetWidth(105)
+		acquire_toggle:SetHeight(20)
+		acquire_toggle:SetNormalFontObject("QuestTitleFont")
+		acquire_toggle:SetHighlightFontObject("QuestTitleFontBlackShadow")
+		acquire_toggle:SetText(L["Acquisition"] .. ":")
+		acquire_toggle:SetPoint("TOP", obtain_frame, "TOP", 0, -7)
+		acquire_toggle:RegisterForClicks("LeftButtonUp", "RightButtonUp")
 
-		private.SetTooltipScripts(obtain_toggle, L["GROUP_TOGGLE_FORMAT"]:format(L["Acquisition"]))
+		private.SetTooltipScripts(acquire_toggle, L["GROUP_TOGGLE_FORMAT"]:format(L["Acquisition"]))
 
-		obtain_toggle:SetScript("OnClick", function(self, button)
+		acquire_toggle:SetScript("OnClick", function(self, button)
 			local filters = addon.db.profile.filters.obtain
 			local toggle = (button == "LeftButton") and true or false
 
@@ -468,15 +481,40 @@ function private.InitializeFilterPanel()
 			MainPanel.list_frame:Update(nil, false)
 		end)
 
-		obtain_frame.obtain_toggle = obtain_toggle
+		obtain_frame.acquire_toggle = acquire_toggle
 
+		local acquire_buttons = {
+			achievement	= { tt = L["ACHIEVEMENT_DESC"],		text = _G.ACHIEVEMENTS,				row = 1, col = 1 },
+			discovery	= { tt = L["DISCOVERY_DESC"],		text = L["Discovery"],				row = 1, col = 2 },
+			instance	= { tt = L["INSTANCE_DESC"],		text = _G.INSTANCE,				row = 2, col = 1 },
+			mobdrop		= { tt = L["MOB_DROP_DESC"],		text = L["Mob Drop"],				row = 2, col = 2 },
+			pvp		= { tt = L["PVP_DESC"],			text = _G.PVP,					row = 3, col = 1 },
+			quest		= { tt = L["QUEST_DESC"],		text = L["Quest"],				row = 3, col = 2 },
+			raid		= { tt = L["RAID_DESC"],		text = _G.RAID,					row = 4, col = 1 },
+			seasonal	= { tt = L["SEASONAL_DESC"],		text = private.ACQUIRE_NAMES[A.SEASONAL],	row = 4, col = 2 },
+			trainer		= { tt = L["TRAINER_DESC"],		text = L["Trainer"],				row = 5, col = 1 },
+			vendor		= { tt = L["VENDOR_DESC"],		text = L["Vendor"],				row = 5, col = 2 },
+			worlddrop	= { tt = L["WORLD_DROP_DESC"],		text = L["World Drop"],				row = 6, col = 1 },
+		}
+
+		local acquire_panel = _G.CreateFrame("Frame", nil, obtain_frame)
+		acquire_panel:SetHeight(120)
+		acquire_panel:SetPoint("TOP", acquire_toggle, "BOTTOM")
+		acquire_panel:SetPoint("LEFT", obtain_frame, "LEFT")
+		acquire_panel:SetPoint("RIGHT", obtain_frame, "RIGHT")
+
+		private.GenerateCheckBoxes(obtain_frame, acquire_buttons, acquire_panel)
+
+		-------------------------------------------------------------------------------
+		-- Create the Version toggle and CheckButtons
+		-------------------------------------------------------------------------------
 		local version_toggle = _G.CreateFrame("Button", nil, obtain_frame)
 		version_toggle:SetWidth(105)
 		version_toggle:SetHeight(20)
 		version_toggle:SetNormalFontObject("QuestTitleFont")
 		version_toggle:SetHighlightFontObject("QuestTitleFontBlackShadow")
 		version_toggle:SetText(_G.GAME_VERSION_LABEL .. ":")
-		version_toggle:SetPoint("TOP", obtain_frame, "TOP", 0, -130)
+		version_toggle:SetPoint("TOP", acquire_panel, "BOTTOM", 0, 0)
 		version_toggle:RegisterForClicks("LeftButtonUp", "RightButtonUp")
 
 		private.SetTooltipScripts(version_toggle, L["GROUP_TOGGLE_FORMAT"]:format(_G.GAME_VERSION_LABEL))
@@ -497,25 +535,20 @@ function private.InitializeFilterPanel()
 
 		obtain_frame.version_toggle = version_toggle
 
-		local obtain_buttons = {
-			["instance"]	= { tt = L["INSTANCE_DESC"],		text = _G.INSTANCE,				row = 2, col = 1 },
-			["raid"]	= { tt = L["RAID_DESC"],		text = _G.RAID,					row = 2, col = 2 },
-			["quest"]	= { tt = L["QUEST_DESC"],		text = L["Quest"],				row = 3, col = 1 },
-			["seasonal"]	= { tt = L["SEASONAL_DESC"],		text = private.ACQUIRE_NAMES[A.SEASONAL],	row = 3, col = 2 },
-			["trainer"]	= { tt = L["TRAINER_DESC"],		text = L["Trainer"],				row = 4, col = 1 },
-			["vendor"]	= { tt = L["VENDOR_DESC"],		text = L["Vendor"],				row = 4, col = 2 },
-			["pvp"]		= { tt = L["PVP_DESC"],			text = _G.PVP,					row = 5, col = 1 },
-			["discovery"]	= { tt = L["DISCOVERY_DESC"],		text = L["Discovery"],				row = 5, col = 2 },
-			["worlddrop"]	= { tt = L["WORLD_DROP_DESC"],		text = L["World Drop"],				row = 6, col = 1 },
-			["mobdrop"]	= { tt = L["MOB_DROP_DESC"],		text = L["Mob Drop"],				row = 6, col = 2 },
-			["achievement"]	= { tt = L["ACHIEVEMENT_DESC"],		text = _G.ACHIEVEMENTS,				row = 7, col = 1 },
-			["expansion0"]	= { tt = L["ORIGINAL_WOW_DESC"],	text = _G.EXPANSION_NAME0,			row = 9, col = 1 },
-			["expansion1"]	= { tt = L["BC_WOW_DESC"],		text = _G.EXPANSION_NAME1,			row = 10, col = 1 },
-			["expansion2"]	= { tt = L["LK_WOW_DESC"],		text = _G.EXPANSION_NAME2,			row = 11, col = 1 },
-			["expansion3"]	= { tt = L["CATA_WOW_DESC"],		text = _G.EXPANSION_NAME3,			row = 12, col = 1 },
+		local version_buttons = {
+			expansion0	= { tt = L["ORIGINAL_WOW_DESC"],	text = _G.EXPANSION_NAME0,			row = 1, col = 1 },
+			expansion1	= { tt = L["BC_WOW_DESC"],		text = _G.EXPANSION_NAME1,			row = 2, col = 1 },
+			expansion2	= { tt = L["LK_WOW_DESC"],		text = _G.EXPANSION_NAME2,			row = 3, col = 1 },
+			expansion3	= { tt = L["CATA_WOW_DESC"],		text = _G.EXPANSION_NAME3,			row = 4, col = 1 },
 		}
-		private.GenerateCheckBoxes(obtain_frame, obtain_buttons)
-		obtain_buttons = nil
+
+		local version_panel = _G.CreateFrame("Frame", nil, obtain_frame)
+		version_panel:SetHeight(60)
+		version_panel:SetPoint("TOP", version_toggle, "BOTTOM")
+		version_panel:SetPoint("LEFT", obtain_frame, "LEFT")
+		version_panel:SetPoint("RIGHT", obtain_frame, "RIGHT")
+
+		private.GenerateCheckBoxes(obtain_frame, version_buttons, version_panel)
 	end	-- do-block
 
 	-------------------------------------------------------------------------------
@@ -553,13 +586,19 @@ function private.InitializeFilterPanel()
 		binding_frame.binding_toggle = binding_toggle
 
 		local binding_buttons = {
-			["itemboe"]	= { tt = L["BOE_DESC"],		text = L["BOEFilter"],		row = 2, col = 1 },
-			["itembop"]	= { tt = L["BOP_DESC"],		text = L["BOPFilter"],		row = 3, col = 1 },
-			["recipeboe"]	= { tt = L["RECIPE_BOE_DESC"],	text = L["RecipeBOEFilter"],	row = 4, col = 1 },
-			["recipebop"]	= { tt = L["RECIPE_BOP_DESC"],	text = L["RecipeBOPFilter"],	row = 5, col = 1 },
+			itemboe		= { tt = L["BOE_DESC"],		text = L["BOEFilter"],		row = 1, col = 1 },
+			itembop		= { tt = L["BOP_DESC"],		text = L["BOPFilter"],		row = 2, col = 1 },
+			recipeboe	= { tt = L["RECIPE_BOE_DESC"],	text = L["RecipeBOEFilter"],	row = 3, col = 1 },
+			recipebop	= { tt = L["RECIPE_BOP_DESC"],	text = L["RecipeBOPFilter"],	row = 4, col = 1 },
 		}
-		private.GenerateCheckBoxes(binding_frame, binding_buttons)
-		binding_buttons = nil
+
+		local binding_panel = _G.CreateFrame("Frame", nil, binding_frame)
+		binding_panel:SetHeight(50)
+		binding_panel:SetPoint("TOP", binding_toggle, "BOTTOM")
+		binding_panel:SetPoint("LEFT", binding_frame, "LEFT")
+		binding_panel:SetPoint("RIGHT", binding_frame, "RIGHT")
+
+		private.GenerateCheckBoxes(binding_frame, binding_buttons, binding_panel)
 	end	-- do-block
 
 	-------------------------------------------------------------------------------
@@ -629,13 +668,19 @@ function private.InitializeFilterPanel()
 		end
 
 		local quality_buttons = {
-			["common"]	= { tt = QualityDesc(_G.ITEM_QUALITY1_DESC),	text = _G.ITEM_QUALITY1_DESC,	row = 2, col = 1 },
-			["uncommon"]	= { tt = QualityDesc(_G.ITEM_QUALITY2_DESC),	text = _G.ITEM_QUALITY2_DESC,	row = 2, col = 2 },
-			["rare"]	= { tt = QualityDesc(_G.ITEM_QUALITY3_DESC),	text = _G.ITEM_QUALITY3_DESC,	row = 3, col = 1 },
-			["epic"]	= { tt = QualityDesc(_G.ITEM_QUALITY4_DESC),	text = _G.ITEM_QUALITY4_DESC,	row = 3, col = 2 },
+			common		= { tt = QualityDesc(_G.ITEM_QUALITY1_DESC),	text = _G.ITEM_QUALITY1_DESC,	row = 1, col = 1 },
+			uncommon	= { tt = QualityDesc(_G.ITEM_QUALITY2_DESC),	text = _G.ITEM_QUALITY2_DESC,	row = 1, col = 2 },
+			rare		= { tt = QualityDesc(_G.ITEM_QUALITY3_DESC),	text = _G.ITEM_QUALITY3_DESC,	row = 2, col = 1 },
+			epic		= { tt = QualityDesc(_G.ITEM_QUALITY4_DESC),	text = _G.ITEM_QUALITY4_DESC,	row = 2, col = 2 },
 		}
-		private.GenerateCheckBoxes(quality_frame, quality_buttons)
-		quality_buttons = nil
+
+		local quality_panel = _G.CreateFrame("Frame", nil, quality_frame)
+		quality_panel:SetHeight(50)
+		quality_panel:SetPoint("TOP", quality_toggle, "BOTTOM")
+		quality_panel:SetPoint("LEFT", quality_frame, "LEFT")
+		quality_panel:SetPoint("RIGHT", quality_frame, "RIGHT")
+
+		private.GenerateCheckBoxes(quality_frame, quality_buttons, quality_panel)
 	end	-- do-block
 
 	-------------------------------------------------------------------------------
@@ -673,13 +718,19 @@ function private.InitializeFilterPanel()
 		player_frame.role_toggle = role_toggle
 
 		local role_buttons = {
-			["tank"]	= { tt = L["ROLE_DESC_FORMAT"]:format(_G.TANK),		text = _G.TANK,		row = 2, col = 1 },
-			["melee"]	= { tt = L["ROLE_DESC_FORMAT"]:format(_G.MELEE),	text = _G.MELEE,	row = 2, col = 2 },
-			["healer"]	= { tt = L["ROLE_DESC_FORMAT"]:format(_G.HEALER),	text = _G.HEALER,	row = 3, col = 1 },
-			["caster"]	= { tt = L["ROLE_DESC_FORMAT"]:format(_G.DAMAGER),	text = _G.DAMAGER,	row = 3, col = 2 },
+			tank	= { tt = L["ROLE_DESC_FORMAT"]:format(_G.TANK),		text = _G.TANK,		row = 1, col = 1 },
+			melee	= { tt = L["ROLE_DESC_FORMAT"]:format(_G.MELEE),	text = _G.MELEE,	row = 1, col = 2 },
+			healer	= { tt = L["ROLE_DESC_FORMAT"]:format(_G.HEALER),	text = _G.HEALER,	row = 2, col = 1 },
+			caster	= { tt = L["ROLE_DESC_FORMAT"]:format(_G.DAMAGER),	text = _G.DAMAGER,	row = 2, col = 2 },
 		}
-		private.GenerateCheckBoxes(player_frame, role_buttons)
-		role_buttons = nil
+
+		local role_panel = _G.CreateFrame("Frame", nil, player_frame)
+		role_panel:SetHeight(50)
+		role_panel:SetPoint("TOP", role_toggle, "BOTTOM")
+		role_panel:SetPoint("LEFT", player_frame, "LEFT")
+		role_panel:SetPoint("RIGHT", player_frame, "RIGHT")
+
+		private.GenerateCheckBoxes(player_frame, role_buttons, role_panel)
 	end	-- do-block
 
 	-------------------------------------------------------------------------------
@@ -689,10 +740,10 @@ function private.InitializeFilterPanel()
 		local rep_frame = FilterPanel:CreateSubMenu("rep")
 
 		local EXPANSION_TOOLTIP = {
-			["expansion0"]	= L["FILTERING_OLDWORLD_DESC"],
-			["expansion1"]	= L["FILTERING_BC_DESC"],
-			["expansion2"]	= L["FILTERING_WOTLK_DESC"],
-			["expansion3"]	= L["FILTERING_CATA_DESC"],
+			expansion0	= L["FILTERING_OLDWORLD_DESC"],
+			expansion1	= L["FILTERING_BC_DESC"],
+			expansion2	= L["FILTERING_WOTLK_DESC"],
+			expansion3	= L["FILTERING_CATA_DESC"],
 		}
 		-------------------------------------------------------------------------------
 		-- This manages the WoW expansion reputation filter menu panel
@@ -840,11 +891,11 @@ function private.InitializeFilterPanel()
 		-- Create the Reputation toggle and CheckButtons
 		-------------------------------------------------------------------------------
 		local expansion0_buttons = {
-			["argentdawn"]		= { tt = ReputationDesc(BFAC["Argent Dawn"]),		text = BFAC["Argent Dawn"],		row = 2, col = 1 },
-			["cenarioncircle"]	= { tt = ReputationDesc(BFAC["Cenarion Circle"]),	text = BFAC["Cenarion Circle"],		row = 3, col = 1 },
-			["thoriumbrotherhood"]	= { tt = ReputationDesc(BFAC["Thorium Brotherhood"]),	text = BFAC["Thorium Brotherhood"],	row = 4, col = 1 },
-			["timbermaw"]		= { tt = ReputationDesc(BFAC["Timbermaw Hold"]),	text = BFAC["Timbermaw Hold"],		row = 5, col = 1 },
-			["zandalar"]		= { tt = ReputationDesc(BFAC["Zandalar Tribe"]),	text = BFAC["Zandalar Tribe"],		row = 6, col = 1 },
+			argentdawn		= { tt = ReputationDesc(BFAC["Argent Dawn"]),		text = BFAC["Argent Dawn"],		row = 2, col = 1 },
+			cenarioncircle		= { tt = ReputationDesc(BFAC["Cenarion Circle"]),	text = BFAC["Cenarion Circle"],		row = 3, col = 1 },
+			thoriumbrotherhood	= { tt = ReputationDesc(BFAC["Thorium Brotherhood"]),	text = BFAC["Thorium Brotherhood"],	row = 4, col = 1 },
+			timbermaw		= { tt = ReputationDesc(BFAC["Timbermaw Hold"]),	text = BFAC["Timbermaw Hold"],		row = 5, col = 1 },
+			zandalar		= { tt = ReputationDesc(BFAC["Zandalar Tribe"]),	text = BFAC["Zandalar Tribe"],		row = 6, col = 1 },
 		}
 		private.GenerateCheckBoxes(expansion0_frame, expansion0_buttons)
 
@@ -884,20 +935,20 @@ function private.InitializeFilterPanel()
 		-- Create the Reputation toggle and CheckButtons
 		-------------------------------------------------------------------------------
 		local expansion1_buttons = {
-			["aldor"]		= { tt = ReputationDesc(BFAC["The Aldor"]),			text = BFAC["The Aldor"],		row = 2,	col = 1 },
-			["ashtonguedeathsworn"]	= { tt = ReputationDesc(BFAC["Ashtongue Deathsworn"]),		text = BFAC["Ashtongue Deathsworn"],	row = 3,	col = 1 },
-			["cenarionexpedition"]	= { tt = ReputationDesc(BFAC["Cenarion Expedition"]),		text = BFAC["Cenarion Expedition"],	row = 4,	col = 1 },
-			["consortium"]		= { tt = ReputationDesc(BFAC["The Consortium"]),		text = BFAC["The Consortium"],		row = 5,	col = 1 },
-			["hellfire"]		= { tt = ReputationDesc(HonorHold_Thrallmar_Text),		text = HonorHold_Thrallmar_Text,	row = 6,	col = 1 },
-			["keepersoftime"]	= { tt = ReputationDesc(BFAC["Keepers of Time"]),		text = BFAC["Keepers of Time"],		row = 7,	col = 1 },
-			["nagrand"]		= { tt = ReputationDesc(Kurenai_Maghar_Text),			text = Kurenai_Maghar_Text,		row = 8,	col = 1 },
-			["lowercity"]		= { tt = ReputationDesc(BFAC["Lower City"]),			text = BFAC["Lower City"],		row = 9,	col = 1 },
-			["scaleofthesands"]	= { tt = ReputationDesc(BFAC["The Scale of the Sands"]),	text = BFAC["The Scale of the Sands"],	row = 10,	col = 1 },
-			["scryer"]		= { tt = ReputationDesc(BFAC["The Scryers"]),			text = BFAC["The Scryers"],		row = 11,	col = 1 },
-			["shatar"]		= { tt = ReputationDesc(BFAC["The Sha'tar"]),			text = BFAC["The Sha'tar"],		row = 12,	col = 1 },
-			["shatteredsun"]	= { tt = ReputationDesc(BFAC["Shattered Sun Offensive"]),	text = BFAC["Shattered Sun Offensive"],	row = 13,	col = 1 },
-			["sporeggar"]		= { tt = ReputationDesc(BFAC["Sporeggar"]),			text = BFAC["Sporeggar"],		row = 14,	col = 1 },
-			["violeteye"]		= { tt = ReputationDesc(BFAC["The Violet Eye"]),		text = BFAC["The Violet Eye"],		row = 15,	col = 1 },
+			aldor			= { tt = ReputationDesc(BFAC["The Aldor"]),			text = BFAC["The Aldor"],		row = 2,	col = 1 },
+			ashtonguedeathsworn	= { tt = ReputationDesc(BFAC["Ashtongue Deathsworn"]),		text = BFAC["Ashtongue Deathsworn"],	row = 3,	col = 1 },
+			cenarionexpedition	= { tt = ReputationDesc(BFAC["Cenarion Expedition"]),		text = BFAC["Cenarion Expedition"],	row = 4,	col = 1 },
+			consortium		= { tt = ReputationDesc(BFAC["The Consortium"]),		text = BFAC["The Consortium"],		row = 5,	col = 1 },
+			hellfire		= { tt = ReputationDesc(HonorHold_Thrallmar_Text),		text = HonorHold_Thrallmar_Text,	row = 6,	col = 1 },
+			keepersoftime		= { tt = ReputationDesc(BFAC["Keepers of Time"]),		text = BFAC["Keepers of Time"],		row = 7,	col = 1 },
+			nagrand			= { tt = ReputationDesc(Kurenai_Maghar_Text),			text = Kurenai_Maghar_Text,		row = 8,	col = 1 },
+			lowercity		= { tt = ReputationDesc(BFAC["Lower City"]),			text = BFAC["Lower City"],		row = 9,	col = 1 },
+			scaleofthesands		= { tt = ReputationDesc(BFAC["The Scale of the Sands"]),	text = BFAC["The Scale of the Sands"],	row = 10,	col = 1 },
+			scryer			= { tt = ReputationDesc(BFAC["The Scryers"]),			text = BFAC["The Scryers"],		row = 11,	col = 1 },
+			shatar			= { tt = ReputationDesc(BFAC["The Sha'tar"]),			text = BFAC["The Sha'tar"],		row = 12,	col = 1 },
+			shatteredsun		= { tt = ReputationDesc(BFAC["Shattered Sun Offensive"]),	text = BFAC["Shattered Sun Offensive"],	row = 13,	col = 1 },
+			sporeggar		= { tt = ReputationDesc(BFAC["Sporeggar"]),			text = BFAC["Sporeggar"],		row = 14,	col = 1 },
+			violeteye		= { tt = ReputationDesc(BFAC["The Violet Eye"]),		text = BFAC["The Violet Eye"],		row = 15,	col = 1 },
 		}
 		private.GenerateCheckBoxes(expansion1_frame, expansion1_buttons)
 
@@ -941,20 +992,20 @@ function private.InitializeFilterPanel()
 		end
 
 		local expansion2_buttons = {
-			["wrathcommon1"]	= { tt = ReputationDesc(Vanguard_Expedition_Text),		text = Vanguard_Expedition_Text,		row = 2,	col = 1 },
-			["argentcrusade"]	= { tt = ReputationDesc(BFAC["Argent Crusade"]),		text = BFAC["Argent Crusade"],			row = 3,	col = 1 },
-			["wrathcommon5"]	= { tt = ReputationDesc(Explorer_Hand_Text),			text = DisabledText(Explorer_Hand_Text),	row = 4,	col = 1 },
-			["frenzyheart"]		= { tt = ReputationDesc(BFAC["Frenzyheart Tribe"]),		text = BFAC["Frenzyheart Tribe"],		row = 5,	col = 1 },
-			["kaluak"]		= { tt = ReputationDesc(BFAC["The Kalu'ak"]),			text = BFAC["The Kalu'ak"],			row = 6,	col = 1 },
-			["kirintor"]		= { tt = ReputationDesc(BFAC["Kirin Tor"]),			text = BFAC["Kirin Tor"],			row = 7,	col = 1 },
-			["ebonblade"]		= { tt = ReputationDesc(BFAC["Knights of the Ebon Blade"]),	text = BFAC["Knights of the Ebon Blade"],	row = 8,	col = 1 },
-			["oracles"]		= { tt = ReputationDesc(BFAC["The Oracles"]),			text = BFAC["The Oracles"],			row = 9,	col = 1 },
-			["wrathcommon2"]	= { tt = ReputationDesc(SilverCov_Sunreaver_Text),		text = DisabledText(SilverCov_Sunreaver_Text),	row = 10,	col = 1 },
-			["sonsofhodir"]		= { tt = ReputationDesc(BFAC["The Sons of Hodir"]),		text = BFAC["The Sons of Hodir"],		row = 11,	col = 1 },
-			["wrathcommon4"]	= { tt = ReputationDesc(Frostborn_Taunka_Text),			text = DisabledText(Frostborn_Taunka_Text),	row = 12,	col = 1 },
-			["wrathcommon3"]	= { tt = ReputationDesc(Valiance_Warsong_Text),			text = DisabledText(Valiance_Warsong_Text),	row = 13,	col = 1 },
-			["wyrmrest"]		= { tt = ReputationDesc(BFAC["The Wyrmrest Accord"]),		text = BFAC["The Wyrmrest Accord"],		row = 14,	col = 1 },
-			["ashenverdict"]	= { tt = ReputationDesc(BFAC["The Ashen Verdict"]),		text = BFAC["The Ashen Verdict"],		row = 15,	col = 1 },
+			wrathcommon1	= { tt = ReputationDesc(Vanguard_Expedition_Text),		text = Vanguard_Expedition_Text,		row = 2,	col = 1 },
+			argentcrusade	= { tt = ReputationDesc(BFAC["Argent Crusade"]),		text = BFAC["Argent Crusade"],			row = 3,	col = 1 },
+			wrathcommon5	= { tt = ReputationDesc(Explorer_Hand_Text),			text = DisabledText(Explorer_Hand_Text),	row = 4,	col = 1 },
+			frenzyheart	= { tt = ReputationDesc(BFAC["Frenzyheart Tribe"]),		text = BFAC["Frenzyheart Tribe"],		row = 5,	col = 1 },
+			kaluak		= { tt = ReputationDesc(BFAC["The Kalu'ak"]),			text = BFAC["The Kalu'ak"],			row = 6,	col = 1 },
+			kirintor	= { tt = ReputationDesc(BFAC["Kirin Tor"]),			text = BFAC["Kirin Tor"],			row = 7,	col = 1 },
+			ebonblade	= { tt = ReputationDesc(BFAC["Knights of the Ebon Blade"]),	text = BFAC["Knights of the Ebon Blade"],	row = 8,	col = 1 },
+			oracles		= { tt = ReputationDesc(BFAC["The Oracles"]),			text = BFAC["The Oracles"],			row = 9,	col = 1 },
+			wrathcommon2	= { tt = ReputationDesc(SilverCov_Sunreaver_Text),		text = DisabledText(SilverCov_Sunreaver_Text),	row = 10,	col = 1 },
+			sonsofhodir	= { tt = ReputationDesc(BFAC["The Sons of Hodir"]),		text = BFAC["The Sons of Hodir"],		row = 11,	col = 1 },
+			wrathcommon4	= { tt = ReputationDesc(Frostborn_Taunka_Text),			text = DisabledText(Frostborn_Taunka_Text),	row = 12,	col = 1 },
+			wrathcommon3	= { tt = ReputationDesc(Valiance_Warsong_Text),			text = DisabledText(Valiance_Warsong_Text),	row = 13,	col = 1 },
+			wyrmrest	= { tt = ReputationDesc(BFAC["The Wyrmrest Accord"]),		text = BFAC["The Wyrmrest Accord"],		row = 14,	col = 1 },
+			ashenverdict	= { tt = ReputationDesc(BFAC["The Ashen Verdict"]),		text = BFAC["The Ashen Verdict"],		row = 15,	col = 1 },
 		}
 		private.GenerateCheckBoxes(expansion2_frame, expansion2_buttons)
 
@@ -1004,12 +1055,12 @@ function private.InitializeFilterPanel()
 		end
 
 		local expansion3_buttons = {
-			["catacommon1"]		= { tt = ReputationDesc(Wildhammer_Dragonmaw),			text = DisabledText(Wildhammer_Dragonmaw),		row = 2,	col = 1 },
-			["catacommon2"]		= { tt = ReputationDesc(Tol_Barad),				text = DisabledText(Tol_Barad),				row = 3,	col = 1 },
-			["guardiansofhyjal"]	= { tt = ReputationDesc(BFAC["Guardians of Hyjal"]),		text = DisabledText(BFAC["Guardians of Hyjal"]),	row = 4,	col = 1 },
-			["ramkahen"]		= { tt = ReputationDesc(BFAC["Ramkahen"]),			text = DisabledText(BFAC["Ramkahen"]),			row = 5,	col = 1 },
-			["earthenring"]		= { tt = ReputationDesc(BFAC["The Earthen Ring"]),		text = DisabledText(BFAC["The Earthen Ring"]),		row = 6,	col = 1 },
-			["therazane"]		= { tt = ReputationDesc(BFAC["Therazane"]),			text = DisabledText(BFAC["Therazane"]),			row = 7,	col = 1 },
+			catacommon1		= { tt = ReputationDesc(Wildhammer_Dragonmaw),			text = DisabledText(Wildhammer_Dragonmaw),		row = 2,	col = 1 },
+			catacommon2		= { tt = ReputationDesc(Tol_Barad),				text = DisabledText(Tol_Barad),				row = 3,	col = 1 },
+			guardiansofhyjal	= { tt = ReputationDesc(BFAC["Guardians of Hyjal"]),		text = DisabledText(BFAC["Guardians of Hyjal"]),	row = 4,	col = 1 },
+			ramkahen		= { tt = ReputationDesc(BFAC["Ramkahen"]),			text = DisabledText(BFAC["Ramkahen"]),			row = 5,	col = 1 },
+			earthenring		= { tt = ReputationDesc(BFAC["The Earthen Ring"]),		text = DisabledText(BFAC["The Earthen Ring"]),		row = 6,	col = 1 },
+			therazane		= { tt = ReputationDesc(BFAC["Therazane"]),			text = DisabledText(BFAC["Therazane"]),			row = 7,	col = 1 },
 		}
 		private.GenerateCheckBoxes(expansion3_frame, expansion3_buttons)
 
