@@ -1373,7 +1373,7 @@ function private.InitializeListFrame()
 					local spell_id = sorted_recipes[index]
 					local recipe_entry = profession_recipes[spell_id]
 
-					if recipe_entry:HasState("VISIBLE") and MainPanel.search_editbox:MatchesRecipe(recipe_entry) then
+					if recipe_entry and recipe_entry:HasState("VISIBLE") and MainPanel.search_editbox:MatchesRecipe(recipe_entry) then
 						local entry = AcquireTable()
 						local expand = false
 						local type = "subheader"
@@ -1418,7 +1418,7 @@ function private.InitializeListFrame()
 					local spell_id = sorted_recipes[index]
 					local recipe_entry = profession_recipes[spell_id]
 
-					if recipe_entry:HasState("VISIBLE") and MainPanel.search_editbox:MatchesRecipe(recipe_entry) then
+					if recipe_entry and recipe_entry:HasState("VISIBLE") and MainPanel.search_editbox:MatchesRecipe(recipe_entry) then
 						local expand = false
 						local type = "subheader"
 						local entry = AcquireTable()
