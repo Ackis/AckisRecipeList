@@ -607,16 +607,8 @@ function private.InitializeFilterPanel()
 	do
 		local item_frame = FilterPanel:CreateSubMenu("item")
 		item_frame:SetScript("OnHide", function(self)
-			local panel = self["items_" .. private.PROFESSION_LABELS[MainPanel.prev_profession]]
-
-			if panel then
-				panel:Hide()
-			else
-				panel = self["items_" .. private.PROFESSION_LABELS[MainPanel.prev_profession]]
-
-				if panel then
-					panel:Hide()
-				end
+			if self.sub_panel then
+				self.sub_panel:Hide()
 			end
 		end)
 
@@ -626,6 +618,7 @@ function private.InitializeFilterPanel()
 			if sub_panel then
 				sub_panel:Show()
 			end
+			self.sub_panel = sub_panel
 		end)
 	end	-- do-block
 
