@@ -185,7 +185,7 @@ function addon:InitVendor()
 	AddVendor(8178,		L["Nina Lightbrew"],			"Blasted Lands",		66.9,	18.3,	"Alliance")
 	AddVendor(8307,		L["Tarban Hearthgrain"],		"Northern Barrens",		55.1,	61.7,	"Horde")  -- UPDATED
 	AddVendor(8363,		L["Shadi Mistrunner"],			"Thunder Bluff",		40.6,	64.0,	"Horde") -- COMPLETELY UPDATED
-	AddVendor(8508,		L["Gretta Ganter"],			"Dun Morogh",			31.5,	44.7,	"Alliance")
+	AddVendor(8508,		L["Gretta Ganter"],			"Dun Morogh",			38.6,	42.9,	"Alliance") -- COMPLETELY UPDATED
 	AddVendor(8679,		L["Knaz Blunderflame"],			"Northern Stranglethorn",	67.7,	61.1,	"Neutral")   -- UPDATED
 	AddVendor(8681,		L["Outfitter Eric"],			"Ironforge",			43.2,	29.2,	"Alliance")
 	AddVendor(8878,		L["Muuran"],				"Desolace",			55.6,	56.5,	"Horde")
