@@ -376,6 +376,7 @@ function addon:InitVendor()
 	AddVendor(34601,	L["Harlown Darkweave"],			"Ashenvale",			18.2,	60.0,	"Alliance")
 	AddVendor(35826,	L["Kaye Toogie"],			"Dalaran",			34.0,	35.6,	"Neutral")
 	AddVendor(37687,	L["Alchemist Finklestein"],		"Icecrown Citadel",		0,	0,	"Neutral")
+	AddVendor(38561,	L["Dramm Riverhorn"],			"Un'Goro Crater",		43.46,	41.60,	"Neutral")
 	AddVendor(40160,	L["Frozo the Renowned"],		"Dalaran",			41.0,	28.5,	"Neutral")
 	AddVendor(40226,	L["Pratt McGrubben"],			"Feralas",			45.4,	41.2,	"Alliance")
 	AddVendor(40572,	L["Haughty Modiste"],			"Tanaris",			50.7,	28.6,	"Neutral") -- COMPLETELY UPDATED

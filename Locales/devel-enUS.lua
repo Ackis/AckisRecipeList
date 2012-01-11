@@ -1298,4 +1298,5 @@ L["Dealer Jadyan"] = true
 L["Taryssa Lazuria"] = true
 L["Farrah Facet"] = true
 
-L["Dig Rat"] = "Dig Rat"
+L["Dig Rat"] = true
+L["Dramm Riverhorn"] = true
