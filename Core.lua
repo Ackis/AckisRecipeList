@@ -1117,114 +1117,102 @@ do
 	local text_table = {}
 	local acquire_list = {}
 
-	local GetFilterNames
+	local GetFilterFlagNames
 	do
 		local LC = _G.LOCALIZED_CLASS_NAMES_MALE
-		local FILTER_NAMES
+		local FILTER_FLAG_NAMES
 
-		function GetFilterNames()
-			if not FILTER_NAMES then
-				local is_alliance = (private.Player.faction == "Alliance")
-
-				FILTER_NAMES = {
-					[1] = BFAC["Alliance"],
-					[2] = BFAC["Horde"],
-					[3] = L["Trainer"],
-					[4] = L["Vendor"],
-					[5] = _G.INSTANCE,
-					[6] = _G.RAID,
-					[7] = _G.EVENTS_LABEL,
-					[8] = L["Quest"],
-					[9] = _G.PVP,
-					[10] = L["World Drop"],
-					[11] = L["Mob Drop"],
-					[12] = L["Discovery"],
-					[13] = L["Retired"],
-					[21] = LC["DEATHKNIGHT"],
-					[22] = LC["DRUID"],
-					[23] = LC["HUNTER"],
-					[24] = LC["MAGE"],
-					[25] = LC["PALADIN"],
-					[26] = LC["PRIEST"],
-					[27] = LC["SHAMAN"],
-					[28] = LC["ROGUE"],
-					[29] = LC["WARLOCK"],
-					[30] = LC["WARRIOR"],
-					[36] = L["BOEFilter"],
-					[37] = L["BOPFilter"],
-					[38] = L["BOAFilter"],
-					[40] = L["RecipeBOEFilter"],
-					[41] = L["RecipeBOPFilter"],
-					[42] = L["RecipeBOAFilter"],
-					[51] = _G.MELEE,
-					[52] = _G.TANK,
-					[53] = _G.HEALER,
-					[54] = _G.DAMAGER,
-					[56] = L["Cloth"],
-					[57] = L["Leather"],
-					[58] = L["Mail"],
-					[59] = L["Plate"],
-					[60] = L["Cloak"],
-					[61] = L["Trinket"],
-					[62] = L["Ring"],
-					[63] = L["Necklace"],
-					[64] = L["Shield"],
-					[66] = L["One Hand"],
-					[67] = L["Two Hand"],
-					[68] = L["Axe"],
-					[69] = L["Sword"],
-					[70] = L["Mace"],
-					[71] = L["Polearm"],
-					[72] = L["Dagger"],
-					[73] = L["Staff"],
-					[74] = L["Wand"],
-					[75] = L["Thrown"],
-					[76] = L["Bow"],
-					[77] = L["Crossbow"],
-					[79] = L["Fist"],
-					[80] = L["Gun"],
-					[96] = BFAC["Argent Dawn"],
-					[97] = BFAC["Cenarion Circle"],
-					[98] = BFAC["Thorium Brotherhood"],
-					[99] = BFAC["Timbermaw Hold"],
-					[100] = BFAC["Zandalar Tribe"],
-					[101] = BFAC["The Aldor"],
-					[102] = BFAC["Ashtongue Deathsworn"],
-					[103] = BFAC["Cenarion Expedition"],
-					[104] = (is_alliance and BFAC["Honor Hold"] or BFAC["Thrallmar"]),
-					[105] = BFAC["The Consortium"],
-					[106] = BFAC["Keepers of Time"],
-					[107] = BFAC["Lower City"],
-					[108] = (is_alliance and BFAC["Kurenai"] or BFAC["The Mag'har"]),
-					[109] = BFAC["The Scale of the Sands"],
-					[110] = BFAC["The Scryers"],
-					[111] = BFAC["The Sha'tar"],
-					[112] = BFAC["Shattered Sun Offensive"],
-					[113] = BFAC["Sporeggar"],
-					[114] = BFAC["The Violet Eye"],
-					[115] = BFAC["Argent Crusade"],
-					[116] = BFAC["Frenzyheart Tribe"],
-					[117] = BFAC["Knights of the Ebon Blade"],
-					[118] = BFAC["Kirin Tor"],
-					[119] = BFAC["The Sons of Hodir"],
-					[120] = BFAC["The Kalu'ak"],
-					[121] = BFAC["The Oracles"],
-					[122] = BFAC["The Wyrmrest Accord"],
-					[123] = (is_alliance and BFAC["The Silver Covenant"] or BFAC["The Sunreavers"]),
-					[124] = (is_alliance and BFAC["Explorers' League"] or BFAC["The Hand of Vengeance"]),
-					[125] = (is_alliance and BFAC["Valiance Expedition"] or BFAC["Warsong Offensive"]),
-					[126] = (is_alliance and BFAC["The Frostborn"] or BFAC["The Taunka"]),
-					[127] = (is_alliance and BFAC["Alliance Vanguard"] or BFAC["Horde Expedition"]),
-					[128] = BFAC["The Ashen Verdict"],
-					[129] = (is_alliance and BFAC["Wildhammer Clan"] or BFAC["Dragonmaw Clan"]),
-					[130] = (is_alliance and BFAC["Baradin's Wardens"] or BFAC["Hellscream's Reach"]),
-					[131] = BFAC["Guardians of Hyjal"],
-					[132] = BFAC["Ramkahen"],
-					[133] = BFAC["The Earthen Ring"],
-					[134] = BFAC["Therazane"],
-				}
+		function GetFilterFlagNames()
+			if FILTER_FLAG_NAMES then
+				return FILTER_FLAG_NAMES
 			end
-			return FILTER_NAMES
+			local is_alliance = (private.Player.faction == "Alliance")
+
+			FILTER_FLAG_NAMES = {
+				-------------------------------------------------------------------------------
+				-- Common flags.
+				-------------------------------------------------------------------------------
+				ALLIANCE = BFAC["Alliance"],
+				HORDE = BFAC["Horde"],
+				TRAINER = L["Trainer"],
+				VENDOR = L["Vendor"],
+				INSTANCE = _G.INSTANCE,
+				RAID = _G.RAID,
+				SEASONAL = _G.EVENTS_LABEL,
+				QUEST = L["Quest"],
+				PVP = _G.PVP,
+				WORLD_DROP = L["World Drop"],
+				MOB_DROP = L["Mob Drop"],
+				DISC = L["Discovery"],
+				RETIRED = L["Retired"],
+				IBOE = L["BOEFilter"],
+				IBOP = L["BOPFilter"],
+				IBOA = L["BOAFilter"],
+				RBOE = L["RecipeBOEFilter"],
+				RBOP = L["RecipeBOPFilter"],
+				RBOA = L["RecipeBOAFilter"],
+				DPS = _G.MELEE,
+				TANK = _G.TANK,
+				HEALER = _G.HEALER,
+				CASTER = _G.DAMAGER,
+				ACHIEVEMENT = _G.ACHIEVEMENTS,
+				-------------------------------------------------------------------------------
+				-- Class flags.
+				-------------------------------------------------------------------------------
+				DK = LC["DEATHKNIGHT"],
+				DRUID = LC["DRUID"],
+				HUNTER = LC["HUNTER"],
+				MAGE = LC["MAGE"],
+				PALADIN = LC["PALADIN"],
+				PRIEST = LC["PRIEST"],
+				SHAMAN = LC["SHAMAN"],
+				ROGUE = LC["ROGUE"],
+				WARLOCK = LC["WARLOCK"],
+				WARRIOR = LC["WARRIOR"],
+				-------------------------------------------------------------------------------
+				-- Reputation flags.
+				-------------------------------------------------------------------------------
+				ARGENTDAWN = BFAC["Argent Dawn"],
+				CENARION_CIRCLE = BFAC["Cenarion Circle"],
+				THORIUM_BROTHERHOOD = BFAC["Thorium Brotherhood"],
+				TIMBERMAW_HOLD = BFAC["Timbermaw Hold"],
+				ZANDALAR = BFAC["Zandalar Tribe"],
+				ALDOR = BFAC["The Aldor"],
+				ASHTONGUE = BFAC["Ashtongue Deathsworn"],
+				CENARION_EXPEDITION = BFAC["Cenarion Expedition"],
+				HELLFIRE = (is_alliance and BFAC["Honor Hold"] or BFAC["Thrallmar"]),
+				CONSORTIUM = BFAC["The Consortium"],
+				KOT = BFAC["Keepers of Time"],
+				LOWERCITY = BFAC["Lower City"],
+				NAGRAND = (is_alliance and BFAC["Kurenai"] or BFAC["The Mag'har"]),
+				SCALE_SANDS = BFAC["The Scale of the Sands"],
+				SCRYER = BFAC["The Scryers"],
+				SHATAR = BFAC["The Sha'tar"],
+				SHATTEREDSUN = BFAC["Shattered Sun Offensive"],
+				SPOREGGAR = BFAC["Sporeggar"],
+				VIOLETEYE = BFAC["The Violet Eye"],
+				ARGENTCRUSADE = BFAC["Argent Crusade"],
+				FRENZYHEART = BFAC["Frenzyheart Tribe"],
+				EBONBLADE = BFAC["Knights of the Ebon Blade"],
+				KIRINTOR = BFAC["Kirin Tor"],
+				HODIR = BFAC["The Sons of Hodir"],
+				KALUAK = BFAC["The Kalu'ak"],
+				ORACLES = BFAC["The Oracles"],
+				WYRMREST = BFAC["The Wyrmrest Accord"],
+				WRATHCOMMON1 = (is_alliance and BFAC["The Silver Covenant"] or BFAC["The Sunreavers"]),
+				WRATHCOMMON2 = (is_alliance and BFAC["Explorers' League"] or BFAC["The Hand of Vengeance"]),
+				WRATHCOMMON3 = (is_alliance and BFAC["Valiance Expedition"] or BFAC["Warsong Offensive"]),
+				WRATHCOMMON4 = (is_alliance and BFAC["The Frostborn"] or BFAC["The Taunka"]),
+				WRATHCOMMON5 = (is_alliance and BFAC["Alliance Vanguard"] or BFAC["Horde Expedition"]),
+				ASHEN_VERDICT = BFAC["The Ashen Verdict"],
+				CATACOMMON1 = (is_alliance and BFAC["Wildhammer Clan"] or BFAC["Dragonmaw Clan"]),
+				CATACOMMON2 = (is_alliance and BFAC["Baradin's Wardens"] or BFAC["Hellscream's Reach"]),
+				GUARDIANS = BFAC["Guardians of Hyjal"],
+				RAMKAHEN = BFAC["Ramkahen"],
+				EARTHEN_RING = BFAC["The Earthen Ring"],
+				THERAZANE = BFAC["Therazane"],
+			}
+			return FILTER_FLAG_NAMES
 		end
 	end -- do
 
@@ -1259,17 +1247,9 @@ do
 				table.insert(text_table, ",\"")
 			elseif output == "BBCode" then
 				-- Make the entry red
-				if not is_known then
-					table.insert(text_table, "[color=red]")
-				end
-				table.insert(text_table, "\n[b]" .. recipe_id .. "[/b] - " .. recipe.name .. " (" .. recipe.skill_level .. ")\n")
+				table.insert(text_table, ("\n%s[b]%d[/b] - %s (%d)%s\n"):format(is_known and "" or "[color=red]", recipe_id, recipe.name, recipe.skill_level, is_known and "" or "[/color]"))
 
-				-- Close Color tag
-				if not is_known then
-					table.insert(text_table, "[/color]\nRecipe Flags:\n[list]")
-				elseif is_known then
-					table.insert(text_table, "\nRecipe Flags:\n[list]")
-				end
+				table.insert(text_table, "\nRecipe Flags:\n[list]\n")
 			elseif output == "XML" then
 				table.insert(text_table, "\n<recipe>\n")
 				table.insert(text_table, "  <id>" .. recipe_id .. "</id>\n")
@@ -1282,7 +1262,7 @@ do
 			end
 
 			-- Add in all the filter flags
-			local filter_names = GetFilterNames()
+			local filter_names = GetFilterFlagNames()
 			local prev = false
 
 			-- Find out which flags are set
@@ -1295,12 +1275,12 @@ do
 							if prev then
 								table.insert(text_table, ",")
 							end
-							table.insert(text_table, filter_names[private.FILTER_IDS[flag_name]])
+							table.insert(text_table, filter_names[flag_name])
 							prev = true
 						elseif output == "BBCode" then
-							table.insert(text_table, "[*]" .. filter_names[private.FILTER_IDS[flag_name]])
+							table.insert(text_table, "[*]" .. filter_names[flag_name] .. "\n")
 						elseif output == "XML" then
-							table.insert(text_table, "    <flag>" .. filter_names[private.FILTER_IDS[flag_name]] .. "</flag>")
+							table.insert(text_table, "    <flag>" .. filter_names[flag_name] .. "</flag>")
 						end
 					end
 				end
@@ -1309,7 +1289,7 @@ do
 			if output == "Comma" then
 				table.insert(text_table, "\",\"")
 			elseif output == "BBCode" then
-				table.insert(text_table, "[/list]\nAcquire Methods:\n[list]")
+				table.insert(text_table, "[/list]\nAcquire Methods:\n[list]\n")
 			elseif output == "XML" then
 				table.insert(text_table, "  </flags>")
 				table.insert(text_table, "  <acquire>")
@@ -1348,7 +1328,7 @@ do
 				--	table.insert(text_table, "\",false\n")
 				--end
 			elseif output == "BBCode" then
-				table.insert(text_table, "\n[/list]")
+				table.insert(text_table, "\n[/list]\n")
 			elseif output == "XML" then
 				table.insert(text_table, "  </acquire>")
 				table.insert(text_table, "</recipe>")
