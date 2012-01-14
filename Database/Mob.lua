@@ -184,10 +184,6 @@ function addon:InitMob()
 	AddMob(764,	L["Swampwalker"],			"Swamp of Sorrows", 51.0, 36.7)
 	AddMob(14448,	L["Molt Thorn"],			"Swamp of Sorrows", 51.0, 42.6)
 
-	-- Tanaris
-	AddMob(5617,	L["Wastewander Shadow Mage"],		"Tanaris", 60.0, 37.4)
-	AddMob(5618,	L["Wastewander Bandit"],		"Tanaris", 63.6, 30.6)
-
 	-- Terokkar Forest
 	AddMob(16810,	L["Bonechewer Backbreaker"],		"Terokkar Forest", 66.0, 55.2)
 	AddMob(22148,	L["Gordunni Head-Splitter"],		"Terokkar Forest", 22.5, 8.3)
