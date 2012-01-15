@@ -331,8 +331,8 @@ function addon:InitMob()
 
 	-- Stratholme
 	AddMob(10398,	L["Thuzadin Shadowcaster"],		"Stratholme", 0, 0)
-	AddMob(10422,	L["Crimson Sorcerer"],			"Stratholme", 0, 0)
-	AddMob(10426,	L["Crimson Inquisitor"],		"Stratholme", 0, 0)
+	AddMob(10422,	L["Risen Sorcerer"],			"Stratholme", 0, 0)
+	AddMob(10426,	L["Risen Inquisitor"],			"Stratholme", 0, 0)
 	AddMob(10813,	BB["Balnazzar"],			"Stratholme", 0, 0)
 	AddMob(10438,	BB["Maleki the Pallid"],		"Stratholme", 0, 0)
 	AddMob(10997,	BB["Cannon Master Willey"],		"Stratholme", 0, 0)
