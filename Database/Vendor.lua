@@ -214,7 +214,7 @@ function addon:InitVendor()
 	AddVendor(12944,	L["Lokhtos Darkbargainer"],		"Blackrock Depths",		0,	0,	"Neutral")
 	AddVendor(12956,	L["Zannok Hidepiercer"],		"Silithus",			81.9,	17.8,	"Neutral")
 	AddVendor(12958,	L["Gigget Zipcoil"],			"The Hinterlands",		34.5,	38.5,	"Neutral") -- COMPLETELY UPDATED
-	AddVendor(12959,	L["Nergal"],				"Un'Goro Crater",		43.3,	7.7,	"Neutral")
+	AddVendor(12959,	L["Nergal"],				"Un'Goro Crater",		54.8,	62.5,	"Neutral") -- COMPLETELY UPDATED
 	AddVendor(12962,	L["Wik'Tar"],				"Ashenvale",			11.8,	34.1,	"Horde")
 	AddVendor(13420,	L["Penney Copperpinch"],		"Orgrimmar",			53.5,	66.1,	"Neutral")
 	AddVendor(13429,	L["Nardstrum Copperpinch"],		"Undercity",			67.5,	38.7,	"Horde") -- COMPLETELY UPDATED
