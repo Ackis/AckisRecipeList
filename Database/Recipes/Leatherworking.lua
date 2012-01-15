@@ -1110,12 +1110,12 @@ function addon:InitLeatherworking()
 
 	-- Green Dragonscale Breastplate -- 19050
 	recipe = AddRecipe(19050, V.ORIG, Q.COMMON)
-	recipe:SetRecipeItemID(15726)
+	recipe:SetRecipeItemID(78346)
 	recipe:SetCraftedItemID(15045)
 	recipe:SetSkillLevels(260, 260, 280, 290, 300)
 	recipe:SetItemFilterType("LEATHERWORKING_CHEST")
-	recipe:AddFilters(F.ALLIANCE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	recipe:AddLimitedVendor(11874, 1)
+	recipe:AddFilters(F.ALLIANCE, F.WORLD_DROP, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
+	recipe:AddWorldDrop("Sunken Temple")
 
 	-- Heavy Scorpid Vest -- 19051
 	recipe = AddRecipe(19051, V.ORIG, Q.UNCOMMON)
@@ -1182,12 +1182,12 @@ function addon:InitLeatherworking()
 
 	-- Green Dragonscale Leggings -- 19060
 	recipe = AddRecipe(19060, V.ORIG, Q.RARE)
-	recipe:SetRecipeItemID(15733)
+	recipe:SetRecipeItemID(78345)
 	recipe:SetCraftedItemID(15046)
 	recipe:SetSkillLevels(270, 270, 290, 300, 310)
 	recipe:SetItemFilterType("LEATHERWORKING_LEGS")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	recipe:AddCustom("REMOVED_FROM_GAME")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
+	recipe:AddWorldDrop("Sunken Temple")
 
 	-- Living Shoulders -- 19061
 	recipe = AddRecipe(19061, V.ORIG, Q.COMMON)
