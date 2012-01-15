@@ -202,7 +202,6 @@ function addon:InitVendor()
 	AddVendor(11278,	L["Magnus Frostwake"],			"Western Plaguelands",		68.1,	77.6,	"Neutral")
 	AddVendor(11536,	L["Quartermaster Miranda Breechlock"],	"Eastern Plaguelands",		75.8,	54.1,	"Neutral")
 	AddVendor(11557,	L["Meilosh"],				"Felwood",			65.7,	2.9, 	"Neutral")
-	AddVendor(11874,	L["Masat T'andr"],			"Swamp of Sorrows",		26.3,	31.6,	"Neutral") -- COMPLETELY UPDATED
 	AddVendor(12022,	L["Lorelae Wintersong"],		"Moonglade",			48.3,	40.1,	"Neutral")
 	AddVendor(12033,	L["Wulan"],				"Desolace",			26.2,	69.7,	"Horde")
 	AddVendor(12043,	L["Kulwia"],				"Stonetalon Mountains",		45.4,	59.4,	"Horde")

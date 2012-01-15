@@ -784,7 +784,6 @@ L["Maria Lumere"] = "Maria Lumere"
 L["Marith Lazuria"] = "Marith Lazuria"
 L["Martine Tramblay"] = "Martine Tramblay"
 L["Mary Edras"] = "Mary Edras"
-L["Masat T'andr"] = "Masat T'andr"
 L["Master Chef Mouldier"] = "Master Chef Mouldier"
 L["Master Elemental Shaper Krixix"] = "Master Elemental Shaper Krixix"
 L["Materials"] = true
