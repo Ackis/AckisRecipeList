@@ -1109,7 +1109,7 @@ function addon:InitLeatherworking()
 	recipe:AddVendor(12942, 12943)
 
 	-- Green Dragonscale Breastplate -- 19050
-	recipe = AddRecipe(19050, V.ORIG, Q.COMMON)
+	recipe = AddRecipe(19050, V.ORIG, Q.RARE)
 	recipe:SetRecipeItemID(78346)
 	recipe:SetCraftedItemID(15045)
 	recipe:SetSkillLevels(260, 260, 280, 290, 300)
