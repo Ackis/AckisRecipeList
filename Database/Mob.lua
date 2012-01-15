@@ -41,10 +41,6 @@ function addon:InitMob()
 	AddMob(2557,	L["Witherbark Shadow Hunter"],		"Arathi Highlands", 70.3, 78.9)
 	AddMob(2558,	L["Witherbark Berserker"],		"Arathi Highlands", 24.2, 66.2)
 
-	-- Ashenvale
-	AddMob(3834,	L["Crazed Ancient"],			"Ashenvale", 59.4, 43.0)
-	AddMob(3919,	L["Withered Ancient"],			"Ashenvale", 58.5, 36.1)
-
 	-- Blade's Edge Mountains
 	AddMob(16952,	L["Anger Guard"],			"Blade's Edge Mountains", 72.0, 40.5)
 	AddMob(19952,	L["Bloodmaul Geomancer"],		"Blade's Edge Mountains", 45.0, 68.5)
