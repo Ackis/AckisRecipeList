@@ -336,11 +336,11 @@ function addon:InitEnchanting()
 
 	-- Enchant Gloves - Herbalism -- 13617
 	recipe = AddRecipe(13617, V.ORIG, Q.UNCOMMON)
-	recipe:SetRecipeItemID(11151)
+	recipe:SetRecipeItemID(78343)
 	recipe:SetSkillLevels(145, 145, 170, 190, 210)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOE, F.RBOE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOP)
 	recipe:SetItemFilterType("ENCHANTING_GLOVES")
-	recipe:AddMobDrop(3834, 3919)
+	recipe:AddWorldDrop("Ashenvale")
 
 	-- Enchant Gloves - Fishing -- 13620
 	recipe = AddRecipe(13620, V.ORIG, Q.UNCOMMON)
