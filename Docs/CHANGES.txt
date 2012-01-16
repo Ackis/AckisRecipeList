@@ -1,6 +1,33 @@
 ==ARL Change Log
 NOTE: Always remove the folder for old versions and install a fresh copy when upgrading.
 
+== 2.3.0
+
+=== Interface:
+
+* Each profession now has its own set of unique item-type filters, where applicable. The filters, by profession, are:
+** Alchemy: Cauldron, Elixir, Flask, Miscellaneous, Oil, Potion, Transmutation, Trinket.
+** Blacksmithing: Chest, Dagger, Feet, Hands, Head, Item Enhancement, Legs, Materials, One-Handed Axe, One-Handed Mace, One-Handed Sword, Polearm, Rod, Shield, Shoulder, Skeleton Key, Thrown, Two-Handed Axe, Two-Handed Mace, Two-Handed Sword, Waist, Wrist.
+** Enchanting: Boots, Bracer, Chest, Cloak, Gloves, Miscellaneous, Ring, Shield, Weapon, 2H Weapon, Staff, Oil, Rod, Wand.
+** Tailoring: Back, Bag, Chest, Feet, Hands, Head, Item Enhancement, Legs, Materials, Miscellaneous, Shirt, Shoulder, Waist, Wrist.
+** Inscription: Created Items, Item Enhancement, Major Glyph, Materials, Minor Glyph, Off-Hand, Prime Glyph, Relic, Scroll.
+** Leatherworking: Back, Bag, Chest, Created Items, Feet, Hands, Head, Item Enhancement, Legs, Materials, Shield, Shoulder, Thrown, Waist, Wrist.
+** Jewelcrafting: Created Items, Fist Weapon, Head, Materials, Neck, Ring, Trinket, Blue Gem, Green Gem, Meta Gem, Orange Gem, Prismatic Gem, Purple Gem, Red Gem, Yellow Gem.
+** Engineering: Back, Bag, Bow, Created Items, Crossbow, Feet, Gun, Head, Item Enhancement, Main Hand, Materials, Mount, Neck, Pet, Shield, Trinket.
+* The Item Filter menu will be disabled for professions which do not have item-type filters.
+* Normalized the layout of all filter menus.
+
+==== Recipe Database:
+
+* Assigned the correct crafted item for the "Pumpkin Pie" cooking recipe.
+* Runic Plate Boots, Helm, Leggings, and Shoulders are no longer marked as removed from the game: They are now assigned to the newly-added vendor "Dramm Riverhorn".
+* All "Tough Scorpid" Leatherworking recipes are no longer marked as removed from the game: They are now listed as random drops in Tanaris.
+* The coordinates and recipe data for several vendors have been updated.
+* Removed mobs and vendors which are no longer associated with professions or no longer exist.
+
+=== Backend:
+* Fixed issue where expansion of recipes in the Acquisition tab would break the AddOn for the session.
+
 == 2.2.12
 
 ===Recipes:
