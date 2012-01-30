@@ -75,7 +75,6 @@ function addon:InitMob()
 
 	-- Eastern Plaguelands
 	AddMob(1844,	L["Foreman Marcrid"],			"Eastern Plaguelands", 54.0, 68.0)
-	AddMob(8546,	L["Dark Adept"],			"Eastern Plaguelands", 37.6, 45.0)
 	AddMob(8561,	L["Mossflayer Shadowhunter"],		"Eastern Plaguelands", 60.9, 21.5)
 	AddMob(9451,	L["Scarlet Archmage"],			"Eastern Plaguelands", 81.5, 75.4)
 

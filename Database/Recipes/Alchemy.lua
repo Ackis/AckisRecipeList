@@ -868,9 +868,9 @@ function addon:InitAlchemy()
 	recipe:SetRecipeItemID(13499)
 	recipe:SetCraftedItemID(13459)
 	recipe:SetSkillLevels(290, 290, 305, 325, 345)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOE, F.RBOE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOE, F.RBOE)
 	recipe:SetItemFilterType("ALCHEMY_POTION")
-	recipe:AddMobDrop(8546)
+	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Major Mana Potion -- 17580
 	recipe = AddRecipe(17580, V.ORIG, Q.UNCOMMON)
