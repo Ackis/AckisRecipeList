@@ -5270,7 +5270,7 @@ function addon:InitLeatherworking()
 
 	-- Vicious Hide Cloak -- 99535
 	recipe = AddRecipe(99535, V.CATA, Q.COMMON)
-	recipe:SetCraftedItemID(70069)
+	recipe:SetCraftedItemID(75077)
 	recipe:SetSkillLevels(500, 500, 510, 512, 515)
 	recipe:SetItemFilterType("LEATHERWORKING_BACK")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
@@ -5278,7 +5278,7 @@ function addon:InitLeatherworking()
 
 	-- Vicious Fur Cloak -- 99536
 	recipe = AddRecipe(99536, V.CATA, Q.COMMON)
-	recipe:SetCraftedItemID(70068)
+	recipe:SetCraftedItemID(75076)
 	recipe:SetSkillLevels(500, 500, 510, 512, 515)
 	recipe:SetItemFilterType("LEATHERWORKING_BACK")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
