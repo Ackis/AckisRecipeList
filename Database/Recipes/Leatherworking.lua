@@ -1047,8 +1047,8 @@ function addon:InitLeatherworking()
 	recipe:SetCraftedItemID(8345)
 	recipe:SetSkillLevels(225, 225, 245, 255, 265)
 	recipe:SetItemFilterType("LEATHERWORKING_HEAD")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS, F.DRUID)
-	recipe:AddTrainer(7871, 29509)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOE, F.RBOP, F.DPS, F.DRUID)
+	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Gauntlets of the Sea -- 10630
 	recipe = AddRecipe(10630, V.ORIG, Q.COMMON)
