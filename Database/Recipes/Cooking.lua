@@ -931,7 +931,7 @@ function addon:InitCooking()
 	recipe:SetRecipeItemID(33875)
 	recipe:SetCraftedItemID(33874)
 	recipe:SetSkillLevels(300, 300, 345, 355, 365)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.QUEST, F.IBOE, F.RBOP, F.DPS, F.HUNTER)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.QUEST, F.IBOE, F.RBOP, F.DPS)
 	recipe:AddQuest(11377, 11379, 11380, 11381)
 	recipe:AddCustom("DAILY_COOKING_FISH", "DAILY_COOKING_MEAT")
 
