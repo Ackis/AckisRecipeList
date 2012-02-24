@@ -75,7 +75,7 @@ private.PROFESSION_LABELS = {
 	"leatherworking",	-- 9
 	"runeforging",		-- 10
 	"smelting",		-- 11
-	"tailoring"	,	-- 12
+	"tailoring",		-- 12
 }
 
 private.ORDERED_PROFESSIONS = {

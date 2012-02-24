@@ -480,59 +480,18 @@ function addon:OnEnable()
 	-- Initialize the SpecialtyTable and AllSpecialtiesTable.
 	-------------------------------------------------------------------------------
 	do
-		--[[
-		local AlchemySpec = {
-			[_G.GetSpellInfo(28674)] = 28674,
-			[_G.GetSpellInfo(28678)] = 28678,
-			[_G.GetSpellInfo(28676)] = 28676,
-		}
-		]] --
-
-		--[[
-		local BlacksmithSpec = {
-			[_G.GetSpellInfo(9788)] = 9788,		-- Armorsmith
-			[_G.GetSpellInfo(17041)] = 17041,	-- Master Axesmith
-			[_G.GetSpellInfo(17040)] = 17040,	-- Master Hammersmith
-			[_G.GetSpellInfo(17039)] = 17039,	-- Master Swordsmith
-			[_G.GetSpellInfo(9787)] = 9787,		-- Weaponsmith
-		}
-		]] --
-
 		local EngineeringSpec = {
 			[_G.GetSpellInfo(20219)] = 20219, -- Gnomish
 			[_G.GetSpellInfo(20222)] = 20222, -- Goblin
 		}
 
-		--[[
-		local LeatherworkSpec = {
-			[_G.GetSpellInfo(10657)] = 10657, -- Dragonscale
-			[_G.GetSpellInfo(10659)] = 10659, -- Elemental
-			[_G.GetSpellInfo(10661)] = 10661, -- Tribal
-		}
-		]] --
-
-		--[[
-		local TailorSpec = {
-			[_G.GetSpellInfo(26797)] = 26797, -- Spellfire
-			[_G.GetSpellInfo(26801)] = 26801, -- Shadoweave
-			[_G.GetSpellInfo(26798)] = 26798, -- Primal Mooncloth
-		}
-		]] --
-
 		SpecialtyTable = {
-			--[_G.GetSpellInfo(51304)] = AlchemySpec,
-			--[_G.GetSpellInfo(51300)] = BlacksmithSpec,
 			[_G.GetSpellInfo(51306)] = EngineeringSpec,
-			--[_G.GetSpellInfo(51302)] = LeatherworkSpec,
-			--[_G.GetSpellInfo(51309)] = TailorSpec,
 		}
 
-		-- Populate the Specialty table with all Specialties, adding alchemy even though no recipes have alchemy filters
-		--for i in pairs(AlchemySpec) do AllSpecialtiesTable[i] = true end
-		--for i in pairs(BlacksmithSpec) do AllSpecialtiesTable[i] = true end
-		for i in pairs(EngineeringSpec) do AllSpecialtiesTable[i] = true end
-		--for i in pairs(LeatherworkSpec) do AllSpecialtiesTable[i] = true end
-		--for i in pairs(TailorSpec) do AllSpecialtiesTable[i] = true end
+		for i in pairs(EngineeringSpec) do
+				AllSpecialtiesTable[i] = true
+		end
 	end -- do
 end
 

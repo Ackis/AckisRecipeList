@@ -98,7 +98,6 @@ end
 -- Tooltip for data-mining.
 -------------------------------------------------------------------------------
 local ARLDatamineTT = _G.CreateFrame("GameTooltip", "ARLDatamineTT", _G.UIParent, "GameTooltipTemplate")
-
 do
 	-- Tables used in addon:ScanTrainerData
 	local scanned_recipes, scanned_items, output = {}, {}, {}
