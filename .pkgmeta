@@ -82,3 +82,4 @@ ignore:
  - libs/LibStub/tests
  - libs/LibToast-1.0/LibStub
  - libs/LibSharedMedia-3.0/LibStub
+ 
