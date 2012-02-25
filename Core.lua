@@ -699,7 +699,9 @@ end
 do
 	-- Code snippet stolen from GearGuage by Torhal and butchered by Ackis
 	local function StrSplit(input)
-		if not input then return nil, nil end
+		if not input then
+			return nil, nil
+		end
 		local arg1, arg2, var1
 
 		arg1, var1 = input:match("^([^%s]+)%s*(.*)$")
