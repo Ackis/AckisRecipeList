@@ -154,7 +154,7 @@ function private.InitializeListFrame()
 	ScrollBar:EnableMouseWheel(true)
 	ScrollBar:SetOrientation("VERTICAL")
 
-	ScrollBar:SetThumbTexture("Interface\\Buttons\\UI-ScrollBar-Knob")
+	ScrollBar:SetThumbTexture([[Interface\Buttons\UI-ScrollBar-Knob]])
 	ScrollBar:SetMinMaxValues(0, 1)
 	ScrollBar:SetValueStep(1)
 
