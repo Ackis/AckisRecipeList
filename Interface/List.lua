@@ -743,9 +743,6 @@ function private.InitializeListFrame()
 					return true
 				end
 			end
-
-			-- If we get here it means that no flags matched our values
-			return false
 		end
 
 		function ListFrame:Initialize(expand_mode)
