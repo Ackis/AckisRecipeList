@@ -2232,7 +2232,7 @@ function addon:InitTailoring()
 	recipe:SetSkillLevels(300, 300, 315, 330, 345)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
 	recipe:SetItemFilterType("TAILORING_HANDS")
-	recipe:AddCustom("NAXX40_GONE")
+	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Glacial Vest -- 28207
 	recipe = AddRecipe(28207, V.ORIG, Q.EPIC)
@@ -2240,7 +2240,7 @@ function addon:InitTailoring()
 	recipe:SetSkillLevels(300, 300, 315, 330, 345)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
 	recipe:SetItemFilterType("TAILORING_CHEST")
-	recipe:AddCustom("NAXX40_GONE")
+	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Glacial Cloak -- 28208
 	recipe = AddRecipe(28208, V.ORIG, Q.EPIC)
@@ -2248,7 +2248,7 @@ function addon:InitTailoring()
 	recipe:SetSkillLevels(300, 300, 315, 330, 345)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOE, F.RBOP)
 	recipe:SetItemFilterType("TAILORING_BACK")
-	recipe:AddCustom("NAXX40_GONE")
+	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Glacial Wrists -- 28209
 	recipe = AddRecipe(28209, V.ORIG, Q.EPIC)
@@ -2256,7 +2256,7 @@ function addon:InitTailoring()
 	recipe:SetSkillLevels(300, 300, 315, 330, 345)
 	recipe:SetItemFilterType("TAILORING_WRIST")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
-	recipe:AddCustom("NAXX40_GONE")
+	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Gaea's Embrace -- 28210
 	recipe = AddRecipe(28210, V.ORIG, Q.COMMON)

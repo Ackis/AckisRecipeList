@@ -1956,7 +1956,7 @@ function addon:InitLeatherworking()
 	recipe:SetSkillLevels(300, 300, 320, 330, 340)
 	recipe:SetItemFilterType("LEATHERWORKING_CHEST")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOE, F.RBOP, F.DPS)
-	recipe:AddCustom("NAXX40_GONE")
+	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Polar Gloves -- 28220
 	recipe = AddRecipe(28220, V.ORIG, Q.EPIC)
@@ -1964,7 +1964,7 @@ function addon:InitLeatherworking()
 	recipe:SetSkillLevels(300, 300, 320, 330, 340)
 	recipe:SetItemFilterType("LEATHERWORKING_HANDS")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOE, F.RBOP, F.DPS)
-	recipe:AddCustom("NAXX40_GONE")
+	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Polar Bracers -- 28221
 	recipe = AddRecipe(28221, V.ORIG, Q.EPIC)
@@ -1972,7 +1972,7 @@ function addon:InitLeatherworking()
 	recipe:SetSkillLevels(300, 300, 320, 330, 340)
 	recipe:SetItemFilterType("LEATHERWORKING_WRIST")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOE, F.RBOP, F.DPS)
-	recipe:AddCustom("NAXX40_GONE")
+	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Icy Scale Breastplate -- 28222
 	recipe = AddRecipe(28222, V.ORIG, Q.EPIC)
@@ -1980,7 +1980,7 @@ function addon:InitLeatherworking()
 	recipe:SetSkillLevels(300, 300, 320, 330, 340)
 	recipe:SetItemFilterType("LEATHERWORKING_CHEST")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOE, F.RBOP, F.DPS)
-	recipe:AddCustom("NAXX40_GONE")
+	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Icy Scale Gauntlets -- 28223
 	recipe = AddRecipe(28223, V.ORIG, Q.EPIC)
@@ -1988,7 +1988,7 @@ function addon:InitLeatherworking()
 	recipe:SetSkillLevels(300, 300, 320, 330, 340)
 	recipe:SetItemFilterType("LEATHERWORKING_HANDS")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOE, F.RBOP, F.DPS)
-	recipe:AddCustom("NAXX40_GONE")
+	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Icy Scale Bracers -- 28224
 	recipe = AddRecipe(28224, V.ORIG, Q.EPIC)
@@ -1996,7 +1996,7 @@ function addon:InitLeatherworking()
 	recipe:SetSkillLevels(300, 300, 320, 330, 340)
 	recipe:SetItemFilterType("LEATHERWORKING_WRIST")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOE, F.RBOP, F.DPS)
-	recipe:AddCustom("NAXX40_GONE")
+	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Bramblewood Helm -- 28472
 	recipe = AddRecipe(28472, V.ORIG, Q.COMMON)

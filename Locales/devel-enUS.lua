@@ -264,7 +264,6 @@ L["Cultist Shard Watcher"] = "Cultist Shard Watcher"
 L["OGRI_DRAGONS"] = "Drops from the elites in Ogri'la"
 L["Oil"] = true
 L["KUNG"] = "Visit the Washed Up Mage in the Dalaran Sewers once you complete The Taste Test quest"
-L["NAXX40_GONE"] = "Removed from the game when Naxx 40 was taken out."
 L["LORE_NORTH"] = "You can train this recipe if you have earned the \"Loremaster of Northrend\" achievement"
 L["NORTH_DUNG"] = "You can train this recipe if you have earned the \"Northrend Dungeonmaster\" achievement"
 L["Cyndra Kindwhisper"] = "Cyndra Kindwhisper"

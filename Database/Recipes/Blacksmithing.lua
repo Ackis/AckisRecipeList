@@ -2086,7 +2086,7 @@ function addon:InitBlacksmithing()
 	recipe:SetSkillLevels(300, 300, 320, 330, 340)
 	recipe:SetItemFilterType("BLACKSMITHING_CHEST")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOE, F.RBOP, F.TANK)
-	recipe:AddCustom("NAXX40_GONE")
+	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Icebane Gauntlets -- 28243
 	recipe = AddRecipe(28243, V.ORIG, Q.EPIC)
@@ -2094,7 +2094,7 @@ function addon:InitBlacksmithing()
 	recipe:SetSkillLevels(300, 300, 320, 330, 340)
 	recipe:SetItemFilterType("BLACKSMITHING_HANDS")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOE, F.RBOP, F.TANK)
-	recipe:AddCustom("NAXX40_GONE")
+	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Icebane Bracers -- 28244
 	recipe = AddRecipe(28244, V.ORIG, Q.EPIC)
@@ -2102,7 +2102,7 @@ function addon:InitBlacksmithing()
 	recipe:SetSkillLevels(300, 300, 320, 330, 340)
 	recipe:SetItemFilterType("BLACKSMITHING_WRIST")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOE, F.RBOP, F.TANK)
-	recipe:AddCustom("NAXX40_GONE")
+	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Ironvine Breastplate -- 28461
 	recipe = AddRecipe(28461, V.ORIG, Q.COMMON)
