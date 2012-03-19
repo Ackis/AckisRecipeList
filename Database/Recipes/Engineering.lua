@@ -594,7 +594,7 @@ function addon:InitEngineering()
 	recipe:SetSkillLevels(210, 210, 230, 240, 250)
 	recipe:SetItemFilterType("ENGINEERING_ITEM_ENHANCEMENT")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE)
-	recipe:AddLimitedVendor(8679, 1, 9544, 1)
+	recipe:AddLimitedVendor(8679, 1, 45843, 1)
 
 	-- Mithril Casing -- 12599
 	recipe = AddRecipe(12599, V.ORIG, Q.COMMON)

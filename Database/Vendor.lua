@@ -191,7 +191,6 @@ function addon:InitVendor()
 	AddVendor(8878,		L["Muuran"],				"Desolace",			55.6,	56.5,	"Horde")
 	AddVendor(9179,		L["Jazzrik"],				"Badlands",			42.5,	52.6,	"Horde")
 	AddVendor(9499,		BB["Plugger Spazzring"],		"Blackrock Depths",		0,	0,	"Neutral")
-	AddVendor(9544,		L["Yuka Screwspigot"],			"Burning Steppes",		66.0,	22.0,	"Neutral")
 	AddVendor(9636,		L["Kireena"],				"Desolace",			51.0,	53.5,	"Horde")
 	AddVendor(10118,	L["Nessa Shadowsong"],			"Teldrassil",			56.3,	92.4,	"Alliance")
 	AddVendor(10856,	L["Argent Quartermaster Hasana"],	"Tirisfal Glades",		83.2,	68.1,	"Neutral")
@@ -385,6 +384,7 @@ function addon:InitVendor()
 	AddVendor(45546,	L["Vizna Bangwrench"],			"Orgrimmar",			36.4,	86.4,	"Horde") -- COMPLETELY UPDATED
 	AddVendor(45549,	L["Zido Helmbreaker"],			"Orgrimmar",			36.4,	83.0,	"Horde") -- COMPLETELY UPDATED
 	AddVendor(45558,	L["Lizna Goldweaver"],			"Orgrimmar",			41.3,	79.2,	"Horde") -- COMPLETELY UPDATED
+	AddVendor(45843,	L["Yuka Screwspigot"],			"Blackrock Depths",		37.0,	79.0,	"Neutral") -- COMPLETELY UPDATED
 	AddVendor(46359,	L["Punra"],				"Orgrimmar",			45.0,	76.8,	"Horde") -- COMPLETELY UPDATED
 	AddVendor(48060,	L["\"Chef\" Overheat"],			"Badlands",			65.1,	39.1,	"Neutral") -- COMPLETELY UPDATED
 	AddVendor(49701,	L["Bario Matalli"],			"Stormwind City", 		50.4,	71.9,	"Alliance") -- COMPLETELY UPDATED
