@@ -2157,7 +2157,7 @@ function addon:InitInscription()
 	recipe:SetSkillLevels(75, 75, 80, 85, 90)
 	recipe:SetItemFilterType("INSCRIPTION_MAJOR_GLYPH")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.PALADIN)
-	recipe:AddDiscovery("DISCOVERY_INSC_MINOR")
+	recipe:AddDiscovery("DISCOVERY_INSC_NORTHREND")
 
 	-- Glyph of Blessing of Might -- 58314
 	recipe = AddRecipe(58314, V.WOTLK, Q.COMMON)
