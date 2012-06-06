@@ -211,9 +211,6 @@ function addon:InitMob()
 	AddMob(6557,	L["Primal Ooze"],			"Un'Goro Crater", 51.8, 34.9)
 	AddMob(6559,	L["Glutinous Ooze"],			"Un'Goro Crater", 39.0, 37.7)
 
-	-- Western Plaguelands
-	AddMob(1812,	L["Rotting Behemoth"],			"Western Plaguelands", 64.5, 36.6)
-
 	-- Westfall
 	AddMob(590,	L["Defias Looter"],			"Westfall", 37.5, 58.4)
 

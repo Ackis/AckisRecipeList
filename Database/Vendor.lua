@@ -222,6 +222,7 @@ function addon:InitVendor()
 	AddVendor(14371,	L["Shen'dralar Provisioner"],		"Dire Maul",			0,	0,	"Neutral")
 	AddVendor(14637,	L["Zorbin Fandazzle"],			"Feralas",			48.7,	44.8,	"Neutral")
 	AddVendor(14738,	L["Otho Moji'ko"],			"The Hinterlands",		79.3,	79.1,	"Horde") -- COMPLETELY UPDATED
+	AddVendor(15174,	L["Calandrath"],			"Silithus",			55.4,	36.6,	"Neutral")
 	AddVendor(15176,	L["Vargus"],				"Silithus",			54.8,	36.6,	"Neutral") -- COMPLETELY UPDATED
 	AddVendor(15179,	L["Mishta"],				"Silithus",			53.8,	34.4,	"Neutral")
 	AddVendor(15293,	L["Aendel Windspear"],			"Silithus",			64.6,	45.8,	"Neutral") -- COMPLETELY UPDATED

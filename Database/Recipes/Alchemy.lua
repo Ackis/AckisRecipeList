@@ -850,9 +850,9 @@ function addon:InitAlchemy()
 	recipe:SetRecipeItemID(13496)
 	recipe:SetCraftedItemID(13458)
 	recipe:SetSkillLevels(290, 290, 305, 325, 345)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOE, F.RBOE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE)
 	recipe:SetItemFilterType("ALCHEMY_POTION")
-	recipe:AddMobDrop(1812)
+	recipe:AddLimitedVendor(15174, 1)
 
 	-- Greater Arcane Protection Potion -- 17577
 	recipe = AddRecipe(17577, V.ORIG, Q.UNCOMMON)
