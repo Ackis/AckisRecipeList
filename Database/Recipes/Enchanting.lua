@@ -574,8 +574,8 @@ function addon:InitEnchanting()
 	recipe:SetRecipeItemID(11203)
 	recipe:SetSkillLevels(215, 215, 235, 255, 275)
 	recipe:SetItemFilterType("ENCHANTING_GLOVES")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOE, F.RBOE)
-	recipe:AddMobDrop(674)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOE, F.RBOE)
+	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Enchant Bracer - Greater Spirit -- 13846
 	recipe = AddRecipe(13846, V.ORIG, Q.UNCOMMON)
