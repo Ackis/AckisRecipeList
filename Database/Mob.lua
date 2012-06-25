@@ -175,7 +175,6 @@ function addon:InitMob()
 	AddMob(1561,	L["Bloodsail Raider"],			"The Cape of Stranglethorn", 44.0, 63.8)
 
 	-- Swamp of Sorrows
-	AddMob(764,	L["Swampwalker"],			"Swamp of Sorrows", 51.0, 36.7)
 	AddMob(14448,	L["Molt Thorn"],			"Swamp of Sorrows", 51.0, 42.6)
 
 	-- Terokkar Forest

@@ -598,7 +598,7 @@ function addon:InitEnchanting()
 	recipe:SetSkillLevels(225, 225, 245, 265, 285)
 	recipe:SetItemFilterType("ENCHANTING_GLOVES")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOE, F.RBOE)
-	recipe:AddMobDrop(764, 14448)
+	recipe:AddMobDrop(14448)
 
 	-- Enchant Cloak - Lesser Agility -- 13882
 	recipe = AddRecipe(13882, V.ORIG, Q.UNCOMMON)
