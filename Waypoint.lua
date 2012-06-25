@@ -194,8 +194,8 @@ local INSTANCE_LOCATIONS = {
 	[BZ["Stratholme"]] = {
 		["zone"] = EASTERN_KINGDOMS_IDNUMS[BZ["Eastern Plaguelands"]],
 		["continent"] = 2,
-		["x"] = 0,
-		["y"] = 0,
+		["x"] = 26.75,
+		["y"] = 11.60,
 	},
 	[BZ["Temple of Ahn'Qiraj"]] = {
 		["zone"] = KALIMDOR_IDNUMS[BZ["Silithus"]],
