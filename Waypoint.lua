@@ -116,8 +116,8 @@ local INSTANCE_LOCATIONS = {
 	[BZ["Gnomeregan"]] = {
 		["zone"] = EASTERN_KINGDOMS_IDNUMS[BZ["Dun Morogh"]],
 		["continent"] = 2,
-		["x"] = 0,
-		["y"] = 0,
+		["x"] = 31.29,
+		["y"] = 37.89,
 	},
 	[BZ["Halls of Lightning"]] = {
 		["zone"] = NORTHREND_IDNUMS[BZ["The Storm Peaks"]],
