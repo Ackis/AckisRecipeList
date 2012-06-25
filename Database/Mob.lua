@@ -169,7 +169,6 @@ function addon:InitMob()
 	AddMob(3531,	L["Moonrage Tailor"],			"Silverpine Forest", 45.5, 73.3)
 
 	-- Northern Stranglethorn
-	AddMob(674,	L["Venture Co. Strip Miner"],		"Northern Stranglethorn", 54.1, 70.6)
 	AddMob(938,	L["Kurzen Commando"],			"Northern Stranglethorn", 60.9, 16.3)
 
 	-- The Cape of Stranglethorn
