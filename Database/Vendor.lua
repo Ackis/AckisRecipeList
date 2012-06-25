@@ -197,6 +197,7 @@ function addon:InitVendor()
 	AddVendor(10857,	L["Argent Quartermaster Lightspark"],	"Western Plaguelands",		42.8,	83.8,	"Neutral")
 	AddVendor(11185,	L["Xizzer Fizzbolt"],			"Winterspring",			59.2,	50.9,	"Neutral")
 	AddVendor(11187,	L["Himmik"],				"Winterspring",			59.8,	51.6,	"Neutral")  -- UPDATED
+	AddVendor(11188,	L["Evie Whirlbrew"],			"Winterspring",			59.2,	50.0,	"Neutral")
 	AddVendor(11189,	L["Qia"],				"Winterspring",			59.6,	49.2,	"Neutral")
 	AddVendor(11278,	L["Magnus Frostwake"],			"Western Plaguelands",		68.1,	77.6,	"Neutral")
 	AddVendor(11536,	L["Quartermaster Miranda Breechlock"],	"Eastern Plaguelands",		75.8,	54.1,	"Neutral")

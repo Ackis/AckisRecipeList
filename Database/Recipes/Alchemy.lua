@@ -997,9 +997,9 @@ function addon:InitAlchemy()
 	recipe:SetRecipeItemID(20013)
 	recipe:SetCraftedItemID(20008)
 	recipe:SetSkillLevels(285, 285, 300, 320, 340)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOE, F.RBOP)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	recipe:SetItemFilterType("ALCHEMY_POTION")
-	recipe:AddCustom("REMOVED_FROM_GAME")
+	recipe:AddVendor(11188)
 
 	-- Mighty Troll's Blood Elixir -- 24368
 	recipe = AddRecipe(24368, V.ORIG, Q.COMMON)
