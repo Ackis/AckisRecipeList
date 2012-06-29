@@ -51,12 +51,7 @@ function addon:InitMob()
 	AddMob(23385,	L["Simon Unit"],			"Blade's Edge Mountains", 33.5, 51.5)
 	AddMob(23386,	L["Gan'arg Analyzer"],			"Blade's Edge Mountains", 33.0, 52.5)
 
-	-- Blasted Lands
-	AddMob(6005,	L["Shadowsworn Thug"],			"Blasted Lands", 63.8, 32.0)
-
 	-- Burning Steppes
-	AddMob(7025,	L["Blackrock Soldier"],			"Burning Steppes", 44.0, 52.8)
-	AddMob(7027,	L["Blackrock Slayer"],			"Burning Steppes", 44.4, 50.7)
 	AddMob(7035,	L["Firegut Brute"],			"Burning Steppes", 82.5, 48.1)
 	AddMob(7037,	L["Thaurissan Firewalker"],		"Burning Steppes", 61.1, 42.0)
 	AddMob(10119,	L["Volchan"],				"Burning Steppes", 73.0, 49.3)

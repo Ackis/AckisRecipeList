@@ -1123,8 +1123,8 @@ function addon:InitLeatherworking()
 	recipe:SetCraftedItemID(15076)
 	recipe:SetSkillLevels(265, 265, 285, 295, 305)
 	recipe:SetItemFilterType("LEATHERWORKING_CHEST")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOE, F.RBOE, F.DPS)
-	recipe:AddMobDrop(6005)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOE, F.RBOE, F.DPS)
+	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Wicked Leather Bracers -- 19052
 	recipe = AddRecipe(19052, V.ORIG, Q.COMMON)
@@ -1223,8 +1223,8 @@ function addon:InitLeatherworking()
 	recipe:SetCraftedItemID(15078)
 	recipe:SetSkillLevels(275, 275, 295, 305, 315)
 	recipe:SetItemFilterType("LEATHERWORKING_HANDS")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOE, F.RBOE, F.DPS)
-	recipe:AddMobDrop(7025)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOE, F.RBOE, F.DPS)
+	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Runic Leather Bracers -- 19065
 	recipe = AddRecipe(19065, V.ORIG, Q.COMMON)
@@ -1313,8 +1313,8 @@ function addon:InitLeatherworking()
 	recipe:SetCraftedItemID(15079)
 	recipe:SetSkillLevels(285, 285, 305, 315, 325)
 	recipe:SetItemFilterType("LEATHERWORKING_LEGS")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOE, F.RBOE, F.DPS)
-	recipe:AddMobDrop(7027)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOE, F.RBOE, F.DPS)
+	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Volcanic Breastplate -- 19076
 	recipe = AddRecipe(19076, V.ORIG, Q.UNCOMMON)
