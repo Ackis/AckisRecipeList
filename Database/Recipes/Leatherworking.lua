@@ -1114,7 +1114,7 @@ function addon:InitLeatherworking()
 	recipe:SetCraftedItemID(15045)
 	recipe:SetSkillLevels(260, 260, 280, 290, 300)
 	recipe:SetItemFilterType("LEATHERWORKING_CHEST")
-	recipe:AddFilters(F.ALLIANCE, F.WORLD_DROP, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
+	recipe:AddFilters(F.ALLIANCE, F.INSTANCE, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
 	recipe:AddWorldDrop("Sunken Temple")
 
 	-- Heavy Scorpid Vest -- 19051
@@ -1186,7 +1186,7 @@ function addon:InitLeatherworking()
 	recipe:SetCraftedItemID(15046)
 	recipe:SetSkillLevels(270, 270, 290, 300, 310)
 	recipe:SetItemFilterType("LEATHERWORKING_LEGS")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.INSTANCE, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
 	recipe:AddWorldDrop("Sunken Temple")
 
 	-- Living Shoulders -- 19061

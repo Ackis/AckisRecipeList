@@ -1025,12 +1025,13 @@ function addon:InitBlacksmithing()
 	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
 
 	-- Phantom Blade -- 10007
-	recipe = AddRecipe(10007, V.ORIG, Q.COMMON)
+	recipe = AddRecipe(10007, V.ORIG, Q.RARE)
+	recipe:SetRecipeItemID(74274)
 	recipe:SetCraftedItemID(7961)
-	recipe:SetSkillLevels(245, 245, 270, 282, 295)
+	recipe:SetSkillLevels(270, 270, 270, 282, 295)
 	recipe:SetItemFilterType("BLACKSMITHING_ONE_HAND_SWORD")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOE, F.RBOP)
-	recipe:AddCustom("REMOVED_FROM_GAME")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.INSTANCE, F.IBOE, F.RBOP)
+	recipe:AddWorldDrop("Stratholme")
 
 	-- Runed Mithril Hammer -- 10009
 	recipe = AddRecipe(10009, V.ORIG, Q.RARE)
