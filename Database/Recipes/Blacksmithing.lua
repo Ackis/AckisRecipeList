@@ -1415,7 +1415,7 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItemID(12610)
 	recipe:SetSkillLevels(300, 300, 320, 330, 340)
 	recipe:SetItemFilterType("BLACKSMITHING_SHOULDER")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.RETIRED, F.IBOE, F.RBOP)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE)
 	recipe:AddVendor(38561)
 
 	-- Runic Plate Boots -- 16665
@@ -1424,7 +1424,7 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItemID(12611)
 	recipe:SetSkillLevels(300, 300, 320, 330, 340)
 	recipe:SetItemFilterType("BLACKSMITHING_FEET")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.RETIRED, F.IBOE, F.RBOP)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE)
 	recipe:AddVendor(38561)
 
 	-- Demon Forged Breastplate -- 16667
@@ -1460,7 +1460,7 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItemID(12612)
 	recipe:SetSkillLevels(300, 300, 320, 330, 340)
 	recipe:SetItemFilterType("BLACKSMITHING_HEAD")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.RETIRED, F.IBOE, F.RBOP)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE)
 	recipe:AddVendor(38561)
 
 	-- Helm of the Great Chief -- 16728
@@ -1505,7 +1505,7 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItemID(12614)
 	recipe:SetSkillLevels(300, 300, 320, 330, 340)
 	recipe:SetItemFilterType("BLACKSMITHING_LEGS")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.RETIRED, F.IBOE, F.RBOP)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE)
 	recipe:AddVendor(38561)
 
 	-- Stronghold Gauntlets -- 16741
