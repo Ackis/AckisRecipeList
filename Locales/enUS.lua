@@ -24,12 +24,12 @@ These translations are released under the Public Domain.
 ]]--
 
 
-local debug = false
+local is_silent = true
 --@debug@
-debug = true
+is_silent = false
 --@end-debug@
 
-local L = LibStub("AceLocale-3.0"):NewLocale("Ackis Recipe List", "enUS", true, debug)
+local L = LibStub("AceLocale-3.0"):NewLocale("Ackis Recipe List", "enUS", true, is_silent)
 
 if not L then return end
 
