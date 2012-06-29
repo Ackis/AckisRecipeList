@@ -3648,7 +3648,7 @@ function addon:InitInscription()
 	-- Glyph of Colossus Smash -- 89815
 	recipe = AddRecipe(89815, V.CATA, Q.COMMON)
 	recipe:SetCraftedItemID(63481)
-	recipe:SetSkillLevels(430, 430, 430, 435, 440)
+	recipe:SetSkillLevels(465, 465, 470, 477, 485)
 	recipe:SetItemFilterType("INSCRIPTION_MAJOR_GLYPH")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.WARRIOR)
 	recipe:AddVendor(49703, 50248)
