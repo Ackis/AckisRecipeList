@@ -675,6 +675,8 @@ local RECIPE_TYPES = {
 	["schematic: "] = true,
 	-- First Aid
 	["manual: "] = true,
+	-- Inscription
+	["technique: "] = true,
 
 	["alchemy: "] = true,
 	["blacksmithing: "] = true,
