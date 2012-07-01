@@ -22,6 +22,7 @@ if not L then return end
 
 L["\"Chef\" Overheat"] = "\"Chef\" Overheat"
 L["\"Cookie\" McWeaksauce"] = "\"Cookie\" McWeaksauce"
+L["\"Jack\" Pisarek Slamfix"] = true
 L["ACHIEVEMENT_DESC"] = "Recipes obtained via Achievements should be included in the scan."
 L["ACQUIRETOOLTIPPOSITION_DESC"] = "Changes the location of the tooltip containing the acquire information."
 L["ALL_FILTERED"] = "Although you have already scanned this profession, your filters are currently preventing any recipes from being displayed. Please change your filters and try again."
