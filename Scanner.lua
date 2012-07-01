@@ -1420,6 +1420,11 @@ do
 				elseif text:match("dodge") and not text:match("set:") then
 					scan_data.tank = true
 					found_role = true
+				elseif text:match("(%d+) rage") then
+					scan_data.tank = true
+					scan_data.dps = true
+				elseif text:match("increases (%a+) health by (%d+)") then
+					scan_data.tank = true
 				end
 			end
 
