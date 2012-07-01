@@ -43,7 +43,7 @@ local recipe_meta = {
 	__index = recipe_prototype
 }
 
----Adds a tradeskill recipe into the specified recipe database
+--- Adds a tradeskill recipe into the specified recipe database
 -- @name AckisRecipeList:AddRecipe
 -- @usage AckisRecipeList:AddRecipe(28927, 23109, V.TBC, Q.UNCOMMON)
 -- @param spell_id The [[http://www.wowpedia.org/SpellLink|Spell ID]] of the recipe being added to the database
@@ -205,7 +205,7 @@ do
 		local recipe_name = self.name
 
 		if private.ORDERED_PROFESSIONS[addon.Frame.profession] == private.LOCALIZED_PROFESSION_NAMES.ENCHANTING then
-			recipe_name = recipe_name:gsub(_G.ENSCRIBE .. " ","")
+			recipe_name = recipe_name:gsub(_G.ENSCRIBE .. " ", "")
 		end
 		local has_faction = private.Player:HasProperRepLevel(self.acquire_data[A.REPUTATION])
 		local skill_level = private.current_profession_scanlevel
@@ -258,7 +258,7 @@ function recipe_prototype:ItemFilterType()
 	return self.item_filter_type
 end
 
-function recipe_prototype:AddFilters(...)
+local function SetFilterState(recipe, turn_on, ...)
 	local num_filters = select('#', ...)
 
 	for index = 1, num_filters, 1 do
@@ -280,18 +280,42 @@ function recipe_prototype:AddFilters(...)
 				return
 			end
 
-			if not self.flags[member_name] then
-				self.flags[member_name] = 0
+			if not recipe.flags[member_name] then
+				recipe.flags[member_name] = 0
 			end
 
-			if bit.band(self.flags[member_name], bitfield[filter_name]) == bitfield[filter_name] then
-				return
+			if turn_on then
+				if bit.band(recipe.flags[member_name], bitfield[filter_name]) == bitfield[filter_name] then
+					if recipe.flags[member_name] == 0 then
+						recipe.flags[member_name] = nil
+					end
+					return
+				end
+			else
+				if bit.band(recipe.flags[member_name], bitfield[filter_name]) ~= bitfield[filter_name] then
+					if recipe.flags[member_name] == 0 then
+						recipe.flags[member_name] = nil
+					end
+					return
+				end
 			end
-			self.flags[member_name] = bit.bxor(self.flags[member_name], bitfield[filter_name])
+			recipe.flags[member_name] = bit.bxor(recipe.flags[member_name], bitfield[filter_name])
+
+			if recipe.flags[member_name] == 0 then
+				recipe.flags[member_name] = nil
+			end
 		else
-			addon:Debug("Recipe '%s' (spell ID %d): Attempting to assign non-existent filter flag.", self.name, self.spell_id)
+			addon:Debug("Recipe '%s' (spell ID %d): Attempting to %s non-existent filter flag.", recipe.name, recipe.spell_id, turn_on and "assign" or "remove")
 		end
 	end
+end
+
+function recipe_prototype:AddFilters(...)
+	SetFilterState(self, true, ...)
+end
+
+function recipe_prototype:RemoveFilters(...)
+	SetFilterState(self, false, ...)
 end
 
 function recipe_prototype:AddAcquireData(acquire_type, type_string, unit_list, ...)
