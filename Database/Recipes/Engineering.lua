@@ -2786,7 +2786,7 @@ function addon:InitEngineering()
 
 	-- Extreme-Impact Hole Puncher -- 100687
 	recipe = AddRecipe(100687, V.CATA, Q.RARE)
-	recipe:SetRecipeItemID(70178)
+	recipe:SetRecipeItemID(71078)
 	recipe:SetCraftedItemID(71077)
 	recipe:SetSkillLevels(525, 525, 525, 525, 525)
 	recipe:SetItemFilterType("ENGINEERING_GUN")
