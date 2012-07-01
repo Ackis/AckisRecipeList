@@ -1068,7 +1068,7 @@ do
 				table.insert(output, ("Recipe %d (%s) is missing a recipe item ID."):format(spell_id, recipe.name))
 			elseif recipe:HasFilter("common1", "TRAINER") and recipe.quality ~= private.ITEM_QUALITIES["COMMON"] then
 				table.insert(output, ("%s: %d"):format(recipe.name, spell_id))
-				table.insert(output, ("    Wrong quality: Q.%s - should be Q.COMMON."):format(private.ITEM_QUALITY_NAMES[recipe.quality]))
+				table.insert(output, ("    Possible wrong quality: Q.%s - should be Q.COMMON."):format(private.ITEM_QUALITY_NAMES[recipe.quality]))
 			end
 		end
 		ARLDatamineTT:Hide()
@@ -1148,18 +1148,24 @@ do
 	}
 
 	local FACTION_LEVELS = {
-		["neutral"] = 0,
-		["friendly"] = 1,
-		["honored"] = 2,
-		["revered"] = 3,
-		["exalted"] = 4,
+		neutral = 0,
+		friendly = 1,
+		honored = 2,
+		revered = 3,
+		exalted = 4,
 	}
 
 	local CLASS_TYPES = {
-		["Death Knight"]	= "DK", 	["Druid"]	= "DRUID", 	["Hunter"]	= "HUNTER",
-		["Mage"]		= "MAGE", 	["Paladin"]	= "PALADIN", 	["Priest"]	= "PRIEST",
-		["Shaman"]		= "SHAMAN", 	["Rogue"]	= "ROGUE", 	["Warlock"]	= "WARLOCK",
-		["Warrior"]		= "WARRIOR",
+		["Death Knight"] = "DK",
+		["Druid"] = "DRUID",
+		["Hunter"] = "HUNTER",
+		["Mage"] = "MAGE",
+		["Paladin"] = "PALADIN",
+		["Priest"] = "PRIEST",
+		["Shaman"] = "SHAMAN",
+		["Rogue"] = "ROGUE",
+		["Warlock"] = "WARLOCK",
+		["Warrior"] = "WARRIOR",
 	}
 
 	local ORDERED_CLASS_TYPES = {
@@ -1175,10 +1181,21 @@ do
 		"Warrior",
 	}
 
-	local ROLE_TYPES = {
-		["dps"]		= "DPS", 	["tank"]	= "TANK", 	["healer"]	= "HEALER",
-		["caster"]	= "CASTER",
+
+	local ROLE_FILTERS = {
+		dps = F.DPS,
+		tank = F.TANK,
+		healer = F.HEALER,
+		caster = F.CASTER
 	}
+
+	local ROLE_TYPES = {
+		dps = "DPS",
+		tank = "TANK",
+		healer = "HEALER",
+		caster = "CASTER",
+	}
+
 
 	local ORDERED_ROLE_TYPES = {
 		"dps",
@@ -1501,6 +1518,7 @@ do
 		if scan_data.is_vendor then
 			-- Check to see if the vendor flag is set
 			if not recipe:HasFilter("common1", "VENDOR") and not recipe:HasFilter("common1", "SEASONAL") then
+				recipe:AddFilters(F.VENDOR)
 				table.insert(missing_flags, flag_format:format(FS[F.VENDOR]))
 			end
 
@@ -1518,8 +1536,10 @@ do
 		if scan_data.found_class then
 			for index, class_name in ipairs(ORDERED_CLASS_TYPES) do
 				if scan_data[class_name] and not recipe:HasFilter("class1", CLASS_TYPES[class_name]) then
+					recipe:AddFilters(CLASS_TYPES[class_name])
 					table.insert(missing_flags, flag_format:format(CLASS_TYPES[class_name]))
 				elseif not scan_data[class_name] and recipe:HasFilter("class1", CLASS_TYPES[class_name]) then
+					recipe:RemoveFilters(CLASS_TYPES[class_name])
 					table.insert(extra_flags, flag_format:format(CLASS_TYPES[class_name]))
 				end
 			end
@@ -1527,67 +1547,80 @@ do
 
 		if scan_data.item_bop and not recipe:HasFilter("common1", "IBOP") then
 			table.insert(missing_flags, flag_format:format(FS[F.IBOP]))
+			recipe:AddFilters(F.IBOP)
 
 			if recipe:HasFilter("common1", "IBOE") then
+				recipe:RemoveFilters(F.IBOE)
 				table.insert(extra_flags, flag_format:format(FS[F.IBOE]))
 			end
 
 			if recipe:HasFilter("common1", "IBOA") then
+				recipe:RemoveFilters(F.IBOA)
 				table.insert(extra_flags, flag_format:format(FS[F.IBOA]))
 			end
 		elseif not recipe:HasFilter("common1", "IBOE") and not scan_data.item_bop then
+			recipe:AddFilters(F.IBOE)
 			table.insert(missing_flags, flag_format:format(FS[F.IBOE]))
 
 			if recipe:HasFilter("common1", "IBOP") then
+				recipe:RemoveFilters(F.IBOP)
 				table.insert(extra_flags, flag_format:format(FS[F.IBOP]))
 			end
 
 			if recipe:HasFilter("common1", "IBOA") then
+				recipe:RemoveFilters(F.IBOP)
 				table.insert(extra_flags, flag_format:format(FS[F.IBOA]))
 			end
 		end
 
 		if scan_data.recipe_bop and not recipe:HasFilter("common1", "RBOP") then
 			table.insert(missing_flags, flag_format:format(FS[F.RBOP]))
+			recipe:AddFilters(F.RBOP)
 
 			if recipe:HasFilter("common1", "RBOE") then
+				recipe:RemoveFilters(F.RBOE)
 				table.insert(extra_flags, flag_format:format(FS[F.RBOE]))
 			end
 
 			if recipe:HasFilter("common1", "RBOA") then
+				recipe:RemoveFilters(F.RBOA)
 				table.insert(extra_flags, flag_format:format(FS[F.RBOA]))
 			end
-
 		elseif not recipe:HasFilter("common1", "TRAINER") and not recipe:HasFilter("common1", "RBOE") and not scan_data.recipe_bop then
 			table.insert(missing_flags, flag_format:format(FS[F.RBOE]))
+			recipe:AddFilters(F.RBOE)
 
 			if recipe:HasFilter("common1", "RBOP") then
+				recipe:RemoveFilters(F.RBOP)
 				table.insert(extra_flags, flag_format:format(FS[F.RBOP]))
 			end
 
 			if recipe:HasFilter("common1", "RBOA") then
+				recipe:RemoveFilters(F.RBOA)
 				table.insert(extra_flags, flag_format:format(FS[F.RBOA]))
 			end
 		end
 
-		for k, v in ipairs(ORDERED_ROLE_TYPES) do
-			local role_string = ROLE_TYPES[v]
+		for role_index, role in ipairs(ORDERED_ROLE_TYPES) do
+			local role_string = ROLE_TYPES[role]
 
-			if scan_data[v] and not recipe:HasFilter("common1", role_string) then
+			if scan_data[role] and not recipe:HasFilter("common1", role_string) then
+				recipe:AddFilters(ROLE_FILTERS[role])
 				table.insert(missing_flags, flag_format:format(role_string))
-			elseif not scan_data[v] and recipe:HasFilter("common1", role_string) then
+			elseif not scan_data[role] and recipe:HasFilter("common1", role_string) then
+				recipe:RemoveFilters(ROLE_FILTERS[role])
 				table.insert(extra_flags, flag_format:format(role_string))
 			end
 		end
 
--- TODO: Make this work with the new item filters, perhaps?
---		for k, v in ipairs(ORDERED_ITEM_TYPES) do
---			if scan_data[v] and not recipe:HasFilter("item1", FS[ITEM_TYPES[v]]) then
---				table.insert(missing_flags, flag_format:format(FS[ITEM_TYPES[v]]))
---			elseif not scan_data[v] and recipe:HasFilter("item1", FS[ITEM_TYPES[v]]) then
---				table.insert(extra_flags, flag_format:format(FS[ITEM_TYPES[v]]))
---			end
---		end
+		-- TODO: Make this work with the new item filters, perhaps?
+		--		for k, v in ipairs(ORDERED_ITEM_TYPES) do
+		--			if scan_data[v] and not recipe:HasFilter("item1", FS[ITEM_TYPES[v]]) then
+		--				table.insert(missing_flags, flag_format:format(FS[ITEM_TYPES[v]]))
+		--			elseif not scan_data[v] and recipe:HasFilter("item1", FS[ITEM_TYPES[v]]) then
+		--				table.insert(extra_flags, flag_format:format(FS[ITEM_TYPES[v]]))
+		--			end
+		--		end
 
 		-- Reputations
 		local repid = scan_data.repid
@@ -1617,59 +1650,34 @@ do
 			end
 		end
 
-		for acquire_type in pairs(acquire_data) do
-			local flag = ACQUIRE_TO_FILTER_MAP[acquire_type]
-
-			if flag and not recipe:HasFilter("common1", FS[flag]) then
-				table.insert(missing_flags, flag_format:format(FS[flag]))
-			end
-		end
-
-		if (acquire_data[A.VENDOR] or acquire_data[A.REPUTATION]) and not recipe:HasFilter("common1", "VENDOR") and not recipe:HasFilter("common1", "SEASONAL") then
-			table.insert(missing_flags, flag_format:format(FS[F.VENDOR]))
-		end
-
-		if recipe:HasFilter("common1", "VENDOR") and not (acquire_data[A.VENDOR] or acquire_data[A.REPUTATION]) then
-			table.insert(extra_flags, flag_format:format(FS[F.VENDOR]))
-		end
-
-		if acquire_data[A.TRAINER] and not recipe:HasFilter("common1", "TRAINER") then
-			table.insert(missing_flags, flag_format:format(FS[F.TRAINER]))
-		end
-
-		if recipe:HasFilter("common1", "TRAINER") and not acquire_data[A.TRAINER] and not acquire_data[A.CUSTOM] then
-			table.insert(extra_flags, flag_format:format(FS[F.TRAINER]))
-		end
-
 		for flag, acquire_type in pairs(FILTER_TO_ACQUIRE_MAP) do
-			if recipe:HasFilter("common1", FS[flag]) and not acquire_data[acquire_type] then
+			if acquire_data[acquire_type] and not recipe:HasFilter("common1", FS[flag]) then
+				recipe:AddFilters(flag)
+				table.insert(extra_flags, flag_format:format(FS[flag]))
+			elseif not acquire_data[acquire_type] and recipe:HasFilter("common1", FS[flag]) then
+				recipe:RemoveFilters(flag)
 				table.insert(extra_flags, flag_format:format(FS[flag]))
 			end
 		end
 
-		if #missing_flags > 0 or #extra_flags > 0 then
-			-- Add a string of the missing flag numbers
-			if #missing_flags > 0 then
-				table.insert(output, "    Missing flags: " .. table.concat(missing_flags, ", "))
-			end
+		if (acquire_data[A.VENDOR] or acquire_data[A.REPUTATION]) and not recipe:HasFilter("common1", "VENDOR") and not recipe:HasFilter("common1", "SEASONAL") then
+			recipe:AddFilters(F.VENDOR)
+			table.insert(missing_flags, flag_format:format(FS[F.VENDOR]))
+		end
 
-			-- Add a string of the extra flag numbers
-			if #extra_flags > 0 then
-				table.insert(output, "    Extra flags: " .. table.concat(extra_flags, ", "))
-			end
-			local found_type = false
+		if recipe:HasFilter("common1", "VENDOR") and not (acquire_data[A.VENDOR] or acquire_data[A.REPUTATION]) then
+			recipe:RemoveFilters(F.VENDOR)
+			table.insert(extra_flags, flag_format:format(FS[F.VENDOR]))
+		end
 
-			-- TODO: Make this work with the new item filters, perhaps?
---			for k, v in ipairs(ORDERED_ITEM_TYPES) do
---				if scan_data[v] then
---					found_type = true
---					break
---				end
---			end
+		if acquire_data[A.TRAINER] and not recipe:HasFilter("common1", "TRAINER") then
+			recipe:AddFilters(F.TRAINER)
+			table.insert(missing_flags, flag_format:format(FS[F.TRAINER]))
+		end
 
---			if not found_type then
---				table.insert(output, "    Missing: item type flag")
---			end
+		if recipe:HasFilter("common1", "TRAINER") and not acquire_data[A.TRAINER] and not acquire_data[A.CUSTOM] then
+			recipe:RemoveFilters(F.TRAINER)
+			table.insert(extra_flags, flag_format:format(FS[F.TRAINER]))
 		end
 
 		-- Check to see if we have a horde/alliance flag,  all recipes must have one of these
@@ -1722,6 +1730,31 @@ do
 		if scan_data.quality and scan_data.quality ~= recipe.quality then
 			local QS = private.ITEM_QUALITY_NAMES
 			table.insert(output, ("    Possible wrong quality: Q.%s - should be Q.%s."):format(QS[recipe.quality], QS[scan_data.quality]))
+		end
+
+		if #missing_flags > 0 or #extra_flags > 0 then
+			table.insert(output, "    Issues which will be resolved with a profession dump:")
+
+			if #missing_flags > 0 then
+				table.insert(output, "        Missing flags: " .. table.concat(missing_flags, ", "))
+			end
+
+			if #extra_flags > 0 then
+				table.insert(output, "        Extra flags: " .. table.concat(extra_flags, ", "))
+			end
+
+			-- TODO: Make this work with the new item filters, perhaps?
+			--			local found_type = false
+			--			for k, v in ipairs(ORDERED_ITEM_TYPES) do
+			--				if scan_data[v] then
+			--					found_type = true
+			--					break
+			--				end
+			--			end
+
+			--			if not found_type then
+			--				table.insert(output, "    Missing: item type flag")
+			--			end
 		end
 
 		if #output > 0 then
