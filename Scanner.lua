@@ -1466,6 +1466,7 @@ do
 	-- Flag data for printing. Wiped and re-used.
 	local missing_flags = {}
 	local extra_flags = {}
+	local misc_issues = {}
 	local output = {}
 
 	local ACQUIRE_TO_FILTER_MAP = {
@@ -1514,6 +1515,9 @@ do
 		table.wipe(extra_flags)
 		table.wipe(output)
 
+		-------------------------------------------------------------------------------
+		-- Things which will be automatically fixed. (Requires a profession dump)
+		-------------------------------------------------------------------------------
 		-- If we're a vendor scan,  do some extra checks
 		if scan_data.is_vendor then
 			-- Check to see if the vendor flag is set
@@ -1652,8 +1656,10 @@ do
 
 		for flag, acquire_type in pairs(FILTER_TO_ACQUIRE_MAP) do
 			if acquire_data[acquire_type] and not recipe:HasFilter("common1", FS[flag]) then
-				recipe:AddFilters(flag)
-				table.insert(extra_flags, flag_format:format(FS[flag]))
+				if acquire_type ~= A.MOB_DROP or (not recipe:HasFilter("common1", "INSTANCE") and not recipe:HasFilter("common1", "RAID")) then
+					recipe:AddFilters(flag)
+					table.insert(missing_flags, flag_format:format(FS[flag]))
+				end
 			elseif not acquire_data[acquire_type] and recipe:HasFilter("common1", FS[flag]) then
 				recipe:RemoveFilters(flag)
 				table.insert(extra_flags, flag_format:format(FS[flag]))
