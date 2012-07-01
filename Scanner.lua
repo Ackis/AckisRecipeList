@@ -1247,6 +1247,11 @@ do
 	-- @param is_vendor Boolean to indicate if we're scanning a vendor
 	-- @return Scans a tooltip, and outputs the missing or extra filter flags
 	function addon:ScanTooltip(recipe_name, recipe_list, reverse_lookup, is_vendor)
+		-- Flag so that we don't bother checking for roles if we're sure of the role
+		-- AKA +spell hit == caster DPS only no matter what other stats are on it
+		-- Saves processing cycles and it won't cause the flags to be overwritten if a non-specific stat is found after
+		local found_role = false
+
 		scan_data.match_name = recipe_name
 		scan_data.recipe_list = recipe_list
 		scan_data.reverse_lookup = reverse_lookup
@@ -1350,12 +1355,7 @@ do
 --				recipe:SetItemFilterType("INSCRIPTION_RELIC")
 --			end
 
-			-- Flag so that we don't bother checking for classes if we're sure of the class
-			-- AKA +spell hit == caster DPS only no matter what other stats are on it
-			-- Saves processing cycles and it won't cause the flags to be overwritten if a non-specific stat is found after
-			scan_data.verifiedclass = false
-
-			if not scan_data.verifiedclass then
+			if not found_role then
 				-- Certain stats can be considered for a specific role (aka spell hit == caster dps).
 				if text:match("strength") and not text:match("strength of the clefthoof") and not text:match("set:") then
 					scan_data.dps = true
@@ -1372,10 +1372,10 @@ do
 					scan_data.healer = true
 				elseif text:match("spell hit") then
 					scan_data.caster = true
-					scan_data.verifiedclass = true
+					found_role = true
 				elseif text:match("spell penetration") then
 					scan_data.caster = true
-					scan_data.verifiedclass = true
+					found_role = true
 				elseif text:match("mana per 5 sec.") or text:match("mana every 5 seconds") then
 					scan_data.caster = true
 					scan_data.healer = true
@@ -1392,17 +1392,17 @@ do
 					scan_data.dps = true
 				elseif text:match("ranged crit") then
 					scan_data.dps = true
-					scan_data.verifiedclass = true
+					found_role = true
 				elseif text:match("melee haste") then
 					scan_data.dps = true
 				elseif text:match("ranged haste") then
 					scan_data.dps = true
-					scan_data.verifiedclass = true
+					found_role = true
 				elseif text:match("melee hit") then
 					scan_data.dps = true
 				elseif text:match("ranged hit") then
 					scan_data.dps = true
-					scan_data.verifiedclass = true
+					found_role = true
 				elseif text:match("armor pen") then
 					scan_data.dps = true
 				elseif text:match("feral attack power") then
@@ -1410,16 +1410,16 @@ do
 					scan_data.dps = true
 				elseif text:match("defense") and not text:match("defenseless") then
 					scan_data.tank = true
-					scan_data.verifiedclass = true
+					found_role = true
 				elseif text:match("block") then
 					scan_data.tank = true
-					scan_data.verifiedclass = true
+					found_role = true
 				elseif text:match("parry") then
 					scan_data.tank = true
-					scan_data.verifiedclass = true
+					found_role = true
 				elseif text:match("dodge") and not text:match("set:") then
 					scan_data.tank = true
-					scan_data.verifiedclass = true
+					found_role = true
 				end
 			end
 
