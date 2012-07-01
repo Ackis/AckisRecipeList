@@ -3787,7 +3787,7 @@ function addon:InitInscription()
 	recipe:SetSkillLevels(510, 510, 520, 525, 530)
 	recipe:SetItemFilterType("INSCRIPTION_RELIC")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(30706, 46716)
+	recipe:AddTrainer(30706)
 
 	-- Vicious Eyeball of Dominance -- 99548
 	recipe = AddRecipe(99548, V.CATA, Q.COMMON)
@@ -3795,7 +3795,7 @@ function addon:InitInscription()
 	recipe:SetSkillLevels(510, 510, 520, 525, 530)
 	recipe:SetItemFilterType("INSCRIPTION_RELIC")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(30706, 46716)
+	recipe:AddTrainer(30706)
 
 	-- Vicious Jawbone of Conquest -- 99549
 	recipe = AddRecipe(99549, V.CATA, Q.COMMON)
@@ -3803,7 +3803,7 @@ function addon:InitInscription()
 	recipe:SetSkillLevels(510, 510, 520, 525, 530)
 	recipe:SetItemFilterType("INSCRIPTION_RELIC")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(30706, 46716)
+	recipe:AddTrainer(30706)
 
 	-- Glyph of Unleashed Lightning -- 101057
 	recipe = AddRecipe(101057, V.CATA, Q.COMMON)
