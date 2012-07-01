@@ -1680,6 +1680,16 @@ do
 			table.insert(extra_flags, flag_format:format(FS[F.TRAINER]))
 		end
 
+		if scan_data.quality and scan_data.quality ~= recipe.quality then
+			local QS = private.ITEM_QUALITY_NAMES
+			table.insert(misc_issues, ("    Wrong quality: Q.%s - should be Q.%s."):format(QS[recipe.quality], QS[scan_data.quality]))
+			recipe.quality = scan_data.quality
+		end
+
+		-------------------------------------------------------------------------------
+		-- Things which will only be warned about.
+		-------------------------------------------------------------------------------
+
 		-- Check to see if we have a horde/alliance flag,  all recipes must have one of these
 		if not recipe:HasFilter("common1", "ALLIANCE") and not recipe:HasFilter("common1", "HORDE") then
 			table.insert(output, "    Horde or Alliance not selected.")
@@ -1727,12 +1737,7 @@ do
 			table.insert(output, ("    Extra Specialty: %s"):format(recipe.specialty))
 		end
 
-		if scan_data.quality and scan_data.quality ~= recipe.quality then
-			local QS = private.ITEM_QUALITY_NAMES
-			table.insert(output, ("    Possible wrong quality: Q.%s - should be Q.%s."):format(QS[recipe.quality], QS[scan_data.quality]))
-		end
-
-		if #missing_flags > 0 or #extra_flags > 0 then
+		if #missing_flags > 0 or #extra_flags > 0 or #misc_issues > 0 then
 			table.insert(output, "    Issues which will be resolved with a profession dump:")
 
 			if #missing_flags > 0 then
@@ -1741,6 +1746,10 @@ do
 
 			if #extra_flags > 0 then
 				table.insert(output, "        Extra flags: " .. table.concat(extra_flags, ", "))
+			end
+
+			if #misc_issues > 0 then
+				table.insert(output, "        Miscellaneous issues: " .. table.concat(misc_issues, ", "))
 			end
 
 			-- TODO: Make this work with the new item filters, perhaps?
