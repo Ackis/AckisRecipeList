@@ -14,6 +14,7 @@
 <Include file="Locales\esMX.lua"/>
 <Include file="Locales\ruRU.lua"/>
 <Include file="Locales\ptBR.lua"/>
+<Include file="Locales\itIT.lua"/>
 
 <!--@debug@-->
 <Include file="Locales\devel-enUS.lua"/>
