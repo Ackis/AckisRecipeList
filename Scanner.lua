@@ -1440,7 +1440,7 @@ do
 			elseif text:match(ENCHANT_FORMAT:format("dodge")) or text:match(ENCHANT_FORMAT:format("dodge rating")) then
 				scan_data.tank = true
 			elseif text:match(ENCHANT_FORMAT:format("strength")) then
-				scan_data.tank = true
+				scan_data.dps = true
 			elseif text:match(ENCHANT_FORMAT:format("agility")) then
 				scan_data.dps = true
 			elseif text:match(ENCHANT_FORMAT:format("attack power")) then
