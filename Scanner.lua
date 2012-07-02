@@ -1068,7 +1068,9 @@ do
 				table.insert(output, ("Recipe %d (%s) is missing a recipe item ID."):format(spell_id, recipe.name))
 			elseif recipe:HasFilter("common1", "TRAINER") and recipe.quality ~= private.ITEM_QUALITIES["COMMON"] then
 				table.insert(output, ("%s: %d"):format(recipe.name, spell_id))
-				table.insert(output, ("    Possible wrong quality: Q.%s - should be Q.COMMON."):format(private.ITEM_QUALITY_NAMES[recipe.quality]))
+				table.insert(output, "    Issues which will be resolved with a profession dump:")
+				table.insert(output, ("    Wrong quality: Q.%s - should be Q.COMMON."):format(private.ITEM_QUALITY_NAMES[recipe.quality]))
+				recipe.quality = private.ITEM_QUALITIES["COMMON"]
 			end
 		end
 		ARLDatamineTT:Hide()
