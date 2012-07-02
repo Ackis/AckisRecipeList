@@ -1248,12 +1248,15 @@ do
 		["attack power"] = {
 			"dps",
 		},
+		["block rating"] = {
+			"tank",
+		},
 		["critical strike rating"] = {
 			"caster",
 			"dps",
 			"healer",
 		},
-		["block rating"] = {
+		["dodge"] = {
 			"tank",
 		},
 		["dodge rating"] = {
@@ -1261,9 +1264,6 @@ do
 		},
 		["expertise rating"] = {
 			"dps",
-			"tank",
-		},
-		["parry rating"] = {
 			"tank",
 		},
 		["haste rating"] = {
@@ -1278,6 +1278,9 @@ do
 		["intellect"] = {
 			"caster",
 			"healer",
+		},
+		["parry rating"] = {
+			"tank",
 		},
 		["rage"] = {
 			"dps",
