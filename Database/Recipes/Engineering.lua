@@ -1087,7 +1087,7 @@ function addon:InitEngineering()
 	recipe:SetCraftedItemID(18168)
 	recipe:SetSkillLevels(300, 300, 320, 330, 340)
 	recipe:SetItemFilterType("ENGINEERING_SHIELD")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOP, F.TANK)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOP)
 	recipe:AddCustom("MC_RANDOM")
 
 	-- Red Firework -- 23066
@@ -1137,7 +1137,6 @@ function addon:InitEngineering()
 
 	-- Truesilver Transformer -- 23071
 	recipe = AddRecipe(23071, V.ORIG, Q.COMMON)
-	recipe:SetRecipeItemID(18651)
 	recipe:SetCraftedItemID(18631)
 	recipe:SetSkillLevels(260, 260, 270, 275, 280)
 	recipe:SetItemFilterType("ENGINEERING_MATERIALS")
