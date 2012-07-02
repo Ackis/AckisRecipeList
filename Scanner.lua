@@ -1250,8 +1250,8 @@ do
 		},
 		["critical strike rating"] = {
 			"caster",
-			"healer",
 			"dps",
+			"healer",
 		},
 		["dodge rating"] = {
 			"tank",
@@ -1262,8 +1262,8 @@ do
 		},
 		["haste rating"] = {
 			"caster",
-			"healer",
 			"dps",
+			"healer",
 		},
 		["hit rating"] = {
 			"caster",
@@ -1293,6 +1293,7 @@ do
 		},
 	}
 
+	local ENCHANT_FORMAT = "use: permanently attach (%%a+) %s by"
 	local STAT_PATTERN1 = "(%%d+) %s"
 	local STAT_PATTERN2 = "%s by (%%d+)"
 
@@ -1436,6 +1437,18 @@ do
 				scan_data.tank = true
 			elseif text:match("strength is increased by (%d+)") then
 				scan_data.dps = true
+			elseif text:match(ENCHANT_FORMAT:format("dodge")) or text:match(ENCHANT_FORMAT:format("dodge rating")) then
+				scan_data.tank = true
+			elseif text:match(ENCHANT_FORMAT:format("strength")) then
+				scan_data.tank = true
+			elseif text:match(ENCHANT_FORMAT:format("agility")) then
+				scan_data.dps = true
+			elseif text:match(ENCHANT_FORMAT:format("attack power")) then
+				scan_data.dps = true
+			elseif text:match(ENCHANT_FORMAT:format("critical strike")) or text:match(ENCHANT_FORMAT:format("critical strike rating")) then
+				scan_data.caster = true
+				scan_data.dps = true
+				scan_data.healer = true
 			end
 
 			-- Classes
