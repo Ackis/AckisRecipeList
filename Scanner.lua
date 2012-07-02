@@ -1424,19 +1424,30 @@ do
 				scan_data.caster = true
 			elseif text:match("weapon damage") then
 				scan_data.dps = true
-			elseif text:match("armor pen") then
-				scan_data.dps = true
-			elseif text:match("feral attack power") then
-				scan_data.tank = true
-				scan_data.dps = true
-			elseif text:match("defense") and not text:match("defenseless") then
-				scan_data.tank = true
+			--elseif text:match("armor pen") then
+			--	scan_data.dps = true
+			--elseif text:match("feral attack power") then
+			--	scan_data.tank = true
+			--	scan_data.dps = true
+			--elseif text:match("defense") and not text:match("defenseless") then
+			--	scan_data.tank = true
 			elseif text:match("parry") then
+				scan_data.tank = true
+			elseif text:match("block") then
+				scan_data.tank = true
+			elseif text:match("dodge") then
 				scan_data.tank = true
 			elseif text:match("increases (%a+) health by (%d+)") then
 				scan_data.tank = true
 			elseif text:match("strength is increased by (%d+)") then
 				scan_data.dps = true
+			elseif text:match("agility is increased by (%d+)") then
+				scan_data.dps = true
+			elseif text:match("intellect is increased by (%d+)") then
+				scan_data.caster = true
+			elseif text:match("spirit is increased by (%d+)") then
+				-- Assume that shadow priests, boomkins, and ele shammies don't want +spirit trinkets
+				scan_data.healer = true
 			elseif text:match(ENCHANT_FORMAT:format("dodge")) or text:match(ENCHANT_FORMAT:format("dodge rating")) then
 				scan_data.tank = true
 			elseif text:match(ENCHANT_FORMAT:format("strength")) then
@@ -1448,6 +1459,9 @@ do
 			elseif text:match(ENCHANT_FORMAT:format("critical strike")) or text:match(ENCHANT_FORMAT:format("critical strike rating")) then
 				scan_data.caster = true
 				scan_data.dps = true
+				scan_data.healer = true
+			elseif text:match("spell power") then
+				scan_data.caster = true
 				scan_data.healer = true
 			end
 
