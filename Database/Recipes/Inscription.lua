@@ -3368,8 +3368,8 @@ function addon:InitInscription()
 	recipe = AddRecipe(69385, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(49632)
 	recipe:SetSkillLevels(440, 440, 440, 442, 460)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	recipe:SetItemFilterType("INSCRIPTION_SCROLL")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30709, 30713, 30715, 33603, 33615, 33638, 46716)
 
 	-- Glyph of Mana Shield -- 71101
@@ -3378,7 +3378,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItemID(50045)
 	recipe:SetSkillLevels(250, 250, 255, 260, 265)
 	recipe:SetItemFilterType("INSCRIPTION_MAJOR_GLYPH")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.CASTER, F.MAGE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.MAGE)
 	recipe:AddVendor(28723, 30734, 30735)
 
 	-- Glyph of Lash of Pain -- 71102
@@ -3387,15 +3387,15 @@ function addon:InitInscription()
 	recipe:SetCraftedItemID(50077)
 	recipe:SetSkillLevels(375, 375, 380, 382, 385)
 	recipe:SetItemFilterType("INSCRIPTION_PRIME_GLYPH")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.CASTER, F.WARLOCK)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.WARLOCK)
 	recipe:AddVendor(28723)
 
 	-- Runescroll of Fortitude II -- 85785
 	recipe = AddRecipe(85785, V.CATA, Q.COMMON)
 	recipe:SetCraftedItemID(62251)
 	recipe:SetSkillLevels(500, 500, 505, 510, 515)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE)
 	recipe:SetItemFilterType("INSCRIPTION_SCROLL")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE)
 	recipe:AddTrainer(28702, 30706, 30709, 30711, 30713, 30715, 30717, 33603, 33615, 33638, 46716)
 
 	-- Blackfallow Ink -- 86004
@@ -3585,8 +3585,8 @@ function addon:InitInscription()
 	recipe:SetCraftedItemID(62056)
 	recipe:SetSkillLevels(500, 500, 510, 522, 535)
 	recipe:SetRequiredFaction("Alliance")
-	recipe:AddFilters(F.ALLIANCE, F.TRAINER, F.IBOE, F.RBOE)
 	recipe:SetItemFilterType("INSCRIPTION_CREATED_ITEM")
+	recipe:AddFilters(F.ALLIANCE, F.TRAINER, F.IBOE, F.RBOE)
 	recipe:AddTrainer(28702, 30713, 30715, 30717)
 
 	-- Adventurer's Journal -- 89367
@@ -3657,16 +3657,16 @@ function addon:InitInscription()
 	recipe = AddRecipe(92026, V.CATA, Q.COMMON)
 	recipe:SetCraftedItemID(64670)
 	recipe:SetSkillLevels(75, 75, 90, 100, 110)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE)
 	recipe:SetItemFilterType("INSCRIPTION_MATERIALS")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE)
 	recipe:AddTrainer(28702, 30706, 30709, 30713, 30715, 30717, 33603, 33615, 33638, 46716)
 
 	-- Dust of Disappearance -- 92027
 	recipe = AddRecipe(92027, V.CATA, Q.COMMON)
 	recipe:SetCraftedItemID(63388)
 	recipe:SetSkillLevels(475, 475, 475, 487, 500)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE)
 	recipe:SetItemFilterType("INSCRIPTION_MATERIALS")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE)
 	recipe:AddTrainer(28702, 30706, 30709, 30711, 30713, 30715, 30717, 33603, 33615, 33638, 46716)
 
 	-- Glyph of Blind -- 92579
