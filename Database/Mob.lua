@@ -180,7 +180,7 @@ function addon:InitMob()
 	AddMob(22144,	L["Gordunni Elementalist"],		"Terokkar Forest", 21.3, 12.0)
 
 	-- Southern Barrens
-	AddMob(3444,	L["Dig Rat"],					"Southern Barrens", 47.8, 88.6)
+	AddMob(3444,	L["Dig Rat"],				"Southern Barrens", 47.8, 88.6)
 
 	-- Northern Barrens
 	AddMob(3385,	L["Theramore Marine"],			"Northern Barrens", 71.5, 86.6)

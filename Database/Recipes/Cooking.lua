@@ -743,7 +743,7 @@ function addon:InitCooking()
 	recipe:SetRecipeItemID(27688)
 	recipe:SetCraftedItemID(27655)
 	recipe:SetSkillLevels(300, 300, 320, 330, 340)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.DPS, F.HEALER, F.CASTER)
 	recipe:AddVendor(16585, 16826)
 
 	-- Blackened Basilisk -- 33286
@@ -759,7 +759,7 @@ function addon:InitCooking()
 	recipe:SetRecipeItemID(27691)
 	recipe:SetCraftedItemID(27658)
 	recipe:SetSkillLevels(325, 325, 345, 355, 365)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.DPS)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.DPS, F.HEALER, F.CASTER)
 	recipe:AddVendor(20096, 20097)
 
 	-- Warp Burger -- 33288
@@ -767,7 +767,7 @@ function addon:InitCooking()
 	recipe:SetRecipeItemID(27692)
 	recipe:SetCraftedItemID(27659)
 	recipe:SetSkillLevels(325, 325, 345, 355, 365)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.DPS)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.DPS, F.HEALER, F.CASTER)
 	recipe:AddVendor(18957, 19038)
 
 	-- Talbuk Steak -- 33289
@@ -807,7 +807,7 @@ function addon:InitCooking()
 	recipe:SetRecipeItemID(27697)
 	recipe:SetCraftedItemID(27664)
 	recipe:SetSkillLevels(320, 320, 340, 350, 360)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.DPS)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.DPS, F.HEALER, F.CASTER)
 	recipe:AddVendor(20096, 20097)
 
 	-- Poached Bluefish -- 33294
@@ -895,7 +895,7 @@ function addon:InitCooking()
 	recipe:SetRecipeItemID(33870)
 	recipe:SetCraftedItemID(33825)
 	recipe:SetSkillLevels(325, 325, 335, 345, 355)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.QUEST, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.QUEST, F.IBOE, F.RBOP, F.DPS, F.HEALER, F.CASTER)
 	recipe:AddQuest(11377, 11379, 11380, 11381)
 	recipe:AddCustom("DAILY_COOKING_FISH")
 
@@ -922,7 +922,7 @@ function addon:InitCooking()
 	recipe:SetRecipeItemID(33873)
 	recipe:SetCraftedItemID(33872)
 	recipe:SetSkillLevels(325, 325, 335, 345, 355)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.QUEST, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.QUEST, F.IBOE, F.RBOP, F.DPS, F.HEALER, F.CASTER)
 	recipe:AddQuest(11377, 11379, 11380, 11381)
 	recipe:AddCustom("DAILY_COOKING_MEAT")
 
@@ -931,7 +931,7 @@ function addon:InitCooking()
 	recipe:SetRecipeItemID(33875)
 	recipe:SetCraftedItemID(33874)
 	recipe:SetSkillLevels(300, 300, 345, 355, 365)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.QUEST, F.IBOE, F.RBOP, F.DPS)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.QUEST, F.IBOE, F.RBOP)
 	recipe:AddQuest(11377, 11379, 11380, 11381)
 	recipe:AddCustom("DAILY_COOKING_FISH", "DAILY_COOKING_MEAT")
 
@@ -1016,7 +1016,7 @@ function addon:InitCooking()
 	recipe:SetRecipeItemID(43020)
 	recipe:SetCraftedItemID(34756)
 	recipe:SetSkillLevels(400, 400, 425, 450, 475)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.HEALER, F.CASTER)
 	recipe:AddVendor(31031, 31032, 33595)
 
 	-- Very Burnt Worg -- 45558
@@ -1024,7 +1024,7 @@ function addon:InitCooking()
 	recipe:SetRecipeItemID(43021)
 	recipe:SetCraftedItemID(34757)
 	recipe:SetSkillLevels(400, 400, 425, 450, 475)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.HEALER, F.CASTER)
 	recipe:AddVendor(31031, 31032, 33595)
 
 	-- Mighty Rhino Dogs -- 45559
@@ -1112,7 +1112,7 @@ function addon:InitCooking()
 	recipe:SetRecipeItemID(43026)
 	recipe:SetCraftedItemID(34769)
 	recipe:SetSkillLevels(400, 400, 425, 450, 475)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.HEALER, F.CASTER)
 	recipe:AddVendor(31031, 31032, 33595)
 
 	-- Spicy Blue Nettlefish -- 45571
@@ -1120,7 +1120,7 @@ function addon:InitCooking()
 	recipe:SetRecipeItemID(43025)
 	recipe:SetCraftedItemID(34768)
 	recipe:SetSkillLevels(400, 400, 425, 450, 475)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.HEALER, F.CASTER)
 	recipe:AddVendor(31031, 31032, 33595)
 
 	-- Captain Rumsey's Lager -- 45695
@@ -1171,7 +1171,7 @@ function addon:InitCooking()
 	recipe:SetRecipeItemID(43017)
 	recipe:SetCraftedItemID(43015)
 	recipe:SetSkillLevels(450, 450, 455, 460, 465)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.HEALER, F.CASTER)
 	recipe:AddVendor(31031, 31032, 33595)
 
 	-- Spicy Fried Herring -- 57433
@@ -1203,7 +1203,7 @@ function addon:InitCooking()
 	recipe:SetRecipeItemID(43030)
 	recipe:SetCraftedItemID(42995)
 	recipe:SetSkillLevels(400, 400, 425, 450, 475)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.HEALER, F.CASTER)
 	recipe:AddVendor(31031, 31032, 33595)
 
 	-- Snapper Extreme -- 57437
@@ -1211,7 +1211,7 @@ function addon:InitCooking()
 	recipe:SetRecipeItemID(43031)
 	recipe:SetCraftedItemID(42996)
 	recipe:SetSkillLevels(400, 400, 425, 450, 475)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.CASTER)
 	recipe:AddVendor(31031, 31032, 33595)
 
 	-- Blackened Worg Steak -- 57438
@@ -1235,7 +1235,7 @@ function addon:InitCooking()
 	recipe:SetRecipeItemID(43034)
 	recipe:SetCraftedItemID(43005)
 	recipe:SetSkillLevels(400, 400, 425, 450, 475)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	recipe:AddVendor(31031, 31032, 33595)
 
 	-- Blackened Dragonfin -- 57441
@@ -1362,7 +1362,7 @@ function addon:InitCooking()
 	recipe:SetRecipeItemID(44954)
 	recipe:SetCraftedItemID(44953)
 	recipe:SetSkillLevels(400, 400, 400, 420, 460)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.CASTER)
 	recipe:AddVendor(31031, 31032, 33595)
 
 	-- Clamlette Magnifique -- 64054
@@ -1432,7 +1432,7 @@ function addon:InitCooking()
 	recipe:SetRecipeItemID(65426)
 	recipe:SetCraftedItemID(62661)
 	recipe:SetSkillLevels(500, 500, 515, 520, 525)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.HEALER, F.CASTER)
 	recipe:AddVendor(3027, 4223, 4553, 5160, 49701, 49737)
 
 	-- Basilisk Liverdog -- 88004
@@ -1440,7 +1440,7 @@ function addon:InitCooking()
 	recipe:SetRecipeItemID(65427)
 	recipe:SetCraftedItemID(62665)
 	recipe:SetSkillLevels(500, 500, 515, 520, 525)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.HEALER, F.CASTER)
 	recipe:AddVendor(3027, 4223, 4553, 5160, 49701, 49737)
 
 	-- Beer-Basted Crocolisk -- 88005
@@ -1448,7 +1448,7 @@ function addon:InitCooking()
 	recipe:SetRecipeItemID(65429)
 	recipe:SetCraftedItemID(62670)
 	recipe:SetSkillLevels(500, 500, 515, 520, 525)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS)
 	recipe:AddVendor(3027, 4223, 4553, 5160, 49701, 49737)
 
 	-- Blackened Surprise -- 88006
@@ -1470,7 +1470,7 @@ function addon:InitCooking()
 	recipe:SetRecipeItemID(65411)
 	recipe:SetCraftedItemID(62655)
 	recipe:SetSkillLevels(450, 450, 465, 477, 490)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.HEALER, F.CASTER)
 	recipe:AddVendor(3027, 4223, 4553, 5160, 49701, 49737)
 
 	-- Chocolate Cookie -- 88013
@@ -1486,7 +1486,7 @@ function addon:InitCooking()
 	recipe:SetRecipeItemID(65430)
 	recipe:SetCraftedItemID(62664)
 	recipe:SetSkillLevels(500, 500, 515, 520, 525)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.TANK)
 	recipe:AddVendor(3027, 4223, 4553, 5160, 49701, 49737)
 
 	-- Darkbrew Lager -- 88015
@@ -1501,7 +1501,7 @@ function addon:InitCooking()
 	recipe:SetRecipeItemID(65422)
 	recipe:SetCraftedItemID(62666)
 	recipe:SetSkillLevels(500, 500, 515, 520, 525)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
 	recipe:AddVendor(3027, 4223, 4553, 5160, 49701, 49737)
 
 	-- Feathered Lure -- 88017
@@ -1532,7 +1532,7 @@ function addon:InitCooking()
 	recipe:SetRecipeItemID(65428)
 	recipe:SetCraftedItemID(62662)
 	recipe:SetSkillLevels(500, 500, 515, 520, 525)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.CASTER)
 	recipe:AddVendor(3027, 4223, 4553, 5160, 49701, 49737)
 
 	-- Hearty Seafood Soup -- 88021
@@ -1540,7 +1540,7 @@ function addon:InitCooking()
 	recipe:SetRecipeItemID(65418)
 	recipe:SetCraftedItemID(62659)
 	recipe:SetSkillLevels(475, 475, 490, 497, 505)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS)
 	recipe:AddVendor(3027, 4223, 4553, 5160, 49701, 49737)
 
 	-- Highland Spirits -- 88022
@@ -1556,7 +1556,7 @@ function addon:InitCooking()
 	recipe:SetRecipeItemID(65407)
 	recipe:SetCraftedItemID(62654)
 	recipe:SetSkillLevels(450, 450, 465, 477, 490)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.TANK)
 	recipe:AddVendor(3027, 4223, 4553, 5160, 49701, 49737)
 
 	-- Lavascale Minestrone -- 88025
@@ -1572,7 +1572,7 @@ function addon:InitCooking()
 	recipe:SetRecipeItemID(65412)
 	recipe:SetCraftedItemID(62651)
 	recipe:SetSkillLevels(450, 450, 465, 477, 490)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.HEALER, F.CASTER)
 	recipe:AddVendor(3027, 4223, 4553, 5160, 49701, 49737)
 
 	-- Lurker Lunch -- 88030
@@ -1580,7 +1580,7 @@ function addon:InitCooking()
 	recipe:SetRecipeItemID(65416)
 	recipe:SetCraftedItemID(62657)
 	recipe:SetSkillLevels(450, 450, 465, 477, 490)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.TANK)
 	recipe:AddVendor(3027, 4223, 4553, 5160, 49701, 49737)
 
 	-- Mushroom Sauce Mudfish -- 88031
@@ -1588,7 +1588,7 @@ function addon:InitCooking()
 	recipe:SetRecipeItemID(65420)
 	recipe:SetCraftedItemID(62667)
 	recipe:SetSkillLevels(500, 500, 515, 520, 525)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.TANK)
 	recipe:AddVendor(3027, 4223, 4553, 5160, 49701, 49737)
 
 	-- Pickled Guppy -- 88033
@@ -1596,7 +1596,7 @@ function addon:InitCooking()
 	recipe:SetRecipeItemID(65417)
 	recipe:SetCraftedItemID(62660)
 	recipe:SetSkillLevels(475, 475, 490, 497, 505)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
 	recipe:AddVendor(3027, 4223, 4553, 5160, 49701, 49737)
 
 	-- Blackbelly Sushi -- 88034
@@ -1604,7 +1604,7 @@ function addon:InitCooking()
 	recipe:SetRecipeItemID(65424)
 	recipe:SetCraftedItemID(62668)
 	recipe:SetSkillLevels(500, 500, 515, 520, 525)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.TANK)
 	recipe:AddVendor(3027, 4223, 4553, 5160, 49701, 49737)
 
 	-- Salted Eye -- 88035
@@ -1627,7 +1627,7 @@ function addon:InitCooking()
 	recipe:SetRecipeItemID(65413)
 	recipe:SetCraftedItemID(62652)
 	recipe:SetSkillLevels(450, 450, 465, 477, 490)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.CASTER)
 	recipe:AddVendor(3027, 4223, 4553, 5160, 49701, 49737)
 
 	-- Severed Sagefish Head -- 88039
@@ -1635,7 +1635,7 @@ function addon:InitCooking()
 	recipe:SetRecipeItemID(65421)
 	recipe:SetCraftedItemID(62671)
 	recipe:SetSkillLevels(500, 500, 515, 520, 525)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
 	recipe:AddVendor(3027, 4223, 4553, 5160, 49701, 49737)
 
 	-- Skewered Eel -- 88042
@@ -1643,7 +1643,7 @@ function addon:InitCooking()
 	recipe:SetRecipeItemID(65425)
 	recipe:SetCraftedItemID(62669)
 	recipe:SetSkillLevels(500, 500, 515, 520, 525)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS)
 	recipe:AddVendor(3027, 4223, 4553, 5160, 49701, 49737)
 
 	-- South Island Iced Tea -- 88044
@@ -1667,7 +1667,7 @@ function addon:InitCooking()
 	recipe:SetRecipeItemID(65419)
 	recipe:SetCraftedItemID(62658)
 	recipe:SetSkillLevels(475, 475, 490, 497, 505)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS)
 	recipe:AddVendor(3027, 4223, 4553, 5160, 49701, 49737)
 
 	-- Whitecrest Gumbo -- 88047
@@ -1675,7 +1675,7 @@ function addon:InitCooking()
 	recipe:SetRecipeItemID(65406)
 	recipe:SetCraftedItemID(62656)
 	recipe:SetSkillLevels(450, 450, 465, 477, 490)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
 	recipe:AddVendor(3027, 4223, 4553, 5160, 49701, 49737)
 
 	-- Venison Jerky -- 93741
