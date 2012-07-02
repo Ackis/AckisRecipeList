@@ -1241,6 +1241,61 @@ do
 --		[23]	= "Fist Weapon", 	[24]	= "Gun",
 --	}
 
+	local ROLE_STAT_MATCHES = {
+		["agility"] = {
+			"dps",
+		},
+		["attack power"] = {
+			"dps",
+		},
+		["critical strike rating"] = {
+			"caster",
+			"healer",
+			"dps",
+		},
+		["dodge rating"] = {
+			"tank",
+		},
+		["expertise rating"] = {
+			"dps",
+			"tank",
+		},
+		["haste rating"] = {
+			"caster",
+			"healer",
+			"dps",
+		},
+		["hit rating"] = {
+			"caster",
+			"dps",
+		},
+		["intellect"] = {
+			"caster",
+			"healer",
+		},
+		["rage"] = {
+			"dps",
+			"tank",
+		},
+		["spell penetration"] = {
+			"caster",
+		},
+		["spell power"] = {
+			"caster",
+			"healer",
+		},
+		["spirit"] = {
+			"caster",
+			"healer",
+		},
+		["strength"] = {
+			"dps",
+		},
+	}
+
+	local STAT_PATTERN1 = "(%%d+) %s"
+	local STAT_PATTERN2 = "%s by (%%d+)"
+
 	--- Parses the mining tooltip for certain keywords, comparing them with the database flags
 	-- @name AckisRecipeList:ScanTooltip
 	-- @param recipe_name The name of the recipe
@@ -1249,11 +1304,6 @@ do
 	-- @param is_vendor Boolean to indicate if we're scanning a vendor
 	-- @return Scans a tooltip, and outputs the missing or extra filter flags
 	function addon:ScanTooltip(recipe_name, recipe_list, reverse_lookup, is_vendor)
-		-- Flag so that we don't bother checking for roles if we're sure of the role
-		-- AKA +spell hit == caster DPS only no matter what other stats are on it
-		-- Saves processing cycles and it won't cause the flags to be overwritten if a non-specific stat is found after
-		local found_role = false
-
 		scan_data.match_name = recipe_name
 		scan_data.recipe_list = recipe_list
 		scan_data.reverse_lookup = reverse_lookup
@@ -1357,77 +1407,35 @@ do
 --				recipe:SetItemFilterType("INSCRIPTION_RELIC")
 --			end
 
-			if not found_role then
-				-- Certain stats can be considered for a specific role (aka spell hit == caster dps).
-				if text:match("strength") and not text:match("strength of the clefthoof") and not text:match("set:") then
-					scan_data.dps = true
-				elseif text:match("agility") then
-					scan_data.dps = true
-				elseif text:match("spirit") or text:match("intellect") then
-					scan_data.caster = true
-					scan_data.healer = true
-				elseif text:match("spell power") then
-					scan_data.caster = true
-					scan_data.healer = true
-				elseif text:match("spell crit") then
-					scan_data.caster = true
-					scan_data.healer = true
-				elseif text:match("spell hit") then
-					scan_data.caster = true
-					found_role = true
-				elseif text:match("spell penetration") then
-					scan_data.caster = true
-					found_role = true
-				elseif text:match("mana per 5 sec.") or text:match("mana every 5 seconds") then
-					scan_data.caster = true
-					scan_data.healer = true
-				elseif text:match("attack power") then
-					scan_data.dps = true
-				elseif text:match("expertise") then
-					scan_data.dps = true
-					scan_data.tank = true
-				elseif text:match("melee crit") then
-					scan_data.dps = true
-				elseif text:match("critical hit") then
-					scan_data.dps = true
-				elseif text:match("weapon damage") then
-					scan_data.dps = true
-				elseif text:match("ranged crit") then
-					scan_data.dps = true
-					found_role = true
-				elseif text:match("melee haste") then
-					scan_data.dps = true
-				elseif text:match("ranged haste") then
-					scan_data.dps = true
-					found_role = true
-				elseif text:match("melee hit") then
-					scan_data.dps = true
-				elseif text:match("ranged hit") then
-					scan_data.dps = true
-					found_role = true
-				elseif text:match("armor pen") then
-					scan_data.dps = true
-				elseif text:match("feral attack power") then
-					scan_data.tank = true
-					scan_data.dps = true
-				elseif text:match("defense") and not text:match("defenseless") then
-					scan_data.tank = true
-					found_role = true
-				elseif text:match("block") then
-					scan_data.tank = true
-					found_role = true
-				elseif text:match("parry") then
-					scan_data.tank = true
-					found_role = true
-				elseif text:match("dodge") and not text:match("set:") then
-					scan_data.tank = true
-					found_role = true
-				elseif text:match("(%d+) rage") then
-					scan_data.tank = true
-					scan_data.dps = true
-				elseif text:match("increases (%a+) health by (%d+)") then
-					scan_data.tank = true
+			for stat, roles in pairs(ROLE_STAT_MATCHES) do
+				if text:match(STAT_PATTERN1:format(stat)) or text:match(STAT_PATTERN2:format(stat)) then
+					for index = 1, #roles do
+						scan_data[roles[index]] = true
+					end
 				end
+			end
+
+			-- Special cases.
+			-- TODO: Some or all of these may not even exist anymore.
+			if text:match("block") then
+				scan_data.tank = true
+			elseif text:match("spell penetration") then
+				scan_data.caster = true
+			elseif text:match("weapon damage") then
+				scan_data.dps = true
+			elseif text:match("armor pen") then
+				scan_data.dps = true
+			elseif text:match("feral attack power") then
+				scan_data.tank = true
+				scan_data.dps = true
+			elseif text:match("defense") and not text:match("defenseless") then
+				scan_data.tank = true
+			elseif text:match("parry") then
+				scan_data.tank = true
+			elseif text:match("increases (%a+) health by (%d+)") then
+				scan_data.tank = true
+			elseif text:match("strength is increased by (%d+)") then
+				scan_data.dps = true
 			end
 
 			-- Classes
@@ -1520,6 +1528,7 @@ do
 
 		table.wipe(missing_flags)
 		table.wipe(extra_flags)
+		table.wipe(misc_issues)
 		table.wipe(output)
 
 		-------------------------------------------------------------------------------
