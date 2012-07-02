@@ -304,7 +304,7 @@ function addon:InitEngineering()
 	recipe:SetCraftedItemID(4388)
 	recipe:SetSkillLevels(160, 160, 180, 190, 200)
 	recipe:SetItemFilterType("ENGINEERING_CREATED_ITEM")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.INSTANCE, F.MOB_DROP, F.IBOE, F.RBOE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.INSTANCE, F.MOB_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
 	recipe:AddMobDrop(7800)
 
 	-- Portable Bronze Mortar -- 3960
@@ -1043,7 +1043,7 @@ function addon:InitEngineering()
 	recipe:SetCraftedItemID(16007)
 	recipe:SetSkillLevels(300, 300, 320, 330, 340)
 	recipe:SetItemFilterType("ENGINEERING_GUN")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOE, F.RBOE, F.DPS)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOE, F.RBOE, F.DPS, F.HEALER, F.CASTER)
 	recipe:AddMobDrop(8561)
 
 	-- Snowmaster 9000 -- 21940
@@ -1069,7 +1069,7 @@ function addon:InitEngineering()
 	recipe:SetCraftedItemID(18283)
 	recipe:SetSkillLevels(300, 300, 320, 330, 340)
 	recipe:SetItemFilterType("ENGINEERING_ITEM_ENHANCEMENT")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOP, F.DPS)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOP, F.DPS, F.CASTER)
 	recipe:AddCustom("MC_RANDOM")
 
 	-- Core Marksman Rifle -- 22795
@@ -1252,7 +1252,7 @@ function addon:InitEngineering()
 	recipe:SetCraftedItemID(19999)
 	recipe:SetSkillLevels(300, 300, 320, 330, 340)
 	recipe:SetItemFilterType("ENGINEERING_HEAD")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOE, F.RBOP, F.DPS, F.HEALER, F.CASTER)
 	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Bloodvine Lens -- 24357
@@ -1261,7 +1261,7 @@ function addon:InitEngineering()
 	recipe:SetCraftedItemID(19998)
 	recipe:SetSkillLevels(300, 300, 320, 330, 340)
 	recipe:SetItemFilterType("ENGINEERING_HEAD")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOE, F.RBOP)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOE, F.RBOP, F.DPS, F.HEALER, F.CASTER)
 	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Tranquil Mechanical Yeti -- 26011
@@ -1519,7 +1519,7 @@ function addon:InitEngineering()
 	recipe:SetCraftedItemID(23747)
 	recipe:SetSkillLevels(360, 360, 370, 380, 390)
 	recipe:SetItemFilterType("ENGINEERING_GUN")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOE, F.RBOP)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOE, F.RBOP, F.DPS, F.HEALER, F.CASTER)
 	recipe:AddMobDrop(19960)
 
 	-- Ornate Khorium Rifle -- 30315
@@ -1528,7 +1528,7 @@ function addon:InitEngineering()
 	recipe:SetCraftedItemID(23748)
 	recipe:SetSkillLevels(375, 375, 385, 395, 405)
 	recipe:SetItemFilterType("ENGINEERING_GUN")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.CASTER)
 	recipe:AddWorldDrop("Outland")
 
 	-- Cogspinner Goggles -- 30316
@@ -1546,7 +1546,7 @@ function addon:InitEngineering()
 	recipe:SetCraftedItemID(23761)
 	recipe:SetSkillLevels(340, 340, 350, 360, 370)
 	recipe:SetItemFilterType("ENGINEERING_HEAD")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.HEALER, F.CASTER)
 	recipe:AddWorldDrop("Outland")
 
 	-- Ultra-Spectropic Detection Goggles -- 30318
@@ -1555,7 +1555,7 @@ function addon:InitEngineering()
 	recipe:SetCraftedItemID(23762)
 	recipe:SetSkillLevels(350, 350, 360, 370, 380)
 	recipe:SetItemFilterType("ENGINEERING_HEAD")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.DPS, F.HEALER, F.CASTER)
 	recipe:AddVendor(18775)
 	recipe:AddLimitedVendor(19383, 1)
 
@@ -1565,7 +1565,7 @@ function addon:InitEngineering()
 	recipe:SetCraftedItemID(23763)
 	recipe:SetSkillLevels(360, 360, 370, 380, 390)
 	recipe:SetItemFilterType("ENGINEERING_HEAD")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOE, F.RBOP, F.DPS)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOE, F.RBOP, F.DPS, F.CASTER)
 	recipe:AddMobDrop(19755)
 
 	-- Adamantite Scope -- 30329
@@ -1592,7 +1592,7 @@ function addon:InitEngineering()
 	recipe:SetCraftedItemID(23766)
 	recipe:SetSkillLevels(375, 375, 385, 395, 405)
 	recipe:SetItemFilterType("ENGINEERING_ITEM_ENHANCEMENT")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.MOB_DROP, F.IBOE, F.RBOP)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.MOB_DROP, F.IBOE, F.RBOP, F.DPS, F.HEALER, F.CASTER)
 	recipe:AddMobDrop(16152)
 
 	-- Crashin' Thrashin' Robot -- 30337
@@ -2037,7 +2037,7 @@ function addon:InitEngineering()
 	recipe:SetCraftedItemID(34354)
 	recipe:SetSkillLevels(375, 375, 390, 410, 430)
 	recipe:SetItemFilterType("ENGINEERING_HEAD")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOP, F.RBOP, F.DPS, F.DK, F.PALADIN, F.WARRIOR)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOP, F.RBOE, F.DPS, F.HEALER, F.CASTER, F.DK, F.PALADIN, F.WARRIOR)
 	recipe:AddCustom("SUNWELL_RANDOM")
 
 	-- Hard Khorium Goggles -- 46115
@@ -2779,7 +2779,7 @@ function addon:InitEngineering()
 	recipe:SetCraftedItemID(70139)
 	recipe:SetSkillLevels(515, 515, 525, 530, 535)
 	recipe:SetItemFilterType("ENGINEERING_ITEM_ENHANCEMENT")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.HUNTER)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.HUNTER)
 	recipe:AddVendor(53214)
 
 	-- Extreme-Impact Hole Puncher -- 100687
@@ -2788,7 +2788,7 @@ function addon:InitEngineering()
 	recipe:SetCraftedItemID(71077)
 	recipe:SetSkillLevels(525, 525, 525, 525, 525)
 	recipe:SetItemFilterType("ENGINEERING_GUN")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.HEALER, F.CASTER)
 	recipe:AddVendor(53214)
 
 	self.InitEngineering = nil
