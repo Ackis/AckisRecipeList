@@ -2747,7 +2747,7 @@ function addon:InitEnchanting()
 	recipe:SetSkillLevels(515, 515, 525, 530, 535)
 	recipe:SetItemFilterType("ENCHANTING_MISC")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP)
-	recipe:AddTrainer(1317, 3011)
+	recipe:AddTrainer(1317, 3011, 3345)
 
 	self.InitEnchanting = nil
 end

@@ -863,12 +863,10 @@ function addon:InitEngineering()
 
 	-- The Mortar: Reloaded -- 13240
 	recipe = AddRecipe(13240, V.ORIG, Q.COMMON)
-	recipe:SetCraftedItemID(10577)
 	recipe:SetSkillLevels(205, 205, 205, 205, 205)
 	recipe:SetSpecialty(20222)
 	recipe:SetItemFilterType("ENGINEERING_TRINKET")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.RETIRED, F.IBOE, F.RBOP)
-	recipe:AddTrainer(45545)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOE, F.RBOP)
 	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Mechanical Repair Kit -- 15255
