@@ -1422,6 +1422,9 @@ do
 				scan_data.tank = true
 			elseif text:match("spell penetration") then
 				scan_data.caster = true
+				--scan_data.pvp = true
+			elseif text:match("resilience") then
+				--scan_data.pvp = true
 			elseif text:match("weapon damage") then
 				scan_data.dps = true
 			--elseif text:match("armor pen") then
