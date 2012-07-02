@@ -1253,11 +1253,17 @@ do
 			"dps",
 			"healer",
 		},
+		["block rating"] = {
+			"tank",
+		},
 		["dodge rating"] = {
 			"tank",
 		},
 		["expertise rating"] = {
 			"dps",
+			"tank",
+		},
+		["parry rating"] = {
 			"tank",
 		},
 		["haste rating"] = {
@@ -1277,8 +1283,12 @@ do
 			"dps",
 			"tank",
 		},
+--		["resilience"] = {
+--			"pvp",
+--		},
 		["spell penetration"] = {
 			"caster",
+--			"pvp",
 		},
 		["spell power"] = {
 			"caster",
@@ -1418,14 +1428,7 @@ do
 
 			-- Special cases.
 			-- TODO: Some or all of these may not even exist anymore.
-			if text:match("block") then
-				scan_data.tank = true
-			elseif text:match("spell penetration") then
-				scan_data.caster = true
-				--scan_data.pvp = true
-			elseif text:match("resilience") then
-				--scan_data.pvp = true
-			elseif text:match("weapon damage") then
+			if text:match("weapon damage") then
 				scan_data.dps = true
 			--elseif text:match("armor pen") then
 			--	scan_data.dps = true
@@ -1434,12 +1437,6 @@ do
 			--	scan_data.dps = true
 			--elseif text:match("defense") and not text:match("defenseless") then
 			--	scan_data.tank = true
-			elseif text:match("parry") then
-				scan_data.tank = true
-			elseif text:match("block") then
-				scan_data.tank = true
-			elseif text:match("dodge") then
-				scan_data.tank = true
 			elseif text:match("increases (%a+) health by (%d+)") then
 				scan_data.tank = true
 			elseif text:match("strength is increased by (%d+)") then
@@ -1462,9 +1459,6 @@ do
 			elseif text:match(ENCHANT_FORMAT:format("critical strike")) or text:match(ENCHANT_FORMAT:format("critical strike rating")) then
 				scan_data.caster = true
 				scan_data.dps = true
-				scan_data.healer = true
-			elseif text:match("spell power") then
-				scan_data.caster = true
 				scan_data.healer = true
 			end
 
