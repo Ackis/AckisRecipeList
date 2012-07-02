@@ -3783,7 +3783,7 @@ function addon:InitInscription()
 
 	-- Vicious Charm of Triumph -- 99547
 	recipe = AddRecipe(99547, V.CATA, Q.COMMON)
-	recipe:SetCraftedItemID(70077)
+	recipe:SetCraftedItemID(75079)
 	recipe:SetSkillLevels(510, 510, 520, 525, 530)
 	recipe:SetItemFilterType("INSCRIPTION_RELIC")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
@@ -3791,7 +3791,7 @@ function addon:InitInscription()
 
 	-- Vicious Eyeball of Dominance -- 99548
 	recipe = AddRecipe(99548, V.CATA, Q.COMMON)
-	recipe:SetCraftedItemID(70078)
+	recipe:SetCraftedItemID(75066)
 	recipe:SetSkillLevels(510, 510, 520, 525, 530)
 	recipe:SetItemFilterType("INSCRIPTION_RELIC")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
@@ -3799,7 +3799,7 @@ function addon:InitInscription()
 
 	-- Vicious Jawbone of Conquest -- 99549
 	recipe = AddRecipe(99549, V.CATA, Q.COMMON)
-	recipe:SetCraftedItemID(70079)
+	recipe:SetCraftedItemID(75069)
 	recipe:SetSkillLevels(510, 510, 520, 525, 530)
 	recipe:SetItemFilterType("INSCRIPTION_RELIC")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
