@@ -283,7 +283,7 @@ function addon:InitCooking()
 	recipe:AddVendor(3482)
 
 	-- Dig Rat Stew -- 6417
-	recipe = AddRecipe(6417, V.WOTLK, Q.COMMON)
+	recipe = AddRecipe(6417, V.WOTLK, Q.UNCOMMON)
 	recipe:SetRecipeItemID(78342)
 	recipe:SetCraftedItemID(5478)
 	recipe:SetSkillLevels(90, 90, 130, 150, 170)
