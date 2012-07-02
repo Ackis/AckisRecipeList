@@ -860,7 +860,7 @@ function addon:InitLeatherworking()
 
 	-- Tough Scorpid Breastplate -- 10525
 	recipe = AddRecipe(10525, V.ORIG, Q.UNCOMMON)
-	recipe:SetRecipeItemID(8395)
+	recipe:SetRecipeItemID(72029)
 	recipe:SetCraftedItemID(8203)
 	recipe:SetSkillLevels(220, 220, 240, 250, 260)
 	recipe:SetItemFilterType("LEATHERWORKING_CHEST")
@@ -887,7 +887,7 @@ function addon:InitLeatherworking()
 
 	-- Tough Scorpid Bracers -- 10533
 	recipe = AddRecipe(10533, V.ORIG, Q.UNCOMMON)
-	recipe:SetRecipeItemID(8397)
+	recipe:SetRecipeItemID(72026)
 	recipe:SetCraftedItemID(8205)
 	recipe:SetSkillLevels(220, 220, 240, 250, 260)
 	recipe:SetItemFilterType("LEATHERWORKING_WRIST")
@@ -896,7 +896,7 @@ function addon:InitLeatherworking()
 
 	-- Tough Scorpid Gloves -- 10542
 	recipe = AddRecipe(10542, V.ORIG, Q.UNCOMMON)
-	recipe:SetRecipeItemID(8398)
+	recipe:SetRecipeItemID(72025)
 	recipe:SetCraftedItemID(8204)
 	recipe:SetSkillLevels(225, 225, 245, 255, 265)
 	recipe:SetItemFilterType("LEATHERWORKING_HANDS")
@@ -939,7 +939,7 @@ function addon:InitLeatherworking()
 
 	-- Tough Scorpid Boots -- 10554
 	recipe = AddRecipe(10554, V.ORIG, Q.UNCOMMON)
-	recipe:SetRecipeItemID(8399)
+	recipe:SetRecipeItemID(72028)
 	recipe:SetCraftedItemID(8209)
 	recipe:SetSkillLevels(235, 235, 255, 265, 275)
 	recipe:SetItemFilterType("LEATHERWORKING_FEET")
@@ -982,7 +982,7 @@ function addon:InitLeatherworking()
 
 	-- Tough Scorpid Shoulders -- 10564
 	recipe = AddRecipe(10564, V.ORIG, Q.UNCOMMON)
-	recipe:SetRecipeItemID(8400)
+	recipe:SetRecipeItemID(72027)
 	recipe:SetCraftedItemID(8207)
 	recipe:SetSkillLevels(240, 240, 260, 270, 280)
 	recipe:SetItemFilterType("LEATHERWORKING_SHOULDER")
@@ -1000,7 +1000,7 @@ function addon:InitLeatherworking()
 
 	-- Tough Scorpid Leggings -- 10568
 	recipe = AddRecipe(10568, V.ORIG, Q.UNCOMMON)
-	recipe:SetRecipeItemID(8401)
+	recipe:SetRecipeItemID(72030)
 	recipe:SetCraftedItemID(8206)
 	recipe:SetSkillLevels(245, 245, 265, 275, 285)
 	recipe:SetItemFilterType("LEATHERWORKING_LEGS")
@@ -1009,7 +1009,7 @@ function addon:InitLeatherworking()
 
 	-- Tough Scorpid Helm -- 10570
 	recipe = AddRecipe(10570, V.ORIG, Q.UNCOMMON)
-	recipe:SetRecipeItemID(8402)
+	recipe:SetRecipeItemID(72033)
 	recipe:SetCraftedItemID(8208)
 	recipe:SetSkillLevels(250, 250, 270, 280, 290)
 	recipe:SetItemFilterType("LEATHERWORKING_HEAD")
