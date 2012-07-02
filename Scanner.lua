@@ -1695,7 +1695,7 @@ do
 
 		if scan_data.quality and scan_data.quality ~= recipe.quality then
 			local QS = private.ITEM_QUALITY_NAMES
-			table.insert(misc_issues, ("    Wrong quality: Q.%s - should be Q.%s."):format(QS[recipe.quality], QS[scan_data.quality]))
+			table.insert(misc_issues, ("Wrong quality: Q.%s - should be Q.%s."):format(QS[recipe.quality], QS[scan_data.quality]))
 			recipe.quality = scan_data.quality
 		end
 
