@@ -1836,7 +1836,7 @@ function addon:InitEngineering()
 	recipe:SetSkillLevels(350, 350, 370, 380, 390)
 	recipe:SetItemFilterType("ENGINEERING_HEAD")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.DPS, F.PALADIN, F.WARRIOR)
-	recipe:AddTrainer(5518, 17634, 17637, 18752, 18775, 19576, 25277, 26955, 28697, 33586)
+	recipe:AddTrainer(5518, 17634, 17637, 18752, 18775, 19576, 25277, 26955, 28697, 33586, 45545)
 
 	-- Gyro-balanced Khorium Destroyer -- 41307
 	recipe = AddRecipe(41307, V.TBC, Q.COMMON)
@@ -1860,7 +1860,7 @@ function addon:InitEngineering()
 	recipe:SetSkillLevels(350, 350, 370, 380, 390)
 	recipe:SetItemFilterType("ENGINEERING_HEAD")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.TANK, F.PALADIN, F.WARRIOR)
-	recipe:AddTrainer(5518, 17634, 17637, 18752, 18775, 19576, 25277, 26907, 26955, 26991, 28697, 33586)
+	recipe:AddTrainer(5518, 17634, 17637, 18752, 18775, 19576, 25277, 26907, 26955, 26991, 28697, 33586, 45545)
 
 	-- Surestrike Goggles v2.0 -- 41314
 	recipe = AddRecipe(41314, V.TBC, Q.COMMON)
@@ -2300,7 +2300,7 @@ function addon:InitEngineering()
 	recipe:SetSkillLevels(440, 440, 450, 455, 460)
 	recipe:SetItemFilterType("ENGINEERING_HEAD")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.DPS, F.TANK, F.DK, F.PALADIN, F.WARRIOR)
-	recipe:AddTrainer(5518, 25277, 26907, 26955, 26991, 28697, 33586)
+	recipe:AddTrainer(5518, 25277, 26907, 26955, 26991, 28697, 33586, 45545)
 
 	-- Weakness Spectralizers -- 56481
 	recipe = AddRecipe(56481, V.WOTLK, Q.COMMON)
@@ -2316,7 +2316,7 @@ function addon:InitEngineering()
 	recipe:SetSkillLevels(440, 440, 450, 455, 460)
 	recipe:SetItemFilterType("ENGINEERING_HEAD")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.DPS, F.DK, F.PALADIN, F.WARRIOR)
-	recipe:AddTrainer(5518, 25277, 26907, 26955, 26991, 28697, 33586)
+	recipe:AddTrainer(5518, 25277, 26907, 26955, 26991, 28697, 33586, 45545)
 
 	-- Visage Liquification Goggles -- 56484
 	recipe = AddRecipe(56484, V.WOTLK, Q.COMMON)
@@ -2401,7 +2401,7 @@ function addon:InitEngineering()
 	recipe:SetSkillLevels(420, 420, 425, 432, 440)
 	recipe:SetItemFilterType("ENGINEERING_HEAD")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DRUID, F.ROGUE)
-	recipe:AddTrainer(5518, 25277, 26907, 26955, 26991, 28697, 33586)
+	recipe:AddTrainer(5518, 25277, 26907, 26955, 26991, 28697, 33586, 45545)
 
 	-- Mechanized Snow Goggles -- 61482
 	recipe = AddRecipe(61482, V.WOTLK, Q.COMMON)
@@ -2409,7 +2409,7 @@ function addon:InitEngineering()
 	recipe:SetSkillLevels(420, 420, 425, 432, 440)
 	recipe:SetItemFilterType("ENGINEERING_HEAD")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HUNTER, F.SHAMAN)
-	recipe:AddTrainer(5518, 25277, 26907, 26955, 26991, 28697, 33586)
+	recipe:AddTrainer(5518, 25277, 26907, 26955, 26991, 28697, 33586, 45545)
 
 	-- Mechanized Snow Goggles -- 61483
 	recipe = AddRecipe(61483, V.WOTLK, Q.COMMON)
@@ -2417,7 +2417,7 @@ function addon:InitEngineering()
 	recipe:SetSkillLevels(420, 420, 425, 432, 440)
 	recipe:SetItemFilterType("ENGINEERING_HEAD")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DK, F.PALADIN, F.WARRIOR)
-	recipe:AddTrainer(5518, 25277, 26907, 26955, 26991, 28697, 33586)
+	recipe:AddTrainer(5518, 25277, 26907, 26955, 26991, 28697, 33586, 45545)
 
 	-- Unbreakable Healing Amplifiers -- 62271
 	recipe = AddRecipe(62271, V.WOTLK, Q.COMMON)
@@ -2479,7 +2479,7 @@ function addon:InitEngineering()
 	recipe:SetSkillLevels(525, 525, 525, 530, 535)
 	recipe:SetItemFilterType("ENGINEERING_HEAD")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.PALADIN, F.WARRIOR)
-	recipe:AddTrainer(5518, 11017)
+	recipe:AddTrainer(5518, 11017, 45545)
 
 	-- Specialized Bio-Optic Killshades -- 81715
 	recipe = AddRecipe(81715, V.CATA, Q.COMMON)
