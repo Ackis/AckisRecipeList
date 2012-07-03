@@ -1675,7 +1675,7 @@ do
 		-- Things which will only be warned about.
 		-------------------------------------------------------------------------------
 		if not recipe:ItemFilterType() then
-			table.insert(general_issues, "Missing item filter type.")
+			table.insert(output, "Missing item filter type.")
 		end
 
 		-- Check to see if we have a horde/alliance flag,  all recipes must have one of these
