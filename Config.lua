@@ -435,7 +435,7 @@ local function GetDatamineOptions()
 					name = L["Scan A Spell ID"],
 					desc = L["SCAN_SPELL_ID_DESC"],
 					get = false,
-					set = function(info, v) addon:TooltipScanRecipe(tonumber(v),false,false) end,
+					set = function(info, v) addon:ScanTooltipRecipe(tonumber(v), false, false) end,
 				},
 				null2 = {
 					order	= 80,

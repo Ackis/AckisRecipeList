@@ -483,10 +483,10 @@ do
 
 		-- Parse the entire recipe database
 		for index, id in ipairs(addon.sorted_recipes) do
-			local ttscantext = addon:TooltipScanRecipe(id, false, true)
+			local scanned_text = addon:ScanTooltipRecipe(id, false, true)
 
-			if ttscantext and ttscantext ~= "" then
-				table.insert(output, ttscantext)
+			if scanned_text and scanned_text ~= "" then
+				table.insert(output, scanned_text)
 			end
 		end
 
@@ -820,7 +820,7 @@ do
 					local spell_id = RECIPE_ITEM_TO_SPELL_MAP[item_id]
 
 					if spell_id then
-						local scanned_text = addon:TooltipScanRecipe(spell_id, true, true)
+						local scanned_text = addon:ScanTooltipRecipe(spell_id, true, true)
 
 						if scanned_text and scanned_text ~= "" then
 							table.insert(output, scanned_text)
@@ -874,17 +874,17 @@ do
 
 		-- Parse the entire recipe database
 		for i in pairs(recipe_list) do
-			local ttscantext = addon:TooltipScanRecipe(i, false, true)
+			local scanned_text = addon:ScanTooltipRecipe(i, false, true)
 
-			if ttscantext then
-				table.insert(output, ttscantext)
+			if scanned_text then
+				table.insert(output, scanned_text)
 			end
 		end
 		self:DisplayTextDump(nil, nil, table.concat(output, "\n"))
 	end
 end	-- do
 --- Parses a specific recipe in the database, and scanning its tooltip
--- @name AckisRecipeList:TooltipScanRecipe
+-- @name AckisRecipeList:ScanTooltipRecipe
 -- @param spell_id The [[[http://www.wowpedia.org/SpellLink|Spell ID]]] of the recipe being added to the database
 -- @param is_vendor Boolean to determine if we're viewing a vendor or not
 -- @param is_largescan Boolean to determine if we're doing a large scan
@@ -964,7 +964,7 @@ do
 
 	local output = {}
 
-	function addon:TooltipScanRecipe(spell_id, is_vendor, is_largescan)
+	function addon:ScanTooltipRecipe(spell_id, is_vendor, is_largescan)
 		local recipe_list = LoadAllRecipes()
 
 		if not recipe_list then
