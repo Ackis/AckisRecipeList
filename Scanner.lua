@@ -1076,7 +1076,7 @@ do
 		ARLDatamineTT:Hide()
 
 		-- Add the flag scan to the table if it's not nil
-		local results = self:PrintScanResults()
+		local results = self:ProcessScanData()
 
 		if results then
 			table.insert(output, results)
@@ -1527,8 +1527,8 @@ do
 	}
 
 	--- Prints out the results of the tooltip scan.
-	-- @name AckisRecipeList:PrintScanResults
-	function addon:PrintScanResults()
+	-- @name AckisRecipeList:ProcessScanData
+	function addon:ProcessScanData()
 		if not scan_data.match_name then
 			return
 		end
@@ -1557,13 +1557,10 @@ do
 		-------------------------------------------------------------------------------
 		-- If we're a vendor scan,  do some extra checks
 		if scan_data.is_vendor then
-			-- Check to see if the vendor flag is set
 			if not recipe:HasFilter("common1", "VENDOR") and not recipe:HasFilter("common1", "SEASONAL") then
 				recipe:AddFilters(F.VENDOR)
 				table.insert(missing_flags, flag_format:format(FS[F.VENDOR]))
 			end
-
-			-- Check to see if we're in a PVP zone
 			local subzone_text = _G.GetSubZoneText()
 
 			if (subzone_text == "Wintergrasp Fortress" or subzone_text == "Halaa") and not recipe:HasFilter("common1", "PVP") then
@@ -1573,7 +1570,6 @@ do
 			end
 		end
 
-		-- -- If we've picked up at least one class flag
 		if scan_data.found_class then
 			for index, class_name in ipairs(ORDERED_CLASS_TYPES) do
 				if scan_data[class_name] and not recipe:HasFilter("class1", CLASS_TYPES[class_name]) then
@@ -1663,7 +1659,6 @@ do
 		--			end
 		--		end
 
-		-- Reputations
 		local repid = scan_data.repid
 
 		if repid and not recipe:HasFilter("reputation1", FS[repid]) and not recipe:HasFilter("reputation2", FS[repid]) then
