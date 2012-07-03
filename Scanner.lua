@@ -1315,10 +1315,13 @@ do
 		},
 	}
 
-	local ENCHANT_FORMAT = "use: permanently attach (%%a+) %s by"
-	local FED_FORMAT = "become well fed and gain (.+) %s"
-	local STAT_PATTERN1 = "(%%d+) %s"
-	local STAT_PATTERN2 = "%s by (%%d+)"
+	local MATCH_FORMATS = {
+		"use: permanently attach (%%a+) %s by",
+		"become well fed and gain (.+) %s",
+		"(%%d+) %s",
+		"%s by (%%d+)",
+		"%s is increased by (%%d+)"
+	}
 
 	--- Parses the mining tooltip for certain keywords, comparing them with the database flags
 	-- @name AckisRecipeList:ScanTooltip
@@ -1432,9 +1435,11 @@ do
 --			end
 
 			for stat, roles in pairs(ROLE_STAT_MATCHES) do
-				if text:match(STAT_PATTERN1:format(stat)) or text:match(STAT_PATTERN2:format(stat)) or text:match(FED_FORMAT:format(stat)) or text:match(ENCHANT_FORMAT:format(stat)) then
-					for index = 1, #roles do
-						scan_data[roles[index]] = true
+				for match_index = 1, #MATCH_FORMATS do
+					if text:match(MATCH_FORMATS[match_index]:format(stat)) then
+						for role_index = 1, #roles do
+							scan_data[roles[role_index]] = true
+						end
 					end
 				end
 			end
@@ -1452,15 +1457,6 @@ do
 			--	scan_data.tank = true
 			elseif text:match("increases (%a+) health by (%d+)") then
 				scan_data.tank = true
-			elseif text:match("strength is increased by (%d+)") then
-				scan_data.dps = true
-			elseif text:match("agility is increased by (%d+)") then
-				scan_data.dps = true
-			elseif text:match("intellect is increased by (%d+)") then
-				scan_data.caster = true
-			elseif text:match("spirit is increased by (%d+)") then
-				-- Assume that shadow priests, boomkins, and ele shammies don't want +spirit trinkets
-				scan_data.healer = true
 			end
 
 			-- Classes
