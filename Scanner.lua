@@ -1206,40 +1206,6 @@ do
 		"caster",
 	}
 
-	-- TODO: Make this work with the new item filters, perhaps?
---	local ENCHANT_TO_ITEM = {
---		["Cloak"]	= "Back",
---		["Ring"]	= "Finger",
---		["2H Weapon"]	= "Two-Hand",
---	}
-
---	local ITEM_TYPES = {
---		-- Armor types
---		["Cloth"]	= 56, 	["Leather"]	= 57, 	["Mail"]	= 58,
---		["Plate"]	= 59, 	["Back"]	= 60, 	["Trinket"]	= 61,
---		["Finger"]	= 62, 	["Neck"]	= 63, 	["Shield"]	= 64,
---
---		-- Weapon types
---		["One-Hand"]	= 66, 	["Two-Hand"]	= 67, 	["Axe"]		= 68,
---		["Sword"]	= 69, 	["Mace"]	= 70, 	["Polearm"]	= 71,
---		["Dagger"]	= 72, 	["Staff"]	= 73, 	["Wand"]	= 74,
---		["Thrown"]	= 75, 	["Bow"]		= 76, 	["CrossBow"]	= 77,
---		["Fist Weapon"]	= 79, 	["Gun"]		= 80,
---	}
-
---	local ORDERED_ITEM_TYPES = {
---		-- Armor types
---		[1]	= "Cloth", 	[2]	= "Leather", 	[3]	= "Mail",
---		[4]	= "Plate", 	[5]	= "Back", 	[6]	= "Trinket",
---		[7]	= "Finger", 	[8]	= "Neck", 	[9]	= "Shield",
---
---		-- Weapon types
---		[11]	= "One-Hand", 	[12]	= "Two-Hand", 	[13]	= "Axe",
---		[14]	= "Sword", 	[15]	= "Mace", 	[16]	= "Polearm",
---		[17]	= "Dagger", 	[18]	= "Staff", 	[19]	= "Wand",
---		[20]	= "Thrown", 	[21]	= "Bow", 	[22]	= "CrossBow",
---		[23]	= "Fist Weapon", 	[24]	= "Gun",
---	}
 
 	local ROLE_STAT_MATCHES = {
 		["agility"] = {
@@ -1459,7 +1425,6 @@ do
 				scan_data.tank = true
 			end
 
-			-- Classes
 			local class_type = text_l:match("Classes: (.+)")
 
 			if class_type then
@@ -1470,39 +1435,13 @@ do
 					end
 				end
 			end
-
-			-- TODO: Make this work with the new item filters, perhaps?
---			-- Armor types
---			if ITEM_TYPES[text_l] then
---				scan_data[text_l] = true
---			elseif text_l == "Held In Off-hand" or text_l == "Off Hand" or text_l == "Main Hand" then	-- Special cases.
---				scan_data["One-Hand"] = true
---			end
---
---			if text_r and ITEM_TYPES[text_r] then
---				scan_data[text_r] = true
---			end
---
---			-- Enchantment voodoo
---			local ench_type, _ = text_l:match("Enchant (.+) %- (.+)")
---
---			if ench_type then
---				if ITEM_TYPES[ench_type] then
---					scan_data[ench_type] = true
---				elseif ITEM_TYPES[ENCHANT_TO_ITEM[ench_type]] then
---					scan_data[ENCHANT_TO_ITEM[ench_type]] = true
---				elseif ench_type == "Weapon" then		-- Special case.
---					scan_data["One-Hand"] = true
---					scan_data["Two-Hand"] = true
---				end
---			end
 		end	-- for
 	end
 
 	-- Flag data for printing. Wiped and re-used.
 	local missing_flags = {}
 	local extra_flags = {}
-	local misc_issues = {}
+	local general_issues = {}
 	local output = {}
 
 	local ACQUIRE_TO_FILTER_MAP = {
@@ -1549,7 +1488,7 @@ do
 
 		table.wipe(missing_flags)
 		table.wipe(extra_flags)
-		table.wipe(misc_issues)
+		table.wipe(general_issues)
 		table.wipe(output)
 
 		-------------------------------------------------------------------------------
@@ -1649,16 +1588,6 @@ do
 				table.insert(extra_flags, flag_format:format(role_string))
 			end
 		end
-
-		-- TODO: Make this work with the new item filters, perhaps?
-		--		for k, v in ipairs(ORDERED_ITEM_TYPES) do
-		--			if scan_data[v] and not recipe:HasFilter("item1", FS[ITEM_TYPES[v]]) then
-		--				table.insert(missing_flags, flag_format:format(FS[ITEM_TYPES[v]]))
-		--			elseif not scan_data[v] and recipe:HasFilter("item1", FS[ITEM_TYPES[v]]) then
-		--				table.insert(extra_flags, flag_format:format(FS[ITEM_TYPES[v]]))
-		--			end
-		--		end
-
 		local repid = scan_data.repid
 
 		if repid and not recipe:HasFilter("reputation1", FS[repid]) and not recipe:HasFilter("reputation2", FS[repid]) then
@@ -1734,13 +1663,16 @@ do
 
 		if scan_data.quality and scan_data.quality ~= recipe.quality then
 			local QS = private.ITEM_QUALITY_NAMES
-			table.insert(misc_issues, ("Wrong quality: Q.%s - should be Q.%s."):format(QS[recipe.quality], QS[scan_data.quality]))
+			table.insert(general_issues, ("Wrong quality: Q.%s - should be Q.%s."):format(QS[recipe.quality], QS[scan_data.quality]))
 			recipe.quality = scan_data.quality
 		end
 
 		-------------------------------------------------------------------------------
 		-- Things which will only be warned about.
 		-------------------------------------------------------------------------------
+		if not recipe:ItemFilterType() then
+			table.insert(general_issues, "Missing item filter type.")
+		end
 
 		-- Check to see if we have a horde/alliance flag,  all recipes must have one of these
 		if not recipe:HasFilter("common1", "ALLIANCE") and not recipe:HasFilter("common1", "HORDE") then
@@ -1789,7 +1721,7 @@ do
 			table.insert(output, ("    Extra Specialty: %s"):format(recipe.specialty))
 		end
 
-		if #missing_flags > 0 or #extra_flags > 0 or #misc_issues > 0 then
+		if #missing_flags > 0 or #extra_flags > 0 or #general_issues > 0 then
 			table.insert(output, "    Issues which will be resolved with a profession dump:")
 
 			if #missing_flags > 0 then
@@ -1800,22 +1732,9 @@ do
 				table.insert(output, "        Extra flags: " .. table.concat(extra_flags, ", "))
 			end
 
-			if #misc_issues > 0 then
-				table.insert(output, "        Miscellaneous issues: " .. table.concat(misc_issues, ", "))
+			if #general_issues > 0 then
+				table.insert(output, "        General issues: " .. table.concat(general_issues, ", "))
 			end
-
-			-- TODO: Make this work with the new item filters, perhaps?
-			--			local found_type = false
-			--			for k, v in ipairs(ORDERED_ITEM_TYPES) do
-			--				if scan_data[v] then
-			--					found_type = true
-			--					break
-			--				end
-			--			end
-
-			--			if not found_type then
-			--				table.insert(output, "    Missing: item type flag")
-			--			end
 		end
 
 		if #output > 0 then
