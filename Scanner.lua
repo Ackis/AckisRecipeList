@@ -1023,7 +1023,11 @@ do
 
 		-- Check to see if this is a recipe tooltip.
 		local text = _G["ARLDatamineTTTextLeft1"]:GetText():lower()
-		local match_text = text:match("%a+: ")
+		local match_text = (":"):split(text)
+
+		if match_text then
+			match_text = ("%s: "):format(match_text)
+		end
 
 		if not RECIPE_TYPES[match_text] and not (text:find("smelt") or text:find("sunder") or text:find("shatter")) then
 			ARLDatamineTT:Hide()
