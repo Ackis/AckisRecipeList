@@ -490,7 +490,7 @@ function addon:OnEnable()
 		}
 
 		for i in pairs(EngineeringSpec) do
-				AllSpecialtiesTable[i] = true
+			AllSpecialtiesTable[i] = true
 		end
 	end -- do
 end
@@ -520,27 +520,9 @@ end
 -------------------------------------------------------------------------------
 -- Create the scan button
 -------------------------------------------------------------------------------
-function addon:CreateScanButton()
-	local scan_button = _G.CreateFrame("Button", nil, _G.TradeSkillFrame, "UIPanelButtonTemplate")
-	scan_button:SetHeight(20)
-	scan_button:RegisterForClicks("LeftButtonUp")
-	scan_button:SetText(L["Scan"])
-
-	if _G.Skillet and _G.Skillet:IsActive() then
-		scan_button:SetParent(_G.SkilletFrame)
-		_G.Skillet:AddButtonToTradeskillWindow(scan_button)
-		scan_button:SetWidth(80)
-	elseif _G.MRTAPI then
-		_G.MRTAPI:RegisterHandler("TradeSkillWindowOnShow", function()
-			scan_button:SetParent(_G.MRTSkillFrame)
-			scan_button:ClearAllPoints()
-			scan_button:SetPoint("RIGHT", _G.MRTSkillFrameCloseButton, "LEFT", 4, 0)
-			scan_button:SetWidth(scan_button:GetTextWidth() + 10)
-			scan_button:Show()
-		end)
-	elseif _G.ATSWFrame then
+local TRADESKILL_ADDON_INITS = {
+	ATSWFrame = function(scan_button)
 		scan_button:SetParent(_G.ATSWFrame)
-		scan_button:ClearAllPoints()
 
 		if _G.TradeJunkieMain and _G.TJ_OpenButtonATSW then
 			scan_button:SetPoint("RIGHT", _G.TJ_OpenButtonATSW, "LEFT", 0, 0)
@@ -549,21 +531,59 @@ function addon:CreateScanButton()
 		end
 		scan_button:SetHeight(_G.ATSWOptionsButton:GetHeight())
 		scan_button:SetWidth(_G.ATSWOptionsButton:GetWidth())
-	elseif _G.CauldronFrame then
+	end,
+	CauldronFrame = function(scan_button)
 		scan_button:SetParent(_G.CauldronFrame)
-		scan_button:ClearAllPoints()
 		scan_button:SetPoint("TOP", _G.CauldronFrame, "TOPRIGHT", -58, -52)
 		scan_button:SetWidth(90)
-	elseif _G.BPM_ShowTrainerFrame then
+	end,
+	BPM_ShowTrainerFrame = function(scan_button)
 		scan_button:SetParent(_G.BPM_ShowTrainerFrame)
-		scan_button:ClearAllPoints()
 		scan_button:SetPoint("RIGHT", _G.BPM_ShowTrainerFrame, "LEFT", 4, 0)
 		scan_button:SetWidth(scan_button:GetTextWidth() + 10)
 		scan_button:Show()
+	end,
+	MRTAPI = function(scan_button)
+		_G.MRTAPI:RegisterHandler("TradeSkillWindowOnShow", function()
+			scan_button:SetParent(_G.MRTSkillFrame)
+			scan_button:SetPoint("RIGHT", _G.MRTSkillFrameCloseButton, "LEFT", 4, 0)
+			scan_button:SetWidth(scan_button:GetTextWidth() + 10)
+			scan_button:Show()
+		end)
+	end,
+	MRTSkillFrame = function(scan_button)
+		scan_button:SetParent(_G.MRTSkillFrame)
+		scan_button:SetPoint("RIGHT", _G.MRTSkillFrame, "LEFT", 4, 0)
+		scan_button:SetWidth(scan_button:GetTextWidth() + 10)
+		scan_button:Show()
+	end,
+	Skillet = function(scan_button)
+		if not _G.Skillet:IsActive() then
+			return
+		end
+		scan_button:SetParent(_G.SkilletFrame)
+		scan_button:SetWidth(80)
+		_G.Skillet:AddButtonToTradeskillWindow(scan_button)
+	end,
+}
+
+function addon:CreateScanButton()
+	local scan_button = _G.CreateFrame("Button", nil, _G.TradeSkillFrame, "UIPanelButtonTemplate")
+	scan_button:SetHeight(20)
+	scan_button:RegisterForClicks("LeftButtonUp")
+	scan_button:SetText(L["Scan"])
+
+	-------------------------------------------------------------------------------
+	-- Grab the first lucky Trade Skill AddOn that exists and hand the scan button to it.
+	-------------------------------------------------------------------------------
+	for entity, init_func in pairs(TRADESKILL_ADDON_INITS) do
+		if _G[entity] then
+			scan_button:ClearAllPoints()
+			init_func(scan_button)
+			break
+		end
 	end
 	local scan_parent = scan_button:GetParent()
-
-	-- Set the frame level of the button to be 1 higher than its parent
 	scan_button:SetFrameLevel(scan_parent:GetFrameLevel() + 1)
 	scan_button:SetFrameStrata(scan_parent:GetFrameStrata())
 	scan_button:Enable()
