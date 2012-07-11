@@ -283,17 +283,17 @@ local INSTANCE_LOCATIONS = {
 	},
 }
 
-local iconlist = {}
+local icon_list = {}
 
 -- Clears all the icons from the world map and the mini-map
 function addon:ClearWaypoints()
 	if _G.TomTom and _G.TomTom.RemoveWaypoint then
-		while iconlist[1] do
-			_G.TomTom:RemoveWaypoint(table.remove(iconlist))
+		while icon_list[1] do
+			_G.TomTom:RemoveWaypoint(table.remove(icon_list))
 		end
 	elseif _G.Cartographer_Waypoints then
-		while iconlist[1] do
-			_G.Cartographer_Waypoints:CancelWaypoint(table.remove(iconlist))
+		while icon_list[1] do
+			_G.Cartographer_Waypoints:CancelWaypoint(table.remove(icon_list))
 		end
 	end
 end
@@ -542,24 +542,24 @@ function addon:AddWaypoint(recipe_id, acquire_id, location_id, npc_id)
 
 			if _G.TomTom then
 				local uid = _G.TomTom:AddZWaypoint(continent, zone, x, y, name, false, minimap, worldmap)
-				table.insert(iconlist, uid)
+				table.insert(icon_list, uid)
 
-				if _G.TomTom.ChangeWaypointIcon then
-					local icon_tex
+				-- Replace the TomTom waypoint icon with the icon for the profession.
+				local minimap_children = {_G.Minimap:GetChildren()}
 
-					-- Get the proper icon to put on the mini-map
-					for index, profession in pairs(private.ORDERED_PROFESSIONS) do
-						if index == self.Frame.profession then
-							icon_tex = TEXTURE_UP_FORMAT:format(private.PROFESSION_TEXTURES[index])
-							break
-						end
+				for index = 1, #minimap_children do
+					local child = minimap_children[index]
+
+					if child.point and child.point.uid == uid then
+						child.icon:SetTexture(TEXTURE_UP_FORMAT:format(private.PROFESSION_TEXTURES[self.Frame.profession]))
+						break
 					end
-					_G.TomTom:ChangeWaypointIcon(uid, minimap, worldmap, icon_tex)
+
 				end
 			elseif _G.Cartographer_Waypoints then
 				local pt = _G.NotePoint:new(zone, x/100, y/100, name)
 				_G.Cartographer_Waypoints:AddWaypoint(pt)
-				table.insert(iconlist, pt.WaypointID)
+				table.insert(icon_list, pt.WaypointID)
 			end
 		else
 			--@debug@
