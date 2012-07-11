@@ -16,7 +16,7 @@ function private:InitializeAlchemyTrainers()
 	self:AddTrainer(2837, "Jaxin Chong", "The Cape of Stranglethorn", 42.6, 74.8, "Neutral")
 	self:AddTrainer(3009, "Bena Winterhoof", "Thunder Bluff", 46.6, 33.2, "Horde") -- COMPLETELY UPDATED
 	self:AddTrainer(3184, "Miao'zan", "Durotar", 55.5, 74, "Horde") -- COMPLETELY UPDATED
-	self:AddTrainer(3347, "Yelmak", "Orgrimmar", 56.7, 33.2, "Horde")
+	self:AddTrainer(3347, "Yelmak", "Orgrimmar", 55.68, 44.77, "Horde")
 	self:AddTrainer(3603, "Cyndra Kindwhisper", "Teldrassil", 57.6, 60.7, "Alliance")
 	self:AddTrainer(3964, "Kylanna", "Ashenvale", 50.8, 67.1, "Alliance")
 	self:AddTrainer(4160, "Ainethil", "Darnassus", 53.9, 48.5, "Alliance") -- COMPLETELY UPDATED
