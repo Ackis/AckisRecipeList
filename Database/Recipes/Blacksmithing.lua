@@ -1648,8 +1648,9 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItemID(12797)
 	recipe:SetSkillLevels(300, 300, 320, 330, 340)
 	recipe:SetItemFilterType("BLACKSMITHING_ONE_HAND_SWORD")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOE, F.RBOE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.MOB_DROP, F.IBOE, F.RBOE)
 	recipe:AddMobDrop(1844)
+	recipe:AddLimitedVendor(50129, 1)
 
 	-- Masterwork Stormhammer -- 16993
 	recipe = AddRecipe(16993, V.ORIG, Q.RARE)
