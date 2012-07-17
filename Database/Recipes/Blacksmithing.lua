@@ -435,7 +435,7 @@ function addon:InitBlacksmithing()
 	recipe:SetSkillLevels(155, 155, 180, 192, 205)
 	recipe:SetItemFilterType("BLACKSMITHING_TWO_HAND_MACE")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE)
-	recipe:AddLimitedVendor(1471, 1, 8878, 1, 9179, 1, 26081, 1)
+	recipe:AddLimitedVendor(1471, 1, 8878, 1, 26081, 1)
 
 	-- Golden Iron Destroyer -- 3495
 	recipe = AddRecipe(3495, V.ORIG, Q.UNCOMMON)
