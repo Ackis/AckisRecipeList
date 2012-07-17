@@ -417,7 +417,7 @@ function addon:InitBlacksmithing()
 	recipe:SetSkillLevels(160, 160, 185, 197, 210)
 	recipe:SetItemFilterType("BLACKSMITHING_ONE_HAND_SWORD")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.DPS)
-	recipe:AddLimitedVendor(2843, 1, 3356, 1, 5512, 1, 45549, 1)
+	recipe:AddLimitedVendor(2843, 1, 3356, 1, 5512, 1, 45549, 1, 46359, 1, 52641, 1)
 
 	-- Jade Serpentblade -- 3493
 	recipe = AddRecipe(3493, V.ORIG, Q.UNCOMMON)
@@ -4625,7 +4625,7 @@ function addon:InitBlacksmithing()
 	recipe:SetSkillLevels(525, 525, 525, 525, 525)
 	recipe:SetItemFilterType("BLACKSMITHING_ITEM_ENHANCEMENT")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	recipe:AddVendor(2999, 3356, 4597, 5512, 16670, 45549, 46359, 50375, 50382)
+	recipe:AddVendor(2999, 3356, 4597, 5512, 16670, 45549, 46359, 50375, 50382, 52641)
 
 	-- Pyrium Shield Spike -- 76440
 	recipe = AddRecipe(76440, V.CATA, Q.COMMON)
@@ -4633,7 +4633,7 @@ function addon:InitBlacksmithing()
 	recipe:SetSkillLevels(525, 525, 530, 535, 540)
 	recipe:SetItemFilterType("BLACKSMITHING_ITEM_ENHANCEMENT")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	recipe:AddVendor(2999, 3356, 4597, 5512, 16670, 45549, 46359, 50375, 50382)
+	recipe:AddVendor(2999, 3356, 4597, 5512, 16670, 45549, 46359, 50375, 50382, 52641)
 
 	-- Elementium Shield Spike -- 76441
 	recipe = AddRecipe(76441, V.CATA, Q.COMMON)
@@ -4649,7 +4649,7 @@ function addon:InitBlacksmithing()
 	recipe:SetSkillLevels(500, 500, 505, 510, 515)
 	recipe:SetItemFilterType("BLACKSMITHING_ITEM_ENHANCEMENT")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.CASTER)
-	recipe:AddVendor(2999, 3356, 4597, 5512, 16670, 45549, 46359, 50375, 50382)
+	recipe:AddVendor(2999, 3356, 4597, 5512, 16670, 45549, 46359, 50375, 50382, 52641)
 
 	-- Hardened Elementium Hauberk -- 76443
 	recipe = AddRecipe(76443, V.CATA, Q.COMMON)
@@ -4657,7 +4657,7 @@ function addon:InitBlacksmithing()
 	recipe:SetSkillLevels(515, 515, 515, 515, 525)
 	recipe:SetItemFilterType("BLACKSMITHING_CHEST")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.TANK)
-	recipe:AddVendor(2999, 3356, 4597, 5512, 16670, 45549, 46359, 50375, 50382)
+	recipe:AddVendor(2999, 3356, 4597, 5512, 16670, 45549, 46359, 50375, 50382, 52641)
 
 	-- Hardened Elementium Girdle -- 76444
 	recipe = AddRecipe(76444, V.CATA, Q.COMMON)
@@ -4665,7 +4665,7 @@ function addon:InitBlacksmithing()
 	recipe:SetSkillLevels(510, 510, 520, 522, 525)
 	recipe:SetItemFilterType("BLACKSMITHING_WAIST")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.TANK)
-	recipe:AddVendor(2999, 3356, 4597, 5512, 16670, 45549, 46359, 50375, 50382)
+	recipe:AddVendor(2999, 3356, 4597, 5512, 16670, 45549, 46359, 50375, 50382, 52641)
 
 	-- Elementium Deathplate -- 76445
 	recipe = AddRecipe(76445, V.CATA, Q.COMMON)
@@ -4673,7 +4673,7 @@ function addon:InitBlacksmithing()
 	recipe:SetSkillLevels(515, 515, 515, 515, 525)
 	recipe:SetItemFilterType("BLACKSMITHING_CHEST")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.HEALER, F.CASTER)
-	recipe:AddVendor(2999, 3356, 4597, 5512, 16670, 45549, 46359, 50375, 50382)
+	recipe:AddVendor(2999, 3356, 4597, 5512, 16670, 45549, 46359, 50375, 50382, 52641)
 
 	-- Elementium Girdle of Pain -- 76446
 	recipe = AddRecipe(76446, V.CATA, Q.COMMON)
@@ -4681,7 +4681,7 @@ function addon:InitBlacksmithing()
 	recipe:SetSkillLevels(510, 510, 520, 522, 525)
 	recipe:SetItemFilterType("BLACKSMITHING_WAIST")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.HEALER, F.CASTER)
-	recipe:AddVendor(2999, 3356, 4597, 5512, 16670, 45549, 46359, 50375, 50382)
+	recipe:AddVendor(2999, 3356, 4597, 5512, 16670, 45549, 46359, 50375, 50382, 52641)
 
 	-- Light Elementium Chestguard -- 76447
 	recipe = AddRecipe(76447, V.CATA, Q.COMMON)
@@ -4689,7 +4689,7 @@ function addon:InitBlacksmithing()
 	recipe:SetSkillLevels(515, 515, 515, 515, 525)
 	recipe:SetItemFilterType("BLACKSMITHING_CHEST")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.HEALER, F.CASTER)
-	recipe:AddVendor(2999, 3356, 4597, 5512, 16670, 45549, 46359, 50375, 50382)
+	recipe:AddVendor(2999, 3356, 4597, 5512, 16670, 45549, 46359, 50375, 50382, 52641)
 
 	-- Light Elementium Belt -- 76448
 	recipe = AddRecipe(76448, V.CATA, Q.COMMON)
@@ -4697,7 +4697,7 @@ function addon:InitBlacksmithing()
 	recipe:SetSkillLevels(510, 510, 520, 522, 525)
 	recipe:SetItemFilterType("BLACKSMITHING_WAIST")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
-	recipe:AddVendor(2999, 3356, 4597, 5512, 16670, 45549, 46359, 50375, 50382)
+	recipe:AddVendor(2999, 3356, 4597, 5512, 16670, 45549, 46359, 50375, 50382, 52641)
 
 	-- Elementium Spellblade -- 76449
 	recipe = AddRecipe(76449, V.CATA, Q.COMMON)
@@ -4705,7 +4705,7 @@ function addon:InitBlacksmithing()
 	recipe:SetSkillLevels(520, 520, 520, 520, 525)
 	recipe:SetItemFilterType("BLACKSMITHING_DAGGER")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.HEALER, F.CASTER)
-	recipe:AddVendor(2999, 3356, 4597, 5512, 16670, 45549, 46359, 50375, 50382)
+	recipe:AddVendor(2999, 3356, 4597, 5512, 16670, 45549, 46359, 50375, 50382, 52641)
 
 	-- Elementium Hammer -- 76450
 	recipe = AddRecipe(76450, V.CATA, Q.COMMON)
@@ -4713,7 +4713,7 @@ function addon:InitBlacksmithing()
 	recipe:SetSkillLevels(515, 515, 515, 515, 525)
 	recipe:SetItemFilterType("BLACKSMITHING_ONE_HAND_MACE")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
-	recipe:AddVendor(2999, 3356, 4597, 5512, 16670, 45549, 46359, 50375, 50382)
+	recipe:AddVendor(2999, 3356, 4597, 5512, 16670, 45549, 46359, 50375, 50382, 52641)
 
 	-- Elementium Poleaxe -- 76451
 	recipe = AddRecipe(76451, V.CATA, Q.COMMON)
@@ -4721,7 +4721,7 @@ function addon:InitBlacksmithing()
 	recipe:SetSkillLevels(520, 520, 520, 520, 525)
 	recipe:SetItemFilterType("BLACKSMITHING_POLEARM")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.HEALER, F.CASTER)
-	recipe:AddVendor(2999, 3356, 4597, 5512, 16670, 45549, 46359, 50375, 50382)
+	recipe:AddVendor(2999, 3356, 4597, 5512, 16670, 45549, 46359, 50375, 50382, 52641)
 
 	-- Elementium Bonesplitter -- 76452
 	recipe = AddRecipe(76452, V.CATA, Q.COMMON)
@@ -4729,7 +4729,7 @@ function addon:InitBlacksmithing()
 	recipe:SetSkillLevels(515, 515, 515, 515, 525)
 	recipe:SetItemFilterType("BLACKSMITHING_ONE_HAND_AXE")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.TANK, F.HEALER, F.CASTER)
-	recipe:AddVendor(2999, 3356, 4597, 5512, 16670, 45549, 46359, 50375, 50382)
+	recipe:AddVendor(2999, 3356, 4597, 5512, 16670, 45549, 46359, 50375, 50382, 52641)
 
 	-- Elementium Shank -- 76453
 	recipe = AddRecipe(76453, V.CATA, Q.COMMON)
@@ -4737,7 +4737,7 @@ function addon:InitBlacksmithing()
 	recipe:SetSkillLevels(520, 520, 520, 520, 525)
 	recipe:SetItemFilterType("BLACKSMITHING_DAGGER")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.HEALER, F.CASTER)
-	recipe:AddVendor(2999, 3356, 4597, 5512, 16670, 45549, 46359, 50375, 50382)
+	recipe:AddVendor(2999, 3356, 4597, 5512, 16670, 45549, 46359, 50375, 50382, 52641)
 
 	-- Elementium Earthguard -- 76454
 	recipe = AddRecipe(76454, V.CATA, Q.COMMON)
@@ -4745,7 +4745,7 @@ function addon:InitBlacksmithing()
 	recipe:SetSkillLevels(520, 520, 520, 520, 525)
 	recipe:SetItemFilterType("BLACKSMITHING_SHIELD")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.CASTER)
-	recipe:AddVendor(2999, 3356, 4597, 5512, 16670, 45549, 46359, 50375, 50382)
+	recipe:AddVendor(2999, 3356, 4597, 5512, 16670, 45549, 46359, 50375, 50382, 52641)
 
 	-- Elementium Stormshield -- 76455
 	recipe = AddRecipe(76455, V.CATA, Q.COMMON)
@@ -4753,7 +4753,7 @@ function addon:InitBlacksmithing()
 	recipe:SetSkillLevels(520, 520, 520, 520, 525)
 	recipe:SetItemFilterType("BLACKSMITHING_SHIELD")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.HEALER, F.CASTER)
-	recipe:AddVendor(2999, 3356, 4597, 5512, 16670, 45549, 46359, 50375, 50382)
+	recipe:AddVendor(2999, 3356, 4597, 5512, 16670, 45549, 46359, 50375, 50382, 52641)
 
 	-- Vicious Pyrium Bracers -- 76456
 	recipe = AddRecipe(76456, V.CATA, Q.COMMON)
@@ -4761,7 +4761,7 @@ function addon:InitBlacksmithing()
 	recipe:SetSkillLevels(500, 500, 510, 512, 515)
 	recipe:SetItemFilterType("BLACKSMITHING_WRIST")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.CASTER)
-	recipe:AddVendor(2999, 3356, 4597, 5512, 16670, 45549, 46359, 50375, 50382)
+	recipe:AddVendor(2999, 3356, 4597, 5512, 16670, 45549, 46359, 50375, 50382, 52641)
 
 	-- Vicious Pyrium Gauntlets -- 76457
 	recipe = AddRecipe(76457, V.CATA, Q.COMMON)
@@ -4769,7 +4769,7 @@ function addon:InitBlacksmithing()
 	recipe:SetSkillLevels(505, 505, 515, 517, 520)
 	recipe:SetItemFilterType("BLACKSMITHING_HANDS")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.HEALER, F.CASTER)
-	recipe:AddVendor(2999, 3356, 4597, 5512, 16670, 45549, 46359, 50375, 50382)
+	recipe:AddVendor(2999, 3356, 4597, 5512, 16670, 45549, 46359, 50375, 50382, 52641)
 
 	-- Vicious Pyrium Belt -- 76458
 	recipe = AddRecipe(76458, V.CATA, Q.COMMON)
@@ -4777,7 +4777,7 @@ function addon:InitBlacksmithing()
 	recipe:SetSkillLevels(510, 510, 520, 522, 525)
 	recipe:SetItemFilterType("BLACKSMITHING_WAIST")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.HEALER, F.CASTER)
-	recipe:AddVendor(2999, 3356, 4597, 5512, 16670, 45549, 46359, 50375, 50382)
+	recipe:AddVendor(2999, 3356, 4597, 5512, 16670, 45549, 46359, 50375, 50382, 52641)
 
 	-- Vicious Pyrium Boots -- 76459
 	recipe = AddRecipe(76459, V.CATA, Q.COMMON)
@@ -4785,7 +4785,7 @@ function addon:InitBlacksmithing()
 	recipe:SetSkillLevels(515, 515, 525, 527, 530)
 	recipe:SetItemFilterType("BLACKSMITHING_FEET")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.CASTER)
-	recipe:AddVendor(2999, 3356, 4597, 5512, 16670, 45549, 46359, 50375, 50382)
+	recipe:AddVendor(2999, 3356, 4597, 5512, 16670, 45549, 46359, 50375, 50382, 52641)
 
 	-- Vicious Pyrium Shoulders -- 76461
 	recipe = AddRecipe(76461, V.CATA, Q.COMMON)
@@ -4793,7 +4793,7 @@ function addon:InitBlacksmithing()
 	recipe:SetSkillLevels(520, 520, 530, 532, 535)
 	recipe:SetItemFilterType("BLACKSMITHING_SHOULDER")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.TANK)
-	recipe:AddVendor(2999, 3356, 4597, 5512, 16670, 45549, 46359, 50375, 50382)
+	recipe:AddVendor(2999, 3356, 4597, 5512, 16670, 45549, 46359, 50375, 50382, 52641)
 
 	-- Vicious Pyrium Legguards -- 76462
 	recipe = AddRecipe(76462, V.CATA, Q.COMMON)
@@ -4801,7 +4801,7 @@ function addon:InitBlacksmithing()
 	recipe:SetSkillLevels(525, 525, 535, 537, 540)
 	recipe:SetItemFilterType("BLACKSMITHING_LEGS")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.CASTER)
-	recipe:AddVendor(2999, 3356, 4597, 5512, 16670, 45549, 46359, 50375, 50382)
+	recipe:AddVendor(2999, 3356, 4597, 5512, 16670, 45549, 46359, 50375, 50382, 52641)
 
 	-- Vicious Pyrium Helm -- 76463
 	recipe = AddRecipe(76463, V.CATA, Q.COMMON)
@@ -4809,7 +4809,7 @@ function addon:InitBlacksmithing()
 	recipe:SetSkillLevels(525, 525, 535, 537, 540)
 	recipe:SetItemFilterType("BLACKSMITHING_HEAD")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.TANK)
-	recipe:AddVendor(2999, 3356, 4597, 5512, 16670, 45549, 46359, 50375, 50382)
+	recipe:AddVendor(2999, 3356, 4597, 5512, 16670, 45549, 46359, 50375, 50382, 52641)
 
 	-- Vicious Pyrium Breastplate -- 76464
 	recipe = AddRecipe(76464, V.CATA, Q.COMMON)
@@ -4817,7 +4817,7 @@ function addon:InitBlacksmithing()
 	recipe:SetSkillLevels(525, 525, 535, 537, 540)
 	recipe:SetItemFilterType("BLACKSMITHING_CHEST")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS)
-	recipe:AddVendor(2999, 3356, 4597, 5512, 16670, 45549, 46359, 50375, 50382)
+	recipe:AddVendor(2999, 3356, 4597, 5512, 16670, 45549, 46359, 50375, 50382, 52641)
 
 	-- Vicious Ornate Pyrium Bracers -- 76465
 	recipe = AddRecipe(76465, V.CATA, Q.COMMON)
@@ -4825,7 +4825,7 @@ function addon:InitBlacksmithing()
 	recipe:SetSkillLevels(500, 500, 510, 512, 515)
 	recipe:SetItemFilterType("BLACKSMITHING_WRIST")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.HEALER, F.CASTER)
-	recipe:AddVendor(2999, 3356, 4597, 5512, 16670, 45549, 46359, 50375, 50382)
+	recipe:AddVendor(2999, 3356, 4597, 5512, 16670, 45549, 46359, 50375, 50382, 52641)
 
 	-- Vicious Ornate Pyrium Gauntlets -- 76466
 	recipe = AddRecipe(76466, V.CATA, Q.COMMON)
@@ -4833,7 +4833,7 @@ function addon:InitBlacksmithing()
 	recipe:SetSkillLevels(505, 505, 515, 517, 520)
 	recipe:SetItemFilterType("BLACKSMITHING_HANDS")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.HEALER, F.CASTER)
-	recipe:AddVendor(2999, 3356, 4597, 5512, 16670, 45549, 46359, 50375, 50382)
+	recipe:AddVendor(2999, 3356, 4597, 5512, 16670, 45549, 46359, 50375, 50382, 52641)
 
 	-- Vicious Ornate Pyrium Belt -- 76467
 	recipe = AddRecipe(76467, V.CATA, Q.COMMON)
@@ -4841,7 +4841,7 @@ function addon:InitBlacksmithing()
 	recipe:SetSkillLevels(510, 510, 520, 522, 525)
 	recipe:SetItemFilterType("BLACKSMITHING_WAIST")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.HEALER, F.CASTER)
-	recipe:AddVendor(2999, 3356, 4597, 5512, 16670, 45549, 46359, 50375, 50382)
+	recipe:AddVendor(2999, 3356, 4597, 5512, 16670, 45549, 46359, 50375, 50382, 52641)
 
 	-- Vicious Ornate Pyrium Boots -- 76468
 	recipe = AddRecipe(76468, V.CATA, Q.COMMON)
@@ -4849,7 +4849,7 @@ function addon:InitBlacksmithing()
 	recipe:SetSkillLevels(515, 515, 525, 527, 530)
 	recipe:SetItemFilterType("BLACKSMITHING_FEET")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
-	recipe:AddVendor(2999, 3356, 4597, 5512, 16670, 45549, 46359, 50375, 50382)
+	recipe:AddVendor(2999, 3356, 4597, 5512, 16670, 45549, 46359, 50375, 50382, 52641)
 
 	-- Vicious Ornate Pyrium Shoulders -- 76469
 	recipe = AddRecipe(76469, V.CATA, Q.COMMON)
@@ -4857,7 +4857,7 @@ function addon:InitBlacksmithing()
 	recipe:SetSkillLevels(520, 520, 530, 532, 535)
 	recipe:SetItemFilterType("BLACKSMITHING_SHOULDER")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.HEALER, F.CASTER)
-	recipe:AddVendor(2999, 3356, 4597, 5512, 16670, 45549, 46359, 50375, 50382)
+	recipe:AddVendor(2999, 3356, 4597, 5512, 16670, 45549, 46359, 50375, 50382, 52641)
 
 	-- Vicious Ornate Pyrium Legguards -- 76470
 	recipe = AddRecipe(76470, V.CATA, Q.COMMON)
@@ -4865,7 +4865,7 @@ function addon:InitBlacksmithing()
 	recipe:SetSkillLevels(525, 525, 535, 537, 540)
 	recipe:SetItemFilterType("BLACKSMITHING_LEGS")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.HEALER, F.CASTER)
-	recipe:AddVendor(2999, 3356, 4597, 5512, 16670, 45549, 46359, 50375, 50382)
+	recipe:AddVendor(2999, 3356, 4597, 5512, 16670, 45549, 46359, 50375, 50382, 52641)
 
 	-- Vicious Ornate Pyrium Helm -- 76471
 	recipe = AddRecipe(76471, V.CATA, Q.COMMON)
@@ -4873,7 +4873,7 @@ function addon:InitBlacksmithing()
 	recipe:SetSkillLevels(525, 525, 535, 537, 540)
 	recipe:SetItemFilterType("BLACKSMITHING_HEAD")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.HEALER, F.CASTER)
-	recipe:AddVendor(2999, 3356, 4597, 5512, 16670, 45549, 46359, 50375, 50382)
+	recipe:AddVendor(2999, 3356, 4597, 5512, 16670, 45549, 46359, 50375, 50382, 52641)
 
 	-- Vicious Ornate Pyrium Breastplate -- 76472
 	recipe = AddRecipe(76472, V.CATA, Q.COMMON)
@@ -4881,7 +4881,7 @@ function addon:InitBlacksmithing()
 	recipe:SetSkillLevels(525, 525, 535, 537, 540)
 	recipe:SetItemFilterType("BLACKSMITHING_CHEST")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
-	recipe:AddVendor(2999, 3356, 4597, 5512, 16670, 45549, 46359, 50375, 50382)
+	recipe:AddVendor(2999, 3356, 4597, 5512, 16670, 45549, 46359, 50375, 50382, 52641)
 
 	-- Obsidium Bladespear -- 76474
 	recipe = AddRecipe(76474, V.CATA, Q.COMMON)
@@ -4905,7 +4905,7 @@ function addon:InitBlacksmithing()
 	recipe:SetSkillLevels(515, 515, 515, 515, 525)
 	recipe:SetItemFilterType("BLACKSMITHING_ONE_HAND_AXE")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.CASTER)
-	recipe:AddVendor(2999, 3356, 4597, 5512, 16670, 45549, 46359, 50375, 50382)
+	recipe:AddVendor(2999, 3356, 4597, 5512, 16670, 45549, 46359, 50375, 50382, 52641)
 
 	-- Forged Elementium Mindcrusher -- 94732
 	recipe = AddRecipe(94732, V.CATA, Q.COMMON)
@@ -4913,7 +4913,7 @@ function addon:InitBlacksmithing()
 	recipe:SetSkillLevels(520, 520, 520, 520, 525)
 	recipe:SetItemFilterType("BLACKSMITHING_TWO_HAND_MACE")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.TANK, F.HEALER, F.CASTER)
-	recipe:AddVendor(2999, 3356, 4597, 5512, 16670, 45549, 46359, 50375, 50382)
+	recipe:AddVendor(2999, 3356, 4597, 5512, 16670, 45549, 46359, 50375, 50382, 52641)
 
 	-- Fists of Fury -- 99439
 	recipe = AddRecipe(99439, V.CATA, Q.EPIC)

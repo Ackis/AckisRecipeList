@@ -406,6 +406,7 @@ function addon:InitVendor()
 	AddVendor(50482,	L["Marith Lazuria"],			"Orgrimmar",			72.5,	34.4,	"Horde") -- COMPLETELY UPDATED
 	AddVendor(52584,	L["Laida Gembold"],			"Ironforge",			50.6,	27.5,	"Alliance") -- COMPLETELY UPDATED
 	AddVendor(52588,	L["Sara Lanner"],			"Undercity",			56.7,	36.9,	"Horde") -- COMPLETELY UPDATED
+	AddVendor(52641,	L["Layna Karner"],			"Darnassus",			56.8,	52.5,	"Alliance") -- COMPLETELY UPDATED
 	AddVendor(52644,	L["Tarien Silverdew"],			"Darnassus",			54.4,	30.7,	"Alliance") -- COMPLETELY UPDATED
 	AddVendor(52655,	L["Palehoof's Big Bag of Parts"],	"Thunder Bluff",		36.2,	60.2,	"Horde") -- COMPLETELY UPDATED
 	AddVendor(52658,	L["Paku Cloudchaser"],			"Thunder Bluff",		34.7,	53.5,	"Horde") -- COMPLETELY UPDATED
