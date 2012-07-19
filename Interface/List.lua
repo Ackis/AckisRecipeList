@@ -1877,6 +1877,9 @@ do
 		end
 		InitializeTooltips(recipe.spell_id)
 
+		if not acquire_tip then
+			return
+		end
 		acquire_tip:AddHeader()
 		acquire_tip:SetCell(1, 1, "|c"..select(4, _G.GetItemQualityColor(recipe.quality))..recipe.name, "CENTER", 2)
 
