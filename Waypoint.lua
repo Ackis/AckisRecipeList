@@ -461,6 +461,21 @@ local function AddAllWaypoints(acquire_id, location_id, npc_id)
 	end
 end
 
+-- Replace the TomTom waypoint icon with the icon for the profession.
+local function SetWaypointIcon(uid, ...)
+	local map_children = {...}
+
+	for index = 1, #map_children do
+		local child = map_children[index]
+
+		if child.point and child.point.uid == uid then
+			child.icon:SetTexture(TEXTURE_UP_FORMAT:format(private.PROFESSION_TEXTURES[addon.Frame.profession]))
+			break
+		end
+
+	end
+end
+
 -- Adds mini-map and world map icons with tomtom.
 -- Expected result: Icons are added to the world map and mini-map.
 -- Input: An optional recipe ID, acquire ID, and location ID.
@@ -544,18 +559,8 @@ function addon:AddWaypoint(recipe_id, acquire_id, location_id, npc_id)
 				local uid = _G.TomTom:AddZWaypoint(continent, zone, x, y, name, false, minimap, worldmap)
 				table.insert(icon_list, uid)
 
-				-- Replace the TomTom waypoint icon with the icon for the profession.
-				local minimap_children = {_G.Minimap:GetChildren()}
-
-				for index = 1, #minimap_children do
-					local child = minimap_children[index]
-
-					if child.point and child.point.uid == uid then
-						child.icon:SetTexture(TEXTURE_UP_FORMAT:format(private.PROFESSION_TEXTURES[self.Frame.profession]))
-						break
-					end
-
-				end
+				SetWaypointIcon(uid, _G.Minimap:GetChildren())
+				SetWaypointIcon(uid, _G.TomTomMapOverlay:GetChildren())
 			elseif _G.Cartographer_Waypoints then
 				local pt = _G.NotePoint:new(zone, x/100, y/100, name)
 				_G.Cartographer_Waypoints:AddWaypoint(pt)
