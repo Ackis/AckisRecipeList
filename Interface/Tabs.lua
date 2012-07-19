@@ -347,7 +347,14 @@ function private.InitializeTabs()
 			if count > 0 then
 				local is_expanded = self[prof_name.." expanded"][loc_name]
 				local entry = AcquireTable()
-				entry.text = ("%s (%d)"):format(SetTextColor(private.CATEGORY_COLORS["location"], loc_name),count)
+
+				if loc_name == _G.GetRealZoneText() then
+					entry.text = ("%s (%d)"):format(SetTextColor(private.DIFFICULTY_COLORS["optimal"], loc_name), count)
+					entry.emphasized = true
+				else
+					entry.text = ("%s (%d)"):format(SetTextColor(private.CATEGORY_COLORS["location"], loc_name), count)
+					entry.emphasized = nil
+				end
 				entry.location_id = loc_name
 
 				insert_index = ListFrame:InsertEntry(entry, nil, insert_index, "header", is_expanded or expand_mode, is_expanded or expand_mode)

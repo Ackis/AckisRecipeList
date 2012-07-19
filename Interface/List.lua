@@ -378,6 +378,13 @@ function private.InitializeListFrame()
 	ListFrame.state_buttons = {}
 	ListFrame.entry_buttons = {}
 
+	local emphasis_texture = ListFrame:CreateTexture(nil, "BORDER")
+	emphasis_texture:SetTexture([[Interface\QUESTFRAME\Ui-QuestLogTitleHighlight]])
+	emphasis_texture:SetVertexColor(1, 0.61, 0)
+	emphasis_texture:SetBlendMode("ADD")
+	ListFrame.emphasis_texture = emphasis_texture
+
+
 	for index = 1, NUM_RECIPE_LINES do
 		local cur_container = _G.CreateFrame("Frame", nil, ListFrame)
 
@@ -865,6 +872,8 @@ function private.InitializeListFrame()
 	function ListFrame:ClearLines()
 		local font_object = addon.db.profile.frameopts.small_list_font and "GameFontNormalSmall" or "GameFontNormal"
 
+		emphasis_texture:ClearAllPoints()
+
 		for i = 1, NUM_RECIPE_LINES do
 			local entry = self.entry_buttons[i]
 			local state = self.state_buttons[i]
@@ -1005,6 +1014,11 @@ function private.InitializeListFrame()
 			end
 			local cur_container = cur_state.container
 			local cur_button = self.entry_buttons[button_index]
+
+			if cur_entry.emphasized then
+				emphasis_texture:SetPoint("TOPLEFT", cur_button, "TOPLEFT", 2, 0)
+				emphasis_texture:SetPoint("BOTTOMRIGHT", cur_button, "BOTTOMRIGHT", -2, 1)
+			end
 
 			if cur_entry.type == "header" or cur_entry.type == "entry" then
 				cur_state:SetPoint("TOPLEFT", cur_container, "TOPLEFT", 0, 0)
