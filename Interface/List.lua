@@ -378,13 +378,6 @@ function private.InitializeListFrame()
 	ListFrame.state_buttons = {}
 	ListFrame.entry_buttons = {}
 
-	local emphasis_texture = ListFrame:CreateTexture(nil, "BORDER")
-	emphasis_texture:SetTexture([[Interface\QUESTFRAME\Ui-QuestLogTitleHighlight]])
-	emphasis_texture:SetVertexColor(1, 0.61, 0)
-	emphasis_texture:SetBlendMode("ADD")
-	ListFrame.emphasis_texture = emphasis_texture
-
-
 	for index = 1, NUM_RECIPE_LINES do
 		local cur_container = _G.CreateFrame("Frame", nil, ListFrame)
 
@@ -407,6 +400,14 @@ function private.InitializeListFrame()
 		highlight_texture:SetPoint("TOPLEFT", 2, 0)
 		highlight_texture:SetPoint("BOTTOMRIGHT", -2, 1)
 		cur_entry:SetHighlightTexture(highlight_texture)
+
+		local emphasis_texture = cur_entry:CreateTexture(nil, "BORDER")
+		emphasis_texture:SetTexture([[Interface\QUESTFRAME\Ui-QuestLogTitleHighlight]])
+		emphasis_texture:SetVertexColor(1, 0.61, 0)
+		emphasis_texture:SetBlendMode("ADD")
+		emphasis_texture:SetPoint("TOPLEFT", 2, 0)
+		emphasis_texture:SetPoint("BOTTOMRIGHT", -2, 1)
+		cur_entry.emphasis_texture = emphasis_texture
 
 		local label = cur_entry:CreateFontString(nil, "ARTWORK")
 		label:SetPoint("LEFT", cur_entry, "LEFT", 7, 0)
@@ -872,8 +873,6 @@ function private.InitializeListFrame()
 	function ListFrame:ClearLines()
 		local font_object = addon.db.profile.frameopts.small_list_font and "GameFontNormalSmall" or "GameFontNormal"
 
-		emphasis_texture:ClearAllPoints()
-
 		for i = 1, NUM_RECIPE_LINES do
 			local entry = self.entry_buttons[i]
 			local state = self.state_buttons[i]
@@ -885,6 +884,7 @@ function private.InitializeListFrame()
 			entry:SetScript("OnEnter", nil)
 			entry:SetScript("OnLeave", nil)
 			entry:SetWidth(LIST_ENTRY_WIDTH)
+			entry.emphasis_texture:Hide()
 			entry:Disable()
 
 			state.string_index = 0
@@ -1016,8 +1016,7 @@ function private.InitializeListFrame()
 			local cur_button = self.entry_buttons[button_index]
 
 			if cur_entry.emphasized then
-				emphasis_texture:SetPoint("TOPLEFT", cur_button, "TOPLEFT", 2, 0)
-				emphasis_texture:SetPoint("BOTTOMRIGHT", cur_button, "BOTTOMRIGHT", -2, 1)
+				cur_button.emphasis_texture:Show()
 			end
 
 			if cur_entry.type == "header" or cur_entry.type == "entry" then
