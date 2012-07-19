@@ -287,14 +287,12 @@ local icon_list = {}
 
 -- Clears all the icons from the world map and the mini-map
 function addon:ClearWaypoints()
-	if _G.TomTom and _G.TomTom.RemoveWaypoint then
-		while icon_list[1] do
-			_G.TomTom:RemoveWaypoint(table.remove(icon_list))
-		end
-	elseif _G.Cartographer_Waypoints then
-		while icon_list[1] do
-			_G.Cartographer_Waypoints:CancelWaypoint(table.remove(icon_list))
-		end
+	if not _G.TomTom or not _G.TomTom.RemoveWaypoint then
+		return
+	end
+
+	while icon_list[1] do
+		_G.TomTom:RemoveWaypoint(table.remove(icon_list))
 	end
 end
 
@@ -481,7 +479,7 @@ end
 -- Input: An optional recipe ID, acquire ID, and location ID.
 -- Output: Points are added to the maps
 function addon:AddWaypoint(recipe_id, acquire_id, location_id, npc_id)
-	if not _G.TomTom and not _G.Cartographer_Waypoints then
+	if not _G.TomTom then
 		return
 	end
 	local worldmap = addon.db.profile.worldmap
@@ -561,10 +559,6 @@ function addon:AddWaypoint(recipe_id, acquire_id, location_id, npc_id)
 
 				SetWaypointIcon(uid, _G.Minimap:GetChildren())
 				SetWaypointIcon(uid, _G.TomTomMapOverlay:GetChildren())
-			elseif _G.Cartographer_Waypoints then
-				local pt = _G.NotePoint:new(zone, x/100, y/100, name)
-				_G.Cartographer_Waypoints:AddWaypoint(pt)
-				table.insert(icon_list, pt.WaypointID)
 			end
 		else
 			--@debug@
