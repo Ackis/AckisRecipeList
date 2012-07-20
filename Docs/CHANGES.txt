@@ -1,6 +1,33 @@
 ==ARL Change Log
 NOTE: Always remove the folder for old versions and install a fresh copy when upgrading.
 
+== 2.3.1
+
+=== Interface:
+* Replaced specific "Removed from game" texts with the generic variant.
+* Some recipes now inform you if the acquire source will only be available after performing certain events, so that not finding a certain quest or NPC will have an explanation as to why.
+* Added emphasis for the character's current location when viewing the Location tab - helps with "what can I get here" moments.
+* Replace the TomTom "greet dot" waypoint icon with the icon for the waypoint's profession.
+* Added support for itIT localization.
+* Suppressed the missing localization phrase translation errors for non-enUS locales. Any missing translations will default to English.
+
+==== Recipe Database:
+* Marked several recipes as removed from the game.
+* Removed several NPCs which are no longer associated to recipes.
+* Added several new vendors and trainers.
+* Updated coordinates for several vendors and trainers.
+* Fixed many recipe qualities.
+* Normalized filters on a plethora of recipes so they make much more sense.
+* Fixed binding types (BoE, BoP) for several recipe items.
+* Several recipes have had their skill levels corrected.
+
+=== Backend:
+* Removed support for Cartographer_Waypoints since Cartographer has been dead since 2008.
+* Fixed issue where the AddOn would break if the acquire tooltip was turned off.
+* Cleaned up the TradeSkill AddOn-detection code.
+* Revamped the in-game dataminer to detect more issues and, more importantly, automatically fix them to make corrections easier.
+* Added waypoints for a few more instances.
+
 == 2.3.0
 
 === Interface:
