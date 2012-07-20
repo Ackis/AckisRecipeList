@@ -634,6 +634,19 @@ function private.InitializeFrame()
 			end
 			return false
 		end
+
+		local SEARCH_FUNCTIONS = {
+			SearchByField,
+			SearchByQuality,
+			SearchByAcquireType,
+			SearchByLocation,
+			SearchByReputation,
+			SearchByTrainer,
+			SearchByVendor,
+			SearchByMobDrop,
+			SearchByCustom,
+			SearchByDiscovery,
+		}
 		-- Scans through the recipe database and toggles the flag on if the item is in the search criteria
 		function SearchRecipes(search_pattern)
 			if not search_pattern then
@@ -644,42 +657,10 @@ function private.InitializeFrame()
 			for index, recipe in pairs(private.profession_recipe_list[ORDERED_PROFESSIONS[MainPanel.profession]]) do
 				recipe:RemoveState("RELEVANT")
 
-				local found = SearchByField(recipe, search_pattern)
-
-				if not found then
-					found = SearchByQuality(recipe, search_pattern)
-				end
-
-				if not found then
-					found = SearchByAcquireType(recipe, search_pattern)
-				end
-
-				if not found then
-					found = SearchByLocation(recipe, search_pattern)
-				end
-
-				if not found then
-					found = SearchByReputation(recipe, search_pattern)
-				end
-
-				if not found then
-					found = SearchByTrainer(recipe, search_pattern)
-				end
-
-				if not found then
-					found = SearchByVendor(recipe, search_pattern)
-				end
-
-				if not found then
-					found = SearchByMobDrop(recipe, search_pattern)
-				end
-
-				if not found then
-					found = SearchByCustom(recipe, search_pattern)
-				end
-
-				if not found then
-					found = SearchByDiscovery(recipe, search_pattern)
+				for search_index = 1, #SEARCH_FUNCTIONS do
+					if SEARCH_FUNCTIONS[search_index](recipe, search_pattern) then
+						break
+					end
 				end
 			end
 		end
