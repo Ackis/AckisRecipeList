@@ -1187,6 +1187,7 @@ function addon:InitEngineering()
 	recipe:SetSkillLevels(290, 290, 310, 320, 330)
 	recipe:SetItemFilterType("ENGINEERING_TRINKET")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.INSTANCE, F.MOB_DROP, F.IBOE, F.RBOE)
+	recipe:AddCustom("PREREQ")
 	recipe:AddMobDrop(10264)
 
 	-- Ultra-Flash Shadow Reflector -- 23082
@@ -1243,6 +1244,7 @@ function addon:InitEngineering()
 	recipe:SetSkillLevels(250, 250, 250, 260, 270)
 	recipe:SetItemFilterType("ENGINEERING_CREATED_ITEM")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	recipe:AddCustom("PREREQ")
 	recipe:AddVendor(14637)
 
 	-- Bloodvine Goggles -- 24356
@@ -1269,6 +1271,7 @@ function addon:InitEngineering()
 	recipe:SetSkillLevels(250, 250, 320, 330, 340)
 	recipe:SetItemFilterType("ENGINEERING_PET")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.QUEST, F.IBOE, F.RBOP)
+	recipe:AddCustom("PREREQ")
 	recipe:AddQuest(8798)
 
 	-- Small Blue Rocket -- 26416
