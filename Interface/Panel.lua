@@ -539,7 +539,6 @@ function private.InitializeFrame()
 				local str = recipe[field] and tostring(recipe[field]):lower()
 
 				if str and str:find(search_pattern) then
-					recipe:AddState("RELEVANT")
 					return true
 				end
 			end
@@ -554,7 +553,6 @@ function private.InitializeFrame()
 					local acquire_name = ACQUIRE_NAMES[acquire_type]:lower()
 
 					if acquire_name:find(search_pattern) then
-						recipe:AddState("RELEVANT")
 						return true
 					end
 				end
@@ -571,7 +569,6 @@ function private.InitializeFrame()
 						local location = location_name:lower()
 
 						if location:find(search_pattern) then
-							recipe:AddState("RELEVANT")
 							return true
 						end
 					end
@@ -582,7 +579,6 @@ function private.InitializeFrame()
 
 		local function SearchByQuality(recipe, search_pattern)
 			if private.ITEM_QUALITY_NAMES[recipe.quality]:lower():find(search_pattern) then
-				recipe:AddState("RELEVANT")
 				return true
 			end
 			return false
@@ -591,7 +587,6 @@ function private.InitializeFrame()
 		local function SearchByList(recipe, search_pattern, list)
 			for id_num, unit in pairs(list) do
 				if unit.item_list and unit.item_list[recipe.spell_id] and unit.name:lower():find(search_pattern) then
-					recipe:AddState("RELEVANT")
 					return true
 				end
 			end
@@ -626,7 +621,6 @@ function private.InitializeFrame()
 						local str = reputation_list[id_num].name:lower()
 
 						if str and str:find(search_pattern) then
-							recipe:AddState("RELEVANT")
 							return true
 						end
 					end
@@ -659,6 +653,7 @@ function private.InitializeFrame()
 
 				for search_index = 1, #SEARCH_FUNCTIONS do
 					if SEARCH_FUNCTIONS[search_index](recipe, search_pattern) then
+						recipe:AddState("RELEVANT")
 						break
 					end
 				end
