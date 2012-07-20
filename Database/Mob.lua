@@ -118,10 +118,7 @@ function addon:InitMob()
 	AddMob(23008,	L["Ethereum Jailor"],			"Netherstorm", 58.8, 35.6)
 
 	-- Searing Gorge
-	AddMob(5844,	L["Dark Iron Slaver"],			"Searing Gorge", 43.8, 33.8)
-	AddMob(5846,	L["Dark Iron Taskmaster"],		"Searing Gorge", 44.4, 41.1)
 	AddMob(5861,	L["Twilight Fire Guard"],		"Searing Gorge", 25.5, 33.8)
-	AddMob(8637,	L["Dark Iron Watchman"],		"Searing Gorge", 69.3, 34.8)
 	AddMob(9026,	BB["Overmaster Pyron"],			"Searing Gorge", 26.2, 74.9)
 
 	-- Shadowmoon Valley
