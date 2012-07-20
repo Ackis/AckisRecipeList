@@ -1025,8 +1025,8 @@ function addon:InitAlchemy()
 	recipe:SetCraftedItemID(21546)
 	recipe:SetSkillLevels(250, 250, 265, 285, 305)
 	recipe:SetItemFilterType("ALCHEMY_ELIXIR")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	recipe:AddMobDrop(5844, 5846, 8637)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
+	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Elixir of Camouflage -- 28543
 	recipe = AddRecipe(28543, V.TBC, Q.COMMON)
