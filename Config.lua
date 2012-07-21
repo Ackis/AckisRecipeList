@@ -233,7 +233,7 @@ end
 local arlmap
 
 local function GetMapOptions()
-	local has_waypoints = _G.TomTom or _G.Cartographer_Waypoints or false
+	local has_waypoints = _G.TomTom
 
 	if not arlmap then
 		arlmap = {
@@ -838,7 +838,7 @@ function addon:SetupOptions()
 	-- Register the module options
 	self:RegisterModuleOptions("Display", GetDisplayOptions(), _G.DISPLAY_OPTIONS)
 
-	if _G.TomTom or _G.Cartographer_Waypoints then
+	if _G.TomTom then
 		self:RegisterModuleOptions("Waypoint", GetMapOptions(), L["Waypoints"])
 	end
 

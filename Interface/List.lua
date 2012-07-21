@@ -1955,7 +1955,7 @@ do
 			ttAdd(0, -1, 0, L["CTRL_CLICK"], HINT_COLOR)
 			ttAdd(0, -1, 0, L["SHIFT_CLICK"], HINT_COLOR)
 
-			if not NON_COORD_ACQUIRES[acquire_id] and (_G.TomTom or _G.Cartographer_Waypoints) and (addon.db.profile.worldmap or addon.db.profile.minimap) then
+			if not NON_COORD_ACQUIRES[acquire_id] and _G.TomTom and (addon.db.profile.worldmap or addon.db.profile.minimap) then
 				ttAdd(0, -1, 0, L["CTRL_SHIFT_CLICK"], HINT_COLOR)
 			end
 		end
