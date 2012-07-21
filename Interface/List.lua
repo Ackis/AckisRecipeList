@@ -1909,20 +1909,22 @@ do
 
 		-- Add in skill level requirement, colored correctly
 		local skill_level = private.current_profession_scanlevel
+		local color_type
 
 		if recipe.skill_level > skill_level then
-			ttAdd(0, -1, false, ("%s:"):format(_G.SKILL_LEVEL), BASIC_COLORS["normal"], recipe.skill_level, private.DIFFICULTY_COLORS["impossible"])
+			color_type = "impossible"
 		elseif skill_level >= recipe.trivial_level then
-			ttAdd(0, -1, false, ("%s:"):format(_G.SKILL_LEVEL), BASIC_COLORS["normal"], recipe.skill_level, private.DIFFICULTY_COLORS["trivial"])
+			color_type = "trivial"
 		elseif skill_level >= recipe.easy_level then
-			ttAdd(0, -1, false, ("%s:"):format(_G.SKILL_LEVEL), BASIC_COLORS["normal"], recipe.skill_level, private.DIFFICULTY_COLORS["easy"])
+			color_type = "easy"
 		elseif skill_level >= recipe.medium_level then
-			ttAdd(0, -1, false, ("%s:"):format(_G.SKILL_LEVEL), BASIC_COLORS["normal"], recipe.skill_level, private.DIFFICULTY_COLORS["medium"])
+			color_type = "medium"
 		elseif skill_level >= recipe.optimal_level then
-			ttAdd(0, -1, false, ("%s:"):format(_G.SKILL_LEVEL), BASIC_COLORS["normal"], recipe.skill_level, private.DIFFICULTY_COLORS["optimal"])
+			color_type = "optimal"
 		else
-			ttAdd(0, -1, false, ("%s:"):format(_G.SKILL_LEVEL), BASIC_COLORS["normal"], recipe.skill_level, private.DIFFICULTY_COLORS["trivial"])
+			color_type = "trivial"
 		end
+		ttAdd(0, -1, false, ("%s:"):format(_G.SKILL_LEVEL), BASIC_COLORS["normal"], recipe.skill_level, private.DIFFICULTY_COLORS[color_type])
 		acquire_tip:AddSeparator()
 
 		for flag, label in pairs(BINDING_FLAGS) do
