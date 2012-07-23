@@ -241,21 +241,22 @@ function addon:OnInitialize()
 				-- Obtain Filters
 				-------------------------------------------------------------------------------
 				obtain = {
-					trainer = true,
-					vendor = true,
-					instance = true,
-					raid = true,
-					seasonal = true,
-					quest = true,
-					pvp = true,
-					discovery = true,
-					worlddrop = true,
-					mobdrop = true,
 					achievement = true,
+					discovery = true,
 					expansion0 = true,
 					expansion1 = true,
 					expansion2 = true,
 					expansion3 = true,
+					instance = true,
+					mobdrop = true,
+					pvp = true,
+					quest = true,
+					raid = true,
+					reputation = true,
+					seasonal = true,
+					trainer = true,
+					vendor = true,
+					worlddrop = true,
 				},
 				-------------------------------------------------------------------------------
 				-- Profession Item Filters

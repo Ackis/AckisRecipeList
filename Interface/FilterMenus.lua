@@ -491,10 +491,11 @@ function private.InitializeFilterPanel()
 			pvp		= { tt = L["PVP_DESC"],			text = _G.PVP,					row = 3, col = 1 },
 			quest		= { tt = L["QUEST_DESC"],		text = L["Quest"],				row = 3, col = 2 },
 			raid		= { tt = L["RAID_DESC"],		text = _G.RAID,					row = 4, col = 1 },
-			seasonal	= { tt = L["SEASONAL_DESC"],		text = private.ACQUIRE_NAMES[A.SEASONAL],	row = 4, col = 2 },
-			trainer		= { tt = L["TRAINER_DESC"],		text = L["Trainer"],				row = 5, col = 1 },
-			vendor		= { tt = L["VENDOR_DESC"],		text = L["Vendor"],				row = 5, col = 2 },
-			worlddrop	= { tt = L["WORLD_DROP_DESC"],		text = L["World Drop"],				row = 6, col = 1 },
+			reputation	= { tt = L["REPUTATION_DESC"],		text = _G.REPUTATION,				row = 4, col = 2 },
+			seasonal	= { tt = L["SEASONAL_DESC"],		text = private.ACQUIRE_NAMES[A.SEASONAL],	row = 5, col = 1 },
+			trainer		= { tt = L["TRAINER_DESC"],		text = L["Trainer"],				row = 5, col = 2 },
+			vendor		= { tt = L["VENDOR_DESC"],		text = L["Vendor"],				row = 6, col = 1 },
+			worlddrop	= { tt = L["WORLD_DROP_DESC"],		text = L["World Drop"],				row = 6, col = 2 },
 		}
 
 		local acquire_panel = _G.CreateFrame("Frame", nil, obtain_frame)
@@ -1345,21 +1346,22 @@ function private.InitializeFilterPanel()
 		------------------------------------------------------------------------------------------------
 		-- Obtain Options
 		------------------------------------------------------------------------------------------------
-		["instance"]		= { cb = FilterPanel.obtain.instance,		svroot = filterdb.obtain },
-		["raid"]		= { cb = FilterPanel.obtain.raid,		svroot = filterdb.obtain },
-		["quest"]		= { cb = FilterPanel.obtain.quest,		svroot = filterdb.obtain },
-		["seasonal"]		= { cb = FilterPanel.obtain.seasonal,		svroot = filterdb.obtain },
-		["trainer"]		= { cb = FilterPanel.obtain.trainer,		svroot = filterdb.obtain },
-		["vendor"]		= { cb = FilterPanel.obtain.vendor,		svroot = filterdb.obtain },
-		["pvp"]			= { cb = FilterPanel.obtain.pvp,		svroot = filterdb.obtain },
-		["discovery"]		= { cb = FilterPanel.obtain.discovery,		svroot = filterdb.obtain },
-		["worlddrop"]		= { cb = FilterPanel.obtain.worlddrop,		svroot = filterdb.obtain },
-		["mobdrop"]		= { cb = FilterPanel.obtain.mobdrop,		svroot = filterdb.obtain },
 		["achievement"]		= { cb = FilterPanel.obtain.achievement,	svroot = filterdb.obtain },
+		["discovery"]		= { cb = FilterPanel.obtain.discovery,		svroot = filterdb.obtain },
 		["expansion0"]		= { cb = FilterPanel.obtain.expansion0,		svroot = filterdb.obtain },
 		["expansion1"]		= { cb = FilterPanel.obtain.expansion1,		svroot = filterdb.obtain },
 		["expansion2"]		= { cb = FilterPanel.obtain.expansion2,		svroot = filterdb.obtain },
 		["expansion3"]		= { cb = FilterPanel.obtain.expansion3,		svroot = filterdb.obtain },
+		["instance"]		= { cb = FilterPanel.obtain.instance,		svroot = filterdb.obtain },
+		["mobdrop"]		= { cb = FilterPanel.obtain.mobdrop,		svroot = filterdb.obtain },
+		["pvp"]			= { cb = FilterPanel.obtain.pvp,		svroot = filterdb.obtain },
+		["quest"]		= { cb = FilterPanel.obtain.quest,		svroot = filterdb.obtain },
+		["raid"]		= { cb = FilterPanel.obtain.raid,		svroot = filterdb.obtain },
+		["reputation"]		= { cb = FilterPanel.obtain.reputation,		svroot = filterdb.obtain },
+		["seasonal"]		= { cb = FilterPanel.obtain.seasonal,		svroot = filterdb.obtain },
+		["trainer"]		= { cb = FilterPanel.obtain.trainer,		svroot = filterdb.obtain },
+		["vendor"]		= { cb = FilterPanel.obtain.vendor,		svroot = filterdb.obtain },
+		["worlddrop"]		= { cb = FilterPanel.obtain.worlddrop,		svroot = filterdb.obtain },
 		------------------------------------------------------------------------------------------------
 		-- Binding Options
 		------------------------------------------------------------------------------------------------

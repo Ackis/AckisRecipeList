@@ -942,6 +942,7 @@ L["REPORTING_BUGS_DESC"] = [[When reporting a bug, please make sure you do the f
 5) If your problem is not listed and you are using the latest version verify your addon settings.  Verify filters, profiles, etc.
 6) You have found a bug that no one has reported before.  Create a new ticket at http://www.wowace.com/addons/arl/tickets/ with a descriptive heading about the problem.  In the ticket make sure you include the error message that you received (just the error message, I don't need a listing of the addons you use), the recipe/profession you were working with, and any other info that you think may help.
 When posting a bug report, do NOT include all of the addons from swatter.  This just makes it difficult to read.  If you want a good error reporting mod, get BugSack.  Do not post errors/missing recipes in the comments, or send them to me via a PM.  Post them as a ticket which I can address and track easily.]]
+L["REPUTATION_DESC"] = "Recipes obtained from reputation vendors should be included in the scan."
 L["RESET_DESC"] = "Reset All Filters to default values."
 L["RESET_WINDOW_DESC"] = "Resets the ARL GUI to default position."
 L["RETIRED_DESC"] = "Include recipes which can no longer be acquired."
