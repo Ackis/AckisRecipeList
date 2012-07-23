@@ -607,20 +607,35 @@ function private.InitializeListFrame()
 
 		local CLASS1 = private.CLASS_FLAGS_WORD1
 		local CLASS_FILTERS = {
-			["deathknight"]	= CLASS1.DK,
-			["druid"]	= CLASS1.DRUID,
-			["hunter"]	= CLASS1.HUNTER,
-			["mage"]	= CLASS1.MAGE,
-			["paladin"]	= CLASS1.PALADIN,
-			["priest"]	= CLASS1.PRIEST,
-			["shaman"]	= CLASS1.SHAMAN,
-			["rogue"]	= CLASS1.ROGUE,
-			["warlock"]	= CLASS1.WARLOCK,
-			["warrior"]	= CLASS1.WARRIOR,
+			[CLASS1.DK]		= "deathknight",
+			[CLASS1.DRUID]		= "druid",
+			[CLASS1.HUNTER]		= "hunter",
+			[CLASS1.MAGE]		= "mage",
+			[CLASS1.PALADIN]	= "paladin",
+			[CLASS1.PRIEST]		= "priest",
+			[CLASS1.SHAMAN]		= "shaman",
+			[CLASS1.ROGUE]		= "rogue",
+			[CLASS1.WARLOCK]	= "warlock",
+			[CLASS1.WARRIOR]	= "warrior",
 		}
 
+		-- Returns true if any of the filter flags are turned on.
+		local function HasEnabledFlag(filters, bitfield, name_field)
+			if not bitfield then
+				return true
+			end
+
+			for flag, name in pairs(filters) do
+				if bit.band(bitfield, flag) == flag then
+					if name_field[name] then
+						return true
+					end
+				end
+			end
+			return false
+		end
+
 		---Scans a specific recipe to determine if it is to be displayed or not.
-		-- For flag info see comments at start of file in comments
 		local function CanDisplayRecipe(recipe)
 			if addon.db.profile.exclusionlist[recipe.spell_id] and not addon.db.profile.ignoreexclusionlist then
 				return false
@@ -667,7 +682,7 @@ function private.InitializeListFrame()
 			end
 
 			-------------------------------------------------------------------------------
-			-- Check the hard filter flags
+			-- Check the hard filter flags.
 			-------------------------------------------------------------------------------
 			for filter, data in pairs(private.HARD_FILTERS) do
 				local bitfield = recipe.flags[data.field]
@@ -678,64 +693,20 @@ function private.InitializeListFrame()
 			end
 
 			-------------------------------------------------------------------------------
-			-- Check the reputation filter flags - _all_ of the pertinent reputation or
-			-- class flags must be toggled off or the recipe is still shown.
-			-------------------------------------------------------------------------------
-			local toggled_off, toggled_on = 0, 0
-
-			for flag, name in pairs(REP_FILTERS) do
-				local bitfield = recipe.flags.reputation1
-
-				if bitfield and bit.band(bitfield, flag) == flag then
-					if filter_db.rep[name] then
-						toggled_on = toggled_on + 1
-					else
-						toggled_off = toggled_off + 1
-					end
-				end
-			end
-
-			if toggled_off > 0 and toggled_on == 0 then
+			-- Check the reputation filter flags.
+			------------------------------------------------------------------------------
+			if not HasEnabledFlag(REP_FILTERS, recipe.flags.reputation1, filter_db.rep) then
 				return false
 			end
-			toggled_off, toggled_on = 0, 0
 
-			for flag, name in pairs(REP_FILTERS_2) do
-				local bitfield = recipe.flags.reputation2
-
-				if bitfield and bit.band(bitfield, flag) == flag then
-					if filter_db.rep[name] then
-						toggled_on = toggled_on + 1
-					else
-						toggled_off = toggled_off + 1
-					end
-				end
-			end
-
-			if toggled_off > 0 and toggled_on == 0 then
+			if not HasEnabledFlag(REP_FILTERS_2, recipe.flags.reputation2, filter_db.rep) then
 				return false
 			end
 
 			-------------------------------------------------------------------------------
 			-- Check the class filter flags
 			-------------------------------------------------------------------------------
-			local class_filters = filter_db.classes
-
-			toggled_off, toggled_on = 0, 0
-
-			for class, flag in pairs(CLASS_FILTERS) do
-				local bitfield = recipe.flags.class1
-
-				if bitfield and bit.band(bitfield, flag) == flag then
-					if class_filters[class] then
-						toggled_on = toggled_on + 1
-					else
-						toggled_off = toggled_off + 1
-					end
-				end
-			end
-
-			if toggled_off > 0 and toggled_on == 0 then
+			if not HasEnabledFlag(CLASS_FILTERS, recipe.flags.class1, filter_db.classes) then
 				return false
 			end
 
