@@ -1457,16 +1457,17 @@ do
 	local FILTER_TO_ACQUIRE_MAP
 
 	local OBTAIN_FILTERS = {
-		["TRAINER"] = true,
-		["VENDOR"] = true,
-		["INSTANCE"] = true,
-		["RAID"] = true,
-		["SEASONAL"] = true,
-		["QUEST"] = true,
-		["PVP"] = true,
-		["WORLD_DROP"] = true,
-		["MOB_DROP"] = true,
-		["DISC"] = true,
+		DISC = true,
+		INSTANCE = true,
+		MOB_DROP = true,
+		PVP = true,
+		QUEST = true,
+		RAID = true,
+		REPUTATION = true,
+		SEASONAL = true,
+		TRAINER = true,
+		VENDOR = true,
+		WORLD_DROP = true,
 	}
 
 	--- Prints out the results of the tooltip scan.
@@ -1594,9 +1595,10 @@ do
 		end
 		local repid = scan_data.repid
 
-		if repid and not recipe:HasFilter("reputation1", FS[repid]) and not recipe:HasFilter("reputation2", FS[repid]) then
-			table.insert(missing_flags, repid)
-
+		if repid then
+			if not recipe:HasFilter("reputation1", FS[repid]) and not recipe:HasFilter("reputation2", FS[repid]) then
+				table.insert(missing_flags, repid)
+			end
 			local rep_data = acquire_data[A.REPUTATION]
 
 			if rep_data then
@@ -1645,9 +1647,23 @@ do
 			end
 		end
 
-		if (acquire_data[A.VENDOR] or acquire_data[A.REPUTATION]) and not recipe:HasFilter("common1", "VENDOR") and not recipe:HasFilter("common1", "SEASONAL") then
-			recipe:AddFilters(F.VENDOR)
-			table.insert(missing_flags, flag_format:format(FS[F.VENDOR]))
+		if acquire_data[A.VENDOR] then
+			if not recipe:HasFilter("common1", "VENDOR") and not recipe:HasFilter("common1", "SEASONAL") and not recipe:HasFilter("common1", "REPUTATION") then
+				recipe:AddFilters(F.VENDOR)
+				table.insert(missing_flags, flag_format:format(FS[F.VENDOR]))
+			end
+		end
+
+		if acquire_data[A.REPUTATION] then
+			if not recipe:HasFilter("common1", "REPUTATION") then
+				recipe:AddFilters(F.REPUTATION)
+				table.insert(missing_flags, FS[F.REPUTATION])
+			end
+
+			if recipe:HasFilter("common1", "VENDOR") then
+				recipe:RemoveFilters(F.VENDOR)
+				table.insert(extra_flags, FS[F.VENDOR])
+			end
 		end
 
 		if recipe:HasFilter("common1", "VENDOR") and not (acquire_data[A.VENDOR] or acquire_data[A.REPUTATION]) then
