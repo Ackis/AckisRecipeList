@@ -114,7 +114,7 @@ function addon:InitMob()
 	AddMob(20134,	L["Sunfury Arcanist"],			"Netherstorm", 51.0, 82.5)
 	AddMob(20135,	L["Sunfury Arch Mage"],			"Netherstorm", 46.5, 81.0)
 	AddMob(20136,	L["Sunfury Researcher"],		"Netherstorm", 48.2, 82.5)
-	AddMob(20207,	L["Sunfury Bowman"],			"Netherstorm", 61.5, 67.5)
+	AddMob(20207,	L["Sunfury Bowman"],			"Netherstorm", 56.8, 64.6)
 	AddMob(23008,	L["Ethereum Jailor"],			"Netherstorm", 58.8, 35.6)
 
 	-- Searing Gorge
