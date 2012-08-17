@@ -1,4 +1,4 @@
-==What it does
+﻿==What it does
 Ackis Recipe List is an addon which will scan your trade skills and provide information on how to obtain recipes.  It works for all tradeskills including [[http://www.wowpedia.org/Runeforge | Runeforging]].
 
 =====French (frFR)
@@ -20,7 +20,7 @@ Ackis Recipe List es un addon que escanea tus habilidades comerciales y provee i
 詳細的專業技能配方查詢插件。.
 
 ==Donations
-If you wish to donate, please see the [[http://www.wowace.com/addons/arl/pages/donations/|donation]] page or donate via [[http://www.pledgie.com/campaigns/13809 | Plegie]].
+If you wish to donate, please donate via [[http://www.pledgie.com/campaigns/13809 | Plegie]].
 
 ==Where to get it
 * [[http://www.wowace.com/addons/arl/files/|WoW Ace]] - Alpha Quality
