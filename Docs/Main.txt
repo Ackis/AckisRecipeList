@@ -107,11 +107,11 @@ Please use the [[http://www.wowace.com/addons/arl/tickets/|WoW Ace]] tracker to 
 ==Integration
 Ackis Recipe List strives to integrate with existing trade skill mods out there.  If you have a request for integration, please submit a feature request at [[http://www.wowace.com/addons/arl/tickets/|WoW Ace]].  We make no promises to implement the feature at all.  There is a limited [[http://www.wowace.com/addons/arl/pages/api/|API]] documented to interface with the ARL database.  If you are a developer and would like more functions, please contact us on IRC.
 Currently, the mod works with:
-* [[http://wow.curse.com/downloads/wow-addons/details/advanced-trade-skill-window.aspx|Advanced Trade Skill Window]] - [[http://www.wowace.com/addons/arl/images/13-arl-w-atsw/|Screenshot 1]]
-* [[http://wow.curse.com/downloads/wow-addons/details/skillet.aspx|Skillet]]
-* [[http://wow.curse.com/downloads/wow-addons/details/project-3361.aspx|Manufac]] - No longer maintained.
-* [[http://wow.curse.com/downloads/wow-addons/details/cauldron.aspx|Cauldron]]
-* [[http://wow.curse.com/downloads/wow-addons/details/mrtrader.aspx|Mr Trader]]
+* [[http://www.curse.com/addons/wow/advanced-trade-skill-window|Advanced Trade Skill Window]] - [[http://www.wowace.com/addons/arl/images/13-arl-w-atsw/|Screenshot 1]]
+* [[http://www.curse.com/addons/wow/skillet|Skillet]]
+* [[http://www.curse.com/addons/wow/mrtrader|Mr Trader]]
+* [[http://www.wowace.com/addons/gnomeworks/|Gnome Works]]
+* [[http://www.curse.com/addons/wow/professionsvault|Professions Vault]]
 
 If your mod should be on this list, please submit a [[http://www.wowace.com/addons/arl/tickets/ | ticket]].
 
