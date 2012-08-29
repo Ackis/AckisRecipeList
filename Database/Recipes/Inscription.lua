@@ -511,14 +511,6 @@ function addon:InitInscription()
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.CASTER, F.MAGE)
 	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30709, 30710, 30711, 30713, 30715, 30716, 30717, 30721, 30722, 33603, 33615, 33638, 33679, 46716)
 
-	-- Glyph of Frostbolt -- 56977
-	recipe = AddRecipe(56977, V.WOTLK, Q.COMMON)
-	recipe:SetCraftedItemID(42742)
-	recipe:SetSkillLevels(385, 385, 390, 397, 405)
-	recipe:SetItemFilterType("INSCRIPTION_PRIME_GLYPH")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.CASTER, F.MAGE)
-	recipe:AddDiscovery("DISCOVERY_INSC_NORTHREND")
-
 	-- Glyph of Pyroblast -- 56978
 	recipe = AddRecipe(56978, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(42743)
@@ -1868,14 +1860,6 @@ function addon:InitInscription()
 	recipe:SetCraftedItemID(42467)
 	recipe:SetSkillLevels(165, 165, 170, 175, 180)
 	recipe:SetItemFilterType("INSCRIPTION_MAJOR_GLYPH")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.CASTER, F.WARLOCK)
-	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30709, 30710, 30711, 30713, 30715, 30716, 30717, 30721, 30722, 33603, 33615, 33638, 33679, 46716)
-
-	-- Glyph of Shadowburn -- 57272
-	recipe = AddRecipe(57272, V.WOTLK, Q.COMMON)
-	recipe:SetCraftedItemID(42468)
-	recipe:SetSkillLevels(275, 275, 280, 285, 290)
-	recipe:SetItemFilterType("INSCRIPTION_PRIME_GLYPH")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.CASTER, F.WARLOCK)
 	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30709, 30710, 30711, 30713, 30715, 30716, 30717, 30721, 30722, 33603, 33615, 33638, 33679, 46716)
 
@@ -3523,14 +3507,6 @@ function addon:InitInscription()
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOP)
 	recipe:AddWorldDrop("Uldum")
 
-	-- Etched Horn -- 86647
-	recipe = AddRecipe(86647, V.CATA, Q.COMMON)
-	recipe:SetCraftedItemID(62240)
-	recipe:SetSkillLevels(480, 480, 500, 502, 505)
-	recipe:SetItemFilterType("INSCRIPTION_RELIC")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE)
-	recipe:AddTrainer(28702, 30706, 30709, 30711, 30713, 30715, 30717, 33603, 33615, 33638, 46716)
-
 	-- Manual of the Planes -- 86648
 	recipe = AddRecipe(86648, V.CATA, Q.COMMON)
 	recipe:SetCraftedItemID(62241)
@@ -3543,14 +3519,6 @@ function addon:InitInscription()
 	recipe = AddRecipe(86649, V.CATA, Q.COMMON)
 	recipe:SetCraftedItemID(62242)
 	recipe:SetSkillLevels(505, 505, 515, 520, 525)
-	recipe:SetItemFilterType("INSCRIPTION_RELIC")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE)
-	recipe:AddTrainer(28702, 30706, 30709, 30711, 30713, 30715, 30717, 33603, 33615, 33638, 46716)
-
-	-- Notched Jawbone -- 86650
-	recipe = AddRecipe(86650, V.CATA, Q.COMMON)
-	recipe:SetCraftedItemID(62243)
-	recipe:SetSkillLevels(515, 515, 525, 530, 535)
 	recipe:SetItemFilterType("INSCRIPTION_RELIC")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE)
 	recipe:AddTrainer(28702, 30706, 30709, 30711, 30713, 30715, 30717, 33603, 33615, 33638, 46716)
@@ -3588,14 +3556,6 @@ function addon:InitInscription()
 	recipe:SetItemFilterType("INSCRIPTION_CREATED_ITEM")
 	recipe:AddFilters(F.ALLIANCE, F.TRAINER, F.IBOE, F.RBOE)
 	recipe:AddTrainer(28702, 30713, 30715, 30717)
-
-	-- Adventurer's Journal -- 89367
-	recipe = AddRecipe(89367, V.CATA, Q.COMMON)
-	recipe:SetCraftedItemID(62237)
-	recipe:SetSkillLevels(460, 460, 475, 480, 485)
-	recipe:SetItemFilterType("INSCRIPTION_CREATED_ITEM")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE)
-	recipe:AddTrainer(28702, 30706, 30709, 30711, 30713, 30715, 30717, 33603, 33615, 33638, 46716)
 
 	-- Scroll of Intellect IX -- 89368
 	recipe = AddRecipe(89368, V.CATA, Q.COMMON)
@@ -3780,30 +3740,6 @@ function addon:InitInscription()
 	recipe:SetItemFilterType("INSCRIPTION_MAJOR_GLYPH")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOE, F.MAGE)
 	recipe:AddDiscovery("DISCOVERY_INSC_NORTHREND")
-
-	-- Vicious Charm of Triumph -- 99547
-	recipe = AddRecipe(99547, V.CATA, Q.COMMON)
-	recipe:SetCraftedItemID(75079)
-	recipe:SetSkillLevels(510, 510, 520, 525, 530)
-	recipe:SetItemFilterType("INSCRIPTION_RELIC")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(30706)
-
-	-- Vicious Eyeball of Dominance -- 99548
-	recipe = AddRecipe(99548, V.CATA, Q.COMMON)
-	recipe:SetCraftedItemID(75066)
-	recipe:SetSkillLevels(510, 510, 520, 525, 530)
-	recipe:SetItemFilterType("INSCRIPTION_RELIC")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(30706)
-
-	-- Vicious Jawbone of Conquest -- 99549
-	recipe = AddRecipe(99549, V.CATA, Q.COMMON)
-	recipe:SetCraftedItemID(75069)
-	recipe:SetSkillLevels(510, 510, 520, 525, 530)
-	recipe:SetItemFilterType("INSCRIPTION_RELIC")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(30706)
 
 	-- Glyph of Unleashed Lightning -- 101057
 	recipe = AddRecipe(101057, V.CATA, Q.COMMON)
