@@ -459,22 +459,6 @@ function addon:OnEnable()
 	if addon.db.profile.scanvendors then
 		self:RegisterEvent("MERCHANT_SHOW")
 	end
-
-	-------------------------------------------------------------------------------
-	-- Set the parent and scripts for addon.scan_button.
-	-------------------------------------------------------------------------------
-	local scan_button = self.scan_button
-
-	-- Add an option so that ARL will work with Manufac
-	if _G.Manufac then
-		_G.Manufac.options.args.ARLScan = {
-			type = 'execute',
-			name = L["Scan"],
-			desc = L["SCAN_RECIPES_DESC"],
-			func = function() addon:Scan(false) end,
-			order = 550,
-		}
-	end
 	private.Player:Initialize()
 
 	-------------------------------------------------------------------------------
@@ -499,11 +483,6 @@ end
 function addon:OnDisable()
 	if addon.Frame then
 		addon.Frame:Hide()
-	end
-
-	-- Remove the option from Manufac
-	if _G.Manufac then
-		_G.Manufac.options.args.ARLScan = nil
 	end
 end
 
