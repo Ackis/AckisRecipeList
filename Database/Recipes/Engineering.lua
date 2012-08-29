@@ -2559,13 +2559,6 @@ function addon:InitEngineering()
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOP, F.RBOP)
 	recipe:AddDiscovery("ENG_DISC")
 
-	-- Z50 Mana Gulper -- 82201
-	recipe = AddRecipe(82201, V.CATA, Q.COMMON)
-	recipe:SetSkillLevels(425, 425, 425, 437, 450)
-	recipe:SetItemFilterType("ENGINEERING_ITEM_ENHANCEMENT")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOP, F.RBOP)
-	recipe:AddDiscovery("ENG_DISC")
-
 	-- Handful of Obsidium Bolts -- 84403
 	recipe = AddRecipe(84403, V.CATA, Q.COMMON)
 	recipe:SetCraftedItemID(60224)
