@@ -906,12 +906,12 @@ do
 			_G.TradeSkillFrame_Update()
 
 			-- Expand all headers so we can see all the recipes there are
-			for i = _G.GetNumTradeSkills(), 1, -1 do
-				local name, tradeType, _, isExpanded = _G.GetTradeSkillInfo(i)
+			for skill_index = _G.GetNumTradeSkills(), 1, -1 do
+				local entry_name, entry_type, _, is_expanded = _G.GetTradeSkillInfo(skill_index)
 
-				if tradeType == "header" and not isExpanded then
-					header_list[name] = true
-					_G.ExpandTradeSkillSubClass(i)
+				if (entry_type == "header" or entry_type == "subheader") and not is_expanded then
+					header_list[entry_name] = true
+					_G.ExpandTradeSkillSubClass(skill_index)
 				end
 			end
 		end
@@ -929,7 +929,7 @@ do
 		for skill_index = 1, _G.GetNumTradeSkills() do
 			local entry_name, entry_type = _G.GetTradeSkillInfo(skill_index)
 
-			if entry_type ~= "header" then
+			if entry_type ~= "header" and entry_type ~= "subheader" then
 				local spell_string = _G.GetTradeSkillRecipeLink(skill_index):match("^|c%x%x%x%x%x%x%x%x|H%w+:(%d+)")
 				local spell_id = tonumber(spell_string)
 				local recipe = profession_recipes[spell_id]
