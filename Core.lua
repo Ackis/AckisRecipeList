@@ -926,12 +926,11 @@ do
 			recipe:RemoveState("LINKED")
 		end
 
-		for index = 1, _G.GetNumTradeSkills() do
-			local tradeName, tradeType = _G.GetTradeSkillInfo(index)
+		for skill_index = 1, _G.GetNumTradeSkills() do
+			local entry_name, entry_type = _G.GetTradeSkillInfo(skill_index)
 
-			if tradeType ~= "header" then
-				local spell_link = _G.GetTradeSkillRecipeLink(index)
-				local spell_string = spell_link:match("^|c%x%x%x%x%x%x%x%x|H%w+:(%d+)")
+			if entry_type ~= "header" then
+				local spell_string = _G.GetTradeSkillRecipeLink(skill_index):match("^|c%x%x%x%x%x%x%x%x|H%w+:(%d+)")
 				local spell_id = tonumber(spell_string)
 				local recipe = profession_recipes[spell_id]
 
@@ -947,13 +946,13 @@ do
 						if overwrite_recipe then
 							SetRecipeAsKnownOrLinked(overwrite_recipe, tradeskill_is_linked)
 						else
-							self:Debug(tradeName .. " " .. SPELL_OVERWRITE_MAP[spell_id] .. L["MissingFromDB"])
+							self:Debug(entry_name .. " " .. SPELL_OVERWRITE_MAP[spell_id] .. L["MissingFromDB"])
 						end
 					end
 					SetRecipeAsKnownOrLinked(recipe, tradeskill_is_linked)
 					recipes_found = recipes_found + 1
 				else
-					self:Debug(tradeName .. " " .. spell_string .. L["MissingFromDB"])
+					self:Debug(entry_name .. " " .. spell_string .. L["MissingFromDB"])
 				end
 			end
 		end
@@ -962,11 +961,11 @@ do
 		if _G.MRTAPI then
 			_G.MRTAPI:PopFilterSelection()
 		else
-			for i = _G.GetNumTradeSkills(), 1, -1 do
-				local name, tradeType, _, isExpanded = _G.GetTradeSkillInfo(i)
+			for skill_index = _G.GetNumTradeSkills(), 1, -1 do
+				local entry_name, _, _, is_expanded = _G.GetTradeSkillInfo(skill_index)
 
-				if header_list[name] then
-					_G.CollapseTradeSkillSubClass(i)
+				if header_list[entry_name] then
+					_G.CollapseTradeSkillSubClass(skill_index)
 				end
 			end
 			_G.TradeSkillFrame.filterTbl.hasMaterials = have_materials
