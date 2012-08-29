@@ -403,7 +403,7 @@ function private.InitializeFrame()
 	-------------------------------------------------------------------------------
 	-- Create the profession-cycling button and assign its values.
 	-------------------------------------------------------------------------------
-	local profession_cycling_button = _G.CreateFrame("Button", nil, MainPanel, "UIPanelButtonTemplate")
+	local profession_cycling_button = _G.CreateFrame("Button", nil, MainPanel)
 	profession_cycling_button:SetWidth(64)
 	profession_cycling_button:SetHeight(64)
 	profession_cycling_button:SetPoint("TOPLEFT", MainPanel, "TOPLEFT", 5, -4)
