@@ -407,6 +407,7 @@ function private.InitializeFrame()
 	profession_cycling_button:SetWidth(64)
 	profession_cycling_button:SetHeight(64)
 	profession_cycling_button:SetPoint("TOPLEFT", MainPanel, "TOPLEFT", 5, -4)
+	profession_cycling_button:SetHighlightTexture([[Interface\Cooldown\ping4]])
 	profession_cycling_button:RegisterForClicks("LeftButtonUp", "RightButtonUp")
 
 	profession_cycling_button._normal = profession_cycling_button:CreateTexture(nil, "BACKGROUND")
