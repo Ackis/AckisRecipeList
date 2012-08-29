@@ -71,7 +71,7 @@ function addon:AddRecipe(spell_id, profession, genesis, quality)
 
 	if not recipe.name or recipe.name == "" then
 		recipe.name = ("%s: %d"):format(_G.UNKNOWN, tonumber(spell_id))
-		self:Print(L["SpellIDCache"]:format(spell_id))
+		self:Debug(L["SpellIDCache"]:format(spell_id))
 	end
 	recipe_list[spell_id] = recipe
 
