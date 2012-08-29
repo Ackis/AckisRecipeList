@@ -132,15 +132,6 @@ function addon:InitAlchemy()
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	recipe:AddTrainer(1215, 1386, 1470, 2132, 2391, 2837, 3009, 3184, 3347, 3603, 3964, 4160, 4611, 4900, 5177, 5499, 7948, 16161, 16588, 16642, 16723, 18802, 19052, 26951, 26975, 27023, 27029, 28703, 33588, 33608, 33630, 33674)
 
-	-- Minor Magic Resistance Potion -- 3172
-	recipe = AddRecipe(3172, V.ORIG, Q.COMMON)
-	recipe:SetRecipeItemID(3393)
-	recipe:SetCraftedItemID(3384)
-	recipe:SetSkillLevels(110, 110, 135, 155, 175)
-	recipe:SetItemFilterType("ALCHEMY_POTION")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
-
 	-- Lesser Mana Potion -- 3173
 	recipe = AddRecipe(3173, V.ORIG, Q.COMMON)
 	recipe:SetCraftedItemID(3385)
@@ -466,15 +457,6 @@ function addon:InitAlchemy()
 	recipe:SetItemFilterType("ALCHEMY_POTION")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOE, F.RBOP)
 	recipe:AddCustom("REMOVED_FROM_GAME")
-
-	-- Magic Resistance Potion -- 11453
-	recipe = AddRecipe(11453, V.ORIG, Q.UNCOMMON)
-	recipe:SetRecipeItemID(9293)
-	recipe:SetCraftedItemID(9036)
-	recipe:SetSkillLevels(210, 210, 225, 245, 265)
-	recipe:SetItemFilterType("ALCHEMY_POTION")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
 
 	-- Goblin Rocket Fuel -- 11456
 	recipe = AddRecipe(11456, V.ORIG, Q.COMMON)
@@ -929,16 +911,6 @@ function addon:InitAlchemy()
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.INSTANCE, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.REPUTATION, F.KOT)
 	recipe:AddMobDrop(10508)
 	recipe:AddRepVendor(FAC.KEEPERS_OF_TIME, REP.EXALTED, 21643)
-
-	-- Flask of Chromatic Resistance -- 17638
-	recipe = AddRecipe(17638, V.TBC, Q.UNCOMMON)
-	recipe:SetRecipeItemID(31357)
-	recipe:SetCraftedItemID(13513)
-	recipe:SetSkillLevels(300, 300, 315, 322, 330)
-	recipe:SetItemFilterType("ALCHEMY_FLASK")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.INSTANCE, F.IBOE, F.RBOP, F.REPUTATION, F.LOWERCITY)
-	recipe:AddMobDrop(10339)
-	recipe:AddRepVendor(FAC.LOWERCITY, REP.EXALTED, 21655)
 
 	-- Elixir of Frost Power -- 21923
 	recipe = AddRecipe(21923, V.ORIG, Q.COMMON)
@@ -1580,15 +1552,6 @@ function addon:InitAlchemy()
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP)
 	recipe:AddDiscovery("DISCOVERY_ALCH_PROT")
 
-	-- Flask of Chromatic Wonder -- 42736
-	recipe = AddRecipe(42736, V.TBC, Q.UNCOMMON)
-	recipe:SetRecipeItemID(33209)
-	recipe:SetCraftedItemID(33208)
-	recipe:SetSkillLevels(375, 375, 390, 397, 405)
-	recipe:SetItemFilterType("ALCHEMY_FLASK")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.RBOE, F.REPUTATION, F.VIOLETEYE)
-	recipe:AddRepVendor(FAC.VIOLETEYE, REP.HONORED, 18255)
-
 	-- Mad Alchemist's Potion -- 45061
 	recipe = AddRecipe(45061, V.TBC, Q.COMMON)
 	recipe:SetCraftedItemID(34440)
@@ -2101,14 +2064,6 @@ function addon:InitAlchemy()
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 4160, 4611, 5499, 19052, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588, 33608, 33630)
 
-	-- Lesser Flask of Resistance -- 62213
-	recipe = AddRecipe(62213, V.WOTLK, Q.COMMON)
-	recipe:SetCraftedItemID(44939)
-	recipe:SetSkillLevels(385, 385, 395, 400, 405)
-	recipe:SetItemFilterType("ALCHEMY_FLASK")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 4160, 4611, 5499, 19052, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588, 33608, 33630)
-
 	-- Ethereal Oil -- 62409
 	recipe = AddRecipe(62409, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(44958)
@@ -2179,14 +2134,6 @@ function addon:InitAlchemy()
 	recipe:SetSkillLevels(450, 450, 450, 452, 465)
 	recipe:SetItemFilterType("ALCHEMY_TRANSMUTE")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 4160, 4611, 5499, 19052, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588, 33608, 33630)
-
-	-- Flask of the North -- 67025
-	recipe = AddRecipe(67025, V.WOTLK, Q.COMMON)
-	recipe:SetCraftedItemID(47499)
-	recipe:SetSkillLevels(425, 425, 440, 445, 450)
-	recipe:SetItemFilterType("ALCHEMY_FLASK")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.DPS)
 	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 4160, 4611, 5499, 19052, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588, 33608, 33630)
 
 	-- Transmute: Living Elements -- 78866
@@ -2465,14 +2412,6 @@ function addon:InitAlchemy()
 	recipe = AddRecipe(80723, V.CATA, Q.COMMON)
 	recipe:SetCraftedItemID(58088)
 	recipe:SetSkillLevels(510, 510, 515, 520, 525)
-	recipe:SetItemFilterType("ALCHEMY_FLASK")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 4160, 4611, 5177, 5499, 19052, 26951, 26975, 27023, 27029, 28703, 33588, 33608, 33630)
-
-	-- Flask of Enhancement -- 80724
-	recipe = AddRecipe(80724, V.CATA, Q.COMMON)
-	recipe:SetCraftedItemID(58149)
-	recipe:SetSkillLevels(500, 500, 505, 510, 515)
 	recipe:SetItemFilterType("ALCHEMY_FLASK")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 4160, 4611, 5177, 5499, 19052, 26951, 26975, 27023, 27029, 28703, 33588, 33608, 33630)
