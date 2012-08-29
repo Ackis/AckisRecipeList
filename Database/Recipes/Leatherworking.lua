@@ -3550,60 +3550,6 @@ function addon:InitLeatherworking()
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
 	recipe:AddTrainer(3365, 4212, 5564, 21087, 26911, 26961, 26996, 26998, 28700, 29509, 33581, 33612, 33635)
 
-	-- Fur Lining - Fire Resist -- 57692
-	recipe = AddRecipe(57692, V.WOTLK, Q.RARE)
-	recipe:SetRecipeItemID(44559)
-	recipe:SetSkillLevels(400, 400, 425, 430, 435)
-	recipe:SetItemFilterType("LEATHERWORKING_ITEM_ENHANCEMENT")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOE, F.RBOP)
-	recipe:AddMobDrop(30921)
-
-	-- Fur Lining - Frost Resist -- 57694
-	recipe = AddRecipe(57694, V.WOTLK, Q.RARE)
-	recipe:SetRecipeItemID(44560)
-	recipe:SetSkillLevels(400, 400, 425, 430, 435)
-	recipe:SetItemFilterType("LEATHERWORKING_ITEM_ENHANCEMENT")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOE, F.RBOP)
-	recipe:AddMobDrop(32289)
-
-	-- Fur Lining - Shadow Resist -- 57696
-	recipe = AddRecipe(57696, V.WOTLK, Q.RARE)
-	recipe:SetRecipeItemID(44561)
-	recipe:SetSkillLevels(400, 400, 425, 430, 435)
-	recipe:SetItemFilterType("LEATHERWORKING_ITEM_ENHANCEMENT")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOE, F.RBOP)
-	recipe:AddMobDrop(32349)
-
-	-- Fur Lining - Nature Resist -- 57699
-	recipe = AddRecipe(57699, V.WOTLK, Q.RARE)
-	recipe:SetRecipeItemID(44562)
-	recipe:SetSkillLevels(400, 400, 425, 430, 435)
-	recipe:SetItemFilterType("LEATHERWORKING_ITEM_ENHANCEMENT")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOE, F.RBOP)
-	recipe:AddMobDrop(32290)
-
-	-- Fur Lining - Arcane Resist -- 57701
-	recipe = AddRecipe(57701, V.WOTLK, Q.RARE)
-	recipe:SetRecipeItemID(44563)
-	recipe:SetSkillLevels(400, 400, 425, 430, 435)
-	recipe:SetItemFilterType("LEATHERWORKING_ITEM_ENHANCEMENT")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOE, F.RBOP)
-	recipe:AddMobDrop(31702, 32297)
-
-	-- Jormungar Leg Reinforcements -- 60583
-	recipe = AddRecipe(60583, V.WOTLK, Q.COMMON)
-	recipe:SetSkillLevels(405, 405, 405, 405, 410)
-	recipe:SetItemFilterType("LEATHERWORKING_ITEM_ENHANCEMENT")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS)
-	recipe:AddTrainer(3365, 4212, 5564, 21087, 26911, 26961, 26996, 26998, 28700, 29509, 33581, 33612, 33635)
-
-	-- Nerubian Leg Reinforcements -- 60584
-	recipe = AddRecipe(60584, V.WOTLK, Q.COMMON)
-	recipe:SetSkillLevels(400, 400, 400, 400, 405)
-	recipe:SetItemFilterType("LEATHERWORKING_ITEM_ENHANCEMENT")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS)
-	recipe:AddTrainer(3365, 4212, 5564, 21087, 26911, 26961, 26996, 26998, 28700, 29509, 33581, 33612, 33635)
-
 	-- Frostscale Bracers -- 60599
 	recipe = AddRecipe(60599, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(38436)
@@ -5180,20 +5126,6 @@ function addon:InitLeatherworking()
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	recipe:AddTrainer(3007, 3365, 3967, 4212, 4588, 5127, 5564, 21087, 26998, 28700, 29507, 29509, 33581, 33612, 33635)
 
-	-- Dragonbone Leg Reinforcements -- 85067
-	recipe = AddRecipe(85067, V.CATA, Q.COMMON)
-	recipe:SetSkillLevels(465, 465, 465, 465, 470)
-	recipe:SetItemFilterType("LEATHERWORKING_ITEM_ENHANCEMENT")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(3007, 3365, 3967, 4212, 4588, 5127, 5564, 21087, 26998, 28700, 29507, 29509, 33581, 33612, 33635)
-
-	-- Charscale Leg Reinforcements -- 85068
-	recipe = AddRecipe(85068, V.CATA, Q.COMMON)
-	recipe:SetSkillLevels(465, 465, 465, 465, 470)
-	recipe:SetItemFilterType("LEATHERWORKING_ITEM_ENHANCEMENT")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(3007, 3365, 3967, 4212, 4588, 5127, 5564, 21087, 26998, 28700, 29507, 29509, 33581, 33612, 33635)
-
 	-- Dragonfire Gloves -- 99443
 	recipe = AddRecipe(99443, V.CATA, Q.EPIC)
 	recipe:SetRecipeItemID(69960)
@@ -5308,13 +5240,6 @@ function addon:InitLeatherworking()
 	recipe:SetItemFilterType("LEATHERWORKING_ITEM_ENHANCEMENT")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.TANK)
 	recipe:AddVendor(3008, 3366, 4225, 4589, 5128, 5565, 16689, 16748, 50172)
-
-	-- Drakehide Leg Reinforcements -- 101600
-	recipe = AddRecipe(101600, V.CATA, Q.COMMON)
-	recipe:SetSkillLevels(465, 465, 465, 465, 470)
-	recipe:SetItemFilterType("LEATHERWORKING_ITEM_ENHANCEMENT")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS)
-	recipe:AddTrainer(3365, 4212, 5564, 21087, 26911, 26961, 26996, 26998, 28700, 29509, 33581, 33612, 33635)
 
 	-- Leggings of Nature's Champion -- 101933
 	recipe = AddRecipe(101933, V.CATA, Q.EPIC)
