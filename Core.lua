@@ -124,7 +124,7 @@ do
 			local zone_name = _G.GetMapNameByID(index)
 
 			if zone_name then
-				table.insert(output, ("[%d] = \"%s\","):format(index, zone_name:upper():gsub(" ", "_"):gsub("'", ""):gsub(":", "")))
+				table.insert(output, ("[%d] = \"%s\","):format(index, zone_name:upper():gsub(" ", "_"):gsub("'", ""):gsub(":", ""):gsub("-", "_")))
 			end
 		end
 		table.insert(output, "}\n")
