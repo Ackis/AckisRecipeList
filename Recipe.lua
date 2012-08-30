@@ -179,6 +179,15 @@ function recipe_prototype:RemoveState(state_name)
 	end
 end
 
+function recipe_prototype:SetAsKnownOrLinked(is_linked)
+	if is_linked then
+		self:AddState("LINKED")
+	else
+		self:AddState("KNOWN")
+		self:RemoveState("LINKED")
+	end
+end
+
 do
 	local BITFIELD_MAP = {
 		common1 = private.COMMON_FLAGS_WORD1,

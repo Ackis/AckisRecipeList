@@ -813,16 +813,6 @@ do
 		_G.PrimaryProfession2SpellButtonBottom,
 	}
 
-	-- Toggles a recipe's stats based on whether it's linked or actually known.
-	local function SetRecipeAsKnownOrLinked(recipe, is_linked)
-		if is_linked then
-			recipe:AddState("LINKED")
-		else
-			recipe:AddState("KNOWN")
-			recipe:RemoveState("LINKED")
-		end
-	end
-
 	--- Causes a scan of the tradeskill to be conducted. Function called when the scan button is clicked.   Parses recipes and displays output
 	-- @name AckisRecipeList:Scan
 	-- @usage AckisRecipeList:Scan(true)
@@ -959,12 +949,12 @@ do
 						local overwrite_recipe = profession_recipes[SPELL_OVERWRITE_MAP[spell_id]]
 
 						if overwrite_recipe then
-							SetRecipeAsKnownOrLinked(overwrite_recipe, tradeskill_is_linked)
+							overwrite_recipe:SetAsKnownOrLinked(tradeskill_is_linked)
 						else
 							self:Debug(entry_name .. " " .. SPELL_OVERWRITE_MAP[spell_id] .. L["MissingFromDB"])
 						end
 					end
-					SetRecipeAsKnownOrLinked(recipe, tradeskill_is_linked)
+					recipe:SetAsKnownOrLinked(tradeskill_is_linked)
 					recipes_found = recipes_found + 1
 				else
 					self:Debug(entry_name .. " " .. spell_string .. L["MissingFromDB"])
