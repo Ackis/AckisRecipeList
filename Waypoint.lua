@@ -41,12 +41,17 @@ local KALIMDOR_NAMES = {}
 local EASTERN_KINGDOMS_NAMES = {}
 local OUTLAND_NAMES = {}
 local NORTHREND_NAMES = {}
+local THE_MAELSTROM_NAMES = {}
+local PANDARIA_NAMES = {}
 
 local KALIMDOR_IDNUMS = {}
 local EASTERN_KINGDOMS_IDNUMS = {}
 local OUTLAND_IDNUMS = {}
 local NORTHREND_IDNUMS = {}
+local THE_MAELSTROM_IDNUMS = {}
+local PANDARIA_IDNUMS = {}
 
+-- TODO: Rewrite the whole thing based on GetMapContinents() instead of raw IDs for continents.
 local function LoadZones(continent, zone, ...)
 	-- Assign names to idnums
 	for id = 1, select('#', ...), 1 do
@@ -63,6 +68,8 @@ LoadZones(KALIMDOR_NAMES, KALIMDOR_IDNUMS, _G.GetMapZones(1))
 LoadZones(EASTERN_KINGDOMS_NAMES, EASTERN_KINGDOMS_IDNUMS, _G.GetMapZones(2))
 LoadZones(OUTLAND_NAMES, OUTLAND_IDNUMS, _G.GetMapZones(3))
 LoadZones(NORTHREND_NAMES, NORTHREND_IDNUMS, _G.GetMapZones(4))
+LoadZones(THE_MAELSTROM_NAMES, THE_MAELSTROM_IDNUMS, _G.GetMapZones(5))
+LoadZones(PANDARIA_NAMES, PANDARIA_IDNUMS, _G.GetMapZones(6))
 
 local INSTANCE_LOCATIONS = {
 	[_G.GetMapNameByID(Z.AHNKAHET_THE_OLD_KINGDOM)] = {
