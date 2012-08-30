@@ -205,7 +205,7 @@ local INSTANCE_LOCATIONS = {
 		x = 26.75,
 		y = 11.60,
 	},
-	[_G.GetMapNameByID(Z.AHNQIRAJ)] = {
+	[_G.GetMapNameByID(Z.AHNQIRAJ_THE_FALLEN_KINGDOM)] = {
 		zone = KALIMDOR_IDNUMS[_G.GetMapNameByID(Z.SILITHUS)],
 		continent = 1,
 		x = 0,
