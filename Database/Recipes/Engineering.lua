@@ -1421,10 +1421,8 @@ function addon:InitEngineering()
 	recipe:SetCraftedItemID(22728)
 	recipe:SetSkillLevels(275, 275, 275, 280, 285)
 	recipe:SetItemFilterType("ENGINEERING_CREATED_ITEM")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.QUEST, F.IBOE, F.RBOP)
-	recipe:AddVendor(5175)
-	recipe:AddLimitedVendor(3413, 1, 45546, 1, 52655, 1)
-	recipe:AddQuest(9249)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	recipe:AddLimitedVendor(3413, 1, 5175, 1, 45546, 1, 52655, 1)
 
 	-- Elemental Blasting Powder -- 30303
 	recipe = AddRecipe(30303, V.TBC, Q.COMMON)
