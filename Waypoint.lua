@@ -30,9 +30,9 @@ local LibStub = _G.LibStub
 local addon	= LibStub("AceAddon-3.0"):GetAddon(private.addon_name)
 local L		= LibStub("AceLocale-3.0"):GetLocale(private.addon_name)
 local BFAC	= LibStub("LibBabble-Faction-3.0"):GetLookupTable()
-local BZ	= LibStub("LibBabble-Zone-3.0"):GetLookupTable()
 
 local A = private.ACQUIRE_TYPES
+local Z = private.ZONE_IDS
 
 -------------------------------------------------------------------------------
 -- Constants.
@@ -65,221 +65,222 @@ LoadZones(OUTLAND_NAMES, OUTLAND_IDNUMS, _G.GetMapZones(3))
 LoadZones(NORTHREND_NAMES, NORTHREND_IDNUMS, _G.GetMapZones(4))
 
 local INSTANCE_LOCATIONS = {
-	[BZ["Ahn'kahet: The Old Kingdom"]] = {
-		["zone"] = NORTHREND_IDNUMS[BZ["Dragonblight"]],
-		["continent"] = 4,
-		["x"] = 28.49,
-		["y"] = 51.73,
+	[_G.GetMapNameByID(Z.AHNKAHET_THE_OLD_KINGDOM)] = {
+		zone = NORTHREND_IDNUMS[_G.GetMapNameByID(Z.DRAGONBLIGHT)],
+		continent = 4,
+		x = 28.49,
+		y = 51.73,
 	},
-	[BZ["Auchenai Crypts"]] = {
-		["zone"] = OUTLAND_IDNUMS[BZ["Terokkar Forest"]],
-		["continent"] = 3,
-		["x"] = 0,
-		["y"] = 0,
+	[_G.GetMapNameByID(Z.AUCHENAI_CRYPTS)] = {
+		zone = OUTLAND_IDNUMS[_G.GetMapNameByID(Z.TEROKKAR_FOREST)],
+		continent = 3,
+		x = 0,
+		y = 0,
 	},
-	[BZ["Azjol-Nerub"]] = {
-		["zone"] = NORTHREND_IDNUMS[BZ["Dragonblight"]],
-		["continent"] = 4,
-		["x"] = 26.01,
-		["y"] = 50.83,
+	[_G.GetMapNameByID(Z.AZJOL_NERUB)] = {
+		zone = NORTHREND_IDNUMS[_G.GetMapNameByID(Z.DRAGONBLIGHT)],
+		continent = 4,
+		x = 26.01,
+		y = 50.83,
 	},
-	[BZ["Blackrock Depths"]] = {
-		["zone"] = EASTERN_KINGDOMS_IDNUMS[BZ["Burning Steppes"]],
-		["continent"] = 2,
-		["x"] = 20.72,
-		["y"] = 36.94,
+	[_G.GetMapNameByID(Z.BLACKROCK_DEPTHS)] = {
+		zone = EASTERN_KINGDOMS_IDNUMS[_G.GetMapNameByID(Z.BURNING_STEPPES)],
+		continent = 2,
+		x = 20.72,
+		y = 36.94,
 	},
-	[BZ["Blackrock Spire"]] = {
-		["zone"] = EASTERN_KINGDOMS_IDNUMS[BZ["Burning Steppes"]],
-		["continent"] = 2,
-		["x"] = 20.72,
-		["y"] = 36.94,
+	[_G.GetMapNameByID(Z.BLACKROCK_SPIRE)] = {
+		zone = EASTERN_KINGDOMS_IDNUMS[_G.GetMapNameByID(Z.BURNING_STEPPES)],
+		continent = 2,
+		x = 20.72,
+		y = 36.94,
 	},
-	[BZ["Blackwing Lair"]] = {
-		["zone"] = EASTERN_KINGDOMS_IDNUMS[BZ["Burning Steppes"]],
-		["continent"] = 2,
-		["x"] = 20.72,
-		["y"] = 36.94,
+	[_G.GetMapNameByID(Z.BLACKWING_LAIR)] = {
+		zone = EASTERN_KINGDOMS_IDNUMS[_G.GetMapNameByID(Z.BURNING_STEPPES)],
+		continent = 2,
+		x = 20.72,
+		y = 36.94,
 	},
-	[BZ["Dire Maul"]] = {
-		["zone"] = KALIMDOR_IDNUMS[BZ["Feralas"]],
-		["continent"] = 1,
-		["x"] = 61.36,
-		["y"] = 31.78,
+	[_G.GetMapNameByID(Z.DIRE_MAUL)] = {
+		zone = KALIMDOR_IDNUMS[_G.GetMapNameByID(Z.FERALAS)],
+		continent = 1,
+		x = 61.36,
+		y = 31.78,
 	},
-	[BZ["Drak'Tharon Keep"]] = {
-		["zone"] = NORTHREND_IDNUMS[BZ["Zul'Drak"]],
-		["continent"] = 4,
-		["x"] = 0,
-		["y"] = 0,
+	[_G.GetMapNameByID(Z.DRAKTHARON_KEEP)] = {
+		zone = NORTHREND_IDNUMS[_G.GetMapNameByID(Z.ZULDRAK)],
+		continent = 4,
+		x = 0,
+		y = 0,
 	},
-	[BZ["Gnomeregan"]] = {
-		["zone"] = EASTERN_KINGDOMS_IDNUMS[BZ["Dun Morogh"]],
-		["continent"] = 2,
-		["x"] = 31.29,
-		["y"] = 37.89,
+	[_G.GetMapNameByID(Z.GNOMEREGAN)] = {
+		zone = EASTERN_KINGDOMS_IDNUMS[_G.GetMapNameByID(Z.DUN_MOROGH)],
+		continent = 2,
+		x = 31.29,
+		y = 37.89,
 	},
-	[BZ["Halls of Lightning"]] = {
-		["zone"] = NORTHREND_IDNUMS[BZ["The Storm Peaks"]],
-		["continent"] = 4,
-		["x"] = 45.40,
-		["y"] = 21.37,
+	[_G.GetMapNameByID(Z.HALLS_OF_LIGHTNING)] = {
+		zone = NORTHREND_IDNUMS[_G.GetMapNameByID(Z.THE_STORM_PEAKS)],
+		continent = 4,
+		x = 45.40,
+		y = 21.37,
 	},
-	[BZ["Halls of Stone"]] = {
-		["zone"] = NORTHREND_IDNUMS[BZ["The Storm Peaks"]],
-		["continent"] = 4,
-		["x"] = 39.49,
-		["y"] = 26.92,
+	[_G.GetMapNameByID(Z.HALLS_OF_STONE)] = {
+		zone = NORTHREND_IDNUMS[_G.GetMapNameByID(Z.THE_STORM_PEAKS)],
+		continent = 4,
+		x = 39.49,
+		y = 26.92,
 	},
-	[BZ["Karazhan"]] = {
-		["zone"] = KALIMDOR_IDNUMS[BZ["Deadwind Pass"]],
-		["continent"] = 2,
-		["x"] = 0,
-		["y"] = 0,
+	[_G.GetMapNameByID(Z.KARAZHAN)] = {
+		zone = KALIMDOR_IDNUMS[_G.GetMapNameByID(Z.DEADWIND_PASS)],
+		continent = 2,
+		x = 0,
+		y = 0,
 	},
-	[BZ["Magisters' Terrace"]] = {
-		["zone"] = EASTERN_KINGDOMS_IDNUMS[BZ["Isle of Quel'Danas"]],
-		["continent"] = 2,
-		["x"] = 61.20,
-		["y"] = 30.89,
+	[_G.GetMapNameByID(Z.MAGISTERS_TERRACE)] = {
+		zone = EASTERN_KINGDOMS_IDNUMS[_G.GetMapNameByID(Z.ISLE_OF_QUELDANAS)],
+		continent = 2,
+		x = 61.20,
+		y = 30.89,
 	},
-	[BZ["Mana-Tombs"]] = {
-		["zone"] = OUTLAND_IDNUMS[BZ["Terokkar Forest"]],
-		["continent"] = 3,
-		["x"] = 0,
-		["y"] = 0,
+	[_G.GetMapNameByID(Z.MANA_TOMBS)] = {
+		zone = OUTLAND_IDNUMS[_G.GetMapNameByID(Z.TEROKKAR_FOREST)],
+		continent = 3,
+		x = 0,
+		y = 0,
 	},
-	[BZ["The Oculus"]] = {
-		["zone"] = NORTHREND_IDNUMS[BZ["Borean Tundra"]],
-		["continent"] = 4,
-		["x"] = 27.52,
-		["y"] = 26.71,
+	[_G.GetMapNameByID(Z.THE_OCULUS)] = {
+		zone = NORTHREND_IDNUMS[_G.GetMapNameByID(Z.BOREAN_TUNDRA)],
+		continent = 4,
+		x = 27.52,
+		y = 26.71,
 	},
-	[BZ["Old Hillsbrad Foothills"]] = {
-		["zone"] = KALIMDOR_IDNUMS[BZ["Tanaris"]],
-		["continent"] = 1,
-		["x"] = 0,
-		["y"] = 0,
+	[_G.GetMapNameByID(Z.OLD_HILLSBRAD_FOOTHILLS)] = {
+		zone = KALIMDOR_IDNUMS[_G.GetMapNameByID(Z.TANARIS)],
+--		zone = Z.TANARIS,
+		continent = 1,
+		x = 0,
+		y = 0,
 	},
-	[BZ["Onyxia's Lair"]] = {
-		["zone"] = KALIMDOR_IDNUMS[BZ["Dustwallow Marsh"]],
-		["continent"] = 1,
-		["x"] = 0,
-		["y"] = 0,
+	[_G.GetMapNameByID(Z.ONYXIAS_LAIR)] = {
+		zone = KALIMDOR_IDNUMS[_G.GetMapNameByID(Z.DUSTWALLOW_MARSH)],
+		continent = 1,
+		x = 0,
+		y = 0,
 	},
-	[BZ["Ruins of Ahn'Qiraj"]] = {
-		["zone"] = KALIMDOR_IDNUMS[BZ["Silithus"]],
-		["continent"] = 1,
-		["x"] = 0,
-		["y"] = 0,
+	[_G.GetMapNameByID(Z.RUINS_OF_AHNQIRAJ)] = {
+		zone = KALIMDOR_IDNUMS[_G.GetMapNameByID(Z.SILITHUS)],
+		continent = 1,
+		x = 0,
+		y = 0,
 	},
-	[BZ["Scholomance"]] = {
-		["zone"] = EASTERN_KINGDOMS_IDNUMS[BZ["Western Plaguelands"]],
-		["continent"] = 2,
-		["x"] = 0,
-		["y"] = 0,
+	[_G.GetMapNameByID(Z.SCHOLOMANCE)] = {
+		zone = EASTERN_KINGDOMS_IDNUMS[_G.GetMapNameByID(Z.WESTERN_PLAGUELANDS)],
+		continent = 2,
+		x = 0,
+		y = 0,
 	},
-	[BZ["Sethekk Halls"]] = {
-		["zone"] = OUTLAND_IDNUMS[BZ["Terokkar Forest"]],
-		["continent"] = 3,
-		["x"] = 0,
-		["y"] = 0,
+	[_G.GetMapNameByID(Z.SETHEKK_HALLS)] = {
+		zone = OUTLAND_IDNUMS[_G.GetMapNameByID(Z.TEROKKAR_FOREST)],
+		continent = 3,
+		x = 0,
+		y = 0,
 	},
-	[BZ["Shadow Labyrinth"]] = {
-		["zone"] = OUTLAND_IDNUMS[BZ["Terokkar Forest"]],
-		["continent"] = 3,
-		["x"] = 0,
-		["y"] = 0,
+	[_G.GetMapNameByID(Z.SHADOW_LABYRINTH)] = {
+		zone = OUTLAND_IDNUMS[_G.GetMapNameByID(Z.TEROKKAR_FOREST)],
+		continent = 3,
+		x = 0,
+		y = 0,
 	},
-	[BZ["Stratholme"]] = {
-		["zone"] = EASTERN_KINGDOMS_IDNUMS[BZ["Eastern Plaguelands"]],
-		["continent"] = 2,
-		["x"] = 26.75,
-		["y"] = 11.60,
+	[_G.GetMapNameByID(Z.STRATHOLME)] = {
+		zone = EASTERN_KINGDOMS_IDNUMS[_G.GetMapNameByID(Z.EASTERN_PLAGUELANDS)],
+		continent = 2,
+		x = 26.75,
+		y = 11.60,
 	},
-	[BZ["Temple of Ahn'Qiraj"]] = {
-		["zone"] = KALIMDOR_IDNUMS[BZ["Silithus"]],
-		["continent"] = 1,
-		["x"] = 0,
-		["y"] = 0,
+	[_G.GetMapNameByID(Z.AHNQIRAJ)] = {
+		zone = KALIMDOR_IDNUMS[_G.GetMapNameByID(Z.SILITHUS)],
+		continent = 1,
+		x = 0,
+		y = 0,
 	},
-	[BZ["The Arcatraz"]] = {
-		["zone"] = OUTLAND_IDNUMS[BZ["Netherstorm"]],
-		["continent"] = 3,
-		["x"] = 0,
-		["y"] = 0,
+	[_G.GetMapNameByID(Z.THE_ARCATRAZ)] = {
+		zone = OUTLAND_IDNUMS[_G.GetMapNameByID(Z.NETHERSTORM)],
+		continent = 3,
+		x = 0,
+		y = 0,
 	},
-	[BZ["The Black Morass"]] = {
-		["zone"] = KALIMDOR_IDNUMS[BZ["Tanaris"]],
-		["continent"] = 1,
-		["x"] = 0,
-		["y"] = 0,
+	[_G.GetMapNameByID(Z.THE_BLACK_MORASS)] = {
+		zone = KALIMDOR_IDNUMS[_G.GetMapNameByID(Z.TANARIS)],
+		continent = 1,
+		x = 0,
+		y = 0,
 	},
-	[BZ["The Botanica"]] = {
-		["zone"] = OUTLAND_IDNUMS[BZ["Netherstorm"]],
-		["continent"] = 3,
-		["x"] = 0,
-		["y"] = 0,
+	[_G.GetMapNameByID(Z.THE_BOTANICA)] = {
+		zone = OUTLAND_IDNUMS[_G.GetMapNameByID(Z.NETHERSTORM)],
+		continent = 3,
+		x = 0,
+		y = 0,
 	},
-	[BZ["The Deadmines"]] = {
-		["zone"] = EASTERN_KINGDOMS_IDNUMS[BZ["Westfall"]],
-		["continent"] = 2,
-		["x"] = 0,
-		["y"] = 0,
+	[_G.GetMapNameByID(Z.THE_DEADMINES)] = {
+		zone = EASTERN_KINGDOMS_IDNUMS[_G.GetMapNameByID(Z.WESTFALL)],
+		continent = 2,
+		x = 0,
+		y = 0,
 	},
-	[BZ["The Mechanar"]] = {
-		["zone"] = OUTLAND_IDNUMS[BZ["Netherstorm"]],
-		["continent"] = 3,
-		["x"] = 0,
-		["y"] = 0,
+	[_G.GetMapNameByID(Z.THE_MECHANAR)] = {
+		zone = OUTLAND_IDNUMS[_G.GetMapNameByID(Z.NETHERSTORM)],
+		continent = 3,
+		x = 0,
+		y = 0,
 	},
-	[BZ["The Nexus"]] = {
-		["zone"] = NORTHREND_IDNUMS[BZ["Borean Tundra"]],
-		["continent"] = 4,
-		["x"] = 27.50,
-		["y"] = 25.97,
+	[_G.GetMapNameByID(Z.THE_NEXUS)] = {
+		zone = NORTHREND_IDNUMS[_G.GetMapNameByID(Z.BOREAN_TUNDRA)],
+		continent = 4,
+		x = 27.50,
+		y = 25.97,
 	},
-	[BZ["The Shattered Halls"]] = {
-		["zone"] = OUTLAND_IDNUMS[BZ["Hellfire Peninsula"]],
-		["continent"] = 3,
-		["x"] = 0,
-		["y"] = 0,
+	[_G.GetMapNameByID(Z.THE_SHATTERED_HALLS)] = {
+		zone = OUTLAND_IDNUMS[_G.GetMapNameByID(Z.HELLFIRE_PENINSULA)],
+		continent = 3,
+		x = 0,
+		y = 0,
 	},
-	[BZ["The Slave Pens"]] = {
-		["zone"] = OUTLAND_IDNUMS[BZ["Zangarmarsh"]],
-		["continent"] = 3,
-		["x"] = 0,
-		["y"] = 0,
+	[_G.GetMapNameByID(Z.THE_SLAVE_PENS)] = {
+		zone = OUTLAND_IDNUMS[_G.GetMapNameByID(Z.ZANGARMARSH)],
+		continent = 3,
+		x = 0,
+		y = 0,
 	},
-	[BZ["The Steamvault"]] = {
-		["zone"] = OUTLAND_IDNUMS[BZ["Zangarmarsh"]],
-		["continent"] = 3,
-		["x"] = 0,
-		["y"] = 0,
+	[_G.GetMapNameByID(Z.THE_STEAMVAULT)] = {
+		zone = OUTLAND_IDNUMS[_G.GetMapNameByID(Z.ZANGARMARSH)],
+		continent = 3,
+		x = 0,
+		y = 0,
 	},
-	[BZ["The Temple of Atal'Hakkar"]] = {
-		["zone"] = EASTERN_KINGDOMS_IDNUMS[BZ["Swamp of Sorrows"]],
-		["continent"] = 2,
-		["x"] = 0,
-		["y"] = 0,
+	[_G.GetMapNameByID(Z.THE_TEMPLE_OF_ATALHAKKAR)] = {
+		zone = EASTERN_KINGDOMS_IDNUMS[_G.GetMapNameByID(Z.SWAMP_OF_SORROWS)],
+		continent = 2,
+		x = 0,
+		y = 0,
 	},
-	[BZ["The Violet Hold"]] = {
-		["zone"] = NORTHREND_IDNUMS[BZ["Dalaran"]],
-		["continent"] = 4,
-		["x"] = 66.78,
-		["y"] = 68.19,
+	[_G.GetMapNameByID(Z.THE_VIOLET_HOLD)] = {
+		zone = NORTHREND_IDNUMS[_G.GetMapNameByID(Z.DALARAN)],
+		continent = 4,
+		x = 66.78,
+		y = 68.19,
 	},
-	[BZ["Utgarde Keep"]] = {
-		["zone"] = NORTHREND_IDNUMS[BZ["Howling Fjord"]],
-		["continent"] = 4,
-		["x"] = 57.28,
-		["y"] = 46.73,
+	[_G.GetMapNameByID(Z.UTGARDE_KEEP)] = {
+		zone = NORTHREND_IDNUMS[_G.GetMapNameByID(Z.HOWLING_FJORD)],
+		continent = 4,
+		x = 57.28,
+		y = 46.73,
 	},
-	[BZ["Utgarde Pinnacle"]] = {
-		["zone"] = NORTHREND_IDNUMS[BZ["Howling Fjord"]],
-		["continent"] = 4,
-		["x"] = 57.26,
-		["y"] = 46.67,
+	[_G.GetMapNameByID(Z.UTGARDE_PINNACLE)] = {
+		zone = NORTHREND_IDNUMS[_G.GetMapNameByID(Z.HOWLING_FJORD)],
+		continent = 4,
+		x = 57.26,
+		y = 46.67,
 	},
 }
 
