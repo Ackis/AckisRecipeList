@@ -645,14 +645,6 @@ function addon:InitBlacksmithing()
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS)
 	recipe:AddTrainer(514, 1241, 2836, 2998, 3136, 3174, 3355, 3478, 3557, 4258, 4596, 5511, 6299, 7230, 7231, 11177, 11178, 15400, 16583, 16669, 16724, 16823, 17245, 19341, 20124, 20125, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 33609, 33631, 33675, 37072, 44781, 45548)
 
-	-- Silver Rod -- 7818
-	recipe = AddRecipe(7818, V.ORIG, Q.COMMON)
-	recipe:SetCraftedItemID(6338)
-	recipe:SetSkillLevels(100, 100, 105, 107, 110)
-	recipe:SetItemFilterType("BLACKSMITHING_ROD")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(514, 1241, 2836, 2998, 3136, 3174, 3355, 3478, 3557, 4258, 4596, 5511, 6299, 7230, 7231, 11177, 11178, 15400, 16583, 16669, 16724, 16823, 17245, 20124, 20125, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 33609, 33631, 33675, 37072, 44781, 45548)
-
 	-- Ironforge Breastplate -- 8367
 	recipe = AddRecipe(8367, V.ORIG, Q.UNCOMMON)
 	recipe:SetRecipeItemID(6735)
@@ -1101,22 +1093,6 @@ function addon:InitBlacksmithing()
 	recipe:SetItemFilterType("BLACKSMITHING_CHEST")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	recipe:AddCustom("DEFAULT_RECIPE")
-
-	-- Golden Rod -- 14379
-	recipe = AddRecipe(14379, V.ORIG, Q.COMMON)
-	recipe:SetCraftedItemID(11128)
-	recipe:SetSkillLevels(150, 150, 155, 157, 160)
-	recipe:SetItemFilterType("BLACKSMITHING_ROD")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(514, 1241, 2836, 2998, 3136, 3174, 3355, 3478, 3557, 4258, 4596, 5511, 6299, 7230, 7231, 11177, 11178, 15400, 16583, 16669, 16724, 16823, 17245, 19341, 20124, 20125, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 33609, 33631, 33675, 37072, 44781, 45548)
-
-	-- Truesilver Rod -- 14380
-	recipe = AddRecipe(14380, V.ORIG, Q.COMMON)
-	recipe:SetCraftedItemID(11144)
-	recipe:SetSkillLevels(200, 200, 205, 207, 210)
-	recipe:SetItemFilterType("BLACKSMITHING_ROD")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(514, 1241, 2836, 2998, 3136, 3174, 3355, 3478, 3557, 4258, 4596, 5511, 6299, 7230, 7231, 11177, 11178, 15400, 16583, 16669, 16724, 16823, 17245, 19341, 20124, 20125, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 33609, 33631, 33675, 37072, 44781, 45548)
 
 	-- Dark Iron Pulverizer -- 15292
 	recipe = AddRecipe(15292, V.ORIG, Q.RARE)
@@ -1708,14 +1684,6 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItemID(15872)
 	recipe:SetSkillLevels(275, 275, 275, 280, 285)
 	recipe:SetItemFilterType("BLACKSMITHING_SKELETON_KEY")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(514, 1241, 2836, 2998, 3136, 3174, 3355, 3478, 3557, 4258, 4596, 5511, 6299, 7230, 7231, 11177, 11178, 15400, 16583, 16724, 16823, 17245, 19341, 20124, 20125, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 33609, 33631, 33675, 37072, 44781, 45548)
-
-	-- Arcanite Rod -- 20201
-	recipe = AddRecipe(20201, V.ORIG, Q.COMMON)
-	recipe:SetCraftedItemID(16206)
-	recipe:SetSkillLevels(275, 275, 275, 280, 285)
-	recipe:SetItemFilterType("BLACKSMITHING_ROD")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	recipe:AddTrainer(514, 1241, 2836, 2998, 3136, 3174, 3355, 3478, 3557, 4258, 4596, 5511, 6299, 7230, 7231, 11177, 11178, 15400, 16583, 16724, 16823, 17245, 19341, 20124, 20125, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 33609, 33631, 33675, 37072, 44781, 45548)
 
@@ -2679,32 +2647,6 @@ function addon:InitBlacksmithing()
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.CENARION_EXPEDITION)
 	recipe:AddRepVendor(FAC.CENARION_EXPEDITION, REP.HONORED, 17904)
 
-	-- Fel Iron Rod -- 32655
-	recipe = AddRecipe(32655, V.TBC, Q.COMMON)
-	recipe:SetCraftedItemID(25843)
-	recipe:SetSkillLevels(300, 300, 300, 305, 310)
-	recipe:SetItemFilterType("BLACKSMITHING_ROD")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(2998, 3174, 3355, 5511, 7230, 7231, 11177, 11178, 16583, 16823, 19341, 20124, 20125, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 33609, 33631, 33675, 37072, 44781, 45548)
-
-	-- Adamantite Rod -- 32656
-	recipe = AddRecipe(32656, V.TBC, Q.COMMON)
-	recipe:SetRecipeItemID(25846)
-	recipe:SetCraftedItemID(25844)
-	recipe:SetSkillLevels(350, 350, 350, 355, 360)
-	recipe:SetItemFilterType("BLACKSMITHING_ROD")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE)
-	recipe:AddLimitedVendor(19662, 1)
-
-	-- Eternium Rod -- 32657
-	recipe = AddRecipe(32657, V.TBC, Q.COMMON)
-	recipe:SetRecipeItemID(25847)
-	recipe:SetCraftedItemID(25845)
-	recipe:SetSkillLevels(360, 360, 365, 370, 375)
-	recipe:SetItemFilterType("BLACKSMITHING_ROD")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE)
-	recipe:AddVendor(16583, 19373)
-
 	-- Nether Chain Shirt -- 34529
 	recipe = AddRecipe(34529, V.TBC, Q.COMMON)
 	recipe:SetCraftedItemID(23563)
@@ -2849,38 +2791,6 @@ function addon:InitBlacksmithing()
 	recipe:SetItemFilterType("BLACKSMITHING_ITEM_ENHANCEMENT")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.HEALER, F.CASTER, F.CENARION_EXPEDITION)
 	recipe:AddRepVendor(FAC.CENARION_EXPEDITION, REP.HONORED, 17904)
-
-	-- Thick Bronze Darts -- 34979
-	recipe = AddRecipe(34979, V.TBC, Q.COMMON)
-	recipe:SetCraftedItemID(29201)
-	recipe:SetSkillLevels(100, 100, 130, 145, 160)
-	recipe:SetItemFilterType("BLACKSMITHING_THROWN")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS)
-	recipe:AddTrainer(514, 1241, 2836, 2998, 3136, 3174, 3355, 3478, 3557, 4258, 4596, 5511, 6299, 7230, 7231, 11177, 11178, 15400, 16583, 16669, 16724, 16823, 17245, 19341, 20124, 20125, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 33609, 33631, 33675, 37072, 44781, 45548)
-
-	-- Whirling Steel Axes -- 34981
-	recipe = AddRecipe(34981, V.TBC, Q.COMMON)
-	recipe:SetCraftedItemID(29202)
-	recipe:SetSkillLevels(200, 200, 220, 230, 240)
-	recipe:SetItemFilterType("BLACKSMITHING_THROWN")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS)
-	recipe:AddTrainer(514, 1241, 2836, 2998, 3136, 3174, 3355, 3478, 3557, 4258, 4596, 5511, 6299, 7230, 7231, 11177, 11178, 15400, 16583, 16669, 16724, 16823, 17245, 19341, 20124, 20125, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 33609, 33631, 33675, 37072, 44781, 45548)
-
-	-- Enchanted Thorium Blades -- 34982
-	recipe = AddRecipe(34982, V.TBC, Q.COMMON)
-	recipe:SetCraftedItemID(29203)
-	recipe:SetSkillLevels(300, 300, 320, 330, 340)
-	recipe:SetItemFilterType("BLACKSMITHING_THROWN")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS)
-	recipe:AddTrainer(514, 1241, 2836, 2998, 3136, 3174, 3355, 3478, 3557, 4258, 4596, 5511, 6299, 7230, 7231, 11177, 11178, 15400, 16583, 16724, 16823, 17245, 19341, 20124, 20125, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 33609, 33631, 33675, 37072, 44781, 45548)
-
-	-- Felsteel Whisper Knives -- 34983
-	recipe = AddRecipe(34983, V.TBC, Q.COMMON)
-	recipe:SetCraftedItemID(29204)
-	recipe:SetSkillLevels(350, 350, 360, 370, 380)
-	recipe:SetItemFilterType("BLACKSMITHING_THROWN")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS)
-	recipe:AddTrainer(2998, 3174, 3355, 5511, 7230, 7231, 11177, 11178, 16583, 16823, 19341, 20124, 20125, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 33609, 33631, 33675, 37072, 44781, 45548)
 
 	-- Earthforged Leggings -- 36122
 	recipe = AddRecipe(36122, V.TBC, Q.COMMON)
@@ -3663,14 +3573,6 @@ function addon:InitBlacksmithing()
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS)
 	recipe:AddTrainer(2998, 3174, 3355, 5511, 7230, 7231, 11177, 11178, 20124, 20125, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 33609, 33631, 37072, 44781, 45548)
 
-	-- Sure-fire Shuriken -- 55202
-	recipe = AddRecipe(55202, V.WOTLK, Q.COMMON)
-	recipe:SetCraftedItemID(41241)
-	recipe:SetSkillLevels(385, 385, 390, 395, 400)
-	recipe:SetItemFilterType("BLACKSMITHING_THROWN")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(2998, 3174, 3355, 5511, 7230, 7231, 11177, 11178, 20124, 20125, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 33609, 33631, 37072, 44781, 45548)
-
 	-- Forged Cobalt Claymore -- 55203
 	recipe = AddRecipe(55203, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(41242)
@@ -3898,14 +3800,6 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItemID(41611)
 	recipe:SetSkillLevels(415, 415, 420, 425, 430)
 	recipe:SetItemFilterType("BLACKSMITHING_ITEM_ENHANCEMENT")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(2998, 3174, 3355, 5511, 7230, 7231, 11177, 11178, 20124, 20125, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 33609, 33631, 37072, 44781, 45548)
-
-	-- Titanium Rod -- 55732
-	recipe = AddRecipe(55732, V.WOTLK, Q.COMMON)
-	recipe:SetCraftedItemID(41745)
-	recipe:SetSkillLevels(420, 420, 425, 430, 435)
-	recipe:SetItemFilterType("BLACKSMITHING_ROD")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	recipe:AddTrainer(2998, 3174, 3355, 5511, 7230, 7231, 11177, 11178, 20124, 20125, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 33609, 33631, 37072, 44781, 45548)
 
@@ -4888,14 +4782,6 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItemID(55246)
 	recipe:SetSkillLevels(470, 470, 480, 485, 490)
 	recipe:SetItemFilterType("BLACKSMITHING_POLEARM")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(2998, 3136, 3174, 3355, 4258, 5164, 5511, 7230, 7231, 11146, 11177, 11178, 16669, 16823, 20124, 20125, 26564, 26981, 26988, 28694, 29505, 33591, 33609, 33631, 37072, 44781, 45548)
-
-	-- Elementium Rod -- 92375
-	recipe = AddRecipe(92375, V.CATA, Q.COMMON)
-	recipe:SetCraftedItemID(65358)
-	recipe:SetSkillLevels(475, 475, 480, 485, 490)
-	recipe:SetItemFilterType("BLACKSMITHING_ROD")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	recipe:AddTrainer(2998, 3136, 3174, 3355, 4258, 5164, 5511, 7230, 7231, 11146, 11177, 11178, 16669, 16823, 20124, 20125, 26564, 26981, 26988, 28694, 29505, 33591, 33609, 33631, 37072, 44781, 45548)
 
