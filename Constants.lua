@@ -534,7 +534,7 @@ end
 -------------------------------------------------------------------------------
 -- Zones.
 -------------------------------------------------------------------------------
-private.ZONE_NAMES = {
+private.ZONE_LABELS = {
 	[4] = "DUROTAR",
 	[9] = "MULGORE",
 	[11] = "NORTHERN_BARRENS",
@@ -793,7 +793,7 @@ private.ZONE_NAMES = {
 
 private.ZONE_IDS = {}
 
-for id, name in _G.pairs(private.ZONE_NAMES) do
+for id, name in _G.pairs(private.ZONE_LABELS) do
 	private.ZONE_IDS[name] = id
 end
 
