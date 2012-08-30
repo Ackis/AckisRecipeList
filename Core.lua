@@ -115,6 +115,21 @@ do
 		table.insert(output, ("\n%d found\n"):format(count))
 		self:DisplayTextDump(nil, nil, table.concat(output, "\n"))
 	end
+
+	function addon:DumpZones()
+		table.wipe(output)
+		table.insert(output, "private.ZONE_NAMES = {")
+
+		for index = 1, 100000 do
+			local zone_name = _G.GetMapNameByID(index)
+
+			if zone_name then
+				table.insert(output, ("[%d] = \"%s\","):format(index, zone_name:upper():gsub(" ", "_"):gsub("'", ""):gsub(":", "")))
+			end
+		end
+		table.insert(output, "}\n")
+		self:DisplayTextDump(nil, nil, table.concat(output, "\n"))
+	end
 end -- do
 
 -------------------------------------------------------------------------------
