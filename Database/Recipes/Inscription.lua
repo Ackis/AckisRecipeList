@@ -3512,7 +3512,7 @@ function addon:InitInscription()
 
 	-- Key to the Planes -- 86648
 	recipe = AddRecipe(86648, V.CATA, Q.COMMON)
-	recipe:SetCraftedItemID(62241)
+	recipe:SetCraftedItemID(87565)
 	recipe:SetSkillLevels(480, 480, 500, 502, 505)
 	recipe:SetItemFilterType("INSCRIPTION_RELIC")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE)
@@ -3520,7 +3520,7 @@ function addon:InitInscription()
 
 	-- Runed Staff -- 86649
 	recipe = AddRecipe(86649, V.CATA, Q.COMMON)
-	recipe:SetCraftedItemID(62242)
+	recipe:SetCraftedItemID(87566)
 	recipe:SetSkillLevels(505, 505, 515, 520, 525)
 	recipe:SetItemFilterType("INSCRIPTION_RELIC")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE)
@@ -3528,7 +3528,7 @@ function addon:InitInscription()
 
 	-- Rosethorn Staff -- 86652
 	recipe = AddRecipe(86652, V.CATA, Q.COMMON)
-	recipe:SetCraftedItemID(62244)
+	recipe:SetCraftedItemID(87562)
 	recipe:SetSkillLevels(515, 515, 525, 530, 535)
 	recipe:SetItemFilterType("INSCRIPTION_RELIC")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE)
@@ -3536,7 +3536,7 @@ function addon:InitInscription()
 
 	-- Silver Inlaid Staff -- 86653
 	recipe = AddRecipe(86653, V.CATA, Q.COMMON)
-	recipe:SetCraftedItemID(62245)
+	recipe:SetCraftedItemID(87561)
 	recipe:SetSkillLevels(515, 515, 525, 530, 535)
 	recipe:SetItemFilterType("INSCRIPTION_RELIC")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE)
