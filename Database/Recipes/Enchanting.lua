@@ -1181,7 +1181,7 @@ function addon:InitEnchanting()
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.CONSORTIUM)
 	recipe:AddRepVendor(FAC.CONSORTIUM, REP.REVERED, 17518)
 
-	-- Enchant Ring - Spellpower -- 27924
+	-- Enchant Ring - Minor Intellect -- 27924
 	recipe = AddRecipe(27924, V.TBC, Q.COMMON)
 	recipe:SetRecipeItemID(22536)
 	recipe:SetSkillLevels(360, 360, 370, 377, 385)
@@ -1696,7 +1696,7 @@ function addon:InitEnchanting()
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	recipe:AddVendor(32514)
 
-	-- Enchant Cloak - Spell Piercing -- 44582
+	-- Enchant Cloak - Minor Power -- 44582
 	recipe = AddRecipe(44582, V.WOTLK, Q.COMMON)
 	recipe:SetSkillLevels(395, 395, 395, 402, 410)
 	recipe:SetItemFilterType("ENCHANTING_CLOAK")
@@ -1829,7 +1829,7 @@ function addon:InitEnchanting()
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
 	recipe:AddTrainer(1317, 3011, 3345, 4213, 19251, 19252, 19540, 26906, 26954, 26980, 26990, 28693, 33583, 33610, 33633)
 
-	-- Enchant Ring - Greater Spellpower -- 44636
+	-- Enchant Ring - Lesser Intellect -- 44636
 	recipe = AddRecipe(44636, V.WOTLK, Q.COMMON)
 	recipe:SetSkillLevels(400, 400, 400, 407, 415)
 	recipe:SetItemFilterType("ENCHANTING_RING")
@@ -1877,7 +1877,7 @@ function addon:InitEnchanting()
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.INSTANCE, F.MOB_DROP, F.IBOE, F.RBOP, F.TANK)
 	recipe:AddMobDrop(24560)
 
-	-- Enchant Cloak - Mighty Armor -- 47672
+	-- Enchant Cloak - Mighty Stamina -- 47672
 	recipe = AddRecipe(47672, V.WOTLK, Q.UNCOMMON)
 	recipe:SetRecipeItemID(44471)
 	recipe:SetSkillLevels(430, 430, 440, 450, 460)
@@ -1947,7 +1947,7 @@ function addon:InitEnchanting()
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	recipe:AddVendor(32514)
 
-	-- Enchant Ring - Stamina -- 59636
+	-- Enchant Ring - Lesser Stamina -- 59636
 	recipe = AddRecipe(59636, V.WOTLK, Q.COMMON)
 	recipe:SetSkillLevels(400, 400, 400, 407, 415)
 	recipe:SetItemFilterType("ENCHANTING_RING")
@@ -2141,7 +2141,7 @@ function addon:InitEnchanting()
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP)
 	recipe:AddTrainer(1317, 3011, 3345, 4213, 4616, 5157, 16633, 19251, 19252, 19540, 28693, 33583, 33610, 33633)
 
-	-- Enchant Cloak - Greater Spell Piercing -- 74192
+	-- Enchant Cloak - Lesser Power -- 74192
 	recipe = AddRecipe(74192, V.CATA, Q.COMMON)
 	recipe:SetSkillLevels(435, 435, 450, 460, 470)
 	recipe:SetItemFilterType("ENCHANTING_CLOAK")
@@ -2260,7 +2260,7 @@ function addon:InitEnchanting()
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP)
 	recipe:AddTrainer(1317, 3011, 3345, 4213, 4616, 5157, 16633, 19251, 19252, 19540, 28693, 33583, 33610, 33633)
 
-	-- Enchant Ring - Greater Stamina -- 74218
+	-- Enchant Ring - Stamina -- 74218
 	recipe = AddRecipe(74218, V.CATA, Q.COMMON)
 	recipe:SetSkillLevels(475, 475, 475, 475, 495)
 	recipe:SetItemFilterType("ENCHANTING_RING")

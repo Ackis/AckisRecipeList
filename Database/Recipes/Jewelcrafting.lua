@@ -182,7 +182,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(120, 120, 150, 165, 180)
 	recipe:SetItemFilterType("JEWELCRAFTING_NECK")
 	recipe:AddFilters(F.ALLIANCE, F.TRAINER, F.VENDOR, F.IBOE, F.RBOE, F.DPS, F.TANK)
-	recipe:AddTrainer(33637, 46675)
+	recipe:AddTrainer(28701, 33637, 46675)
 	recipe:AddVendor(1448)
 
 	-- Heavy Iron Knuckles -- 25612
@@ -192,7 +192,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(125, 125, 155, 170, 185)
 	recipe:SetItemFilterType("JEWELCRAFTING_FIST_WEAPON")
 	recipe:AddFilters(F.HORDE, F.TRAINER, F.VENDOR, F.IBOE, F.RBOE)
-	recipe:AddTrainer(33637, 46675)
+	recipe:AddTrainer(28701, 33637, 46675)
 	recipe:AddLimitedVendor(2393, 1)
 
 	-- Golden Dragon Ring -- 25613
@@ -218,7 +218,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(150, 150, 180, 195, 210)
 	recipe:SetItemFilterType("JEWELCRAFTING_RING")
 	recipe:AddFilters(F.HORDE, F.TRAINER, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	recipe:AddTrainer(33637, 46675)
+	recipe:AddTrainer(28701, 33637, 46675)
 	recipe:AddLimitedVendor(9636, 1)
 
 	-- Jade Pendant of Blasting -- 25618
@@ -5024,10 +5024,11 @@ function addon:InitJewelcrafting()
 
 	-- Stardust -- 73622
 	recipe = AddRecipe(73622, V.CATA, Q.COMMON)
+	recipe:SetCraftedItemID(52490)
 	recipe:SetSkillLevels(435, 435, 450, 457, 465)
 	recipe:SetItemFilterType("JEWELCRAFTING_CREATED_ITEM")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP)
-	recipe:AddTrainer(44582, 46675)
+	recipe:AddTrainer(28701, 44582, 46675)
 
 	-- Jeweler's Ruby Monocle -- 73625
 	recipe = AddRecipe(73625, V.CATA, Q.RARE)
