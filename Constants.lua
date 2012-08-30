@@ -791,6 +791,8 @@ private.ZONE_NAMES = {
 	[907]	= "DUSTWALLOW_MARSH",
 }
 
+private.ZONE_IDS = {}
+
 for id, name in _G.pairs(private.ZONE_NAMES) do
 	private.ZONE_IDS[name] = id
 end
