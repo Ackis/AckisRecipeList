@@ -1118,7 +1118,7 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItemID(11607)
 	recipe:SetSkillLevels(275, 275, 295, 305, 315)
 	recipe:SetItemFilterType("BLACKSMITHING_TWO_HAND_AXE")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.INSTANCE, F.MOB_DROP, F.IBOE, F.RBOE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.INSTANCE, F.MOB_DROP, F.IBOE, F.RBOE, F.TANK)
 	recipe:AddMobDrop(9554, 10043)
 
 	-- Dark Iron Shoulders -- 15295
@@ -1615,7 +1615,7 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItemID(12798)
 	recipe:SetSkillLevels(300, 300, 320, 330, 340)
 	recipe:SetItemFilterType("BLACKSMITHING_ONE_HAND_AXE")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.INSTANCE, F.MOB_DROP, F.IBOE, F.RBOE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.INSTANCE, F.MOB_DROP, F.IBOE, F.RBOE, F.TANK)
 	recipe:AddMobDrop(9736)
 
 	-- Frostguard -- 16992
@@ -1693,7 +1693,7 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItemID(16989)
 	recipe:SetSkillLevels(295, 295, 315, 325, 335)
 	recipe:SetItemFilterType("BLACKSMITHING_WAIST")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.THORIUM_BROTHERHOOD)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.REPUTATION, F.THORIUM_BROTHERHOOD)
 	recipe:AddRepVendor(FAC.THORIUM_BROTHERHOOD, REP.HONORED, 12944)
 
 	-- Fiery Chain Shoulders -- 20873
@@ -1702,7 +1702,7 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItemID(16988)
 	recipe:SetSkillLevels(300, 300, 320, 330, 340)
 	recipe:SetItemFilterType("BLACKSMITHING_SHOULDER")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.THORIUM_BROTHERHOOD)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.REPUTATION, F.THORIUM_BROTHERHOOD)
 	recipe:AddRepVendor(FAC.THORIUM_BROTHERHOOD, REP.REVERED, 12944)
 
 	-- Dark Iron Bracers -- 20874
@@ -1711,7 +1711,7 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItemID(17014)
 	recipe:SetSkillLevels(295, 295, 315, 325, 335)
 	recipe:SetItemFilterType("BLACKSMITHING_WRIST")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.THORIUM_BROTHERHOOD)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.RBOP, F.REPUTATION, F.THORIUM_BROTHERHOOD)
 	recipe:AddRepVendor(FAC.THORIUM_BROTHERHOOD, REP.FRIENDLY, 12944)
 
 	-- Dark Iron Leggings -- 20876
@@ -1720,7 +1720,7 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItemID(17013)
 	recipe:SetSkillLevels(300, 300, 320, 330, 340)
 	recipe:SetItemFilterType("BLACKSMITHING_LEGS")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.THORIUM_BROTHERHOOD)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.RBOP, F.REPUTATION, F.THORIUM_BROTHERHOOD)
 	recipe:AddRepVendor(FAC.THORIUM_BROTHERHOOD, REP.REVERED, 12944)
 
 	-- Dark Iron Reaver -- 20890
@@ -1729,7 +1729,7 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItemID(17015)
 	recipe:SetSkillLevels(300, 300, 320, 330, 340)
 	recipe:SetItemFilterType("BLACKSMITHING_ONE_HAND_SWORD")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.THORIUM_BROTHERHOOD)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.RBOP, F.REPUTATION, F.THORIUM_BROTHERHOOD)
 	recipe:AddRepVendor(FAC.THORIUM_BROTHERHOOD, REP.HONORED, 12944)
 
 	-- Dark Iron Destroyer -- 20897
@@ -1738,7 +1738,7 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItemID(17016)
 	recipe:SetSkillLevels(300, 300, 320, 330, 340)
 	recipe:SetItemFilterType("BLACKSMITHING_ONE_HAND_AXE")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.THORIUM_BROTHERHOOD)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.RBOP, F.DPS, F.REPUTATION, F.THORIUM_BROTHERHOOD)
 	recipe:AddRepVendor(FAC.THORIUM_BROTHERHOOD, REP.HONORED, 12944)
 
 	-- Sulfuron Hammer -- 21161
@@ -1774,7 +1774,7 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItemID(19043)
 	recipe:SetSkillLevels(290, 290, 310, 320, 330)
 	recipe:SetItemFilterType("BLACKSMITHING_WAIST")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.TIMBERMAW_HOLD)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.RBOP, F.DPS, F.REPUTATION, F.TIMBERMAW_HOLD)
 	recipe:AddRepVendor(FAC.TIMBERMAW_HOLD, REP.HONORED, 11557)
 
 	-- Heavy Timbermaw Boots -- 23629
@@ -1783,7 +1783,7 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItemID(19048)
 	recipe:SetSkillLevels(300, 300, 320, 330, 340)
 	recipe:SetItemFilterType("BLACKSMITHING_FEET")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.TIMBERMAW_HOLD)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.RBOP, F.DPS, F.REPUTATION, F.TIMBERMAW_HOLD)
 	recipe:AddRepVendor(FAC.TIMBERMAW_HOLD, REP.REVERED, 11557)
 
 	-- Girdle of the Dawn -- 23632
@@ -1792,7 +1792,7 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItemID(19051)
 	recipe:SetSkillLevels(290, 290, 310, 320, 330)
 	recipe:SetItemFilterType("BLACKSMITHING_WAIST")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.ARGENTDAWN)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.RBOP, F.DPS, F.REPUTATION, F.ARGENTDAWN)
 	recipe:AddRepVendor(FAC.ARGENTDAWN, REP.HONORED, 10856, 10857, 11536)
 
 	-- Gloves of the Dawn -- 23633
@@ -1801,7 +1801,7 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItemID(19057)
 	recipe:SetSkillLevels(300, 300, 320, 330, 340)
 	recipe:SetItemFilterType("BLACKSMITHING_HANDS")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.ARGENTDAWN)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.RBOP, F.DPS, F.REPUTATION, F.ARGENTDAWN)
 	recipe:AddRepVendor(FAC.ARGENTDAWN, REP.REVERED, 10856, 10857, 11536)
 
 	-- Dark Iron Helm -- 23636
@@ -1810,7 +1810,7 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItemID(19148)
 	recipe:SetSkillLevels(300, 300, 320, 330, 340)
 	recipe:SetItemFilterType("BLACKSMITHING_HEAD")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.THORIUM_BROTHERHOOD)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.RBOP, F.REPUTATION, F.THORIUM_BROTHERHOOD)
 	recipe:AddRepVendor(FAC.THORIUM_BROTHERHOOD, REP.HONORED, 12944)
 
 	-- Dark Iron Gauntlets -- 23637
@@ -1819,7 +1819,7 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItemID(19164)
 	recipe:SetSkillLevels(300, 300, 320, 330, 340)
 	recipe:SetItemFilterType("BLACKSMITHING_HANDS")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.THORIUM_BROTHERHOOD)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.RBOP, F.DPS, F.REPUTATION, F.THORIUM_BROTHERHOOD)
 	recipe:AddRepVendor(FAC.THORIUM_BROTHERHOOD, REP.REVERED, 12944)
 
 	-- Black Amnesty -- 23638
@@ -1828,7 +1828,7 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItemID(19166)
 	recipe:SetSkillLevels(300, 300, 320, 330, 340)
 	recipe:SetItemFilterType("BLACKSMITHING_DAGGER")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.THORIUM_BROTHERHOOD)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.RBOP, F.REPUTATION, F.THORIUM_BROTHERHOOD)
 	recipe:AddRepVendor(FAC.THORIUM_BROTHERHOOD, REP.REVERED, 12944)
 
 	-- Blackfury -- 23639
@@ -1837,7 +1837,7 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItemID(19167)
 	recipe:SetSkillLevels(300, 300, 320, 330, 340)
 	recipe:SetItemFilterType("BLACKSMITHING_POLEARM")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.HEALER, F.CASTER, F.THORIUM_BROTHERHOOD)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.RBOP, F.DPS, F.HEALER, F.CASTER, F.REPUTATION, F.THORIUM_BROTHERHOOD)
 	recipe:AddRepVendor(FAC.THORIUM_BROTHERHOOD, REP.REVERED, 12944)
 
 	-- Ebon Hand -- 23650
@@ -1846,7 +1846,7 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItemID(19170)
 	recipe:SetSkillLevels(300, 300, 320, 330, 340)
 	recipe:SetItemFilterType("BLACKSMITHING_ONE_HAND_MACE")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.THORIUM_BROTHERHOOD)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.RBOP, F.REPUTATION, F.THORIUM_BROTHERHOOD)
 	recipe:AddRepVendor(FAC.THORIUM_BROTHERHOOD, REP.EXALTED, 12944)
 
 	-- Blackguard -- 23652
@@ -1855,7 +1855,7 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItemID(19168)
 	recipe:SetSkillLevels(300, 300, 320, 330, 340)
 	recipe:SetItemFilterType("BLACKSMITHING_ONE_HAND_SWORD")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.TANK, F.THORIUM_BROTHERHOOD)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.RBOP, F.TANK, F.REPUTATION, F.THORIUM_BROTHERHOOD)
 	recipe:AddRepVendor(FAC.THORIUM_BROTHERHOOD, REP.EXALTED, 12944)
 
 	-- Nightfall -- 23653
@@ -1864,7 +1864,7 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItemID(19169)
 	recipe:SetSkillLevels(300, 300, 320, 330, 340)
 	recipe:SetItemFilterType("BLACKSMITHING_TWO_HAND_AXE")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.THORIUM_BROTHERHOOD)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.RBOP, F.REPUTATION, F.THORIUM_BROTHERHOOD)
 	recipe:AddRepVendor(FAC.THORIUM_BROTHERHOOD, REP.EXALTED, 12944)
 
 	-- Bloodsoul Breastplate -- 24136
@@ -1927,7 +1927,7 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItemID(20039)
 	recipe:SetSkillLevels(300, 300, 320, 330, 340)
 	recipe:SetItemFilterType("BLACKSMITHING_FEET")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.THORIUM_BROTHERHOOD)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.RBOP, F.REPUTATION, F.THORIUM_BROTHERHOOD)
 	recipe:AddRepVendor(FAC.THORIUM_BROTHERHOOD, REP.EXALTED, 12944)
 
 	-- Darkrune Gauntlets -- 24912
@@ -1963,7 +1963,7 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItemID(22197)
 	recipe:SetSkillLevels(300, 300, 320, 330, 340)
 	recipe:SetItemFilterType("BLACKSMITHING_WAIST")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.CENARION_CIRCLE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.RBOP, F.DPS, F.REPUTATION, F.CENARION_CIRCLE)
 	recipe:AddRepVendor(FAC.CENARION_CIRCLE, REP.FRIENDLY, 15176)
 
 	-- Jagged Obsidian Shield -- 27586
@@ -1990,7 +1990,7 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItemID(22195)
 	recipe:SetSkillLevels(300, 300, 320, 330, 340)
 	recipe:SetItemFilterType("BLACKSMITHING_WAIST")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.HEALER, F.CASTER, F.CENARION_CIRCLE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.RBOP, F.DPS, F.HEALER, F.CASTER, F.REPUTATION, F.CENARION_CIRCLE)
 	recipe:AddRepVendor(FAC.CENARION_CIRCLE, REP.HONORED, 15176)
 
 	-- Black Grasp of the Destroyer -- 27589
@@ -2068,7 +2068,7 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItemID(22762)
 	recipe:SetSkillLevels(300, 300, 320, 330, 340)
 	recipe:SetItemFilterType("BLACKSMITHING_CHEST")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.TANK, F.CENARION_CIRCLE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.RBOP, F.TANK, F.REPUTATION, F.CENARION_CIRCLE)
 	recipe:AddRepVendor(FAC.CENARION_CIRCLE, REP.REVERED, 15176)
 
 	-- Ironvine Gloves -- 28462
@@ -2077,7 +2077,7 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItemID(22763)
 	recipe:SetSkillLevels(300, 300, 320, 330, 340)
 	recipe:SetItemFilterType("BLACKSMITHING_HANDS")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.TANK, F.CENARION_CIRCLE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.RBOP, F.TANK, F.REPUTATION, F.CENARION_CIRCLE)
 	recipe:AddRepVendor(FAC.CENARION_CIRCLE, REP.HONORED, 15176)
 
 	-- Ironvine Belt -- 28463
@@ -2086,7 +2086,7 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItemID(22764)
 	recipe:SetSkillLevels(300, 300, 320, 330, 340)
 	recipe:SetItemFilterType("BLACKSMITHING_WAIST")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.TANK, F.CENARION_CIRCLE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.RBOP, F.TANK, F.REPUTATION, F.CENARION_CIRCLE)
 	recipe:AddRepVendor(FAC.CENARION_CIRCLE, REP.FRIENDLY, 15176)
 
 	-- Fel Iron Plate Gloves -- 29545
@@ -2258,7 +2258,7 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItemID(23510)
 	recipe:SetSkillLevels(355, 355, 365, 375, 385)
 	recipe:SetItemFilterType("BLACKSMITHING_WAIST")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.TANK, F.SCRYER)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.RBOP, F.TANK, F.REPUTATION, F.SCRYER)
 	recipe:AddRepVendor(FAC.SCRYER, REP.FRIENDLY, 19331)
 
 	-- Enchanted Adamantite Breastplate -- 29610
@@ -2267,7 +2267,7 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItemID(23509)
 	recipe:SetSkillLevels(360, 360, 370, 380, 390)
 	recipe:SetItemFilterType("BLACKSMITHING_CHEST")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.TANK, F.CASTER, F.SCRYER)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.RBOP, F.DPS, F.TANK, F.CASTER, F.REPUTATION, F.SCRYER)
 	recipe:AddRepVendor(FAC.SCRYER, REP.REVERED, 19331)
 
 	-- Enchanted Adamantite Boots -- 29611
@@ -2276,7 +2276,7 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItemID(23511)
 	recipe:SetSkillLevels(355, 355, 365, 375, 385)
 	recipe:SetItemFilterType("BLACKSMITHING_FEET")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.TANK, F.SCRYER)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.RBOP, F.TANK, F.REPUTATION, F.SCRYER)
 	recipe:AddRepVendor(FAC.SCRYER, REP.HONORED, 19331)
 
 	-- Enchanted Adamantite Leggings -- 29613
@@ -2285,7 +2285,7 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItemID(23512)
 	recipe:SetSkillLevels(365, 365, 375, 385, 395)
 	recipe:SetItemFilterType("BLACKSMITHING_LEGS")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.TANK, F.SCRYER)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.RBOP, F.TANK, F.REPUTATION, F.SCRYER)
 	recipe:AddRepVendor(FAC.SCRYER, REP.EXALTED, 19331)
 
 	-- Flamebane Bracers -- 29614
@@ -2294,7 +2294,7 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItemID(23515)
 	recipe:SetSkillLevels(350, 350, 360, 370, 380)
 	recipe:SetItemFilterType("BLACKSMITHING_WRIST")
-	recipe:AddFilters(F.ALLIANCE, F.VENDOR, F.IBOE, F.RBOP, F.TANK, F.ALDOR)
+	recipe:AddFilters(F.ALLIANCE, F.IBOE, F.RBOP, F.TANK, F.REPUTATION, F.ALDOR)
 	recipe:AddRepVendor(FAC.ALDOR, REP.FRIENDLY, 19321)
 
 	-- Flamebane Helm -- 29615
@@ -2303,7 +2303,7 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItemID(23516)
 	recipe:SetSkillLevels(355, 355, 365, 375, 385)
 	recipe:SetItemFilterType("BLACKSMITHING_HEAD")
-	recipe:AddFilters(F.ALLIANCE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.TANK, F.CASTER, F.ALDOR)
+	recipe:AddFilters(F.ALLIANCE, F.IBOE, F.RBOP, F.DPS, F.TANK, F.CASTER, F.REPUTATION, F.ALDOR)
 	recipe:AddRepVendor(FAC.ALDOR, REP.EXALTED, 19321)
 
 	-- Flamebane Gloves -- 29616
@@ -2312,7 +2312,7 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItemID(23514)
 	recipe:SetSkillLevels(360, 360, 370, 380, 390)
 	recipe:SetItemFilterType("BLACKSMITHING_HANDS")
-	recipe:AddFilters(F.ALLIANCE, F.VENDOR, F.IBOE, F.RBOP, F.TANK, F.ALDOR)
+	recipe:AddFilters(F.ALLIANCE, F.IBOE, F.RBOP, F.TANK, F.REPUTATION, F.ALDOR)
 	recipe:AddRepVendor(FAC.ALDOR, REP.HONORED, 19321)
 
 	-- Flamebane Breastplate -- 29617
@@ -2321,7 +2321,7 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItemID(23513)
 	recipe:SetSkillLevels(365, 365, 375, 385, 395)
 	recipe:SetItemFilterType("BLACKSMITHING_CHEST")
-	recipe:AddFilters(F.ALLIANCE, F.VENDOR, F.IBOE, F.RBOP, F.TANK, F.ALDOR)
+	recipe:AddFilters(F.ALLIANCE, F.IBOE, F.RBOP, F.TANK, F.REPUTATION, F.ALDOR)
 	recipe:AddRepVendor(FAC.ALDOR, REP.REVERED, 19321)
 
 	-- Felsteel Gloves -- 29619
@@ -2446,7 +2446,7 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItemID(23529)
 	recipe:SetSkillLevels(350, 350, 350, 355, 360)
 	recipe:SetItemFilterType("BLACKSMITHING_ITEM_ENHANCEMENT")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.HEALER, F.CASTER, F.CENARION_EXPEDITION)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.RBOP, F.DPS, F.HEALER, F.CASTER, F.REPUTATION, F.CENARION_EXPEDITION)
 	recipe:AddRepVendor(FAC.CENARION_EXPEDITION, REP.HONORED, 17904)
 
 	-- Felsteel Shield Spike -- 29657
@@ -2455,7 +2455,7 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItemID(23530)
 	recipe:SetSkillLevels(360, 360, 370, 380, 390)
 	recipe:SetItemFilterType("BLACKSMITHING_ITEM_ENHANCEMENT")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.HELLFIRE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.RBOP, F.REPUTATION, F.HELLFIRE)
 	recipe:AddRepVendor(FAC.HONOR_HOLD, REP.EXALTED, 17657)
 	recipe:AddRepVendor(FAC.THRALLMAR, REP.EXALTED, 17585)
 
@@ -2644,7 +2644,7 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItemID(25521)
 	recipe:SetSkillLevels(350, 350, 350, 355, 360)
 	recipe:SetItemFilterType("BLACKSMITHING_ITEM_ENHANCEMENT")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.CENARION_EXPEDITION)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.RBOP, F.REPUTATION, F.CENARION_EXPEDITION)
 	recipe:AddRepVendor(FAC.CENARION_EXPEDITION, REP.HONORED, 17904)
 
 	-- Nether Chain Shirt -- 34529
@@ -2789,7 +2789,7 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItemID(28421)
 	recipe:SetSkillLevels(350, 350, 350, 355, 360)
 	recipe:SetItemFilterType("BLACKSMITHING_ITEM_ENHANCEMENT")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.HEALER, F.CASTER, F.CENARION_EXPEDITION)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.RBOP, F.DPS, F.HEALER, F.CASTER, F.REPUTATION, F.CENARION_EXPEDITION)
 	recipe:AddRepVendor(FAC.CENARION_EXPEDITION, REP.HONORED, 17904)
 
 	-- Earthforged Leggings -- 36122
@@ -3002,7 +3002,7 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItemID(31364)
 	recipe:SetSkillLevels(375, 375, 385, 395, 405)
 	recipe:SetItemFilterType("BLACKSMITHING_CHEST")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.TANK, F.CENARION_EXPEDITION)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.RBOP, F.TANK, F.REPUTATION, F.CENARION_EXPEDITION)
 	recipe:AddRepVendor(FAC.CENARION_EXPEDITION, REP.EXALTED, 17904)
 
 	-- Wildguard Leggings -- 38475
@@ -3011,7 +3011,7 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItemID(31367)
 	recipe:SetSkillLevels(375, 375, 385, 395, 405)
 	recipe:SetItemFilterType("BLACKSMITHING_LEGS")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.CENARION_EXPEDITION)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.RBOP, F.REPUTATION, F.CENARION_EXPEDITION)
 	recipe:AddRepVendor(FAC.CENARION_EXPEDITION, REP.REVERED, 17904)
 
 	-- Wildguard Helm -- 38476
@@ -3020,7 +3020,7 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItemID(31368)
 	recipe:SetSkillLevels(375, 375, 385, 395, 405)
 	recipe:SetItemFilterType("BLACKSMITHING_HEAD")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.TANK, F.CENARION_EXPEDITION)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.RBOP, F.TANK, F.REPUTATION, F.CENARION_EXPEDITION)
 	recipe:AddRepVendor(FAC.CENARION_EXPEDITION, REP.REVERED, 17904)
 
 	-- Iceguard Breastplate -- 38477
@@ -3065,7 +3065,7 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItemID(32403)
 	recipe:SetSkillLevels(375, 375, 385, 395, 405)
 	recipe:SetItemFilterType("BLACKSMITHING_WRIST")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.ASHTONGUE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.RBOP, F.REPUTATION, F.ASHTONGUE)
 	recipe:AddRepVendor(FAC.ASHTONGUE, REP.FRIENDLY, 23159)
 
 	-- Shadesteel Greaves -- 40035
@@ -3083,7 +3083,7 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItemID(32401)
 	recipe:SetSkillLevels(375, 375, 385, 395, 405)
 	recipe:SetItemFilterType("BLACKSMITHING_WAIST")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.ASHTONGUE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.RBOP, F.REPUTATION, F.ASHTONGUE)
 	recipe:AddRepVendor(FAC.ASHTONGUE, REP.FRIENDLY, 23159)
 
 	-- Swiftsteel Bracers -- 41132
@@ -4009,7 +4009,7 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItemID(44936)
 	recipe:SetSkillLevels(450, 450, 455, 460, 465)
 	recipe:SetItemFilterType("BLACKSMITHING_MATERIALS")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.TANK, F.WRATHCOMMON1)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.RBOP, F.TANK, F.REPUTATION, F.WRATHCOMMON1)
 	recipe:AddRepVendor(FAC.HORDE_EXPEDITION, REP.EXALTED, 32565, 32774)
 	recipe:AddRepVendor(FAC.ALLIANCE_VANGUARD, REP.EXALTED, 32564, 32773)
 
@@ -4102,7 +4102,7 @@ function addon:InitBlacksmithing()
 	recipe:SetSkillLevels(450, 450, 455, 465, 475)
 	recipe:SetRequiredFaction("Alliance")
 	recipe:SetItemFilterType("BLACKSMITHING_CHEST")
-	recipe:AddFilters(F.ALLIANCE, F.RAID, F.IBOE, F.RBOE, F.DPS)
+	recipe:AddFilters(F.ALLIANCE, F.RAID, F.IBOE, F.RBOE, F.DPS, F.HEALER, F.CASTER)
 	recipe:AddCustom("TOC25_RANDOM")
 
 	-- Titanium Spikeguards -- 67094
@@ -4142,7 +4142,7 @@ function addon:InitBlacksmithing()
 	recipe:SetSkillLevels(450, 450, 455, 465, 475)
 	recipe:SetRequiredFaction("Horde")
 	recipe:SetItemFilterType("BLACKSMITHING_CHEST")
-	recipe:AddFilters(F.HORDE, F.RAID, F.IBOE, F.RBOE, F.TANK)
+	recipe:AddFilters(F.HORDE, F.RAID, F.IBOE, F.RBOE, F.DPS, F.TANK)
 	recipe:AddCustom("TOC25_RANDOM")
 
 	-- Saronite Swordbreakers -- 67131
@@ -4201,7 +4201,7 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItemID(49902)
 	recipe:SetSkillLevels(450, 450, 475, 487, 500)
 	recipe:SetItemFilterType("BLACKSMITHING_LEGS")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.HEALER, F.CASTER, F.ASHEN_VERDICT)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.RBOP, F.DPS, F.HEALER, F.CASTER, F.REPUTATION, F.ASHEN_VERDICT)
 	recipe:AddRepVendor(FAC.ASHEN_VERDICT, REP.REVERED, 37687)
 
 	-- Protectors of Life -- 70563
@@ -4210,7 +4210,7 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItemID(49905)
 	recipe:SetSkillLevels(450, 450, 475, 487, 500)
 	recipe:SetItemFilterType("BLACKSMITHING_FEET")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.HEALER, F.CASTER, F.ASHEN_VERDICT)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.RBOP, F.DPS, F.HEALER, F.CASTER, F.REPUTATION, F.ASHEN_VERDICT)
 	recipe:AddRepVendor(FAC.ASHEN_VERDICT, REP.HONORED, 37687)
 
 	-- Legplates of Painful Death -- 70565
@@ -4219,7 +4219,7 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItemID(49903)
 	recipe:SetSkillLevels(450, 450, 475, 487, 500)
 	recipe:SetItemFilterType("BLACKSMITHING_LEGS")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.HEALER, F.CASTER, F.ASHEN_VERDICT)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.RBOP, F.DPS, F.HEALER, F.CASTER, F.REPUTATION, F.ASHEN_VERDICT)
 	recipe:AddRepVendor(FAC.ASHEN_VERDICT, REP.REVERED, 37687)
 
 	-- Hellfrozen Bonegrinders -- 70566
@@ -4228,7 +4228,7 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItemID(49906)
 	recipe:SetSkillLevels(450, 450, 475, 487, 500)
 	recipe:SetItemFilterType("BLACKSMITHING_FEET")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.HEALER, F.CASTER, F.ASHEN_VERDICT)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.RBOP, F.DPS, F.HEALER, F.CASTER, F.REPUTATION, F.ASHEN_VERDICT)
 	recipe:AddRepVendor(FAC.ASHEN_VERDICT, REP.HONORED, 37687)
 
 	-- Pillars of Might -- 70567
@@ -4237,7 +4237,7 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItemID(49904)
 	recipe:SetSkillLevels(450, 450, 475, 487, 500)
 	recipe:SetItemFilterType("BLACKSMITHING_LEGS")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.TANK, F.ASHEN_VERDICT)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.RBOP, F.DPS, F.TANK, F.REPUTATION, F.ASHEN_VERDICT)
 	recipe:AddRepVendor(FAC.ASHEN_VERDICT, REP.REVERED, 37687)
 
 	-- Boots of Kingly Upheaval -- 70568
@@ -4246,7 +4246,7 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItemID(49907)
 	recipe:SetSkillLevels(450, 450, 475, 487, 500)
 	recipe:SetItemFilterType("BLACKSMITHING_FEET")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.TANK, F.CASTER, F.ASHEN_VERDICT)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.RBOP, F.DPS, F.TANK, F.CASTER, F.REPUTATION, F.ASHEN_VERDICT)
 	recipe:AddRepVendor(FAC.ASHEN_VERDICT, REP.HONORED, 37687)
 
 	-- Folded Obsidium -- 76178
