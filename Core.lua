@@ -359,6 +359,7 @@ function addon:OnInitialize()
 					druid = true,
 					hunter = true,
 					mage = true,
+					monk = true,
 					paladin = true,
 					priest = true,
 					rogue = true,

@@ -431,12 +431,13 @@ function private.InitializeFilterPanel()
 		druid		= { tt = L["CLASS_DESC"],	text = _G.LOCALIZED_CLASS_NAMES_MALE["DRUID"],		row = 1, col = 2 },
 		hunter		= { tt = L["CLASS_DESC"],	text = _G.LOCALIZED_CLASS_NAMES_MALE["HUNTER"],		row = 2, col = 1 },
 		mage		= { tt = L["CLASS_DESC"],	text = _G.LOCALIZED_CLASS_NAMES_MALE["MAGE"],		row = 2, col = 2 },
-		paladin		= { tt = L["CLASS_DESC"],	text = _G.LOCALIZED_CLASS_NAMES_MALE["PALADIN"],	row = 3, col = 1 },
-		priest		= { tt = L["CLASS_DESC"],	text = _G.LOCALIZED_CLASS_NAMES_MALE["PRIEST"],		row = 3, col = 2 },
-		rogue		= { tt = L["CLASS_DESC"],	text = _G.LOCALIZED_CLASS_NAMES_MALE["ROGUE"],		row = 4, col = 1 },
-		shaman		= { tt = L["CLASS_DESC"],	text = _G.LOCALIZED_CLASS_NAMES_MALE["SHAMAN"],		row = 4, col = 2 },
-		warlock		= { tt = L["CLASS_DESC"],	text = _G.LOCALIZED_CLASS_NAMES_MALE["WARLOCK"],	row = 5, col = 1 },
-		warrior		= { tt = L["CLASS_DESC"],	text = _G.LOCALIZED_CLASS_NAMES_MALE["WARRIOR"],	row = 5, col = 2 },
+		monk		= { tt = L["CLASS_DESC"],	text = _G.LOCALIZED_CLASS_NAMES_MALE["MONK"],		row = 3, col = 1 },
+		paladin		= { tt = L["CLASS_DESC"],	text = _G.LOCALIZED_CLASS_NAMES_MALE["PALADIN"],	row = 3, col = 2 },
+		priest		= { tt = L["CLASS_DESC"],	text = _G.LOCALIZED_CLASS_NAMES_MALE["PRIEST"],		row = 4, col = 1 },
+		rogue		= { tt = L["CLASS_DESC"],	text = _G.LOCALIZED_CLASS_NAMES_MALE["ROGUE"],		row = 4, col = 2 },
+		shaman		= { tt = L["CLASS_DESC"],	text = _G.LOCALIZED_CLASS_NAMES_MALE["SHAMAN"],		row = 5, col = 1 },
+		warlock		= { tt = L["CLASS_DESC"],	text = _G.LOCALIZED_CLASS_NAMES_MALE["WARLOCK"],	row = 5, col = 2 },
+		warrior		= { tt = L["CLASS_DESC"],	text = _G.LOCALIZED_CLASS_NAMES_MALE["WARRIOR"],	row = 6, col = 1 },
 	}
 
 	local class_panel = _G.CreateFrame("Frame", nil, general_frame)
@@ -1406,6 +1407,7 @@ function private.InitializeFilterPanel()
 		["druid"]		= { cb = FilterPanel.general.druid,		svroot = filterdb.classes },
 		["hunter"]		= { cb = FilterPanel.general.hunter,		svroot = filterdb.classes },
 		["mage"]		= { cb = FilterPanel.general.mage,		svroot = filterdb.classes },
+		["monk"]		= { cb = FilterPanel.general.monk,		svroot = filterdb.classes },
 		["paladin"]		= { cb = FilterPanel.general.paladin,		svroot = filterdb.classes },
 		["priest"]		= { cb = FilterPanel.general.priest,		svroot = filterdb.classes },
 		["rogue"]		= { cb = FilterPanel.general.rogue,		svroot = filterdb.classes },
