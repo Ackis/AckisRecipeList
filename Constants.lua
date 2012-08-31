@@ -140,6 +140,7 @@ private.GAME_VERSION_NAMES = {
 	[2] = "TBC",
 	[3] = "WOTLK",
 	[4] = "CATA",
+	[5] = "MOP",
 }
 
 private.GAME_VERSIONS = {}
