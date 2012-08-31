@@ -741,11 +741,11 @@ function private.InitializeFilterPanel()
 		local rep_frame = FilterPanel:CreateSubMenu("rep")
 
 		local EXPANSION_TOOLTIP = {
-			expansion0	= L["FILTERING_OLDWORLD_DESC"],
-			expansion1	= L["FILTERING_BC_DESC"],
-			expansion2	= L["FILTERING_WOTLK_DESC"],
-			expansion3	= L["FILTERING_CATA_DESC"],
-			expansion4	= L["FILTERING_MISTS_DESC"],
+			expansion0	= L["EXPANSION_FILTER_FORMAT"]:format(_G.EXPANSION_NAME0),
+			expansion1	= L["EXPANSION_FILTER_FORMAT"]:format(_G.EXPANSION_NAME1),
+			expansion2	= L["EXPANSION_FILTER_FORMAT"]:format(_G.EXPANSION_NAME2),
+			expansion3	= L["EXPANSION_FILTER_FORMAT"]:format(_G.EXPANSION_NAME3),
+			expansion4	= L["EXPANSION_FILTER_FORMAT"]:format(_G.EXPANSION_NAME4),
 		}
 		-------------------------------------------------------------------------------
 		-- This manages the WoW expansion reputation filter menu panel
