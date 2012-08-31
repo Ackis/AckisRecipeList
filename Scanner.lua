@@ -1215,6 +1215,9 @@ do
 		["agility"] = {
 			"dps",
 		},
+		["armor"] = {
+			"tank",
+		},
 		["attack power"] = {
 			"dps",
 		},
@@ -1237,14 +1240,27 @@ do
 		["dodge rating"] = {
 			"tank",
 		},
+		["expertise"] = {
+			"dps",
+			"tank",
+		},
 		["expertise rating"] = {
 			"dps",
 			"tank",
+		},
+		["haste"] = {
+			"caster",
+			"dps",
+			"healer",
 		},
 		["haste rating"] = {
 			"caster",
 			"dps",
 			"healer",
+		},
+		["hit"] = {
+			"caster",
+			"dps",
 		},
 		["hit rating"] = {
 			"caster",
@@ -1254,20 +1270,30 @@ do
 			"caster",
 			"healer",
 		},
+		["mana"] = {
+			"caster",
+			"healer",
+		},
 		["mana every 5 seconds"] = {
 			"caster",
 			"healer",
 		},
+		["parry"] = {
+			"tank",
+		},
 		["parry rating"] = {
 			"tank",
+		},
+		["pvp power"] = {
+			"pvp",
+		},
+		["pvp resilience"] = {
+			"pvp",
 		},
 		["rage"] = {
 			"dps",
 			"tank",
 		},
---		["resilience"] = {
---			"pvp",
---		},
 		["spell penetration"] = {
 			"caster",
 --			"pvp",
@@ -1283,14 +1309,22 @@ do
 		["strength"] = {
 			"dps",
 		},
+		["threat from all attacks and spells"] = {
+			"tank",
+		},
 	}
 
 	local MATCH_FORMATS = {
 		"use: permanently attach (%%a+) %s by",
+		"adds (%%d+) %s",
 		"become well fed and gain (.+) %s",
-		"(%%d+) %s",
+		"+(%%d+) %s",
 		"%s by (%%d+)",
-		"%s is increased by (%%d+)"
+		"%s is increased by (%%d+)",
+		"equip: increases your %s by (%%d+)",
+		"to increase %s by (%%d+)",
+		"increase your %s",
+		"grant you (%%d+) %s",
 	}
 
 	--- Parses the mining tooltip for certain keywords, comparing them with the database flags
@@ -1352,14 +1386,7 @@ do
 --				recipe = recipe_list[spell_id]
 --			end
 --
---			local inscription_type = text_l:match("Prime Glyph")
---
---			if inscription_type and recipe then
---				addon:Printf("%s: Prime Glyph", recipe_name)
---				recipe:SetItemFilterType("INSCRIPTION_PRIME_GLYPH")
---			end
---
---			inscription_type = text_l:match("Major Glyph")
+--			local inscription_type = text_l:match("Major Glyph")
 --
 --			if inscription_type and recipe then
 --				addon:Printf("%s: Major Glyph", recipe_name)
@@ -1397,11 +1424,11 @@ do
 --				recipe:SetItemFilterType("INSCRIPTION_OFF_HAND")
 --			end
 --
---			inscription_type = text_l:match("Relic")
+--			inscription_type = text_r:match("Staff")
 --
 --			if inscription_type and recipe then
---				addon:Printf("%s: Relic", recipe_name)
---				recipe:SetItemFilterType("INSCRIPTION_RELIC")
+--				addon:Printf("%s: Staff", recipe_name)
+--				recipe:SetItemFilterType("INSCRIPTION_STAFF")
 --			end
 
 			for stat, roles in pairs(ROLE_STAT_MATCHES) do
@@ -1439,6 +1466,11 @@ do
 					end
 				end
 			end
+
+			if text:match("(%d+) slot(.+)bag") then
+				scan_data.no_role = true
+			end
+
 		end	-- for
 	end
 
@@ -1727,7 +1759,7 @@ do
 
 		-- We need to code this better.  Some items (aka bags) won't have a role at all.
 		-- Check for player role flags
-		if not scan_data.tank and not scan_data.healer and not scan_data.caster and not scan_data.dps and not NO_ROLE_FLAG[spell_id] then
+		if not scan_data.no_role and not scan_data.tank and not scan_data.healer and not scan_data.caster and not scan_data.dps and not NO_ROLE_FLAG[spell_id] then
 			table.insert(output, "    No player role flag.")
 		end
 
