@@ -535,14 +535,17 @@ function private.InitializeFilterPanel()
 			MainPanel.list_frame:Update(nil, false)
 		end)
 
+		local function ExpansionDesc(expansion_text)
+			return L["EXPANSION_DESC_FORMAT"]:format(expansion_text)
+		end
 		obtain_frame.version_toggle = version_toggle
 
 		local version_buttons = {
-			expansion0	= { tt = L["ORIGINAL_WOW_DESC"],	text = _G.EXPANSION_NAME0,			row = 1, col = 1 },
-			expansion1	= { tt = L["BC_WOW_DESC"],		text = _G.EXPANSION_NAME1,			row = 2, col = 1 },
-			expansion2	= { tt = L["LK_WOW_DESC"],		text = _G.EXPANSION_NAME2,			row = 3, col = 1 },
-			expansion3	= { tt = L["CATA_WOW_DESC"],		text = _G.EXPANSION_NAME3,			row = 4, col = 1 },
-			expansion4	= { tt = L["MISTS_WOW_DESC"],		text = _G.EXPANSION_NAME4,			row = 5, col = 1 },
+			expansion0	= { tt = ExpansionDesc(_G.EXPANSION_NAME0),	text = _G.EXPANSION_NAME0,	row = 1, col = 1 },
+			expansion1	= { tt = ExpansionDesc(_G.EXPANSION_NAME1),	text = _G.EXPANSION_NAME1,	row = 2, col = 1 },
+			expansion2	= { tt = ExpansionDesc(_G.EXPANSION_NAME2),	text = _G.EXPANSION_NAME2,	row = 3, col = 1 },
+			expansion3	= { tt = ExpansionDesc(_G.EXPANSION_NAME3),	text = _G.EXPANSION_NAME3,	row = 4, col = 1 },
+			expansion4	= { tt = ExpansionDesc(_G.EXPANSION_NAME4),	text = _G.EXPANSION_NAME4,	row = 5, col = 1 },
 		}
 
 		local version_panel = _G.CreateFrame("Frame", nil, obtain_frame)
@@ -552,6 +555,7 @@ function private.InitializeFilterPanel()
 		version_panel:SetPoint("RIGHT", obtain_frame, "RIGHT")
 
 		private.GenerateCheckBoxes(obtain_frame, version_buttons, version_panel)
+		ExpansionDesc = nil
 	end	-- do-block
 
 	-------------------------------------------------------------------------------
