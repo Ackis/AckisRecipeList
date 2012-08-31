@@ -1,6 +1,37 @@
 ==ARL Change Log
 NOTE: Always remove the folder for old versions and install a fresh copy when upgrading.
 
+== 2.4
+
+=== General:
+* Added MoP support.
+* Replaced Inscription Relic with Inscription Staff.
+
+=== Interface:
+* Removed Prime Glyph references. 
+* Added a new highlight texture for the profession-switching button (portrait-type image at top-left of the list).
+
+=== Recipe Database:
+* Removed recipes which didn't make it to 5.0.4
+* Added new recipes which presumably replaced some which were removed.
+* Added the 25 new glyphs for Monks.
+* Removed a now-defunct quest from Steam Tonk Controller.
+
+=== Backend:
+* Revamped the in-game dataminer to detect things added in MoP.
+* Removed most of the reliance on LibBabble-Zone
+
+== 2.3.3
+* Nothing worth note (needless version bump).
+
+== 2.3.2
+
+=== Interface:
+* Added Reputation filter, to replace the Vendor filter for appropriate recipes.
+
+=== Backend:
+* Various optimizations.
+
 == 2.3.1
 
 === Interface:
@@ -11,7 +42,7 @@ NOTE: Always remove the folder for old versions and install a fresh copy when up
 * Added support for itIT localization.
 * Suppressed the missing localization phrase translation errors for non-enUS locales. Any missing translations will default to English.
 
-==== Recipe Database:
+=== Recipe Database:
 * Marked several recipes as removed from the game.
 * Removed several NPCs which are no longer associated to recipes.
 * Added several new vendors and trainers.
@@ -44,7 +75,7 @@ NOTE: Always remove the folder for old versions and install a fresh copy when up
 * The Item Filter menu will be disabled for professions which do not have item-type filters.
 * Normalized the layout of all filter menus.
 
-==== Recipe Database:
+=== Recipe Database:
 
 * Assigned the correct crafted item for the "Pumpkin Pie" cooking recipe.
 * Runic Plate Boots, Helm, Leggings, and Shoulders are no longer marked as removed from the game: They are now assigned to the newly-added vendor "Dramm Riverhorn".
@@ -71,12 +102,12 @@ NOTE: Always remove the folder for old versions and install a fresh copy when up
 
 == 2.2.11
 
-===Backend:
+=== Backend:
 
 * Various bugfixes.
 * ToC Interface version to 40300.
 
-===Recipes:
+=== Recipes:
 
 * Added all the new recipes introduced in patch 4.3.
 * Cleaned up/removed/added many other database entries.
@@ -87,7 +118,7 @@ NOTE: Always remove the folder for old versions and install a fresh copy when up
 
 == 2.2.10
 
-==== Backend:
+=== Backend:
 
 * Fixed erroneous usage of LibBabble-Faction-3.0 in certain places which prevented certain acquire sources from appearing in the list for non-English locales.
 * Replaced all StaticPopupDialogs with LibDialog-1.0 versions.
@@ -96,7 +127,7 @@ NOTE: Always remove the folder for old versions and install a fresh copy when up
 * Changed how detection of known professions works, so valid professions are no longer removed from the toon; this was preventing users from viewing alt tradeskill links.
 * Before running a scan, reset the TradeSkillFrame search so the list is complete - otherwise, ARL will only scan the recipes which match the search criteria.
 
-==== Recipes:
+=== Recipes:
 
 * Removed several mobs which no longer drop recipes.
 * Removed the Triage quests for both factions; they no longer yield a First Aid recipe.
@@ -113,14 +144,14 @@ NOTE: Always remove the folder for old versions and install a fresh copy when up
 
 == 2.2.9
 
-==== Backend:
+=== Backend:
 
 * Fixed a bug that would cause issues when browsing guild professions.
 * Fixed a bug with library detection.
 * When attempting to run a command line scan, check to make sure the profession name is not an empty string.
 * Fixed a few bugs when dealing with alt's professions.
 
-==== Recipes:
+=== Recipes:
 
 * Recipes from World Event vendors are now just flagged as World Event.  This will let you filter out all World Event recipes properly now.
 * Added a Discovery type for acquisition.
@@ -129,7 +160,7 @@ NOTE: Always remove the folder for old versions and install a fresh copy when up
 
 == 2.2.8
 
-==== Interface:
+=== Interface:
 * Specialty filter was broken for Engineers in 4.x, and has now been fixed.
 * Recipe tooltips will now display the icon for the crafted item, if available to the WoW client.
 * The Scan button should now be available at all times: with certain TradeSkill AddOns, it would sometimes render beneath the parent frame.
@@ -138,18 +169,18 @@ NOTE: Always remove the folder for old versions and install a fresh copy when up
 * Tooltips for recipes acquired via Achievements now use the color for Achievements instead of the color for Custom entries.
 * World Drop entries which are expanded in the list will now show the level range of the mobs the recipe can be found on.
 
-==== Backend:
+=== Backend:
 * Many miscellaneous cleanups and optimizations.
 * TradeSkill links will now be saved more reliably.
 
-==== Recipe Database:
+=== Recipe Database:
 * Removed several recipes which are no longer in the game.
 * Removed several NPCs which are either no longer in the game or no longer have recipes.
 
 
 == 2.2.7
 
-==== Recipe Database:
+=== Recipe Database:
 * Updated a few Inscription recipes.
 * Updated Dig Rat Stew
 * Updated Misty and Jagged Forest Emerald
@@ -157,7 +188,7 @@ NOTE: Always remove the folder for old versions and install a fresh copy when up
 
 == 2.2.6
 
-==== Recipe Database:
+=== Recipe Database:
 * Added new recipes for Firelands.
 * Fixed skill levels for the following recipes:
 ** Stormleather Sash
@@ -174,7 +205,7 @@ NOTE: Always remove the folder for old versions and install a fresh copy when up
 ** Smelt Thorium
 * Marked Greater Frost Protection Potion as removed from the game.
 
-==== Interface:
+=== Interface:
 * The list-entry highlighting texture has been changed.
 * The expand and collapse button textures in the list have been changed.
 * The font for filter sections has been changed and in most cases re-positioned.
@@ -182,7 +213,7 @@ NOTE: Always remove the folder for old versions and install a fresh copy when up
 
 == 2.2.5
 
-==== Recipe Database:
+=== Recipe Database:
 * Marked the following recipes as removed from the game:
 ** Enchanted Thorium Breastplate
 ** Enchanted Thorium Helm
@@ -204,23 +235,23 @@ NOTE: Always remove the folder for old versions and install a fresh copy when up
 * Fixed faction information for the "Enchanted Lantern", the "Magic Lamp", and the "Shadow Protection Potion" recipes.
 * Fixed acquire information for the "Glyph of Indimidating Shout" recipe.
 
-==== Backend:
+=== Backend:
 * The datamining options have truly been disabled for non-developers (non-repository versions).
 
 == 2.2.4
 
-==== Recipe Database:
+=== Recipe Database:
 * Added 4.1 recipes, including some which were previously removed from the game.
 * Updated a great many trainers and vendors - limited quantities, coordinates, and recipes trained/sold.
 
-==== Interface:
+=== Interface:
 * Tooltip for alt-tradeskill listing has been updated.  Functionality to delete an alt from the list has been in for a while, however the tooltip did not tell you how to do this.
 * Removed the Ammo filter from the recipe list panel.
 
-==== Bug Fixes:
+=== Bug Fixes:
 * Information for recipe achievements will once again be displayed.
 
-==== Backend:
+=== Backend:
 * Disabled the datamining options and turn off all relevant settings for non-Devel versions - people who had no business turning the stuff on were constantly doing so and then filing tickets about the popups.
 * Many code cleanups and optimizations.
 * Removed un-needed speciality scanning code.
