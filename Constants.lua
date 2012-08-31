@@ -370,8 +370,7 @@ private.ITEM_FILTER_TYPES = {
 	INSCRIPTION_MATERIALS = true,
 	INSCRIPTION_MINOR_GLYPH = true,
 	INSCRIPTION_OFF_HAND = true,
-	INSCRIPTION_PRIME_GLYPH = true,
-	INSCRIPTION_RELIC = true,
+	INSCRIPTION_STAFF = true,
 	INSCRIPTION_SCROLL = true,
 	-------------------------------------------------------------------------------
 	-- Jewelcrafting

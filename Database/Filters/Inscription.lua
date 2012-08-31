@@ -30,7 +30,6 @@ function private:InitializeItemFilters_Inscription(parent_panel)
 
 	local armor_types = {
 		inscription_off_hand	= { tt = L["FILTER_DESC_FORMAT"]:format(_G.SECONDARYHANDSLOT),	text = _G.SECONDARYHANDSLOT,	row = 1, col = 1 },
-		inscription_relic	= { tt = L["FILTER_DESC_FORMAT"]:format(_G.INVTYPE_RELIC), 	text = _G.INVTYPE_RELIC,	row = 1, col = 2 },
 	}
 
 	armor_toggle:SetScript("OnClick", function(self, button)
@@ -81,8 +80,8 @@ function private:InitializeItemFilters_Inscription(parent_panel)
 		inscription_major_glyph		= { tt = L["FILTER_DESC_FORMAT"]:format(_G.MAJOR_GLYPHS), 	text = _G.MAJOR_GLYPHS,		row = 2, col = 1 },
 		inscription_materials		= { tt = L["FILTER_DESC_FORMAT"]:format(L["Materials"]), 	text = L["Materials"],		row = 2, col = 2 },
 		inscription_minor_glyph		= { tt = L["FILTER_DESC_FORMAT"]:format(_G.MINOR_GLYPHS), 	text = _G.MINOR_GLYPHS,		row = 3, col = 1 },
-		inscription_prime_glyph		= { tt = L["FILTER_DESC_FORMAT"]:format(_G.PRIME_GLYPHS), 	text = _G.PRIME_GLYPHS,		row = 3, col = 2 },
-		inscription_scroll		= { tt = L["FILTER_DESC_FORMAT"]:format(L["Scroll"]), 		text = L["Scroll"],		row = 4, col = 1 },
+		inscription_scroll		= { tt = L["FILTER_DESC_FORMAT"]:format(L["Scroll"]), 		text = L["Scroll"],		row = 3, col = 2 },
+		inscription_staff		= { tt = L["FILTER_DESC_FORMAT"]:format(L["Staff"]), 		text = L["Staff"],		row = 4, col = 1 },
 	}
 
 	general_toggle:SetScript("OnClick", function(self, button)
