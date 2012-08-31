@@ -262,6 +262,7 @@ function addon:OnInitialize()
 					expansion1 = true,
 					expansion2 = true,
 					expansion3 = true,
+					expansion4 = true,
 					instance = true,
 					mobdrop = true,
 					pvp = true,
