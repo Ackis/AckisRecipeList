@@ -2111,6 +2111,14 @@ function addon:InitInscription()
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.CASTER, F.MAGE)
 	recipe:AddDiscovery("DISCOVERY_INSC_MINOR")
 
+	-- Glyph of the Bear Cub -- 58309
+	recipe = AddRecipe(58309, V.MOP, Q.COMMON)
+	recipe:SetCraftedItemID(43362)
+	recipe:SetSkillLevels(75, 75, 85, 90, 95)
+	recipe:SetItemFilterType("INSCRIPTION_MAJOR_GLYPH")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30709, 30710, 30711, 30713, 30715, 30716, 30717, 30721, 30722, 33603, 33615, 33638, 33679, 46716)
+
 	-- Glyph of the Penguin -- 58310
 	recipe = AddRecipe(58310, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(43361)
@@ -2141,7 +2149,7 @@ function addon:InitInscription()
 	recipe:SetSkillLevels(75, 75, 80, 85, 90)
 	recipe:SetItemFilterType("INSCRIPTION_MAJOR_GLYPH")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.DISC, F.IBOE, F.RBOP, F.PALADIN)
-	recipe:AddTrainer(26977, 30706, 46716)
+	recipe:AddTrainer(26977, 28702, 30706, 46716)
 	recipe:AddDiscovery("DISCOVERY_INSC_NORTHREND")
 
 	-- Glyph of the Mounted King -- 58314
@@ -2374,7 +2382,7 @@ function addon:InitInscription()
 	recipe:SetSkillLevels(80, 80, 90, 95, 100)
 	recipe:SetItemFilterType("INSCRIPTION_MAJOR_GLYPH")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.DISC, F.IBOE, F.RBOP, F.WARRIOR)
-	recipe:AddTrainer(26977, 30706, 30709, 30713, 30715, 33603, 33615, 33638, 46716)
+	recipe:AddTrainer(26977, 28702, 30706, 30709, 30713, 30715, 33603, 33615, 33638, 46716)
 	recipe:AddDiscovery("DISCOVERY_INSC_MINOR")
 
 	-- Glyph of Gushing Wound -- 58345
@@ -2391,7 +2399,7 @@ function addon:InitInscription()
 	recipe:SetSkillLevels(80, 80, 90, 95, 100)
 	recipe:SetItemFilterType("INSCRIPTION_MAJOR_GLYPH")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.DISC, F.IBOE, F.RBOP, F.WARRIOR)
-	recipe:AddTrainer(26977, 30706, 30709, 30713, 30715, 33603, 33615, 33638, 46716)
+	recipe:AddTrainer(26977, 28702, 30706, 30709, 30713, 30715, 33603, 33615, 33638, 46716)
 	recipe:AddDiscovery("DISCOVERY_INSC_MINOR")
 
 	-- Glyph of Mighty Victory -- 58347
@@ -2552,7 +2560,7 @@ function addon:InitInscription()
 	recipe:SetSkillLevels(100, 100, 110, 115, 120)
 	recipe:SetItemFilterType("INSCRIPTION_MAJOR_GLYPH")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.DISC, F.IBOE, F.RBOP, F.SHAMAN)
-	recipe:AddTrainer(26977, 30706, 30709, 30713, 30715, 33603, 33615, 33638, 46716)
+	recipe:AddTrainer(26977, 28702, 30706, 30709, 30713, 30715, 33603, 33615, 33638, 46716)
 	recipe:AddDiscovery("DISCOVERY_INSC_MINOR")
 
 	-- Glyph of Unholy Command -- 59338
@@ -3364,7 +3372,7 @@ function addon:InitInscription()
 	recipe:SetSkillLevels(250, 250, 255, 260, 265)
 	recipe:SetItemFilterType("INSCRIPTION_MAJOR_GLYPH")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.VENDOR, F.IBOE, F.RBOE, F.MAGE)
-	recipe:AddTrainer(26977, 30706, 46716)
+	recipe:AddTrainer(26977, 28702, 30706, 46716)
 	recipe:AddVendor(28723, 30734, 30735)
 
 	-- Glyph of Everlasting Affliction -- 71102
@@ -3374,7 +3382,7 @@ function addon:InitInscription()
 	recipe:SetSkillLevels(375, 375, 380, 382, 385)
 	recipe:SetItemFilterType("INSCRIPTION_PRIME_GLYPH")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.VENDOR, F.IBOE, F.RBOE, F.WARLOCK)
-	recipe:AddTrainer(26977, 30706, 46716)
+	recipe:AddTrainer(26977, 28702, 30706, 46716)
 	recipe:AddVendor(28723)
 
 	-- Runescroll of Fortitude II -- 85785
@@ -3614,7 +3622,7 @@ function addon:InitInscription()
 	recipe:SetSkillLevels(465, 465, 470, 477, 485)
 	recipe:SetItemFilterType("INSCRIPTION_MAJOR_GLYPH")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.VENDOR, F.IBOE, F.RBOE, F.WARRIOR)
-	recipe:AddTrainer(26977, 30706, 46716)
+	recipe:AddTrainer(26977, 28702, 30706, 46716)
 	recipe:AddVendor(49703, 50248)
 
 	-- Vanishing Powder -- 92026
@@ -3760,6 +3768,198 @@ function addon:InitInscription()
 	recipe:SetItemFilterType("INSCRIPTION_MINOR_GLYPH")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOE, F.PRIEST)
 	recipe:AddDiscovery("DISCOVERY_INSC_MINOR")
+
+	-- Glyph of Crackling Jade Lightning -- 112437
+	recipe = AddRecipe(112437, V.MOP, Q.COMMON)
+	recipe:SetCraftedItemID(87880)
+	recipe:SetSkillLevels(220, 220, 230, 235, 240)
+	recipe:SetItemFilterType("INSCRIPTION_MAJOR_GLYPH")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30709, 30710, 30711, 30713, 30715, 30716, 30717, 30721, 30722, 33603, 33615, 33638, 33679, 46716)
+
+	-- Glyph of Path of Blossoms -- 112440
+	recipe = AddRecipe(112440, V.MOP, Q.COMMON)
+	recipe:SetCraftedItemID(87897)
+	recipe:SetSkillLevels(355, 355, 365, 370, 375)
+	recipe:SetItemFilterType("INSCRIPTION_MAJOR_GLYPH")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30709, 30710, 30711, 30713, 30715, 30716, 30717, 30721, 30722, 33603, 33615, 33638, 33679, 46716)
+
+	-- Glyph of Life Cocoon -- 112442
+	recipe = AddRecipe(112442, V.MOP, Q.COMMON)
+	recipe:SetCraftedItemID(87895)
+	recipe:SetSkillLevels(320, 320, 330, 335, 340)
+	recipe:SetItemFilterType("INSCRIPTION_MAJOR_GLYPH")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30709, 30710, 30711, 30713, 30715, 30716, 30717, 30721, 30722, 33603, 33615, 33638, 33679, 46716)
+
+	-- Glyph of Touch of Karma -- 112444
+	recipe = AddRecipe(112444, V.MOP, Q.COMMON)
+	recipe:SetCraftedItemID(87900)
+	recipe:SetSkillLevels(370, 370, 380, 385, 390)
+	recipe:SetItemFilterType("INSCRIPTION_MAJOR_GLYPH")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30709, 30710, 30711, 30713, 30715, 30716, 30717, 30721, 30722, 33603, 33615, 33638, 33679, 46716)
+
+	-- Glyph of Leer of the Ox -- 112450
+	recipe = AddRecipe(112450, V.MOP, Q.COMMON)
+	recipe:SetCraftedItemID(87894)
+	recipe:SetSkillLevels(295, 295, 305, 310, 315)
+	recipe:SetItemFilterType("INSCRIPTION_MAJOR_GLYPH")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30709, 30710, 30711, 30713, 30715, 30716, 30717, 30721, 30722, 33603, 33615, 33638, 33679, 46716)
+
+	-- Glyph of Afterlife -- 112451
+	recipe = AddRecipe(112451, V.MOP, Q.COMMON)
+	recipe:SetCraftedItemID(87891)
+	recipe:SetSkillLevels(155, 155, 165, 170, 175)
+	recipe:SetItemFilterType("INSCRIPTION_MAJOR_GLYPH")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30709, 30710, 30711, 30713, 30715, 30716, 30717, 30721, 30722, 33603, 33615, 33638, 33679, 46716)
+
+	-- Glyph of Sparring -- 112452
+	recipe = AddRecipe(112452, V.MOP, Q.COMMON)
+	recipe:SetCraftedItemID(87898)
+	recipe:SetSkillLevels(360, 360, 370, 375, 380)
+	recipe:SetItemFilterType("INSCRIPTION_MAJOR_GLYPH")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30709, 30710, 30711, 30713, 30715, 30716, 30717, 30721, 30722, 33603, 33615, 33638, 33679, 46716)
+
+	-- Glyph of Stoneskin -- 112454
+	recipe = AddRecipe(112454, V.MOP, Q.COMMON)
+	recipe:SetCraftedItemID(87899)
+	recipe:SetSkillLevels(365, 365, 375, 380, 385)
+	recipe:SetItemFilterType("INSCRIPTION_MAJOR_GLYPH")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30709, 30710, 30711, 30713, 30715, 30716, 30717, 30721, 30722, 33603, 33615, 33638, 33679, 46716)
+
+	-- Glyph of Fortifying Brew -- 112457
+	recipe = AddRecipe(112457, V.MOP, Q.COMMON)
+	recipe:SetCraftedItemID(87893)
+	recipe:SetSkillLevels(255, 255, 265, 270, 275)
+	recipe:SetItemFilterType("INSCRIPTION_MAJOR_GLYPH")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30709, 30710, 30711, 30713, 30715, 30716, 30717, 30721, 30722, 33603, 33615, 33638, 33679, 46716)
+
+	-- Glyph of Uplift -- 112458
+	recipe = AddRecipe(112458, V.MOP, Q.COMMON)
+	recipe:SetCraftedItemID(87901)
+	recipe:SetSkillLevels(380, 380, 390, 395, 400)
+	recipe:SetItemFilterType("INSCRIPTION_MAJOR_GLYPH")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30709, 30710, 30711, 30713, 30715, 30716, 30717, 30721, 30722, 33603, 33615, 33638, 33679, 46716)
+
+	-- Glyph of Crackling Tiger Lightning -- 112462
+	recipe = AddRecipe(112462, V.MOP, Q.COMMON)
+	recipe:SetCraftedItemID(87881)
+	recipe:SetSkillLevels(485, 485, 495, 500, 505)
+	recipe:SetItemFilterType("INSCRIPTION_MAJOR_GLYPH")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30709, 30710, 30711, 30713, 30715, 30716, 30717, 30721, 30722, 33603, 33615, 33638, 33679, 46716)
+
+	-- Glyph of Flying Serpent Kick -- 112463
+	recipe = AddRecipe(112463, V.MOP, Q.COMMON)
+	recipe:SetCraftedItemID(87882)
+	recipe:SetSkillLevels(495, 495, 505, 510, 515)
+	recipe:SetItemFilterType("INSCRIPTION_MAJOR_GLYPH")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30709, 30710, 30711, 30713, 30715, 30716, 30717, 30721, 30722, 33603, 33615, 33638, 33679, 46716)
+
+	-- Glyph of Fighting Pose -- 112469
+	recipe = AddRecipe(112469, V.MOP, Q.COMMON)
+	recipe:SetCraftedItemID(87888)
+	recipe:SetSkillLevels(490, 490, 500, 505, 510)
+	recipe:SetItemFilterType("INSCRIPTION_MAJOR_GLYPH")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30709, 30710, 30711, 30713, 30715, 30716, 30717, 30721, 30722, 33603, 33615, 33638, 33679, 46716)
+
+	-- Glyph of Aspect of the Beast -- 124442
+	recipe = AddRecipe(124442, V.MOP, Q.COMMON)
+	recipe:SetCraftedItemID(85683)
+	recipe:SetSkillLevels(450, 450, 460, 465, 470)
+	recipe:SetItemFilterType("INSCRIPTION_MAJOR_GLYPH")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30709, 30710, 30711, 30713, 30715, 30716, 30717, 30721, 30722, 33603, 33615, 33638, 33679, 46716)
+
+	-- Glyph of Fists of Fury -- 124445
+	recipe = AddRecipe(124445, V.MOP, Q.COMMON)
+	recipe:SetCraftedItemID(87892)
+	recipe:SetSkillLevels(460, 460, 470, 475, 480)
+	recipe:SetItemFilterType("INSCRIPTION_MAJOR_GLYPH")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30709, 30710, 30711, 30713, 30715, 30716, 30717, 30721, 30722, 33603, 33615, 33638, 33679, 46716)
+
+	-- Glyph of Zen Meditation -- 124451
+	recipe = AddRecipe(124451, V.MOP, Q.COMMON)
+	recipe:SetCraftedItemID(85695)
+	recipe:SetSkillLevels(380, 380, 390, 395, 400)
+	recipe:SetItemFilterType("INSCRIPTION_MAJOR_GLYPH")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30709, 30710, 30711, 30713, 30715, 30716, 30717, 30721, 30722, 33603, 33615, 33638, 33679, 46716)
+
+	-- Glyph of Renewing Mists -- 124452
+	recipe = AddRecipe(124452, V.MOP, Q.COMMON)
+	recipe:SetCraftedItemID(85696)
+	recipe:SetSkillLevels(440, 440, 450, 455, 460)
+	recipe:SetItemFilterType("INSCRIPTION_MAJOR_GLYPH")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30709, 30710, 30711, 30713, 30715, 30716, 30717, 30721, 30722, 33603, 33615, 33638, 33679, 46716)
+
+	-- Glyph of Spinning Crane Kick -- 124453
+	recipe = AddRecipe(124453, V.MOP, Q.COMMON)
+	recipe:SetCraftedItemID(85697)
+	recipe:SetSkillLevels(445, 445, 455, 460, 465)
+	recipe:SetItemFilterType("INSCRIPTION_MAJOR_GLYPH")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30709, 30710, 30711, 30713, 30715, 30716, 30717, 30721, 30722, 33603, 33615, 33638, 33679, 46716)
+
+	-- Glyph of Surging Mist -- 124455
+	recipe = AddRecipe(124455, V.MOP, Q.COMMON)
+	recipe:SetCraftedItemID(85699)
+	recipe:SetSkillLevels(465, 465, 475, 480, 485)
+	recipe:SetItemFilterType("INSCRIPTION_MAJOR_GLYPH")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30709, 30710, 30711, 30713, 30715, 30716, 30717, 30721, 30722, 33603, 33615, 33638, 33679, 46716)
+
+	-- Glyph of Touch of Death -- 124456
+	recipe = AddRecipe(124456, V.MOP, Q.COMMON)
+	recipe:SetCraftedItemID(85700)
+	recipe:SetSkillLevels(470, 470, 480, 485, 490)
+	recipe:SetItemFilterType("INSCRIPTION_MAJOR_GLYPH")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30709, 30710, 30711, 30713, 30715, 30716, 30717, 30721, 30722, 33603, 33615, 33638, 33679, 46716)
+
+	-- Glyph of Mind Flay -- 124459
+	recipe = AddRecipe(124459, V.MOP, Q.COMMON)
+	recipe:SetCraftedItemID(79513)
+	recipe:SetSkillLevels(455, 455, 465, 470, 475)
+	recipe:SetItemFilterType("INSCRIPTION_MAJOR_GLYPH")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30709, 30710, 30711, 30713, 30715, 30716, 30717, 30721, 30722, 33603, 33615, 33638, 33679, 46716)
+
+	-- Glyph of Retreat -- 124463
+	recipe = AddRecipe(124463, V.MOP, Q.COMMON)
+	recipe:SetCraftedItemID(87896)
+	recipe:SetSkillLevels(380, 380, 390, 395, 400)
+	recipe:SetItemFilterType("INSCRIPTION_MAJOR_GLYPH")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30709, 30710, 30711, 30713, 30715, 30716, 30717, 30721, 30722, 33603, 33615, 33638, 33679, 46716)
+
+	-- Glyph of Fetch -- 126801
+	recipe = AddRecipe(126801, V.MOP, Q.COMMON)
+	recipe:SetCraftedItemID(87393)
+	recipe:SetSkillLevels(440, 440, 450, 455, 460)
+	recipe:SetItemFilterType("INSCRIPTION_MAJOR_GLYPH")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30709, 30710, 30711, 30713, 30715, 30716, 30717, 30721, 30722, 33603, 33615, 33638, 33679, 46716)
+
+	-- Glyph of Lightspring -- 127625
+	recipe = AddRecipe(127625, V.MOP, Q.COMMON)
+	recipe:SetCraftedItemID(87902)
+	recipe:SetSkillLevels(255, 255, 265, 270, 275)
+	recipe:SetItemFilterType("INSCRIPTION_MAJOR_GLYPH")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30709, 30710, 30711, 30713, 30715, 30716, 30717, 30721, 30722, 33603, 33615, 33638, 33679, 46716)
 
 	self.InitInscription = nil
 end
