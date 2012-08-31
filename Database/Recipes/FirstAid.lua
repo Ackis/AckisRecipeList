@@ -141,7 +141,7 @@ function addon:InitFirstAid()
 	recipe:SetRecipeItemID(19442)
 	recipe:SetCraftedItemID(19440)
 	recipe:SetSkillLevels(300, 300, 300, 330, 360)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.ARGENTDAWN)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.RBOP, F.REPUTATION, F.ARGENTDAWN)
 	recipe:AddRepVendor(FAC.ARGENTDAWN, REP.HONORED, 10856, 10857, 11536)
 
 	-- Netherweave Bandage -- 27032

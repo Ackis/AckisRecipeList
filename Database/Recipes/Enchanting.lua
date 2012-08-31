@@ -134,7 +134,7 @@ function addon:InitEnchanting()
 	recipe:SetRecipeItemID(6346)
 	recipe:SetSkillLevels(80, 80, 115, 135, 155)
 	recipe:SetItemFilterType("ENCHANTING_CHEST")
-	recipe:AddFilters(F.HORDE, F.VENDOR, F.IBOE, F.RBOE)
+	recipe:AddFilters(F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
 	recipe:AddVendor(5757)
 	recipe:AddLimitedVendor(3346, 1)
 
@@ -243,7 +243,7 @@ function addon:InitEnchanting()
 	recipe:SetRecipeItemID(11081)
 	recipe:SetSkillLevels(115, 115, 140, 160, 180)
 	recipe:SetItemFilterType("ENCHANTING_SHIELD")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.TANK)
 	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
 
 	-- Enchant Shield - Lesser Spirit -- 13485
@@ -696,7 +696,7 @@ function addon:InitEnchanting()
 	recipe:SetCraftedItemID(45050)
 	recipe:SetSkillLevels(265, 265, 285, 305, 325)
 	recipe:SetItemFilterType("ENCHANTING_MISC")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.INSTANCE, F.MOB_DROP, F.IBOP, F.RBOP)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.INSTANCE, F.MOB_DROP, F.IBOP, F.RBOP, F.DPS, F.HEALER, F.CASTER)
 	recipe:AddMobDrop(9025)
 
 	-- Enchanted Thorium Bar -- 17180
@@ -926,7 +926,7 @@ function addon:InitEnchanting()
 	recipe:SetRecipeItemID(19444)
 	recipe:SetSkillLevels(290, 290, 305, 322, 340)
 	recipe:SetItemFilterType("ENCHANTING_WEAPON")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.THORIUM_BROTHERHOOD)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.RBOP, F.DPS, F.REPUTATION, F.THORIUM_BROTHERHOOD)
 	recipe:AddRepVendor(FAC.THORIUM_BROTHERHOOD, REP.FRIENDLY, 12944)
 
 	-- Enchant Weapon - Agility -- 23800
@@ -934,7 +934,7 @@ function addon:InitEnchanting()
 	recipe:SetRecipeItemID(19445)
 	recipe:SetSkillLevels(290, 290, 305, 322, 340)
 	recipe:SetItemFilterType("ENCHANTING_WEAPON")
-	recipe:AddFilters(F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.TIMBERMAW_HOLD)
+	recipe:AddFilters(F.HORDE, F.IBOE, F.RBOP, F.DPS, F.REPUTATION, F.TIMBERMAW_HOLD)
 	recipe:AddRepVendor(FAC.TIMBERMAW_HOLD, REP.HONORED, 11557)
 
 	-- Enchant Bracer - Mana Regeneration -- 23801
@@ -942,7 +942,7 @@ function addon:InitEnchanting()
 	recipe:SetRecipeItemID(19446)
 	recipe:SetSkillLevels(290, 290, 305, 322, 340)
 	recipe:SetItemFilterType("ENCHANTING_BRACER")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.ARGENTDAWN)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.REPUTATION, F.ARGENTDAWN)
 	recipe:AddRepVendor(FAC.ARGENTDAWN, REP.HONORED, 10856, 10857, 11536)
 
 	-- Enchant Bracer - Healing Power -- 23802
@@ -950,7 +950,7 @@ function addon:InitEnchanting()
 	recipe:SetRecipeItemID(19447)
 	recipe:SetSkillLevels(300, 300, 310, 325, 340)
 	recipe:SetItemFilterType("ENCHANTING_BRACER")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.ARGENTDAWN)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.REPUTATION, F.ARGENTDAWN)
 	recipe:AddRepVendor(FAC.ARGENTDAWN, REP.REVERED, 10856, 10857, 11536)
 
 	-- Enchant Weapon - Mighty Spirit -- 23803
@@ -958,7 +958,7 @@ function addon:InitEnchanting()
 	recipe:SetRecipeItemID(19448)
 	recipe:SetSkillLevels(300, 300, 310, 325, 340)
 	recipe:SetItemFilterType("ENCHANTING_WEAPON")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.THORIUM_BROTHERHOOD)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.REPUTATION, F.THORIUM_BROTHERHOOD)
 	recipe:AddRepVendor(FAC.THORIUM_BROTHERHOOD, REP.HONORED, 12944)
 
 	-- Enchant Weapon - Mighty Intellect -- 23804
@@ -966,7 +966,7 @@ function addon:InitEnchanting()
 	recipe:SetRecipeItemID(19449)
 	recipe:SetSkillLevels(300, 300, 310, 325, 340)
 	recipe:SetItemFilterType("ENCHANTING_WEAPON")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.THORIUM_BROTHERHOOD)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.REPUTATION, F.THORIUM_BROTHERHOOD)
 	recipe:AddRepVendor(FAC.THORIUM_BROTHERHOOD, REP.REVERED, 12944)
 
 	-- Enchant Gloves - Threat -- 25072
@@ -974,7 +974,7 @@ function addon:InitEnchanting()
 	recipe:SetRecipeItemID(20726)
 	recipe:SetSkillLevels(300, 300, 310, 325, 340)
 	recipe:SetItemFilterType("ENCHANTING_GLOVES")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.RAID, F.MOB_DROP, F.IBOE, F.RBOP, F.TANK, F.SHATAR)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.MOB_DROP, F.IBOE, F.RBOP, F.TANK, F.REPUTATION, F.SHATAR)
 	recipe:AddMobDrop(15275)
 	recipe:AddRepVendor(FAC.SHATAR, REP.EXALTED, 21432)
 
@@ -1024,7 +1024,7 @@ function addon:InitEnchanting()
 	recipe:SetRecipeItemID(33149)
 	recipe:SetSkillLevels(300, 300, 310, 325, 340)
 	recipe:SetItemFilterType("ENCHANTING_CLOAK")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.RAID, F.IBOE, F.RBOE, F.CENARION_EXPEDITION)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOP, F.TANK, F.REPUTATION, F.CENARION_EXPEDITION)
 	recipe:AddRepVendor(FAC.CENARION_EXPEDITION, REP.EXALTED, 17904)
 	recipe:AddCustom("AQ40_RANDOM_BOP")
 
@@ -1033,7 +1033,7 @@ function addon:InitEnchanting()
 	recipe:SetRecipeItemID(33151)
 	recipe:SetSkillLevels(300, 300, 310, 325, 340)
 	recipe:SetItemFilterType("ENCHANTING_CLOAK")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.RAID, F.MOB_DROP, F.IBOE, F.RBOP, F.HELLFIRE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.MOB_DROP, F.IBOE, F.RBOP, F.TANK, F.REPUTATION, F.HELLFIRE)
 	recipe:AddMobDrop(15276)
 	recipe:AddRepVendor(FAC.HONOR_HOLD, REP.EXALTED, 17657)
 	recipe:AddRepVendor(FAC.THRALLMAR, REP.EXALTED, 17585)
@@ -1043,7 +1043,7 @@ function addon:InitEnchanting()
 	recipe:SetRecipeItemID(33148)
 	recipe:SetSkillLevels(300, 300, 310, 325, 340)
 	recipe:SetItemFilterType("ENCHANTING_CLOAK")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.RAID, F.IBOE, F.RBOP, F.TANK, F.LOWERCITY)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOP, F.TANK, F.REPUTATION, F.LOWERCITY)
 	recipe:AddRepVendor(FAC.LOWERCITY, REP.EXALTED, 21655)
 	recipe:AddCustom("AQ40_RANDOM_BOP")
 
@@ -1062,7 +1062,7 @@ function addon:InitEnchanting()
 	recipe:SetCraftedItemID(20745)
 	recipe:SetSkillLevels(150, 150, 160, 170, 180)
 	recipe:SetItemFilterType("ENCHANTING_OIL")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
 	recipe:AddVendor(1318, 3012, 3346, 4228, 4617, 5158, 5757, 5758, 15419, 16635, 16722, 18753, 18773, 18951, 19234, 19537, 19540, 19663, 26569, 27030, 27054, 27147, 28714)
 
 	-- Lesser Wizard Oil -- 25126
@@ -1080,7 +1080,7 @@ function addon:InitEnchanting()
 	recipe:SetCraftedItemID(20747)
 	recipe:SetSkillLevels(250, 250, 260, 270, 280)
 	recipe:SetItemFilterType("ENCHANTING_OIL")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
 	recipe:AddVendor(15419)
 
 	-- Wizard Oil -- 25128
@@ -1098,7 +1098,7 @@ function addon:InitEnchanting()
 	recipe:SetCraftedItemID(20749)
 	recipe:SetSkillLevels(300, 300, 310, 320, 330)
 	recipe:SetItemFilterType("ENCHANTING_OIL")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOE, F.RBOP, F.DPS, F.HEALER, F.CASTER)
 	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Brilliant Mana Oil -- 25130
@@ -1115,7 +1115,7 @@ function addon:InitEnchanting()
 	recipe:SetRecipeItemID(22392)
 	recipe:SetSkillLevels(290, 290, 305, 322, 340)
 	recipe:SetItemFilterType("ENCHANTING_2H_WEAPON")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.TIMBERMAW_HOLD)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.RBOP, F.DPS, F.REPUTATION, F.TIMBERMAW_HOLD)
 	recipe:AddRepVendor(FAC.TIMBERMAW_HOLD, REP.FRIENDLY, 11557)
 
 	-- Enchant Bracer - Brawn -- 27899
@@ -1145,7 +1145,7 @@ function addon:InitEnchanting()
 	recipe:SetRecipeItemID(24000)
 	recipe:SetSkillLevels(325, 325, 335, 350, 365)
 	recipe:SetItemFilterType("ENCHANTING_BRACER")
-	recipe:AddFilters(F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.HELLFIRE)
+	recipe:AddFilters(F.HORDE, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.REPUTATION, F.HELLFIRE)
 	recipe:AddRepVendor(FAC.HONOR_HOLD, REP.FRIENDLY, 17657)
 	recipe:AddRepVendor(FAC.THRALLMAR, REP.FRIENDLY, 17585)
 
@@ -1178,7 +1178,7 @@ function addon:InitEnchanting()
 	recipe:SetRecipeItemID(22535)
 	recipe:SetSkillLevels(360, 360, 370, 377, 385)
 	recipe:SetItemFilterType("ENCHANTING_RING")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.CONSORTIUM)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.RBOP, F.REPUTATION, F.CONSORTIUM)
 	recipe:AddRepVendor(FAC.CONSORTIUM, REP.REVERED, 17518)
 
 	-- Enchant Ring - Minor Intellect -- 27924
@@ -1186,7 +1186,7 @@ function addon:InitEnchanting()
 	recipe:SetRecipeItemID(22536)
 	recipe:SetSkillLevels(360, 360, 370, 377, 385)
 	recipe:SetItemFilterType("ENCHANTING_RING")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.KOT)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.REPUTATION, F.KOT)
 	recipe:AddRepVendor(FAC.KEEPERS_OF_TIME, REP.HONORED, 21643)
 
 	-- Enchant Ring - Stats -- 27927
@@ -1194,7 +1194,7 @@ function addon:InitEnchanting()
 	recipe:SetRecipeItemID(22538)
 	recipe:SetSkillLevels(375, 375, 380, 385, 390)
 	recipe:SetItemFilterType("ENCHANTING_RING")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.LOWERCITY)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.RBOP, F.REPUTATION, F.LOWERCITY)
 	recipe:AddRepVendor(FAC.LOWERCITY, REP.HONORED, 21655)
 
 	-- Enchant Shield - Lesser Dodge -- 27944
@@ -1225,7 +1225,7 @@ function addon:InitEnchanting()
 	recipe:SetRecipeItemID(22542)
 	recipe:SetSkillLevels(305, 305, 315, 330, 345)
 	recipe:SetItemFilterType("ENCHANTING_BOOTS")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOE, F.RBOE)
 	recipe:AddMobDrop(24664)
 
 	-- Enchant Boots - Fortitude -- 27950
@@ -1249,7 +1249,7 @@ function addon:InitEnchanting()
 	recipe:SetRecipeItemID(22545)
 	recipe:SetSkillLevels(370, 370, 380, 385, 390)
 	recipe:SetItemFilterType("ENCHANTING_BOOTS")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.MOB_DROP, F.IBOE, F.RBOP, F.DPS, F.CASTER)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.MOB_DROP, F.IBOE, F.RBOP, F.DPS, F.HEALER, F.CASTER)
 	recipe:AddMobDrop(16472)
 
 	-- Enchant Chest - Exceptional Health -- 27957
@@ -1271,7 +1271,7 @@ function addon:InitEnchanting()
 	recipe:SetRecipeItemID(22547)
 	recipe:SetSkillLevels(345, 345, 355, 367, 380)
 	recipe:SetItemFilterType("ENCHANTING_CHEST")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.HELLFIRE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.RBOP, F.REPUTATION, F.HELLFIRE)
 	recipe:AddRepVendor(FAC.HONOR_HOLD, REP.REVERED, 17657)
 	recipe:AddRepVendor(FAC.THRALLMAR, REP.REVERED, 17585)
 
@@ -1287,7 +1287,7 @@ function addon:InitEnchanting()
 	recipe:SetRecipeItemID(22552)
 	recipe:SetSkillLevels(340, 340, 350, 365, 380)
 	recipe:SetItemFilterType("ENCHANTING_WEAPON")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.CONSORTIUM)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.RBOP, F.REPUTATION, F.CONSORTIUM)
 	recipe:AddRepVendor(FAC.CONSORTIUM, REP.HONORED, 20242, 23007)
 
 	-- Enchant Weapon - Major Intellect -- 27968
@@ -1351,7 +1351,7 @@ function addon:InitEnchanting()
 	recipe:SetRecipeItemID(22559)
 	recipe:SetSkillLevels(375, 375, 380, 385, 390)
 	recipe:SetItemFilterType("ENCHANTING_WEAPON")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.MOB_DROP, F.IBOE, F.RBOP, F.DPS)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.MOB_DROP, F.IBOE, F.RBOP, F.DPS, F.HEALER, F.CASTER)
 	recipe:AddMobDrop(15687)
 
 	-- Enchant Weapon - Spellsurge -- 28003
@@ -1376,7 +1376,7 @@ function addon:InitEnchanting()
 	recipe:SetCraftedItemID(22521)
 	recipe:SetSkillLevels(310, 310, 310, 320, 330)
 	recipe:SetItemFilterType("ENCHANTING_OIL")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
 	recipe:AddLimitedVendor(16635, 1, 16722, 1, 19663, 1)
 
 	-- Superior Wizard Oil -- 28019
@@ -1447,7 +1447,7 @@ function addon:InitEnchanting()
 	recipe:SetRecipeItemID(28271)
 	recipe:SetSkillLevels(360, 360, 370, 377, 385)
 	recipe:SetItemFilterType("ENCHANTING_GLOVES")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.CENARION_EXPEDITION)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.RBOP, F.DPS, F.CASTER, F.REPUTATION, F.CENARION_EXPEDITION)
 	recipe:AddRepVendor(FAC.CENARION_EXPEDITION, REP.REVERED, 17904)
 
 	-- Enchant Gloves - Major Strength -- 33995
@@ -1469,7 +1469,7 @@ function addon:InitEnchanting()
 	recipe:SetRecipeItemID(28272)
 	recipe:SetSkillLevels(360, 360, 370, 377, 385)
 	recipe:SetItemFilterType("ENCHANTING_GLOVES")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.KOT)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.REPUTATION, F.KOT)
 	recipe:AddRepVendor(FAC.KEEPERS_OF_TIME, REP.HONORED, 21643)
 
 	-- Enchant Gloves - Major Healing -- 33999
@@ -1477,7 +1477,7 @@ function addon:InitEnchanting()
 	recipe:SetRecipeItemID(28273)
 	recipe:SetSkillLevels(350, 350, 370, 375, 380)
 	recipe:SetItemFilterType("ENCHANTING_GLOVES")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.SHATAR)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.REPUTATION, F.SHATAR)
 	recipe:AddRepVendor(FAC.SHATAR, REP.HONORED, 21432)
 
 	-- Enchant Bracer - Major Intellect -- 34001
@@ -1499,7 +1499,7 @@ function addon:InitEnchanting()
 	recipe:SetRecipeItemID(28274)
 	recipe:SetSkillLevels(325, 325, 335, 350, 365)
 	recipe:SetItemFilterType("ENCHANTING_CLOAK")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.CASTER, F.CONSORTIUM)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.RBOP, F.CASTER, F.REPUTATION, F.CONSORTIUM)
 	recipe:AddRepVendor(FAC.CONSORTIUM, REP.FRIENDLY, 20242, 23007)
 
 	-- Enchant Cloak - Greater Agility -- 34004
@@ -1538,7 +1538,7 @@ function addon:InitEnchanting()
 	recipe:SetRecipeItemID(28281)
 	recipe:SetSkillLevels(350, 350, 370, 375, 380)
 	recipe:SetItemFilterType("ENCHANTING_WEAPON")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.SHATAR)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.REPUTATION, F.SHATAR)
 	recipe:AddRepVendor(FAC.SHATAR, REP.REVERED, 21432)
 
 	-- Nexus Transformation -- 42613
@@ -1562,7 +1562,7 @@ function addon:InitEnchanting()
 	recipe:SetRecipeItemID(33165)
 	recipe:SetSkillLevels(350, 350, 360, 367, 375)
 	recipe:SetItemFilterType("ENCHANTING_WEAPON")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.VIOLETEYE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.RBOP, F.DPS, F.REPUTATION, F.VIOLETEYE)
 	recipe:AddRepVendor(FAC.VIOLETEYE, REP.EXALTED, 18255)
 
 	-- Enchant Weapon - Executioner -- 42974
@@ -1571,7 +1571,7 @@ function addon:InitEnchanting()
 	recipe:SetCraftedItemID(78348)
 	recipe:SetSkillLevels(375, 375, 380, 385, 390)
 	recipe:SetItemFilterType("ENCHANTING_WEAPON")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.DPS, F.HEALER, F.CASTER)
 	recipe:AddVendor(19536)
 
 	-- Enchant Shield - Resilience -- 44383
@@ -1753,7 +1753,7 @@ function addon:InitEnchanting()
 	recipe:SetCraftedItemID(44473)
 	recipe:SetSkillLevels(430, 430, 440, 450, 460)
 	recipe:SetItemFilterType("ENCHANTING_2H_WEAPON")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	recipe:AddVendor(32514)
 
 	-- Enchant Bracer - Expertise -- 44598
@@ -1812,7 +1812,7 @@ function addon:InitEnchanting()
 	recipe:SetRecipeItemID(37349)
 	recipe:SetSkillLevels(440, 440, 450, 460, 470)
 	recipe:SetItemFilterType("ENCHANTING_CLOAK")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.TANK)
 	recipe:AddVendor(32514)
 
 	-- Enchant Weapon - Exceptional Agility -- 44633
@@ -1849,7 +1849,7 @@ function addon:InitEnchanting()
 	recipe:SetCraftedItemID(22449)
 	recipe:SetSkillLevels(375, 375, 375, 375, 375)
 	recipe:SetItemFilterType("ENCHANTING_MISC")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.SHATTEREDSUN)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.RBOP, F.REPUTATION, F.SHATTEREDSUN)
 	recipe:AddRepVendor(FAC.SHATTEREDSUN, REP.HONORED, 25032)
 
 	-- Enchant Weapon - Deathfrost -- 46578
@@ -1866,7 +1866,7 @@ function addon:InitEnchanting()
 	recipe:SetRecipeItemID(35500)
 	recipe:SetSkillLevels(360, 360, 370, 385, 400)
 	recipe:SetItemFilterType("ENCHANTING_CHEST")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.TANK, F.SHATTEREDSUN)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.RBOP, F.TANK, F.REPUTATION, F.SHATTEREDSUN)
 	recipe:AddRepVendor(FAC.SHATTEREDSUN, REP.HONORED, 25032)
 
 	-- Enchant Cloak - Greater Dodge -- 47051
@@ -1897,7 +1897,7 @@ function addon:InitEnchanting()
 	recipe:SetRecipeItemID(44472)
 	recipe:SetSkillLevels(430, 430, 440, 450, 460)
 	recipe:SetItemFilterType("ENCHANTING_CLOAK")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.HEALER, F.CASTER)
 	recipe:AddVendor(32514)
 
 	-- Enchant Cloak - Wisdom -- 47899
@@ -1928,7 +1928,7 @@ function addon:InitEnchanting()
 	recipe:SetRecipeItemID(44496)
 	recipe:SetSkillLevels(440, 440, 450, 460, 470)
 	recipe:SetItemFilterType("ENCHANTING_WEAPON")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.CASTER)
 	recipe:AddVendor(32514)
 
 	-- Enchant Weapon - Berserking -- 59621
@@ -2095,7 +2095,7 @@ function addon:InitEnchanting()
 	recipe:SetRecipeItemID(46027)
 	recipe:SetSkillLevels(450, 450, 455, 460, 465)
 	recipe:SetItemFilterType("ENCHANTING_WEAPON")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOP, F.TANK)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOP)
 	recipe:AddCustom("ULDUAR_RANDOM")
 
 	-- Enchant Weapon - Blood Draining -- 64579
@@ -2377,7 +2377,7 @@ function addon:InitEnchanting()
 	recipe:SetRecipeItemID(52733)
 	recipe:SetSkillLevels(525, 525, 525, 532, 540)
 	recipe:SetItemFilterType("ENCHANTING_WEAPON")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOP, F.RBOP)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	recipe:AddVendor(1318, 3012, 3346, 4228, 4617, 5158, 16635, 16722, 50134, 50146)
 
 	-- Enchant Weapon - Windwalk -- 74244
@@ -2385,7 +2385,7 @@ function addon:InitEnchanting()
 	recipe:SetRecipeItemID(52735)
 	recipe:SetSkillLevels(525, 525, 525, 532, 540)
 	recipe:SetItemFilterType("ENCHANTING_WEAPON")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOP, F.RBOP)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	recipe:AddVendor(1318, 3012, 3346, 4228, 4617, 5158, 16635, 16722, 50134, 50146)
 
 	-- Enchant Weapon - Landslide -- 74246
@@ -2393,7 +2393,7 @@ function addon:InitEnchanting()
 	recipe:SetRecipeItemID(52736)
 	recipe:SetSkillLevels(525, 525, 525, 532, 540)
 	recipe:SetItemFilterType("ENCHANTING_WEAPON")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOP, F.RBOP)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	recipe:AddVendor(1318, 3012, 3346, 4228, 4617, 5158, 16635, 16722, 50134, 50146)
 
 	-- Enchant Cloak - Greater Critical Strike -- 74247
@@ -2401,7 +2401,7 @@ function addon:InitEnchanting()
 	recipe:SetRecipeItemID(52737)
 	recipe:SetSkillLevels(525, 525, 525, 532, 540)
 	recipe:SetItemFilterType("ENCHANTING_CLOAK")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOP, F.RBOP)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.HEALER, F.CASTER)
 	recipe:AddVendor(1318, 3012, 3346, 4228, 4617, 5158, 16635, 16722, 50134, 50146)
 
 	-- Enchant Bracer - Greater Critical Strike -- 74248
@@ -2409,7 +2409,7 @@ function addon:InitEnchanting()
 	recipe:SetRecipeItemID(52738)
 	recipe:SetSkillLevels(525, 525, 525, 532, 540)
 	recipe:SetItemFilterType("ENCHANTING_BRACER")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOP, F.RBOP)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.HEALER, F.CASTER)
 	recipe:AddVendor(1318, 3012, 3346, 4228, 4617, 5158, 16635, 16722, 50134, 50146)
 
 	-- Enchant Chest - Peerless Stats -- 74250
@@ -2417,7 +2417,7 @@ function addon:InitEnchanting()
 	recipe:SetRecipeItemID(52739)
 	recipe:SetSkillLevels(525, 525, 525, 532, 540)
 	recipe:SetItemFilterType("ENCHANTING_CHEST")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOP, F.RBOP)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	recipe:AddVendor(1318, 3012, 3346, 4228, 4617, 5158, 16635, 16722, 50134, 50146)
 
 	-- Enchant Chest - Greater Stamina -- 74251
@@ -2425,7 +2425,7 @@ function addon:InitEnchanting()
 	recipe:SetRecipeItemID(52740)
 	recipe:SetSkillLevels(525, 525, 525, 532, 540)
 	recipe:SetItemFilterType("ENCHANTING_CHEST")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOP, F.RBOP)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	recipe:AddVendor(1318, 3012, 3346, 4228, 4617, 5158, 16635, 16722, 50134, 50146)
 
 	-- Enchant Boots - Assassin's Step -- 74252
@@ -2433,7 +2433,7 @@ function addon:InitEnchanting()
 	recipe:SetRecipeItemID(64411)
 	recipe:SetSkillLevels(525, 525, 525, 532, 540)
 	recipe:SetItemFilterType("ENCHANTING_BOOTS")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOP, F.RBOP)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS)
 	recipe:AddVendor(1318, 3012, 3346, 4228, 4617, 5158, 16635, 16722, 50134, 50146)
 
 	-- Enchant Boots - Lavawalker -- 74253
@@ -2441,7 +2441,7 @@ function addon:InitEnchanting()
 	recipe:SetRecipeItemID(64412)
 	recipe:SetSkillLevels(525, 525, 525, 532, 540)
 	recipe:SetItemFilterType("ENCHANTING_BOOTS")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOP, F.RBOP)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	recipe:AddVendor(1318, 3012, 3346, 4228, 4617, 5158, 16635, 16722, 50134, 50146)
 
 	-- Enchant Gloves - Mighty Strength -- 74254
@@ -2450,7 +2450,7 @@ function addon:InitEnchanting()
 	recipe:SetCraftedItemID(64415)
 	recipe:SetSkillLevels(525, 525, 525, 532, 540)
 	recipe:SetItemFilterType("ENCHANTING_GLOVES")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOP, F.RBOP)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS)
 	recipe:AddVendor(1318, 3012, 3346, 4228, 4617, 5158, 16635, 16722, 50134, 50146)
 
 	-- Enchant Gloves - Greater Mastery -- 74255
@@ -2458,7 +2458,7 @@ function addon:InitEnchanting()
 	recipe:SetRecipeItemID(64414)
 	recipe:SetSkillLevels(525, 525, 525, 532, 540)
 	recipe:SetItemFilterType("ENCHANTING_GLOVES")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOP, F.RBOP)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	recipe:AddVendor(1318, 3012, 3346, 4228, 4617, 5158, 16635, 16722, 50134, 50146)
 
 	-- Enchant Bracer - Greater Speed -- 74256
@@ -2466,7 +2466,7 @@ function addon:InitEnchanting()
 	recipe:SetRecipeItemID(64413)
 	recipe:SetSkillLevels(525, 525, 525, 532, 540)
 	recipe:SetItemFilterType("ENCHANTING_BRACER")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOP, F.RBOP)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.HEALER, F.CASTER)
 	recipe:AddVendor(1318, 3012, 3346, 4228, 4617, 5158, 16635, 16722, 50134, 50146)
 
 	-- Enchanted Lantern -- 93841

@@ -1621,7 +1621,7 @@ function addon:InitEngineering()
 	recipe:SetCraftedItemID(23771)
 	recipe:SetSkillLevels(335, 335, 335, 345, 355)
 	recipe:SetItemFilterType("ENGINEERING_CREATED_ITEM")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.CENARION_EXPEDITION)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.RBOP, F.REPUTATION, F.CENARION_EXPEDITION)
 	recipe:AddRepVendor(FAC.CENARION_EXPEDITION, REP.FRIENDLY, 17904)
 
 	-- Fel Iron Toolbox -- 30348
@@ -1649,7 +1649,7 @@ function addon:InitEngineering()
 	recipe:SetCraftedItemID(23819)
 	recipe:SetSkillLevels(350, 350, 350, 355, 360)
 	recipe:SetItemFilterType("ENGINEERING_CREATED_ITEM")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.CONSORTIUM)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.RBOP, F.REPUTATION, F.CONSORTIUM)
 	recipe:AddRepVendor(FAC.CONSORTIUM, REP.REVERED, 20242, 23007)
 
 	-- Zapthrottle Mote Extractor -- 30548
@@ -2368,7 +2368,7 @@ function addon:InitEngineering()
 	recipe:SetSkillLevels(450, 450, 480, 485, 490)
 	recipe:SetRequiredFaction("Horde")
 	recipe:SetItemFilterType("ENGINEERING_MOUNT")
-	recipe:AddFilters(F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.WRATHCOMMON1)
+	recipe:AddFilters(F.HORDE, F.IBOE, F.RBOP, F.REPUTATION, F.WRATHCOMMON1)
 	recipe:AddRepVendor(FAC.HORDE_EXPEDITION, REP.EXALTED, 32565, 32774)
 
 	-- Mekgineer's Chopper -- 60867

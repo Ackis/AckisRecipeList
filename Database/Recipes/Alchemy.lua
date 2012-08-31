@@ -277,7 +277,7 @@ function addon:InitAlchemy()
 	recipe:SetCraftedItemID(4623)
 	recipe:SetSkillLevels(215, 215, 230, 250, 270)
 	recipe:SetItemFilterType("ALCHEMY_POTION")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOE, F.RBOE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOE, F.RBOE, F.TANK)
 	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Rage Potion -- 6617
@@ -286,7 +286,7 @@ function addon:InitAlchemy()
 	recipe:SetCraftedItemID(5631)
 	recipe:SetSkillLevels(60, 60, 90, 110, 130)
 	recipe:SetItemFilterType("ALCHEMY_POTION")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.DPS, F.TANK, F.DRUID, F.WARRIOR)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.DRUID, F.WARRIOR)
 	recipe:AddVendor(1685, 3499)
 	recipe:AddLimitedVendor(3335, 2)
 
@@ -296,7 +296,7 @@ function addon:InitAlchemy()
 	recipe:SetCraftedItemID(5633)
 	recipe:SetSkillLevels(175, 175, 195, 215, 235)
 	recipe:SetItemFilterType("ALCHEMY_POTION")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.DPS, F.TANK, F.DRUID, F.WARRIOR)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.DRUID, F.WARRIOR)
 	recipe:AddLimitedVendor(3335, 2, 4226, 1)
 
 	-- Free Action Potion -- 6624
@@ -671,7 +671,7 @@ function addon:InitAlchemy()
 	recipe:SetCraftedItemID(13445)
 	recipe:SetSkillLevels(265, 265, 280, 300, 320)
 	recipe:SetItemFilterType("ALCHEMY_ELIXIR")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.TANK)
 	recipe:AddLimitedVendor(3348, 1, 5178, 1)
 
 	-- Elixir of the Sages -- 17555
@@ -779,7 +779,7 @@ function addon:InitAlchemy()
 	recipe:SetCraftedItemID(13455)
 	recipe:SetSkillLevels(280, 280, 295, 315, 335)
 	recipe:SetItemFilterType("ALCHEMY_POTION")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.TANK)
 	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
 
 	-- Elixir of the Mongoose -- 17571
@@ -1112,7 +1112,7 @@ function addon:InitAlchemy()
 	recipe:SetCraftedItemID(22834)
 	recipe:SetSkillLevels(345, 345, 360, 367, 375)
 	recipe:SetItemFilterType("ALCHEMY_ELIXIR")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.TANK)
 	recipe:AddLimitedVendor(18005, 1, 19837, 1)
 
 	-- Elixir of Major Shadow Power -- 28558
@@ -1276,7 +1276,7 @@ function addon:InitAlchemy()
 	recipe:SetCraftedItemID(22849)
 	recipe:SetSkillLevels(365, 365, 375, 377, 380)
 	recipe:SetItemFilterType("ALCHEMY_POTION")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.INSTANCE, F.IBOE, F.RBOP)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.INSTANCE, F.IBOE, F.RBOP, F.TANK)
 	recipe:AddMobDrop(17862)
 
 	-- Transmute: Primal Shadow to Water -- 28580

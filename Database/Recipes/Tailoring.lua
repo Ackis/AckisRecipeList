@@ -1618,7 +1618,7 @@ function addon:InitTailoring()
 	recipe:SetCraftedItemID(16980)
 	recipe:SetSkillLevels(300, 300, 315, 330, 345)
 	recipe:SetItemFilterType("TAILORING_SHOULDER")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.THORIUM_BROTHERHOOD)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.REPUTATION, F.THORIUM_BROTHERHOOD)
 	recipe:AddRepVendor(FAC.THORIUM_BROTHERHOOD, REP.HONORED, 12944)
 
 	-- Flarecore Gloves -- 20849
@@ -1627,7 +1627,7 @@ function addon:InitTailoring()
 	recipe:SetCraftedItemID(16979)
 	recipe:SetSkillLevels(300, 300, 315, 330, 345)
 	recipe:SetItemFilterType("TAILORING_HANDS")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.MAGE, F.PRIEST, F.WARLOCK, F.THORIUM_BROTHERHOOD)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.REPUTATION, F.MAGE, F.PRIEST, F.WARLOCK, F.THORIUM_BROTHERHOOD)
 	recipe:AddRepVendor(FAC.THORIUM_BROTHERHOOD, REP.FRIENDLY, 12944)
 
 	-- Green Holiday Shirt -- 21945
@@ -1716,7 +1716,7 @@ function addon:InitTailoring()
 	recipe:SetCraftedItemID(19047)
 	recipe:SetSkillLevels(290, 290, 305, 320, 335)
 	recipe:SetItemFilterType("TAILORING_WAIST")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.TIMBERMAW_HOLD)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.REPUTATION, F.TIMBERMAW_HOLD)
 	recipe:AddRepVendor(FAC.TIMBERMAW_HOLD, REP.HONORED, 11557)
 
 	-- Mantle of the Timbermaw -- 23663
@@ -1725,7 +1725,7 @@ function addon:InitTailoring()
 	recipe:SetCraftedItemID(19050)
 	recipe:SetSkillLevels(300, 300, 315, 330, 345)
 	recipe:SetItemFilterType("TAILORING_SHOULDER")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.TIMBERMAW_HOLD)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.REPUTATION, F.TIMBERMAW_HOLD)
 	recipe:AddRepVendor(FAC.TIMBERMAW_HOLD, REP.REVERED, 11557)
 
 	-- Argent Boots -- 23664
@@ -1734,7 +1734,7 @@ function addon:InitTailoring()
 	recipe:SetCraftedItemID(19056)
 	recipe:SetSkillLevels(290, 290, 305, 320, 335)
 	recipe:SetItemFilterType("TAILORING_FEET")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.ARGENTDAWN)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.REPUTATION, F.ARGENTDAWN)
 	recipe:AddRepVendor(FAC.ARGENTDAWN, REP.HONORED, 10856, 10857, 11536)
 
 	-- Argent Shoulders -- 23665
@@ -1743,7 +1743,7 @@ function addon:InitTailoring()
 	recipe:SetCraftedItemID(19059)
 	recipe:SetSkillLevels(300, 300, 315, 330, 345)
 	recipe:SetItemFilterType("TAILORING_SHOULDER")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.ARGENTDAWN)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.REPUTATION, F.ARGENTDAWN)
 	recipe:AddRepVendor(FAC.ARGENTDAWN, REP.REVERED, 10856, 10857, 11536)
 
 	-- Flarecore Robe -- 23666
@@ -1752,7 +1752,7 @@ function addon:InitTailoring()
 	recipe:SetCraftedItemID(19156)
 	recipe:SetSkillLevels(300, 300, 315, 330, 345)
 	recipe:SetItemFilterType("TAILORING_CHEST")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.THORIUM_BROTHERHOOD)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.REPUTATION, F.THORIUM_BROTHERHOOD)
 	recipe:AddRepVendor(FAC.THORIUM_BROTHERHOOD, REP.HONORED, 12944)
 
 	-- Flarecore Leggings -- 23667
@@ -1761,7 +1761,7 @@ function addon:InitTailoring()
 	recipe:SetCraftedItemID(19165)
 	recipe:SetSkillLevels(300, 300, 315, 330, 345)
 	recipe:SetItemFilterType("TAILORING_LEGS")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.THORIUM_BROTHERHOOD)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.REPUTATION, F.THORIUM_BROTHERHOOD)
 	recipe:AddRepVendor(FAC.THORIUM_BROTHERHOOD, REP.REVERED, 12944)
 
 	-- Bloodvine Vest -- 24091
@@ -2208,7 +2208,7 @@ function addon:InitTailoring()
 	recipe:SetCraftedItemID(22251)
 	recipe:SetSkillLevels(275, 275, 290, 305, 320)
 	recipe:SetItemFilterType("TAILORING_BAG")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.CENARION_CIRCLE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.RBOP, F.REPUTATION, F.CENARION_CIRCLE)
 	recipe:AddRepVendor(FAC.CENARION_CIRCLE, REP.FRIENDLY, 15179)
 
 	-- Satchel of Cenarius -- 27725
@@ -2217,7 +2217,7 @@ function addon:InitTailoring()
 	recipe:SetCraftedItemID(22252)
 	recipe:SetSkillLevels(300, 300, 315, 330, 345)
 	recipe:SetItemFilterType("TAILORING_BAG")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.CENARION_CIRCLE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.RBOP, F.REPUTATION, F.CENARION_CIRCLE)
 	recipe:AddRepVendor(FAC.CENARION_CIRCLE, REP.REVERED, 15179)
 
 	-- Glacial Gloves -- 28205
@@ -2258,7 +2258,7 @@ function addon:InitTailoring()
 	recipe:SetCraftedItemID(22660)
 	recipe:SetSkillLevels(300, 300, 315, 330, 345)
 	recipe:SetItemFilterType("TAILORING_BACK")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.CENARION_CIRCLE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.RBOP, F.REPUTATION, F.CENARION_CIRCLE)
 	recipe:AddRepVendor(FAC.CENARION_CIRCLE, REP.REVERED, 15179)
 
 	-- Sylvan Vest -- 28480
@@ -2267,7 +2267,7 @@ function addon:InitTailoring()
 	recipe:SetCraftedItemID(22756)
 	recipe:SetSkillLevels(300, 300, 315, 330, 345)
 	recipe:SetItemFilterType("TAILORING_CHEST")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.CENARION_CIRCLE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.REPUTATION, F.CENARION_CIRCLE)
 	recipe:AddRepVendor(FAC.CENARION_CIRCLE, REP.REVERED, 15179)
 
 	-- Sylvan Crown -- 28481
@@ -2276,7 +2276,7 @@ function addon:InitTailoring()
 	recipe:SetCraftedItemID(22757)
 	recipe:SetSkillLevels(300, 300, 315, 330, 345)
 	recipe:SetItemFilterType("TAILORING_HEAD")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.CENARION_CIRCLE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.REPUTATION, F.CENARION_CIRCLE)
 	recipe:AddRepVendor(FAC.CENARION_CIRCLE, REP.HONORED, 15179)
 
 	-- Sylvan Shoulders -- 28482
@@ -2285,7 +2285,7 @@ function addon:InitTailoring()
 	recipe:SetCraftedItemID(22758)
 	recipe:SetSkillLevels(300, 300, 315, 330, 345)
 	recipe:SetItemFilterType("TAILORING_SHOULDER")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.CENARION_CIRCLE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.REPUTATION, F.CENARION_CIRCLE)
 	recipe:AddRepVendor(FAC.CENARION_CIRCLE, REP.FRIENDLY, 15179)
 
 	-- Spellcloth -- 31373
@@ -2303,7 +2303,7 @@ function addon:InitTailoring()
 	recipe:SetCraftedItemID(24273)
 	recipe:SetSkillLevels(335, 335, 345, 350, 355)
 	recipe:SetItemFilterType("TAILORING_ITEM_ENHANCEMENT")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.SCRYER)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.REPUTATION, F.SCRYER)
 	recipe:AddRepVendor(FAC.SCRYER, REP.HONORED, 19331)
 
 	-- Silver Spellthread -- 31431
@@ -2312,7 +2312,7 @@ function addon:InitTailoring()
 	recipe:SetCraftedItemID(24275)
 	recipe:SetSkillLevels(335, 335, 345, 350, 355)
 	recipe:SetItemFilterType("TAILORING_ITEM_ENHANCEMENT")
-	recipe:AddFilters(F.ALLIANCE, F.VENDOR, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.ALDOR)
+	recipe:AddFilters(F.ALLIANCE, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.REPUTATION, F.ALDOR)
 	recipe:AddRepVendor(FAC.ALDOR, REP.HONORED, 19321)
 
 	-- Runic Spellthread -- 31432
@@ -2321,7 +2321,7 @@ function addon:InitTailoring()
 	recipe:SetCraftedItemID(24274)
 	recipe:SetSkillLevels(375, 375, 385, 390, 395)
 	recipe:SetItemFilterType("TAILORING_ITEM_ENHANCEMENT")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.SCRYER)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.REPUTATION, F.SCRYER)
 	recipe:AddRepVendor(FAC.SCRYER, REP.EXALTED, 19331)
 
 	-- Golden Spellthread -- 31433
@@ -2330,7 +2330,7 @@ function addon:InitTailoring()
 	recipe:SetCraftedItemID(24276)
 	recipe:SetSkillLevels(375, 375, 385, 390, 395)
 	recipe:SetItemFilterType("TAILORING_ITEM_ENHANCEMENT")
-	recipe:AddFilters(F.ALLIANCE, F.VENDOR, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.ALDOR)
+	recipe:AddFilters(F.ALLIANCE, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.REPUTATION, F.ALDOR)
 	recipe:AddRepVendor(FAC.ALDOR, REP.EXALTED, 19321)
 
 	-- Unyielding Bracers -- 31434
@@ -2501,7 +2501,7 @@ function addon:InitTailoring()
 	recipe:SetCraftedItemID(24270)
 	recipe:SetSkillLevels(340, 340, 350, 355, 360)
 	recipe:SetItemFilterType("TAILORING_BAG")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.CONSORTIUM)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.RBOP, F.REPUTATION, F.CONSORTIUM)
 	recipe:AddRepVendor(FAC.CONSORTIUM, REP.HONORED, 20242, 23007)
 
 	-- Netherweave Net -- 31460
@@ -2563,7 +2563,7 @@ function addon:InitTailoring()
 	recipe:SetCraftedItemID(30831)
 	recipe:SetSkillLevels(350, 350, 360, 365, 370)
 	recipe:SetItemFilterType("TAILORING_BACK")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.LOWERCITY)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.RBOP, F.REPUTATION, F.LOWERCITY)
 	recipe:AddRepVendor(FAC.LOWERCITY, REP.HONORED, 21655)
 
 	-- Flameheart Bracers -- 37882
@@ -2572,7 +2572,7 @@ function addon:InitTailoring()
 	recipe:SetCraftedItemID(30837)
 	recipe:SetSkillLevels(350, 350, 360, 365, 370)
 	recipe:SetItemFilterType("TAILORING_WRIST")
-	recipe:AddFilters(F.ALLIANCE, F.VENDOR, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.ALDOR)
+	recipe:AddFilters(F.ALLIANCE, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.REPUTATION, F.ALDOR)
 	recipe:AddRepVendor(FAC.ALDOR, REP.FRIENDLY, 19321)
 
 	-- Flameheart Gloves -- 37883
@@ -2581,7 +2581,7 @@ function addon:InitTailoring()
 	recipe:SetCraftedItemID(30838)
 	recipe:SetSkillLevels(360, 360, 370, 375, 380)
 	recipe:SetItemFilterType("TAILORING_HANDS")
-	recipe:AddFilters(F.ALLIANCE, F.VENDOR, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.ALDOR)
+	recipe:AddFilters(F.ALLIANCE, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.REPUTATION, F.ALDOR)
 	recipe:AddRepVendor(FAC.ALDOR, REP.HONORED, 19321)
 
 	-- Flameheart Vest -- 37884
@@ -2590,7 +2590,7 @@ function addon:InitTailoring()
 	recipe:SetCraftedItemID(30839)
 	recipe:SetSkillLevels(370, 370, 380, 385, 390)
 	recipe:SetItemFilterType("TAILORING_CHEST")
-	recipe:AddFilters(F.ALLIANCE, F.VENDOR, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.ALDOR)
+	recipe:AddFilters(F.ALLIANCE, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.REPUTATION, F.ALDOR)
 	recipe:AddRepVendor(FAC.ALDOR, REP.EXALTED, 19321)
 
 	-- Soulguard Slippers -- 40020
@@ -2608,7 +2608,7 @@ function addon:InitTailoring()
 	recipe:SetCraftedItemID(32392)
 	recipe:SetSkillLevels(375, 375, 385, 390, 395)
 	recipe:SetItemFilterType("TAILORING_WRIST")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.ASHTONGUE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.RBOP, F.REPUTATION, F.ASHTONGUE)
 	recipe:AddRepVendor(FAC.ASHTONGUE, REP.FRIENDLY, 23159)
 
 	-- Soulguard Leggings -- 40023
@@ -2626,7 +2626,7 @@ function addon:InitTailoring()
 	recipe:SetCraftedItemID(32390)
 	recipe:SetSkillLevels(375, 375, 385, 390, 395)
 	recipe:SetItemFilterType("TAILORING_WAIST")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.ASHTONGUE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.RBOP, F.REPUTATION, F.ASHTONGUE)
 	recipe:AddRepVendor(FAC.ASHTONGUE, REP.FRIENDLY, 23159)
 
 	-- Night's End -- 40060
@@ -2745,7 +2745,7 @@ function addon:InitTailoring()
 	recipe:SetCraftedItemID(38225)
 	recipe:SetSkillLevels(375, 375, 385, 390, 395)
 	recipe:SetItemFilterType("TAILORING_BAG")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.SPOREGGAR)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.RBOP, F.REPUTATION, F.SPOREGGAR)
 	recipe:AddRepVendor(FAC.SPOREGGAR, REP.REVERED, 18382)
 
 	-- Haliscan Jacket -- 50644
@@ -3071,7 +3071,7 @@ function addon:InitTailoring()
 	recipe:SetCraftedItemID(41597)
 	recipe:SetSkillLevels(435, 435, 440, 445, 450)
 	recipe:SetItemFilterType("TAILORING_BAG")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.WARLOCK, F.EBONBLADE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.RBOP, F.REPUTATION, F.WARLOCK, F.EBONBLADE)
 	recipe:AddRepVendor(FAC.EBONBLADE, REP.REVERED, 32538)
 
 	-- Glacial Bag -- 56005
@@ -3080,7 +3080,7 @@ function addon:InitTailoring()
 	recipe:SetCraftedItemID(41600)
 	recipe:SetSkillLevels(445, 445, 450, 455, 460)
 	recipe:SetItemFilterType("TAILORING_BAG")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.HODIR)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.RBOP, F.REPUTATION, F.HODIR)
 	recipe:AddRepVendor(FAC.HODIR, REP.EXALTED, 32540)
 
 	-- Mysterious Bag -- 56006
@@ -3089,7 +3089,7 @@ function addon:InitTailoring()
 	recipe:SetCraftedItemID(41598)
 	recipe:SetSkillLevels(440, 440, 445, 450, 455)
 	recipe:SetItemFilterType("TAILORING_BAG")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.WYRMREST)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.RBOP, F.REPUTATION, F.WYRMREST)
 	recipe:AddRepVendor(FAC.WYRMREST, REP.REVERED, 32533)
 
 	-- Frostweave Bag -- 56007
@@ -3114,7 +3114,7 @@ function addon:InitTailoring()
 	recipe:SetCraftedItemID(41602)
 	recipe:SetSkillLevels(430, 430, 435, 440, 445)
 	recipe:SetItemFilterType("TAILORING_ITEM_ENHANCEMENT")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.ARGENTCRUSADE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.REPUTATION, F.ARGENTCRUSADE)
 	recipe:AddRepVendor(FAC.ARGENTCRUSADE, REP.EXALTED, 30431)
 
 	-- Azure Spellthread -- 56010
@@ -3131,7 +3131,7 @@ function addon:InitTailoring()
 	recipe:SetCraftedItemID(41604)
 	recipe:SetSkillLevels(430, 430, 435, 440, 445)
 	recipe:SetItemFilterType("TAILORING_ITEM_ENHANCEMENT")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.KIRINTOR)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.REPUTATION, F.KIRINTOR)
 	recipe:AddRepVendor(FAC.KIRINTOR, REP.EXALTED, 32287)
 
 	-- Cloak of the Moon -- 56014
@@ -3448,7 +3448,7 @@ function addon:InitTailoring()
 	recipe:SetCraftedItemID(45773)
 	recipe:SetSkillLevels(435, 435, 440, 445, 450)
 	recipe:SetItemFilterType("TAILORING_BAG")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.KALUAK)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.RBOP, F.REPUTATION, F.KALUAK)
 	recipe:AddRepVendor(FAC.KALUAK, REP.REVERED, 31916, 32763)
 
 	-- Frostguard Drape -- 64729
@@ -3549,7 +3549,7 @@ function addon:InitTailoring()
 	recipe:SetCraftedItemID(49891)
 	recipe:SetSkillLevels(450, 450, 475, 487, 500)
 	recipe:SetItemFilterType("TAILORING_LEGS")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.HEALER, F.CASTER, F.ASHEN_VERDICT)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.RBOP, F.DPS, F.HEALER, F.CASTER, F.REPUTATION, F.ASHEN_VERDICT)
 	recipe:AddRepVendor(FAC.ASHEN_VERDICT, REP.REVERED, 37687)
 
 	-- Deathfrost Boots -- 70551
@@ -3558,7 +3558,7 @@ function addon:InitTailoring()
 	recipe:SetCraftedItemID(49890)
 	recipe:SetSkillLevels(450, 450, 475, 487, 500)
 	recipe:SetItemFilterType("TAILORING_FEET")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.HEALER, F.CASTER, F.ASHEN_VERDICT)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.RBOP, F.DPS, F.HEALER, F.CASTER, F.REPUTATION, F.ASHEN_VERDICT)
 	recipe:AddRepVendor(FAC.ASHEN_VERDICT, REP.HONORED, 37687)
 
 	-- Lightweave Leggings -- 70552
@@ -3567,7 +3567,7 @@ function addon:InitTailoring()
 	recipe:SetCraftedItemID(49892)
 	recipe:SetSkillLevels(450, 450, 475, 487, 500)
 	recipe:SetItemFilterType("TAILORING_LEGS")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.HEALER, F.CASTER, F.ASHEN_VERDICT)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.RBOP, F.DPS, F.HEALER, F.CASTER, F.REPUTATION, F.ASHEN_VERDICT)
 	recipe:AddRepVendor(FAC.ASHEN_VERDICT, REP.REVERED, 37687)
 
 	-- Sandals of Consecration -- 70553
@@ -3576,7 +3576,7 @@ function addon:InitTailoring()
 	recipe:SetCraftedItemID(49893)
 	recipe:SetSkillLevels(450, 450, 475, 487, 500)
 	recipe:SetItemFilterType("TAILORING_FEET")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.HEALER, F.CASTER, F.ASHEN_VERDICT)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.RBOP, F.DPS, F.HEALER, F.CASTER, F.REPUTATION, F.ASHEN_VERDICT)
 	recipe:AddRepVendor(FAC.ASHEN_VERDICT, REP.HONORED, 37687)
 
 	-- Bolt of Embersilk Cloth -- 74964
