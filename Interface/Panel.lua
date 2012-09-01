@@ -789,13 +789,20 @@ function private.InitializeFrame()
 		updater:SetScript("OnUpdate", function(self, elapsed)
 			last_update = last_update + elapsed
 
-			if last_update >= 0.5 then
-				last_update = 0
-
-				SearchRecipes(SearchBox:GetText())
-				MainPanel.list_frame:Update(nil, false)
-				self:Hide()
+			if last_update < 0.5 then
+				return
 			end
+			local search_text = SearchBox:GetText()
+
+			if #search_text < 4 then
+				last_update = 0
+				return
+			end
+			last_update = 0
+
+			SearchRecipes(search_text)
+			MainPanel.list_frame:Update(nil, false)
+			self:Hide()
 		end)
 
 		SearchBox:SetScript("OnTextChanged", function(self, is_typed)
