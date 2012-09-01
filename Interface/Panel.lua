@@ -665,7 +665,7 @@ function private.InitializeFrame()
 	-------------------------------------------------------------------------------
 	-- Search EditBox
 	-------------------------------------------------------------------------------
-	local SearchBox = _G.CreateFrame("EditBox", nil, MainPanel, "InputBoxTemplate")
+	local SearchBox = _G.CreateFrame("EditBox", nil, MainPanel, "SearchBoxTemplate")
 
 	SearchBox:EnableMouse(true)
 	SearchBox:SetAutoFocus(false)
@@ -754,19 +754,15 @@ function private.InitializeFrame()
 		MainPanel.list_frame:Update(nil, false)
 	end)
 
-	SearchBox:SetScript("OnEditFocusGained", SearchBox.HighlightText)
-
 	SearchBox:SetScript("OnEditFocusLost", function(self)
+		_G.SearchBoxTemplate_OnEditFocusLost(self)
+
 		local text = self:GetText()
 
 		if text == "" or text == _G.SEARCH then
 			self:Reset()
 			return
 		end
-
-		-- Ensure that the highlight is cleared.
-		self:SetText(text)
-
 		self:AddHistoryLine(text)
 	end)
 
