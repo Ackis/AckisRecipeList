@@ -870,7 +870,7 @@ do
 		local specialty = SpecialtyTable[profession_name]
 
 		for index, book_index in ipairs(specialtices_indices) do
-			local spell_name = _G.GetSpellBookItemName(book_index, "profession")
+			local spell_name = _G.GetSpellBookItemName(book_index, _G.BOOKTYPE_PROFESSION)
 
 			if not spell_name then
 				private.current_profession_specialty = nil
