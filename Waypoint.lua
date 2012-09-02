@@ -382,7 +382,6 @@ local WAYPOINT_FUNCS = {
 	end,
 }
 
-local TEXTURE_UP_FORMAT = ([[Interface\Addons\%s\img\]]):format(FOLDER_NAME) .. "%s_up"
 local current_waypoints = {}
 
 local function AddRecipeWaypoints(recipe_id, acquire_id, location_id, npc_id)
@@ -468,6 +467,8 @@ local function AddAllWaypoints(acquire_id, location_id, npc_id)
 end
 
 -- Replace the TomTom waypoint icon with the icon for the profession.
+local ICON_TEXTURE_FORMAT = [[Interface\ICONS\%s]]
+
 local function SetWaypointIcon(uid, ...)
 	local map_children = {...}
 
@@ -475,7 +476,7 @@ local function SetWaypointIcon(uid, ...)
 		local child = map_children[index]
 
 		if child.point and child.point.uid == uid then
-			child.icon:SetTexture(TEXTURE_UP_FORMAT:format(private.PROFESSION_TEXTURES[addon.Frame.profession]))
+			child.icon:SetTexture(ICON_TEXTURE_FORMAT:format(private.PROFESSION_TEXTURES[addon.Frame.profession]))
 			break
 		end
 

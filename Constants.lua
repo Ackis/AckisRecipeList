@@ -100,18 +100,18 @@ for index = 1, #private.ORDERED_PROFESSIONS do
 end
 
 private.PROFESSION_TEXTURES = {
-	"alchemy",	-- 1
-	"blacksmith",	-- 2
-	"cooking",	-- 3
-	"enchant",	-- 4
-	"engineer",	-- 5
-	"firstaid",	-- 6
-	"inscribe",	-- 7
-	"jewel",	-- 8
-	"leather",	-- 9
-	"runeforge",	-- 10
-	"smelting",	-- 11
-	"tailor",	-- 12
+	[[Trade_Alchemy]],			-- 01 (Alchemy)
+	[[Trade_BlackSmithing]],		-- 02 (Blacksmithing)
+	[[INV_Misc_Food_15]],			-- 03 (Cooking)
+	[[Trade_Engraving]],			-- 04 (Enchinting)
+	[[Trade_Engineering]],			-- 05 (Engineering)
+	[[Spell_Holy_SealOfSacrifice]],		-- 06 (First Aid)
+	[[INV_Inscription_Tradeskill01]],	-- 07 (Inscription)
+	[[INV_Misc_Gem_01]],			-- 08 (Jewelcrafting)
+	[[Trade_LeatherWorking]],		-- 09 (Leatherworking)
+	[[Spell_DeathKnight_FrozenRuneWeapon]],	-- 10 (Runeforging)
+	[[Spell_Fire_FlameBlades]],		-- 11 (Smelting)
+	[[Trade_Tailoring]],			-- 12 (Tailoring)
 }
 
 -------------------------------------------------------------------------------

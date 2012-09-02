@@ -82,27 +82,27 @@ function private.InitializeFrame()
 	addon.Frame = MainPanel
 
 	do
-		local top_left = MainPanel:CreateTexture(nil, "ARTWORK")
+		local top_left = MainPanel:CreateTexture(nil, "OVERLAY")
 		top_left:SetTexture("Interface\\QuestFrame\\UI-QuestLog-TopLeft")
 		top_left:SetPoint("TOPLEFT", MainPanel, "TOPLEFT", 0, 0)
 		MainPanel.top_left = top_left
 
-		local top_right = MainPanel:CreateTexture(nil, "ARTWORK")
+		local top_right = MainPanel:CreateTexture(nil, "OVERLAY")
 		top_right:SetTexture("Interface\\QuestFrame\\UI-QuestLog-TopRight")
 		top_right:SetPoint("TOPRIGHT", MainPanel, "TOPRIGHT", 0, 0)
 		MainPanel.top_right = top_right
 
-		local bottom_left = MainPanel:CreateTexture(nil, "ARTWORK")
+		local bottom_left = MainPanel:CreateTexture(nil, "OVERLAY")
 		bottom_left:SetTexture("Interface\\QuestFrame\\UI-QuestLog-BotLeft")
 		bottom_left:SetPoint("BOTTOMLEFT", MainPanel, "BOTTOMLEFT", 0, 0)
 		MainPanel.bottom_left = bottom_left
 
-		local bottom_right = MainPanel:CreateTexture(nil, "ARTWORK")
+		local bottom_right = MainPanel:CreateTexture(nil, "OVERLAY")
 		bottom_right:SetTexture("Interface\\QuestFrame\\UI-QuestLog-BotRight")
 		bottom_right:SetPoint("BOTTOMRIGHT", MainPanel, "BOTTOMRIGHT", 0, 0)
 		MainPanel.bottom_right = bottom_right
 
-		local title_bar = MainPanel:CreateFontString(nil, "ARTWORK")
+		local title_bar = MainPanel:CreateFontString(nil, "OVERLAY")
 		title_bar:SetFontObject("GameFontHighlightSmall")
 		title_bar:SetPoint("TOPLEFT", MainPanel, "TOPLEFT", 20, -20)
 		title_bar:SetPoint("TOPRIGHT", MainPanel, "TOPRIGHT", -40, -20)
@@ -180,7 +180,7 @@ function private.InitializeFrame()
 		if self.profession ~= prev_profession then
 			self.prev_profession = self.profession
 		end
-		self.prof_button:ChangeTexture(private.PROFESSION_TEXTURES[self.profession])
+		self.prof_button:SetTexture()
 
 		local editbox = self.search_editbox
 
@@ -403,23 +403,23 @@ function private.InitializeFrame()
 	-------------------------------------------------------------------------------
 	-- Create the profession-cycling button and assign its values.
 	-------------------------------------------------------------------------------
-	local profession_cycling_button = _G.CreateFrame("Button", nil, MainPanel)
-	profession_cycling_button:SetWidth(64)
-	profession_cycling_button:SetHeight(64)
-	profession_cycling_button:SetPoint("TOPLEFT", MainPanel, "TOPLEFT", 5, -4)
-	profession_cycling_button:SetHighlightTexture([[Interface\Cooldown\ping4]])
-	profession_cycling_button:RegisterForClicks("LeftButtonUp", "RightButtonUp")
+	local profession_cycler = _G.CreateFrame("Button", nil, MainPanel)
+	profession_cycler:SetSize(60, 60)
+	profession_cycler:SetPoint("TOPLEFT", 7, -6)
+	profession_cycler:SetHighlightTexture([[Interface\Cooldown\ping4]])
+	profession_cycler:RegisterForClicks("LeftButtonUp", "RightButtonUp")
+	MainPanel.prof_button = profession_cycler
 
-	profession_cycling_button._normal = profession_cycling_button:CreateTexture(nil, "BACKGROUND")
-	profession_cycling_button._pushed = profession_cycling_button:CreateTexture(nil, "BACKGROUND")
-	profession_cycling_button._disabled = profession_cycling_button:CreateTexture(nil, "BACKGROUND")
+	local profession_texture = MainPanel:CreateTexture("ARL_ProfessionButtonPortrait", "OVERLAY")
+	profession_texture:SetSize(60, 60)
+	profession_texture:SetPoint("TOPLEFT", 7, -6)
+	MainPanel.profession_texture = profession_texture
 
-	MainPanel.prof_button = profession_cycling_button
 
 	-------------------------------------------------------------------------------
 	-- ProfCycle scripts/functions.
 	-------------------------------------------------------------------------------
-	profession_cycling_button:SetScript("OnClick", function(self, button, down)
+	profession_cycler:SetScript("OnClick", function(self, button, down)
 	-- Known professions should be in Player.professions
 
 	-- This loop is gonna be weird. The reason is because we need to
@@ -430,30 +430,28 @@ function private.InitializeFrame()
 	-- and then iterate again to make sure we display the next one in line.
 	-- Further, there is the nuance that the person may not know any
 	-- professions yet at all. Users are so annoying.
-		local startLoop = 0
-		local endLoop = 0
-		local displayProf = 0
+		local loop_start = 0
+		local loop_end = 0
 
-		local NUM_PROFESSIONS = 12
+		local num_professions = #private.ORDERED_PROFESSIONS
 
 		-- ok, so first off, if we've never done this before, there is no "current"
 		-- and a single iteration will do nicely, thank you
 		if button == "LeftButton" then
 			-- normal profession switch
 			if MainPanel.profession == 0 then
-				startLoop = 1
-				endLoop = NUM_PROFESSIONS + 1
+				loop_start = 1
+				loop_end = num_professions + 1
 			else
-				startLoop = MainPanel.profession + 1
-				endLoop = MainPanel.profession
+				loop_start = MainPanel.profession + 1
+				loop_end = MainPanel.profession
 			end
-			local index = startLoop
+			local index = loop_start
 
-			while index ~= endLoop do
-				if index > NUM_PROFESSIONS then
+			while index ~= loop_end do
+				if index > num_professions then
 					index = 1
 				elseif private.Player.professions[ORDERED_PROFESSIONS[index]] then
-					displayProf = index
 					MainPanel.profession = index
 					break
 				else
@@ -463,19 +461,18 @@ function private.InitializeFrame()
 		elseif button == "RightButton" then
 			-- reverse profession switch
 			if MainPanel.profession == 0 then
-				startLoop = NUM_PROFESSIONS + 1
-				endLoop = 0
+				loop_start = num_professions + 1
+				loop_end = 0
 			else
-				startLoop = MainPanel.profession - 1
-				endLoop = MainPanel.profession
+				loop_start = MainPanel.profession - 1
+				loop_end = MainPanel.profession
 			end
-			local index = startLoop
+			local index = loop_start
 
-			while index ~= endLoop do
+			while index ~= loop_end do
 				if index < 1 then
-					index = NUM_PROFESSIONS
+					index = num_professions
 				elseif private.Player.professions[ORDERED_PROFESSIONS[index]] then
-					displayProf = index
 					MainPanel.profession = index
 					break
 				else
@@ -502,26 +499,8 @@ function private.InitializeFrame()
 		end
 	end)
 
-	local TEXTURE_UP_FORMAT = ([[Interface\Addons\%s\img\]]):format(FOLDER_NAME) .. "%s_up"
-	local TEXTURE_DOWN_FORMAT = ([[Interface\Addons\%s\img\]]):format(FOLDER_NAME) .. "%s_down"
-
-	function profession_cycling_button:ChangeTexture(texture_name)
-		local normal, pushed, disabled = self._normal, self._pushed, self._disabled
-
-		normal:SetTexture(TEXTURE_UP_FORMAT:format(texture_name))
-		normal:SetTexCoord(0, 1, 0, 1)
-		normal:SetAllPoints(self)
-		self:SetNormalTexture(normal)
-
-		pushed:SetTexture(TEXTURE_DOWN_FORMAT:format(texture_name))
-		pushed:SetTexCoord(0, 1, 0, 1)
-		pushed:SetAllPoints(self)
-		self:SetPushedTexture(pushed)
-
-		disabled:SetTexture(TEXTURE_UP_FORMAT:format(texture_name))
-		disabled:SetTexCoord(0, 1, 0, 1)
-		disabled:SetAllPoints(self)
-		self:SetDisabledTexture(disabled)
+	function profession_cycler:SetTexture()
+		_G.SetPortraitToTexture("ARL_ProfessionButtonPortrait", _G.GetTradeSkillTexture())
 	end
 
 	-------------------------------------------------------------------------------
