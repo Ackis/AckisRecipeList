@@ -410,7 +410,7 @@ function private.InitializeFrame()
 	profession_cycler:RegisterForClicks("LeftButtonUp", "RightButtonUp")
 	MainPanel.prof_button = profession_cycler
 
-	local profession_texture = MainPanel:CreateTexture("ARL_ProfessionButtonPortrait", "OVERLAY")
+	local profession_texture = MainPanel:CreateTexture("ARL_ProfessionButtonPortrait", "ARTWORK")
 	profession_texture:SetSize(60, 60)
 	profession_texture:SetPoint("TOPLEFT", 7, -6)
 	MainPanel.profession_texture = profession_texture
