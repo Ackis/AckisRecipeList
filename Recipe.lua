@@ -138,6 +138,14 @@ function recipe_prototype:RequiredFaction()
 	return self.required_faction
 end
 
+-- Sets the spell ID for the recipe this recipe replaces
+function recipe_prototype:SetPreviousRankID(spell_id)
+	self.old_rank_spell_id = spell_id
+end
+
+function recipe_prototype:PreviousRankID()
+	return self.old_rank_spell_id
+end
 
 -------------------------------------------------------------------------------
 -- Recipe state flags.
