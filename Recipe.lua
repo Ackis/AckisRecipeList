@@ -525,6 +525,12 @@ function recipe_prototype:Dump(output)
 	if self.crafted_item_id then
 		table.insert(output, ("recipe:SetCraftedItemID(%d)"):format(self.crafted_item_id))
 	end
+	local previous_rank_recipe = private.profession_recipe_list[self.profession][self:PreviousRankID()]
+
+	if previous_rank_recipe then
+		table.insert(output, ("recipe:SetPreviousRankID(%d)"):format(previous_rank_recipe.spell_id))
+	end
+
 	local skill_level = self.skill_level
 	local optimal_level = self.optimal_level
 	local medium_level = self.medium_level
