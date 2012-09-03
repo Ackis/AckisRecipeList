@@ -940,12 +940,16 @@ do
 				local recipe = profession_recipes[tonumber(spell_string)]
 
 				if recipe then
-					local previous_rank_recipe = profession_recipes[recipe:PreviousRankID()]
+					local previous_rank_id = recipe:PreviousRankID()
 
-					if previous_rank_recipe then
-						previous_rank_recipe:SetAsKnownOrLinked(tradeskill_is_linked)
-					else
-						self:Debug("%s (%d): %s", entry_name, recipe:PreviousRankID(), L["MissingFromDB"])
+					if previous_rank_id then
+						local previous_rank_recipe = profession_recipes[previous_rank_id]
+
+						if previous_rank_recipe then
+							previous_rank_recipe:SetAsKnownOrLinked(tradeskill_is_linked)
+						else
+							self:Debug("%s (%d): %s", entry_name, previous_rank_id, L["MissingFromDB"])
+						end
 					end
 					recipe:SetAsKnownOrLinked(tradeskill_is_linked)
 					recipes_found = recipes_found + 1
