@@ -945,7 +945,7 @@ do
 					if previous_rank_recipe then
 						previous_rank_recipe:SetAsKnownOrLinked(tradeskill_is_linked)
 					else
-						self:Debug("%s (%d): %s", entry_name, recipe:PrevioudRankID(), L["MissingFromDB"])
+						self:Debug("%s (%d): %s", entry_name, recipe:PreviousRankID(), L["MissingFromDB"])
 					end
 					recipe:SetAsKnownOrLinked(tradeskill_is_linked)
 					recipes_found = recipes_found + 1
