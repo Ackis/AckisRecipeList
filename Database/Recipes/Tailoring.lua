@@ -3629,6 +3629,7 @@ function addon:InitTailoring()
 
 	-- Master's Spellthread -- 75154
 	recipe = AddRecipe(75154, V.CATA, Q.COMMON)
+	recipe:SetPreviousRankID(56034)
 	recipe:SetSkillLevels(475, 475, 475, 475, 475)
 	recipe:SetItemFilterType("TAILORING_ITEM_ENHANCEMENT")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
@@ -3636,6 +3637,7 @@ function addon:InitTailoring()
 
 	-- Sanctified Spellthread -- 75155
 	recipe = AddRecipe(75155, V.CATA, Q.COMMON)
+	recipe:SetPreviousRankID(56039)
 	recipe:SetSkillLevels(475, 475, 475, 475, 475)
 	recipe:SetItemFilterType("TAILORING_ITEM_ENHANCEMENT")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
@@ -3643,6 +3645,7 @@ function addon:InitTailoring()
 
 	-- Lightweave Embroidery -- 75172
 	recipe = AddRecipe(75172, V.CATA, Q.COMMON)
+	recipe:SetPreviousRankID(55642)
 	recipe:SetSkillLevels(500, 500, 500, 500, 500)
 	recipe:SetItemFilterType("TAILORING_ITEM_ENHANCEMENT")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
@@ -3650,6 +3653,7 @@ function addon:InitTailoring()
 
 	-- Darkglow Embroidery -- 75175
 	recipe = AddRecipe(75175, V.CATA, Q.COMMON)
+	recipe:SetPreviousRankID(55769)
 	recipe:SetSkillLevels(500, 500, 500, 500, 500)
 	recipe:SetItemFilterType("TAILORING_ITEM_ENHANCEMENT")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
@@ -3657,6 +3661,7 @@ function addon:InitTailoring()
 
 	-- Swordguard Embroidery -- 75178
 	recipe = AddRecipe(75178, V.CATA, Q.COMMON)
+	recipe:SetPreviousRankID(55777)
 	recipe:SetSkillLevels(500, 500, 500, 500, 500)
 	recipe:SetItemFilterType("TAILORING_ITEM_ENHANCEMENT")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
@@ -4152,6 +4157,7 @@ function addon:InitTailoring()
 
 	-- Lightweave Embroidery -- 125481
 	recipe = AddRecipe(125481, V.CATA, Q.COMMON)
+	recipe:SetPreviousRankID(75172)
 	recipe:SetSkillLevels(575, 575, 575, 575, 575)
 	recipe:SetItemFilterType("TAILORING_ITEM_ENHANCEMENT")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
@@ -4159,6 +4165,7 @@ function addon:InitTailoring()
 
 	-- Darkglow Embroidery -- 125482
 	recipe = AddRecipe(125482, V.CATA, Q.COMMON)
+	recipe:SetPreviousRankID(75175)
 	recipe:SetSkillLevels(575, 575, 575, 575, 575)
 	recipe:SetItemFilterType("TAILORING_ITEM_ENHANCEMENT")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
@@ -4166,6 +4173,7 @@ function addon:InitTailoring()
 
 	-- Swordguard Embroidery -- 125483
 	recipe = AddRecipe(125483, V.CATA, Q.COMMON)
+	recipe:SetPreviousRankID(75178)
 	recipe:SetSkillLevels(575, 575, 575, 575, 575)
 	recipe:SetItemFilterType("TAILORING_ITEM_ENHANCEMENT")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)

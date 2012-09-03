@@ -5315,6 +5315,7 @@ function addon:InitLeatherworking()
 
 	-- Primal Leg Reinforcements -- 124559
 	recipe = AddRecipe(124559, V.CATA, Q.COMMON)
+	recipe:SetPreviousRankID(124564)
 	recipe:SetSkillLevels(575, 575, 575, 575, 575)
 	recipe:SetItemFilterType("LEATHERWORKING_ITEM_ENHANCEMENT")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
@@ -5322,6 +5323,7 @@ function addon:InitLeatherworking()
 
 	-- Draconic Leg Reinforcements -- 124561
 	recipe = AddRecipe(124561, V.CATA, Q.COMMON)
+	recipe:SetPreviousRankID(124566)
 	recipe:SetSkillLevels(575, 575, 575, 575, 575)
 	recipe:SetItemFilterType("LEATHERWORKING_ITEM_ENHANCEMENT")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
@@ -5329,6 +5331,7 @@ function addon:InitLeatherworking()
 
 	-- Heavy Leg Reinforcements -- 124563
 	recipe = AddRecipe(124563, V.CATA, Q.COMMON)
+	recipe:SetPreviousRankID(124565)
 	recipe:SetSkillLevels(575, 575, 575, 575, 575)
 	recipe:SetItemFilterType("LEATHERWORKING_ITEM_ENHANCEMENT")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
@@ -5336,6 +5339,7 @@ function addon:InitLeatherworking()
 
 	-- Primal Leg Reinforcements -- 124564
 	recipe = AddRecipe(124564, V.CATA, Q.COMMON)
+	recipe:SetPreviousRankID(124567)
 	recipe:SetSkillLevels(500, 500, 500, 500, 500)
 	recipe:SetItemFilterType("LEATHERWORKING_ITEM_ENHANCEMENT")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
@@ -5343,6 +5347,7 @@ function addon:InitLeatherworking()
 
 	-- Heavy Leg Reinforcements -- 124565
 	recipe = AddRecipe(124565, V.CATA, Q.COMMON)
+	recipe:SetPreviousRankID(124568)
 	recipe:SetSkillLevels(500, 500, 500, 500, 500)
 	recipe:SetItemFilterType("LEATHERWORKING_ITEM_ENHANCEMENT")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
@@ -5350,6 +5355,7 @@ function addon:InitLeatherworking()
 
 	-- Draconic Leg Reinforcements -- 124566
 	recipe = AddRecipe(124566, V.CATA, Q.COMMON)
+	recipe:SetPreviousRankID(124569)
 	recipe:SetSkillLevels(500, 500, 500, 500, 500)
 	recipe:SetItemFilterType("LEATHERWORKING_ITEM_ENHANCEMENT")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
