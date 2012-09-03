@@ -924,7 +924,6 @@ do
 		end
 		local profession_recipes = private.profession_recipe_list[profession_name]
 		local recipes_found = 0
-		local SPELL_OVERWRITE_MAP = private.SPELL_OVERWRITE_MAP
 
 		for spell_id, recipe in pairs(profession_recipes) do
 			recipe:RemoveState("KNOWN")
@@ -938,28 +937,20 @@ do
 
 			if entry_type ~= "header" and entry_type ~= "subheader" then
 				local spell_string = _G.GetTradeSkillRecipeLink(skill_index):match("^|c%x%x%x%x%x%x%x%x|H%w+:(%d+)")
-				local spell_id = tonumber(spell_string)
-				local recipe = profession_recipes[spell_id]
+				local recipe = profession_recipes[tonumber(spell_string)]
 
 				if recipe then
-					-- Mark the first rank of the spell as known if we know rank 2 for certain recipes.
-					-- This is only done for recipes which when you learn the higher rank, you lose the
-					-- ability to learn the lower rank.
+					local previous_rank_recipe = profession_recipes[recipe:PreviousRankID()]
 
-					-- If we have it in the mapping, set the lower rank spell to known
-					if SPELL_OVERWRITE_MAP[spell_id] then
-						local overwrite_recipe = profession_recipes[SPELL_OVERWRITE_MAP[spell_id]]
-
-						if overwrite_recipe then
-							overwrite_recipe:SetAsKnownOrLinked(tradeskill_is_linked)
-						else
-							self:Debug(entry_name .. " " .. SPELL_OVERWRITE_MAP[spell_id] .. L["MissingFromDB"])
-						end
+					if previous_rank_recipe then
+						previous_rank_recipe:SetAsKnownOrLinked(tradeskill_is_linked)
+					else
+						self:Debug("%s (%d): %s", entry_name, recipe:PrevioudRankID(), L["MissingFromDB"])
 					end
 					recipe:SetAsKnownOrLinked(tradeskill_is_linked)
 					recipes_found = recipes_found + 1
 				else
-					self:Debug(entry_name .. " " .. spell_string .. L["MissingFromDB"])
+					self:Debug("%s (%s): %s", entry_name, spell_string, L["MissingFromDB"])
 				end
 			end
 		end
