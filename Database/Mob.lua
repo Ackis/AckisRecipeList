@@ -307,7 +307,6 @@ function addon:InitMob()
 	AddMob(10508,	BB["Ras Frostwhisper"],			Z.SCHOLOMANCE,			0, 0)
 
 	-- Sethekk Halls
-	AddMob(18320,	L["Time-Lost Shadowmage"],		Z.SETHEKK_HALLS,		0, 0)
 	AddMob(18322,	L["Sethekk Ravenguard"],		Z.SETHEKK_HALLS,		0, 0)
 	AddMob(18472,	BB["Darkweaver Syth"],			Z.SETHEKK_HALLS,		0, 0)
 
@@ -332,14 +331,12 @@ function addon:InitMob()
 	-- The Arcatraz
 	AddMob(20869,	L["Arcatraz Sentinel"],			Z.THE_ARCATRAZ,			0, 0)
 	AddMob(20880,	L["Eredar Deathbringer"],		Z.THE_ARCATRAZ,			0, 0)
-	AddMob(20898,	L["Gargantuan Abyssal"],		Z.THE_ARCATRAZ,			0, 0)
 	AddMob(20900,	L["Unchained Doombringer"],		Z.THE_ARCATRAZ,			0, 0)
 	AddMob(20885,	BB["Dalliah the Doomsayer"],		Z.THE_ARCATRAZ,			0, 0)
 
 	--The Black Morass
 	AddMob(21104,	L["Rift Keeper"],			Z.THE_BLACK_MORASS,		0, 0)
 	AddMob(17839,	L["Rift Lord"],				Z.THE_BLACK_MORASS,		0, 0)
-	AddMob(17879,	BB["Chrono Lord Deja"],			Z.THE_BLACK_MORASS,		0, 0)
 
 	-- The Botanica
 	AddMob(17975,	BB["High Botanist Freywinn"],		Z.THE_BOTANICA,			0, 0)
@@ -361,14 +358,10 @@ function addon:InitMob()
 	AddMob(17465,	L["Shattered Hand Centurion"],		Z.THE_SHATTERED_HALLS,		0, 0)
 	AddMob(16807,	BB["Grand Warlock Nethekurse"],		Z.THE_SHATTERED_HALLS,		0, 0)
 
-	-- The Slave Pens
-	AddMob(17941,	BB["Mennu the Betrayer"],		Z.THE_SLAVE_PENS,		0, 0)
-
 	-- The Steamvault
 	AddMob(17722,	L["Coilfang Sorceress"],		Z.THE_STEAMVAULT,		0, 0)
 	AddMob(17803,	L["Coilfang Oracle"],			Z.THE_STEAMVAULT,		0, 0)
 	AddMob(17796,	BB["Mekgineer Steamrigger"],		Z.THE_STEAMVAULT,		0, 0)
-	AddMob(17797,	BB["Hydromancer Thespia"],		Z.THE_STEAMVAULT,		0, 0)
 	AddMob(17798,	BB["Warlord Kalithresh"],		Z.THE_STEAMVAULT,		0, 0)
 
 	-- Utgarde Keep

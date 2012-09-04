@@ -2359,51 +2359,6 @@ function addon:InitLeatherworking()
 	recipe:AddFilters(F.ALLIANCE, F.IBOE, F.RBOP, F.DPS, F.HEALER, F.CASTER, F.REPUTATION, F.NAGRAND)
 	recipe:AddRepVendor(FAC.KURENAI, REP.REVERED, 20240)
 
-	-- Shadow Armor Kit -- 35520
-	recipe = AddRecipe(35520, V.TBC, Q.UNCOMMON)
-	recipe:SetRecipeItemID(29669)
-	recipe:SetCraftedItemID(29483)
-	recipe:SetSkillLevels(340, 340, 350, 355, 360)
-	recipe:SetItemFilterType("LEATHERWORKING_ITEM_ENHANCEMENT")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.INSTANCE, F.MOB_DROP, F.IBOE, F.RBOP)
-	recipe:AddMobDrop(18320)
-
-	-- Flame Armor Kit -- 35521
-	recipe = AddRecipe(35521, V.TBC, Q.UNCOMMON)
-	recipe:SetRecipeItemID(29672)
-	recipe:SetCraftedItemID(29485)
-	recipe:SetSkillLevels(340, 340, 350, 355, 360)
-	recipe:SetItemFilterType("LEATHERWORKING_ITEM_ENHANCEMENT")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.INSTANCE, F.MOB_DROP, F.IBOE, F.RBOP)
-	recipe:AddMobDrop(20898)
-
-	-- Frost Armor Kit -- 35522
-	recipe = AddRecipe(35522, V.TBC, Q.UNCOMMON)
-	recipe:SetRecipeItemID(29673)
-	recipe:SetCraftedItemID(29486)
-	recipe:SetSkillLevels(340, 340, 350, 355, 360)
-	recipe:SetItemFilterType("LEATHERWORKING_ITEM_ENHANCEMENT")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.INSTANCE, F.MOB_DROP, F.IBOE, F.RBOP)
-	recipe:AddMobDrop(17797)
-
-	-- Nature Armor Kit -- 35523
-	recipe = AddRecipe(35523, V.TBC, Q.UNCOMMON)
-	recipe:SetRecipeItemID(29674)
-	recipe:SetCraftedItemID(29487)
-	recipe:SetSkillLevels(340, 340, 350, 355, 360)
-	recipe:SetItemFilterType("LEATHERWORKING_ITEM_ENHANCEMENT")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.INSTANCE, F.MOB_DROP, F.IBOE, F.RBOP)
-	recipe:AddMobDrop(17941)
-
-	-- Arcane Armor Kit -- 35524
-	recipe = AddRecipe(35524, V.TBC, Q.UNCOMMON)
-	recipe:SetRecipeItemID(29675)
-	recipe:SetCraftedItemID(29488)
-	recipe:SetSkillLevels(340, 340, 350, 355, 360)
-	recipe:SetItemFilterType("LEATHERWORKING_ITEM_ENHANCEMENT")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.INSTANCE, F.MOB_DROP, F.IBOE, F.RBOP)
-	recipe:AddMobDrop(17879)
-
 	-- Enchanted Felscale Leggings -- 35525
 	recipe = AddRecipe(35525, V.TBC, Q.COMMON)
 	recipe:SetRecipeItemID(29677)
