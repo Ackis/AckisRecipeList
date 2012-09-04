@@ -1324,7 +1324,12 @@ do
 		"equip: increases your %s by (%%d+)",
 		"to increase %s by (%%d+)",
 		"increase your %s",
+		"increasing %s",
 		"grant you (%%d+) %s",
+		"generates (%%d+) to (%%d+) %s",
+		"restores (%%d+) %s",
+		"gain (%%d+) %s",
+		"gain (%%d+) (%%a+) and %s",
 	}
 
 	--- Parses the mining tooltip for certain keywords, comparing them with the database flags
