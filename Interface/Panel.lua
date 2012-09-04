@@ -764,7 +764,7 @@ function private.InitializeFrame()
 		updater:SetScript("OnUpdate", function(self, elapsed)
 			last_update = last_update + elapsed
 
-			if last_update < 0.5 then
+			if last_update < 0.25 then
 				return
 			end
 			local search_text = SearchBox:GetText()
@@ -788,6 +788,7 @@ function private.InitializeFrame()
 
 			if text ~= "" and text ~= _G.SEARCH and text ~= self.prev_search then
 				updater:Show()
+				last_update = 0
 			else
 				self:Reset()
 			end
