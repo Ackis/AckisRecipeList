@@ -1314,7 +1314,7 @@ do
 		},
 	}
 
-	local MATCH_FORMATS = {
+	local ROLE_STAT_MATCH_FORMATS = {
 		"use: permanently attach (%%a+) %s by",
 		"adds (%%d+) %s",
 		"become well fed and gain (.+) %s",
@@ -1330,6 +1330,16 @@ do
 		"restores (%%d+) %s",
 		"gain (%%d+) %s",
 		"gain (%%d+) (%%a+) and %s",
+	}
+
+	local INSCRIPTION_MATCH_FILTERS = {
+		["Major Glyph"] = "INSCRIPTION_MAJOR_GLYPH",
+		["Minor Glyph"] = "INSCRIPTION_MINOR_GLYPH",
+		["Scroll of (.+)"] = "INSCRIPTION_SCROLL",
+		["Ink of(.+)"] = "INSCRIPTION_MATERIALS",
+		["(.+) Ink"] = "INSCRIPTION_MATERIALS",
+		["Permanently add(.+)"] = "INSCRIPTION_ITEM_ENHANCEMENT",
+		["Held In Off-hand"] = "INSCRIPTION_OFF_HAND",
 	}
 
 	--- Parses the mining tooltip for certain keywords, comparing them with the database flags
@@ -1388,54 +1398,28 @@ do
 			local spell_id = scan_data.reverse_lookup[recipe_name]
 
 			if spell_id and recipe_list[spell_id].profession == "Inscription" then
-				local recipe = recipe_list[spell_id]
+				scan_data.filter_type = nil
 
-				if text_l:match("Major Glyph") then
---					addon:Printf("%s: Major Glyph", recipe_name)
---					recipe:SetItemFilterType("INSCRIPTION_MAJOR_GLYPH")
-					scan_data.filter_type = "INSCRIPTION_MAJOR_GLYPH"
-				end
+				if not text_l:match("Tools: (.+)") and not text_l:match("Reagents:") and not text_l:match("Requires") then
+					for pattern, filter in pairs(INSCRIPTION_MATCH_FILTERS) do
+						if text_l:match(pattern) then
+							local recipe = recipe_list[spell_id]
+--							scan_data.filter_type = filter
+--							addon:Printf("%s: %s", recipe_name, filter)
+							recipe:SetItemFilterType(filter)
+							break
+						end
+					end
 
-				if text_l:match("Minor Glyph") then
---					addon:Printf("%s: Minor Glyph", recipe_name)
---					recipe:SetItemFilterType("INSCRIPTION_MINOR_GLYPH")
-					scan_data.filter_type = "INSCRIPTION_MINOR_GLYPH"
-				end
-
-				if text_l:match("Scroll of (.+)") then
---					addon:Printf("%s: Scroll", recipe_name)
---					recipe:SetItemFilterType("INSCRIPTION_SCROLL")
-					scan_data.filter_type = "INSCRIPTION_SCROLL"
-				end
-
-				if recipe_name:match("Ink of(.+)") or recipe_name:match("(.+) Ink") then
---					addon:Printf("%s: Material", recipe_name)
---					recipe:SetItemFilterType("INSCRIPTION_MATERIALS")
-					scan_data.filter_type = "INSCRIPTION_MATERIALS"
-				end
-
-				if text_l:match("Permanently add(.+)") then
---					addon:Printf("%s: Enhancement", recipe_name)
---					recipe:SetItemFilterType("INSCRIPTION_ITEM_ENHANCEMENT")
-					scan_data.filter_type = "INSCRIPTION_ITEM_ENHANCEMENT"
-				end
-
-				if text_l == "Held In Off-hand" then
---					addon:Printf("%s: Book", recipe_name)
---					recipe:SetItemFilterType("INSCRIPTION_OFF_HAND")
-					scan_data.filter_type = "INSCRIPTION_OFF_HAND"
-				end
-
-				if text_r and text_r:match("Staff") then
---					addon:Printf("%s: Staff", recipe_name)
---					recipe:SetItemFilterType("INSCRIPTION_STAFF")
-					scan_data.filter_type = "INSCRIPTION_STAFF"
+					if not scan_data.filter_type and text_r and text_r:match("Staff") then
+						scan_data.filter_type = "INSCRIPTION_STAFF"
+					end
 				end
 			end
 
 			for stat, roles in pairs(ROLE_STAT_MATCHES) do
-				for match_index = 1, #MATCH_FORMATS do
-					if text:match(MATCH_FORMATS[match_index]:format(stat)) then
+				for match_index = 1, #ROLE_STAT_MATCH_FORMATS do
+					if text:match(ROLE_STAT_MATCH_FORMATS[match_index]:format(stat)) then
 						for role_index = 1, #roles do
 							scan_data[roles[role_index]] = true
 						end
@@ -1777,13 +1761,15 @@ do
 
 		if scan_data.filter_type then
 			local recipe_filter = recipe:ItemFilterType()
-			recipe_filter = recipe_filter and recipe_filter:upper()
 
-			print(("recipe_filter: %s - scan_data.filter_type: %s"):format(recipe_filter or "NONE", scan_data.filter_type))
+			if recipe_filter then
+				recipe_filter = recipe_filter:upper()
+			end
 
-			if not recipe_filter or recipe_filter:upper() ~= scan_data.filter_type then
-				table.insert(missing_flags, ("Wrong filter type: %s - should be %s."):format(recipe_filter, scan_data.filter_type))
+			if recipe_filter ~= scan_data.filter_type then
+				table.insert(missing_flags, ("Wrong filter type: %s - should be %s."):format(recipe_filter or "NONE", scan_data.filter_type))
 				recipe:SetItemFilterType(scan_data.filter_type)
+				scan_data.filter_type = nil
 			end
 		end
 
