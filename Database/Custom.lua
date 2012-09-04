@@ -34,7 +34,12 @@ private.custom_list	= {}
 
 function addon:InitCustom()
 	local function AddCustom(identifier, zone_id, coord_x, coord_y, faction)
-		private:AddListEntry(private.custom_list, identifier, L[identifier], _G.GetMapNameByID(zone_id), coord_x, coord_y, nil)
+		local zone_name
+
+		if zone_id then
+			zone_name = _G.GetMapNameByID(zone_id)
+		end
+		private:AddListEntry(private.custom_list, identifier, L[identifier], zone_name, coord_x, coord_y, nil)
 	end
 	AddCustom("DAILY_COOKING_MEAT", Z.SHATTRATH_CITY)
 	AddCustom("DAILY_COOKING_FISH", Z.SHATTRATH_CITY)
