@@ -4983,3 +4983,22 @@ function addon:InitBlacksmithing()
 
 	self.InitBlacksmithing = nil
 end
+
+
+--[[------------------------------------------------------------------------------------------------------------------
+-- ADD WHEN MOP IS RELEASED
+
+	-- Socket Bracer -- 113263
+	recipe = AddRecipe(113263, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(550, 550, 550, 550, 550)
+	recipe:SetItemFilterType("BLACKSMITHING_ITEM_ENHANCEMENT")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	recipe:AddTrainer(2998, 3174, 3355, 5511, 7230, 7231, 11177, 11178, 20124, 20125, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 33609, 33631, 37072, 44781, 45548)
+
+	-- Socket Gloves -- 114112
+	recipe = AddRecipe(114112, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(550, 550, 550, 550, 550)
+	recipe:SetItemFilterType("BLACKSMITHING_ITEM_ENHANCEMENT")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	recipe:AddTrainer(2998, 3174, 3355, 5511, 7230, 7231, 11177, 11178, 20124, 20125, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 33609, 33631, 37072, 44781, 45548)
+-----------------------------------------------------------------------------------------------------------------------------------------]]

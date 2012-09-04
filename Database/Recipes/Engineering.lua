@@ -2533,7 +2533,7 @@ function addon:InitEngineering()
 
 	-- Synapse Springs -- 82175
 	recipe = AddRecipe(82175, V.CATA, Q.COMMON)
-	recipe:SetSkillLevels(425, 425, 425, 437, 450)
+	recipe:SetSkillLevels(450, 450, 450, 450, 450)
 	recipe:SetItemFilterType("ENGINEERING_ITEM_ENHANCEMENT")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOP, F.RBOP)
 	recipe:AddDiscovery("ENG_DISC")
@@ -2788,3 +2788,17 @@ function addon:InitEngineering()
 
 	self.InitEngineering = nil
 end
+
+
+
+--[[------------------------------------------------------------------------------------------------------------------
+-- ADD WHEN MOP IS RELEASED
+
+	-- Synapse Springs -- 126731
+	recipe = AddRecipe(126731, V.MOP, Q.COMMON)
+	recipe:SetPreviousRankID(82175)
+	recipe:SetSkillLevels(550, 550, 550, 550, 550)
+	recipe:SetItemFilterType("ENGINEERING_ITEM_ENHANCEMENT")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOP, F.RBOP)
+	recipe:AddDiscovery("ENG_DISC")
+----------------------------------------------------------------------------------------------------------------]]

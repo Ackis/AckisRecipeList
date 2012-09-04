@@ -5100,21 +5100,24 @@ function addon:InitLeatherworking()
 
 	-- Fur Lining - Stamina -- 85007
 	recipe = AddRecipe(85007, V.CATA, Q.COMMON)
-	recipe:SetSkillLevels(500, 500, 500, 500, 505)
+	recipe:SetPreviousRankID(57690)
+	recipe:SetSkillLevels(500, 500, 500, 500, 500)
 	recipe:SetItemFilterType("LEATHERWORKING_ITEM_ENHANCEMENT")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	recipe:AddTrainer(3007, 3365, 3967, 4212, 4588, 5127, 5564, 21087, 26998, 28700, 29507, 29509, 33581, 33612, 33635)
 
 	-- Fur Lining - Agility -- 85008
 	recipe = AddRecipe(85008, V.CATA, Q.COMMON)
-	recipe:SetSkillLevels(500, 500, 500, 500, 505)
+	recipe:SetPreviousRankID(57683)
+	recipe:SetSkillLevels(500, 500, 500, 500, 500)
 	recipe:SetItemFilterType("LEATHERWORKING_ITEM_ENHANCEMENT")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	recipe:AddTrainer(3007, 3365, 3967, 4212, 4588, 5127, 5564, 21087, 26998, 28700, 29507, 29509, 33581, 33612, 33635)
 
 	-- Fur Lining - Strength -- 85009
 	recipe = AddRecipe(85009, V.CATA, Q.COMMON)
-	recipe:SetSkillLevels(500, 500, 500, 500, 505)
+	recipe:SetPreviousRankID(124549)
+	recipe:SetSkillLevels(500, 500, 500, 500, 500)
 	recipe:SetItemFilterType("LEATHERWORKING_ITEM_ENHANCEMENT")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	recipe:AddTrainer(3007, 3365, 3967, 4212, 4588, 5127, 5564, 21087, 26998, 28700, 29507, 29509, 33581, 33612, 33635)
@@ -5313,6 +5316,13 @@ function addon:InitLeatherworking()
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOE, F.DPS, F.HEALER, F.CASTER)
 	recipe:AddCustom("DRAGONSOUL_RANDOM")
 
+	-- Fur Lining - Strength -- 124549
+	recipe = AddRecipe(124549, V.CATA, Q.COMMON)
+	recipe:SetSkillLevels(425, 425, 425, 430, 435)
+	recipe:SetItemFilterType("LEATHERWORKING_ITEM_ENHANCEMENT")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	recipe:AddTrainer(3007, 3365, 3967, 4212, 4588, 5127, 5564, 21087, 26998, 28700, 29507, 29509, 33581, 33612, 33635)
+	
 	-- Primal Leg Reinforcements -- 124559
 	recipe = AddRecipe(124559, V.CATA, Q.COMMON)
 	recipe:SetPreviousRankID(124564)
@@ -5385,3 +5395,39 @@ function addon:InitLeatherworking()
 	self.InitLeatherworking = nil
 end
 
+
+--[[------------------------------------------------------------------------------------------------------------------
+-- ADD WHEN MOP IS RELEASED
+
+	-- Fur Lining - Agility -- 124551
+	recipe = AddRecipe(124551, V.MOP, Q.COMMON)
+	recipe:SetPreviousRankID(85008)
+	recipe:SetSkillLevels(575, 575, 575, 575, 575)
+	recipe:SetItemFilterType("LEATHERWORKING_ITEM_ENHANCEMENT")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	recipe:AddTrainer(3007, 3365, 3967, 4212, 4588, 5127, 5564, 21087, 26998, 28700, 29507, 29509, 33581, 33612, 33635)
+
+	-- Fur Lining - Stamina -- 124553
+	recipe = AddRecipe(124553, V.MOP, Q.COMMON)
+	recipe:SetPreviousRankID(85007)
+	recipe:SetSkillLevels(575, 575, 575, 575, 575)
+	recipe:SetItemFilterType("LEATHERWORKING_ITEM_ENHANCEMENT")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	recipe:AddTrainer(3007, 3365, 3967, 4212, 4588, 5127, 5564, 21087, 26998, 28700, 29507, 29509, 33581, 33612, 33635)
+
+	-- Fur Lining - Intellect -- 124552
+	recipe = AddRecipe(124552, V.MOP, Q.COMMON)
+	recipe:SetPreviousRankID(85010)
+	recipe:SetSkillLevels(575, 575, 575, 575, 575)
+	recipe:SetItemFilterType("LEATHERWORKING_ITEM_ENHANCEMENT")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	recipe:AddTrainer(3007, 3365, 3967, 4212, 4588, 5127, 5564, 21087, 26998, 28700, 29507, 29509, 33581, 33612, 33635)
+
+	-- Fur Lining - Strength -- 124554
+	recipe = AddRecipe(124554, V.MOP, Q.COMMON)
+	recipe:SetPreviousRankID(85009)
+	recipe:SetSkillLevels(575, 575, 575, 575, 575)
+	recipe:SetItemFilterType("LEATHERWORKING_ITEM_ENHANCEMENT")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	recipe:AddTrainer(3007, 3365, 3967, 4212, 4588, 5127, 5564, 21087, 26998, 28700, 29507, 29509, 33581, 33612, 33635)
+-----------------------------------------------------------------------------------------------------------------------------------------]]
