@@ -31,6 +31,7 @@ local Q = private.ITEM_QUALITIES
 local REP = private.REP_LEVELS
 local FAC = private.FACTION_IDS
 local V = private.GAME_VERSIONS
+local Z = private.ZONE_NAMES
 
 --------------------------------------------------------------------------------------------------------------------
 -- Initialize!
@@ -228,7 +229,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(160, 160, 190, 205, 220)
 	recipe:SetItemFilterType("JEWELCRAFTING_NECK")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- The Jade Eye -- 25619
 	recipe = AddRecipe(25619, V.TBC, Q.COMMON)
@@ -262,7 +263,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(190, 190, 220, 235, 250)
 	recipe:SetItemFilterType("JEWELCRAFTING_NECK")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Figurine - Jade Owl -- 26872
 	recipe = AddRecipe(26872, V.TBC, Q.COMMON)
@@ -279,7 +280,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(200, 200, 225, 240, 255)
 	recipe:SetItemFilterType("JEWELCRAFTING_TRINKET")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOP, F.RBOE)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Aquamarine Signet -- 26874
 	recipe = AddRecipe(26874, V.TBC, Q.COMMON)
@@ -340,7 +341,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(235, 235, 260, 275, 290)
 	recipe:SetItemFilterType("JEWELCRAFTING_TRINKET")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOP, F.RBOE, F.DPS)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Ruby Pendant of Fire -- 26883
 	recipe = AddRecipe(26883, V.TBC, Q.COMMON)
@@ -365,7 +366,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(245, 245, 270, 285, 300)
 	recipe:SetItemFilterType("JEWELCRAFTING_RING")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.TANK)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Gem Studded Band -- 26896
 	recipe = AddRecipe(26896, V.TBC, Q.UNCOMMON)
@@ -374,7 +375,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(250, 250, 275, 290, 305)
 	recipe:SetItemFilterType("JEWELCRAFTING_RING")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Opal Necklace of Impact -- 26897
 	recipe = AddRecipe(26897, V.TBC, Q.COMMON)
@@ -392,7 +393,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(260, 260, 280, 290, 300)
 	recipe:SetItemFilterType("JEWELCRAFTING_TRINKET")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOP, F.RBOE, F.HEALER, F.CASTER)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Simple Opal Ring -- 26902
 	recipe = AddRecipe(26902, V.TBC, Q.COMMON)
@@ -442,7 +443,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(285, 285, 295, 305, 315)
 	recipe:SetItemFilterType("JEWELCRAFTING_TRINKET")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOP, F.RBOE, F.HEALER, F.CASTER)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Ring of Bitter Shadows -- 26910
 	recipe = AddRecipe(26910, V.TBC, Q.COMMON)
@@ -697,7 +698,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(315, 315, 315, 335, 355)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_BLUE")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
-	recipe:AddWorldDrop("Outland")
+	recipe:AddWorldDrop(Z.OUTLAND)
 
 	-- Fel Iron Blood Ring -- 31048
 	recipe = AddRecipe(31048, V.TBC, Q.COMMON)
@@ -791,7 +792,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(345, 345, 355, 365, 375)
 	recipe:SetItemFilterType("JEWELCRAFTING_RING")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS)
-	recipe:AddWorldDrop("Outland")
+	recipe:AddWorldDrop(Z.OUTLAND)
 
 	-- Delicate Eternium Ring -- 31060
 	recipe = AddRecipe(31060, V.TBC, Q.RARE)
@@ -800,7 +801,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(355, 355, 365, 375, 385)
 	recipe:SetItemFilterType("JEWELCRAFTING_RING")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.TANK)
-	recipe:AddWorldDrop("Outland")
+	recipe:AddWorldDrop(Z.OUTLAND)
 
 	-- Blazing Eternium Band -- 31061
 	recipe = AddRecipe(31061, V.TBC, Q.RARE)
@@ -809,7 +810,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(365, 365, 375, 377, 380)
 	recipe:SetItemFilterType("JEWELCRAFTING_RING")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	recipe:AddWorldDrop("Outland")
+	recipe:AddWorldDrop(Z.OUTLAND)
 
 	-- Pendant of Frozen Flame -- 31062
 	recipe = AddRecipe(31062, V.TBC, Q.RARE)
@@ -863,7 +864,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(355, 355, 365, 375, 385)
 	recipe:SetItemFilterType("JEWELCRAFTING_NECK")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
-	recipe:AddWorldDrop("Outland")
+	recipe:AddWorldDrop(Z.OUTLAND)
 
 	-- Living Ruby Pendant -- 31068
 	recipe = AddRecipe(31068, V.TBC, Q.RARE)
@@ -872,7 +873,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(355, 355, 365, 375, 385)
 	recipe:SetItemFilterType("JEWELCRAFTING_NECK")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	recipe:AddWorldDrop("Outland")
+	recipe:AddWorldDrop(Z.OUTLAND)
 
 	-- Braided Eternium Chain -- 31070
 	recipe = AddRecipe(31070, V.TBC, Q.RARE)
@@ -881,7 +882,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(360, 360, 370, 377, 385)
 	recipe:SetItemFilterType("JEWELCRAFTING_NECK")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.CASTER)
-	recipe:AddWorldDrop("Outland")
+	recipe:AddWorldDrop(Z.OUTLAND)
 
 	-- Eye of the Night -- 31071
 	recipe = AddRecipe(31071, V.TBC, Q.RARE)
@@ -890,7 +891,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(360, 360, 370, 375, 380)
 	recipe:SetItemFilterType("JEWELCRAFTING_NECK")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.HEALER, F.CASTER)
-	recipe:AddWorldDrop("Outland")
+	recipe:AddWorldDrop(Z.OUTLAND)
 
 	-- Embrace of the Dawn -- 31072
 	recipe = AddRecipe(31072, V.TBC, Q.RARE)
@@ -899,7 +900,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(365, 365, 375, 380, 385)
 	recipe:SetItemFilterType("JEWELCRAFTING_NECK")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	recipe:AddWorldDrop("Outland")
+	recipe:AddWorldDrop(Z.OUTLAND)
 
 	-- Chain of the Twilight Owl -- 31076
 	recipe = AddRecipe(31076, V.TBC, Q.RARE)
@@ -908,7 +909,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(365, 365, 375, 380, 385)
 	recipe:SetItemFilterType("JEWELCRAFTING_NECK")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.TANK, F.HEALER, F.CASTER)
-	recipe:AddWorldDrop("Outland")
+	recipe:AddWorldDrop(Z.OUTLAND)
 
 	-- Coronet of Verdant Flame -- 31077
 	recipe = AddRecipe(31077, V.TBC, Q.EPIC)
@@ -981,7 +982,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(350, 350, 350, 365, 380)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_RED")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS)
-	recipe:AddWorldDrop("Outland")
+	recipe:AddWorldDrop(Z.OUTLAND)
 
 	-- Delicate Living Ruby -- 31085
 	recipe = AddRecipe(31085, V.TBC, Q.RARE)
@@ -990,7 +991,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(350, 350, 350, 365, 380)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_RED")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS)
-	recipe:AddWorldDrop("Outland")
+	recipe:AddWorldDrop(Z.OUTLAND)
 
 	-- Brilliant Living Ruby -- 31088
 	recipe = AddRecipe(31088, V.TBC, Q.RARE)
@@ -1000,7 +1001,7 @@ function addon:InitJewelcrafting()
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_RED")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.MOB_DROP, F.IBOE, F.RBOE, F.RBOP, F.HEALER, F.CASTER)
 	recipe:AddMobDrop(24664)
-	recipe:AddWorldDrop("Outland")
+	recipe:AddWorldDrop(Z.OUTLAND)
 
 	-- Subtle Dawnstone -- 31090
 	recipe = AddRecipe(31090, V.TBC, Q.RARE)
@@ -1009,7 +1010,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(350, 350, 350, 365, 380)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_YELLOW")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.TANK)
-	recipe:AddWorldDrop("Outland")
+	recipe:AddWorldDrop(Z.OUTLAND)
 
 	-- Flashing Living Ruby -- 31091
 	recipe = AddRecipe(31091, V.TBC, Q.RARE)
@@ -1018,7 +1019,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(350, 350, 350, 365, 380)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_RED")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.TANK)
-	recipe:AddWorldDrop("Outland")
+	recipe:AddWorldDrop(Z.OUTLAND)
 
 	-- Solid Star of Elune -- 31092
 	recipe = AddRecipe(31092, V.TBC, Q.RARE)
@@ -1028,7 +1029,7 @@ function addon:InitJewelcrafting()
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_BLUE")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.MOB_DROP, F.IBOE, F.RBOE, F.RBOP)
 	recipe:AddMobDrop(24664)
-	recipe:AddWorldDrop("Outland")
+	recipe:AddWorldDrop(Z.OUTLAND)
 
 	-- Stormy Star of Elune -- 31095
 	recipe = AddRecipe(31095, V.TBC, Q.RARE)
@@ -1037,7 +1038,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(350, 350, 350, 365, 380)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_BLUE")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
-	recipe:AddWorldDrop("Outland")
+	recipe:AddWorldDrop(Z.OUTLAND)
 
 	-- Smooth Dawnstone -- 31097
 	recipe = AddRecipe(31097, V.TBC, Q.RARE)
@@ -1046,7 +1047,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(350, 350, 350, 365, 380)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_YELLOW")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.HEALER, F.CASTER)
-	recipe:AddWorldDrop("Outland")
+	recipe:AddWorldDrop(Z.OUTLAND)
 
 	-- Rigid Star of Elune -- 31098
 	recipe = AddRecipe(31098, V.TBC, Q.RARE)
@@ -1056,7 +1057,7 @@ function addon:InitJewelcrafting()
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_BLUE")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.MOB_DROP, F.IBOE, F.RBOE, F.RBOP, F.DPS, F.CASTER)
 	recipe:AddMobDrop(24664)
-	recipe:AddWorldDrop("Outland")
+	recipe:AddWorldDrop(Z.OUTLAND)
 
 	-- Mystic Dawnstone -- 31101
 	recipe = AddRecipe(31101, V.TBC, Q.RARE)
@@ -1074,7 +1075,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(350, 350, 350, 365, 380)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_PURPLE")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS)
-	recipe:AddWorldDrop("Outland")
+	recipe:AddWorldDrop(Z.OUTLAND)
 
 	-- Shifting Nightseye -- 31103
 	recipe = AddRecipe(31103, V.TBC, Q.RARE)
@@ -1083,7 +1084,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(350, 350, 350, 365, 380)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_PURPLE")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS)
-	recipe:AddWorldDrop("Outland")
+	recipe:AddWorldDrop(Z.OUTLAND)
 
 	-- Timeless Nightseye -- 31104
 	recipe = AddRecipe(31104, V.TBC, Q.RARE)
@@ -1092,7 +1093,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(350, 350, 350, 365, 380)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_PURPLE")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	recipe:AddWorldDrop("Outland")
+	recipe:AddWorldDrop(Z.OUTLAND)
 
 	-- Inscribed Noble Topaz -- 31106
 	recipe = AddRecipe(31106, V.TBC, Q.RARE)
@@ -1101,7 +1102,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(350, 350, 350, 365, 380)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_ORANGE")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.HEALER, F.CASTER)
-	recipe:AddWorldDrop("Outland")
+	recipe:AddWorldDrop(Z.OUTLAND)
 
 	-- Potent Noble Topaz -- 31107
 	recipe = AddRecipe(31107, V.TBC, Q.RARE)
@@ -1110,7 +1111,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(350, 350, 350, 365, 380)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_ORANGE")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.HEALER, F.CASTER)
-	recipe:AddWorldDrop("Outland")
+	recipe:AddWorldDrop(Z.OUTLAND)
 
 	-- Reckless Noble Topaz -- 31108
 	recipe = AddRecipe(31108, V.TBC, Q.RARE)
@@ -1119,7 +1120,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(350, 350, 350, 365, 380)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_ORANGE")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.HEALER, F.CASTER)
-	recipe:AddWorldDrop("Outland")
+	recipe:AddWorldDrop(Z.OUTLAND)
 
 	-- Glinting Nightseye -- 31109
 	recipe = AddRecipe(31109, V.TBC, Q.RARE)
@@ -1128,7 +1129,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(350, 350, 350, 365, 380)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_PURPLE")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.CASTER)
-	recipe:AddWorldDrop("Outland")
+	recipe:AddWorldDrop(Z.OUTLAND)
 
 	-- Radiant Talasite -- 31111
 	recipe = AddRecipe(31111, V.TBC, Q.RARE)
@@ -1137,7 +1138,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(350, 350, 350, 365, 380)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_GREEN")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.HEALER, F.CASTER)
-	recipe:AddWorldDrop("Outland")
+	recipe:AddWorldDrop(Z.OUTLAND)
 
 	-- Purified Nightseye -- 31112
 	recipe = AddRecipe(31112, V.TBC, Q.RARE)
@@ -1146,7 +1147,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(350, 350, 350, 365, 380)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_PURPLE")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	recipe:AddWorldDrop("Outland")
+	recipe:AddWorldDrop(Z.OUTLAND)
 
 	-- Jagged Talasite -- 31113
 	recipe = AddRecipe(31113, V.TBC, Q.RARE)
@@ -1155,7 +1156,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(350, 350, 350, 365, 380)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_GREEN")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.HEALER, F.CASTER)
-	recipe:AddWorldDrop("Outland")
+	recipe:AddWorldDrop(Z.OUTLAND)
 
 	-- Sparkling Star of Elune -- 31149
 	recipe = AddRecipe(31149, V.TBC, Q.RARE)
@@ -1164,7 +1165,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(350, 350, 350, 365, 380)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_BLUE")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	recipe:AddWorldDrop("Outland")
+	recipe:AddWorldDrop(Z.OUTLAND)
 
 	-- Malachite Pendant -- 32178
 	recipe = AddRecipe(32178, V.TBC, Q.COMMON)
@@ -1247,7 +1248,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(365, 365, 375, 377, 380)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_META")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.TANK)
-	recipe:AddWorldDrop("Outland")
+	recipe:AddWorldDrop(Z.OUTLAND)
 
 	-- Brutal Earthstorm Diamond -- 32869
 	recipe = AddRecipe(32869, V.TBC, Q.RARE)
@@ -1256,7 +1257,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(365, 365, 375, 377, 380)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_META")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
-	recipe:AddWorldDrop("Outland")
+	recipe:AddWorldDrop(Z.OUTLAND)
 
 	-- Insightful Earthstorm Diamond -- 32870
 	recipe = AddRecipe(32870, V.TBC, Q.COMMON)
@@ -1274,7 +1275,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(365, 365, 375, 377, 380)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_META")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.HEALER, F.CASTER)
-	recipe:AddWorldDrop("Outland")
+	recipe:AddWorldDrop(Z.OUTLAND)
 
 	-- Mystical Skyfire Diamond -- 32872
 	recipe = AddRecipe(32872, V.TBC, Q.RARE)
@@ -1283,7 +1284,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(365, 365, 375, 377, 380)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_META")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
-	recipe:AddWorldDrop("Outland")
+	recipe:AddWorldDrop(Z.OUTLAND)
 
 	-- Swift Skyfire Diamond -- 32873
 	recipe = AddRecipe(32873, V.TBC, Q.COMMON)
@@ -1452,7 +1453,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(350, 350, 350, 365, 380)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_PURPLE")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.HEALER, F.CASTER)
-	recipe:AddWorldDrop("Outland")
+	recipe:AddWorldDrop(Z.OUTLAND)
 
 	-- Deadly Noble Topaz -- 39471
 	recipe = AddRecipe(39471, V.TBC, Q.RARE)
@@ -1461,7 +1462,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(350, 350, 350, 365, 380)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_ORANGE")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.HEALER, F.CASTER)
-	recipe:AddWorldDrop("Outland")
+	recipe:AddWorldDrop(Z.OUTLAND)
 
 	-- Bold Crimson Spinel -- 39705
 	recipe = AddRecipe(39705, V.TBC, Q.COMMON)
@@ -1709,7 +1710,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(365, 365, 375, 377, 380)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_META")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
-	recipe:AddWorldDrop("Outland")
+	recipe:AddWorldDrop(Z.OUTLAND)
 
 	-- Necklace of the Deep -- 40514
 	recipe = AddRecipe(40514, V.TBC, Q.COMMON)
@@ -2539,7 +2540,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(390, 390, 410, 425, 440)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_PURPLE")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS)
-	recipe:AddWorldDrop("Northrend")
+	recipe:AddWorldDrop(Z.NORTHREND)
 
 	-- Shifting Twilight Opal -- 53963
 	recipe = AddRecipe(53963, V.WOTLK, Q.RARE)
@@ -2566,7 +2567,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(390, 390, 410, 425, 440)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_PURPLE")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	recipe:AddWorldDrop("Northrend")
+	recipe:AddWorldDrop(Z.NORTHREND)
 
 	-- Mysterious Twilight Opal -- 53968
 	recipe = AddRecipe(53968, V.WOTLK, Q.RARE)
@@ -2602,7 +2603,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(390, 390, 410, 425, 440)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_ORANGE")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.HEALER, F.CASTER)
-	recipe:AddWorldDrop("Northrend")
+	recipe:AddWorldDrop(Z.NORTHREND)
 
 	-- Etched Twilight Opal -- 53976
 	recipe = AddRecipe(53976, V.WOTLK, Q.RARE)
@@ -2611,7 +2612,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(390, 390, 410, 425, 440)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_PURPLE")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.CASTER)
-	recipe:AddWorldDrop("Northrend")
+	recipe:AddWorldDrop(Z.NORTHREND)
 
 	-- Champion's Monarch Topaz -- 53977
 	recipe = AddRecipe(53977, V.WOTLK, Q.RARE)
@@ -2620,7 +2621,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(390, 390, 410, 425, 440)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_ORANGE")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.TANK)
-	recipe:AddWorldDrop("Northrend")
+	recipe:AddWorldDrop(Z.NORTHREND)
 
 	-- Resplendent Monarch Topaz -- 53978
 	recipe = AddRecipe(53978, V.WOTLK, Q.RARE)
@@ -2774,7 +2775,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(390, 390, 410, 425, 440)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_GREEN")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.HEALER, F.CASTER, F.REPUTATION)
-	recipe:AddWorldDrop("Northrend")
+	recipe:AddWorldDrop(Z.NORTHREND)
 	recipe:AddRepVendor(FAC.ORACLES, REP.REVERED, 31910)
 
 	-- Turbid Forest Emerald -- 54005
@@ -2846,7 +2847,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(390, 390, 410, 425, 440)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_ORANGE")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.TANK)
-	recipe:AddWorldDrop("Northrend")
+	recipe:AddWorldDrop(Z.NORTHREND)
 
 	-- Shielded Skyflare Diamond -- 55384
 	recipe = AddRecipe(55384, V.WOTLK, Q.RARE)
@@ -2899,7 +2900,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(420, 420, 440, 450, 460)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_META")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.HEALER, F.CASTER)
-	recipe:AddWorldDrop("Northrend")
+	recipe:AddWorldDrop(Z.NORTHREND)
 
 	-- Ember Skyflare Diamond -- 55392
 	recipe = AddRecipe(55392, V.WOTLK, Q.RARE)
@@ -2934,7 +2935,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(420, 420, 440, 450, 460)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_META")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
-	recipe:AddWorldDrop("Northrend")
+	recipe:AddWorldDrop(Z.NORTHREND)
 
 	-- Insightful Earthsiege Diamond -- 55396
 	recipe = AddRecipe(55396, V.WOTLK, Q.RARE)
@@ -3022,7 +3023,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(420, 420, 440, 450, 460)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_META")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.HEALER, F.CASTER)
-	recipe:AddWorldDrop("Northrend")
+	recipe:AddWorldDrop(Z.NORTHREND)
 
 	-- Revitalizing Skyflare Diamond -- 55407
 	recipe = AddRecipe(55407, V.WOTLK, Q.RARE)
@@ -3945,7 +3946,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(425, 425, 450, 467, 485)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_RED")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Brilliant Carnelian -- 73225
 	recipe = AddRecipe(73225, V.CATA, Q.COMMON)
@@ -3985,7 +3986,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(425, 425, 450, 467, 485)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_BLUE")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Rigid Zephyrite -- 73230
 	recipe = AddRecipe(73230, V.CATA, Q.COMMON)
@@ -4001,7 +4002,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(425, 425, 450, 467, 485)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_YELLOW")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Smooth Alicite -- 73232
 	recipe = AddRecipe(73232, V.CATA, Q.COMMON)
@@ -4049,7 +4050,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(425, 425, 450, 467, 485)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_PURPLE")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Timeless Nightstone -- 73243
 	recipe = AddRecipe(73243, V.CATA, Q.COMMON)
@@ -4065,7 +4066,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(425, 425, 450, 467, 485)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_PURPLE")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Purified Nightstone -- 73245
 	recipe = AddRecipe(73245, V.CATA, Q.UNCOMMON)
@@ -4073,7 +4074,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(425, 425, 450, 467, 485)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_PURPLE")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Etched Nightstone -- 73246
 	recipe = AddRecipe(73246, V.CATA, Q.COMMON)
@@ -4097,7 +4098,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(425, 425, 450, 467, 485)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_PURPLE")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Veiled Nightstone -- 73249
 	recipe = AddRecipe(73249, V.CATA, Q.COMMON)
@@ -4121,7 +4122,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(425, 425, 450, 467, 485)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_ORANGE")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Inscribed Hessonite -- 73260
 	recipe = AddRecipe(73260, V.CATA, Q.UNCOMMON)
@@ -4129,7 +4130,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(425, 425, 450, 467, 485)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_ORANGE")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Deadly Hessonite -- 73262
 	recipe = AddRecipe(73262, V.CATA, Q.UNCOMMON)
@@ -4137,7 +4138,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(425, 425, 450, 467, 485)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_ORANGE")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Potent Hessonite -- 73263
 	recipe = AddRecipe(73263, V.CATA, Q.UNCOMMON)
@@ -4145,7 +4146,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(425, 425, 450, 467, 485)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_ORANGE")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Fierce Hessonite -- 73264
 	recipe = AddRecipe(73264, V.CATA, Q.UNCOMMON)
@@ -4153,7 +4154,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(425, 425, 450, 467, 485)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_ORANGE")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Deft Hessonite -- 73265
 	recipe = AddRecipe(73265, V.CATA, Q.UNCOMMON)
@@ -4161,7 +4162,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(425, 425, 450, 467, 485)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_ORANGE")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Reckless Hessonite -- 73266
 	recipe = AddRecipe(73266, V.CATA, Q.COMMON)
@@ -4193,7 +4194,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(425, 425, 450, 467, 485)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_ORANGE")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Artful Hessonite -- 73270
 	recipe = AddRecipe(73270, V.CATA, Q.COMMON)
@@ -4209,7 +4210,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(425, 425, 450, 467, 485)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_ORANGE")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Regal Jasper -- 73272
 	recipe = AddRecipe(73272, V.CATA, Q.UNCOMMON)
@@ -4217,7 +4218,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(425, 425, 450, 467, 485)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_GREEN")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Nimble Jasper -- 73273
 	recipe = AddRecipe(73273, V.CATA, Q.UNCOMMON)
@@ -4225,7 +4226,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(425, 425, 450, 467, 485)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_GREEN")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Jagged Jasper -- 73274
 	recipe = AddRecipe(73274, V.CATA, Q.COMMON)
@@ -4241,7 +4242,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(425, 425, 450, 467, 485)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_GREEN")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Steady Jasper -- 73276
 	recipe = AddRecipe(73276, V.CATA, Q.UNCOMMON)
@@ -4249,7 +4250,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(425, 425, 450, 467, 485)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_GREEN")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Forceful Jasper -- 73277
 	recipe = AddRecipe(73277, V.CATA, Q.UNCOMMON)
@@ -4257,7 +4258,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(425, 425, 450, 467, 485)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_GREEN")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Lightning Jasper -- 73278
 	recipe = AddRecipe(73278, V.CATA, Q.UNCOMMON)
@@ -4265,7 +4266,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(425, 425, 450, 467, 485)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_GREEN")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Puissant Jasper -- 73279
 	recipe = AddRecipe(73279, V.CATA, Q.COMMON)
@@ -4281,7 +4282,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(425, 425, 450, 467, 485)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_GREEN")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Sensei's Jasper -- 73281
 	recipe = AddRecipe(73281, V.CATA, Q.COMMON)
@@ -5036,7 +5037,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(450, 450, 480, 490, 500)
 	recipe:SetItemFilterType("JEWELCRAFTING_HEAD")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Jeweler's Sapphire Monocle -- 73626
 	recipe = AddRecipe(73626, V.CATA, Q.RARE)
@@ -5044,7 +5045,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(455, 455, 485, 495, 505)
 	recipe:SetItemFilterType("JEWELCRAFTING_HEAD")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Jeweler's Amber Monocle -- 73627
 	recipe = AddRecipe(73627, V.CATA, Q.RARE)
@@ -5052,7 +5053,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(460, 460, 490, 500, 510)
 	recipe:SetItemFilterType("JEWELCRAFTING_HEAD")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Willful Ember Topaz -- 95754
 	recipe = AddRecipe(95754, V.CATA, Q.RARE)
@@ -5093,7 +5094,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(490, 490, 515, 520, 525)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_META")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
-	recipe:AddWorldDrop("Deepholm", "Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.DEEPHOLM, Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Reverberating Shadowspirit Diamond -- 96256
 	recipe = AddRecipe(96256, V.CATA, Q.RARE)
@@ -5101,7 +5102,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(490, 490, 515, 520, 525)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_META")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
-	recipe:AddWorldDrop("Deepholm", "Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.DEEPHOLM, Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Burning Shadowspirit Diamond -- 96257
 	recipe = AddRecipe(96257, V.CATA, Q.RARE)
@@ -5109,7 +5110,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(490, 490, 515, 520, 525)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_META")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
-	recipe:AddWorldDrop("Deepholm", "Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.DEEPHOLM, Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Punisher's Band -- 98921
 	recipe = AddRecipe(98921, V.CATA, Q.EPIC)

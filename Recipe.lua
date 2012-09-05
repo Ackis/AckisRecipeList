@@ -23,7 +23,6 @@ local FOLDER_NAME, private = ...
 local LibStub = _G.LibStub
 local addon = LibStub("AceAddon-3.0"):GetAddon(private.addon_name)
 local L = LibStub("AceLocale-3.0"):GetLocale(private.addon_name)
-local BZ = LibStub("LibBabble-Zone-3.0"):GetLookupTable()
 local BFAC = LibStub("LibBabble-Faction-3.0"):GetLookupTable()
 
 local A = private.ACQUIRE_TYPES
@@ -376,7 +375,7 @@ function recipe_prototype:AddAcquireData(acquire_type, type_string, unit_list, .
 		else
 			local string_id = type(identifier) == "string"
 
-			location_name = string_id and BZ[identifier] or nil
+			location_name = string_id and identifier or nil
 
 			if location_name then
 				affiliation = "world_drop"

@@ -36,6 +36,7 @@ local Q = private.ITEM_QUALITIES
 local REP = private.REP_LEVELS
 local FAC = private.FACTION_IDS
 local V = private.GAME_VERSIONS
+local Z = private.ZONE_NAMES
 
 --------------------------------------------------------------------------------------------------------------------
 -- Initialize!
@@ -105,7 +106,7 @@ function addon:InitFirstAid()
 	recipe:SetCraftedItemID(6453)
 	recipe:SetSkillLevels(130, 130, 130, 165, 200)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Mageweave Bandage -- 10840
 	recipe = AddRecipe(10840, V.ORIG, Q.COMMON)
@@ -174,7 +175,7 @@ function addon:InitFirstAid()
 	recipe:SetSkillLevels(400, 400, 400, 430, 470)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.WORLD_DROP, F.IBOE, F.RBOP)
 	recipe:AddTrainer(2327, 2798, 4211, 4591, 5759, 5939, 5943, 19478, 26956, 28706, 29233, 33589, 33621, 45540, 49879)
-	recipe:AddWorldDrop("Northrend")
+	recipe:AddWorldDrop(Z.NORTHREND)
 
 	-- Embersilk Bandage -- 74556
 	recipe = AddRecipe(74556, V.CATA, Q.COMMON)

@@ -36,6 +36,7 @@ local Q = private.ITEM_QUALITIES
 local REP = private.REP_LEVELS
 local FAC = private.FACTION_IDS
 local V = private.GAME_VERSIONS
+local Z = private.ZONE_NAMES
 
 --------------------------------------------------------------------------------------------------------------------
 -- Initialize!
@@ -112,7 +113,7 @@ function addon:InitBlacksmithing()
 	recipe:SetSkillLevels(80, 80, 120, 140, 160)
 	recipe:SetItemFilterType("BLACKSMITHING_CHEST")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Rough Bronze Leggings -- 2668
 	recipe = AddRecipe(2668, V.ORIG, Q.COMMON)
@@ -145,7 +146,7 @@ function addon:InitBlacksmithing()
 	recipe:SetSkillLevels(130, 130, 160, 175, 190)
 	recipe:SetItemFilterType("BLACKSMITHING_CHEST")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.HEALER, F.CASTER)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Heavy Sharpening Stone -- 2674
 	recipe = AddRecipe(2674, V.ORIG, Q.COMMON)
@@ -266,7 +267,7 @@ function addon:InitBlacksmithing()
 	recipe:SetSkillLevels(125, 125, 155, 170, 195)
 	recipe:SetItemFilterType("BLACKSMITHING_DAGGER")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Heavy Bronze Mace -- 3296
 	recipe = AddRecipe(3296, V.ORIG, Q.COMMON)
@@ -283,7 +284,7 @@ function addon:InitBlacksmithing()
 	recipe:SetSkillLevels(145, 145, 175, 190, 205)
 	recipe:SetItemFilterType("BLACKSMITHING_ONE_HAND_MACE")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Copper Chain Boots -- 3319
 	recipe = AddRecipe(3319, V.ORIG, Q.COMMON)
@@ -308,7 +309,7 @@ function addon:InitBlacksmithing()
 	recipe:SetSkillLevels(35, 35, 75, 95, 115)
 	recipe:SetItemFilterType("BLACKSMITHING_CHEST")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Runed Copper Gauntlets -- 3323
 	recipe = AddRecipe(3323, V.ORIG, Q.COMMON)
@@ -333,7 +334,7 @@ function addon:InitBlacksmithing()
 	recipe:SetSkillLevels(60, 60, 100, 120, 140)
 	recipe:SetItemFilterType("BLACKSMITHING_HANDS")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.HEALER, F.CASTER)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Coarse Grinding Stone -- 3326
 	recipe = AddRecipe(3326, V.ORIG, Q.COMMON)
@@ -358,7 +359,7 @@ function addon:InitBlacksmithing()
 	recipe:SetSkillLevels(125, 125, 155, 170, 185)
 	recipe:SetItemFilterType("BLACKSMITHING_SHOULDER")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.HEALER, F.CASTER)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Silvered Bronze Boots -- 3331
 	recipe = AddRecipe(3331, V.ORIG, Q.COMMON)
@@ -383,7 +384,7 @@ function addon:InitBlacksmithing()
 	recipe:SetSkillLevels(145, 145, 175, 190, 205)
 	recipe:SetItemFilterType("BLACKSMITHING_FEET")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Green Iron Gauntlets -- 3336
 	recipe = AddRecipe(3336, V.ORIG, Q.UNCOMMON)
@@ -392,7 +393,7 @@ function addon:InitBlacksmithing()
 	recipe:SetSkillLevels(150, 150, 180, 195, 210)
 	recipe:SetItemFilterType("BLACKSMITHING_HANDS")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Heavy Grinding Stone -- 3337
 	recipe = AddRecipe(3337, V.ORIG, Q.COMMON)
@@ -426,7 +427,7 @@ function addon:InitBlacksmithing()
 	recipe:SetSkillLevels(175, 175, 200, 212, 225)
 	recipe:SetItemFilterType("BLACKSMITHING_ONE_HAND_SWORD")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Solid Iron Maul -- 3494
 	recipe = AddRecipe(3494, V.ORIG, Q.COMMON)
@@ -444,7 +445,7 @@ function addon:InitBlacksmithing()
 	recipe:SetSkillLevels(170, 170, 195, 207, 220)
 	recipe:SetItemFilterType("BLACKSMITHING_TWO_HAND_MACE")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Moonsteel Broadsword -- 3496
 	recipe = AddRecipe(3496, V.ORIG, Q.COMMON)
@@ -462,7 +463,7 @@ function addon:InitBlacksmithing()
 	recipe:SetSkillLevels(200, 200, 210, 215, 220)
 	recipe:SetItemFilterType("BLACKSMITHING_TWO_HAND_SWORD")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.HEALER, F.CASTER)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Massive Iron Axe -- 3498
 	recipe = AddRecipe(3498, V.ORIG, Q.COMMON)
@@ -480,7 +481,7 @@ function addon:InitBlacksmithing()
 	recipe:SetSkillLevels(200, 200, 225, 237, 250)
 	recipe:SetItemFilterType("BLACKSMITHING_TWO_HAND_AXE")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Green Iron Bracers -- 3501
 	recipe = AddRecipe(3501, V.ORIG, Q.COMMON)
@@ -514,7 +515,7 @@ function addon:InitBlacksmithing()
 	recipe:SetSkillLevels(160, 160, 185, 197, 210)
 	recipe:SetItemFilterType("BLACKSMITHING_SHOULDER")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Golden Scale Shoulders -- 3505
 	recipe = AddRecipe(3505, V.ORIG, Q.RARE)
@@ -523,7 +524,7 @@ function addon:InitBlacksmithing()
 	recipe:SetSkillLevels(175, 175, 200, 212, 225)
 	recipe:SetItemFilterType("BLACKSMITHING_SHOULDER")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Green Iron Leggings -- 3506
 	recipe = AddRecipe(3506, V.ORIG, Q.COMMON)
@@ -540,7 +541,7 @@ function addon:InitBlacksmithing()
 	recipe:SetSkillLevels(170, 170, 195, 207, 220)
 	recipe:SetItemFilterType("BLACKSMITHING_LEGS")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Green Iron Hauberk -- 3508
 	recipe = AddRecipe(3508, V.ORIG, Q.COMMON)
@@ -557,7 +558,7 @@ function addon:InitBlacksmithing()
 	recipe:SetSkillLevels(195, 195, 220, 232, 245)
 	recipe:SetItemFilterType("BLACKSMITHING_CHEST")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Polished Steel Boots -- 3513
 	recipe = AddRecipe(3513, V.ORIG, Q.UNCOMMON)
@@ -566,7 +567,7 @@ function addon:InitBlacksmithing()
 	recipe:SetSkillLevels(185, 185, 210, 222, 235)
 	recipe:SetItemFilterType("BLACKSMITHING_FEET")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Golden Scale Boots -- 3515
 	recipe = AddRecipe(3515, V.ORIG, Q.RARE)
@@ -575,7 +576,7 @@ function addon:InitBlacksmithing()
 	recipe:SetSkillLevels(200, 200, 210, 215, 220)
 	recipe:SetItemFilterType("BLACKSMITHING_FEET")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.HEALER, F.CASTER)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Pearl-handled Dagger -- 6517
 	recipe = AddRecipe(6517, V.ORIG, Q.COMMON)
@@ -592,7 +593,7 @@ function addon:InitBlacksmithing()
 	recipe:SetSkillLevels(140, 140, 170, 185, 200)
 	recipe:SetItemFilterType("BLACKSMITHING_ONE_HAND_MACE")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.HEALER, F.CASTER)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Iron Shield Spike -- 7221
 	recipe = AddRecipe(7221, V.ORIG, Q.UNCOMMON)
@@ -601,7 +602,7 @@ function addon:InitBlacksmithing()
 	recipe:SetSkillLevels(150, 150, 180, 195, 210)
 	recipe:SetItemFilterType("BLACKSMITHING_ITEM_ENHANCEMENT")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Iron Counterweight -- 7222
 	recipe = AddRecipe(7222, V.ORIG, Q.UNCOMMON)
@@ -610,7 +611,7 @@ function addon:InitBlacksmithing()
 	recipe:SetSkillLevels(165, 165, 190, 202, 215)
 	recipe:SetItemFilterType("BLACKSMITHING_ITEM_ENHANCEMENT")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.HEALER, F.CASTER)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Golden Scale Bracers -- 7223
 	recipe = AddRecipe(7223, V.ORIG, Q.COMMON)
@@ -627,7 +628,7 @@ function addon:InitBlacksmithing()
 	recipe:SetSkillLevels(190, 190, 215, 227, 240)
 	recipe:SetItemFilterType("BLACKSMITHING_ITEM_ENHANCEMENT")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Heavy Copper Maul -- 7408
 	recipe = AddRecipe(7408, V.ORIG, Q.COMMON)
@@ -778,7 +779,7 @@ function addon:InitBlacksmithing()
 	recipe:SetSkillLevels(210, 210, 230, 240, 250)
 	recipe:SetItemFilterType("BLACKSMITHING_LEGS")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Steel Plate Helm -- 9935
 	recipe = AddRecipe(9935, V.ORIG, Q.COMMON)
@@ -805,7 +806,7 @@ function addon:InitBlacksmithing()
 	recipe:SetSkillLevels(215, 215, 235, 245, 255)
 	recipe:SetItemFilterType("BLACKSMITHING_ITEM_ENHANCEMENT")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Ornate Mithril Pants -- 9945
 	recipe = AddRecipe(9945, V.ORIG, Q.UNCOMMON)
@@ -873,7 +874,7 @@ function addon:InitBlacksmithing()
 	recipe:SetSkillLevels(235, 235, 255, 265, 275)
 	recipe:SetItemFilterType("BLACKSMITHING_ITEM_ENHANCEMENT")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Mithril Scale Shoulders -- 9966
 	recipe = AddRecipe(9966, V.ORIG, Q.RARE)
@@ -882,7 +883,7 @@ function addon:InitBlacksmithing()
 	recipe:SetSkillLevels(235, 235, 255, 265, 275)
 	recipe:SetItemFilterType("BLACKSMITHING_SHOULDER")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Heavy Mithril Boots -- 9968
 	recipe = AddRecipe(9968, V.ORIG, Q.COMMON)
@@ -899,7 +900,7 @@ function addon:InitBlacksmithing()
 	recipe:SetSkillLevels(245, 245, 255, 265, 275)
 	recipe:SetItemFilterType("BLACKSMITHING_HEAD")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Ornate Mithril Breastplate -- 9972
 	recipe = AddRecipe(9972, V.ORIG, Q.UNCOMMON)
@@ -980,7 +981,7 @@ function addon:InitBlacksmithing()
 	recipe:SetSkillLevels(220, 220, 245, 257, 270)
 	recipe:SetItemFilterType("BLACKSMITHING_ONE_HAND_AXE")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Wicked Mithril Blade -- 9997
 	recipe = AddRecipe(9997, V.ORIG, Q.UNCOMMON)
@@ -989,7 +990,7 @@ function addon:InitBlacksmithing()
 	recipe:SetSkillLevels(225, 225, 250, 262, 275)
 	recipe:SetItemFilterType("BLACKSMITHING_ONE_HAND_SWORD")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOP, F.DPS, F.HEALER, F.CASTER)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Big Black Mace -- 10001
 	recipe = AddRecipe(10001, V.ORIG, Q.COMMON)
@@ -1014,7 +1015,7 @@ function addon:InitBlacksmithing()
 	recipe:SetSkillLevels(240, 240, 265, 277, 290)
 	recipe:SetItemFilterType("BLACKSMITHING_ONE_HAND_SWORD")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Phantom Blade -- 10007
 	recipe = AddRecipe(10007, V.ORIG, Q.RARE)
@@ -1023,7 +1024,7 @@ function addon:InitBlacksmithing()
 	recipe:SetSkillLevels(270, 270, 270, 282, 295)
 	recipe:SetItemFilterType("BLACKSMITHING_ONE_HAND_SWORD")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.INSTANCE, F.IBOE, F.RBOP)
-	recipe:AddWorldDrop("Stratholme")
+	recipe:AddWorldDrop(Z.STRATHOLME)
 
 	-- Runed Mithril Hammer -- 10009
 	recipe = AddRecipe(10009, V.ORIG, Q.RARE)
@@ -1032,7 +1033,7 @@ function addon:InitBlacksmithing()
 	recipe:SetSkillLevels(245, 245, 270, 282, 295)
 	recipe:SetItemFilterType("BLACKSMITHING_ONE_HAND_MACE")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Blight -- 10011
 	recipe = AddRecipe(10011, V.ORIG, Q.COMMON)
@@ -1084,7 +1085,7 @@ function addon:InitBlacksmithing()
 	recipe:SetSkillLevels(155, 155, 180, 192, 205)
 	recipe:SetItemFilterType("BLACKSMITHING_LEGS")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.HEALER, F.CASTER)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Rough Copper Vest -- 12260
 	recipe = AddRecipe(12260, V.ORIG, Q.COMMON)
@@ -1154,7 +1155,7 @@ function addon:InitBlacksmithing()
 	recipe:SetSkillLevels(190, 190, 215, 227, 240)
 	recipe:SetItemFilterType("BLACKSMITHING_DAGGER")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Dense Grinding Stone -- 16639
 	recipe = AddRecipe(16639, V.ORIG, Q.COMMON)
@@ -1211,7 +1212,7 @@ function addon:InitBlacksmithing()
 	recipe:SetSkillLevels(260, 260, 280, 290, 300)
 	recipe:SetItemFilterType("BLACKSMITHING_WAIST")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.CASTER)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Imperial Plate Shoulders -- 16646
 	recipe = AddRecipe(16646, V.ORIG, Q.UNCOMMON)
@@ -1238,7 +1239,7 @@ function addon:InitBlacksmithing()
 	recipe:SetSkillLevels(270, 270, 290, 300, 310)
 	recipe:SetItemFilterType("BLACKSMITHING_CHEST")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.CASTER)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Imperial Plate Bracers -- 16649
 	recipe = AddRecipe(16649, V.ORIG, Q.UNCOMMON)
@@ -1256,7 +1257,7 @@ function addon:InitBlacksmithing()
 	recipe:SetSkillLevels(270, 270, 290, 300, 310)
 	recipe:SetItemFilterType("BLACKSMITHING_CHEST")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Thorium Shield Spike -- 16651
 	recipe = AddRecipe(16651, V.ORIG, Q.UNCOMMON)
@@ -1265,7 +1266,7 @@ function addon:InitBlacksmithing()
 	recipe:SetSkillLevels(275, 275, 295, 305, 315)
 	recipe:SetItemFilterType("BLACKSMITHING_ITEM_ENHANCEMENT")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Thorium Boots -- 16652
 	recipe = AddRecipe(16652, V.ORIG, Q.COMMON)
@@ -1290,7 +1291,7 @@ function addon:InitBlacksmithing()
 	recipe:SetSkillLevels(285, 285, 305, 315, 325)
 	recipe:SetItemFilterType("BLACKSMITHING_HANDS")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Fiery Plate Gauntlets -- 16655
 	recipe = AddRecipe(16655, V.ORIG, Q.RARE)
@@ -1308,7 +1309,7 @@ function addon:InitBlacksmithing()
 	recipe:SetSkillLevels(290, 290, 310, 320, 330)
 	recipe:SetItemFilterType("BLACKSMITHING_FEET")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Imperial Plate Boots -- 16657
 	recipe = AddRecipe(16657, V.ORIG, Q.UNCOMMON)
@@ -1335,7 +1336,7 @@ function addon:InitBlacksmithing()
 	recipe:SetSkillLevels(295, 295, 315, 325, 335)
 	recipe:SetItemFilterType("BLACKSMITHING_HEAD")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Dawnbringer Shoulders -- 16660
 	recipe = AddRecipe(16660, V.ORIG, Q.RARE)
@@ -1344,7 +1345,7 @@ function addon:InitBlacksmithing()
 	recipe:SetSkillLevels(290, 290, 310, 320, 330)
 	recipe:SetItemFilterType("BLACKSMITHING_SHOULDER")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Storm Gauntlets -- 16661
 	recipe = AddRecipe(16661, V.ORIG, Q.RARE)
@@ -1354,7 +1355,7 @@ function addon:InitBlacksmithing()
 	recipe:SetItemFilterType("BLACKSMITHING_HANDS")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
 	recipe:AddVendor(11278)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Thorium Leggings -- 16662
 	recipe = AddRecipe(16662, V.ORIG, Q.COMMON)
@@ -1407,7 +1408,7 @@ function addon:InitBlacksmithing()
 	recipe:SetSkillLevels(300, 300, 320, 330, 340)
 	recipe:SetItemFilterType("BLACKSMITHING_HEAD")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Radiant Leggings -- 16725
 	recipe = AddRecipe(16725, V.ORIG, Q.UNCOMMON)
@@ -1416,7 +1417,7 @@ function addon:InitBlacksmithing()
 	recipe:SetSkillLevels(300, 300, 320, 330, 340)
 	recipe:SetItemFilterType("BLACKSMITHING_LEGS")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Runic Plate Helm -- 16726
 	recipe = AddRecipe(16726, V.ORIG, Q.UNCOMMON)
@@ -1434,7 +1435,7 @@ function addon:InitBlacksmithing()
 	recipe:SetSkillLevels(300, 300, 320, 330, 340)
 	recipe:SetItemFilterType("BLACKSMITHING_HEAD")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Lionheart Helm -- 16729
 	recipe = AddRecipe(16729, V.ORIG, Q.EPIC)
@@ -1443,7 +1444,7 @@ function addon:InitBlacksmithing()
 	recipe:SetSkillLevels(300, 300, 320, 330, 340)
 	recipe:SetItemFilterType("BLACKSMITHING_HEAD")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Imperial Plate Leggings -- 16730
 	recipe = AddRecipe(16730, V.ORIG, Q.UNCOMMON)
@@ -1479,7 +1480,7 @@ function addon:InitBlacksmithing()
 	recipe:SetSkillLevels(300, 300, 320, 330, 340)
 	recipe:SetItemFilterType("BLACKSMITHING_HANDS")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.TANK, F.HEALER, F.CASTER)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Enchanted Thorium Helm -- 16742
 	recipe = AddRecipe(16742, V.ORIG, Q.RARE)
@@ -1515,7 +1516,7 @@ function addon:InitBlacksmithing()
 	recipe:SetSkillLevels(300, 300, 320, 330, 340)
 	recipe:SetItemFilterType("BLACKSMITHING_CHEST")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.TANK)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Ornate Thorium Handaxe -- 16969
 	recipe = AddRecipe(16969, V.ORIG, Q.UNCOMMON)
@@ -2018,7 +2019,7 @@ function addon:InitBlacksmithing()
 	recipe:SetSkillLevels(300, 300, 320, 330, 340)
 	recipe:SetItemFilterType("BLACKSMITHING_LEGS")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.HEALER, F.CASTER)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Persuader -- 27830
 	recipe = AddRecipe(27830, V.ORIG, Q.EPIC)
@@ -2027,7 +2028,7 @@ function addon:InitBlacksmithing()
 	recipe:SetSkillLevels(300, 300, 320, 330, 340)
 	recipe:SetItemFilterType("BLACKSMITHING_ONE_HAND_MACE")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.HEALER, F.CASTER)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Sageblade -- 27832
 	recipe = AddRecipe(27832, V.ORIG, Q.EPIC)
@@ -2036,7 +2037,7 @@ function addon:InitBlacksmithing()
 	recipe:SetSkillLevels(300, 300, 320, 330, 340)
 	recipe:SetItemFilterType("BLACKSMITHING_ONE_HAND_SWORD")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Icebane Breastplate -- 28242
 	recipe = AddRecipe(28242, V.ORIG, Q.EPIC)
@@ -2358,7 +2359,7 @@ function addon:InitBlacksmithing()
 	recipe:SetSkillLevels(365, 365, 375, 385, 395)
 	recipe:SetItemFilterType("BLACKSMITHING_HANDS")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.TANK)
-	recipe:AddWorldDrop("Outland")
+	recipe:AddWorldDrop(Z.OUTLAND)
 
 	-- Khorium Belt -- 29628
 	recipe = AddRecipe(29628, V.TBC, Q.RARE)
@@ -2466,7 +2467,7 @@ function addon:InitBlacksmithing()
 	recipe:SetSkillLevels(365, 365, 375, 385, 395)
 	recipe:SetItemFilterType("BLACKSMITHING_HANDS")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.HEALER, F.CASTER)
-	recipe:AddWorldDrop("Outland")
+	recipe:AddWorldDrop(Z.OUTLAND)
 
 	-- Steelgrip Gauntlets -- 29662
 	recipe = AddRecipe(29662, V.TBC, Q.EPIC)
@@ -2475,7 +2476,7 @@ function addon:InitBlacksmithing()
 	recipe:SetSkillLevels(365, 365, 375, 385, 395)
 	recipe:SetItemFilterType("BLACKSMITHING_HANDS")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.HEALER, F.CASTER)
-	recipe:AddWorldDrop("Outland")
+	recipe:AddWorldDrop(Z.OUTLAND)
 
 	-- Storm Helm -- 29663
 	recipe = AddRecipe(29663, V.TBC, Q.EPIC)
@@ -2484,7 +2485,7 @@ function addon:InitBlacksmithing()
 	recipe:SetSkillLevels(365, 365, 375, 385, 395)
 	recipe:SetItemFilterType("BLACKSMITHING_HEAD")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.HEALER, F.CASTER)
-	recipe:AddWorldDrop("Outland")
+	recipe:AddWorldDrop(Z.OUTLAND)
 
 	-- Helm of the Stalwart Defender -- 29664
 	recipe = AddRecipe(29664, V.TBC, Q.EPIC)
@@ -2493,7 +2494,7 @@ function addon:InitBlacksmithing()
 	recipe:SetSkillLevels(365, 365, 375, 385, 395)
 	recipe:SetItemFilterType("BLACKSMITHING_HEAD")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.TANK)
-	recipe:AddWorldDrop("Outland")
+	recipe:AddWorldDrop(Z.OUTLAND)
 
 	-- Oathkeeper's Helm -- 29668
 	recipe = AddRecipe(29668, V.TBC, Q.EPIC)
@@ -2502,7 +2503,7 @@ function addon:InitBlacksmithing()
 	recipe:SetSkillLevels(365, 365, 375, 385, 395)
 	recipe:SetItemFilterType("BLACKSMITHING_HEAD")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.TANK, F.HEALER, F.CASTER)
-	recipe:AddWorldDrop("Outland")
+	recipe:AddWorldDrop(Z.OUTLAND)
 
 	-- Black Felsteel Bracers -- 29669
 	recipe = AddRecipe(29669, V.TBC, Q.EPIC)
@@ -2511,7 +2512,7 @@ function addon:InitBlacksmithing()
 	recipe:SetSkillLevels(365, 365, 375, 385, 395)
 	recipe:SetItemFilterType("BLACKSMITHING_WRIST")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.HEALER, F.CASTER)
-	recipe:AddWorldDrop("Outland")
+	recipe:AddWorldDrop(Z.OUTLAND)
 
 	-- Bracers of the Green Fortress -- 29671
 	recipe = AddRecipe(29671, V.TBC, Q.EPIC)
@@ -2520,7 +2521,7 @@ function addon:InitBlacksmithing()
 	recipe:SetSkillLevels(365, 365, 375, 385, 395)
 	recipe:SetItemFilterType("BLACKSMITHING_WRIST")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.TANK)
-	recipe:AddWorldDrop("Outland")
+	recipe:AddWorldDrop(Z.OUTLAND)
 
 	-- Blessed Bracers -- 29672
 	recipe = AddRecipe(29672, V.TBC, Q.EPIC)
@@ -2529,7 +2530,7 @@ function addon:InitBlacksmithing()
 	recipe:SetSkillLevels(365, 365, 375, 385, 395)
 	recipe:SetItemFilterType("BLACKSMITHING_WRIST")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.HEALER, F.CASTER)
-	recipe:AddWorldDrop("Outland")
+	recipe:AddWorldDrop(Z.OUTLAND)
 
 	-- Felsteel Longblade -- 29692
 	recipe = AddRecipe(29692, V.TBC, Q.EPIC)
@@ -2538,7 +2539,7 @@ function addon:InitBlacksmithing()
 	recipe:SetSkillLevels(365, 365, 375, 385, 395)
 	recipe:SetItemFilterType("BLACKSMITHING_ONE_HAND_SWORD")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS)
-	recipe:AddWorldDrop("Outland")
+	recipe:AddWorldDrop(Z.OUTLAND)
 
 	-- Khorium Champion -- 29693
 	recipe = AddRecipe(29693, V.TBC, Q.EPIC)
@@ -2547,7 +2548,7 @@ function addon:InitBlacksmithing()
 	recipe:SetSkillLevels(365, 365, 375, 385, 395)
 	recipe:SetItemFilterType("BLACKSMITHING_TWO_HAND_SWORD")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS)
-	recipe:AddWorldDrop("Outland")
+	recipe:AddWorldDrop(Z.OUTLAND)
 
 	-- Fel Edged Battleaxe -- 29694
 	recipe = AddRecipe(29694, V.TBC, Q.EPIC)
@@ -2556,7 +2557,7 @@ function addon:InitBlacksmithing()
 	recipe:SetSkillLevels(365, 365, 375, 385, 395)
 	recipe:SetItemFilterType("BLACKSMITHING_ONE_HAND_AXE")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.HEALER, F.CASTER)
-	recipe:AddWorldDrop("Outland")
+	recipe:AddWorldDrop(Z.OUTLAND)
 
 	-- Felsteel Reaper -- 29695
 	recipe = AddRecipe(29695, V.TBC, Q.EPIC)
@@ -2565,7 +2566,7 @@ function addon:InitBlacksmithing()
 	recipe:SetSkillLevels(365, 365, 375, 385, 395)
 	recipe:SetItemFilterType("BLACKSMITHING_TWO_HAND_AXE")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS)
-	recipe:AddWorldDrop("Outland")
+	recipe:AddWorldDrop(Z.OUTLAND)
 
 	-- Runic Hammer -- 29696
 	recipe = AddRecipe(29696, V.TBC, Q.EPIC)
@@ -2574,7 +2575,7 @@ function addon:InitBlacksmithing()
 	recipe:SetSkillLevels(365, 365, 375, 385, 395)
 	recipe:SetItemFilterType("BLACKSMITHING_ONE_HAND_MACE")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS)
-	recipe:AddWorldDrop("Outland")
+	recipe:AddWorldDrop(Z.OUTLAND)
 
 	-- Fel Hardened Maul -- 29697
 	recipe = AddRecipe(29697, V.TBC, Q.EPIC)
@@ -2583,7 +2584,7 @@ function addon:InitBlacksmithing()
 	recipe:SetSkillLevels(365, 365, 375, 385, 395)
 	recipe:SetItemFilterType("BLACKSMITHING_TWO_HAND_MACE")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.HEALER, F.CASTER)
-	recipe:AddWorldDrop("Outland")
+	recipe:AddWorldDrop(Z.OUTLAND)
 
 	-- Eternium Runed Blade -- 29698
 	recipe = AddRecipe(29698, V.TBC, Q.EPIC)
@@ -2592,7 +2593,7 @@ function addon:InitBlacksmithing()
 	recipe:SetSkillLevels(365, 365, 375, 385, 395)
 	recipe:SetItemFilterType("BLACKSMITHING_DAGGER")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.HEALER, F.CASTER)
-	recipe:AddWorldDrop("Outland")
+	recipe:AddWorldDrop(Z.OUTLAND)
 
 	-- Dirge -- 29699
 	recipe = AddRecipe(29699, V.TBC, Q.EPIC)
@@ -2601,7 +2602,7 @@ function addon:InitBlacksmithing()
 	recipe:SetSkillLevels(365, 365, 375, 385, 395)
 	recipe:SetItemFilterType("BLACKSMITHING_DAGGER")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.HEALER, F.CASTER)
-	recipe:AddWorldDrop("Outland")
+	recipe:AddWorldDrop(Z.OUTLAND)
 
 	-- Hand of Eternity -- 29700
 	recipe = AddRecipe(29700, V.TBC, Q.EPIC)
@@ -2610,7 +2611,7 @@ function addon:InitBlacksmithing()
 	recipe:SetSkillLevels(365, 365, 375, 385, 395)
 	recipe:SetItemFilterType("BLACKSMITHING_ONE_HAND_MACE")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	recipe:AddWorldDrop("Outland")
+	recipe:AddWorldDrop(Z.OUTLAND)
 
 	-- Lesser Ward of Shielding -- 29728
 	recipe = AddRecipe(29728, V.TBC, Q.COMMON)
@@ -3155,7 +3156,7 @@ function addon:InitBlacksmithing()
 	recipe:SetSkillLevels(365, 365, 375, 385, 395)
 	recipe:SetItemFilterType("BLACKSMITHING_TWO_HAND_MACE")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	recipe:AddWorldDrop("Outland")
+	recipe:AddWorldDrop(Z.OUTLAND)
 
 	-- Sunblessed Gauntlets -- 46140
 	recipe = AddRecipe(46140, V.TBC, Q.EPIC)

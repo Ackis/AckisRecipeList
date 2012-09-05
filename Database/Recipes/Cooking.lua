@@ -34,6 +34,7 @@ local Q = private.ITEM_QUALITIES
 local REP = private.REP_LEVELS
 local FAC = private.FACTION_IDS
 local V = private.GAME_VERSIONS
+local Z = private.ZONE_NAMES
 
 --------------------------------------------------------------------------------------------------------------------
 -- Initialize!
@@ -90,7 +91,7 @@ function addon:InitCooking()
 	recipe:SetSkillLevels(50, 50, 115, 135, 155)
 	recipe:AddFilters(F.ALLIANCE, F.VENDOR, F.WORLD_DROP, F.IBOE, F.RBOP)
 	recipe:AddVendor(340)
-	recipe:AddWorldDrop("Westfall")
+	recipe:AddWorldDrop(Z.WESTFALL)
 
 	-- Crab Cake -- 2544
 	recipe = AddRecipe(2544, V.ORIG, Q.COMMON)
@@ -106,7 +107,7 @@ function addon:InitCooking()
 	recipe:SetSkillLevels(85, 85, 125, 145, 165)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.WORLD_DROP, F.IBOE, F.RBOP)
 	recipe:AddVendor(340)
-	recipe:AddWorldDrop("Darkshore", "Westfall")
+	recipe:AddWorldDrop(Z.DARKSHORE, Z.WESTFALL)
 
 	-- Dry Pork Ribs -- 2546
 	recipe = AddRecipe(2546, V.ORIG, Q.COMMON)
@@ -130,7 +131,7 @@ function addon:InitCooking()
 	recipe:SetSkillLevels(110, 110, 130, 150, 170)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.WORLD_DROP, F.IBOE, F.RBOE)
 	recipe:AddVendor(340)
-	recipe:AddWorldDrop("Loch Modan", "Redridge Mountains")
+	recipe:AddWorldDrop(Z.LOCH_MODAN, Z.REDRIDGE_MOUNTAINS)
 
 	-- Seasoned Wolf Kabob -- 2549
 	recipe = AddRecipe(2549, V.ORIG, Q.COMMON)
@@ -398,7 +399,7 @@ function addon:InitCooking()
 	recipe:SetCraftedItemID(6657)
 	recipe:SetSkillLevels(85, 85, 125, 145, 165)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
-	recipe:AddWorldDrop("Northern Barrens", "Southern Barrens")
+	recipe:AddWorldDrop(Z.NORTHERN_BARRENS, Z.SOUTHERN_BARRENS)
 
 	-- Herb Baked Egg -- 8604
 	recipe = AddRecipe(8604, V.ORIG, Q.COMMON)
@@ -1275,7 +1276,7 @@ function addon:InitCooking()
 	recipe:SetCraftedItemID(43490)
 	recipe:SetSkillLevels(350, 350, 350, 357, 365)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOP)
-	recipe:AddWorldDrop("Northrend")
+	recipe:AddWorldDrop(Z.NORTHREND)
 
 	-- Last Week's Mammoth -- 58521
 	recipe = AddRecipe(58521, V.WOTLK, Q.UNCOMMON)
@@ -1283,7 +1284,7 @@ function addon:InitCooking()
 	recipe:SetCraftedItemID(43488)
 	recipe:SetSkillLevels(350, 350, 350, 357, 365)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOP)
-	recipe:AddWorldDrop("Northrend")
+	recipe:AddWorldDrop(Z.NORTHREND)
 
 	-- Bad Clams -- 58523
 	recipe = AddRecipe(58523, V.WOTLK, Q.UNCOMMON)
@@ -1291,7 +1292,7 @@ function addon:InitCooking()
 	recipe:SetCraftedItemID(43491)
 	recipe:SetSkillLevels(350, 350, 350, 357, 365)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOP)
-	recipe:AddWorldDrop("Northrend")
+	recipe:AddWorldDrop(Z.NORTHREND)
 
 	-- Haunted Herring -- 58525
 	recipe = AddRecipe(58525, V.WOTLK, Q.UNCOMMON)
@@ -1299,7 +1300,7 @@ function addon:InitCooking()
 	recipe:SetCraftedItemID(43492)
 	recipe:SetSkillLevels(350, 350, 350, 357, 365)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOP)
-	recipe:AddWorldDrop("Northrend")
+	recipe:AddWorldDrop(Z.NORTHREND)
 
 	-- Gigantic Feast -- 58527
 	recipe = AddRecipe(58527, V.WOTLK, Q.UNCOMMON)

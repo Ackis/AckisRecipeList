@@ -21,7 +21,6 @@ local LibStub	= _G.LibStub
 local addon	= LibStub("AceAddon-3.0"):GetAddon(private.addon_name)
 local L		= LibStub("AceLocale-3.0"):GetLocale(private.addon_name)
 local BFAC	= LibStub("LibBabble-Faction-3.0"):GetLookupTable()
-local BZ	= LibStub("LibBabble-Zone-3.0"):GetLookupTable()
 local QTip	= LibStub("LibQTip-1.0")
 local Dialog	= LibStub("LibDialog-1.0")
 
@@ -1225,7 +1224,7 @@ function private.InitializeListFrame()
 	end
 
 	local function ExpandWorldDropData(entry_index, entry_type, parent_entry, identifier, recipe_id, hide_location, hide_type)
-		local drop_location = type(identifier) == "string" and SetTextColor(CATEGORY_COLORS["location"], BZ[identifier])
+		local drop_location = type(identifier) == "string" and SetTextColor(CATEGORY_COLORS["location"], identifier)
 
 		if drop_location then
 			local recipe_item_id = private.recipe_list[recipe_id]:RecipeItemID()
@@ -1688,7 +1687,7 @@ do
 			end
 		end,
 		[A.WORLD_DROP] = function(recipe_id, identifier, location, acquire_info, addline_func)
-			local drop_location = type(identifier) == "string" and BZ[identifier] or _G.UNKNOWN
+			local drop_location = type(identifier) == "string" and identifier or _G.UNKNOWN
 
 			if location and drop_location ~= location then
 				return

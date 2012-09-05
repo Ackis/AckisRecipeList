@@ -30,6 +30,7 @@ local Q = private.ITEM_QUALITIES
 local REP = private.REP_LEVELS
 local FAC = private.FACTION_IDS
 local V = private.GAME_VERSIONS
+local Z = private.ZONE_NAMES
 
 --------------------------------------------------------------------------------------------------------------------
 -- Initialize!
@@ -74,7 +75,7 @@ function addon:InitTailoring()
 	recipe:SetSkillLevels(40, 40, 65, 82, 100)
 	recipe:SetItemFilterType("TAILORING_CHEST")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Red Linen Shirt -- 2392
 	recipe = AddRecipe(2392, V.ORIG, Q.COMMON)
@@ -155,7 +156,7 @@ function addon:InitTailoring()
 	recipe:SetSkillLevels(105, 105, 130, 147, 165)
 	recipe:SetItemFilterType("TAILORING_CHEST")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Gray Woolen Shirt -- 2406
 	recipe = AddRecipe(2406, V.ORIG, Q.COMMON)
@@ -204,7 +205,7 @@ function addon:InitTailoring()
 	recipe:SetSkillLevels(95, 95, 120, 137, 155)
 	recipe:SetItemFilterType("TAILORING_BAG")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Small Silk Pack -- 3813
 	recipe = AddRecipe(3813, V.ORIG, Q.COMMON)
@@ -261,7 +262,7 @@ function addon:InitTailoring()
 	recipe:SetSkillLevels(100, 100, 125, 142, 160)
 	recipe:SetItemFilterType("TAILORING_BACK")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Soft-soled Linen Boots -- 3845
 	recipe = AddRecipe(3845, V.ORIG, Q.COMMON)
@@ -278,7 +279,7 @@ function addon:InitTailoring()
 	recipe:SetSkillLevels(95, 95, 120, 137, 155)
 	recipe:SetItemFilterType("TAILORING_FEET")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Double-stitched Woolen Shoulders -- 3848
 	recipe = AddRecipe(3848, V.ORIG, Q.COMMON)
@@ -295,7 +296,7 @@ function addon:InitTailoring()
 	recipe:SetSkillLevels(120, 120, 145, 162, 180)
 	recipe:SetItemFilterType("TAILORING_SHOULDER")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Heavy Woolen Pants -- 3850
 	recipe = AddRecipe(3850, V.ORIG, Q.COMMON)
@@ -312,7 +313,7 @@ function addon:InitTailoring()
 	recipe:SetSkillLevels(125, 125, 150, 167, 185)
 	recipe:SetItemFilterType("TAILORING_LEGS")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Gloves of Meditation -- 3852
 	recipe = AddRecipe(3852, V.ORIG, Q.COMMON)
@@ -346,7 +347,7 @@ function addon:InitTailoring()
 	recipe:SetSkillLevels(140, 140, 160, 175, 190)
 	recipe:SetItemFilterType("TAILORING_FEET")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Enchanter's Cowl -- 3857
 	recipe = AddRecipe(3857, V.ORIG, Q.COMMON)
@@ -364,7 +365,7 @@ function addon:InitTailoring()
 	recipe:SetSkillLevels(170, 170, 190, 205, 220)
 	recipe:SetItemFilterType("TAILORING_HEAD")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Azure Silk Vest -- 3859
 	recipe = AddRecipe(3859, V.ORIG, Q.COMMON)
@@ -381,7 +382,7 @@ function addon:InitTailoring()
 	recipe:SetSkillLevels(175, 175, 195, 210, 225)
 	recipe:SetItemFilterType("TAILORING_FEET")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Long Silken Cloak -- 3861
 	recipe = AddRecipe(3861, V.ORIG, Q.COMMON)
@@ -407,7 +408,7 @@ function addon:InitTailoring()
 	recipe:SetSkillLevels(180, 180, 200, 215, 230)
 	recipe:SetItemFilterType("TAILORING_WAIST")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Star Belt -- 3864
 	recipe = AddRecipe(3864, V.ORIG, Q.UNCOMMON)
@@ -416,7 +417,7 @@ function addon:InitTailoring()
 	recipe:SetSkillLevels(200, 200, 220, 235, 250)
 	recipe:SetItemFilterType("TAILORING_WAIST")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Bolt of Mageweave -- 3865
 	recipe = AddRecipe(3865, V.ORIG, Q.COMMON)
@@ -441,7 +442,7 @@ function addon:InitTailoring()
 	recipe:SetSkillLevels(125, 125, 150, 167, 185)
 	recipe:SetItemFilterType("TAILORING_HANDS")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Bright Yellow Shirt -- 3869
 	recipe = AddRecipe(3869, V.ORIG, Q.COMMON)
@@ -476,7 +477,7 @@ function addon:InitTailoring()
 	recipe:SetSkillLevels(185, 185, 195, 200, 205)
 	recipe:SetItemFilterType("TAILORING_SHIRT")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Black Swashbuckler's Shirt -- 3873
 	recipe = AddRecipe(3873, V.ORIG, Q.COMMON)
@@ -554,7 +555,7 @@ function addon:InitTailoring()
 	recipe:SetSkillLevels(175, 175, 195, 210, 225)
 	recipe:SetItemFilterType("TAILORING_BAG")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Black Silk Pack -- 6695
 	recipe = AddRecipe(6695, V.ORIG, Q.UNCOMMON)
@@ -588,7 +589,7 @@ function addon:InitTailoring()
 	recipe:SetSkillLevels(55, 55, 80, 97, 115)
 	recipe:SetItemFilterType("TAILORING_CHEST")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Blue Linen Vest -- 7630
 	recipe = AddRecipe(7630, V.ORIG, Q.COMMON)
@@ -634,7 +635,7 @@ function addon:InitTailoring()
 	recipe:SetSkillLevels(120, 120, 145, 162, 180)
 	recipe:SetItemFilterType("TAILORING_SHIRT")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Stylish Green Shirt -- 7893
 	recipe = AddRecipe(7893, V.ORIG, Q.UNCOMMON)
@@ -643,7 +644,7 @@ function addon:InitTailoring()
 	recipe:SetSkillLevels(120, 120, 145, 162, 180)
 	recipe:SetItemFilterType("TAILORING_SHIRT")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Simple Dress -- 8465
 	recipe = AddRecipe(8465, V.ORIG, Q.COMMON)
@@ -756,7 +757,7 @@ function addon:InitTailoring()
 	recipe:SetSkillLevels(145, 145, 165, 180, 195)
 	recipe:SetItemFilterType("TAILORING_HANDS")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Truefaith Gloves -- 8782
 	recipe = AddRecipe(8782, V.ORIG, Q.UNCOMMON)
@@ -765,7 +766,7 @@ function addon:InitTailoring()
 	recipe:SetSkillLevels(150, 150, 170, 185, 200)
 	recipe:SetItemFilterType("TAILORING_HANDS")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Green Silk Armor -- 8784
 	recipe = AddRecipe(8784, V.ORIG, Q.UNCOMMON)
@@ -774,7 +775,7 @@ function addon:InitTailoring()
 	recipe:SetSkillLevels(165, 165, 185, 200, 215)
 	recipe:SetItemFilterType("TAILORING_CHEST")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Azure Silk Cloak -- 8786
 	recipe = AddRecipe(8786, V.ORIG, Q.COMMON)
@@ -809,7 +810,7 @@ function addon:InitTailoring()
 	recipe:SetSkillLevels(190, 190, 210, 225, 240)
 	recipe:SetItemFilterType("TAILORING_SHOULDER")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Azure Shoulders -- 8795
 	recipe = AddRecipe(8795, V.ORIG, Q.UNCOMMON)
@@ -818,7 +819,7 @@ function addon:InitTailoring()
 	recipe:SetSkillLevels(190, 190, 210, 225, 240)
 	recipe:SetItemFilterType("TAILORING_SHOULDER")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Earthen Silk Belt -- 8797
 	recipe = AddRecipe(8797, V.ORIG, Q.UNCOMMON)
@@ -827,7 +828,7 @@ function addon:InitTailoring()
 	recipe:SetSkillLevels(195, 195, 215, 230, 245)
 	recipe:SetItemFilterType("TAILORING_WAIST")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Crimson Silk Pantaloons -- 8799
 	recipe = AddRecipe(8799, V.ORIG, Q.COMMON)
@@ -885,7 +886,7 @@ function addon:InitTailoring()
 	recipe:SetSkillLevels(120, 120, 145, 162, 180)
 	recipe:SetItemFilterType("TAILORING_LEGS")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Black Mageweave Vest -- 12048
 	recipe = AddRecipe(12048, V.ORIG, Q.COMMON)
@@ -942,7 +943,7 @@ function addon:InitTailoring()
 	recipe:SetSkillLevels(215, 215, 230, 245, 260)
 	recipe:SetItemFilterType("TAILORING_CHEST")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- White Bandit Mask -- 12059
 	recipe = AddRecipe(12059, V.ORIG, Q.UNCOMMON)
@@ -951,7 +952,7 @@ function addon:InitTailoring()
 	recipe:SetSkillLevels(215, 215, 220, 225, 230)
 	recipe:SetItemFilterType("TAILORING_HEAD")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Red Mageweave Pants -- 12060
 	recipe = AddRecipe(12060, V.ORIG, Q.UNCOMMON)
@@ -960,7 +961,7 @@ function addon:InitTailoring()
 	recipe:SetSkillLevels(215, 215, 230, 245, 260)
 	recipe:SetItemFilterType("TAILORING_LEGS")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Orange Mageweave Shirt -- 12061
 	recipe = AddRecipe(12061, V.ORIG, Q.COMMON)
@@ -994,7 +995,7 @@ function addon:InitTailoring()
 	recipe:SetSkillLevels(225, 225, 240, 255, 270)
 	recipe:SetItemFilterType("TAILORING_HANDS")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Dreamweave Gloves -- 12067
 	recipe = AddRecipe(12067, V.ORIG, Q.COMMON)
@@ -1084,7 +1085,7 @@ function addon:InitTailoring()
 	recipe:SetSkillLevels(235, 235, 250, 265, 280)
 	recipe:SetItemFilterType("TAILORING_SHOULDER")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Red Mageweave Bag -- 12079
 	recipe = AddRecipe(12079, V.ORIG, Q.COMMON)
@@ -1127,7 +1128,7 @@ function addon:InitTailoring()
 	recipe:SetSkillLevels(240, 240, 255, 270, 285)
 	recipe:SetItemFilterType("TAILORING_HEAD")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Tuxedo Shirt -- 12085
 	recipe = AddRecipe(12085, V.ORIG, Q.COMMON)
@@ -1224,7 +1225,7 @@ function addon:InitTailoring()
 	recipe:SetSkillLevels(255, 255, 270, 285, 300)
 	recipe:SetItemFilterType("TAILORING_CHEST")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Runecloth Bag -- 18405
 	recipe = AddRecipe(18405, V.ORIG, Q.COMMON)
@@ -1430,7 +1431,7 @@ function addon:InitTailoring()
 	recipe:SetItemFilterType("TAILORING_LEGS")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
 	recipe:AddTrainer(1103, 1346, 2399, 2627, 3004, 3363, 3484, 3523, 3704, 4159, 4193, 4576, 5153, 9584, 11052, 11557, 16366, 16640, 16729, 17487, 18749, 18772, 26914, 26964, 26969, 27001, 28699, 33580, 33613, 33636, 33684, 44783, 45559)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Brightcloth Pants -- 18439
 	recipe = AddRecipe(18439, V.ORIG, Q.UNCOMMON)
@@ -1439,7 +1440,7 @@ function addon:InitTailoring()
 	recipe:SetSkillLevels(290, 290, 305, 320, 335)
 	recipe:SetItemFilterType("TAILORING_LEGS")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Mooncloth Leggings -- 18440
 	recipe = AddRecipe(18440, V.ORIG, Q.RARE)
@@ -1448,7 +1449,7 @@ function addon:InitTailoring()
 	recipe:SetSkillLevels(290, 290, 305, 320, 335)
 	recipe:SetItemFilterType("TAILORING_LEGS")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Ghostweave Pants -- 18441
 	recipe = AddRecipe(18441, V.ORIG, Q.COMMON)
@@ -1481,7 +1482,7 @@ function addon:InitTailoring()
 	recipe:SetSkillLevels(300, 300, 315, 330, 345)
 	recipe:SetItemFilterType("TAILORING_BAG")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Wizardweave Robe -- 18446
 	recipe = AddRecipe(18446, V.ORIG, Q.COMMON)
@@ -1498,7 +1499,7 @@ function addon:InitTailoring()
 	recipe:SetSkillLevels(300, 300, 315, 330, 345)
 	recipe:SetItemFilterType("TAILORING_CHEST")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Mooncloth Shoulders -- 18448
 	recipe = AddRecipe(18448, V.ORIG, Q.RARE)
@@ -1507,7 +1508,7 @@ function addon:InitTailoring()
 	recipe:SetSkillLevels(300, 300, 315, 330, 345)
 	recipe:SetItemFilterType("TAILORING_SHOULDER")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Runecloth Shoulders -- 18449
 	recipe = AddRecipe(18449, V.ORIG, Q.COMMON)
@@ -1540,7 +1541,7 @@ function addon:InitTailoring()
 	recipe:SetSkillLevels(300, 300, 315, 330, 345)
 	recipe:SetItemFilterType("TAILORING_HEAD")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Felcloth Shoulders -- 18453
 	recipe = AddRecipe(18453, V.ORIG, Q.COMMON)
@@ -1557,7 +1558,7 @@ function addon:InitTailoring()
 	recipe:SetSkillLevels(300, 300, 315, 330, 345)
 	recipe:SetItemFilterType("TAILORING_HANDS")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.HEALER, F.CASTER, F.MAGE, F.PRIEST, F.WARLOCK)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Bottomless Bag -- 18455
 	recipe = AddRecipe(18455, V.ORIG, Q.RARE)
@@ -1566,7 +1567,7 @@ function addon:InitTailoring()
 	recipe:SetSkillLevels(300, 300, 315, 330, 345)
 	recipe:SetItemFilterType("TAILORING_BAG")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Truefaith Vestments -- 18456
 	recipe = AddRecipe(18456, V.ORIG, Q.EPIC)
@@ -2349,7 +2350,7 @@ function addon:InitTailoring()
 	recipe:SetSkillLevels(350, 350, 360, 365, 370)
 	recipe:SetItemFilterType("TAILORING_WRIST")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.HEALER, F.CASTER)
-	recipe:AddWorldDrop("Outland")
+	recipe:AddWorldDrop(Z.OUTLAND)
 
 	-- Blackstrike Bracers -- 31437
 	recipe = AddRecipe(31437, V.TBC, Q.RARE)
@@ -2358,7 +2359,7 @@ function addon:InitTailoring()
 	recipe:SetSkillLevels(350, 350, 360, 365, 370)
 	recipe:SetItemFilterType("TAILORING_WRIST")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.HEALER, F.CASTER)
-	recipe:AddWorldDrop("Outland")
+	recipe:AddWorldDrop(Z.OUTLAND)
 
 	-- Cloak of the Black Void -- 31438
 	recipe = AddRecipe(31438, V.TBC, Q.RARE)
@@ -2367,7 +2368,7 @@ function addon:InitTailoring()
 	recipe:SetSkillLevels(350, 350, 360, 365, 370)
 	recipe:SetItemFilterType("TAILORING_BACK")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	recipe:AddWorldDrop("Outland")
+	recipe:AddWorldDrop(Z.OUTLAND)
 
 	-- Cloak of Eternity -- 31440
 	recipe = AddRecipe(31440, V.TBC, Q.RARE)
@@ -2376,7 +2377,7 @@ function addon:InitTailoring()
 	recipe:SetSkillLevels(350, 350, 360, 365, 370)
 	recipe:SetItemFilterType("TAILORING_BACK")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.TANK)
-	recipe:AddWorldDrop("Outland")
+	recipe:AddWorldDrop(Z.OUTLAND)
 
 	-- White Remedy Cape -- 31441
 	recipe = AddRecipe(31441, V.TBC, Q.RARE)
@@ -2385,7 +2386,7 @@ function addon:InitTailoring()
 	recipe:SetSkillLevels(350, 350, 360, 365, 370)
 	recipe:SetItemFilterType("TAILORING_BACK")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	recipe:AddWorldDrop("Outland")
+	recipe:AddWorldDrop(Z.OUTLAND)
 
 	-- Unyielding Girdle -- 31442
 	recipe = AddRecipe(31442, V.TBC, Q.EPIC)
@@ -2403,7 +2404,7 @@ function addon:InitTailoring()
 	recipe:SetSkillLevels(365, 365, 375, 380, 385)
 	recipe:SetItemFilterType("TAILORING_WAIST")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.HEALER, F.CASTER)
-	recipe:AddWorldDrop("Outland")
+	recipe:AddWorldDrop(Z.OUTLAND)
 
 	-- Black Belt of Knowledge -- 31444
 	recipe = AddRecipe(31444, V.TBC, Q.EPIC)
@@ -2412,7 +2413,7 @@ function addon:InitTailoring()
 	recipe:SetSkillLevels(365, 365, 375, 380, 385)
 	recipe:SetItemFilterType("TAILORING_WAIST")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	recipe:AddWorldDrop("Outland")
+	recipe:AddWorldDrop(Z.OUTLAND)
 
 	-- Resolute Cape -- 31448
 	recipe = AddRecipe(31448, V.TBC, Q.EPIC)
@@ -2421,7 +2422,7 @@ function addon:InitTailoring()
 	recipe:SetSkillLevels(365, 365, 375, 380, 385)
 	recipe:SetItemFilterType("TAILORING_BACK")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
-	recipe:AddWorldDrop("Outland")
+	recipe:AddWorldDrop(Z.OUTLAND)
 
 	-- Vengeance Wrap -- 31449
 	recipe = AddRecipe(31449, V.TBC, Q.EPIC)
@@ -2430,7 +2431,7 @@ function addon:InitTailoring()
 	recipe:SetSkillLevels(365, 365, 375, 380, 385)
 	recipe:SetItemFilterType("TAILORING_BACK")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.HEALER, F.CASTER)
-	recipe:AddWorldDrop("Outland")
+	recipe:AddWorldDrop(Z.OUTLAND)
 
 	-- Manaweave Cloak -- 31450
 	recipe = AddRecipe(31450, V.TBC, Q.EPIC)
@@ -2439,7 +2440,7 @@ function addon:InitTailoring()
 	recipe:SetSkillLevels(365, 365, 375, 380, 385)
 	recipe:SetItemFilterType("TAILORING_BACK")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	recipe:AddWorldDrop("Outland")
+	recipe:AddWorldDrop(Z.OUTLAND)
 
 	-- Whitemend Pants -- 31451
 	recipe = AddRecipe(31451, V.TBC, Q.EPIC)
@@ -2978,7 +2979,7 @@ function addon:InitTailoring()
 	recipe:SetSkillLevels(400, 400, 400, 405, 410)
 	recipe:SetItemFilterType("TAILORING_SHIRT")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
-	recipe:AddWorldDrop("Northrend")
+	recipe:AddWorldDrop(Z.NORTHREND)
 
 	-- Blue Lumberjack Shirt -- 55994
 	recipe = AddRecipe(55994, V.WOTLK, Q.UNCOMMON)
@@ -2987,7 +2988,7 @@ function addon:InitTailoring()
 	recipe:SetSkillLevels(400, 400, 400, 405, 410)
 	recipe:SetItemFilterType("TAILORING_SHIRT")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
-	recipe:AddWorldDrop("Northrend")
+	recipe:AddWorldDrop(Z.NORTHREND)
 
 	-- Yellow Lumberjack Shirt -- 55995
 	recipe = AddRecipe(55995, V.WOTLK, Q.COMMON)
@@ -3004,7 +3005,7 @@ function addon:InitTailoring()
 	recipe:SetSkillLevels(400, 400, 400, 405, 410)
 	recipe:SetItemFilterType("TAILORING_SHIRT")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
-	recipe:AddWorldDrop("Northrend")
+	recipe:AddWorldDrop(Z.NORTHREND)
 
 	-- Red Workman's Shirt -- 55997
 	recipe = AddRecipe(55997, V.WOTLK, Q.UNCOMMON)
@@ -3013,7 +3014,7 @@ function addon:InitTailoring()
 	recipe:SetSkillLevels(400, 400, 400, 405, 410)
 	recipe:SetItemFilterType("TAILORING_SHIRT")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
-	recipe:AddWorldDrop("Northrend")
+	recipe:AddWorldDrop(Z.NORTHREND)
 
 	-- Blue Workman's Shirt -- 55998
 	recipe = AddRecipe(55998, V.WOTLK, Q.UNCOMMON)
@@ -3022,7 +3023,7 @@ function addon:InitTailoring()
 	recipe:SetSkillLevels(400, 400, 400, 405, 410)
 	recipe:SetItemFilterType("TAILORING_SHIRT")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
-	recipe:AddWorldDrop("Northrend")
+	recipe:AddWorldDrop(Z.NORTHREND)
 
 	-- Rustic Workman's Shirt -- 55999
 	recipe = AddRecipe(55999, V.WOTLK, Q.UNCOMMON)
@@ -3031,7 +3032,7 @@ function addon:InitTailoring()
 	recipe:SetSkillLevels(400, 400, 400, 405, 410)
 	recipe:SetItemFilterType("TAILORING_SHIRT")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
-	recipe:AddWorldDrop("Northrend")
+	recipe:AddWorldDrop(Z.NORTHREND)
 
 	-- Green Workman's Shirt -- 56000
 	recipe = AddRecipe(56000, V.WOTLK, Q.COMMON)

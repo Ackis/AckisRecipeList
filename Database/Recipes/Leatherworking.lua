@@ -31,6 +31,7 @@ local Q = private.ITEM_QUALITIES
 local REP = private.REP_LEVELS
 local FAC = private.FACTION_IDS
 local V = private.GAME_VERSIONS
+local Z = private.ZONE_NAMES
 
 --------------------------------------------------------------------------------------------------------------------
 -- Initialize!
@@ -75,7 +76,7 @@ function addon:InitLeatherworking()
 	recipe:SetSkillLevels(90, 90, 120, 135, 150)
 	recipe:SetItemFilterType("LEATHERWORKING_FEET")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Fine Leather Cloak -- 2159
 	recipe = AddRecipe(2159, V.ORIG, Q.COMMON)
@@ -116,7 +117,7 @@ function addon:InitLeatherworking()
 	recipe:SetSkillLevels(60, 60, 90, 105, 120)
 	recipe:SetItemFilterType("LEATHERWORKING_CHEST")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Fine Leather Gloves -- 2164
 	recipe = AddRecipe(2164, V.ORIG, Q.UNCOMMON)
@@ -125,7 +126,7 @@ function addon:InitLeatherworking()
 	recipe:SetSkillLevels(75, 75, 105, 120, 135)
 	recipe:SetItemFilterType("LEATHERWORKING_HANDS")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Medium Armor Kit -- 2165
 	recipe = AddRecipe(2165, V.ORIG, Q.COMMON)
@@ -166,7 +167,7 @@ function addon:InitLeatherworking()
 	recipe:SetSkillLevels(100, 100, 125, 137, 150)
 	recipe:SetItemFilterType("LEATHERWORKING_CHEST")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Light Leather -- 2881
 	recipe = AddRecipe(2881, V.ORIG, Q.COMMON)
@@ -223,7 +224,7 @@ function addon:InitLeatherworking()
 	recipe:SetSkillLevels(100, 100, 125, 137, 150)
 	recipe:SetItemFilterType("LEATHERWORKING_CHEST")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Fine Leather Belt -- 3763
 	recipe = AddRecipe(3763, V.ORIG, Q.COMMON)
@@ -248,7 +249,7 @@ function addon:InitLeatherworking()
 	recipe:SetSkillLevels(120, 120, 155, 167, 180)
 	recipe:SetItemFilterType("LEATHERWORKING_HANDS")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Dark Leather Belt -- 3766
 	recipe = AddRecipe(3766, V.ORIG, Q.COMMON)
@@ -265,7 +266,7 @@ function addon:InitLeatherworking()
 	recipe:SetSkillLevels(120, 120, 145, 157, 170)
 	recipe:SetItemFilterType("LEATHERWORKING_WAIST")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Hillman's Shoulders -- 3768
 	recipe = AddRecipe(3768, V.ORIG, Q.COMMON)
@@ -282,7 +283,7 @@ function addon:InitLeatherworking()
 	recipe:SetSkillLevels(140, 140, 165, 177, 190)
 	recipe:SetItemFilterType("LEATHERWORKING_SHOULDER")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Toughened Leather Gloves -- 3770
 	recipe = AddRecipe(3770, V.ORIG, Q.COMMON)
@@ -299,7 +300,7 @@ function addon:InitLeatherworking()
 	recipe:SetSkillLevels(150, 150, 170, 180, 190)
 	recipe:SetItemFilterType("LEATHERWORKING_HANDS")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Green Leather Armor -- 3772
 	recipe = AddRecipe(3772, V.ORIG, Q.COMMON)
@@ -318,7 +319,7 @@ function addon:InitLeatherworking()
 	recipe:SetSkillLevels(175, 175, 195, 205, 215)
 	recipe:SetItemFilterType("LEATHERWORKING_CHEST")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Green Leather Belt -- 3774
 	recipe = AddRecipe(3774, V.ORIG, Q.COMMON)
@@ -335,7 +336,7 @@ function addon:InitLeatherworking()
 	recipe:SetSkillLevels(170, 170, 190, 200, 210)
 	recipe:SetItemFilterType("LEATHERWORKING_WAIST")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Green Leather Bracers -- 3776
 	recipe = AddRecipe(3776, V.ORIG, Q.COMMON)
@@ -352,7 +353,7 @@ function addon:InitLeatherworking()
 	recipe:SetSkillLevels(195, 195, 215, 225, 235)
 	recipe:SetItemFilterType("LEATHERWORKING_WRIST")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Gem-studded Leather Belt -- 3778
 	recipe = AddRecipe(3778, V.ORIG, Q.COMMON)
@@ -370,7 +371,7 @@ function addon:InitLeatherworking()
 	recipe:SetSkillLevels(200, 200, 220, 230, 240)
 	recipe:SetItemFilterType("LEATHERWORKING_WAIST")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.TANK)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Heavy Armor Kit -- 3780
 	recipe = AddRecipe(3780, V.ORIG, Q.COMMON)
@@ -494,7 +495,7 @@ function addon:InitLeatherworking()
 	recipe:SetSkillLevels(105, 105, 130, 142, 155)
 	recipe:SetItemFilterType("LEATHERWORKING_LEGS")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Dark Leather Pants -- 7135
 	recipe = AddRecipe(7135, V.ORIG, Q.COMMON)
@@ -537,7 +538,7 @@ function addon:InitLeatherworking()
 	recipe:SetSkillLevels(185, 185, 205, 215, 225)
 	recipe:SetItemFilterType("LEATHERWORKING_BACK")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Guardian Gloves -- 7156
 	recipe = AddRecipe(7156, V.ORIG, Q.COMMON)
@@ -606,7 +607,7 @@ function addon:InitLeatherworking()
 	recipe:SetSkillLevels(35, 35, 65, 80, 95)
 	recipe:SetItemFilterType("LEATHERWORKING_LEGS")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Light Leather Bracers -- 9065
 	recipe = AddRecipe(9065, V.ORIG, Q.COMMON)
@@ -683,7 +684,7 @@ function addon:InitLeatherworking()
 	recipe:SetSkillLevels(140, 140, 165, 177, 190)
 	recipe:SetItemFilterType("LEATHERWORKING_HANDS")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Heavy Earthen Gloves -- 9149
 	recipe = AddRecipe(9149, V.ORIG, Q.UNCOMMON)
@@ -692,7 +693,7 @@ function addon:InitLeatherworking()
 	recipe:SetSkillLevels(145, 145, 170, 182, 195)
 	recipe:SetItemFilterType("LEATHERWORKING_HANDS")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Dusky Leather Leggings -- 9195
 	recipe = AddRecipe(9195, V.ORIG, Q.UNCOMMON)
@@ -701,7 +702,7 @@ function addon:InitLeatherworking()
 	recipe:SetSkillLevels(165, 165, 185, 195, 205)
 	recipe:SetItemFilterType("LEATHERWORKING_LEGS")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Dusky Leather Armor -- 9196
 	recipe = AddRecipe(9196, V.ORIG, Q.COMMON)
@@ -718,7 +719,7 @@ function addon:InitLeatherworking()
 	recipe:SetSkillLevels(175, 175, 195, 205, 215)
 	recipe:SetItemFilterType("LEATHERWORKING_CHEST")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Frost Leather Cloak -- 9198
 	recipe = AddRecipe(9198, V.ORIG, Q.COMMON)
@@ -761,7 +762,7 @@ function addon:InitLeatherworking()
 	recipe:SetSkillLevels(200, 200, 220, 230, 240)
 	recipe:SetItemFilterType("LEATHERWORKING_FEET")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Swift Boots -- 9208
 	recipe = AddRecipe(9208, V.ORIG, Q.UNCOMMON)
@@ -770,7 +771,7 @@ function addon:InitLeatherworking()
 	recipe:SetSkillLevels(200, 200, 220, 230, 240)
 	recipe:SetItemFilterType("LEATHERWORKING_FEET")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Cured Thick Hide -- 10482
 	recipe = AddRecipe(10482, V.ORIG, Q.COMMON)
@@ -795,7 +796,7 @@ function addon:InitLeatherworking()
 	recipe:SetSkillLevels(200, 200, 220, 230, 240)
 	recipe:SetItemFilterType("LEATHERWORKING_HEAD")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.CASTER)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Nightscape Tunic -- 10499
 	recipe = AddRecipe(10499, V.ORIG, Q.COMMON)
@@ -856,7 +857,7 @@ function addon:InitLeatherworking()
 	recipe:SetSkillLevels(215, 215, 235, 245, 255)
 	recipe:SetItemFilterType("LEATHERWORKING_CHEST")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Tough Scorpid Breastplate -- 10525
 	recipe = AddRecipe(10525, V.ORIG, Q.UNCOMMON)
@@ -865,7 +866,7 @@ function addon:InitLeatherworking()
 	recipe:SetSkillLevels(220, 220, 240, 250, 260)
 	recipe:SetItemFilterType("LEATHERWORKING_CHEST")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOP, F.DPS)
-	recipe:AddWorldDrop("Tanaris")
+	recipe:AddWorldDrop(Z.TANARIS)
 
 	-- Wild Leather Shoulders -- 10529
 	recipe = AddRecipe(10529, V.ORIG, Q.UNCOMMON)
@@ -883,7 +884,7 @@ function addon:InitLeatherworking()
 	recipe:SetSkillLevels(220, 220, 240, 250, 260)
 	recipe:SetItemFilterType("LEATHERWORKING_HEAD")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Tough Scorpid Bracers -- 10533
 	recipe = AddRecipe(10533, V.ORIG, Q.UNCOMMON)
@@ -892,7 +893,7 @@ function addon:InitLeatherworking()
 	recipe:SetSkillLevels(220, 220, 240, 250, 260)
 	recipe:SetItemFilterType("LEATHERWORKING_WRIST")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOP, F.DPS)
-	recipe:AddWorldDrop("Tanaris")
+	recipe:AddWorldDrop(Z.TANARIS)
 
 	-- Tough Scorpid Gloves -- 10542
 	recipe = AddRecipe(10542, V.ORIG, Q.UNCOMMON)
@@ -901,7 +902,7 @@ function addon:InitLeatherworking()
 	recipe:SetSkillLevels(225, 225, 245, 255, 265)
 	recipe:SetItemFilterType("LEATHERWORKING_HANDS")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOP, F.DPS)
-	recipe:AddWorldDrop("Tanaris")
+	recipe:AddWorldDrop(Z.TANARIS)
 
 	-- Wild Leather Vest -- 10544
 	recipe = AddRecipe(10544, V.ORIG, Q.UNCOMMON)
@@ -944,7 +945,7 @@ function addon:InitLeatherworking()
 	recipe:SetSkillLevels(235, 235, 255, 265, 275)
 	recipe:SetItemFilterType("LEATHERWORKING_FEET")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOP, F.DPS)
-	recipe:AddWorldDrop("Tanaris")
+	recipe:AddWorldDrop(Z.TANARIS)
 
 	-- Turtle Scale Leggings -- 10556
 	recipe = AddRecipe(10556, V.ORIG, Q.COMMON)
@@ -969,7 +970,7 @@ function addon:InitLeatherworking()
 	recipe:SetSkillLevels(240, 240, 260, 270, 280)
 	recipe:SetItemFilterType("LEATHERWORKING_LEGS")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Big Voodoo Cloak -- 10562
 	recipe = AddRecipe(10562, V.ORIG, Q.UNCOMMON)
@@ -978,7 +979,7 @@ function addon:InitLeatherworking()
 	recipe:SetSkillLevels(240, 240, 260, 270, 280)
 	recipe:SetItemFilterType("LEATHERWORKING_BACK")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Tough Scorpid Shoulders -- 10564
 	recipe = AddRecipe(10564, V.ORIG, Q.UNCOMMON)
@@ -987,7 +988,7 @@ function addon:InitLeatherworking()
 	recipe:SetSkillLevels(240, 240, 260, 270, 280)
 	recipe:SetItemFilterType("LEATHERWORKING_SHOULDER")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOP, F.DPS)
-	recipe:AddWorldDrop("Tanaris")
+	recipe:AddWorldDrop(Z.TANARIS)
 
 	-- Wild Leather Boots -- 10566
 	recipe = AddRecipe(10566, V.ORIG, Q.UNCOMMON)
@@ -1005,7 +1006,7 @@ function addon:InitLeatherworking()
 	recipe:SetSkillLevels(245, 245, 265, 275, 285)
 	recipe:SetItemFilterType("LEATHERWORKING_LEGS")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOP, F.DPS)
-	recipe:AddWorldDrop("Tanaris")
+	recipe:AddWorldDrop(Z.TANARIS)
 
 	-- Tough Scorpid Helm -- 10570
 	recipe = AddRecipe(10570, V.ORIG, Q.UNCOMMON)
@@ -1014,7 +1015,7 @@ function addon:InitLeatherworking()
 	recipe:SetSkillLevels(250, 250, 270, 280, 290)
 	recipe:SetItemFilterType("LEATHERWORKING_HEAD")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOP, F.DPS)
-	recipe:AddWorldDrop("Tanaris")
+	recipe:AddWorldDrop(Z.TANARIS)
 
 	-- Wild Leather Leggings -- 10572
 	recipe = AddRecipe(10572, V.ORIG, Q.UNCOMMON)
@@ -1115,7 +1116,7 @@ function addon:InitLeatherworking()
 	recipe:SetSkillLevels(260, 260, 280, 290, 300)
 	recipe:SetItemFilterType("LEATHERWORKING_CHEST")
 	recipe:AddFilters(F.ALLIANCE, F.INSTANCE, F.WORLD_DROP, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
-	recipe:AddWorldDrop("Sunken Temple")
+	recipe:AddWorldDrop(Z.THE_TEMPLE_OF_ATALHAKKAR)
 
 	-- Heavy Scorpid Vest -- 19051
 	recipe = AddRecipe(19051, V.ORIG, Q.UNCOMMON)
@@ -1185,7 +1186,7 @@ function addon:InitLeatherworking()
 	recipe:SetSkillLevels(270, 270, 290, 300, 310)
 	recipe:SetItemFilterType("LEATHERWORKING_LEGS")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.INSTANCE, F.WORLD_DROP, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
-	recipe:AddWorldDrop("Sunken Temple")
+	recipe:AddWorldDrop(Z.THE_TEMPLE_OF_ATALHAKKAR)
 
 	-- Living Shoulders -- 19061
 	recipe = AddRecipe(19061, V.ORIG, Q.COMMON)
@@ -1213,7 +1214,7 @@ function addon:InitLeatherworking()
 	recipe:SetSkillLevels(275, 275, 295, 305, 315)
 	recipe:SetItemFilterType("LEATHERWORKING_FEET")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Heavy Scorpid Gauntlets -- 19064
 	recipe = AddRecipe(19064, V.ORIG, Q.UNCOMMON)
@@ -1267,7 +1268,7 @@ function addon:InitLeatherworking()
 	recipe:SetSkillLevels(280, 280, 300, 310, 320)
 	recipe:SetItemFilterType("LEATHERWORKING_WAIST")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Wicked Leather Headband -- 19071
 	recipe = AddRecipe(19071, V.ORIG, Q.COMMON)
@@ -1294,7 +1295,7 @@ function addon:InitLeatherworking()
 	recipe:SetSkillLevels(280, 280, 300, 310, 320)
 	recipe:SetItemFilterType("LEATHERWORKING_LEGS")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Frostsaber Leggings -- 19074
 	recipe = AddRecipe(19074, V.ORIG, Q.UNCOMMON)
@@ -1366,7 +1367,7 @@ function addon:InitLeatherworking()
 	recipe:SetSkillLevels(290, 290, 310, 320, 330)
 	recipe:SetItemFilterType("LEATHERWORKING_CHEST")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Runic Leather Headband -- 19082
 	recipe = AddRecipe(19082, V.ORIG, Q.COMMON)
@@ -2566,7 +2567,7 @@ function addon:InitLeatherworking()
 	recipe:SetSkillLevels(365, 365, 375, 385, 395)
 	recipe:SetItemFilterType("LEATHERWORKING_HEAD")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.CASTER)
-	recipe:AddWorldDrop("Outland")
+	recipe:AddWorldDrop(Z.OUTLAND)
 
 	-- Cobrascale Gloves -- 35559
 	recipe = AddRecipe(35559, V.TBC, Q.EPIC)
@@ -2576,7 +2577,7 @@ function addon:InitLeatherworking()
 	recipe:SetItemFilterType("LEATHERWORKING_HANDS")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOP, F.DPS)
 	recipe:AddMobDrop(24664)
-	recipe:AddWorldDrop("Outland")
+	recipe:AddWorldDrop(Z.OUTLAND)
 
 	-- Windscale Hood -- 35560
 	recipe = AddRecipe(35560, V.TBC, Q.EPIC)
@@ -2585,7 +2586,7 @@ function addon:InitLeatherworking()
 	recipe:SetSkillLevels(365, 365, 375, 385, 395)
 	recipe:SetItemFilterType("LEATHERWORKING_HEAD")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.HEALER, F.CASTER)
-	recipe:AddWorldDrop("Outland")
+	recipe:AddWorldDrop(Z.OUTLAND)
 
 	-- Hood of Primal Life -- 35561
 	recipe = AddRecipe(35561, V.TBC, Q.EPIC)
@@ -2594,7 +2595,7 @@ function addon:InitLeatherworking()
 	recipe:SetSkillLevels(365, 365, 375, 385, 395)
 	recipe:SetItemFilterType("LEATHERWORKING_HEAD")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	recipe:AddWorldDrop("Outland")
+	recipe:AddWorldDrop(Z.OUTLAND)
 
 	-- Gloves of the Living Touch -- 35562
 	recipe = AddRecipe(35562, V.TBC, Q.EPIC)
@@ -2612,7 +2613,7 @@ function addon:InitLeatherworking()
 	recipe:SetSkillLevels(365, 365, 375, 385, 395)
 	recipe:SetItemFilterType("LEATHERWORKING_HANDS")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.CASTER)
-	recipe:AddWorldDrop("Outland")
+	recipe:AddWorldDrop(Z.OUTLAND)
 
 	-- Living Dragonscale Helm -- 35564
 	recipe = AddRecipe(35564, V.TBC, Q.EPIC)
@@ -2621,7 +2622,7 @@ function addon:InitLeatherworking()
 	recipe:SetSkillLevels(365, 365, 375, 385, 395)
 	recipe:SetItemFilterType("LEATHERWORKING_HEAD")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	recipe:AddWorldDrop("Outland")
+	recipe:AddWorldDrop(Z.OUTLAND)
 
 	-- Earthen Netherscale Boots -- 35567
 	recipe = AddRecipe(35567, V.TBC, Q.EPIC)
@@ -2630,7 +2631,7 @@ function addon:InitLeatherworking()
 	recipe:SetSkillLevels(365, 365, 375, 385, 395)
 	recipe:SetItemFilterType("LEATHERWORKING_FEET")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.HEALER, F.CASTER)
-	recipe:AddWorldDrop("Outland")
+	recipe:AddWorldDrop(Z.OUTLAND)
 
 	-- Windstrike Gloves -- 35568
 	recipe = AddRecipe(35568, V.TBC, Q.EPIC)
@@ -2648,7 +2649,7 @@ function addon:InitLeatherworking()
 	recipe:SetSkillLevels(365, 365, 375, 385, 395)
 	recipe:SetItemFilterType("LEATHERWORKING_HEAD")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS)
-	recipe:AddWorldDrop("Outland")
+	recipe:AddWorldDrop(Z.OUTLAND)
 
 	-- Netherdrake Gloves -- 35573
 	recipe = AddRecipe(35573, V.TBC, Q.EPIC)
@@ -2666,7 +2667,7 @@ function addon:InitLeatherworking()
 	recipe:SetSkillLevels(365, 365, 375, 385, 395)
 	recipe:SetItemFilterType("LEATHERWORKING_CHEST")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.HEALER, F.CASTER)
-	recipe:AddWorldDrop("Outland")
+	recipe:AddWorldDrop(Z.OUTLAND)
 
 	-- Ebon Netherscale Breastplate -- 35575
 	recipe = AddRecipe(35575, V.TBC, Q.COMMON)

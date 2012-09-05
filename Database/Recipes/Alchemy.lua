@@ -37,6 +37,7 @@ local Q = private.ITEM_QUALITIES
 local REP = private.REP_LEVELS
 local FAC = private.FACTION_IDS
 local V = private.GAME_VERSIONS
+local Z = private.ZONE_NAMES
 
 --------------------------------------------------------------------------------------------------------------------
 -- Initialize!
@@ -89,7 +90,7 @@ function addon:InitAlchemy()
 	recipe:SetSkillLevels(140, 140, 165, 185, 205)
 	recipe:SetItemFilterType("ALCHEMY_ELIXIR")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Elixir of Minor Fortitude -- 2334
 	recipe = AddRecipe(2334, V.ORIG, Q.COMMON)
@@ -106,7 +107,7 @@ function addon:InitAlchemy()
 	recipe:SetSkillLevels(60, 60, 90, 110, 130)
 	recipe:SetItemFilterType("ALCHEMY_POTION")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Lesser Healing Potion -- 2337
 	recipe = AddRecipe(2337, V.ORIG, Q.COMMON)
@@ -147,7 +148,7 @@ function addon:InitAlchemy()
 	recipe:SetSkillLevels(120, 120, 145, 165, 185)
 	recipe:SetItemFilterType("ALCHEMY_POTION")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Limited Invulnerability Potion -- 3175
 	recipe = AddRecipe(3175, V.ORIG, Q.UNCOMMON)
@@ -156,7 +157,7 @@ function addon:InitAlchemy()
 	recipe:SetSkillLevels(250, 250, 275, 295, 315)
 	recipe:SetItemFilterType("ALCHEMY_POTION")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Strong Troll's Blood Elixir -- 3176
 	recipe = AddRecipe(3176, V.ORIG, Q.COMMON)
@@ -181,7 +182,7 @@ function addon:InitAlchemy()
 	recipe:SetSkillLevels(150, 150, 175, 195, 215)
 	recipe:SetItemFilterType("ALCHEMY_ELIXIR")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Elixir of Minor Agility -- 3230
 	recipe = AddRecipe(3230, V.ORIG, Q.UNCOMMON)
@@ -190,7 +191,7 @@ function addon:InitAlchemy()
 	recipe:SetSkillLevels(50, 50, 80, 100, 120)
 	recipe:SetItemFilterType("ALCHEMY_ELIXIR")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Healing Potion -- 3447
 	recipe = AddRecipe(3447, V.ORIG, Q.COMMON)
@@ -225,7 +226,7 @@ function addon:InitAlchemy()
 	recipe:SetItemFilterType("ALCHEMY_ELIXIR")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.WORLD_DROP, F.IBOE, F.RBOE)
 	recipe:AddTrainer(1215, 1386, 1470, 2132, 2391, 2837, 3009, 3184, 3347, 3603, 3964, 4160, 4611, 4900, 5177, 5499, 7948, 16161, 16588, 16642, 16723, 18802, 19052, 26951, 26975, 27023, 27029, 28703, 33588, 33608, 33630, 33674)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Major Troll's Blood Elixir -- 3451
 	recipe = AddRecipe(3451, V.ORIG, Q.UNCOMMON)
@@ -234,7 +235,7 @@ function addon:InitAlchemy()
 	recipe:SetSkillLevels(180, 180, 200, 220, 240)
 	recipe:SetItemFilterType("ALCHEMY_ELIXIR")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Mana Potion -- 3452
 	recipe = AddRecipe(3452, V.ORIG, Q.COMMON)
@@ -251,7 +252,7 @@ function addon:InitAlchemy()
 	recipe:SetSkillLevels(195, 195, 215, 235, 255)
 	recipe:SetItemFilterType("ALCHEMY_ELIXIR")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Frost Oil -- 3454
 	recipe = AddRecipe(3454, V.ORIG, Q.UNCOMMON)
@@ -416,7 +417,7 @@ function addon:InitAlchemy()
 	recipe:SetSkillLevels(90, 90, 120, 140, 160)
 	recipe:SetItemFilterType("ALCHEMY_ELIXIR")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS)
-	recipe:AddWorldDrop("Northern Barrens", "Southern Barrens")
+	recipe:AddWorldDrop(Z.NORTHERN_BARRENS, Z.SOUTHERN_BARRENS)
 
 	-- Greater Mana Potion -- 11448
 	recipe = AddRecipe(11448, V.ORIG, Q.COMMON)
@@ -482,7 +483,7 @@ function addon:InitAlchemy()
 	recipe:SetSkillLevels(225, 225, 240, 260, 280)
 	recipe:SetItemFilterType("ALCHEMY_POTION")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
-	recipe:AddWorldDrop("Eastern Kingdoms")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS)
 
 	-- Philosopher's Stone -- 11459
 	recipe = AddRecipe(11459, V.ORIG, Q.COMMON)
@@ -516,7 +517,7 @@ function addon:InitAlchemy()
 	recipe:SetSkillLevels(235, 235, 250, 270, 290)
 	recipe:SetItemFilterType("ALCHEMY_POTION")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Elixir of Greater Intellect -- 11465
 	recipe = AddRecipe(11465, V.ORIG, Q.COMMON)
@@ -550,7 +551,7 @@ function addon:InitAlchemy()
 	recipe:SetSkillLevels(240, 240, 255, 275, 295)
 	recipe:SetItemFilterType("ALCHEMY_ELIXIR")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Elixir of Giants -- 11472
 	recipe = AddRecipe(11472, V.ORIG, Q.UNCOMMON)
@@ -559,7 +560,7 @@ function addon:InitAlchemy()
 	recipe:SetSkillLevels(245, 245, 260, 280, 300)
 	recipe:SetItemFilterType("ALCHEMY_ELIXIR")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Ghost Dye -- 11473
 	recipe = AddRecipe(11473, V.ORIG, Q.COMMON)
@@ -744,7 +745,7 @@ function addon:InitAlchemy()
 	recipe:SetSkillLevels(275, 275, 275, 282, 290)
 	recipe:SetItemFilterType("ALCHEMY_TRANSMUTE")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Transmute: Water to Undeath -- 17564
 	recipe = AddRecipe(17564, V.ORIG, Q.UNCOMMON)
@@ -753,7 +754,7 @@ function addon:InitAlchemy()
 	recipe:SetSkillLevels(275, 275, 275, 282, 290)
 	recipe:SetItemFilterType("ALCHEMY_TRANSMUTE")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Transmute: Life to Earth -- 17565
 	recipe = AddRecipe(17565, V.ORIG, Q.UNCOMMON)
@@ -762,7 +763,7 @@ function addon:InitAlchemy()
 	recipe:SetSkillLevels(275, 275, 275, 282, 290)
 	recipe:SetItemFilterType("ALCHEMY_TRANSMUTE")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Transmute: Earth to Life -- 17566
 	recipe = AddRecipe(17566, V.ORIG, Q.UNCOMMON)
@@ -771,7 +772,7 @@ function addon:InitAlchemy()
 	recipe:SetSkillLevels(275, 275, 275, 282, 290)
 	recipe:SetItemFilterType("ALCHEMY_TRANSMUTE")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Greater Stoneshield Potion -- 17570
 	recipe = AddRecipe(17570, V.ORIG, Q.UNCOMMON)
@@ -780,7 +781,7 @@ function addon:InitAlchemy()
 	recipe:SetSkillLevels(280, 280, 295, 315, 335)
 	recipe:SetItemFilterType("ALCHEMY_POTION")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.TANK)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Elixir of the Mongoose -- 17571
 	recipe = AddRecipe(17571, V.ORIG, Q.UNCOMMON)
@@ -880,7 +881,7 @@ function addon:InitAlchemy()
 	recipe:SetSkillLevels(300, 300, 315, 322, 330)
 	recipe:SetItemFilterType("ALCHEMY_POTION")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Flask of the Titans -- 17635
 	recipe = AddRecipe(17635, V.TBC, Q.UNCOMMON)
@@ -1050,7 +1051,7 @@ function addon:InitAlchemy()
 	recipe:SetSkillLevels(320, 320, 335, 342, 350)
 	recipe:SetItemFilterType("ALCHEMY_POTION")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.TANK)
-	recipe:AddWorldDrop("Outland")
+	recipe:AddWorldDrop(Z.OUTLAND)
 
 	-- Super Healing Potion -- 28551
 	recipe = AddRecipe(28551, V.TBC, Q.COMMON)
@@ -1067,7 +1068,7 @@ function addon:InitAlchemy()
 	recipe:SetSkillLevels(325, 325, 340, 347, 355)
 	recipe:SetItemFilterType("ALCHEMY_ELIXIR")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
-	recipe:AddWorldDrop("Outland")
+	recipe:AddWorldDrop(Z.OUTLAND)
 
 	-- Elixir of Major Agility -- 28553
 	recipe = AddRecipe(28553, V.TBC, Q.COMMON)
@@ -1140,7 +1141,7 @@ function addon:InitAlchemy()
 	recipe:SetSkillLevels(350, 350, 365, 372, 380)
 	recipe:SetItemFilterType("ALCHEMY_POTION")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS)
-	recipe:AddWorldDrop("Outland")
+	recipe:AddWorldDrop(Z.OUTLAND)
 
 	-- Haste Potion -- 28564
 	recipe = AddRecipe(28564, V.TBC, Q.UNCOMMON)
@@ -1158,7 +1159,7 @@ function addon:InitAlchemy()
 	recipe:SetSkillLevels(350, 350, 365, 372, 380)
 	recipe:SetItemFilterType("ALCHEMY_POTION")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	recipe:AddWorldDrop("Outland")
+	recipe:AddWorldDrop(Z.OUTLAND)
 
 	-- Transmute: Primal Air to Fire -- 28566
 	recipe = AddRecipe(28566, V.TBC, Q.UNCOMMON)
@@ -1204,7 +1205,7 @@ function addon:InitAlchemy()
 	recipe:SetSkillLevels(355, 355, 370, 375, 380)
 	recipe:SetItemFilterType("ALCHEMY_ELIXIR")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	recipe:AddWorldDrop("Outland")
+	recipe:AddWorldDrop(Z.OUTLAND)
 
 	-- Major Fire Protection Potion -- 28571
 	recipe = AddRecipe(28571, V.TBC, Q.UNCOMMON)
@@ -1268,7 +1269,7 @@ function addon:InitAlchemy()
 	recipe:SetItemFilterType("ALCHEMY_ELIXIR")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.MOB_DROP, F.IBOE, F.RBOP)
 	recipe:AddMobDrop(24664)
-	recipe:AddWorldDrop("Outland")
+	recipe:AddWorldDrop(Z.OUTLAND)
 
 	-- Ironshield Potion -- 28579
 	recipe = AddRecipe(28579, V.TBC, Q.UNCOMMON)

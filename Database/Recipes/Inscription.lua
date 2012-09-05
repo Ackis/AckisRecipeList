@@ -34,6 +34,7 @@ local Q = private.ITEM_QUALITIES
 local REP = private.REP_LEVELS
 local FAC = private.FACTION_IDS
 local V = private.GAME_VERSIONS
+local Z = private.ZONE_NAMES
 
 --------------------------------------------------------------------------------------------------------------------
 -- Initialize!
@@ -3499,7 +3500,7 @@ function addon:InitInscription()
 	recipe:SetSkillLevels(480, 480, 480, 480, 490)
 	recipe:SetItemFilterType("INSCRIPTION_CREATED_ITEM")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOP)
-	recipe:AddWorldDrop("Vashj'ir")
+	recipe:AddWorldDrop(Z.VASHJIR)
 
 	-- Origami Rock -- 86645
 	recipe = AddRecipe(86645, V.CATA, Q.COMMON)
@@ -3507,7 +3508,7 @@ function addon:InitInscription()
 	recipe:SetSkillLevels(490, 490, 490, 490, 500)
 	recipe:SetItemFilterType("INSCRIPTION_CREATED_ITEM")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOP)
-	recipe:AddWorldDrop("Deepholm")
+	recipe:AddWorldDrop(Z.DEEPHOLM)
 
 	-- Origami Beetle -- 86646
 	recipe = AddRecipe(86646, V.CATA, Q.COMMON)
@@ -3516,7 +3517,7 @@ function addon:InitInscription()
 	recipe:SetSkillLevels(500, 500, 500, 500, 510)
 	recipe:SetItemFilterType("INSCRIPTION_CREATED_ITEM")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOP)
-	recipe:AddWorldDrop("Uldum")
+	recipe:AddWorldDrop(Z.ULDUM)
 
 	-- Key to the Planes -- 86648
 	recipe = AddRecipe(86648, V.CATA, Q.COMMON)

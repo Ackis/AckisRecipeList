@@ -36,6 +36,7 @@ local Q = private.ITEM_QUALITIES
 local REP = private.REP_LEVELS
 local FAC = private.FACTION_IDS
 local V = private.GAME_VERSIONS
+local Z = private.ZONE_NAMES
 
 --------------------------------------------------------------------------------------------------------------------
 -- Initialize!
@@ -91,7 +92,7 @@ function addon:InitEnchanting()
 	recipe:SetSkillLevels(20, 20, 80, 100, 120)
 	recipe:SetItemFilterType("ENCHANTING_CHEST")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Enchant Bracer - Minor Stamina -- 7457
 	recipe = AddRecipe(7457, V.ORIG, Q.COMMON)
@@ -120,7 +121,7 @@ function addon:InitEnchanting()
 	recipe:SetSkillLevels(60, 60, 105, 125, 145)
 	recipe:SetItemFilterType("ENCHANTING_BRACER")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Enchant Cloak - Minor Protection -- 7771
 	recipe = AddRecipe(7771, V.ORIG, Q.COMMON)
@@ -151,7 +152,7 @@ function addon:InitEnchanting()
 	recipe:SetSkillLevels(80, 80, 115, 135, 155)
 	recipe:SetItemFilterType("ENCHANTING_BRACER")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Enchant Weapon - Minor Beastslayer -- 7786
 	recipe = AddRecipe(7786, V.ORIG, Q.UNCOMMON)
@@ -159,7 +160,7 @@ function addon:InitEnchanting()
 	recipe:SetSkillLevels(90, 90, 120, 140, 160)
 	recipe:SetItemFilterType("ENCHANTING_WEAPON")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Enchant Weapon - Minor Striking -- 7788
 	recipe = AddRecipe(7788, V.ORIG, Q.COMMON)
@@ -190,7 +191,7 @@ function addon:InitEnchanting()
 	recipe:SetSkillLevels(120, 120, 145, 165, 185)
 	recipe:SetItemFilterType("ENCHANTING_BRACER")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Enchant Boots - Minor Stamina -- 7863
 	recipe = AddRecipe(7863, V.ORIG, Q.COMMON)
@@ -220,7 +221,7 @@ function addon:InitEnchanting()
 	recipe:SetSkillLevels(110, 110, 135, 155, 175)
 	recipe:SetItemFilterType("ENCHANTING_2H_WEAPON")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Enchant Cloak - Minor Agility -- 13419
 	recipe = AddRecipe(13419, V.ORIG, Q.UNCOMMON)
@@ -229,7 +230,7 @@ function addon:InitEnchanting()
 	recipe:SetItemFilterType("ENCHANTING_CLOAK")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS)
 	recipe:AddVendor(3954, 12043)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Enchant Cloak - Lesser Protection -- 13421
 	recipe = AddRecipe(13421, V.ORIG, Q.COMMON)
@@ -244,7 +245,7 @@ function addon:InitEnchanting()
 	recipe:SetSkillLevels(115, 115, 140, 160, 180)
 	recipe:SetItemFilterType("ENCHANTING_SHIELD")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.TANK)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Enchant Shield - Lesser Spirit -- 13485
 	recipe = AddRecipe(13485, V.ORIG, Q.COMMON)
@@ -310,7 +311,7 @@ function addon:InitEnchanting()
 	recipe:SetSkillLevels(145, 145, 170, 190, 210)
 	recipe:SetItemFilterType("ENCHANTING_GLOVES")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOP)
-	recipe:AddWorldDrop("Ashenvale")
+	recipe:AddWorldDrop(Z.ASHENVALE)
 
 	-- Enchant Gloves - Fishing -- 13620
 	recipe = AddRecipe(13620, V.ORIG, Q.UNCOMMON)
@@ -397,7 +398,7 @@ function addon:InitEnchanting()
 	recipe:SetSkillLevels(175, 175, 195, 215, 235)
 	recipe:SetItemFilterType("ENCHANTING_WEAPON")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Enchant Weapon - Lesser Elemental Slayer -- 13655
 	recipe = AddRecipe(13655, V.ORIG, Q.UNCOMMON)
@@ -405,7 +406,7 @@ function addon:InitEnchanting()
 	recipe:SetSkillLevels(175, 175, 195, 215, 235)
 	recipe:SetItemFilterType("ENCHANTING_WEAPON")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Enchant Shield - Spirit -- 13659
 	recipe = AddRecipe(13659, V.ORIG, Q.COMMON)
@@ -434,7 +435,7 @@ function addon:InitEnchanting()
 	recipe:SetSkillLevels(190, 190, 210, 230, 250)
 	recipe:SetItemFilterType("ENCHANTING_BOOTS")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Enchant Shield - Lesser Parry -- 13689
 	recipe = AddRecipe(13689, V.ORIG, Q.UNCOMMON)
@@ -442,7 +443,7 @@ function addon:InitEnchanting()
 	recipe:SetSkillLevels(195, 195, 215, 235, 255)
 	recipe:SetItemFilterType("ENCHANTING_SHIELD")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.TANK)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Enchant Weapon - Striking -- 13693
 	recipe = AddRecipe(13693, V.ORIG, Q.COMMON)
@@ -493,7 +494,7 @@ function addon:InitEnchanting()
 	recipe:SetSkillLevels(210, 210, 230, 250, 270)
 	recipe:SetItemFilterType("ENCHANTING_SHIELD")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Enchant Bracer - Intellect -- 13822
 	recipe = AddRecipe(13822, V.ORIG, Q.COMMON)
@@ -523,7 +524,7 @@ function addon:InitEnchanting()
 	recipe:SetSkillLevels(220, 220, 240, 260, 280)
 	recipe:SetItemFilterType("ENCHANTING_BRACER")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Enchant Chest - Superior Health -- 13858
 	recipe = AddRecipe(13858, V.ORIG, Q.COMMON)
@@ -546,7 +547,7 @@ function addon:InitEnchanting()
 	recipe:SetSkillLevels(225, 225, 245, 265, 285)
 	recipe:SetItemFilterType("ENCHANTING_CLOAK")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOP, F.DPS)
-	recipe:AddWorldDrop("Tanaris")
+	recipe:AddWorldDrop(Z.TANARIS)
 
 	-- Enchant Gloves - Strength -- 13887
 	recipe = AddRecipe(13887, V.ORIG, Q.COMMON)
@@ -583,7 +584,7 @@ function addon:InitEnchanting()
 	recipe:SetSkillLevels(230, 230, 250, 270, 290)
 	recipe:SetItemFilterType("ENCHANTING_WEAPON")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Enchant Chest - Superior Mana -- 13917
 	recipe = AddRecipe(13917, V.ORIG, Q.COMMON)
@@ -641,7 +642,7 @@ function addon:InitEnchanting()
 	recipe:SetSkillLevels(245, 245, 265, 285, 305)
 	recipe:SetItemFilterType("ENCHANTING_BRACER")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Enchant Gloves - Riding Skill -- 13947
 	recipe = AddRecipe(13947, V.ORIG, Q.UNCOMMON)
@@ -649,7 +650,7 @@ function addon:InitEnchanting()
 	recipe:SetSkillLevels(250, 250, 270, 290, 310)
 	recipe:SetItemFilterType("ENCHANTING_GLOVES")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Enchant Gloves - Minor Haste -- 13948
 	recipe = AddRecipe(13948, V.ORIG, Q.COMMON)
@@ -728,7 +729,7 @@ function addon:InitEnchanting()
 	recipe:SetSkillLevels(270, 270, 290, 310, 330)
 	recipe:SetItemFilterType("ENCHANTING_BRACER")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Enchant Bracer - Superior Strength -- 20010
 	recipe = AddRecipe(20010, V.ORIG, Q.UNCOMMON)
@@ -744,7 +745,7 @@ function addon:InitEnchanting()
 	recipe:SetSkillLevels(300, 300, 310, 325, 340)
 	recipe:SetItemFilterType("ENCHANTING_BRACER")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Enchant Gloves - Greater Agility -- 20012
 	recipe = AddRecipe(20012, V.ORIG, Q.COMMON)
@@ -791,7 +792,7 @@ function addon:InitEnchanting()
 	recipe:SetSkillLevels(260, 260, 280, 300, 320)
 	recipe:SetItemFilterType("ENCHANTING_BOOTS")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Enchant Boots - Greater Agility -- 20023
 	recipe = AddRecipe(20023, V.ORIG, Q.COMMON)
@@ -807,7 +808,7 @@ function addon:InitEnchanting()
 	recipe:SetSkillLevels(275, 275, 295, 315, 335)
 	recipe:SetItemFilterType("ENCHANTING_BOOTS")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Enchant Chest - Greater Stats -- 20025
 	recipe = AddRecipe(20025, V.ORIG, Q.UNCOMMON)
@@ -815,7 +816,7 @@ function addon:InitEnchanting()
 	recipe:SetSkillLevels(300, 300, 310, 325, 340)
 	recipe:SetItemFilterType("ENCHANTING_CHEST")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
-	recipe:AddWorldDrop("Outland")
+	recipe:AddWorldDrop(Z.OUTLAND)
 
 	-- Enchant Chest - Major Health -- 20026
 	recipe = AddRecipe(20026, V.ORIG, Q.COMMON)
@@ -1155,7 +1156,7 @@ function addon:InitEnchanting()
 	recipe:SetSkillLevels(335, 335, 345, 360, 375)
 	recipe:SetItemFilterType("ENCHANTING_BRACER")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	recipe:AddWorldDrop("Outland")
+	recipe:AddWorldDrop(Z.OUTLAND)
 
 	-- Enchant Bracer - Fortitude -- 27914
 	recipe = AddRecipe(27914, V.TBC, Q.UNCOMMON)
@@ -1218,7 +1219,7 @@ function addon:InitEnchanting()
 	recipe:SetSkillLevels(340, 340, 350, 365, 380)
 	recipe:SetItemFilterType("ENCHANTING_SHIELD")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.TANK)
-	recipe:AddWorldDrop("Outland")
+	recipe:AddWorldDrop(Z.OUTLAND)
 
 	-- Enchant Boots - Vitality -- 27948
 	recipe = AddRecipe(27948, V.TBC, Q.UNCOMMON)
@@ -1312,7 +1313,7 @@ function addon:InitEnchanting()
 	recipe:SetSkillLevels(350, 350, 370, 375, 380)
 	recipe:SetItemFilterType("ENCHANTING_WEAPON")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS)
-	recipe:AddWorldDrop("Outland")
+	recipe:AddWorldDrop(Z.OUTLAND)
 
 	-- Enchant Weapon - Major Spellpower -- 27975
 	recipe = AddRecipe(27975, V.TBC, Q.UNCOMMON)
@@ -1360,7 +1361,7 @@ function addon:InitEnchanting()
 	recipe:SetSkillLevels(360, 360, 370, 377, 385)
 	recipe:SetItemFilterType("ENCHANTING_WEAPON")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
-	recipe:AddWorldDrop("Outland")
+	recipe:AddWorldDrop(Z.OUTLAND)
 
 	-- Enchant Weapon - Battlemaster -- 28004
 	recipe = AddRecipe(28004, V.TBC, Q.UNCOMMON)
@@ -1368,7 +1369,7 @@ function addon:InitEnchanting()
 	recipe:SetSkillLevels(360, 360, 370, 377, 385)
 	recipe:SetItemFilterType("ENCHANTING_WEAPON")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
-	recipe:AddWorldDrop("Outland")
+	recipe:AddWorldDrop(Z.OUTLAND)
 
 	-- Superior Mana Oil -- 28016
 	recipe = AddRecipe(28016, V.TBC, Q.COMMON)
@@ -1433,7 +1434,7 @@ function addon:InitEnchanting()
 	recipe:SetSkillLevels(345, 345, 355, 367, 380)
 	recipe:SetItemFilterType("ENCHANTING_CHEST")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
-	recipe:AddWorldDrop("Outland")
+	recipe:AddWorldDrop(Z.OUTLAND)
 
 	-- Enchant Gloves - Blasting -- 33993
 	recipe = AddRecipe(33993, V.TBC, Q.COMMON)
@@ -2501,21 +2502,21 @@ function addon:InitEnchanting()
 	recipe:SetSkillLevels(515, 515, 525, 532, 540)
 	recipe:SetItemFilterType("ENCHANTING_BRACER")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
-	recipe:AddWorldDrop("Deepholm", "Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.DEEPHOLM, Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Enchant Bracer - Mighty Intellect -- 96262
 	recipe = AddRecipe(96262, V.CATA, Q.RARE)
 	recipe:SetSkillLevels(515, 515, 525, 532, 540)
 	recipe:SetItemFilterType("ENCHANTING_BRACER")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
-	recipe:AddWorldDrop("Deepholm", "Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.DEEPHOLM, Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Enchant Bracer - Agility -- 96264
 	recipe = AddRecipe(96264, V.CATA, Q.RARE)
 	recipe:SetSkillLevels(515, 515, 525, 532, 540)
 	recipe:SetItemFilterType("ENCHANTING_BRACER")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
-	recipe:AddWorldDrop("Deepholm", "Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.DEEPHOLM, Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Maelstrom Shatter -- 104698
 	recipe = AddRecipe(104698, V.CATA, Q.COMMON)

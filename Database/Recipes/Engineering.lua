@@ -37,6 +37,7 @@ local Q = private.ITEM_QUALITIES
 local REP = private.REP_LEVELS
 local FAC = private.FACTION_IDS
 local V = private.GAME_VERSIONS
+local Z = private.ZONE_NAMES
 
 --------------------------------------------------------------------------------------------------------------------
 -- Initialize!
@@ -97,7 +98,7 @@ function addon:InitEngineering()
 	recipe:SetSkillLevels(75, 75, 105, 120, 135)
 	recipe:SetItemFilterType("ENGINEERING_PET")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Coarse Blasting Powder -- 3929
 	recipe = AddRecipe(3929, V.ORIG, Q.COMMON)
@@ -130,7 +131,7 @@ function addon:InitEngineering()
 	recipe:SetSkillLevels(100, 100, 130, 145, 160)
 	recipe:SetItemFilterType("ENGINEERING_CREATED_ITEM")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Flying Tiger Goggles -- 3934
 	recipe = AddRecipe(3934, V.ORIG, Q.COMMON)
@@ -180,7 +181,7 @@ function addon:InitEngineering()
 	recipe:SetSkillLevels(120, 120, 145, 157, 170)
 	recipe:SetItemFilterType("ENGINEERING_HEAD")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Small Bronze Bomb -- 3941
 	recipe = AddRecipe(3941, V.ORIG, Q.COMMON)
@@ -263,7 +264,7 @@ function addon:InitEngineering()
 	recipe:SetSkillLevels(145, 145, 170, 182, 195)
 	recipe:SetItemFilterType("ENGINEERING_GUN")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Explosive Sheep -- 3955
 	recipe = AddRecipe(3955, V.ORIG, Q.COMMON)
@@ -314,7 +315,7 @@ function addon:InitEngineering()
 	recipe:SetSkillLevels(165, 165, 185, 195, 210)
 	recipe:SetItemFilterType("ENGINEERING_CREATED_ITEM")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Gyrochronatom -- 3961
 	recipe = AddRecipe(3961, V.ORIG, Q.COMMON)
@@ -355,7 +356,7 @@ function addon:InitEngineering()
 	recipe:SetSkillLevels(185, 185, 205, 215, 225)
 	recipe:SetItemFilterType("ENGINEERING_HEAD")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Big Iron Bomb -- 3967
 	recipe = AddRecipe(3967, V.ORIG, Q.COMMON)
@@ -372,7 +373,7 @@ function addon:InitEngineering()
 	recipe:SetSkillLevels(195, 195, 215, 225, 235)
 	recipe:SetItemFilterType("ENGINEERING_CREATED_ITEM")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Mechanical Dragonling -- 3969
 	recipe = AddRecipe(3969, V.ORIG, Q.COMMON)
@@ -400,7 +401,7 @@ function addon:InitEngineering()
 	recipe:SetSkillLevels(200, 200, 200, 220, 240)
 	recipe:SetItemFilterType("ENGINEERING_CREATED_ITEM")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Silver Contact -- 3973
 	recipe = AddRecipe(3973, V.ORIG, Q.COMMON)
@@ -476,7 +477,7 @@ function addon:InitEngineering()
 	recipe:SetSkillLevels(100, 100, 115, 122, 130)
 	recipe:SetItemFilterType("ENGINEERING_CREATED_ITEM")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Goblin Rocket Boots -- 8895
 	recipe = AddRecipe(8895, V.ORIG, Q.COMMON)
@@ -546,7 +547,7 @@ function addon:InitEngineering()
 	recipe:SetSkillLevels(175, 175, 195, 205, 215)
 	recipe:SetItemFilterType("ENGINEERING_HEAD")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Mithril Tube -- 12589
 	recipe = AddRecipe(12589, V.ORIG, Q.COMMON)
@@ -620,7 +621,7 @@ function addon:InitEngineering()
 	recipe:SetSkillLevels(220, 220, 240, 250, 260)
 	recipe:SetItemFilterType("ENGINEERING_HEAD")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Mithril Heavy-bore Rifle -- 12614
 	recipe = AddRecipe(12614, V.ORIG, Q.UNCOMMON)
@@ -629,7 +630,7 @@ function addon:InitEngineering()
 	recipe:SetSkillLevels(220, 220, 240, 250, 260)
 	recipe:SetItemFilterType("ENGINEERING_GUN")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Spellpower Goggles Xtreme -- 12615
 	recipe = AddRecipe(12615, V.ORIG, Q.COMMON)
@@ -647,7 +648,7 @@ function addon:InitEngineering()
 	recipe:SetSkillLevels(225, 225, 245, 255, 265)
 	recipe:SetItemFilterType("ENGINEERING_BACK")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Deepdive Helmet -- 12617
 	recipe = AddRecipe(12617, V.ORIG, Q.COMMON)
@@ -681,7 +682,7 @@ function addon:InitEngineering()
 	recipe:SetSkillLevels(240, 240, 260, 270, 280)
 	recipe:SetItemFilterType("ENGINEERING_ITEM_ENHANCEMENT")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Green Lens -- 12622
 	recipe = AddRecipe(12622, V.ORIG, Q.COMMON)
@@ -946,7 +947,7 @@ function addon:InitEngineering()
 	recipe:SetSkillLevels(265, 265, 285, 295, 305)
 	recipe:SetItemFilterType("ENGINEERING_PET")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Spellpower Goggles Xtreme Plus -- 19794
 	recipe = AddRecipe(19794, V.ORIG, Q.COMMON)
@@ -1036,7 +1037,7 @@ function addon:InitEngineering()
 	recipe:SetSkillLevels(300, 300, 320, 330, 340)
 	recipe:SetItemFilterType("ENGINEERING_CREATED_ITEM")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Flawless Arcanite Rifle -- 19833
 	recipe = AddRecipe(19833, V.ORIG, Q.UNCOMMON)
@@ -1530,7 +1531,7 @@ function addon:InitEngineering()
 	recipe:SetSkillLevels(375, 375, 385, 395, 405)
 	recipe:SetItemFilterType("ENGINEERING_GUN")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.CASTER)
-	recipe:AddWorldDrop("Outland")
+	recipe:AddWorldDrop(Z.OUTLAND)
 
 	-- Cogspinner Goggles -- 30316
 	recipe = AddRecipe(30316, V.TBC, Q.COMMON)
@@ -1548,7 +1549,7 @@ function addon:InitEngineering()
 	recipe:SetSkillLevels(340, 340, 350, 360, 370)
 	recipe:SetItemFilterType("ENGINEERING_HEAD")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.HEALER, F.CASTER)
-	recipe:AddWorldDrop("Outland")
+	recipe:AddWorldDrop(Z.OUTLAND)
 
 	-- Ultra-Spectropic Detection Goggles -- 30318
 	recipe = AddRecipe(30318, V.TBC, Q.COMMON)
@@ -1603,7 +1604,7 @@ function addon:InitEngineering()
 	recipe:SetSkillLevels(325, 325, 335, 345, 355)
 	recipe:SetItemFilterType("ENGINEERING_CREATED_ITEM")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
-	recipe:AddWorldDrop("Outland")
+	recipe:AddWorldDrop(Z.OUTLAND)
 
 	-- White Smoke Flare -- 30341
 	recipe = AddRecipe(30341, V.TBC, Q.COMMON)
@@ -1785,7 +1786,7 @@ function addon:InitEngineering()
 	recipe:SetSkillLevels(335, 335, 335, 345, 355)
 	recipe:SetItemFilterType("ENGINEERING_CREATED_ITEM")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
-	recipe:AddWorldDrop("Outland")
+	recipe:AddWorldDrop(Z.OUTLAND)
 
 	-- Dimensional Ripper - Area 52 -- 36954
 	recipe = AddRecipe(36954, V.TBC, Q.COMMON)
@@ -2473,7 +2474,7 @@ function addon:InitEngineering()
 	recipe:SetSkillLevels(450, 450, 480, 485, 490)
 	recipe:SetItemFilterType("ENGINEERING_CREATED_ITEM")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOP, F.RBOP)
-	recipe:AddWorldDrop("Northrend")
+	recipe:AddWorldDrop(Z.NORTHREND)
 
 	-- Reinforced Bio-Optic Killshades -- 81714
 	recipe = AddRecipe(81714, V.CATA, Q.COMMON)
