@@ -1,6 +1,19 @@
 ==ARL Change Log
 NOTE: Always remove the folder for old versions and install a fresh copy when upgrading.
 
+== 2.4.1
+
+=== Interface:
+* The look of the profession-cycling button (profession icon at upper-left of list frame) has been improved.
+* Type-to-search has had its responsiveness improved.
+
+
+=== Recipe Database:
+* Removed all resistance-based Armor Kit recipes.
+* Recipes which automatically update to new ranks no longer show older ranks as being available to learn.
+* Removed some NPCs which no longer had any recipe data associated to them.
+* Fixed the role assignments for several recipes.
+
 == 2.4
 
 === General:
@@ -8,7 +21,7 @@ NOTE: Always remove the folder for old versions and install a fresh copy when up
 * Replaced Inscription Relic with Inscription Staff.
 
 === Interface:
-* Removed Prime Glyph references. 
+* Removed Prime Glyph references.
 * Added a new highlight texture for the profession-switching button (portrait-type image at top-left of the list).
 
 === Recipe Database:
