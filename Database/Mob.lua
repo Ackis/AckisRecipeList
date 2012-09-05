@@ -28,13 +28,13 @@ local addon = LibStub("AceAddon-3.0"):GetAddon(private.addon_name)
 local L = LibStub("AceLocale-3.0"):GetLocale(private.addon_name)
 local BB = LibStub("LibBabble-Boss-3.0"):GetLookupTable()
 
-local Z = private.ZONE_IDS
+local Z = private.ZONE_NAMES
 
 private.mob_list = {}
 
 function addon:InitMob()
-	local function AddMob(mob_id, mob_name, zone, coord_x, coord_y)
-		private:AddListEntry(private.mob_list, mob_id, mob_name, _G.GetMapNameByID(zone), coord_x, coord_y, nil)
+	local function AddMob(mob_id, mob_name, zone_name, coord_x, coord_y)
+		private:AddListEntry(private.mob_list, mob_id, mob_name, zone_name, coord_x, coord_y, nil)
 	end
 
 	-- Arathi Highlands

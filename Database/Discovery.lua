@@ -27,7 +27,8 @@ local LibStub = _G.LibStub
 
 local addon = LibStub("AceAddon-3.0"):GetAddon(private.addon_name)
 local L = LibStub("AceLocale-3.0"):GetLocale(private.addon_name)
-local BZ = LibStub("LibBabble-Zone-3.0"):GetLookupTable()
+
+local Z = private.ZONE_NAMES
 
 private.discovery_list	= {}
 
@@ -40,7 +41,7 @@ function addon:InitDiscovery()
 	AddDiscovery("DISCOVERY_ALCH_POTION")
 	AddDiscovery("DISCOVERY_ALCH_PROT")
 	AddDiscovery("DISCOVERY_ALCH_BC_XMUTE")
-	AddDiscovery("DISCOVERY_INSC_BOOK", BZ["Northrend"])
+	AddDiscovery("DISCOVERY_INSC_BOOK", Z.NORTHREND)
 	AddDiscovery("DISCOVERY_INSC_MINOR")
 	AddDiscovery("DISCOVERY_INSC_NORTHREND")
 	AddDiscovery("DISCOVERY_ALCH_NORTHREND_RESEARCH")

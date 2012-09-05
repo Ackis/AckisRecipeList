@@ -26,7 +26,7 @@ local FOLDER_NAME, private	= ...
 local LibStub = _G.LibStub
 local addon	= LibStub("AceAddon-3.0"):GetAddon(private.addon_name)
 
-local Z = private.ZONE_IDS
+local Z = private.ZONE_NAMES
 
 private.quest_list	= {}
 
@@ -50,8 +50,8 @@ private.quest_names = _G.setmetatable({}, {
 })
 
 function addon:InitQuest()
-	local function AddQuest(quest_id, location, coord_x, coord_y, faction)
-		private:AddListEntry(private.quest_list, quest_id, nil, _G.GetMapNameByID(location), coord_x, coord_y, faction)
+	local function AddQuest(quest_id, zone_name, coord_x, coord_y, faction)
+		private:AddListEntry(private.quest_list, quest_id, nil, zone_name, coord_x, coord_y, faction)
 	end
 
 	AddQuest(384,	Z.DUN_MOROGH,			46.8,	52.5,	"Alliance")
@@ -70,7 +70,7 @@ function addon:InitQuest()
 	AddQuest(7493,	Z.ORGRIMMAR,			51.0,	76.5,	"Horde")
 	AddQuest(7497,	Z.STORMWIND_CITY,		67.2,	85.5,	"Alliance")
 	AddQuest(7604,	Z.BLACKROCK_DEPTHS,		0,	0,	"Neutral")
-	AddQuest(8313,	Z.SILITHUS,			43.6, 42.0,	"Neutral")
+	AddQuest(8313,	Z.SILITHUS,			43.6,	42.0,	"Neutral")
 	AddQuest(8323,	Z.SILITHUS,			67.1,	69.7,	"Neutral")
 	AddQuest(8798,	Z.WINTERSPRING,			59.2,	49.8,	"Neutral")
 	AddQuest(9171,	Z.GHOSTLANDS,			48.3,	30.9,	"Horde")

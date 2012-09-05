@@ -120,16 +120,48 @@ do
 		table.wipe(output)
 		table.insert(output, "private.ZONE_NAMES = {")
 
-		for index = 1, 100000 do
-			local zone_name = _G.GetMapNameByID(index)
+--		for index = 1, 100000 do
+--			local zone_name = _G.GetMapNameByID(index)
+--
+--			if zone_name then
+----				table.insert(output, ("[%d] = \"%s\","):format(index, zone_name:upper():gsub(" ", "_"):gsub("'", ""):gsub(":", ""):gsub("-", "_")))
+--				table.insert(output, ("%s = _G.GetMapNameByID(%d),"):format(zone_name:upper()
+--				:gsub(" ", "_"):gsub("'", ""):gsub(":", ""):gsub("-", "_"):gsub("%(", ""):gsub("%)", ""), index))
+--			end
+--		end
+		local sorted_zones = {}
+		for name, idnum in pairs(private.ZONE_NAME_LIST) do
+			sorted_zones[#sorted_zones + 1] = name
+		end
+		table.sort(sorted_zones, function(a, b)
+			return private.ZONE_NAME_LIST[a] < private.ZONE_NAME_LIST[b]
+		end)
 
-			if zone_name then
-				table.insert(output, ("[%d] = \"%s\","):format(index, zone_name:upper():gsub(" ", "_"):gsub("'", ""):gsub(":", ""):gsub("-", "_")))
-			end
+		for index = 1, #sorted_zones do
+			local zone_id = private.ZONE_NAME_LIST[sorted_zones[index]]
+			table.insert(output, ("%s = _G.GetMapNameByID(%d),"):format(sorted_zones[index]:upper():gsub(" ", "_"):gsub("'", ""):gsub(":", ""):gsub("-", "_"):gsub("%(", ""):gsub("%)", ""), zone_id))
 		end
 		table.insert(output, "}\n")
 		self:DisplayTextDump(nil, nil, table.concat(output, "\n"))
 	end
+
+--	private.ZONE_NAME_LIST = {}
+--
+--	local old_GetMapNameByID = _G.GetMapNameByID
+--	local function My_GetMapNameByID(id_num)
+--		if not id_num then
+--			return
+--		end
+--		local Z = private.ZONE_NAME_LIST
+--		local name = old_GetMapNameByID(id_num)
+--
+--		if not name then
+--			return
+--		end
+--		Z[name] = id_num
+--		return name
+--	end
+--	_G.GetMapNameByID = My_GetMapNameByID
 end -- do
 
 -------------------------------------------------------------------------------
