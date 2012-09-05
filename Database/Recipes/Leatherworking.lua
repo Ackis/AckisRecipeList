@@ -369,7 +369,7 @@ function addon:InitLeatherworking()
 	recipe:SetCraftedItemID(4264)
 	recipe:SetSkillLevels(200, 200, 220, 230, 240)
 	recipe:SetItemFilterType("LEATHERWORKING_WAIST")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.TANK)
 	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
 
 	-- Heavy Armor Kit -- 3780
@@ -4342,7 +4342,7 @@ function addon:InitLeatherworking()
 	recipe:SetSkillLevels(450, 450, 460, 467, 475)
 	recipe:SetRequiredFaction("Horde")
 	recipe:SetItemFilterType("LEATHERWORKING_WRIST")
-	recipe:AddFilters(F.HORDE, F.RAID, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
+	recipe:AddFilters(F.HORDE, F.RAID, F.IBOE, F.RBOE, F.DPS, F.HEALER, F.CASTER)
 	recipe:AddCustom("TOC25_RANDOM")
 
 	-- Crusader's Dragonscale Breastplate -- 67138
@@ -4352,7 +4352,7 @@ function addon:InitLeatherworking()
 	recipe:SetSkillLevels(450, 450, 460, 467, 475)
 	recipe:SetRequiredFaction("Horde")
 	recipe:SetItemFilterType("LEATHERWORKING_CHEST")
-	recipe:AddFilters(F.HORDE, F.RAID, F.IBOE, F.RBOE, F.DPS)
+	recipe:AddFilters(F.HORDE, F.RAID, F.IBOE, F.RBOE, F.DPS, F.HEALER, F.CASTER)
 	recipe:AddCustom("TOC25_RANDOM")
 
 	-- Bracers of Swift Death -- 67139
@@ -5277,7 +5277,7 @@ function addon:InitLeatherworking()
 	recipe:SetItemFilterType("LEATHERWORKING_ITEM_ENHANCEMENT")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	recipe:AddTrainer(3007, 3365, 3967, 4212, 4588, 5127, 5564, 21087, 26998, 28700, 29507, 29509, 33581, 33612, 33635)
-	
+
 	-- Primal Leg Reinforcements -- 124559
 	recipe = AddRecipe(124559, V.CATA, Q.COMMON)
 	recipe:SetPreviousRankID(124564)

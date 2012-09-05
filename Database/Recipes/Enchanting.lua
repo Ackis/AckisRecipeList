@@ -2095,7 +2095,7 @@ function addon:InitEnchanting()
 	recipe:SetRecipeItemID(46027)
 	recipe:SetSkillLevels(450, 450, 455, 460, 465)
 	recipe:SetItemFilterType("ENCHANTING_WEAPON")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOP)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOP, F.TANK)
 	recipe:AddCustom("ULDUAR_RANDOM")
 
 	-- Enchant Weapon - Blood Draining -- 64579

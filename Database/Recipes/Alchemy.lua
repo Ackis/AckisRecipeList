@@ -286,7 +286,7 @@ function addon:InitAlchemy()
 	recipe:SetCraftedItemID(5631)
 	recipe:SetSkillLevels(60, 60, 90, 110, 130)
 	recipe:SetItemFilterType("ALCHEMY_POTION")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.DRUID, F.WARRIOR)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.DPS, F.TANK, F.DRUID, F.WARRIOR)
 	recipe:AddVendor(1685, 3499)
 	recipe:AddLimitedVendor(3335, 2)
 
@@ -296,7 +296,7 @@ function addon:InitAlchemy()
 	recipe:SetCraftedItemID(5633)
 	recipe:SetSkillLevels(175, 175, 195, 215, 235)
 	recipe:SetItemFilterType("ALCHEMY_POTION")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.DRUID, F.WARRIOR)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.DPS, F.TANK, F.DRUID, F.WARRIOR)
 	recipe:AddLimitedVendor(3335, 2, 4226, 1)
 
 	-- Free Action Potion -- 6624
