@@ -25,11 +25,12 @@ local FOLDER_NAME, private	= ...
 
 local LibStub = _G.LibStub
 
-local addon	= LibStub("AceAddon-3.0"):GetAddon(private.addon_name)
-local L		= LibStub("AceLocale-3.0"):GetLocale(private.addon_name)
-local BB	= LibStub("LibBabble-Boss-3.0"):GetLookupTable()
+local addon = LibStub("AceAddon-3.0"):GetAddon(private.addon_name)
+local L = LibStub("AceLocale-3.0"):GetLocale(private.addon_name)
+local BB = LibStub("LibBabble-Boss-3.0"):GetLookupTable()
 
-local Z		= private.ZONE_NAMES
+local BN = private.BOSS_NAMES
+local Z = private.ZONE_NAMES
 
 private.vendor_list = {}
 
@@ -190,7 +191,7 @@ function addon:InitVendor()
 	AddVendor(8679,		L["Knaz Blunderflame"],			Z.NORTHERN_STRANGLETHORN,	67.7,	61.1,	"Neutral")   -- UPDATED
 	AddVendor(8681,		L["Outfitter Eric"],			Z.IRONFORGE,			43.2,	29.2,	"Alliance")
 	AddVendor(8878,		L["Muuran"],				Z.DESOLACE,			55.6,	56.5,	"Horde")
-	AddVendor(9499,		BB["Plugger Spazzring"],		Z.BLACKROCK_DEPTHS,		0,	0,	"Neutral")
+	AddVendor(9499,		BN.PLUGGER_SPAZZRING,			Z.BLACKROCK_DEPTHS,		0,	0,	"Neutral")
 	AddVendor(9636,		L["Kireena"],				Z.DESOLACE,			51.0,	53.5,	"Horde")
 	AddVendor(10118,	L["Nessa Shadowsong"],			Z.TELDRASSIL,			56.3,	92.4,	"Alliance")
 	AddVendor(10856,	L["Argent Quartermaster Hasana"],	Z.TIRISFAL_GLADES,		83.2,	68.1,	"Neutral")

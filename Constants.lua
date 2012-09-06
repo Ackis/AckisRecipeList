@@ -676,6 +676,50 @@ private.ZONE_LABELS_FROM_NAME = {}
 for label, name in _G.pairs(private.ZONE_NAMES) do
 	private.ZONE_LABELS_FROM_NAME[name] = label
 end
+
+-------------------------------------------------------------------------------
+-- Boss names.
+-------------------------------------------------------------------------------
+private.BOSS_NAMES = {
+	LORD_ROCCOR = _G.EJ_GetEncounterInfo(370),
+	PYROMANCER_LOREGRAIN = _G.EJ_GetEncounterInfo(373),
+	GOLEM_LORD_ARGELMACH = _G.EJ_GetEncounterInfo(379),
+	RIBBLY_SCREWSPIGOT = _G.EJ_GetEncounterInfo(382),
+	PLUGGER_SPAZZRING = _G.EJ_GetEncounterInfo(383),
+	QUARTERMASTER_ZIGRIS = _G.EJ_GetEncounterInfo(393),
+	SOLAKAR_FLAMEWREATH = _G.EJ_GetEncounterInfo(398),
+	GENERAL_DRAKKISATH = _G.EJ_GetEncounterInfo(401),
+	MAGISTER_KALENDRIS = _G.EJ_GetEncounterInfo(408),
+	MEKGINEER_THERMAPLUGG = _G.EJ_GetEncounterInfo(422),
+	BALNAZZAR = _G.EJ_GetEncounterInfo(449),
+	MALEKI_THE_PALLID = _G.EJ_GetEncounterInfo(453),
+	PRIESTESS_DELRISSA = _G.EJ_GetEncounterInfo(532),
+	KAELTHAS_SUNSTRIDER = _G.EJ_GetEncounterInfo(533),
+	NEXUS_PRINCE_SHAFFAR = _G.EJ_GetEncounterInfo(537),
+	CAPTAIN_SKARLOC = _G.EJ_GetEncounterInfo(539),
+	EPOCH_HUNTER = _G.EJ_GetEncounterInfo(540),
+	DARKWEAVER_SYTH = _G.EJ_GetEncounterInfo(541),
+	BLACKHEART_THE_INCITER = _G.EJ_GetEncounterInfo(545),
+	MURMUR = _G.EJ_GetEncounterInfo(547),
+	DALLIAH_THE_DOOMSAYER = _G.EJ_GetEncounterInfo(549),
+	HIGH_BOTANIST_FREYWINN = _G.EJ_GetEncounterInfo(559),
+	THORNGRIN_THE_TENDER = _G.EJ_GetEncounterInfo(560),
+	WARP_SPLINTER = _G.EJ_GetEncounterInfo(562),
+	MECHANO_LORD_CAPACITUS = _G.EJ_GetEncounterInfo(563),
+	NETHERMANCER_SEPETHREA = _G.EJ_GetEncounterInfo(564),
+	PATHALEON_THE_CALCULATOR = _G.EJ_GetEncounterInfo(565),
+	GRAND_WARLOCK_NETHEKURSE = _G.EJ_GetEncounterInfo(566),
+	MEKGINEER_STEAMRIGGER = _G.EJ_GetEncounterInfo(574),
+	WARLORD_KALITHRESH = _G.EJ_GetEncounterInfo(575),
+	HERALD_VOLAZJ = _G.EJ_GetEncounterInfo(584),
+	LOKEN = _G.EJ_GetEncounterInfo(600),
+	LEY_GUARDIAN_EREGOS = _G.EJ_GetEncounterInfo(625),
+	INGVAR_THE_PLUNDERER = _G.EJ_GetEncounterInfo(640),
+	KING_YMIRON = _G.EJ_GetEncounterInfo(644),
+	JANDICE_BAROV = _G.EJ_GetEncounterInfo(663),
+	DARKMASTER_GANDLING = _G.EJ_GetEncounterInfo(684),
+}
+
 -------------------------------------------------------------------------------
 -- Colors.
 -------------------------------------------------------------------------------
