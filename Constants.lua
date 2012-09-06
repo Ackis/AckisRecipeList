@@ -560,6 +560,7 @@ private.ZONE_NAMES = {
 	WESTFALL = _G.GetMapNameByID(39),
 	WETLANDS = _G.GetMapNameByID(40),
 	TELDRASSIL = _G.GetMapNameByID(41),
+	DARKSHORE = _G.GetMapNameByID(42),
 	ASHENVALE = _G.GetMapNameByID(43),
 	THOUSAND_NEEDLES = _G.GetMapNameByID(61),
 	STONETALON_MOUNTAINS = _G.GetMapNameByID(81),
