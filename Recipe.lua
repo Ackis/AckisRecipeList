@@ -581,6 +581,8 @@ function recipe_prototype:Dump(output)
 
 	flag_string = nil
 
+	local ZL = private.ZONE_LABELS_FROM_NAME
+
 	for acquire_type, acquire_info in pairs(self.acquire_data) do
 		if acquire_type == A.REPUTATION then
 			for rep_id, rep_info in pairs(acquire_info) do
@@ -675,7 +677,11 @@ function recipe_prototype:Dump(output)
 				local saved_id
 
 				if type(identifier) == "string" then
-					saved_id = ("\"%s\""):format(identifier)
+					if acquire_type == A.WORLD_DROP then
+						saved_id = ("Z.%s"):format(ZL[identifier])
+					else
+						saved_id = ("\"%s\""):format(identifier)
+					end
 				else
 					saved_id = identifier
 				end

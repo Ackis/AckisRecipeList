@@ -670,6 +670,11 @@ do
 	private.ZONE_NAMES["PANDARIA"] = continent_names[6]
 end
 
+private.ZONE_LABELS_FROM_NAME = {}
+
+for label, name in _G.pairs(private.ZONE_NAMES) do
+	private.ZONE_LABELS_FROM_NAME[name] = label
+end
 -------------------------------------------------------------------------------
 -- Colors.
 -------------------------------------------------------------------------------
