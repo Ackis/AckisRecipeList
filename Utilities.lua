@@ -72,13 +72,7 @@ function private.ItemLinkToID(item_link)
 	if not item_link then
 		return
 	end
-
-	local id = item_link:match("item:(%d+)")
-
-	if not id then
-		return
-	end
-	return tonumber(id)
+	return tonumber(item_link:match("item:(%d+)"))
 end
 
 -- This wrapper exists primarily because Blizzard keeps changing how NPC ID numbers are extracted from GUIDs, and fixing it in one place is less error-prone.
