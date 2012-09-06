@@ -3,7 +3,13 @@
 -----------------------------------------------------------------------
 local _G = getfenv(0)
 
+-- Functions
+local pairs = _G.pairs
 local tonumber = _G.tonumber
+local type = _G.type
+
+-- Libraries
+local table = _G.table
 
 -----------------------------------------------------------------------
 -- AddOn namespace.
@@ -79,3 +85,128 @@ end
 function private.MobGUIDToIDNum(guid)
 	return tonumber(guid:sub(-12,-9), 16)
 end
+
+-------------------------------------------------------------------------------
+-- Miscellaneous utilities
+-------------------------------------------------------------------------------
+--@debug@
+do
+	local output = {}
+
+	function addon:DumpMembers(match)
+		table.wipe(output)
+		table.insert(output, "Addon Object members.\n")
+
+		local count = 0
+
+		for key, value in pairs(self) do
+			local val_type = type(value)
+
+			if not match or val_type == match then
+				table.insert(output, ("%s (%s)"):format(key, val_type))
+				count = count + 1
+			end
+		end
+		table.insert(output, ("\n%d found\n"):format(count))
+		self:DisplayTextDump(nil, nil, table.concat(output, "\n"))
+	end
+
+	local function TableKeyFormat(input)
+		if not input then
+			return ""
+		end
+
+		return input:upper():gsub(" ", "_"):gsub("'", ""):gsub(":", ""):gsub("-", "_"):gsub("%(", ""):gsub("%)", "")
+	end
+
+	function addon:DumpZones()
+		table.wipe(output)
+		table.insert(output, "private.ZONE_NAMES = {")
+
+		--		for index = 1, 100000 do
+		--			local zone_name = _G.GetMapNameByID(index)
+		--
+		--			if zone_name then
+		----				table.insert(output, ("[%d] = \"%s\","):format(index, zone_name:upper():gsub(" ", "_"):gsub("'", ""):gsub(":", ""):gsub("-", "_")))
+		--				table.insert(output, ("%s = _G.GetMapNameByID(%d),"):format(zone_name:upper()
+		--				:gsub(" ", "_"):gsub("'", ""):gsub(":", ""):gsub("-", "_"):gsub("%(", ""):gsub("%)", ""), index))
+		--			end
+		--		end
+		local sorted_zones = {}
+		for name, idnum in pairs(private.ZONE_NAME_LIST) do
+			sorted_zones[#sorted_zones + 1] = name
+		end
+		table.sort(sorted_zones, function(a, b)
+			return private.ZONE_NAME_LIST[a] < private.ZONE_NAME_LIST[b]
+		end)
+
+		for index = 1, #sorted_zones do
+			local zone_id = private.ZONE_NAME_LIST[sorted_zones[index]]
+			table.insert(output, ("%s = _G.GetMapNameByID(%d),"):format(TableKeyFormat(sorted_zones[index]), zone_id))
+		end
+		table.insert(output, "}\n")
+		self:DisplayTextDump(nil, nil, table.concat(output, "\n"))
+	end
+
+	--	private.ZONE_NAME_LIST = {}
+	--
+	--	local old_GetMapNameByID = _G.GetMapNameByID
+	--	local function My_GetMapNameByID(id_num)
+	--		if not id_num then
+	--			return
+	--		end
+	--		local Z = private.ZONE_NAME_LIST
+	--		local name = old_GetMapNameByID(id_num)
+	--
+	--		if not name then
+	--			return
+	--		end
+	--		Z[name] = id_num
+	--		return name
+	--	end
+	--	_G.GetMapNameByID = My_GetMapNameByID
+
+	function addon:DumpBossIDs(name)
+		table.wipe(output)
+
+		for index = 1, 10000 do
+			local boss_name = _G.EJ_GetEncounterInfo(index)
+
+			if boss_name and boss_name:lower():find(name:lower()) then
+				table.insert(output, ("%s = _G.EJ_GetEncounterInfo(%d),"):format(TableKeyFormat(boss_name), index))
+			end
+		end
+		self:DisplayTextDump(nil, nil, table.concat(output, "\n"))
+	end
+
+	local function find_empties(unit_list, description)
+		local count
+
+		for unit_id, unit in pairs(unit_list) do
+			count = 0
+
+			if unit.item_list then
+				for recipe_id in pairs(unit.item_list) do
+					count = count + 1
+				end
+			end
+
+			if count == 0 then
+				addon:Debug("%s %s (%s) has no recipes.", description, unit.name or _G.UNKNOWN, unit_id)
+			end
+		end
+	end
+
+	function addon:ShowEmptySources()
+		private.LoadAllRecipes()
+
+		find_empties(private.trainer_list, "Trainer")
+		find_empties(private.vendor_list, "Vendor")
+		find_empties(private.mob_list, "Mob")
+		find_empties(private.quest_list, "Quest")
+		find_empties(private.custom_list, "Custom Entry")
+		find_empties(private.discovery_list, "Discovery")
+		find_empties(private.seasonal_list, "World Event")
+	end
+end -- do
+--@end-debug@
