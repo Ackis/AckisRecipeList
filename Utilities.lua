@@ -1,5 +1,5 @@
 -----------------------------------------------------------------------
--- Upvalued Lua API. 
+-- Upvalued Lua API.
 -----------------------------------------------------------------------
 local _G = getfenv(0)
 
@@ -113,53 +113,6 @@ do
 		return input:upper():gsub(" ", "_"):gsub("'", ""):gsub(":", ""):gsub("-", "_"):gsub("%(", ""):gsub("%)", "")
 	end
 
-	function addon:DumpZones()
-		table.wipe(output)
-		table.insert(output, "private.ZONE_NAMES = {")
-
-		--		for index = 1, 100000 do
-		--			local zone_name = _G.GetMapNameByID(index)
-		--
-		--			if zone_name then
-		----				table.insert(output, ("[%d] = \"%s\","):format(index, zone_name:upper():gsub(" ", "_"):gsub("'", ""):gsub(":", ""):gsub("-", "_")))
-		--				table.insert(output, ("%s = _G.GetMapNameByID(%d),"):format(zone_name:upper()
-		--				:gsub(" ", "_"):gsub("'", ""):gsub(":", ""):gsub("-", "_"):gsub("%(", ""):gsub("%)", ""), index))
-		--			end
-		--		end
-		local sorted_zones = {}
-		for name, idnum in pairs(private.ZONE_NAME_LIST) do
-			sorted_zones[#sorted_zones + 1] = name
-		end
-		table.sort(sorted_zones, function(a, b)
-			return private.ZONE_NAME_LIST[a] < private.ZONE_NAME_LIST[b]
-		end)
-
-		for index = 1, #sorted_zones do
-			local zone_id = private.ZONE_NAME_LIST[sorted_zones[index]]
-			table.insert(output, ("%s = _G.GetMapNameByID(%d),"):format(TableKeyFormat(sorted_zones[index]), zone_id))
-		end
-		table.insert(output, "}\n")
-		self:DisplayTextDump(nil, nil, table.concat(output, "\n"))
-	end
-
-	--	private.ZONE_NAME_LIST = {}
-	--
-	--	local old_GetMapNameByID = _G.GetMapNameByID
-	--	local function My_GetMapNameByID(id_num)
-	--		if not id_num then
-	--			return
-	--		end
-	--		local Z = private.ZONE_NAME_LIST
-	--		local name = old_GetMapNameByID(id_num)
-	--
-	--		if not name then
-	--			return
-	--		end
-	--		Z[name] = id_num
-	--		return name
-	--	end
-	--	_G.GetMapNameByID = My_GetMapNameByID
-
 	function addon:DumpBossIDs(name)
 		table.wipe(output)
 
@@ -202,5 +155,57 @@ do
 		find_empties(private.discovery_list, "Discovery")
 		find_empties(private.seasonal_list, "World Event")
 	end
+
+	function addon:DumpZones(name)
+		table.wipe(output)
+
+		for index = 1, 100000 do
+			local zone_name = _G.GetMapNameByID(index)
+
+			if zone_name and zone_name:lower():find(name:lower()) then
+				table.insert(output, ("%s = _G.GetMapNameByID(%d),"):format(TableKeyFormat(zone_name), index))
+			end
+		end
+		self:DisplayTextDump(nil, nil, table.concat(output, "\n"))
+	end
+
+--[=[
+		private.ZONE_NAME_LIST = {}
+
+		local old_GetMapNameByID = _G.GetMapNameByID
+		local function My_GetMapNameByID(id_num)
+			if not id_num then
+				return
+			end
+			local Z = private.ZONE_NAME_LIST
+			local name = old_GetMapNameByID(id_num)
+
+			if not name then
+				return
+			end
+			Z[name] = id_num
+			return name
+		end
+		_G.GetMapNameByID = My_GetMapNameByID
+
+	function addon:DumpCapturedZones()
+		table.wipe(output)
+		table.insert(output, "private.ZONE_NAMES = {")
+		local sorted_zones = {}
+		for name, idnum in pairs(private.ZONE_NAME_LIST) do
+			sorted_zones[#sorted_zones + 1] = name
+		end
+		table.sort(sorted_zones, function(a, b)
+			return private.ZONE_NAME_LIST[a] < private.ZONE_NAME_LIST[b]
+		end)
+
+		for index = 1, #sorted_zones do
+			local zone_id = private.ZONE_NAME_LIST[sorted_zones[index]]
+			table.insert(output, ("%s = _G.GetMapNameByID(%d),"):format(TableKeyFormat(sorted_zones[index]), zone_id))
+		end
+		table.insert(output, "}\n")
+		self:DisplayTextDump(nil, nil, table.concat(output, "\n"))
+	end
+--]=]
 end -- do
 --@end-debug@
