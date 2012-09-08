@@ -1461,10 +1461,12 @@ function addon:InitCooking()
 
 	-- Broiled Dragon Feast -- 88011
 	recipe = AddRecipe(88011, V.CATA, Q.RARE)
+	recipe:SetRecipeItemID(62799)
 	recipe:SetCraftedItemID(62289)
 	recipe:SetSkillLevels(500, 500, 500, 500, 525)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.RBOP, F.ACHIEVEMENT)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOP, F.RBOP, F.ACHIEVEMENT)
 	recipe:AddAchievement(5467)
+	recipe:AddVendor(51495)
 
 	-- Broiled Mountain Trout -- 88012
 	recipe = AddRecipe(88012, V.CATA, Q.UNCOMMON)
@@ -1618,10 +1620,12 @@ function addon:InitCooking()
 
 	-- Seafood Magnifique Feast -- 88036
 	recipe = AddRecipe(88036, V.CATA, Q.RARE)
+	recipe:SetRecipeItemID(62800)
 	recipe:SetCraftedItemID(62290)
 	recipe:SetSkillLevels(525, 525, 525, 525, 525)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.RBOP, F.ACHIEVEMENT)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOP, F.RBOP, F.ACHIEVEMENT)
 	recipe:AddAchievement(5036)
+	recipe:AddVendor(51495)
 
 	-- Seasoned Crab -- 88037
 	recipe = AddRecipe(88037, V.CATA, Q.UNCOMMON)

@@ -389,6 +389,8 @@ function addon:InitVendor()
 	AddVendor(45558,	L["Lizna Goldweaver"],			Z.ORGRIMMAR,			41.3,	79.2,	"Horde") -- COMPLETELY UPDATED
 	AddVendor(45843,	L["Yuka Screwspigot"],			Z.BLACKROCK_DEPTHS,		37.0,	79.0,	"Neutral") -- COMPLETELY UPDATED
 	AddVendor(46359,	L["Punra"],				Z.ORGRIMMAR,			45.0,	76.8,	"Horde") -- COMPLETELY UPDATED
+	AddVendor(46572,	L["Goram"],				Z.ORGRIMMAR,			48.2,	75.6,	"Horde")
+	AddVendor(46602,	L["Shay Pressler"],			Z.STORMWIND_CITY,		64.6,	76.8,	"Alliance") --COMPLETELY UPDATED
 	AddVendor(48060,	L["\"Chef\" Overheat"],			Z.BADLANDS,			65.1,	39.1,	"Neutral") -- COMPLETELY UPDATED
 	AddVendor(49701,	L["Bario Matalli"],			Z.STORMWIND_CITY, 		50.4,	71.9,	"Alliance") -- COMPLETELY UPDATED
 	AddVendor(49703,	L["Casandra Downs"],			Z.TWILIGHT_HIGHLANDS,		78.6,	76.2,	"Alliance")
@@ -406,6 +408,7 @@ function addon:InitVendor()
 	AddVendor(50433,	L["Aristaleon Sunweaver"],		Z.TWILIGHT_HIGHLANDS,		75.2,	50.1,	"Horde") -- COMPLETELY UPDATED
 	AddVendor(50480,	L["Isabel Jones"],			Z.STORMWIND_CITY,		63.7,	61.3,	"Alliance") -- COMPLETELY UPDATED
 	AddVendor(50482,	L["Marith Lazuria"],			Z.ORGRIMMAR,			72.5,	34.4,	"Horde") -- COMPLETELY UPDATED
+	AddVendor(51495,	L["Steeg Haskell"],			Z.IRONFORGE,			36.3,	85.8,	"Alliance") --COMPLETELY UPDATED
 	AddVendor(52584,	L["Laida Gembold"],			Z.IRONFORGE,			50.6,	27.5,	"Alliance") -- COMPLETELY UPDATED
 	AddVendor(52588,	L["Sara Lanner"],			Z.UNDERCITY,			56.7,	36.9,	"Horde") -- COMPLETELY UPDATED
 	AddVendor(52641,	L["Layna Karner"],			Z.DARNASSUS,			56.8,	52.5,	"Alliance") -- COMPLETELY UPDATED
