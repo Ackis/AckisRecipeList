@@ -777,7 +777,6 @@ L["Master Elemental Shaper Krixix"] = "Master Elemental Shaper Krixix"
 L["Materials"] = true
 L["Mathar G'ochar"] = "Mathar G'ochar"
 L["Matt Johnson"] = "Matt Johnson"
-L["Mazk Snipeshot"] = "Mazk Snipeshot"
 L["Me'lynn"] = "Me'lynn"
 L["Meilosh"] = "Meilosh"
 L["Melaris"] = "Melaris"
