@@ -74,7 +74,6 @@ function addon:InitVendor()
 	AddVendor(2670,		L["Xizk Goodstitch"],			Z.THE_CAPE_OF_STRANGLETHORN,	43.6,	73.0,	"Neutral")  -- UPDATED
 	AddVendor(2672,		L["Cowardly Crosby"],			Z.THE_CAPE_OF_STRANGLETHORN,	40.9,	82.5,	"Neutral")   -- UPDATED
 	AddVendor(2679,		L["Wenna Silkbeard"],			Z.WETLANDS,			25.7,	25.8,	"Alliance")
-	AddVendor(2685,		L["Mazk Snipeshot"],			Z.THE_CAPE_OF_STRANGLETHORN,	43.2, 	69.2,	"Neutral")  -- UPDATED
 	AddVendor(2687,		L["Gnaz Blunderflame"],			Z.NORTHERN_STRANGLETHORN,	67.5,	61.5,	"Neutral")  -- UPDATED
 	AddVendor(2688,		L["Ruppo Zipcoil"],			Z.THE_HINTERLANDS,		34.3,	37.9,	"Neutral") -- COMPLETELY UPDATED
 	AddVendor(2697,		L["Clyde Ranthal"],			Z.REDRIDGE_MOUNTAINS,		88.9,	70.9,	"Alliance")

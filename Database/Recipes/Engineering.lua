@@ -436,6 +436,7 @@ function addon:InitEngineering()
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.VENDOR, F.IBOE, F.RBOE)
 	recipe:AddTrainer(5174, 11017)
 	recipe:AddLimitedVendor(2685, 1)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE)
 
 	-- Ornate Spyglass -- 6458
 	recipe = AddRecipe(6458, V.ORIG, Q.COMMON)
@@ -1808,7 +1809,6 @@ function addon:InitEngineering()
 
 	-- Fused Wiring -- 39895
 	recipe = AddRecipe(39895, V.TBC, Q.COMMON)
-	recipe:SetRecipeItemID(32381)
 	recipe:SetCraftedItemID(7191)
 	recipe:SetSkillLevels(275, 275, 275, 280, 285)
 	recipe:SetItemFilterType("ENGINEERING_MATERIALS")
