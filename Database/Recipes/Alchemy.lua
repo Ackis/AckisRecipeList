@@ -50,7 +50,7 @@ function addon:InitAlchemy()
 	private:InitializeAlchemyTrainers()
 
 	local recipe
-
+	
 	-- Elixir of Lion's Strength -- 2329
 	recipe = AddRecipe(2329, V.ORIG, Q.COMMON)
 	recipe:SetCraftedItemID(2454)
@@ -216,7 +216,7 @@ function addon:InitAlchemy()
 	recipe:SetSkillLevels(165, 165, 190, 210, 230)
 	recipe:SetItemFilterType("ALCHEMY_OIL")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(3347)
+	recipe:AddTrainer(3347, 5499)
 
 	-- Elixir of Fortitude -- 3450
 	recipe = AddRecipe(3450, V.ORIG, Q.COMMON)
