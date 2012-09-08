@@ -1281,3 +1281,4 @@ L["Farrah Facet"] = true
 
 L["Dig Rat"] = true
 L["Dramm Riverhorn"] = true
+L["Shay Pressler"] = true
