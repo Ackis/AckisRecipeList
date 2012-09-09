@@ -2501,5 +2501,13 @@ function addon:InitAlchemy()
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP)
 	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 4160, 4611, 5177, 5499, 19052, 26951, 26975, 27023, 27029, 28703, 33588, 33608, 33630)
 
+	-- Alchemist's Flask -- 114786
+	recipe = AddRecipe(114786, V.MOP, Q.COMMON)
+	recipe:SetCraftedItemID(75525)
+	recipe:SetSkillLevels(300, 300, 310, 315, 320)
+	recipe:SetItemFilterType("ALCHEMY_FLASK")
+	recipe:AddFilters(F.TRAINER)
+	recipe:AddTrainer(5177, 5499)
+
 	self.InitAlchemy = nil
 end
