@@ -67,7 +67,7 @@ function addon:InitLeatherworking()
 	recipe:SetSkillLevels(15, 15, 45, 60, 75)
 	recipe:SetItemFilterType("LEATHERWORKING_LEGS")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(1385, 1632, 3007, 3069, 3365, 3549, 3605, 3967, 4212, 4588, 5127, 5564, 5784, 8153, 11097, 11098, 16278, 16688, 16728, 17442, 18754, 18771, 19187, 21087, 29509, 33581, 33612, 33635, 33681, 47418)
+	recipe:AddTrainer(1385, 1632, 3007, 3069, 3365, 3549, 3605, 3967, 4212, 4588, 5127, 5564, 5784, 8153, 11097, 11098, 16278, 16688, 16728, 17442, 18754, 18771, 19187, 21087, 29509, 33581, 33612, 33635, 33681, 47384, 47418)
 
 	-- Fine Leather Boots -- 2158
 	recipe = AddRecipe(2158, V.ORIG, Q.UNCOMMON)
@@ -92,7 +92,7 @@ function addon:InitLeatherworking()
 	recipe:SetSkillLevels(40, 40, 70, 85, 100)
 	recipe:SetItemFilterType("LEATHERWORKING_CHEST")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(1385, 1632, 3007, 3069, 3365, 3549, 3605, 3967, 4212, 4588, 5127, 5564, 5784, 8153, 11097, 11098, 16278, 16688, 16728, 17442, 18754, 18771, 19187, 21087, 29509, 33581, 33612, 33635, 33681, 47418)
+	recipe:AddTrainer(1385, 1632, 3007, 3069, 3365, 3549, 3605, 3967, 4212, 4588, 5127, 5564, 5784, 8153, 11097, 11098, 16278, 16688, 16728, 17442, 18754, 18771, 19187, 21087, 29509, 33581, 33612, 33635, 33681, 47384, 47418)
 
 	-- Embossed Leather Boots -- 2161
 	recipe = AddRecipe(2161, V.ORIG, Q.COMMON)
@@ -100,7 +100,7 @@ function addon:InitLeatherworking()
 	recipe:SetSkillLevels(55, 55, 85, 100, 115)
 	recipe:SetItemFilterType("LEATHERWORKING_FEET")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS)
-	recipe:AddTrainer(1385, 1632, 3007, 3069, 3365, 3549, 3605, 3967, 4212, 4588, 5127, 5564, 5784, 8153, 11097, 11098, 16278, 16688, 16728, 17442, 18754, 18771, 19187, 21087, 29509, 33581, 33612, 33635, 33681, 47418)
+	recipe:AddTrainer(1385, 1632, 3007, 3069, 3365, 3549, 3605, 3967, 4212, 4588, 5127, 5564, 5784, 8153, 11097, 11098, 16278, 16688, 16728, 17442, 18754, 18771, 19187, 21087, 29509, 33581, 33612, 33635, 33681, 47384, 47418)
 
 	-- Embossed Leather Cloak -- 2162
 	recipe = AddRecipe(2162, V.ORIG, Q.COMMON)
@@ -108,7 +108,7 @@ function addon:InitLeatherworking()
 	recipe:SetSkillLevels(60, 60, 90, 105, 120)
 	recipe:SetItemFilterType("LEATHERWORKING_BACK")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS)
-	recipe:AddTrainer(1385, 1632, 3007, 3069, 3365, 3549, 3605, 3967, 4212, 4588, 5127, 5564, 5784, 8153, 11097, 11098, 16278, 16688, 16728, 17442, 18754, 18771, 19187, 21087, 29509, 33581, 33612, 33635, 33681, 47418)
+	recipe:AddTrainer(1385, 1632, 3007, 3069, 3365, 3549, 3605, 3967, 4212, 4588, 5127, 5564, 5784, 8153, 11097, 11098, 16278, 16688, 16728, 17442, 18754, 18771, 19187, 21087, 29509, 33581, 33612, 33635, 33681, 47384, 47418)
 
 	-- White Leather Jerkin -- 2163
 	recipe = AddRecipe(2163, V.ORIG, Q.UNCOMMON)
@@ -183,7 +183,7 @@ function addon:InitLeatherworking()
 	recipe:SetSkillLevels(25, 25, 55, 70, 85)
 	recipe:SetItemFilterType("LEATHERWORKING_WAIST")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(1385, 1632, 3007, 3069, 3365, 3549, 3605, 3967, 4212, 4588, 5127, 5564, 5784, 8153, 11097, 11098, 16278, 16688, 16728, 17442, 18754, 18771, 19187, 21087, 29509, 33581, 33612, 33635, 33681, 47418)
+	recipe:AddTrainer(1385, 1632, 3007, 3069, 3365, 3549, 3605, 3967, 4212, 4588, 5127, 5564, 5784, 8153, 11097, 11098, 16278, 16688, 16728, 17442, 18754, 18771, 19187, 21087, 29509, 33581, 33612, 33635, 33681, 47384, 47418)
 
 	-- Embossed Leather Gloves -- 3756
 	recipe = AddRecipe(3756, V.ORIG, Q.COMMON)
@@ -191,7 +191,7 @@ function addon:InitLeatherworking()
 	recipe:SetSkillLevels(55, 55, 85, 100, 115)
 	recipe:SetItemFilterType("LEATHERWORKING_HANDS")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS)
-	recipe:AddTrainer(1385, 1632, 3007, 3069, 3365, 3549, 3605, 3967, 4212, 4588, 5127, 5564, 5784, 8153, 11097, 11098, 16278, 16688, 16728, 17442, 18754, 18771, 19187, 21087, 29509, 33581, 33612, 33635, 33681, 47418)
+	recipe:AddTrainer(1385, 1632, 3007, 3069, 3365, 3549, 3605, 3967, 4212, 4588, 5127, 5564, 5784, 8153, 11097, 11098, 16278, 16688, 16728, 17442, 18754, 18771, 19187, 21087, 29509, 33581, 33612, 33635, 33681, 47384, 47418)
 
 	-- Embossed Leather Pants -- 3759
 	recipe = AddRecipe(3759, V.ORIG, Q.COMMON)
@@ -199,7 +199,7 @@ function addon:InitLeatherworking()
 	recipe:SetSkillLevels(75, 75, 105, 120, 135)
 	recipe:SetItemFilterType("LEATHERWORKING_LEGS")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS)
-	recipe:AddTrainer(1385, 1632, 3007, 3069, 3365, 3549, 3605, 3967, 4212, 4588, 5127, 5564, 5784, 8153, 11097, 11098, 16278, 16688, 16728, 17442, 18754, 18771, 19187, 21087, 29509, 33581, 33612, 33635, 33681, 47418)
+	recipe:AddTrainer(1385, 1632, 3007, 3069, 3365, 3549, 3605, 3967, 4212, 4588, 5127, 5564, 5784, 8153, 11097, 11098, 16278, 16688, 16728, 17442, 18754, 18771, 19187, 21087, 29509, 33581, 33612, 33635, 33681, 47384, 47418)
 
 	-- Hillman's Cloak -- 3760
 	recipe = AddRecipe(3760, V.ORIG, Q.COMMON)
@@ -387,7 +387,7 @@ function addon:InitLeatherworking()
 	recipe:SetSkillLevels(35, 35, 55, 65, 75)
 	recipe:SetItemFilterType("LEATHERWORKING_MATERIALS")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(1385, 1632, 3007, 3069, 3365, 3549, 3605, 3967, 4212, 4588, 5127, 5564, 5784, 8153, 11097, 11098, 16278, 16688, 16728, 17442, 18754, 18771, 19187, 21087, 29509, 33581, 33612, 33635, 33681, 47418)
+	recipe:AddTrainer(1385, 1632, 3007, 3069, 3365, 3549, 3605, 3967, 4212, 4588, 5127, 5564, 5784, 8153, 11097, 11098, 16278, 16688, 16728, 17442, 18754, 18771, 19187, 21087, 29509, 33581, 33612, 33635, 33681, 47384, 47418)
 
 	-- Cured Medium Hide -- 3817
 	recipe = AddRecipe(3817, V.ORIG, Q.COMMON)
@@ -615,7 +615,7 @@ function addon:InitLeatherworking()
 	recipe:SetSkillLevels(70, 70, 100, 115, 130)
 	recipe:SetItemFilterType("LEATHERWORKING_WRIST")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(1385, 1632, 3007, 3069, 3365, 3549, 3605, 3967, 4212, 4588, 5127, 5564, 5784, 8153, 11097, 11098, 16278, 16688, 16728, 17442, 18754, 18771, 19187, 21087, 29509, 33581, 33612, 33635, 33681, 47418)
+	recipe:AddTrainer(1385, 1632, 3007, 3069, 3365, 3549, 3605, 3967, 4212, 4588, 5127, 5564, 5784, 8153, 11097, 11098, 16278, 16688, 16728, 17442, 18754, 18771, 19187, 21087, 29509, 33581, 33612, 33635, 33681, 47384, 47418)
 
 	-- Light Leather Pants -- 9068
 	recipe = AddRecipe(9068, V.ORIG, Q.COMMON)
@@ -4260,6 +4260,7 @@ function addon:InitLeatherworking()
 
 	-- Ensorcelled Nerubian Breastplate -- 67080
 	recipe = AddRecipe(67080, V.WOTLK, Q.EPIC)
+	recipe:SetRecipeItemID(47628)
 	recipe:SetCraftedItemID(47597)
 	recipe:SetSkillLevels(450, 450, 460, 467, 475)
 	recipe:SetRequiredFaction("Alliance")
@@ -4269,6 +4270,7 @@ function addon:InitLeatherworking()
 
 	-- Black Chitin Bracers -- 67081
 	recipe = AddRecipe(67081, V.WOTLK, Q.EPIC)
+	recipe:SetRecipeItemID(47629)
 	recipe:SetCraftedItemID(47579)
 	recipe:SetSkillLevels(450, 450, 460, 467, 475)
 	recipe:SetRequiredFaction("Alliance")
@@ -4278,6 +4280,7 @@ function addon:InitLeatherworking()
 
 	-- Crusader's Dragonscale Breastplate -- 67082
 	recipe = AddRecipe(67082, V.WOTLK, Q.EPIC)
+	recipe:SetRecipeItemID(47630)
 	recipe:SetCraftedItemID(47595)
 	recipe:SetSkillLevels(450, 450, 460, 467, 475)
 	recipe:SetRequiredFaction("Alliance")
@@ -4287,6 +4290,7 @@ function addon:InitLeatherworking()
 
 	-- Crusader's Dragonscale Bracers -- 67083
 	recipe = AddRecipe(67083, V.WOTLK, Q.EPIC)
+	recipe:SetRecipeItemID(47631)
 	recipe:SetCraftedItemID(47576)
 	recipe:SetSkillLevels(450, 450, 460, 467, 475)
 	recipe:SetRequiredFaction("Alliance")
@@ -4296,6 +4300,7 @@ function addon:InitLeatherworking()
 
 	-- Lunar Eclipse Robes -- 67084
 	recipe = AddRecipe(67084, V.WOTLK, Q.EPIC)
+	recipe:SetRecipeItemID(47632)
 	recipe:SetCraftedItemID(47602)
 	recipe:SetSkillLevels(450, 450, 460, 467, 475)
 	recipe:SetRequiredFaction("Alliance")
@@ -4304,6 +4309,7 @@ function addon:InitLeatherworking()
 
 	-- Moonshadow Armguards -- 67085
 	recipe = AddRecipe(67085, V.WOTLK, Q.EPIC)
+	recipe:SetRecipeItemID(47633)
 	recipe:SetCraftedItemID(47583)
 	recipe:SetSkillLevels(450, 450, 460, 467, 475)
 	recipe:SetRequiredFaction("Alliance")
@@ -4312,6 +4318,7 @@ function addon:InitLeatherworking()
 
 	-- Knightbane Carapace -- 67086
 	recipe = AddRecipe(67086, V.WOTLK, Q.EPIC)
+	recipe:SetRecipeItemID(47634)
 	recipe:SetCraftedItemID(47599)
 	recipe:SetSkillLevels(450, 450, 460, 467, 475)
 	recipe:SetRequiredFaction("Alliance")
@@ -4320,6 +4327,7 @@ function addon:InitLeatherworking()
 
 	-- Bracers of Swift Death -- 67087
 	recipe = AddRecipe(67087, V.WOTLK, Q.EPIC)
+	recipe:SetRecipeItemID(47635)
 	recipe:SetCraftedItemID(47581)
 	recipe:SetSkillLevels(450, 450, 460, 467, 475)
 	recipe:SetRequiredFaction("Alliance")

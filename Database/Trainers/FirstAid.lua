@@ -39,6 +39,7 @@ function private:InitializeFirstAidTrainers()
 	self:AddTrainer(45540, "Krenk Choplimb", "Orgrimmar", 37.5, 87.3, "Horde")
 	self:AddTrainer(49879, "Doc Zapnozzle", "Azshara", 57.07, 50.71, "Horde")
 	self:AddTrainer(50574, "Amelia Atherton", "Gilneas", 36.8, 65.7, "Alliance")
+	self:AddTrainer(56796, "Angela Leifeld", "Stormwind City", 52.19, 45.36, "Alliance")
 
 	self.InitializeFirstAidTrainers = nil
 end

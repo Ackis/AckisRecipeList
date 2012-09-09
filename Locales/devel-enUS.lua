@@ -1285,3 +1285,5 @@ L["Farrah Facet"] = true
 L["Dig Rat"] = true
 L["Dramm Riverhorn"] = true
 L["Shay Pressler"] = true
+L["Angela Leifeld"] = true
+L["Lien Farner"] = true
