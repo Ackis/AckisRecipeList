@@ -59,7 +59,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(50, 50, 70, 80, 90)
 	recipe:SetItemFilterType("JEWELCRAFTING_MATERIALS")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(15501, 18751, 18774, 19063, 19539, 19775, 19778, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 33680, 44582, 46675, 47418)
+	recipe:AddTrainer(15501, 18751, 18774, 19063, 19539, 19775, 19778, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 33680, 44582, 46675, 47396, 47418, 52586)
 
 	-- Elegant Silver Ring -- 25280
 	recipe = AddRecipe(25280, V.TBC, Q.COMMON)
@@ -67,7 +67,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(50, 50, 80, 95, 110)
 	recipe:SetItemFilterType("JEWELCRAFTING_RING")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
-	recipe:AddTrainer(15501, 18751, 18774, 19063, 19539, 19775, 19778, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 33680, 44582, 46675, 47418)
+	recipe:AddTrainer(15501, 18751, 18774, 19063, 19539, 19775, 19778, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 33680, 44582, 46675, 47396, 47418, 52586)
 
 	-- Inlaid Malachite Ring -- 25283
 	recipe = AddRecipe(25283, V.TBC, Q.COMMON)
@@ -75,7 +75,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(30, 30, 60, 75, 90)
 	recipe:SetItemFilterType("JEWELCRAFTING_RING")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS)
-	recipe:AddTrainer(15501, 18751, 18774, 19063, 19539, 19775, 19778, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 33680, 44582, 46675, 47418)
+	recipe:AddTrainer(15501, 18751, 18774, 19063, 19539, 19775, 19778, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 33680, 44582, 46675, 47396, 47418, 52586)
 
 	-- Simple Pearl Ring -- 25284
 	recipe = AddRecipe(25284, V.TBC, Q.COMMON)
@@ -83,7 +83,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(60, 60, 90, 105, 120)
 	recipe:SetItemFilterType("JEWELCRAFTING_RING")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(15501, 18751, 18774, 19063, 19539, 19775, 19778, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 33680, 44582, 46675, 47418)
+	recipe:AddTrainer(15501, 18751, 18774, 19063, 19539, 19775, 19778, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 33680, 44582, 46675, 47396, 47418, 52586)
 
 	-- Gloom Band -- 25287
 	recipe = AddRecipe(25287, V.TBC, Q.COMMON)
@@ -91,7 +91,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(70, 70, 100, 115, 130)
 	recipe:SetItemFilterType("JEWELCRAFTING_RING")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
-	recipe:AddTrainer(15501, 18751, 18774, 19063, 19539, 19775, 19778, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 33680, 44582, 46675, 47418)
+	recipe:AddTrainer(15501, 18751, 18774, 19063, 19539, 19775, 19778, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 33680, 44582, 46675, 47396, 47418, 52586)
 
 	-- Heavy Silver Ring -- 25305
 	recipe = AddRecipe(25305, V.TBC, Q.COMMON)
@@ -99,7 +99,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(90, 90, 120, 135, 150)
 	recipe:SetItemFilterType("JEWELCRAFTING_RING")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(15501, 18751, 18774, 19063, 19539, 19775, 19778, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 33680, 44582, 46675)
+	recipe:AddTrainer(15501, 18751, 18774, 19063, 19539, 19775, 19778, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 33680, 44582, 46675, 52586)
 
 	-- Ring of Silver Might -- 25317
 	recipe = AddRecipe(25317, V.TBC, Q.COMMON)
@@ -107,7 +107,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(80, 80, 110, 125, 140)
 	recipe:SetItemFilterType("JEWELCRAFTING_RING")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS)
-	recipe:AddTrainer(15501, 18751, 18774, 19063, 19539, 19775, 19778, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 33680, 44582, 46675)
+	recipe:AddTrainer(15501, 18751, 18774, 19063, 19539, 19775, 19778, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 33680, 44582, 46675, 52586)
 
 	-- Ring of Twilight Shadows -- 25318
 	recipe = AddRecipe(25318, V.TBC, Q.COMMON)
@@ -115,7 +115,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(100, 100, 130, 145, 160)
 	recipe:SetItemFilterType("JEWELCRAFTING_RING")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(15501, 18751, 18774, 19063, 19539, 19775, 19778, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 33680, 44582, 46675)
+	recipe:AddTrainer(15501, 18751, 18774, 19063, 19539, 19775, 19778, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 33680, 44582, 46675, 52586)
 
 	-- Heavy Golden Necklace of Battle -- 25320
 	recipe = AddRecipe(25320, V.TBC, Q.COMMON)
@@ -132,7 +132,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(120, 120, 150, 165, 180)
 	recipe:SetItemFilterType("JEWELCRAFTING_HEAD")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
-	recipe:AddTrainer(15501, 18751, 18774, 19063, 19539, 19775, 19778, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 33680, 44582, 46675)
+	recipe:AddTrainer(15501, 18751, 18774, 19063, 19539, 19775, 19778, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 33680, 44582, 46675, 52586)
 
 	-- Wicked Moonstone Ring -- 25323
 	recipe = AddRecipe(25323, V.TBC, Q.COMMON)
@@ -158,7 +158,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(50, 50, 80, 95, 110)
 	recipe:SetItemFilterType("JEWELCRAFTING_RING")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(15501, 18751, 18774, 19063, 19539, 19775, 19778, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 33680, 44582, 46675, 47418)
+	recipe:AddTrainer(15501, 18751, 18774, 19063, 19539, 19775, 19778, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 33680, 44582, 46675, 47396, 47418, 52586)
 
 	-- Braided Copper Ring -- 25493
 	recipe = AddRecipe(25493, V.TBC, Q.COMMON)
@@ -174,7 +174,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(110, 110, 140, 155, 170)
 	recipe:SetItemFilterType("JEWELCRAFTING_NECK")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS)
-	recipe:AddTrainer(15501, 18751, 18774, 19063, 19539, 19775, 19778, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 33680, 44582, 46675)
+	recipe:AddTrainer(15501, 18751, 18774, 19063, 19539, 19775, 19778, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 33680, 44582, 46675, 52586)
 
 	-- Pendant of the Agate Shield -- 25610
 	recipe = AddRecipe(25610, V.TBC, Q.COMMON)
@@ -183,7 +183,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(120, 120, 150, 165, 180)
 	recipe:SetItemFilterType("JEWELCRAFTING_NECK")
 	recipe:AddFilters(F.ALLIANCE, F.TRAINER, F.VENDOR, F.IBOE, F.RBOE, F.DPS, F.TANK)
-	recipe:AddTrainer(28701, 33637, 44582, 46675)
+	recipe:AddTrainer(28701, 33637, 44582, 46675, 52586)
 	recipe:AddVendor(1448)
 
 	-- Heavy Iron Knuckles -- 25612
@@ -193,7 +193,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(125, 125, 155, 170, 185)
 	recipe:SetItemFilterType("JEWELCRAFTING_FIST_WEAPON")
 	recipe:AddFilters(F.HORDE, F.TRAINER, F.VENDOR, F.IBOE, F.RBOE)
-	recipe:AddTrainer(28701, 33637, 44582, 46675)
+	recipe:AddTrainer(28701, 33637, 44582, 46675, 52586)
 	recipe:AddLimitedVendor(2393, 1)
 
 	-- Golden Dragon Ring -- 25613
@@ -202,7 +202,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(135, 135, 165, 180, 195)
 	recipe:SetItemFilterType("JEWELCRAFTING_RING")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.TANK)
-	recipe:AddTrainer(15501, 18751, 18774, 19063, 19539, 19775, 19778, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 33680, 44582, 46675)
+	recipe:AddTrainer(15501, 18751, 18774, 19063, 19539, 19775, 19778, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 33680, 44582, 46675, 52586)
 
 	-- Mithril Filigree -- 25615
 	recipe = AddRecipe(25615, V.TBC, Q.COMMON)
@@ -210,7 +210,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(150, 150, 170, 180, 190)
 	recipe:SetItemFilterType("JEWELCRAFTING_MATERIALS")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(15501, 18751, 18774, 19063, 19539, 19775, 19778, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 33680, 44582, 46675)
+	recipe:AddTrainer(15501, 18751, 18774, 19063, 19539, 19775, 19778, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 33680, 44582, 46675, 52586)
 
 	-- Blazing Citrine Ring -- 25617
 	recipe = AddRecipe(25617, V.TBC, Q.COMMON)
@@ -219,7 +219,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(150, 150, 180, 195, 210)
 	recipe:SetItemFilterType("JEWELCRAFTING_RING")
 	recipe:AddFilters(F.HORDE, F.TRAINER, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	recipe:AddTrainer(28701, 33637, 44582, 46675)
+	recipe:AddTrainer(28701, 33637, 44582, 46675, 52586)
 	recipe:AddLimitedVendor(9636, 1)
 
 	-- Jade Pendant of Blasting -- 25618
@@ -246,7 +246,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(170, 170, 200, 215, 230)
 	recipe:SetItemFilterType("JEWELCRAFTING_RING")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
-	recipe:AddTrainer(15501, 18751, 18774, 19063, 19539, 19775, 19778, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 33680, 44582, 46675)
+	recipe:AddTrainer(15501, 18751, 18774, 19063, 19539, 19775, 19778, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 33680, 44582, 46675, 52586)
 
 	-- Citrine Ring of Rapid Healing -- 25621
 	recipe = AddRecipe(25621, V.TBC, Q.COMMON)
@@ -254,7 +254,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(180, 180, 210, 225, 240)
 	recipe:SetItemFilterType("JEWELCRAFTING_RING")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
-	recipe:AddTrainer(15501, 18751, 18774, 19063, 19539, 19775, 19778, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 33680, 44582, 46675)
+	recipe:AddTrainer(15501, 18751, 18774, 19063, 19539, 19775, 19778, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 33680, 44582, 46675, 52586)
 
 	-- Citrine Pendant of Golden Healing -- 25622
 	recipe = AddRecipe(25622, V.TBC, Q.UNCOMMON)
@@ -271,7 +271,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(200, 200, 225, 240, 255)
 	recipe:SetItemFilterType("JEWELCRAFTING_TRINKET")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.HEALER, F.CASTER)
-	recipe:AddTrainer(15501, 18751, 18774, 19063, 19539, 19775, 19778, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 33680, 44582, 46675)
+	recipe:AddTrainer(15501, 18751, 18774, 19063, 19539, 19775, 19778, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 33680, 44582, 46675, 52586)
 
 	-- Figurine - Golden Hare -- 26873
 	recipe = AddRecipe(26873, V.TBC, Q.UNCOMMON)
@@ -288,7 +288,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(210, 210, 235, 250, 265)
 	recipe:SetItemFilterType("JEWELCRAFTING_RING")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS)
-	recipe:AddTrainer(15501, 18751, 18774, 19063, 19539, 19775, 19778, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 33680, 44582, 46675)
+	recipe:AddTrainer(15501, 18751, 18774, 19063, 19539, 19775, 19778, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 33680, 44582, 46675, 52586)
 
 	-- Figurine - Black Pearl Panther -- 26875
 	recipe = AddRecipe(26875, V.TBC, Q.COMMON)
@@ -306,7 +306,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(220, 220, 245, 260, 275)
 	recipe:SetItemFilterType("JEWELCRAFTING_NECK")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS)
-	recipe:AddTrainer(15501, 18751, 18774, 19063, 19539, 19775, 19778, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 33680, 44582, 46675)
+	recipe:AddTrainer(15501, 18751, 18774, 19063, 19539, 19775, 19778, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 33680, 44582, 46675, 52586)
 
 	-- Ruby Crown of Restoration -- 26878
 	recipe = AddRecipe(26878, V.TBC, Q.COMMON)
@@ -323,7 +323,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(225, 225, 235, 245, 255)
 	recipe:SetItemFilterType("JEWELCRAFTING_MATERIALS")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(15501, 18751, 18774, 19063, 19539, 19775, 19778, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 33680, 44582, 46675)
+	recipe:AddTrainer(15501, 18751, 18774, 19063, 19539, 19775, 19778, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 33680, 44582, 46675, 52586)
 
 	-- Figurine - Truesilver Crab -- 26881
 	recipe = AddRecipe(26881, V.TBC, Q.COMMON)
@@ -349,7 +349,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(235, 235, 260, 275, 290)
 	recipe:SetItemFilterType("JEWELCRAFTING_NECK")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
-	recipe:AddTrainer(15501, 18751, 18774, 19063, 19539, 19775, 19778, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 33680, 44582, 46675)
+	recipe:AddTrainer(15501, 18751, 18774, 19063, 19539, 19775, 19778, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 33680, 44582, 46675, 52586)
 
 	-- Truesilver Healing Ring -- 26885
 	recipe = AddRecipe(26885, V.TBC, Q.COMMON)
@@ -357,7 +357,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(240, 240, 265, 280, 295)
 	recipe:SetItemFilterType("JEWELCRAFTING_RING")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
-	recipe:AddTrainer(15501, 18751, 18774, 19063, 19539, 19775, 19778, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 33680, 44582, 46675)
+	recipe:AddTrainer(15501, 18751, 18774, 19063, 19539, 19775, 19778, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 33680, 44582, 46675, 52586)
 
 	-- The Aquamarine Ward -- 26887
 	recipe = AddRecipe(26887, V.TBC, Q.UNCOMMON)
@@ -401,7 +401,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(260, 260, 280, 290, 300)
 	recipe:SetItemFilterType("JEWELCRAFTING_RING")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS)
-	recipe:AddTrainer(15501, 18751, 18774, 19063, 19539, 19775, 19778, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 33680, 44582, 46675)
+	recipe:AddTrainer(15501, 18751, 18774, 19063, 19539, 19775, 19778, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 33680, 44582, 46675, 52586)
 
 	-- Sapphire Signet -- 26903
 	recipe = AddRecipe(26903, V.TBC, Q.COMMON)
@@ -409,7 +409,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(275, 275, 285, 295, 305)
 	recipe:SetItemFilterType("JEWELCRAFTING_RING")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(15501, 18751, 18774, 19063, 19539, 19775, 19778, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 33680, 44582, 46675)
+	recipe:AddTrainer(15501, 18751, 18774, 19063, 19539, 19775, 19778, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 33680, 44582, 46675, 52586)
 
 	-- Emerald Crown of Destruction -- 26906
 	recipe = AddRecipe(26906, V.TBC, Q.COMMON)
@@ -426,7 +426,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(280, 280, 290, 300, 310)
 	recipe:SetItemFilterType("JEWELCRAFTING_RING")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS)
-	recipe:AddTrainer(15501, 18751, 18774, 19063, 19539, 19775, 19778, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 33680, 44582, 46675)
+	recipe:AddTrainer(15501, 18751, 18774, 19063, 19539, 19775, 19778, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 33680, 44582, 46675, 52586)
 
 	-- Sapphire Pendant of Winter Night -- 26908
 	recipe = AddRecipe(26908, V.TBC, Q.COMMON)
@@ -434,7 +434,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(280, 280, 290, 300, 310)
 	recipe:SetItemFilterType("JEWELCRAFTING_NECK")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
-	recipe:AddTrainer(15501, 18751, 18774, 19063, 19539, 19775, 19778, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 33680, 44582, 46675)
+	recipe:AddTrainer(15501, 18751, 18774, 19063, 19539, 19775, 19778, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 33680, 44582, 46675, 52586)
 
 	-- Figurine - Emerald Owl -- 26909
 	recipe = AddRecipe(26909, V.TBC, Q.UNCOMMON)
@@ -460,7 +460,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(290, 290, 300, 310, 320)
 	recipe:SetItemFilterType("JEWELCRAFTING_NECK")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.HEALER, F.CASTER)
-	recipe:AddTrainer(15501, 18751, 18774, 19063, 19539, 19775, 19778, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 33680, 44582, 46675)
+	recipe:AddTrainer(15501, 18751, 18774, 19063, 19539, 19775, 19778, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 33680, 44582, 46675, 52586)
 
 	-- Figurine - Black Diamond Crab -- 26912
 	recipe = AddRecipe(26912, V.TBC, Q.UNCOMMON)
@@ -495,7 +495,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(310, 310, 320, 330, 340)
 	recipe:SetItemFilterType("JEWELCRAFTING_RING")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
-	recipe:AddTrainer(18751, 18774, 19063, 19539, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 33680, 44582, 46675)
+	recipe:AddTrainer(18751, 18774, 19063, 19539, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 33680, 44582, 46675, 52586)
 
 	-- Woven Copper Ring -- 26925
 	recipe = AddRecipe(26925, V.TBC, Q.COMMON)
@@ -511,7 +511,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(5, 5, 35, 50, 65)
 	recipe:SetItemFilterType("JEWELCRAFTING_RING")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(15501, 18751, 18774, 19063, 19539, 19775, 19778, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 33680, 44582, 46675, 47418)
+	recipe:AddTrainer(15501, 18751, 18774, 19063, 19539, 19775, 19778, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 33680, 44582, 46675, 47396, 47418, 52586)
 
 	-- Thick Bronze Necklace -- 26927
 	recipe = AddRecipe(26927, V.TBC, Q.COMMON)
@@ -519,7 +519,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(50, 50, 80, 95, 110)
 	recipe:SetItemFilterType("JEWELCRAFTING_NECK")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(15501, 18751, 18774, 19063, 19539, 19775, 19778, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 33680, 44582, 46675, 47418)
+	recipe:AddTrainer(15501, 18751, 18774, 19063, 19539, 19775, 19778, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 33680, 44582, 46675, 47396, 47418, 52586)
 
 	-- Ornate Tigerseye Necklace -- 26928
 	recipe = AddRecipe(26928, V.TBC, Q.COMMON)
@@ -527,7 +527,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(30, 30, 60, 75, 90)
 	recipe:SetItemFilterType("JEWELCRAFTING_NECK")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
-	recipe:AddTrainer(15501, 18751, 18774, 19063, 19539, 19775, 19778, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 33680, 44582, 46675, 47418)
+	recipe:AddTrainer(15501, 18751, 18774, 19063, 19539, 19775, 19778, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 33680, 44582, 46675, 47396, 47418, 52586)
 
 	-- Brilliant Blood Garnet -- 28903
 	recipe = AddRecipe(28903, V.TBC, Q.UNCOMMON)
@@ -545,7 +545,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(300, 300, 310, 315, 320)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_RED")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS)
-	recipe:AddTrainer(18751, 18774, 19063, 19539, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 33680, 44582, 46675)
+	recipe:AddTrainer(18751, 18774, 19063, 19539, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 33680, 44582, 46675, 52586)
 
 	-- Inscribed Flame Spessarite -- 28910
 	recipe = AddRecipe(28910, V.TBC, Q.COMMON)
@@ -554,7 +554,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(300, 300, 300, 320, 340)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_ORANGE")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS)
-	recipe:AddTrainer(18751, 18774, 19063, 19539, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 33680, 44582, 46675)
+	recipe:AddTrainer(18751, 18774, 19063, 19539, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 33680, 44582, 46675, 52586)
 
 	-- Reckless Flame Spessarite -- 28912
 	recipe = AddRecipe(28912, V.TBC, Q.UNCOMMON)
@@ -572,7 +572,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(315, 315, 315, 335, 355)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_PURPLE")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS)
-	recipe:AddTrainer(18751, 18774, 19063, 19539, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 33680, 44582, 46675)
+	recipe:AddTrainer(18751, 18774, 19063, 19539, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 33680, 44582, 46675, 52586)
 
 	-- Potent Flame Spessarite -- 28915
 	recipe = AddRecipe(28915, V.TBC, Q.UNCOMMON)
@@ -590,7 +590,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(300, 300, 300, 320, 340)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_GREEN")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.CASTER)
-	recipe:AddTrainer(18774, 19063, 19539, 26915, 26960, 26982, 26997, 28701, 33614, 33637, 33680, 44582, 46675)
+	recipe:AddTrainer(18774, 19063, 19539, 26915, 26960, 26982, 26997, 28701, 33614, 33637, 33680, 44582, 46675, 52586)
 
 	-- Jagged Deep Peridot -- 28917
 	recipe = AddRecipe(28917, V.TBC, Q.COMMON)
@@ -599,7 +599,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(300, 300, 310, 315, 320)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_GREEN")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(18751, 18774, 19063, 19539, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 33680, 44582, 46675)
+	recipe:AddTrainer(18751, 18774, 19063, 19539, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 33680, 44582, 46675, 52586)
 
 	-- Regal Deep Peridot -- 28918
 	recipe = AddRecipe(28918, V.TBC, Q.UNCOMMON)
@@ -617,7 +617,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(300, 300, 300, 320, 340)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_PURPLE")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
-	recipe:AddTrainer(18774, 19063, 19539, 26915, 26960, 26982, 26997, 28701, 33614, 33637, 33680, 44582, 46675)
+	recipe:AddTrainer(18774, 19063, 19539, 26915, 26960, 26982, 26997, 28701, 33614, 33637, 33680, 44582, 46675, 52586)
 
 	-- Purified Shadow Draenite -- 28927
 	recipe = AddRecipe(28927, V.TBC, Q.UNCOMMON)
@@ -644,7 +644,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(325, 325, 325, 340, 355)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_PURPLE")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS)
-	recipe:AddTrainer(18751, 18774, 19063, 19539, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 33680, 44582, 46675)
+	recipe:AddTrainer(18751, 18774, 19063, 19539, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 33680, 44582, 46675, 52586)
 
 	-- Smooth Golden Draenite -- 28944
 	recipe = AddRecipe(28944, V.TBC, Q.UNCOMMON)
@@ -671,7 +671,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(325, 325, 325, 340, 355)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_BLUE")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(18751, 18774, 19063, 19539, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 33680, 44582, 46675)
+	recipe:AddTrainer(18751, 18774, 19063, 19539, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 33680, 44582, 46675, 52586)
 
 	-- Solid Azure Moonstone -- 28950
 	recipe = AddRecipe(28950, V.TBC, Q.COMMON)
@@ -680,7 +680,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(300, 300, 300, 320, 340)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_BLUE")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(18774, 19063, 19539, 26915, 26960, 26982, 26997, 28701, 33614, 33637, 33680, 44582, 46675)
+	recipe:AddTrainer(18774, 19063, 19539, 26915, 26960, 26982, 26997, 28701, 33614, 33637, 33680, 44582, 46675, 52586)
 
 	-- Sparkling Azure Moonstone -- 28953
 	recipe = AddRecipe(28953, V.TBC, Q.COMMON)
@@ -689,7 +689,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(300, 300, 310, 315, 320)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_BLUE")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
-	recipe:AddTrainer(18751, 18774, 19063, 19539, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 33680, 44582, 46675)
+	recipe:AddTrainer(18751, 18774, 19063, 19539, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 33680, 44582, 46675, 52586)
 
 	-- Stormy Azure Moonstone -- 28955
 	recipe = AddRecipe(28955, V.TBC, Q.UNCOMMON)
@@ -706,7 +706,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(305, 305, 315, 320, 325)
 	recipe:SetItemFilterType("JEWELCRAFTING_RING")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS)
-	recipe:AddTrainer(18751, 18774, 19063, 19539, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 33680, 44582, 46675)
+	recipe:AddTrainer(18751, 18774, 19063, 19539, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 33680, 44582, 46675, 52586)
 
 	-- Golden Draenite Ring -- 31049
 	recipe = AddRecipe(31049, V.TBC, Q.COMMON)
@@ -714,7 +714,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(305, 305, 315, 320, 325)
 	recipe:SetItemFilterType("JEWELCRAFTING_RING")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
-	recipe:AddTrainer(18751, 18774, 19063, 19539, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 33680, 44582, 46675)
+	recipe:AddTrainer(18751, 18774, 19063, 19539, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 33680, 44582, 46675, 52586)
 
 	-- Azure Moonstone Ring -- 31050
 	recipe = AddRecipe(31050, V.TBC, Q.COMMON)
@@ -722,7 +722,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(320, 320, 330, 340, 350)
 	recipe:SetItemFilterType("JEWELCRAFTING_RING")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
-	recipe:AddTrainer(18751, 18774, 19063, 19539, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 33680, 44582, 46675)
+	recipe:AddTrainer(18751, 18774, 19063, 19539, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 33680, 44582, 46675, 52586)
 
 	-- Thick Adamantite Necklace -- 31051
 	recipe = AddRecipe(31051, V.TBC, Q.COMMON)
@@ -730,7 +730,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(335, 335, 345, 355, 365)
 	recipe:SetItemFilterType("JEWELCRAFTING_NECK")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(18751, 18774, 19063, 19539, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 33680, 44582, 46675)
+	recipe:AddTrainer(18751, 18774, 19063, 19539, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 33680, 44582, 46675, 52586)
 
 	-- Heavy Adamantite Ring -- 31052
 	recipe = AddRecipe(31052, V.TBC, Q.COMMON)
@@ -738,7 +738,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(335, 335, 345, 355, 365)
 	recipe:SetItemFilterType("JEWELCRAFTING_RING")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(18751, 18774, 19063, 19539, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 33680, 44582, 46675)
+	recipe:AddTrainer(18751, 18774, 19063, 19539, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 33680, 44582, 46675, 52586)
 
 	-- Khorium Band of Shadows -- 31053
 	recipe = AddRecipe(31053, V.TBC, Q.RARE)
@@ -1173,7 +1173,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(20, 20, 50, 65, 80)
 	recipe:SetItemFilterType("JEWELCRAFTING_NECK")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS)
-	recipe:AddTrainer(15501, 18751, 18774, 19063, 19539, 19775, 19778, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 33680, 44582, 46675, 47418)
+	recipe:AddTrainer(15501, 18751, 18774, 19063, 19539, 19775, 19778, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 33680, 44582, 46675, 47396, 47418, 52586)
 
 	-- Tigerseye Band -- 32179
 	recipe = AddRecipe(32179, V.TBC, Q.COMMON)
@@ -1181,7 +1181,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(20, 20, 50, 65, 80)
 	recipe:SetItemFilterType("JEWELCRAFTING_RING")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS)
-	recipe:AddTrainer(15501, 18751, 18774, 19063, 19539, 19775, 19778, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 33680, 44582, 46675, 47418)
+	recipe:AddTrainer(15501, 18751, 18774, 19063, 19539, 19775, 19778, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 33680, 44582, 46675, 47396, 47418, 52586)
 
 	-- Rough Stone Statue -- 32259
 	recipe = AddRecipe(32259, V.TBC, Q.COMMON)
@@ -1197,7 +1197,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(50, 50, 70, 80, 90)
 	recipe:SetItemFilterType("JEWELCRAFTING_CREATED_ITEM")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP)
-	recipe:AddTrainer(15501, 18751, 18774, 19063, 19539, 19775, 19778, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 33680, 44582, 46675, 47418)
+	recipe:AddTrainer(15501, 18751, 18774, 19063, 19539, 19775, 19778, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 33680, 44582, 46675, 47396, 47418, 52586)
 
 	-- Heavy Stone Statue -- 32807
 	recipe = AddRecipe(32807, V.TBC, Q.COMMON)
@@ -1205,7 +1205,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(110, 110, 120, 130, 140)
 	recipe:SetItemFilterType("JEWELCRAFTING_CREATED_ITEM")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP)
-	recipe:AddTrainer(15501, 18751, 18774, 19063, 19539, 19775, 19778, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 33680, 44582, 46675)
+	recipe:AddTrainer(15501, 18751, 18774, 19063, 19539, 19775, 19778, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 33680, 44582, 46675, 52586)
 
 	-- Solid Stone Statue -- 32808
 	recipe = AddRecipe(32808, V.TBC, Q.COMMON)
@@ -1213,7 +1213,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(175, 175, 175, 185, 195)
 	recipe:SetItemFilterType("JEWELCRAFTING_CREATED_ITEM")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP)
-	recipe:AddTrainer(15501, 18751, 18774, 19063, 19539, 19775, 19778, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 33680, 44582, 46675)
+	recipe:AddTrainer(15501, 18751, 18774, 19063, 19539, 19775, 19778, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 33680, 44582, 46675, 52586)
 
 	-- Dense Stone Statue -- 32809
 	recipe = AddRecipe(32809, V.TBC, Q.COMMON)
@@ -1221,7 +1221,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(225, 225, 225, 235, 245)
 	recipe:SetItemFilterType("JEWELCRAFTING_CREATED_ITEM")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP)
-	recipe:AddTrainer(15501, 18751, 18774, 19063, 19539, 19775, 19778, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 33680, 44582, 46675)
+	recipe:AddTrainer(15501, 18751, 18774, 19063, 19539, 19775, 19778, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 33680, 44582, 46675, 52586)
 
 	-- Powerful Earthstorm Diamond -- 32866
 	recipe = AddRecipe(32866, V.TBC, Q.COMMON)
@@ -1311,7 +1311,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(300, 300, 310, 315, 320)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_RED")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS)
-	recipe:AddTrainer(18751, 18774, 19063, 19539, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 33680, 44582, 46675)
+	recipe:AddTrainer(18751, 18774, 19063, 19539, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 33680, 44582, 46675, 52586)
 
 	-- Golden Ring of Power -- 34955
 	recipe = AddRecipe(34955, V.TBC, Q.COMMON)
@@ -1319,7 +1319,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(180, 180, 190, 200, 210)
 	recipe:SetItemFilterType("JEWELCRAFTING_RING")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
-	recipe:AddTrainer(15501, 18751, 18774, 19063, 19539, 19775, 19778, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 33680, 44582, 46675)
+	recipe:AddTrainer(15501, 18751, 18774, 19063, 19539, 19775, 19778, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 33680, 44582, 46675, 52586)
 
 	-- Truesilver Commander's Ring -- 34959
 	recipe = AddRecipe(34959, V.TBC, Q.COMMON)
@@ -1327,7 +1327,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(200, 200, 210, 220, 230)
 	recipe:SetItemFilterType("JEWELCRAFTING_RING")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS)
-	recipe:AddTrainer(15501, 18751, 18774, 19063, 19539, 19775, 19778, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 33680, 44582, 46675)
+	recipe:AddTrainer(15501, 18751, 18774, 19063, 19539, 19775, 19778, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 33680, 44582, 46675, 52586)
 
 	-- Glowing Thorium Band -- 34960
 	recipe = AddRecipe(34960, V.TBC, Q.COMMON)
@@ -1335,7 +1335,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(280, 280, 290, 300, 310)
 	recipe:SetItemFilterType("JEWELCRAFTING_RING")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
-	recipe:AddTrainer(15501, 18751, 18774, 19063, 19539, 19775, 19778, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 33680, 44582, 46675)
+	recipe:AddTrainer(15501, 18751, 18774, 19063, 19539, 19775, 19778, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 33680, 44582, 46675, 52586)
 
 	-- Emerald Lion Ring -- 34961
 	recipe = AddRecipe(34961, V.TBC, Q.COMMON)
@@ -1343,7 +1343,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(290, 290, 300, 310, 320)
 	recipe:SetItemFilterType("JEWELCRAFTING_RING")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
-	recipe:AddTrainer(15501, 18751, 18774, 19063, 19539, 19775, 19778, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 33680, 44582, 46675)
+	recipe:AddTrainer(15501, 18751, 18774, 19063, 19539, 19775, 19778, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 33680, 44582, 46675, 52586)
 
 	-- Brilliant Necklace -- 36523
 	recipe = AddRecipe(36523, V.TBC, Q.COMMON)
@@ -1351,7 +1351,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(75, 75, 105, 120, 135)
 	recipe:SetItemFilterType("JEWELCRAFTING_NECK")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
-	recipe:AddTrainer(15501, 18751, 18774, 19063, 19539, 19775, 19778, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 33680, 44582, 46675, 47418)
+	recipe:AddTrainer(15501, 18751, 18774, 19063, 19539, 19775, 19778, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 33680, 44582, 46675, 47396, 47418, 52586)
 
 	-- Heavy Jade Ring -- 36524
 	recipe = AddRecipe(36524, V.TBC, Q.COMMON)
@@ -1359,7 +1359,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(105, 105, 135, 150, 165)
 	recipe:SetItemFilterType("JEWELCRAFTING_RING")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(15501, 18751, 18774, 19063, 19539, 19775, 19778, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 33680, 44582, 46675)
+	recipe:AddTrainer(15501, 18751, 18774, 19063, 19539, 19775, 19778, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 33680, 44582, 46675, 52586)
 
 	-- Red Ring of Destruction -- 36525
 	recipe = AddRecipe(36525, V.TBC, Q.COMMON)
@@ -1367,7 +1367,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(230, 230, 255, 270, 285)
 	recipe:SetItemFilterType("JEWELCRAFTING_RING")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(15501, 18751, 18774, 19063, 19539, 19775, 19778, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 33680, 44582, 46675)
+	recipe:AddTrainer(15501, 18751, 18774, 19063, 19539, 19775, 19778, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 33680, 44582, 46675, 52586)
 
 	-- Diamond Focus Ring -- 36526
 	recipe = AddRecipe(36526, V.TBC, Q.COMMON)
@@ -1375,7 +1375,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(265, 265, 285, 295, 305)
 	recipe:SetItemFilterType("JEWELCRAFTING_RING")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
-	recipe:AddTrainer(15501, 18751, 18774, 19063, 19539, 19775, 19778, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 33680, 44582, 46675)
+	recipe:AddTrainer(15501, 18751, 18774, 19063, 19539, 19775, 19778, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 33680, 44582, 46675, 52586)
 
 	-- Bronze Band of Force -- 37818
 	recipe = AddRecipe(37818, V.TBC, Q.COMMON)
@@ -1383,7 +1383,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(65, 65, 95, 110, 125)
 	recipe:SetItemFilterType("JEWELCRAFTING_RING")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
-	recipe:AddTrainer(15501, 18751, 18774, 19063, 19539, 19775, 19778, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 33680, 44582, 46675, 47418)
+	recipe:AddTrainer(15501, 18751, 18774, 19063, 19539, 19775, 19778, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 33680, 44582, 46675, 47396, 47418, 52586)
 
 	-- Ring of Arcane Shielding -- 37855
 	recipe = AddRecipe(37855, V.TBC, Q.RARE)
@@ -1400,7 +1400,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(325, 325, 325, 335, 345)
 	recipe:SetItemFilterType("JEWELCRAFTING_MATERIALS")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(18751, 18774, 19063, 19539, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 33680, 44582, 46675)
+	recipe:AddTrainer(18751, 18774, 19063, 19539, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 33680, 44582, 46675, 52586)
 
 	-- Bronze Torc -- 38175
 	recipe = AddRecipe(38175, V.TBC, Q.COMMON)
@@ -1408,7 +1408,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(80, 80, 110, 125, 140)
 	recipe:SetItemFilterType("JEWELCRAFTING_NECK")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(15501, 18751, 18774, 19063, 19539, 19775, 19778, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 33680, 44582, 46675)
+	recipe:AddTrainer(15501, 18751, 18774, 19063, 19539, 19775, 19778, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 33680, 44582, 46675, 52586)
 
 	-- The Frozen Eye -- 38503
 	recipe = AddRecipe(38503, V.TBC, Q.EPIC)
@@ -1718,7 +1718,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(340, 340, 340, 355, 370)
 	recipe:SetItemFilterType("JEWELCRAFTING_NECK")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS)
-	recipe:AddTrainer(18751, 18774, 19063, 19539, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 33680, 44582, 46675)
+	recipe:AddTrainer(18751, 18774, 19063, 19539, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 33680, 44582, 46675, 52586)
 
 	-- Brilliant Pearl Band -- 41414
 	recipe = AddRecipe(41414, V.TBC, Q.COMMON)
@@ -1726,7 +1726,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(325, 325, 335, 345, 355)
 	recipe:SetItemFilterType("JEWELCRAFTING_RING")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
-	recipe:AddTrainer(18751, 18774, 19063, 19539, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 33680, 44582, 46675)
+	recipe:AddTrainer(18751, 18774, 19063, 19539, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 33680, 44582, 46675, 52586)
 
 	-- The Black Pearl -- 41415
 	recipe = AddRecipe(41415, V.TBC, Q.COMMON)
@@ -1734,7 +1734,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(330, 330, 340, 350, 360)
 	recipe:SetItemFilterType("JEWELCRAFTING_RING")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
-	recipe:AddTrainer(18751, 18774, 19063, 19539, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 33680, 44582, 46675)
+	recipe:AddTrainer(18751, 18774, 19063, 19539, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 33680, 44582, 46675, 52586)
 
 	-- Crown of the Sea Witch -- 41418
 	recipe = AddRecipe(41418, V.TBC, Q.COMMON)
@@ -1742,7 +1742,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(365, 365, 375, 380, 385)
 	recipe:SetItemFilterType("JEWELCRAFTING_HEAD")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
-	recipe:AddTrainer(18751, 18774, 19063, 19539, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 33680, 44582, 46675)
+	recipe:AddTrainer(18751, 18774, 19063, 19539, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 33680, 44582, 46675, 52586)
 
 	-- Purified Jaggal Pearl -- 41420
 	recipe = AddRecipe(41420, V.TBC, Q.COMMON)
@@ -1750,7 +1750,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(325, 325, 325, 332, 340)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_PURPLE")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
-	recipe:AddTrainer(18751, 18774, 19063, 19539, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 33680, 44582, 46675)
+	recipe:AddTrainer(18751, 18774, 19063, 19539, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 33680, 44582, 46675, 52586)
 
 	-- Purified Shadow Pearl -- 41429
 	recipe = AddRecipe(41429, V.TBC, Q.COMMON)
@@ -1758,7 +1758,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(350, 350, 350, 365, 380)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_PURPLE")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
-	recipe:AddTrainer(18751, 18774, 19063, 19539, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 33680, 44582, 46675)
+	recipe:AddTrainer(18751, 18774, 19063, 19539, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 33680, 44582, 46675, 52586)
 
 	-- Don Julio's Heart -- 42558
 	recipe = AddRecipe(42558, V.TBC, Q.COMMON)
@@ -2031,7 +2031,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(350, 350, 350, 365, 380)
 	recipe:SetItemFilterType("JEWELCRAFTING_MATERIALS")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(18751, 18774, 19063, 19539, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 33680, 44582, 46675)
+	recipe:AddTrainer(18751, 18774, 19063, 19539, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 33680, 44582, 46675, 52586)
 
 	-- Bold Scarlet Ruby -- 53830
 	recipe = AddRecipe(53830, V.WOTLK, Q.RARE)
@@ -2048,7 +2048,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(350, 350, 375, 395, 415)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_RED")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS)
-	recipe:AddTrainer(18751, 19539, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675)
+	recipe:AddTrainer(18751, 19539, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675, 52586)
 
 	-- Delicate Bloodstone -- 53832
 	recipe = AddRecipe(53832, V.WOTLK, Q.COMMON)
@@ -2056,7 +2056,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(350, 350, 375, 395, 415)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_RED")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS)
-	recipe:AddTrainer(18751, 19539, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675)
+	recipe:AddTrainer(18751, 19539, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675, 52586)
 
 	-- Subtle Sun Crystal -- 53843
 	recipe = AddRecipe(53843, V.WOTLK, Q.COMMON)
@@ -2064,7 +2064,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(350, 350, 360, 365, 370)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_YELLOW")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.TANK)
-	recipe:AddTrainer(18751, 19539, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675)
+	recipe:AddTrainer(18751, 19539, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675, 52586)
 
 	-- Flashing Bloodstone -- 53844
 	recipe = AddRecipe(53844, V.WOTLK, Q.COMMON)
@@ -2072,7 +2072,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(350, 350, 375, 395, 415)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_RED")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.TANK)
-	recipe:AddTrainer(18751, 19539, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675)
+	recipe:AddTrainer(18751, 19539, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675, 52586)
 
 	-- Smooth Sun Crystal -- 53845
 	recipe = AddRecipe(53845, V.WOTLK, Q.COMMON)
@@ -2080,7 +2080,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(350, 350, 375, 395, 415)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_YELLOW")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS)
-	recipe:AddTrainer(18751, 19539, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675)
+	recipe:AddTrainer(18751, 19539, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675, 52586)
 
 	-- Brilliant Bloodstone -- 53852
 	recipe = AddRecipe(53852, V.WOTLK, Q.COMMON)
@@ -2088,7 +2088,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(350, 350, 375, 395, 415)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_RED")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(18751, 19539, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675)
+	recipe:AddTrainer(18751, 19539, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675, 52586)
 
 	-- Rigid Chalcedony -- 53854
 	recipe = AddRecipe(53854, V.WOTLK, Q.COMMON)
@@ -2096,7 +2096,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(350, 350, 375, 395, 415)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_BLUE")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(18751, 19539, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675)
+	recipe:AddTrainer(18751, 19539, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675, 52586)
 
 	-- Quick Sun Crystal -- 53856
 	recipe = AddRecipe(53856, V.WOTLK, Q.COMMON)
@@ -2104,7 +2104,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(350, 350, 375, 395, 415)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_YELLOW")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(18751, 19539, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675)
+	recipe:AddTrainer(18751, 19539, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675, 52586)
 
 	-- Mystic Sun Crystal -- 53857
 	recipe = AddRecipe(53857, V.WOTLK, Q.UNCOMMON)
@@ -2121,7 +2121,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(350, 350, 375, 395, 415)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_PURPLE")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS)
-	recipe:AddTrainer(18751, 19539, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675)
+	recipe:AddTrainer(18751, 19539, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675, 52586)
 
 	-- Shifting Shadow Crystal -- 53860
 	recipe = AddRecipe(53860, V.WOTLK, Q.COMMON)
@@ -2129,7 +2129,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(350, 350, 375, 395, 415)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_PURPLE")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS)
-	recipe:AddTrainer(18751, 19539, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675)
+	recipe:AddTrainer(18751, 19539, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675, 52586)
 
 	-- Glinting Shadow Crystal -- 53861
 	recipe = AddRecipe(53861, V.WOTLK, Q.COMMON)
@@ -2137,7 +2137,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(350, 350, 375, 395, 415)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_PURPLE")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS)
-	recipe:AddTrainer(18751, 19539, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675)
+	recipe:AddTrainer(18751, 19539, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675, 52586)
 
 	-- Mysterious Shadow Crystal -- 53865
 	recipe = AddRecipe(53865, V.WOTLK, Q.UNCOMMON)
@@ -2163,7 +2163,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(350, 350, 375, 395, 415)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_GREEN")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS)
-	recipe:AddTrainer(18751, 19539, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675)
+	recipe:AddTrainer(18751, 19539, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675, 52586)
 
 	-- Guardian's Shadow Crystal -- 53871
 	recipe = AddRecipe(53871, V.WOTLK, Q.COMMON)
@@ -2171,7 +2171,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(350, 350, 375, 395, 415)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_PURPLE")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS, F.TANK)
-	recipe:AddTrainer(18751, 19539, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675)
+	recipe:AddTrainer(18751, 19539, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675, 52586)
 
 	-- Inscribed Huge Citrine -- 53872
 	recipe = AddRecipe(53872, V.WOTLK, Q.COMMON)
@@ -2179,7 +2179,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(350, 350, 375, 395, 415)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_ORANGE")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS)
-	recipe:AddTrainer(18751, 19539, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675)
+	recipe:AddTrainer(18751, 19539, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675, 52586)
 
 	-- Etched Shadow Crystal -- 53873
 	recipe = AddRecipe(53873, V.WOTLK, Q.COMMON)
@@ -2187,7 +2187,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(350, 350, 375, 395, 415)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_PURPLE")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS)
-	recipe:AddTrainer(18751, 19539, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675)
+	recipe:AddTrainer(18751, 19539, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675, 52586)
 
 	-- Champion's Huge Citrine -- 53874
 	recipe = AddRecipe(53874, V.WOTLK, Q.COMMON)
@@ -2195,7 +2195,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(350, 350, 375, 395, 415)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_ORANGE")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS, F.TANK)
-	recipe:AddTrainer(18751, 19539, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675)
+	recipe:AddTrainer(18751, 19539, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675, 52586)
 
 	-- Resplendent Huge Citrine -- 53875
 	recipe = AddRecipe(53875, V.WOTLK, Q.UNCOMMON)
@@ -2212,7 +2212,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(350, 350, 375, 395, 415)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_ORANGE")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS)
-	recipe:AddTrainer(18751, 19539, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675)
+	recipe:AddTrainer(18751, 19539, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675, 52586)
 
 	-- Deadly Huge Citrine -- 53877
 	recipe = AddRecipe(53877, V.WOTLK, Q.UNCOMMON)
@@ -2238,7 +2238,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(350, 350, 375, 395, 415)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_ORANGE")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS)
-	recipe:AddTrainer(18751, 19539, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675)
+	recipe:AddTrainer(18751, 19539, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675, 52586)
 
 	-- Potent Huge Citrine -- 53882
 	recipe = AddRecipe(53882, V.WOTLK, Q.COMMON)
@@ -2246,7 +2246,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(350, 350, 375, 395, 415)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_ORANGE")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
-	recipe:AddTrainer(18751, 19539, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675)
+	recipe:AddTrainer(18751, 19539, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675, 52586)
 
 	-- Veiled Shadow Crystal -- 53883
 	recipe = AddRecipe(53883, V.WOTLK, Q.COMMON)
@@ -2254,7 +2254,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(350, 350, 375, 395, 415)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_PURPLE")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
-	recipe:AddTrainer(18751, 19539, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675)
+	recipe:AddTrainer(18751, 19539, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675, 52586)
 
 	-- Willful Huge Citrine -- 53884
 	recipe = AddRecipe(53884, V.WOTLK, Q.UNCOMMON)
@@ -2280,7 +2280,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(350, 350, 360, 365, 370)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_ORANGE")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.TANK)
-	recipe:AddTrainer(18751, 19539, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675)
+	recipe:AddTrainer(18751, 19539, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675, 52586)
 
 	-- Accurate Shadow Crystal -- 53892
 	recipe = AddRecipe(53892, V.WOTLK, Q.COMMON)
@@ -2288,7 +2288,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(350, 350, 375, 395, 415)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_PURPLE")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS, F.TANK)
-	recipe:AddTrainer(18751, 19539, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675)
+	recipe:AddTrainer(18751, 19539, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675, 52586)
 
 	-- Resolute Huge Citrine -- 53893
 	recipe = AddRecipe(53893, V.WOTLK, Q.COMMON)
@@ -2296,7 +2296,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(350, 350, 375, 395, 415)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_ORANGE")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS, F.TANK)
-	recipe:AddTrainer(18751, 19539, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675)
+	recipe:AddTrainer(18751, 19539, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675, 52586)
 
 	-- Timeless Shadow Crystal -- 53894
 	recipe = AddRecipe(53894, V.WOTLK, Q.COMMON)
@@ -2304,7 +2304,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(350, 350, 375, 395, 415)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_PURPLE")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(18751, 19539, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675)
+	recipe:AddTrainer(18751, 19539, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675, 52586)
 
 	-- Nimble Dark Jade -- 53917
 	recipe = AddRecipe(53917, V.WOTLK, Q.UNCOMMON)
@@ -2321,7 +2321,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(350, 350, 375, 395, 415)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_GREEN")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.TANK)
-	recipe:AddTrainer(18751, 19539, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675)
+	recipe:AddTrainer(18751, 19539, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675, 52586)
 
 	-- Steady Dark Jade -- 53919
 	recipe = AddRecipe(53919, V.WOTLK, Q.UNCOMMON)
@@ -2338,7 +2338,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(350, 350, 375, 395, 415)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_GREEN")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(18751, 19539, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675)
+	recipe:AddTrainer(18751, 19539, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675, 52586)
 
 	-- Purified Shadow Crystal -- 53921
 	recipe = AddRecipe(53921, V.WOTLK, Q.UNCOMMON)
@@ -2355,7 +2355,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(350, 350, 375, 395, 415)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_GREEN")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
-	recipe:AddTrainer(18751, 19539, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675)
+	recipe:AddTrainer(18751, 19539, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675, 52586)
 
 	-- Lightning Dark Jade -- 53923
 	recipe = AddRecipe(53923, V.WOTLK, Q.COMMON)
@@ -2363,7 +2363,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(350, 350, 375, 395, 415)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_GREEN")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
-	recipe:AddTrainer(18751, 19539, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675)
+	recipe:AddTrainer(18751, 19539, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675, 52586)
 
 	-- Turbid Dark Jade -- 53924
 	recipe = AddRecipe(53924, V.WOTLK, Q.UNCOMMON)
@@ -2380,7 +2380,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(350, 350, 375, 395, 415)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_GREEN")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
-	recipe:AddTrainer(18751, 19539, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675)
+	recipe:AddTrainer(18751, 19539, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675, 52586)
 
 	-- Radiant Dark Jade -- 53932
 	recipe = AddRecipe(53932, V.WOTLK, Q.UNCOMMON)
@@ -2406,7 +2406,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(350, 350, 375, 395, 415)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_BLUE")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(18751, 19539, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675)
+	recipe:AddTrainer(18751, 19539, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675, 52586)
 
 	-- Sparkling Chalcedony -- 53941
 	recipe = AddRecipe(53941, V.WOTLK, Q.COMMON)
@@ -2414,7 +2414,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(350, 350, 375, 395, 415)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_BLUE")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
-	recipe:AddTrainer(18751, 19539, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675)
+	recipe:AddTrainer(18751, 19539, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675, 52586)
 
 	-- Stormy Chalcedony -- 53943
 	recipe = AddRecipe(53943, V.WOTLK, Q.UNCOMMON)
@@ -2829,7 +2829,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(350, 350, 375, 395, 415)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_RED")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS, F.TANK)
-	recipe:AddTrainer(18751, 19539, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675)
+	recipe:AddTrainer(18751, 19539, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675, 52586)
 
 	-- Fierce Monarch Topaz -- 54019
 	recipe = AddRecipe(54019, V.WOTLK, Q.RARE)
@@ -2864,7 +2864,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(420, 420, 440, 450, 460)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_META")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
-	recipe:AddTrainer(18751, 19539, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675)
+	recipe:AddTrainer(18751, 19539, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675, 52586)
 
 	-- Forlorn Skyflare Diamond -- 55387
 	recipe = AddRecipe(55387, V.WOTLK, Q.RARE)
@@ -2926,7 +2926,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(420, 420, 440, 450, 460)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_META")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS)
-	recipe:AddTrainer(18751, 19539, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675)
+	recipe:AddTrainer(18751, 19539, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675, 52586)
 
 	-- Thundering Skyflare Diamond -- 55395
 	recipe = AddRecipe(55395, V.WOTLK, Q.RARE)
@@ -2970,7 +2970,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(420, 420, 440, 450, 460)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_META")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(18751, 19539, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675)
+	recipe:AddTrainer(18751, 19539, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675, 52586)
 
 	-- Relentless Earthsiege Diamond -- 55400
 	recipe = AddRecipe(55400, V.WOTLK, Q.RARE)
@@ -2996,7 +2996,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(420, 420, 440, 450, 460)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_META")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS)
-	recipe:AddTrainer(18751, 19539, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675)
+	recipe:AddTrainer(18751, 19539, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675, 52586)
 
 	-- Trenchant Earthsiege Diamond -- 55403
 	recipe = AddRecipe(55403, V.WOTLK, Q.RARE)
@@ -3157,7 +3157,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(350, 350, 380, 400, 420)
 	recipe:SetItemFilterType("JEWELCRAFTING_RING")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS)
-	recipe:AddTrainer(18751, 19539, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675)
+	recipe:AddTrainer(18751, 19539, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675, 52586)
 
 	-- Sun Rock Ring -- 56194
 	recipe = AddRecipe(56194, V.WOTLK, Q.COMMON)
@@ -3165,7 +3165,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(350, 350, 380, 400, 420)
 	recipe:SetItemFilterType("JEWELCRAFTING_RING")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
-	recipe:AddTrainer(18751, 19539, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675)
+	recipe:AddTrainer(18751, 19539, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675, 52586)
 
 	-- Jade Dagger Pendant -- 56195
 	recipe = AddRecipe(56195, V.WOTLK, Q.COMMON)
@@ -3173,7 +3173,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(380, 380, 400, 410, 420)
 	recipe:SetItemFilterType("JEWELCRAFTING_NECK")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS)
-	recipe:AddTrainer(18751, 19539, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675)
+	recipe:AddTrainer(18751, 19539, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675, 52586)
 
 	-- Blood Sun Necklace -- 56196
 	recipe = AddRecipe(56196, V.WOTLK, Q.COMMON)
@@ -3181,7 +3181,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(380, 380, 400, 410, 420)
 	recipe:SetItemFilterType("JEWELCRAFTING_NECK")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
-	recipe:AddTrainer(18751, 19539, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675)
+	recipe:AddTrainer(18751, 19539, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675, 52586)
 
 	-- Dream Signet -- 56197
 	recipe = AddRecipe(56197, V.WOTLK, Q.COMMON)
@@ -3189,7 +3189,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(420, 420, 440, 450, 460)
 	recipe:SetItemFilterType("JEWELCRAFTING_RING")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(18751, 19539, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675)
+	recipe:AddTrainer(18751, 19539, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675, 52586)
 
 	-- Figurine - Ruby Hare -- 56199
 	recipe = AddRecipe(56199, V.WOTLK, Q.COMMON)
@@ -3197,7 +3197,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(400, 400, 430, 440, 450)
 	recipe:SetItemFilterType("JEWELCRAFTING_TRINKET")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP)
-	recipe:AddTrainer(18751, 19539, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675)
+	recipe:AddTrainer(18751, 19539, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675, 52586)
 
 	-- Figurine - Twilight Serpent -- 56201
 	recipe = AddRecipe(56201, V.WOTLK, Q.COMMON)
@@ -3205,7 +3205,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(400, 400, 430, 440, 450)
 	recipe:SetItemFilterType("JEWELCRAFTING_TRINKET")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.HEALER, F.CASTER)
-	recipe:AddTrainer(18751, 19539, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675)
+	recipe:AddTrainer(18751, 19539, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675, 52586)
 
 	-- Figurine - Sapphire Owl -- 56202
 	recipe = AddRecipe(56202, V.WOTLK, Q.COMMON)
@@ -3213,7 +3213,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(400, 400, 430, 440, 450)
 	recipe:SetItemFilterType("JEWELCRAFTING_TRINKET")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.HEALER, F.CASTER)
-	recipe:AddTrainer(18751, 19539, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675)
+	recipe:AddTrainer(18751, 19539, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675, 52586)
 
 	-- Figurine - Emerald Boar -- 56203
 	recipe = AddRecipe(56203, V.WOTLK, Q.COMMON)
@@ -3221,7 +3221,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(400, 400, 430, 440, 450)
 	recipe:SetItemFilterType("JEWELCRAFTING_TRINKET")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.DPS)
-	recipe:AddTrainer(18751, 19539, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675)
+	recipe:AddTrainer(18751, 19539, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675, 52586)
 
 	-- Dark Jade Focusing Lens -- 56205
 	recipe = AddRecipe(56205, V.WOTLK, Q.COMMON)
@@ -3229,7 +3229,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(350, 350, 360, 370, 380)
 	recipe:SetItemFilterType("JEWELCRAFTING_CREATED_ITEM")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(18751, 19539, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675)
+	recipe:AddTrainer(18751, 19539, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675, 52586)
 
 	-- Shadow Crystal Focusing Lens -- 56206
 	recipe = AddRecipe(56206, V.WOTLK, Q.COMMON)
@@ -3237,7 +3237,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(350, 350, 360, 365, 370)
 	recipe:SetItemFilterType("JEWELCRAFTING_CREATED_ITEM")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(18751, 19539, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675)
+	recipe:AddTrainer(18751, 19539, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675, 52586)
 
 	-- Shadow Jade Focusing Lens -- 56208
 	recipe = AddRecipe(56208, V.WOTLK, Q.COMMON)
@@ -3245,7 +3245,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(350, 350, 360, 365, 370)
 	recipe:SetItemFilterType("JEWELCRAFTING_CREATED_ITEM")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(18751, 19539, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675)
+	recipe:AddTrainer(18751, 19539, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675, 52586)
 
 	-- Titanium Impact Band -- 56496
 	recipe = AddRecipe(56496, V.WOTLK, Q.EPIC)
@@ -3307,7 +3307,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(350, 350, 360, 365, 370)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_PRISMATIC")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(18751, 19539, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675)
+	recipe:AddTrainer(18751, 19539, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675, 52586)
 
 	-- Enchanted Tear -- 56531
 	recipe = AddRecipe(56531, V.WOTLK, Q.COMMON)
@@ -3315,7 +3315,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(390, 390, 410, 425, 440)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_PRISMATIC")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(18751, 19539, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675)
+	recipe:AddTrainer(18751, 19539, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675, 52586)
 
 	-- Crystal Citrine Necklace -- 58141
 	recipe = AddRecipe(58141, V.WOTLK, Q.COMMON)
@@ -3323,7 +3323,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(350, 350, 380, 400, 420)
 	recipe:SetItemFilterType("JEWELCRAFTING_NECK")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
-	recipe:AddTrainer(18751, 19539, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675)
+	recipe:AddTrainer(18751, 19539, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675, 52586)
 
 	-- Crystal Chalcedony Amulet -- 58142
 	recipe = AddRecipe(58142, V.WOTLK, Q.COMMON)
@@ -3331,7 +3331,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(350, 350, 380, 400, 420)
 	recipe:SetItemFilterType("JEWELCRAFTING_NECK")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS)
-	recipe:AddTrainer(18751, 19539, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675)
+	recipe:AddTrainer(18751, 19539, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675, 52586)
 
 	-- Earthshadow Ring -- 58143
 	recipe = AddRecipe(58143, V.WOTLK, Q.COMMON)
@@ -3339,7 +3339,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(350, 350, 360, 365, 370)
 	recipe:SetItemFilterType("JEWELCRAFTING_RING")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.HEALER, F.CASTER)
-	recipe:AddTrainer(18751, 19539, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675)
+	recipe:AddTrainer(18751, 19539, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675, 52586)
 
 	-- Jade Ring of Slaying -- 58144
 	recipe = AddRecipe(58144, V.WOTLK, Q.COMMON)
@@ -3347,7 +3347,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(350, 350, 360, 365, 370)
 	recipe:SetItemFilterType("JEWELCRAFTING_RING")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.DPS, F.TANK)
-	recipe:AddTrainer(18751, 19539, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675)
+	recipe:AddTrainer(18751, 19539, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675, 52586)
 
 	-- Stoneguard Band -- 58145
 	recipe = AddRecipe(58145, V.WOTLK, Q.COMMON)
@@ -3355,7 +3355,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(390, 390, 410, 420, 430)
 	recipe:SetItemFilterType("JEWELCRAFTING_RING")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.TANK)
-	recipe:AddTrainer(18751, 19539, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675)
+	recipe:AddTrainer(18751, 19539, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675, 52586)
 
 	-- Shadowmight Ring -- 58146
 	recipe = AddRecipe(58146, V.WOTLK, Q.COMMON)
@@ -3363,7 +3363,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(390, 390, 410, 420, 430)
 	recipe:SetItemFilterType("JEWELCRAFTING_RING")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(18751, 19539, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675)
+	recipe:AddTrainer(18751, 19539, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675, 52586)
 
 	-- Ring of Earthen Might -- 58147
 	recipe = AddRecipe(58147, V.WOTLK, Q.RARE)
@@ -3434,7 +3434,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(400, 400, 430, 440, 450)
 	recipe:SetItemFilterType("JEWELCRAFTING_TRINKET")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.TANK)
-	recipe:AddTrainer(18751, 19539, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675)
+	recipe:AddTrainer(18751, 19539, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675, 52586)
 
 	-- Icy Prism -- 62242
 	recipe = AddRecipe(62242, V.WOTLK, Q.COMMON)
@@ -3442,7 +3442,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(425, 425, 445, 457, 470)
 	recipe:SetItemFilterType("JEWELCRAFTING_MATERIALS")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP)
-	recipe:AddTrainer(18751, 19539, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675)
+	recipe:AddTrainer(18751, 19539, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675, 52586)
 
 	-- Prismatic Black Diamond -- 62941
 	recipe = AddRecipe(62941, V.WOTLK, Q.COMMON)
@@ -3450,7 +3450,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(300, 300, 310, 315, 320)
 	recipe:SetItemFilterType("JEWELCRAFTING_MATERIALS")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(18751, 18774, 19063, 19539, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 33680, 44582, 46675)
+	recipe:AddTrainer(18751, 18774, 19063, 19539, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 33680, 44582, 46675, 52586)
 
 	-- Amulet of Truesight -- 63743
 	recipe = AddRecipe(63743, V.WOTLK, Q.COMMON)
@@ -3458,7 +3458,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(200, 200, 210, 220, 230)
 	recipe:SetItemFilterType("JEWELCRAFTING_NECK")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS)
-	recipe:AddTrainer(15501, 18751, 18774, 19063, 19539, 19775, 19778, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 33680, 44582, 46675)
+	recipe:AddTrainer(15501, 18751, 18774, 19063, 19539, 19775, 19778, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 33680, 44582, 46675, 52586)
 
 	-- Emerald Choker -- 64725
 	recipe = AddRecipe(64725, V.WOTLK, Q.COMMON)
@@ -3466,7 +3466,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(420, 420, 440, 450, 460)
 	recipe:SetItemFilterType("JEWELCRAFTING_NECK")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS)
-	recipe:AddTrainer(18751, 19539, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675)
+	recipe:AddTrainer(18751, 19539, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675, 52586)
 
 	-- Sky Sapphire Amulet -- 64726
 	recipe = AddRecipe(64726, V.WOTLK, Q.COMMON)
@@ -3474,7 +3474,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(420, 420, 440, 450, 460)
 	recipe:SetItemFilterType("JEWELCRAFTING_NECK")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
-	recipe:AddTrainer(18751, 19539, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675)
+	recipe:AddTrainer(18751, 19539, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675, 52586)
 
 	-- Runed Mana Band -- 64727
 	recipe = AddRecipe(64727, V.WOTLK, Q.COMMON)
@@ -3482,7 +3482,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(420, 420, 440, 450, 460)
 	recipe:SetItemFilterType("JEWELCRAFTING_RING")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
-	recipe:AddTrainer(18751, 19539, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675)
+	recipe:AddTrainer(18751, 19539, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675, 52586)
 
 	-- Scarlet Signet -- 64728
 	recipe = AddRecipe(64728, V.WOTLK, Q.COMMON)
@@ -3490,7 +3490,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(420, 420, 440, 450, 460)
 	recipe:SetItemFilterType("JEWELCRAFTING_RING")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS)
-	recipe:AddTrainer(18751, 19539, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675)
+	recipe:AddTrainer(18751, 19539, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675, 52586)
 
 	-- Regal Eye of Zul -- 66338
 	recipe = AddRecipe(66338, V.WOTLK, Q.RARE)
@@ -3930,7 +3930,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(425, 425, 450, 467, 485)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_RED")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(18751, 18774, 19063, 19539, 19775, 19778, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675)
+	recipe:AddTrainer(18751, 18774, 19063, 19539, 19775, 19778, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675, 52586)
 
 	-- Delicate Carnelian -- 73223
 	recipe = AddRecipe(73223, V.CATA, Q.COMMON)
@@ -3938,7 +3938,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(425, 425, 450, 467, 485)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_RED")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(18751, 18774, 19063, 19539, 19775, 19778, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675)
+	recipe:AddTrainer(18751, 18774, 19063, 19539, 19775, 19778, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675, 52586)
 
 	-- Flashing Carnelian -- 73224
 	recipe = AddRecipe(73224, V.CATA, Q.UNCOMMON)
@@ -3954,7 +3954,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(425, 425, 450, 467, 485)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_RED")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(18751, 18774, 19063, 19539, 19775, 19778, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675)
+	recipe:AddTrainer(18751, 18774, 19063, 19539, 19775, 19778, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675, 52586)
 
 	-- Precise Carnelian -- 73226
 	recipe = AddRecipe(73226, V.CATA, Q.COMMON)
@@ -3962,7 +3962,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(425, 425, 450, 467, 485)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_RED")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(18751, 18774, 19063, 19539, 19775, 19778, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675)
+	recipe:AddTrainer(18751, 18774, 19063, 19539, 19775, 19778, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675, 52586)
 
 	-- Solid Zephyrite -- 73227
 	recipe = AddRecipe(73227, V.CATA, Q.COMMON)
@@ -3970,7 +3970,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(425, 425, 450, 467, 485)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_BLUE")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(18751, 18774, 19063, 19539, 19775, 19778, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675)
+	recipe:AddTrainer(18751, 18774, 19063, 19539, 19775, 19778, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675, 52586)
 
 	-- Sparkling Zephyrite -- 73228
 	recipe = AddRecipe(73228, V.CATA, Q.COMMON)
@@ -3978,7 +3978,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(425, 425, 450, 467, 485)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_BLUE")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(18751, 18774, 19063, 19539, 19775, 19778, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675)
+	recipe:AddTrainer(18751, 18774, 19063, 19539, 19775, 19778, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675, 52586)
 
 	-- Stormy Zephyrite -- 73229
 	recipe = AddRecipe(73229, V.CATA, Q.UNCOMMON)
@@ -3994,7 +3994,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(425, 425, 450, 467, 485)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_BLUE")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(18751, 18774, 19063, 19539, 19775, 19778, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675)
+	recipe:AddTrainer(18751, 18774, 19063, 19539, 19775, 19778, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675, 52586)
 
 	-- Subtle Alicite -- 73231
 	recipe = AddRecipe(73231, V.CATA, Q.UNCOMMON)
@@ -4010,7 +4010,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(425, 425, 450, 467, 485)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_YELLOW")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(18751, 18774, 19063, 19539, 19775, 19778, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675)
+	recipe:AddTrainer(18751, 18774, 19063, 19539, 19775, 19778, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675, 52586)
 
 	-- Quick Alicite -- 73234
 	recipe = AddRecipe(73234, V.CATA, Q.COMMON)
@@ -4018,7 +4018,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(425, 425, 450, 467, 485)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_YELLOW")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(18751, 18774, 19063, 19539, 19775, 19778, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675)
+	recipe:AddTrainer(18751, 18774, 19063, 19539, 19775, 19778, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675, 52586)
 
 	-- Fractured Alicite -- 73239
 	recipe = AddRecipe(73239, V.CATA, Q.COMMON)
@@ -4026,7 +4026,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(425, 425, 450, 467, 485)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_YELLOW")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(18751, 18774, 19063, 19539, 19775, 19778, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675)
+	recipe:AddTrainer(18751, 18774, 19063, 19539, 19775, 19778, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675, 52586)
 
 	-- Sovereign Nightstone -- 73240
 	recipe = AddRecipe(73240, V.CATA, Q.COMMON)
@@ -4034,7 +4034,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(425, 425, 450, 467, 485)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_PURPLE")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(18751, 18774, 19063, 19539, 19775, 19778, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675)
+	recipe:AddTrainer(18751, 18774, 19063, 19539, 19775, 19778, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675, 52586)
 
 	-- Shifting Nightstone -- 73241
 	recipe = AddRecipe(73241, V.CATA, Q.COMMON)
@@ -4042,7 +4042,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(425, 425, 450, 467, 485)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_PURPLE")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(18751, 18774, 19063, 19539, 19775, 19778, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675)
+	recipe:AddTrainer(18751, 18774, 19063, 19539, 19775, 19778, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675, 52586)
 
 	-- Defender's Nightstone -- 73242
 	recipe = AddRecipe(73242, V.CATA, Q.UNCOMMON)
@@ -4058,7 +4058,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(425, 425, 450, 467, 485)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_PURPLE")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(18751, 18774, 19063, 19539, 19775, 19778, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675)
+	recipe:AddTrainer(18751, 18774, 19063, 19539, 19775, 19778, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675, 52586)
 
 	-- Guardian's Nightstone -- 73244
 	recipe = AddRecipe(73244, V.CATA, Q.UNCOMMON)
@@ -4082,7 +4082,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(425, 425, 450, 467, 485)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_PURPLE")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(18751, 18774, 19063, 19539, 19775, 19778, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675)
+	recipe:AddTrainer(18751, 18774, 19063, 19539, 19775, 19778, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675, 52586)
 
 	-- Glinting Nightstone -- 73247
 	recipe = AddRecipe(73247, V.CATA, Q.COMMON)
@@ -4090,7 +4090,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(425, 425, 450, 467, 485)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_PURPLE")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(18751, 18774, 19063, 19539, 19775, 19778, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675)
+	recipe:AddTrainer(18751, 18774, 19063, 19539, 19775, 19778, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675, 52586)
 
 	-- Retaliating Nightstone -- 73248
 	recipe = AddRecipe(73248, V.CATA, Q.UNCOMMON)
@@ -4106,7 +4106,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(425, 425, 450, 467, 485)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_PURPLE")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(18751, 18774, 19063, 19539, 19775, 19778, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675)
+	recipe:AddTrainer(18751, 18774, 19063, 19539, 19775, 19778, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675, 52586)
 
 	-- Accurate Nightstone -- 73250
 	recipe = AddRecipe(73250, V.CATA, Q.COMMON)
@@ -4114,7 +4114,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(425, 425, 450, 467, 485)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_PURPLE")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(18751, 18774, 19063, 19539, 19775, 19778, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675)
+	recipe:AddTrainer(18751, 18774, 19063, 19539, 19775, 19778, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675, 52586)
 
 	-- Polished Hessonite -- 73258
 	recipe = AddRecipe(73258, V.CATA, Q.UNCOMMON)
@@ -4170,7 +4170,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(425, 425, 435, 440, 445)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_ORANGE")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(18751, 18774, 19063, 19539, 19775, 19778, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675)
+	recipe:AddTrainer(18751, 18774, 19063, 19539, 19775, 19778, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675, 52586)
 
 	-- Skillful Hessonite -- 73267
 	recipe = AddRecipe(73267, V.CATA, Q.COMMON)
@@ -4178,7 +4178,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(425, 425, 450, 467, 485)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_ORANGE")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(18751, 18774, 19063, 19539, 19775, 19778, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675)
+	recipe:AddTrainer(18751, 18774, 19063, 19539, 19775, 19778, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675, 52586)
 
 	-- Adept Hessonite -- 73268
 	recipe = AddRecipe(73268, V.CATA, Q.COMMON)
@@ -4186,7 +4186,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(425, 425, 450, 467, 485)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_ORANGE")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(18751, 18774, 19063, 19539, 19775, 19778, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675)
+	recipe:AddTrainer(18751, 18774, 19063, 19539, 19775, 19778, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675, 52586)
 
 	-- Fine Hessonite -- 73269
 	recipe = AddRecipe(73269, V.CATA, Q.UNCOMMON)
@@ -4202,7 +4202,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(425, 425, 450, 467, 485)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_ORANGE")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(18751, 18774, 19063, 19539, 19775, 19778, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675)
+	recipe:AddTrainer(18751, 18774, 19063, 19539, 19775, 19778, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675, 52586)
 
 	-- Keen Hessonite -- 73271
 	recipe = AddRecipe(73271, V.CATA, Q.UNCOMMON)
@@ -4234,7 +4234,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(425, 425, 450, 467, 485)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_GREEN")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(18751, 18774, 19063, 19539, 19775, 19778, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675)
+	recipe:AddTrainer(18751, 18774, 19063, 19539, 19775, 19778, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675, 52586)
 
 	-- Piercing Jasper -- 73275
 	recipe = AddRecipe(73275, V.CATA, Q.UNCOMMON)
@@ -4274,7 +4274,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(425, 425, 450, 467, 485)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_GREEN")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(18751, 18774, 19063, 19539, 19775, 19778, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675)
+	recipe:AddTrainer(18751, 18774, 19063, 19539, 19775, 19778, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675, 52586)
 
 	-- Zen Jasper -- 73280
 	recipe = AddRecipe(73280, V.CATA, Q.UNCOMMON)
@@ -4290,7 +4290,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(425, 425, 450, 467, 485)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_GREEN")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(18751, 18774, 19063, 19539, 19775, 19778, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675)
+	recipe:AddTrainer(18751, 18774, 19063, 19539, 19775, 19778, 26915, 26960, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675, 52586)
 
 	-- Bold Inferno Ruby -- 73335
 	recipe = AddRecipe(73335, V.CATA, Q.RARE)
@@ -4901,7 +4901,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(500, 500, 500, 500, 525)
 	recipe:SetItemFilterType("JEWELCRAFTING_MATERIALS")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(18751, 19063, 19539, 19775, 19778, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675)
+	recipe:AddTrainer(18751, 19063, 19539, 19775, 19778, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675, 52586)
 
 	-- Jasper Ring -- 73494
 	recipe = AddRecipe(73494, V.CATA, Q.COMMON)
@@ -4909,7 +4909,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(425, 425, 450, 467, 485)
 	recipe:SetItemFilterType("JEWELCRAFTING_RING")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(18751, 19063, 19539, 19775, 19778, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675)
+	recipe:AddTrainer(18751, 19063, 19539, 19775, 19778, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675, 52586)
 
 	-- Hessonite Band -- 73495
 	recipe = AddRecipe(73495, V.CATA, Q.COMMON)
@@ -4917,7 +4917,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(450, 450, 485, 495, 505)
 	recipe:SetItemFilterType("JEWELCRAFTING_RING")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(18751, 19063, 19539, 19775, 19778, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675)
+	recipe:AddTrainer(18751, 19063, 19539, 19775, 19778, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675, 52586)
 
 	-- Alicite Pendant -- 73496
 	recipe = AddRecipe(73496, V.CATA, Q.COMMON)
@@ -4925,7 +4925,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(435, 435, 450, 467, 485)
 	recipe:SetItemFilterType("JEWELCRAFTING_NECK")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(18751, 19063, 19539, 19775, 19778, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675)
+	recipe:AddTrainer(18751, 19063, 19539, 19775, 19778, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675, 52586)
 
 	-- Nightstone Choker -- 73497
 	recipe = AddRecipe(73497, V.CATA, Q.COMMON)
@@ -4933,7 +4933,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(460, 460, 495, 505, 515)
 	recipe:SetItemFilterType("JEWELCRAFTING_NECK")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(18751, 18774, 19063, 19539, 19775, 19778, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675)
+	recipe:AddTrainer(18751, 18774, 19063, 19539, 19775, 19778, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675, 52586)
 
 	-- Band of Blades -- 73498
 	recipe = AddRecipe(73498, V.CATA, Q.EPIC)
@@ -5013,7 +5013,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(460, 460, 470, 475, 480)
 	recipe:SetItemFilterType("JEWELCRAFTING_FIST_WEAPON")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(18751, 19063, 19539, 19775, 19778, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675)
+	recipe:AddTrainer(18751, 19063, 19539, 19775, 19778, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675, 52586)
 
 	-- The Perforator -- 73621
 	recipe = AddRecipe(73621, V.CATA, Q.COMMON)
@@ -5021,7 +5021,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(490, 490, 500, 505, 510)
 	recipe:SetItemFilterType("JEWELCRAFTING_FIST_WEAPON")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(18751, 19063, 19539, 19775, 19778, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675)
+	recipe:AddTrainer(18751, 19063, 19539, 19775, 19778, 26982, 26997, 28701, 33590, 33614, 33637, 44582, 46675, 52586)
 
 	-- Stardust -- 73622
 	recipe = AddRecipe(73622, V.CATA, Q.COMMON)
@@ -5029,7 +5029,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(435, 435, 450, 457, 465)
 	recipe:SetItemFilterType("JEWELCRAFTING_CREATED_ITEM")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP)
-	recipe:AddTrainer(28701, 44582, 46675)
+	recipe:AddTrainer(28701, 44582, 46675, 52586)
 
 	-- Jeweler's Ruby Monocle -- 73625
 	recipe = AddRecipe(73625, V.CATA, Q.RARE)

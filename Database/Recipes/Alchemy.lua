@@ -2435,11 +2435,13 @@ function addon:InitAlchemy()
 
 	-- Cauldron of Battle -- 92643
 	recipe = AddRecipe(92643, V.CATA, Q.COMMON)
+	recipe:SetRecipeItemID(65435)
 	recipe:SetCraftedItemID(62288)
 	recipe:SetSkillLevels(525, 525, 525, 525, 525)
 	recipe:SetItemFilterType("ALCHEMY_CAULDRON")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.RBOP, F.ACHIEVEMENT)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.ACHIEVEMENT)
 	recipe:AddAchievement(5465)
+	recipe:AddVendor(51495)
 
 	-- Big Cauldron of Battle -- 92688
 	recipe = AddRecipe(92688, V.CATA, Q.COMMON)
