@@ -124,13 +124,6 @@ do
 			end
 			return
 		end
-		local recipe_list = private.LoadAllRecipes()	-- Get internal database
-
-		if not recipe_list then
-			self:Debug(L["DATAMINER_NODB_ERROR"])
-			return
-		end
-
 		-- Get the initial trainer filters
 		local avail = _G.GetTrainerServiceTypeFilter("available")
 		local unavail = _G.GetTrainerServiceTypeFilter("unavailable")
@@ -143,11 +136,19 @@ do
 
 		if _G.GetNumTrainerServices() == 0 then
 			self:Debug("Warning: Trainer is bugged, reporting 0 trainer items.")
+			return
+		end
+		local trainer_profession = _G.GetTrainerServiceSkillLine(1)
+		addon:InitializeProfession(trainer_profession)
+
+		local recipe_list = private.profession_recipe_list[trainer_profession]
+
+		if not recipe_list then
+			self:Debug(L["DATAMINER_NODB_ERROR"])
+			return
 		end
 		table.wipe(scanned_items)
 		table.wipe(scanned_recipes)
-
-		local trainer_profession = _G.GetTrainerServiceSkillLine(1)
 
 		for index = 1, _G.GetNumTrainerServices(), 1 do
 			local item_name = _G.GetTrainerServiceInfo(index)
@@ -176,88 +177,86 @@ do
 		local trainer_name = _G.UnitName("target")
 
 		for spell_id, recipe in pairs(recipe_list) do
-			if trainer_profession == recipe.profession then
-				local train_data = recipe.acquire_data[A.TRAINER]
-				local matching_trainer = false
+			local train_data = recipe.acquire_data[A.TRAINER]
+			local matching_trainer = false
 
-				if train_data then
-					for id_num in pairs(train_data) do
-						if id_num == trainer_id then
-							matching_trainer = true
-							break
-						end
+			if train_data then
+				for id_num in pairs(train_data) do
+					if id_num == trainer_id then
+						matching_trainer = true
+						break
 					end
 				end
-				local matching_item = scanned_items[recipe:CraftedItemID()]
-				local matching_recipe = scanned_recipes[recipe.name]
+			end
+			local matching_item = scanned_items[recipe:CraftedItemID()]
+			local matching_recipe = scanned_recipes[recipe.name]
 
-				if recipe:CraftedItemID() then
-					matching_recipe = nil
+			if recipe:CraftedItemID() then
+				matching_recipe = nil
+			end
+			local trainer_entry = private.trainer_list[trainer_id]
+			local trainer_x, trainer_y = _G.GetPlayerMapPosition("player")
+			trainer_x = ("%.2f"):format(trainer_x * 100)
+			trainer_y = ("%.2f"):format(trainer_y * 100)
+
+			if trainer_entry then
+				if trainer_entry.coord_x ~= trainer_x or trainer_entry.coord_y ~= trainer_y then
+					table.insert(output, ("%s appears to have different coordinates (%s, %s) than those in the database (%s, %s) - a trainer dump for %s will fix this."):format(trainer_name, trainer_entry.coord_x, trainer_entry.coord_y, trainer_x, trainer_y, trainer_profession))
+					trainer_entry.coord_x = trainer_x
+					trainer_entry.coord_y = trainer_y
 				end
-				local trainer_entry = private.trainer_list[trainer_id]
-				local trainer_x, trainer_y = _G.GetPlayerMapPosition("player")
-				trainer_x = ("%.2f"):format(trainer_x * 100)
-				trainer_y = ("%.2f"):format(trainer_y * 100)
+			else
+				table.insert(output, ("%s was not found in the trainer list - a trainer dump for %s will fix this."):format(trainer_name, trainer_profession))
+				_G.SetMapToCurrentZone() -- Make sure were are looking at the right zone
 
-				if trainer_entry then
-					if trainer_entry.coord_x ~= trainer_x or trainer_entry.coord_y ~= trainer_y then
-						table.insert(output, ("%s appears to have different coordinates (%s, %s) than those in the database (%s, %s) - a trainer dump for %s will fix this."):format(trainer_name, trainer_entry.coord_x, trainer_entry.coord_y, trainer_x, trainer_y, trainer_profession))
-						trainer_entry.coord_x = trainer_x
-						trainer_entry.coord_y = trainer_y
-					end
-				else
-					table.insert(output, ("%s was not found in the trainer list - a trainer dump for %s will fix this."):format(trainer_name, trainer_profession))
-					_G.SetMapToCurrentZone() -- Make sure were are looking at the right zone
+				if not L[trainer_name] then
+					L[trainer_name] = true
+				end
+				private:AddTrainer(trainer_id, trainer_name, _G.GetRealZoneText(), trainer_x, trainer_y, private.Player.faction)
+			end
+
+			if matching_item or matching_recipe then
+				if not matching_trainer then
+					table.insert(missing_spell_ids, spell_id)
 
 					if not L[trainer_name] then
 						L[trainer_name] = true
 					end
-					private:AddTrainer(trainer_id, trainer_name, _G.GetRealZoneText(), trainer_x, trainer_y, private.Player.faction)
+					recipe:AddTrainer(trainer_id)
+
+					if not recipe:HasFilter("common1", "TRAINER") then
+						recipe:AddFilters(F.TRAINER)
+
+						if matching_item then
+							table.insert(output, ("Added trainer flag to recipe with spell ID %d. (matching crafted item ID %d)"):format(spell_id, recipe:CraftedItemID()))
+						elseif matching_recipe then
+							table.insert(output, ("Added trainer flag to recipe with spell ID %d. (matching recipe name \"%s\")"):format(spell_id, recipe.name))
+						end
+					end
+				end
+				local recipe_skill = recipe:SkillLevels()
+
+				if matching_item and matching_item ~= recipe_skill then
+					table.insert(mismatched_levels, spell_id)
+				elseif matching_recipe and matching_recipe ~= recipe_skill then
+					table.insert(mismatched_levels_unconfirmed, spell_id)
+				end
+			elseif matching_trainer then
+				table.wipe(itemless_spells)
+
+				if not recipe:CraftedItemID() then
+					for item_id in pairs(scanned_items) do
+						if recipe.name == _G.GetItemInfo(item_id) then
+							recipe:SetCraftedItemID(item_id)
+							itemless_spells[spell_id] = true
+						end
+					end
 				end
 
-				if matching_item or matching_recipe then
-					if not matching_trainer then
-						table.insert(missing_spell_ids, spell_id)
-
-						if not L[trainer_name] then
-							L[trainer_name] = true
-						end
-						recipe:AddTrainer(trainer_id)
-
-						if not recipe:HasFilter("common1", "TRAINER") then
-							recipe:AddFilters(F.TRAINER)
-
-							if matching_item then
-								table.insert(output, ("Added trainer flag to recipe with spell ID %d. (matching crafted item ID %d)"):format(spell_id, recipe:CraftedItemID()))
-							elseif matching_recipe then
-								table.insert(output, ("Added trainer flag to recipe with spell ID %d. (matching recipe name \"%s\")"):format(spell_id, recipe.name))
-							end
-						end
-					end
-					local recipe_skill = recipe:SkillLevels()
-
-					if matching_item and matching_item ~= recipe_skill then
-						table.insert(mismatched_levels, spell_id)
-					elseif matching_recipe and matching_recipe ~= recipe_skill then
-						table.insert(mismatched_levels_unconfirmed, spell_id)
-					end
-				elseif matching_trainer then
-					table.wipe(itemless_spells)
-
-					if not recipe:CraftedItemID() then
-						for item_id in pairs(scanned_items) do
-							if recipe.name == _G.GetItemInfo(item_id) then
-								recipe:SetCraftedItemID(item_id)
-								itemless_spells[spell_id] = true
-							end
-						end
-					end
-
-					if itemless_spells[spell_id] then
-						table.insert(fixed_item_spell_ids, spell_id)
-					else
-						table.insert(extra_spell_ids, spell_id)
-					end
+				if itemless_spells[spell_id] then
+					table.insert(fixed_item_spell_ids, spell_id)
+				else
+					table.insert(extra_spell_ids, spell_id)
 				end
 			end
 		end
