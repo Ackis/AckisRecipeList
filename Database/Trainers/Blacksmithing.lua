@@ -52,6 +52,7 @@ function private:InitializeBlacksmithingTrainers()
 	self:AddTrainer(37072, "Rogg", "Orgrimmar", 44.5, 78, "Horde")
 	self:AddTrainer(44781, "Opuno Ironhorn", "Orgrimmar", 40.6, 49.4, "Horde")
 	self:AddTrainer(45548, "Kark Helmbreaker", "Orgrimmar", 36, 83, "Horde")
+	self.AddTrainer(52640, "Rolf Karner", "Darnassus", 56.8, 52.8, "Alliance")
 
 	self.InitializeBlacksmithingTrainers = nil
 end

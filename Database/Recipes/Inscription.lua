@@ -2150,7 +2150,7 @@ function addon:InitInscription()
 	recipe:SetSkillLevels(75, 75, 80, 85, 90)
 	recipe:SetItemFilterType("INSCRIPTION_MAJOR_GLYPH")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.DISC, F.IBOE, F.RBOP, F.PALADIN)
-	recipe:AddTrainer(26916, 26977, 26995, 28702, 30706, 30717, 46716)
+	recipe:AddTrainer(26916, 26977, 26995, 28702, 30706, 30715, 30717, 46716)
 	recipe:AddDiscovery("DISCOVERY_INSC_NORTHREND")
 
 	-- Glyph of the Mounted King -- 58314
@@ -3373,7 +3373,7 @@ function addon:InitInscription()
 	recipe:SetSkillLevels(250, 250, 255, 260, 265)
 	recipe:SetItemFilterType("INSCRIPTION_MAJOR_GLYPH")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.VENDOR, F.IBOE, F.RBOE, F.MAGE)
-	recipe:AddTrainer(26916, 26977, 26995, 28702, 30706, 30717, 46716)
+	recipe:AddTrainer(26916, 26977, 26995, 28702, 30706, 30715, 30717, 46716)
 	recipe:AddVendor(28723, 30734, 30735)
 
 	-- Glyph of Everlasting Affliction -- 71102
@@ -3383,7 +3383,7 @@ function addon:InitInscription()
 	recipe:SetSkillLevels(375, 375, 380, 382, 385)
 	recipe:SetItemFilterType("INSCRIPTION_MAJOR_GLYPH")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.VENDOR, F.IBOE, F.RBOE, F.WARLOCK)
-	recipe:AddTrainer(26916, 26977, 26995, 28702, 30706, 30717, 46716)
+	recipe:AddTrainer(26916, 26977, 26995, 28702, 30706, 30715, 30717, 46716)
 	recipe:AddVendor(28723)
 
 	-- Runescroll of Fortitude II -- 85785
@@ -3624,7 +3624,7 @@ function addon:InitInscription()
 	recipe:SetSkillLevels(465, 465, 470, 477, 485)
 	recipe:SetItemFilterType("INSCRIPTION_MAJOR_GLYPH")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.VENDOR, F.IBOE, F.RBOE, F.WARRIOR)
-	recipe:AddTrainer(26916, 26977, 26995, 28702, 30706, 30717, 46716)
+	recipe:AddTrainer(26916, 26977, 26995, 28702, 30706, 30715, 30717, 46716)
 	recipe:AddVendor(49703, 50248)
 
 	-- Vanishing Powder -- 92026

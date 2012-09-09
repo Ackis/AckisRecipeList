@@ -216,7 +216,7 @@ function addon:InitAlchemy()
 	recipe:SetSkillLevels(165, 165, 190, 210, 230)
 	recipe:SetItemFilterType("ALCHEMY_OIL")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(3347, 5177, 5499, 26903, 26987, 28703)
+	recipe:AddTrainer(3347, 3603, 5177, 5499, 26903, 26987, 28703)
 
 	-- Elixir of Fortitude -- 3450
 	recipe = AddRecipe(3450, V.ORIG, Q.COMMON)
@@ -1016,7 +1016,7 @@ function addon:InitAlchemy()
 	recipe:SetSkillLevels(305, 305, 320, 327, 335)
 	recipe:SetItemFilterType("ALCHEMY_ELIXIR")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS)
-	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 4160, 4611, 5177, 5499, 16588, 18802, 19052, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588, 33608, 33630, 33674)
+	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 3603, 4160, 4611, 5177, 5499, 16588, 18802, 19052, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588, 33608, 33630, 33674)
 
 	-- Elixir of Healing Power -- 28545
 	recipe = AddRecipe(28545, V.TBC, Q.COMMON)
@@ -1024,7 +1024,7 @@ function addon:InitAlchemy()
 	recipe:SetSkillLevels(310, 310, 325, 332, 340)
 	recipe:SetItemFilterType("ALCHEMY_ELIXIR")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
-	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 4160, 4611, 5177, 5499, 16588, 18802, 19052, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588, 33608, 33630, 33674)
+	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 3603, 4160, 4611, 5177, 5499, 16588, 18802, 19052, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588, 33608, 33630, 33674)
 
 	-- Sneaking Potion -- 28546
 	recipe = AddRecipe(28546, V.TBC, Q.COMMON)
@@ -1059,7 +1059,7 @@ function addon:InitAlchemy()
 	recipe:SetSkillLevels(325, 325, 340, 347, 355)
 	recipe:SetItemFilterType("ALCHEMY_POTION")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 4160, 4611, 5177, 5499, 16588, 18802, 19052, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588, 33608, 33630, 33674)
+	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 3603, 4160, 4611, 5177, 5499, 16588, 18802, 19052, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588, 33608, 33630, 33674)
 
 	-- Elixir of the Searching Eye -- 28552
 	recipe = AddRecipe(28552, V.TBC, Q.UNCOMMON)
@@ -1410,7 +1410,7 @@ function addon:InitAlchemy()
 	recipe:SetSkillLevels(300, 300, 315, 322, 330)
 	recipe:SetItemFilterType("ALCHEMY_POTION")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 4160, 4611, 5177, 5499, 16588, 18802, 19052, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588, 33608, 33630, 33674)
+	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 3603, 4160, 4611, 5177, 5499, 16588, 18802, 19052, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588, 33608, 33630, 33674)
 
 	-- Unstable Mana Potion -- 33733
 	recipe = AddRecipe(33733, V.TBC, Q.COMMON)
@@ -1418,7 +1418,7 @@ function addon:InitAlchemy()
 	recipe:SetSkillLevels(310, 310, 325, 332, 340)
 	recipe:SetItemFilterType("ALCHEMY_POTION")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 4160, 4611, 5177, 5499, 16588, 18802, 19052, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588, 33608, 33630, 33674)
+	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 3603, 4160, 4611, 5177, 5499, 16588, 18802, 19052, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588, 33608, 33630, 33674)
 
 	-- Onslaught Elixir -- 33738
 	recipe = AddRecipe(33738, V.TBC, Q.COMMON)
@@ -1426,7 +1426,7 @@ function addon:InitAlchemy()
 	recipe:SetSkillLevels(300, 300, 315, 322, 330)
 	recipe:SetItemFilterType("ALCHEMY_ELIXIR")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS)
-	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 4160, 4611, 5177, 5499, 16588, 18802, 19052, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588, 33608, 33630, 33674)
+	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 3603, 4160, 4611, 5177, 5499, 16588, 18802, 19052, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588, 33608, 33630, 33674)
 
 	-- Adept's Elixir -- 33740
 	recipe = AddRecipe(33740, V.TBC, Q.COMMON)
@@ -1434,7 +1434,7 @@ function addon:InitAlchemy()
 	recipe:SetSkillLevels(300, 300, 315, 322, 330)
 	recipe:SetItemFilterType("ALCHEMY_ELIXIR")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
-	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 4160, 4611, 5177, 5499, 16588, 18802, 19052, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588, 33608, 33630, 33674)
+	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 3603, 4160, 4611, 5177, 5499, 16588, 18802, 19052, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588, 33608, 33630, 33674)
 
 	-- Elixir of Mastery -- 33741
 	recipe = AddRecipe(33741, V.TBC, Q.COMMON)
@@ -1442,7 +1442,7 @@ function addon:InitAlchemy()
 	recipe:SetSkillLevels(315, 315, 330, 337, 345)
 	recipe:SetItemFilterType("ALCHEMY_ELIXIR")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 4160, 4611, 5177, 5499, 16588, 18802, 19052, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588, 33608, 33630, 33674)
+	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 3603, 4160, 4611, 5177, 5499, 16588, 18802, 19052, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588, 33608, 33630, 33674)
 
 	-- Mercurial Stone -- 38070
 	recipe = AddRecipe(38070, V.TBC, Q.COMMON)
@@ -1450,7 +1450,7 @@ function addon:InitAlchemy()
 	recipe:SetSkillLevels(325, 325, 340, 347, 355)
 	recipe:SetItemFilterType("ALCHEMY_TRINKET")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 4160, 4611, 5177, 5499, 16588, 18802, 19052, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588, 33608, 33630, 33674)
+	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 3603, 4160, 4611, 5177, 5499, 16588, 18802, 19052, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588, 33608, 33630, 33674)
 
 	-- Fel Strength Elixir -- 38960
 	recipe = AddRecipe(38960, V.TBC, Q.RARE)
@@ -1485,7 +1485,7 @@ function addon:InitAlchemy()
 	recipe:SetSkillLevels(310, 310, 325, 332, 340)
 	recipe:SetItemFilterType("ALCHEMY_ELIXIR")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 4160, 4611, 5177, 5499, 16588, 18802, 19052, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588, 33608, 33630, 33674)
+	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 3603, 4160, 4611, 5177, 5499, 16588, 18802, 19052, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588, 33608, 33630, 33674)
 
 	-- Earthen Elixir -- 39637
 	recipe = AddRecipe(39637, V.TBC, Q.COMMON)
@@ -1502,7 +1502,7 @@ function addon:InitAlchemy()
 	recipe:SetSkillLevels(320, 320, 335, 342, 350)
 	recipe:SetItemFilterType("ALCHEMY_ELIXIR")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
-	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 4160, 4611, 5177, 5499, 16588, 18802, 19052, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588, 33608, 33630, 33674)
+	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 3603, 4160, 4611, 5177, 5499, 16588, 18802, 19052, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588, 33608, 33630, 33674)
 
 	-- Elixir of Ironskin -- 39639
 	recipe = AddRecipe(39639, V.TBC, Q.COMMON)
@@ -1559,7 +1559,7 @@ function addon:InitAlchemy()
 	recipe:SetSkillLevels(325, 325, 335, 342, 350)
 	recipe:SetItemFilterType("ALCHEMY_POTION")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 4160, 4611, 5177, 5499, 16588, 18802, 19052, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588, 33608, 33630, 33674)
+	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 3603, 4160, 4611, 5177, 5499, 16588, 18802, 19052, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588, 33608, 33630, 33674)
 
 	-- Guardian's Alchemist Stone -- 47046
 	recipe = AddRecipe(47046, V.TBC, Q.COMMON)
@@ -1699,7 +1699,7 @@ function addon:InitAlchemy()
 	recipe:SetSkillLevels(375, 375, 380, 385, 390)
 	recipe:SetItemFilterType("ALCHEMY_OIL")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 4160, 4611, 5177, 5499, 19052, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588, 33608, 33630)
+	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 3603, 4160, 4611, 5177, 5499, 19052, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588, 33608, 33630)
 
 	-- Runic Healing Potion -- 53836
 	recipe = AddRecipe(53836, V.WOTLK, Q.COMMON)
@@ -1707,7 +1707,7 @@ function addon:InitAlchemy()
 	recipe:SetSkillLevels(405, 405, 415, 420, 425)
 	recipe:SetItemFilterType("ALCHEMY_POTION")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 4160, 4611, 5177, 5499, 19052, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588, 33608, 33630)
+	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 3603, 4160, 4611, 5177, 5499, 19052, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588, 33608, 33630)
 
 	-- Runic Mana Potion -- 53837
 	recipe = AddRecipe(53837, V.WOTLK, Q.COMMON)
@@ -1715,7 +1715,7 @@ function addon:InitAlchemy()
 	recipe:SetSkillLevels(410, 410, 420, 425, 430)
 	recipe:SetItemFilterType("ALCHEMY_POTION")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 4160, 4611, 5177, 5499, 19052, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588, 33608, 33630)
+	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 3603, 4160, 4611, 5177, 5499, 19052, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588, 33608, 33630)
 
 	-- Resurgent Healing Potion -- 53838
 	recipe = AddRecipe(53838, V.WOTLK, Q.COMMON)
@@ -1723,7 +1723,7 @@ function addon:InitAlchemy()
 	recipe:SetSkillLevels(350, 350, 360, 365, 370)
 	recipe:SetItemFilterType("ALCHEMY_POTION")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 4160, 4611, 5177, 5499, 19052, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588, 33608, 33630)
+	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 3603, 4160, 4611, 5177, 5499, 19052, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588, 33608, 33630)
 
 	-- Icy Mana Potion -- 53839
 	recipe = AddRecipe(53839, V.WOTLK, Q.COMMON)
@@ -1731,7 +1731,7 @@ function addon:InitAlchemy()
 	recipe:SetSkillLevels(360, 360, 370, 375, 380)
 	recipe:SetItemFilterType("ALCHEMY_POTION")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 4160, 4611, 5177, 5499, 19052, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588, 33608, 33630)
+	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 3603, 4160, 4611, 5177, 5499, 19052, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588, 33608, 33630)
 
 	-- Elixir of Mighty Agility -- 53840
 	recipe = AddRecipe(53840, V.WOTLK, Q.COMMON)
@@ -1739,7 +1739,7 @@ function addon:InitAlchemy()
 	recipe:SetSkillLevels(395, 395, 405, 410, 415)
 	recipe:SetItemFilterType("ALCHEMY_ELIXIR")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS)
-	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 4160, 4611, 5177, 5499, 19052, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588, 33608, 33630)
+	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 3603, 4160, 4611, 5177, 5499, 19052, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588, 33608, 33630)
 
 	-- Wrath Elixir -- 53841
 	recipe = AddRecipe(53841, V.WOTLK, Q.COMMON)
@@ -1747,7 +1747,7 @@ function addon:InitAlchemy()
 	recipe:SetSkillLevels(355, 355, 365, 370, 375)
 	recipe:SetItemFilterType("ALCHEMY_ELIXIR")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS)
-	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 4160, 4611, 5177, 5499, 19052, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588, 33608, 33630)
+	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 3603, 4160, 4611, 5177, 5499, 19052, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588, 33608, 33630)
 
 	-- Spellpower Elixir -- 53842
 	recipe = AddRecipe(53842, V.WOTLK, Q.COMMON)
@@ -1755,7 +1755,7 @@ function addon:InitAlchemy()
 	recipe:SetSkillLevels(365, 365, 375, 380, 385)
 	recipe:SetItemFilterType("ALCHEMY_ELIXIR")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
-	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 4160, 4611, 5177, 5499, 19052, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588, 33608, 33630)
+	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 3603, 4160, 4611, 5177, 5499, 19052, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588, 33608, 33630)
 
 	-- Elixir of Spirit -- 53847
 	recipe = AddRecipe(53847, V.WOTLK, Q.COMMON)
@@ -1763,7 +1763,7 @@ function addon:InitAlchemy()
 	recipe:SetSkillLevels(385, 385, 395, 400, 405)
 	recipe:SetItemFilterType("ALCHEMY_ELIXIR")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
-	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 4160, 4611, 5177, 5499, 19052, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588, 33608, 33630)
+	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 3603, 4160, 4611, 5177, 5499, 19052, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588, 33608, 33630)
 
 	-- Guru's Elixir -- 53848
 	recipe = AddRecipe(53848, V.WOTLK, Q.COMMON)
@@ -1771,7 +1771,7 @@ function addon:InitAlchemy()
 	recipe:SetSkillLevels(375, 375, 385, 390, 395)
 	recipe:SetItemFilterType("ALCHEMY_ELIXIR")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 4160, 4611, 5177, 5499, 19052, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588, 33608, 33630)
+	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 3603, 4160, 4611, 5177, 5499, 19052, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588, 33608, 33630)
 
 	-- Crazy Alchemist's Potion -- 53895
 	recipe = AddRecipe(53895, V.WOTLK, Q.COMMON)
@@ -1787,7 +1787,7 @@ function addon:InitAlchemy()
 	recipe:SetSkillLevels(390, 390, 400, 405, 410)
 	recipe:SetItemFilterType("ALCHEMY_ELIXIR")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 4160, 4611, 5177, 5499, 19052, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588, 33608, 33630)
+	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 3603, 4160, 4611, 5177, 5499, 19052, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588, 33608, 33630)
 
 	-- Lesser Flask of Toughness -- 53899
 	recipe = AddRecipe(53899, V.WOTLK, Q.COMMON)
@@ -1795,7 +1795,7 @@ function addon:InitAlchemy()
 	recipe:SetSkillLevels(375, 375, 385, 390, 395)
 	recipe:SetItemFilterType("ALCHEMY_FLASK")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 4160, 4611, 5177, 5499, 19052, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588, 33608, 33630)
+	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 3603, 4160, 4611, 5177, 5499, 19052, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588, 33608, 33630)
 
 	-- Potion of Nightmares -- 53900
 	recipe = AddRecipe(53900, V.WOTLK, Q.COMMON)
@@ -1803,7 +1803,7 @@ function addon:InitAlchemy()
 	recipe:SetSkillLevels(380, 380, 390, 395, 400)
 	recipe:SetItemFilterType("ALCHEMY_POTION")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 4160, 4611, 5177, 5499, 19052, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588, 33608, 33630)
+	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 3603, 4160, 4611, 5177, 5499, 19052, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588, 33608, 33630)
 
 	-- Flask of the Frost Wyrm -- 53901
 	recipe = AddRecipe(53901, V.WOTLK, Q.COMMON)
@@ -1811,7 +1811,7 @@ function addon:InitAlchemy()
 	recipe:SetSkillLevels(435, 435, 450, 457, 465)
 	recipe:SetItemFilterType("ALCHEMY_FLASK")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
-	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 4160, 4611, 5177, 5499, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588)
+	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 3603, 4160, 4611, 5177, 5499, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588)
 
 	-- Flask of Stoneblood -- 53902
 	recipe = AddRecipe(53902, V.WOTLK, Q.COMMON)
@@ -1819,7 +1819,7 @@ function addon:InitAlchemy()
 	recipe:SetSkillLevels(435, 435, 450, 457, 465)
 	recipe:SetItemFilterType("ALCHEMY_FLASK")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 4160, 4611, 5177, 5499, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588)
+	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 3603, 4160, 4611, 5177, 5499, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588)
 
 	-- Flask of Endless Rage -- 53903
 	recipe = AddRecipe(53903, V.WOTLK, Q.COMMON)
@@ -1827,7 +1827,7 @@ function addon:InitAlchemy()
 	recipe:SetSkillLevels(435, 435, 450, 457, 465)
 	recipe:SetItemFilterType("ALCHEMY_FLASK")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS)
-	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 4160, 4611, 5177, 5499, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588)
+	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 3603, 4160, 4611, 5177, 5499, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588)
 
 	-- Powerful Rejuvenation Potion -- 53904
 	recipe = AddRecipe(53904, V.WOTLK, Q.COMMON)
@@ -1843,7 +1843,7 @@ function addon:InitAlchemy()
 	recipe:SetSkillLevels(395, 395, 405, 410, 415)
 	recipe:SetItemFilterType("ALCHEMY_POTION")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 4160, 4611, 5177, 5499, 19052, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588, 33608, 33630)
+	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 3603, 4160, 4611, 5177, 5499, 19052, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588, 33608, 33630)
 
 	-- Mighty Arcane Protection Potion -- 53936
 	recipe = AddRecipe(53936, V.WOTLK, Q.UNCOMMON)
@@ -1896,7 +1896,7 @@ function addon:InitAlchemy()
 	recipe:SetSkillLevels(435, 435, 450, 457, 465)
 	recipe:SetItemFilterType("ALCHEMY_FLASK")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 4160, 4611, 5177, 5499, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588)
+	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 3603, 4160, 4611, 5177, 5499, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588)
 
 	-- Elixir of Mighty Strength -- 54218
 	recipe = AddRecipe(54218, V.WOTLK, Q.COMMON)
@@ -1904,7 +1904,7 @@ function addon:InitAlchemy()
 	recipe:SetSkillLevels(385, 385, 395, 400, 405)
 	recipe:SetItemFilterType("ALCHEMY_ELIXIR")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS)
-	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 4160, 4611, 5177, 5499, 19052, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588, 33608, 33630)
+	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 3603, 4160, 4611, 5177, 5499, 19052, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588, 33608, 33630)
 
 	-- Elixir of Protection -- 54220
 	recipe = AddRecipe(54220, V.WOTLK, Q.COMMON)
@@ -1944,7 +1944,7 @@ function addon:InitAlchemy()
 	recipe:SetSkillLevels(430, 430, 440, 445, 450)
 	recipe:SetItemFilterType("ALCHEMY_TRANSMUTE")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 4160, 4611, 5177, 5499, 19052, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588, 33608, 33630)
+	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 3603, 4160, 4611, 5177, 5499, 19052, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588, 33608, 33630)
 
 	-- Transmute: Earthsiege Diamond -- 57427
 	recipe = AddRecipe(57427, V.WOTLK, Q.COMMON)
@@ -1952,7 +1952,7 @@ function addon:InitAlchemy()
 	recipe:SetSkillLevels(425, 425, 435, 440, 445)
 	recipe:SetItemFilterType("ALCHEMY_TRANSMUTE")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 4160, 4611, 5177, 5499, 19052, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588, 33608, 33630)
+	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 3603, 4160, 4611, 5177, 5499, 19052, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588, 33608, 33630)
 
 	-- Endless Mana Potion -- 58868
 	recipe = AddRecipe(58868, V.WOTLK, Q.COMMON)
@@ -1960,7 +1960,7 @@ function addon:InitAlchemy()
 	recipe:SetSkillLevels(410, 410, 420, 425, 430)
 	recipe:SetItemFilterType("ALCHEMY_POTION")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP)
-	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 4160, 4611, 5177, 5499, 19052, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588, 33608, 33630)
+	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 3603, 4160, 4611, 5177, 5499, 19052, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588, 33608, 33630)
 
 	-- Endless Healing Potion -- 58871
 	recipe = AddRecipe(58871, V.WOTLK, Q.COMMON)
@@ -1968,7 +1968,7 @@ function addon:InitAlchemy()
 	recipe:SetSkillLevels(410, 410, 420, 425, 430)
 	recipe:SetItemFilterType("ALCHEMY_POTION")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP)
-	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 4160, 4611, 5177, 5499, 19052, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588, 33608, 33630)
+	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 3603, 4160, 4611, 5177, 5499, 19052, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588, 33608, 33630)
 
 	-- Transmute: Titanium -- 60350
 	recipe = AddRecipe(60350, V.WOTLK, Q.COMMON)
@@ -1976,7 +1976,7 @@ function addon:InitAlchemy()
 	recipe:SetSkillLevels(395, 395, 405, 410, 415)
 	recipe:SetItemFilterType("ALCHEMY_TRANSMUTE")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 4160, 4611, 5177, 5499, 19052, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588, 33608, 33630)
+	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 3603, 4160, 4611, 5177, 5499, 19052, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588, 33608, 33630)
 
 	-- Elixir of Accuracy -- 60354
 	recipe = AddRecipe(60354, V.WOTLK, Q.COMMON)
@@ -2032,7 +2032,7 @@ function addon:InitAlchemy()
 	recipe:SetSkillLevels(395, 395, 405, 410, 415)
 	recipe:SetItemFilterType("ALCHEMY_ELIXIR")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 4160, 4611, 5177, 5499, 19052, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588, 33608, 33630)
+	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 3603, 4160, 4611, 5177, 5499, 19052, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588, 33608, 33630)
 
 	-- Mercurial Alchemist Stone -- 60396
 	recipe = AddRecipe(60396, V.WOTLK, Q.COMMON)
@@ -2040,7 +2040,7 @@ function addon:InitAlchemy()
 	recipe:SetSkillLevels(400, 400, 410, 415, 420)
 	recipe:SetItemFilterType("ALCHEMY_TRINKET")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.HEALER, F.CASTER)
-	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 4160, 4611, 5177, 5499, 19052, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588, 33608, 33630)
+	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 3603, 4160, 4611, 5177, 5499, 19052, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588, 33608, 33630)
 
 	-- Indestructible Alchemist Stone -- 60403
 	recipe = AddRecipe(60403, V.WOTLK, Q.COMMON)
@@ -2048,7 +2048,7 @@ function addon:InitAlchemy()
 	recipe:SetSkillLevels(400, 400, 410, 415, 420)
 	recipe:SetItemFilterType("ALCHEMY_TRINKET")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.TANK)
-	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 4160, 4611, 5177, 5499, 19052, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588, 33608, 33630)
+	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 3603, 4160, 4611, 5177, 5499, 19052, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588, 33608, 33630)
 
 	-- Mighty Alchemist Stone -- 60405
 	recipe = AddRecipe(60405, V.WOTLK, Q.COMMON)
@@ -2056,14 +2056,14 @@ function addon:InitAlchemy()
 	recipe:SetSkillLevels(400, 400, 410, 415, 420)
 	recipe:SetItemFilterType("ALCHEMY_TRINKET")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.DPS)
-	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 4160, 4611, 5177, 5499, 19052, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588, 33608, 33630)
+	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 3603, 4160, 4611, 5177, 5499, 19052, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588, 33608, 33630)
 
 	-- Northrend Alchemy Research -- 60893
 	recipe = AddRecipe(60893, V.WOTLK, Q.COMMON)
 	recipe:SetSkillLevels(400, 400, 410, 415, 420)
 	recipe:SetItemFilterType("ALCHEMY_MISC")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 4160, 4611, 5177, 5499, 19052, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588, 33608, 33630)
+	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 3603, 4160, 4611, 5177, 5499, 19052, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588, 33608, 33630)
 
 	-- Ethereal Oil -- 62409
 	recipe = AddRecipe(62409, V.WOTLK, Q.COMMON)
@@ -2071,7 +2071,7 @@ function addon:InitAlchemy()
 	recipe:SetSkillLevels(375, 375, 385, 390, 395)
 	recipe:SetItemFilterType("ALCHEMY_OIL")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 4160, 4611, 5177, 5499, 19052, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588, 33608, 33630)
+	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 3603, 4160, 4611, 5177, 5499, 19052, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588, 33608, 33630)
 
 	-- Elixir of Water Walking -- 62410
 	recipe = AddRecipe(62410, V.WOTLK, Q.COMMON)
@@ -2095,7 +2095,7 @@ function addon:InitAlchemy()
 	recipe:SetSkillLevels(450, 450, 450, 452, 465)
 	recipe:SetItemFilterType("ALCHEMY_TRANSMUTE")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 4160, 4611, 5177, 5499, 19052, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588, 33608, 33630)
+	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 3603, 4160, 4611, 5177, 5499, 19052, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588, 33608, 33630)
 
 	-- Transmute: Cardinal Ruby -- 66659
 	recipe = AddRecipe(66659, V.WOTLK, Q.COMMON)
@@ -2111,7 +2111,7 @@ function addon:InitAlchemy()
 	recipe:SetSkillLevels(450, 450, 450, 452, 465)
 	recipe:SetItemFilterType("ALCHEMY_TRANSMUTE")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 4160, 4611, 5177, 5499, 19052, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588, 33608, 33630)
+	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 3603, 4160, 4611, 5177, 5499, 19052, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588, 33608, 33630)
 
 	-- Transmute: Dreadstone -- 66662
 	recipe = AddRecipe(66662, V.WOTLK, Q.COMMON)
@@ -2119,7 +2119,7 @@ function addon:InitAlchemy()
 	recipe:SetSkillLevels(450, 450, 450, 452, 465)
 	recipe:SetItemFilterType("ALCHEMY_TRANSMUTE")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 4160, 4611, 5177, 5499, 19052, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588, 33608, 33630)
+	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 3603, 4160, 4611, 5177, 5499, 19052, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588, 33608, 33630)
 
 	-- Transmute: Majestic Zircon -- 66663
 	recipe = AddRecipe(66663, V.WOTLK, Q.COMMON)
@@ -2127,7 +2127,7 @@ function addon:InitAlchemy()
 	recipe:SetSkillLevels(450, 450, 450, 452, 465)
 	recipe:SetItemFilterType("ALCHEMY_TRANSMUTE")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 4160, 4611, 5177, 5499, 19052, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588, 33608, 33630)
+	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 3603, 4160, 4611, 5177, 5499, 19052, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588, 33608, 33630)
 
 	-- Transmute: Eye of Zul -- 66664
 	recipe = AddRecipe(66664, V.WOTLK, Q.COMMON)
@@ -2135,7 +2135,7 @@ function addon:InitAlchemy()
 	recipe:SetSkillLevels(450, 450, 450, 452, 465)
 	recipe:SetItemFilterType("ALCHEMY_TRANSMUTE")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 4160, 4611, 5177, 5499, 19052, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588, 33608, 33630)
+	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 3603, 4160, 4611, 5177, 5499, 19052, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588, 33608, 33630)
 
 	-- Transmute: Living Elements -- 78866
 	recipe = AddRecipe(78866, V.CATA, Q.COMMON)
@@ -2143,7 +2143,7 @@ function addon:InitAlchemy()
 	recipe:SetSkillLevels(485, 485, 510, 515, 520)
 	recipe:SetItemFilterType("ALCHEMY_TRANSMUTE")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 4160, 4611, 5177, 5499, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588, 33608, 33630)
+	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 3603, 4160, 4611, 5177, 5499, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588, 33608, 33630)
 
 	-- Transmute: Shadowspirit Diamond -- 80237
 	recipe = AddRecipe(80237, V.CATA, Q.COMMON)
@@ -2151,7 +2151,7 @@ function addon:InitAlchemy()
 	recipe:SetSkillLevels(525, 525, 525, 530, 535)
 	recipe:SetItemFilterType("ALCHEMY_TRANSMUTE")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 4160, 4611, 5177, 5499, 19052, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588, 33608, 33630)
+	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 3603, 4160, 4611, 5177, 5499, 19052, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588, 33608, 33630)
 
 	-- Transmute: Truegold -- 80243
 	recipe = AddRecipe(80243, V.CATA, Q.COMMON)
@@ -2159,7 +2159,7 @@ function addon:InitAlchemy()
 	recipe:SetSkillLevels(525, 525, 525, 530, 535)
 	recipe:SetItemFilterType("ALCHEMY_TRANSMUTE")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 4160, 4611, 5177, 5499, 19052, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588, 33608, 33630)
+	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 3603, 4160, 4611, 5177, 5499, 19052, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588, 33608, 33630)
 
 	-- Transmute: Pyrium Bar -- 80244
 	recipe = AddRecipe(80244, V.CATA, Q.COMMON)
@@ -2167,7 +2167,7 @@ function addon:InitAlchemy()
 	recipe:SetSkillLevels(520, 520, 525, 530, 535)
 	recipe:SetItemFilterType("ALCHEMY_TRANSMUTE")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 4160, 4611, 5177, 5499, 19052, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588, 33608, 33630)
+	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 3603, 4160, 4611, 5177, 5499, 19052, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588, 33608, 33630)
 
 	-- Transmute: Inferno Ruby -- 80245
 	recipe = AddRecipe(80245, V.CATA, Q.COMMON)
@@ -2175,7 +2175,7 @@ function addon:InitAlchemy()
 	recipe:SetSkillLevels(525, 525, 525, 530, 535)
 	recipe:SetItemFilterType("ALCHEMY_TRANSMUTE")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 4160, 4611, 5177, 5499, 19052, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588, 33608, 33630)
+	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 3603, 4160, 4611, 5177, 5499, 19052, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588, 33608, 33630)
 
 	-- Transmute: Ocean Sapphire -- 80246
 	recipe = AddRecipe(80246, V.CATA, Q.COMMON)
@@ -2183,7 +2183,7 @@ function addon:InitAlchemy()
 	recipe:SetSkillLevels(515, 515, 520, 525, 530)
 	recipe:SetItemFilterType("ALCHEMY_TRANSMUTE")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 4160, 4611, 5177, 5499, 19052, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588, 33608, 33630)
+	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 3603, 4160, 4611, 5177, 5499, 19052, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588, 33608, 33630)
 
 	-- Transmute: Amberjewel -- 80247
 	recipe = AddRecipe(80247, V.CATA, Q.COMMON)
@@ -2191,7 +2191,7 @@ function addon:InitAlchemy()
 	recipe:SetSkillLevels(520, 520, 525, 530, 535)
 	recipe:SetItemFilterType("ALCHEMY_TRANSMUTE")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 4160, 4611, 5177, 5499, 19052, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588, 33608, 33630)
+	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 3603, 4160, 4611, 5177, 5499, 19052, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588, 33608, 33630)
 
 	-- Transmute: Demonseye -- 80248
 	recipe = AddRecipe(80248, V.CATA, Q.COMMON)
@@ -2199,7 +2199,7 @@ function addon:InitAlchemy()
 	recipe:SetSkillLevels(515, 515, 520, 525, 530)
 	recipe:SetItemFilterType("ALCHEMY_TRANSMUTE")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 4160, 4611, 5177, 5499, 19052, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588, 33608, 33630)
+	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 3603, 4160, 4611, 5177, 5499, 19052, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588, 33608, 33630)
 
 	-- Transmute: Ember Topaz -- 80250
 	recipe = AddRecipe(80250, V.CATA, Q.COMMON)
@@ -2207,7 +2207,7 @@ function addon:InitAlchemy()
 	recipe:SetSkillLevels(510, 510, 515, 520, 525)
 	recipe:SetItemFilterType("ALCHEMY_TRANSMUTE")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 4160, 4611, 5177, 5499, 19052, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588, 33608, 33630)
+	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 3603, 4160, 4611, 5177, 5499, 19052, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588, 33608, 33630)
 
 	-- Transmute: Dream Emerald -- 80251
 	recipe = AddRecipe(80251, V.CATA, Q.COMMON)
@@ -2215,7 +2215,7 @@ function addon:InitAlchemy()
 	recipe:SetSkillLevels(505, 505, 510, 515, 520)
 	recipe:SetItemFilterType("ALCHEMY_TRANSMUTE")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 4160, 4611, 5177, 5499, 19052, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588, 33608, 33630)
+	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 3603, 4160, 4611, 5177, 5499, 19052, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588, 33608, 33630)
 
 	-- Potion of Illusion -- 80269
 	recipe = AddRecipe(80269, V.CATA, Q.COMMON)
@@ -2223,7 +2223,7 @@ function addon:InitAlchemy()
 	recipe:SetSkillLevels(460, 460, 470, 475, 480)
 	recipe:SetItemFilterType("ALCHEMY_POTION")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 4160, 4611, 5177, 5499, 19052, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588, 33608, 33630)
+	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 3603, 4160, 4611, 5177, 5499, 19052, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588, 33608, 33630)
 
 	-- Ghost Elixir -- 80477
 	recipe = AddRecipe(80477, V.CATA, Q.COMMON)
@@ -2231,7 +2231,7 @@ function addon:InitAlchemy()
 	recipe:SetSkillLevels(450, 450, 455, 460, 465)
 	recipe:SetItemFilterType("ALCHEMY_ELIXIR")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 4160, 4611, 5177, 5499, 19052, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588, 33608, 33630)
+	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 3603, 4160, 4611, 5177, 5499, 19052, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588, 33608, 33630)
 
 	-- Earthen Potion -- 80478
 	recipe = AddRecipe(80478, V.CATA, Q.COMMON)
@@ -2239,7 +2239,7 @@ function addon:InitAlchemy()
 	recipe:SetSkillLevels(450, 450, 455, 460, 465)
 	recipe:SetItemFilterType("ALCHEMY_POTION")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 4160, 4611, 5177, 5499, 19052, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588, 33608, 33630)
+	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 3603, 4160, 4611, 5177, 5499, 19052, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588, 33608, 33630)
 
 	-- Deathblood Venom -- 80479
 	recipe = AddRecipe(80479, V.CATA, Q.COMMON)
@@ -2247,7 +2247,7 @@ function addon:InitAlchemy()
 	recipe:SetSkillLevels(455, 455, 460, 465, 470)
 	recipe:SetItemFilterType("ALCHEMY_MISC")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 4160, 4611, 5177, 5499, 19052, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588, 33608, 33630)
+	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 3603, 4160, 4611, 5177, 5499, 19052, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588, 33608, 33630)
 
 	-- Elixir of the Naga -- 80480
 	recipe = AddRecipe(80480, V.CATA, Q.COMMON)
@@ -2255,7 +2255,7 @@ function addon:InitAlchemy()
 	recipe:SetSkillLevels(455, 455, 460, 465, 470)
 	recipe:SetItemFilterType("ALCHEMY_ELIXIR")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 4160, 4611, 5177, 5499, 19052, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588, 33608, 33630)
+	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 3603, 4160, 4611, 5177, 5499, 19052, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588, 33608, 33630)
 
 	-- Volcanic Potion -- 80481
 	recipe = AddRecipe(80481, V.CATA, Q.COMMON)
@@ -2263,7 +2263,7 @@ function addon:InitAlchemy()
 	recipe:SetSkillLevels(460, 460, 465, 470, 475)
 	recipe:SetItemFilterType("ALCHEMY_POTION")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 4160, 4611, 5177, 5499, 19052, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588, 33608, 33630)
+	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 3603, 4160, 4611, 5177, 5499, 19052, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588, 33608, 33630)
 
 	-- Potion of Concentration -- 80482
 	recipe = AddRecipe(80482, V.CATA, Q.COMMON)
@@ -2271,7 +2271,7 @@ function addon:InitAlchemy()
 	recipe:SetSkillLevels(465, 465, 470, 475, 480)
 	recipe:SetItemFilterType("ALCHEMY_POTION")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 4160, 4611, 5177, 5499, 19052, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588, 33608, 33630)
+	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 3603, 4160, 4611, 5177, 5499, 19052, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588, 33608, 33630)
 
 	-- Elixir of the Cobra -- 80484
 	recipe = AddRecipe(80484, V.CATA, Q.COMMON)
@@ -2279,7 +2279,7 @@ function addon:InitAlchemy()
 	recipe:SetSkillLevels(465, 465, 470, 475, 480)
 	recipe:SetItemFilterType("ALCHEMY_ELIXIR")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 4160, 4611, 5177, 5499, 19052, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588, 33608, 33630)
+	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 3603, 4160, 4611, 5177, 5499, 19052, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588, 33608, 33630)
 
 	-- Deepstone Oil -- 80486
 	recipe = AddRecipe(80486, V.CATA, Q.COMMON)
@@ -2287,7 +2287,7 @@ function addon:InitAlchemy()
 	recipe:SetSkillLevels(470, 470, 475, 480, 485)
 	recipe:SetItemFilterType("ALCHEMY_OIL")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 4160, 4611, 5177, 5499, 19052, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588, 33608, 33630)
+	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 3603, 4160, 4611, 5177, 5499, 19052, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588, 33608, 33630)
 
 	-- Mysterious Potion -- 80487
 	recipe = AddRecipe(80487, V.CATA, Q.COMMON)
@@ -2295,7 +2295,7 @@ function addon:InitAlchemy()
 	recipe:SetSkillLevels(470, 470, 475, 480, 485)
 	recipe:SetItemFilterType("ALCHEMY_POTION")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 4160, 4611, 5177, 5499, 19052, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588, 33608, 33630)
+	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 3603, 4160, 4611, 5177, 5499, 19052, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588, 33608, 33630)
 
 	-- Elixir of Deep Earth -- 80488
 	recipe = AddRecipe(80488, V.CATA, Q.COMMON)
@@ -2303,7 +2303,7 @@ function addon:InitAlchemy()
 	recipe:SetSkillLevels(475, 475, 480, 485, 490)
 	recipe:SetItemFilterType("ALCHEMY_ELIXIR")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 4160, 4611, 5177, 5499, 19052, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588, 33608, 33630)
+	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 3603, 4160, 4611, 5177, 5499, 19052, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588, 33608, 33630)
 
 	-- Mighty Rejuvenation Potion -- 80490
 	recipe = AddRecipe(80490, V.CATA, Q.COMMON)
@@ -2311,7 +2311,7 @@ function addon:InitAlchemy()
 	recipe:SetSkillLevels(475, 475, 480, 485, 490)
 	recipe:SetItemFilterType("ALCHEMY_POTION")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 4160, 4611, 5177, 5499, 19052, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588, 33608, 33630)
+	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 3603, 4160, 4611, 5177, 5499, 19052, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588, 33608, 33630)
 
 	-- Elixir of Impossible Accuracy -- 80491
 	recipe = AddRecipe(80491, V.CATA, Q.COMMON)
@@ -2319,7 +2319,7 @@ function addon:InitAlchemy()
 	recipe:SetSkillLevels(480, 480, 485, 490, 495)
 	recipe:SetItemFilterType("ALCHEMY_ELIXIR")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 4160, 4611, 5177, 5499, 19052, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588, 33608, 33630)
+	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 3603, 4160, 4611, 5177, 5499, 19052, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588, 33608, 33630)
 
 	-- Prismatic Elixir -- 80492
 	recipe = AddRecipe(80492, V.CATA, Q.COMMON)
@@ -2327,7 +2327,7 @@ function addon:InitAlchemy()
 	recipe:SetSkillLevels(480, 480, 485, 490, 495)
 	recipe:SetItemFilterType("ALCHEMY_ELIXIR")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 4160, 4611, 5177, 5499, 19052, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588, 33608, 33630)
+	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 3603, 4160, 4611, 5177, 5499, 19052, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588, 33608, 33630)
 
 	-- Elixir of Mighty Speed -- 80493
 	recipe = AddRecipe(80493, V.CATA, Q.COMMON)
@@ -2335,7 +2335,7 @@ function addon:InitAlchemy()
 	recipe:SetSkillLevels(490, 490, 495, 500, 505)
 	recipe:SetItemFilterType("ALCHEMY_ELIXIR")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 4160, 4611, 5177, 5499, 19052, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588, 33608, 33630)
+	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 3603, 4160, 4611, 5177, 5499, 19052, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588, 33608, 33630)
 
 	-- Mythical Mana Potion -- 80494
 	recipe = AddRecipe(80494, V.CATA, Q.COMMON)
@@ -2343,7 +2343,7 @@ function addon:InitAlchemy()
 	recipe:SetSkillLevels(485, 485, 490, 495, 500)
 	recipe:SetItemFilterType("ALCHEMY_POTION")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 4160, 4611, 5177, 5499, 19052, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588, 33608, 33630)
+	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 3603, 4160, 4611, 5177, 5499, 19052, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588, 33608, 33630)
 
 	-- Potion of the Tol'vir -- 80495
 	recipe = AddRecipe(80495, V.CATA, Q.COMMON)
@@ -2351,7 +2351,7 @@ function addon:InitAlchemy()
 	recipe:SetSkillLevels(485, 485, 490, 495, 500)
 	recipe:SetItemFilterType("ALCHEMY_POTION")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 4160, 4611, 5177, 5499, 19052, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588, 33608, 33630)
+	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 3603, 4160, 4611, 5177, 5499, 19052, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588, 33608, 33630)
 
 	-- Golemblood Potion -- 80496
 	recipe = AddRecipe(80496, V.CATA, Q.COMMON)
@@ -2359,7 +2359,7 @@ function addon:InitAlchemy()
 	recipe:SetSkillLevels(490, 490, 495, 500, 505)
 	recipe:SetItemFilterType("ALCHEMY_POTION")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 4160, 4611, 5177, 5499, 19052, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588, 33608, 33630)
+	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 3603, 4160, 4611, 5177, 5499, 19052, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588, 33608, 33630)
 
 	-- Elixir of the Master -- 80497
 	recipe = AddRecipe(80497, V.CATA, Q.COMMON)
@@ -2367,7 +2367,7 @@ function addon:InitAlchemy()
 	recipe:SetSkillLevels(495, 495, 500, 505, 510)
 	recipe:SetItemFilterType("ALCHEMY_ELIXIR")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 4160, 4611, 5177, 5499, 19052, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588, 33608, 33630)
+	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 3603, 4160, 4611, 5177, 5499, 19052, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588, 33608, 33630)
 
 	-- Mythical Healing Potion -- 80498
 	recipe = AddRecipe(80498, V.CATA, Q.COMMON)
@@ -2375,7 +2375,7 @@ function addon:InitAlchemy()
 	recipe:SetSkillLevels(495, 495, 500, 505, 510)
 	recipe:SetItemFilterType("ALCHEMY_POTION")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 4160, 4611, 5177, 5499, 19052, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588, 33608, 33630)
+	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 3603, 4160, 4611, 5177, 5499, 19052, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588, 33608, 33630)
 
 	-- Lifebound Alchemist Stone -- 80508
 	recipe = AddRecipe(80508, V.CATA, Q.COMMON)
@@ -2383,7 +2383,7 @@ function addon:InitAlchemy()
 	recipe:SetSkillLevels(500, 500, 510, 512, 515)
 	recipe:SetItemFilterType("ALCHEMY_TRINKET")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 4160, 4611, 5177, 5499, 19052, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588, 33608, 33630)
+	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 3603, 4160, 4611, 5177, 5499, 19052, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588, 33608, 33630)
 
 	-- Flask of Steelskin -- 80719
 	recipe = AddRecipe(80719, V.CATA, Q.COMMON)
@@ -2391,7 +2391,7 @@ function addon:InitAlchemy()
 	recipe:SetSkillLevels(500, 500, 505, 510, 515)
 	recipe:SetItemFilterType("ALCHEMY_FLASK")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 4160, 4611, 5177, 5499, 19052, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588, 33608, 33630)
+	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 3603, 4160, 4611, 5177, 5499, 19052, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588, 33608, 33630)
 
 	-- Flask of the Draconic Mind -- 80720
 	recipe = AddRecipe(80720, V.CATA, Q.COMMON)
@@ -2399,7 +2399,7 @@ function addon:InitAlchemy()
 	recipe:SetSkillLevels(505, 505, 510, 515, 520)
 	recipe:SetItemFilterType("ALCHEMY_FLASK")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 4160, 4611, 5177, 5499, 19052, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588, 33608, 33630)
+	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 3603, 4160, 4611, 5177, 5499, 19052, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588, 33608, 33630)
 
 	-- Flask of the Winds -- 80721
 	recipe = AddRecipe(80721, V.CATA, Q.COMMON)
@@ -2407,7 +2407,7 @@ function addon:InitAlchemy()
 	recipe:SetSkillLevels(510, 510, 515, 520, 525)
 	recipe:SetItemFilterType("ALCHEMY_FLASK")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 4160, 4611, 5177, 5499, 19052, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588, 33608, 33630)
+	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 3603, 4160, 4611, 5177, 5499, 19052, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588, 33608, 33630)
 
 	-- Flask of Titanic Strength -- 80723
 	recipe = AddRecipe(80723, V.CATA, Q.COMMON)
@@ -2415,7 +2415,7 @@ function addon:InitAlchemy()
 	recipe:SetSkillLevels(510, 510, 515, 520, 525)
 	recipe:SetItemFilterType("ALCHEMY_FLASK")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 4160, 4611, 5177, 5499, 19052, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588, 33608, 33630)
+	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 3603, 4160, 4611, 5177, 5499, 19052, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588, 33608, 33630)
 
 	-- Potion of Deepholm -- 80725
 	recipe = AddRecipe(80725, V.CATA, Q.COMMON)
@@ -2423,7 +2423,7 @@ function addon:InitAlchemy()
 	recipe:SetSkillLevels(525, 525, 525, 530, 535)
 	recipe:SetItemFilterType("ALCHEMY_POTION")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 4160, 4611, 5177, 5499, 19052, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588, 33608, 33630)
+	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 3603, 4160, 4611, 5177, 5499, 19052, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588, 33608, 33630)
 
 	-- Potion of Treasure Finding -- 80726
 	recipe = AddRecipe(80726, V.CATA, Q.COMMON)
@@ -2431,7 +2431,7 @@ function addon:InitAlchemy()
 	recipe:SetSkillLevels(525, 525, 525, 530, 535)
 	recipe:SetItemFilterType("ALCHEMY_POTION")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 4160, 4611, 5177, 5499, 19052, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588, 33608, 33630)
+	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 3603, 4160, 4611, 5177, 5499, 19052, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588, 33608, 33630)
 
 	-- Cauldron of Battle -- 92643
 	recipe = AddRecipe(92643, V.CATA, Q.COMMON)
@@ -2467,7 +2467,7 @@ function addon:InitAlchemy()
 	recipe:SetSkillLevels(425, 425, 440, 450, 460)
 	recipe:SetItemFilterType("ALCHEMY_MISC")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 4160, 4611, 5177, 5499, 19052, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588, 33608, 33630)
+	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 3603, 4160, 4611, 5177, 5499, 19052, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588, 33608, 33630)
 
 	-- Flask of Flowing Water -- 94162
 	recipe = AddRecipe(94162, V.CATA, Q.COMMON)
@@ -2475,7 +2475,7 @@ function addon:InitAlchemy()
 	recipe:SetSkillLevels(500, 500, 505, 510, 515)
 	recipe:SetItemFilterType("ALCHEMY_FLASK")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 4160, 4611, 5177, 5499, 19052, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588, 33608, 33630)
+	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 3603, 4160, 4611, 5177, 5499, 19052, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588, 33608, 33630)
 
 	-- Volatile Alchemist Stone -- 96252
 	recipe = AddRecipe(96252, V.CATA, Q.COMMON)
@@ -2483,7 +2483,7 @@ function addon:InitAlchemy()
 	recipe:SetSkillLevels(500, 500, 510, 515, 520)
 	recipe:SetItemFilterType("ALCHEMY_TRINKET")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP)
-	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 4160, 4611, 5177, 5499, 19052, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588, 33608, 33630)
+	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 3603, 4160, 4611, 5177, 5499, 19052, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588, 33608, 33630)
 
 	-- Quicksilver Alchemist Stone -- 96253
 	recipe = AddRecipe(96253, V.CATA, Q.COMMON)
@@ -2491,7 +2491,7 @@ function addon:InitAlchemy()
 	recipe:SetSkillLevels(500, 500, 510, 515, 520)
 	recipe:SetItemFilterType("ALCHEMY_TRINKET")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP)
-	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 4160, 4611, 5177, 5499, 19052, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588, 33608, 33630)
+	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 3603, 4160, 4611, 5177, 5499, 19052, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588, 33608, 33630)
 
 	-- Vibrant Alchemist Stone -- 96254
 	recipe = AddRecipe(96254, V.CATA, Q.COMMON)
@@ -2499,7 +2499,7 @@ function addon:InitAlchemy()
 	recipe:SetSkillLevels(500, 500, 510, 515, 520)
 	recipe:SetItemFilterType("ALCHEMY_TRINKET")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP)
-	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 4160, 4611, 5177, 5499, 19052, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588, 33608, 33630)
+	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 3603, 4160, 4611, 5177, 5499, 19052, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588, 33608, 33630)
 
 	-- Alchemist's Flask -- 114786
 	recipe = AddRecipe(114786, V.MOP, Q.COMMON)
@@ -2507,7 +2507,7 @@ function addon:InitAlchemy()
 	recipe:SetSkillLevels(300, 300, 310, 315, 320)
 	recipe:SetItemFilterType("ALCHEMY_FLASK")
 	recipe:AddFilters(F.TRAINER)
-	recipe:AddTrainer(5177, 5499, 26903, 26987, 28703)
+	recipe:AddTrainer(3603, 5177, 5499, 26903, 26987, 28703)
 
 	self.InitAlchemy = nil
 end

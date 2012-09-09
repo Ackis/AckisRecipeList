@@ -1288,3 +1288,7 @@ L["Shay Pressler"] = true
 L["Angela Leifeld"] = true
 L["Lien Farner"] = true
 L["Mirla Silverblaze"] = true
+L["Velia Moonbow"] = true
+L["Aessa Silverdew"] = true
+L["Tana Lentner"] = true
+L["Rolf Karner"] = true

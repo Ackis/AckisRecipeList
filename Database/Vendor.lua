@@ -382,6 +382,7 @@ function addon:InitVendor()
 	AddVendor(40572,	L["Haughty Modiste"],			Z.TANARIS,			50.7,	28.6,	"Neutral") -- COMPLETELY UPDATED
 	AddVendor(40589,	L["Dirge Quikcleave"],			Z.TANARIS,			52.6,	29.1,	"Neutral") -- COMPLETELY UPDATED
 	AddVendor(41435,	L["Fradd Swiftgear"],			Z.WETLANDS,			26.8,	26.0,	"Alliance") -- COMPLETELY UPDATED
+	AddVendor(44030,	L["Draela"],				Z.TELDRASSIL,			39.0,	30.0,	"Alliance") -- COMPLETELY UPDATED
 	AddVendor(44583,	L["Terrance Denman"],			Z.STORMWIND_CITY, 		63.2,	61.7,	"Alliance") -- COMPLETELY UPDATED
 	AddVendor(45546,	L["Vizna Bangwrench"],			Z.ORGRIMMAR,			36.4,	86.4,	"Horde") -- COMPLETELY UPDATED
 	AddVendor(45549,	L["Zido Helmbreaker"],			Z.ORGRIMMAR,			36.4,	83.0,	"Horde") -- COMPLETELY UPDATED
@@ -408,6 +409,7 @@ function addon:InitVendor()
 	AddVendor(50480,	L["Isabel Jones"],			Z.STORMWIND_CITY,		63.7,	61.3,	"Alliance") -- COMPLETELY UPDATED
 	AddVendor(50482,	L["Marith Lazuria"],			Z.ORGRIMMAR,			72.5,	34.4,	"Horde") -- COMPLETELY UPDATED
 	AddVendor(51495,	L["Steeg Haskell"],			Z.IRONFORGE,			36.3,	85.8,	"Alliance") --COMPLETELY UPDATED
+	AddVendor(51504,	L["Velia Moonbow"],			Z.DARNASSUS,			64.6,	37.6,	"Alliance") --COMPLETELY UPDATED
 	AddVendor(51512,	L["Mirla Silverblaze"],			Z.DALARAN,			52.6,	56.6,	"Neutral") --COMPLETELY UPDATED
 	AddVendor(52584,	L["Laida Gembold"],			Z.IRONFORGE,			50.6,	27.5,	"Alliance") -- COMPLETELY UPDATED
 	AddVendor(52588,	L["Sara Lanner"],			Z.UNDERCITY,			56.7,	36.9,	"Horde") -- COMPLETELY UPDATED

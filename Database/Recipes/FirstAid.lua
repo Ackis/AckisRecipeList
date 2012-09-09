@@ -174,7 +174,7 @@ function addon:InitFirstAid()
 	recipe:SetCraftedItemID(34722)
 	recipe:SetSkillLevels(390, 390, 400, 405, 410)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.WORLD_DROP, F.IBOE, F.RBOP)
-	recipe:AddTrainer(2326, 2327, 2329, 2798, 4211, 4591, 5150, 5759, 5939, 5943, 19478, 23734, 26956, 28706, 29233, 33589, 33621, 45540, 49879, 56796)
+	recipe:AddTrainer(2326, 2327, 2329, 2798, 4211, 4591, 5150, 5759, 5939, 5943, 6094, 19478, 23734, 26956, 28706, 29233, 33589, 33621, 45540, 49879, 56796)
 	recipe:AddWorldDrop(Z.NORTHREND)
 
 	-- Embersilk Bandage -- 74556

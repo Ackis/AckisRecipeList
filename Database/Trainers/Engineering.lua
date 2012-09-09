@@ -47,6 +47,7 @@ function private:InitializeEngineeringTrainers()
 	self:AddTrainer(33611, 51306, "Shattrath City", 43.7, 90.1, "Neutral")
 	self:AddTrainer(33634, "Engineer Sinbei", "Shattrath City", 43.1, 64.9, "Neutral")
 	self:AddTrainer(45545, "\"Jack\" Pisarek Slamfix", "Orgrimmar", 36.34, 86.74, "Horde")
+	self.AddTrainer(52636, "Tana Lentner", "Darnassus", 49.6, 32.6, "Alliance")
 
 	self.InitializeEngineeringTrainers = nil
 end

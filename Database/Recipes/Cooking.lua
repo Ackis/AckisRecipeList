@@ -1625,7 +1625,7 @@ function addon:InitCooking()
 	recipe:SetSkillLevels(525, 525, 525, 525, 525)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOP, F.RBOP, F.ACHIEVEMENT)
 	recipe:AddAchievement(5036)
-	recipe:AddVendor(46572, 46602, 51495, 51512)
+	recipe:AddVendor(46572, 46602, 51495, 51504, 51512)
 
 	-- Seasoned Crab -- 88037
 	recipe = AddRecipe(88037, V.CATA, Q.UNCOMMON)
