@@ -2112,7 +2112,7 @@ function addon:InitEnchanting()
 	recipe:SetSkillLevels(445, 445, 445, 447, 450)
 	recipe:SetItemFilterType("ENCHANTING_MISC")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(3011, 3345, 26906, 26954, 26980, 26990, 28693, 33633)
+	recipe:AddTrainer(3011, 3345, 26906, 26954, 26980, 28693, 33633)
 
 	-- Enchant Gloves - Angler -- 71692
 	recipe = AddRecipe(71692, V.WOTLK, Q.UNCOMMON)
