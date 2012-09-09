@@ -180,13 +180,8 @@ do
 			local train_data = recipe.acquire_data[A.TRAINER]
 			local matching_trainer = false
 
-			if train_data then
-				for id_num in pairs(train_data) do
-					if id_num == trainer_id then
-						matching_trainer = true
-						break
-					end
-				end
+			if train_data and train_data[trainer_id] then
+				matching_trainer = true
 			end
 			local matching_item = scanned_items[recipe:CraftedItemID()]
 			local matching_recipe = scanned_recipes[recipe.name]
