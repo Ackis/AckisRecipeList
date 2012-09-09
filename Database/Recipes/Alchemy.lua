@@ -2441,15 +2441,17 @@ function addon:InitAlchemy()
 	recipe:SetItemFilterType("ALCHEMY_CAULDRON")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.ACHIEVEMENT)
 	recipe:AddAchievement(5465)
-	recipe:AddVendor(51495)
+	recipe:AddVendor(46572, 46602, 51495)
 
 	-- Big Cauldron of Battle -- 92688
 	recipe = AddRecipe(92688, V.CATA, Q.COMMON)
+	recipe:SetRecipeItemID(65498)
 	recipe:SetCraftedItemID(65460)
 	recipe:SetSkillLevels(525, 525, 525, 525, 525)
 	recipe:SetItemFilterType("ALCHEMY_CAULDRON")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.RBOP, F.ACHIEVEMENT)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.ACHIEVEMENT)
 	recipe:AddAchievement(5024)
+	recipe:AddVendor(46572, 46602, 51495)
 
 	-- Vial of the Sands -- 93328
 	recipe = AddRecipe(93328, V.CATA, Q.EPIC)

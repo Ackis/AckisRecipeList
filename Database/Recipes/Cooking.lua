@@ -1466,7 +1466,7 @@ function addon:InitCooking()
 	recipe:SetSkillLevels(500, 500, 500, 500, 525)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOP, F.RBOP, F.ACHIEVEMENT)
 	recipe:AddAchievement(5467)
-	recipe:AddVendor(51495)
+	recipe:AddVendor(46572, 46602, 51495)
 
 	-- Broiled Mountain Trout -- 88012
 	recipe = AddRecipe(88012, V.CATA, Q.UNCOMMON)
@@ -1625,7 +1625,7 @@ function addon:InitCooking()
 	recipe:SetSkillLevels(525, 525, 525, 525, 525)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOP, F.RBOP, F.ACHIEVEMENT)
 	recipe:AddAchievement(5036)
-	recipe:AddVendor(51495)
+	recipe:AddVendor(46572, 46602, 51495)
 
 	-- Seasoned Crab -- 88037
 	recipe = AddRecipe(88037, V.CATA, Q.UNCOMMON)
