@@ -25,6 +25,7 @@ function private:InitializeJewelcraftingTrainers()
 	self:AddTrainer(33680, "Nemiha", "Shattrath City", 36.1, 47.7, "Neutral")
 	self:AddTrainer(44582, "Theresa Denman", "Stormwind City", 63.5, 61.6, "Alliance") -- COMPLETELY UPDATED
 	self:AddTrainer(46675, "Lugrah", "Orgrimmar", 72.49, 34.31, "Horde")
+	self:AddTrainer(52586, "Hanner Gembold", "Ironforge", 51.0, 25.4, "Alliance") -- COMPLETELY UPDATED
 
 	self.InitializeJewelcraftingTrainers = nil
 end
