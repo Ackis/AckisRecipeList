@@ -50,7 +50,7 @@ function addon:InitAlchemy()
 	private:InitializeAlchemyTrainers()
 
 	local recipe
-	
+
 	-- Elixir of Lion's Strength -- 2329
 	recipe = AddRecipe(2329, V.ORIG, Q.COMMON)
 	recipe:SetCraftedItemID(2454)
