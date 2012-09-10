@@ -50,6 +50,7 @@ function addon:InitMob()
 	AddMob(19973,	L["Abyssal Flamebringer"],		Z.BLADES_EDGE_MOUNTAINS,	30.0, 81.0)
 	AddMob(19984,	L["Vekh'nir Dreadhawk"],		Z.BLADES_EDGE_MOUNTAINS,	78.0, 74.3)
 	AddMob(22242,	L["Bash'ir Spell-Thief"],		Z.BLADES_EDGE_MOUNTAINS,	51.0, 16.5)
+	AddMob(22243,	L["Bash'ir Arcanist"],			Z.BLADES_EDGE_MOUNTAINS,	52.2, 13.2)
 	AddMob(23385,	L["Simon Unit"],			Z.BLADES_EDGE_MOUNTAINS,	33.5, 51.5)
 	AddMob(23386,	L["Gan'arg Analyzer"],			Z.BLADES_EDGE_MOUNTAINS,	33.0, 52.5)
 

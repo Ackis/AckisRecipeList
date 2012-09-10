@@ -1322,7 +1322,7 @@ function addon:InitEnchanting()
 	recipe:SetSkillLevels(350, 350, 370, 375, 380)
 	recipe:SetItemFilterType("ENCHANTING_WEAPON")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
-	recipe:AddMobDrop(22242)
+	recipe:AddMobDrop(22242, 22243, 23385)
 
 	-- Enchant 2H Weapon - Major Agility -- 27977
 	recipe = AddRecipe(27977, V.TBC, Q.UNCOMMON)
