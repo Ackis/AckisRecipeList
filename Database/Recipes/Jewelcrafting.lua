@@ -2112,8 +2112,7 @@ function addon:InitJewelcrafting()
 	recipe:SetCraftedItemID(39917)
 	recipe:SetSkillLevels(350, 350, 375, 395, 415)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_YELLOW")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.RETIRED, F.IBOE, F.RBOP)
-	recipe:AddCustom("REMOVED_FROM_GAME")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	recipe:AddVendor(28721)
 
 	-- Sovereign Shadow Crystal -- 53859
@@ -2146,8 +2145,7 @@ function addon:InitJewelcrafting()
 	recipe:SetCraftedItemID(39945)
 	recipe:SetSkillLevels(350, 350, 375, 395, 415)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_PURPLE")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.RETIRED, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
-	recipe:AddCustom("REMOVED_FROM_GAME")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
 	recipe:AddVendor(28721)
 
 	-- Defender's Shadow Crystal -- 53869
@@ -2205,8 +2203,7 @@ function addon:InitJewelcrafting()
 	recipe:SetCraftedItemID(39950)
 	recipe:SetSkillLevels(350, 350, 375, 395, 415)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_ORANGE")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.RETIRED, F.IBOE, F.RBOP, F.DPS)
-	recipe:AddCustom("REMOVED_FROM_GAME")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS)
 	recipe:AddVendor(28721)
 
 	-- Fierce Huge Citrine -- 53876
@@ -2232,8 +2229,7 @@ function addon:InitJewelcrafting()
 	recipe:SetCraftedItemID(39954)
 	recipe:SetSkillLevels(350, 350, 375, 395, 415)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_ORANGE")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.RETIRED, F.IBOE, F.RBOP, F.DPS)
-	recipe:AddCustom("REMOVED_FROM_GAME")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS)
 	recipe:AddVendor(28721)
 
 	-- Deft Huge Citrine -- 53880
@@ -2266,8 +2262,7 @@ function addon:InitJewelcrafting()
 	recipe:SetCraftedItemID(39958)
 	recipe:SetSkillLevels(350, 350, 375, 395, 415)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_ORANGE")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.RETIRED, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
-	recipe:AddCustom("REMOVED_FROM_GAME")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
 	recipe:AddVendor(28721)
 
 	-- Reckless Huge Citrine -- 53885
@@ -2334,8 +2329,7 @@ function addon:InitJewelcrafting()
 	recipe:SetCraftedItemID(39977)
 	recipe:SetSkillLevels(350, 350, 375, 395, 415)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_GREEN")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.RETIRED, F.IBOE, F.RBOP)
-	recipe:AddCustom("REMOVED_FROM_GAME")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	recipe:AddVendor(28721)
 
 	-- Forceful Dark Jade -- 53920
@@ -2377,8 +2371,7 @@ function addon:InitJewelcrafting()
 	recipe:SetCraftedItemID(39982)
 	recipe:SetSkillLevels(350, 350, 375, 395, 415)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_GREEN")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.RETIRED, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
-	recipe:AddCustom("REMOVED_FROM_GAME")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
 	recipe:AddVendor(28721)
 
 	-- Energized Dark Jade -- 53925
@@ -2395,8 +2388,7 @@ function addon:InitJewelcrafting()
 	recipe:SetCraftedItemID(39991)
 	recipe:SetSkillLevels(350, 350, 375, 395, 415)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_GREEN")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.RETIRED, F.IBOE, F.RBOP, F.DPS, F.HEALER, F.CASTER)
-	recipe:AddCustom("REMOVED_FROM_GAME")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.HEALER, F.CASTER)
 	recipe:AddVendor(28721)
 
 	-- Shattered Dark Jade -- 53933
@@ -2405,8 +2397,7 @@ function addon:InitJewelcrafting()
 	recipe:SetCraftedItemID(39992)
 	recipe:SetSkillLevels(350, 350, 375, 395, 415)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_GREEN")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.RETIRED, F.IBOE, F.RBOP, F.DPS, F.HEALER, F.CASTER)
-	recipe:AddCustom("REMOVED_FROM_GAME")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.HEALER, F.CASTER)
 	recipe:AddVendor(28721)
 
 	-- Solid Chalcedony -- 53934
@@ -2431,8 +2422,7 @@ function addon:InitJewelcrafting()
 	recipe:SetCraftedItemID(39932)
 	recipe:SetSkillLevels(350, 350, 375, 395, 415)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_BLUE")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.RETIRED, F.IBOE, F.RBOP)
-	recipe:AddCustom("REMOVED_FROM_GAME")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	recipe:AddVendor(28721)
 
 	-- Delicate Scarlet Ruby -- 53945
