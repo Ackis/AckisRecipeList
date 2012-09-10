@@ -2941,6 +2941,7 @@ function addon:InitInscription()
 	recipe:SetItemFilterType("INSCRIPTION_MAJOR_GLYPH")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.DISC, F.IBOE, F.RBOP, F.DRUID)
 	recipe:AddDiscovery("DISCOVERY_INSC_BOOK")
+	recipe:AddDiscovery("DISCOVERY_INSC_NORTHREND")
 
 	-- Glyph of Deep Freeze -- 64257
 	recipe = AddRecipe(64257, V.WOTLK, Q.COMMON)
