@@ -41,11 +41,10 @@ function private:AddListEntry(lookup_list, identifier, name, location, coord_x, 
 		location = location,
 		faction = faction,
 	}
-	lookup_list[identifier] = entry
 
 	if coord_x and coord_y then
-		lookup_list[identifier].coord_x = coord_x
-		lookup_list[identifier].coord_y = coord_y
+		entry.coord_x = coord_x
+		entry.coord_y = coord_y
 	end
 
 	--@alpha@
@@ -58,13 +57,14 @@ function private:AddListEntry(lookup_list, identifier, name, location, coord_x, 
 	end
 
 	if not location and not NO_LOCATION_LISTS[lookup_list] then
-		addon:Debug("Lookup ID: %s (%s) has an unknown location.", identifier, lookup_list[identifier].name or _G.UNKNOWN)
+		addon:Debug("Lookup ID: %s (%s) has an unknown location.", identifier, entry.name or _G.UNKNOWN)
 	end
 
 	if faction and lookup_list == self.mob_list then
-		addon:Debug("Mob %d (%s) has been assigned to faction %s.", identifier, name, lookup_list[identifier].faction)
+		addon:Debug("Mob %d (%s) has been assigned to faction %s.", identifier, name, entry.faction)
 	end
 	--@end-alpha@
+	lookup_list[identifier] = entry
 	return entry
 end
 
