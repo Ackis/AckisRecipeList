@@ -369,7 +369,7 @@ function addon:InitVendor()
 	AddVendor(32774,	L["Sebastian Crane"],			Z.HOWLING_FJORD,		79.6,	30.7,	"Horde")
 	AddVendor(33594,	L["Fizzix Blastbolt"],			Z.ICECROWN,			72.2,	20.9,	"Neutral")
 	AddVendor(33595,	L["Mera Mistrunner"],			Z.ICECROWN,			72.4,	20.9,	"Neutral")
-	AddVendor(33602,	L["Anuur"],				Z.ICECROWN,			71.4,	20.8,	"Neutral")
+	AddVendor(33602,	L["Anuur"],				Z.ICECROWN,			71.4,	20.8,	"Neutral") -- COMPLETELY UPDATED
 	AddVendor(33637,	L["Kirembri Silvermane"],		Z.SHATTRATH_CITY,		58.1,	75.0,	"Neutral") -- COMPLETELY UPDATED
 	AddVendor(33680,	L["Nemiha"],				Z.SHATTRATH_CITY,		36.1,	47.7,	"Neutral")
 	AddVendor(34382,	L["Chapman"],				Z.UNDERCITY,			68.1,	11.2,	"Horde") -- COMPLETELY UPDATED

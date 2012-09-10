@@ -2113,7 +2113,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(350, 350, 375, 395, 415)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_YELLOW")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	recipe:AddVendor(28721)
+	recipe:AddVendor(28721, 33602)
 
 	-- Sovereign Shadow Crystal -- 53859
 	recipe = AddRecipe(53859, V.WOTLK, Q.COMMON)
@@ -2146,7 +2146,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(350, 350, 375, 395, 415)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_PURPLE")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
-	recipe:AddVendor(28721)
+	recipe:AddVendor(28721, 33602)
 
 	-- Defender's Shadow Crystal -- 53869
 	recipe = AddRecipe(53869, V.WOTLK, Q.UNCOMMON)
@@ -2204,7 +2204,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(350, 350, 375, 395, 415)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_ORANGE")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS)
-	recipe:AddVendor(28721)
+	recipe:AddVendor(28721, 33602)
 
 	-- Fierce Huge Citrine -- 53876
 	recipe = AddRecipe(53876, V.WOTLK, Q.COMMON)
@@ -2230,7 +2230,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(350, 350, 375, 395, 415)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_ORANGE")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS)
-	recipe:AddVendor(28721)
+	recipe:AddVendor(28721, 33602)
 
 	-- Deft Huge Citrine -- 53880
 	recipe = AddRecipe(53880, V.WOTLK, Q.COMMON)
@@ -2263,7 +2263,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(350, 350, 375, 395, 415)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_ORANGE")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
-	recipe:AddVendor(28721)
+	recipe:AddVendor(28721, 33602)
 
 	-- Reckless Huge Citrine -- 53885
 	recipe = AddRecipe(53885, V.WOTLK, Q.UNCOMMON)
@@ -2330,7 +2330,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(350, 350, 375, 395, 415)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_GREEN")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	recipe:AddVendor(28721)
+	recipe:AddVendor(28721, 33602)
 
 	-- Forceful Dark Jade -- 53920
 	recipe = AddRecipe(53920, V.WOTLK, Q.COMMON)
@@ -2372,7 +2372,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(350, 350, 375, 395, 415)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_GREEN")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
-	recipe:AddVendor(28721)
+	recipe:AddVendor(28721, 33602)
 
 	-- Energized Dark Jade -- 53925
 	recipe = AddRecipe(53925, V.WOTLK, Q.COMMON)
@@ -2389,7 +2389,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(350, 350, 375, 395, 415)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_GREEN")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.HEALER, F.CASTER)
-	recipe:AddVendor(28721)
+	recipe:AddVendor(28721, 33602)
 
 	-- Shattered Dark Jade -- 53933
 	recipe = AddRecipe(53933, V.WOTLK, Q.UNCOMMON)
@@ -2398,7 +2398,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(350, 350, 375, 395, 415)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_GREEN")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.HEALER, F.CASTER)
-	recipe:AddVendor(28721)
+	recipe:AddVendor(28721, 33602)
 
 	-- Solid Chalcedony -- 53934
 	recipe = AddRecipe(53934, V.WOTLK, Q.COMMON)
@@ -2423,7 +2423,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(350, 350, 375, 395, 415)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_BLUE")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	recipe:AddVendor(28721)
+	recipe:AddVendor(28721, 33602)
 
 	-- Delicate Scarlet Ruby -- 53945
 	recipe = AddRecipe(53945, V.WOTLK, Q.RARE)
@@ -2728,9 +2728,9 @@ function addon:InitJewelcrafting()
 	recipe:SetCraftedItemID(40086)
 	recipe:SetSkillLevels(390, 390, 410, 425, 440)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_GREEN")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.RBOP, F.DPS, F.HEALER, F.CASTER, F.REPUTATION, F.FRENZYHEART)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.HEALER, F.CASTER, F.REPUTATION, F.FRENZYHEART)
 	recipe:AddRepVendor(FAC.FRENZYHEART, REP.REVERED, 31911)
-	recipe:AddVendor(28721)
+	recipe:AddVendor(28721, 33602)
 
 	-- Nimble Forest Emerald -- 53997
 	recipe = AddRecipe(53997, V.WOTLK, Q.RARE)
