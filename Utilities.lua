@@ -85,7 +85,32 @@ end
 -------------------------------------------------------------------------------
 --@debug@
 do
+	local L = LibStub("AceLocale-3.0"):GetLocale(private.addon_name)
 	local output = {}
+
+	function addon:DumpPhrases()
+		local sorted = {}
+		table.wipe(output)
+
+		for phrase, translation in pairs(L) do
+			sorted[#sorted + 1] = phrase
+		end
+		table.sort(sorted)
+
+		for index = 1, #sorted do
+			local phrase = sorted[index]
+			local translation = L[phrase]
+
+			if phrase == translation then
+				table.insert(output, ("L[\"%s\"] = true"):format(phrase:gsub("\"", "\\\"")))
+			elseif translation:find("\n") then
+				table.insert(output, ("L[\"%s\"] = [[%s]]"):format(phrase:gsub("\"", "\\\""), translation))
+			else
+				table.insert(output, ("L[\"%s\"] = \"%s\""):format(phrase:gsub("\"", "\\\""), translation:gsub('\"', '\\"')))
+			end
+		end
+		self:DisplayTextDump(nil, nil, table.concat(output, "\n"))
+	end
 
 	function addon:DumpMembers(match)
 		table.wipe(output)
