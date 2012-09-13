@@ -450,7 +450,7 @@ function addon:OnEnable()
 		}
 
 		SpecialtyTable = {
-			[_G.GetSpellInfo(51306)] = EngineeringSpec,
+			[private.LOCALIZED_PROFESSION_NAMES.ENGINEERING] = EngineeringSpec,
 		}
 
 		for i in pairs(EngineeringSpec) do
