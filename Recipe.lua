@@ -220,7 +220,7 @@ do
 		local _, _, _, quality_color = _G.GetItemQualityColor(self.quality)
 		local recipe_name = self.name
 
-		if private.ORDERED_PROFESSIONS[addon.Frame.profession] == private.LOCALIZED_PROFESSION_NAMES.ENCHANTING then
+		if private.ORDERED_PROFESSIONS[addon.Frame.current_profession] == private.LOCALIZED_PROFESSION_NAMES.ENCHANTING then
 			recipe_name = recipe_name:gsub(_G.ENSCRIBE .. " ", "")
 		end
 		local has_faction = private.Player:HasProperRepLevel(self.acquire_data[A.REPUTATION])

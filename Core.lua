@@ -552,7 +552,7 @@ function addon:CreateScanButton()
 		local prev_profession
 
 		if main_panel then
-			prev_profession = private.ORDERED_PROFESSIONS[main_panel.profession]
+			prev_profession = private.ORDERED_PROFESSIONS[main_panel.current_profession]
 		end
 		local shift_pressed = _G.IsShiftKeyDown()
 		local alt_pressed = _G.IsAltKeyDown()

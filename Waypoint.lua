@@ -475,7 +475,7 @@ local function SetWaypointIcon(uid, ...)
 		local child = map_children[index]
 
 		if child.point and child.point.uid == uid then
-			child.icon:SetTexture(ICON_TEXTURE_FORMAT:format(private.PROFESSION_TEXTURES[addon.Frame.profession]))
+			child.icon:SetTexture(ICON_TEXTURE_FORMAT:format(private.PROFESSION_TEXTURES[addon.Frame.current_profession]))
 			break
 		end
 

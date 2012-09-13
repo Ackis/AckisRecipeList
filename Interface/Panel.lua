@@ -168,23 +168,23 @@ function private.InitializeFrame()
 		-------------------------------------------------------------------------------
 		-- Set the profession.
 		-------------------------------------------------------------------------------
-		local prev_profession = self.profession
+		local prev_profession = self.current_profession
 
 		for index, name in ipairs(ORDERED_PROFESSIONS) do
 			if name == profession_name then
-				self.profession = index
+				self.current_profession = index
 				break
 			end
 		end
 
-		if self.profession ~= prev_profession then
-			self.prev_profession = self.profession
+		if self.current_profession ~= prev_profession then
+			self.prev_profession = self.current_profession
 		end
 		self.prof_button:SetTexture()
 
 		local editbox = self.search_editbox
 
-		if self.profession ~= self.prev_profession then
+		if self.current_profession ~= self.prev_profession then
 			editbox.prev_search = nil
 		end
 		editbox:SetText(editbox.prev_search or _G.SEARCH)
@@ -193,7 +193,7 @@ function private.InitializeFrame()
 		if private.InitializeFilterPanel then
 			private.InitializeFilterPanel()
 		end
-		local prof_name = private.PROFESSION_LABELS[self.profession]
+		local prof_name = private.PROFESSION_LABELS[self.current_profession]
 		local init_func = ITEM_FILTER_INIT_FUNCS[prof_name]
 		local panel
 
@@ -240,7 +240,7 @@ function private.InitializeFrame()
 		-- shown so things must be initialized. In this case, MainPanel.list_frame:Update()
 		-- will be called by the tab's OnClick handler.
 		if self.current_tab then
-			MainPanel.list_frame:Update(nil, false)
+			self.list_frame:Update(nil, false)
 		else
 			local current_tab = self.tabs[addon.db.profile.current_tab]
 			local on_click = current_tab:GetScript("OnClick")
@@ -381,7 +381,7 @@ function private.InitializeFrame()
 	end	-- do-block
 
 	function MainPanel:UpdateTitle()
-		local current_prof = ORDERED_PROFESSIONS[self.profession]
+		local current_prof = ORDERED_PROFESSIONS[self.current_profession]
 
 		if not self.is_expanded then
 			self.title_bar:SetFormattedText(SetTextColor(private.BASIC_COLORS["normal"], "ARL (%s) - %s"), addon.version, current_prof)
@@ -439,12 +439,12 @@ function private.InitializeFrame()
 		-- and a single iteration will do nicely, thank you
 		if button == "LeftButton" then
 			-- normal profession switch
-			if MainPanel.profession == 0 then
+			if MainPanel.current_profession == 0 then
 				loop_start = 1
 				loop_end = num_professions + 1
 			else
-				loop_start = MainPanel.profession + 1
-				loop_end = MainPanel.profession
+				loop_start = MainPanel.current_profession + 1
+				loop_end = MainPanel.current_profession
 			end
 			local index = loop_start
 
@@ -460,12 +460,12 @@ function private.InitializeFrame()
 			end
 		elseif button == "RightButton" then
 			-- reverse profession switch
-			if MainPanel.profession == 0 then
+			if MainPanel.current_profession == 0 then
 				loop_start = num_professions + 1
 				loop_end = 0
 			else
-				loop_start = MainPanel.profession - 1
-				loop_end = MainPanel.profession
+				loop_start = MainPanel.current_profession - 1
+				loop_end = MainPanel.current_profession
 			end
 			local index = loop_start
 
@@ -628,7 +628,7 @@ function private.InitializeFrame()
 			end
 			search_pattern = search_pattern:lower()
 
-			for index, recipe in pairs(private.profession_recipe_list[ORDERED_PROFESSIONS[MainPanel.profession]]) do
+			for index, recipe in pairs(private.profession_recipe_list[ORDERED_PROFESSIONS[MainPanel.current_profession]]) do
 				recipe:RemoveState("RELEVANT")
 
 				for search_index = 1, #SEARCH_FUNCTIONS do
@@ -843,11 +843,11 @@ function private.InitializeFrame()
 
 	expand_button:SetScript("OnClick", function(self, mouse_button, down)
 		local current_tab = MainPanel.tabs[MainPanel.current_tab]
-		local is_expanded = current_tab["expand_button_" .. MainPanel.profession]
+		local is_expanded = current_tab["expand_button_" .. MainPanel.current_profession]
 		local expand_mode
 
 		if is_expanded then
-			table.wipe(current_tab[ORDERED_PROFESSIONS[MainPanel.profession] .. " expanded"])
+			table.wipe(current_tab[ORDERED_PROFESSIONS[MainPanel.current_profession] .. " expanded"])
 		else
 			if _G.IsShiftKeyDown() then
 				expand_mode = "deep"
@@ -868,7 +868,7 @@ function private.InitializeFrame()
 	end)
 
 	function expand_button:Expand(current_tab)
-		current_tab["expand_button_"..MainPanel.profession] = true
+		current_tab["expand_button_" .. MainPanel.current_profession] = true
 
 		self:SetNormalTexture("Interface\\BUTTONS\\UI-MinusButton-Up")
 		self:SetPushedTexture("Interface\\BUTTONS\\UI-MinusButton-Down")
@@ -879,7 +879,7 @@ function private.InitializeFrame()
 	end
 
 	function expand_button:Contract(current_tab)
-		current_tab["expand_button_"..MainPanel.profession] = nil
+		current_tab["expand_button_" .. MainPanel.current_profession] = nil
 
 		self:SetNormalTexture("Interface\\Buttons\\UI-PlusButton-Up")
 		self:SetPushedTexture("Interface\\Buttons\\UI-PlusButton-Down")
