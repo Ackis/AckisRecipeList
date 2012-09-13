@@ -790,15 +790,6 @@ do
 			return
 		end
 
-		if _G.TradeSkillFrame and _G.TradeSkillFrame:IsVisible() then
-			-- Clear the search box focus so the scan will have correct results.
-			local search_box = _G.TradeSkillFrameSearchBox
-			search_box:SetText("")
-			_G.TradeSkillSearch_OnTextChanged(search_box)
-			search_box:ClearFocus()
-			search_box:GetScript("OnEditFocusLost")(search_box)
-		end
-
 		if profession_name == private.LOCALIZED_PROFESSION_NAMES.RUNEFORGING then
 			prof_level = _G.UnitLevel("player")
 		elseif profession_name == private.MINING_PROFESSION_NAME then
@@ -809,6 +800,15 @@ do
 		player:UpdateProfessions()
 
 		private.current_profession_scanlevel = prof_level
+
+		-- Clear the search box and its focus so the scan will have correct results.
+		if _G.TradeSkillFrame and _G.TradeSkillFrame:IsVisible() then
+			local search_box = _G.TradeSkillFrameSearchBox
+			search_box:ClearFocus()
+			search_box:GetScript("OnEditFocusLost")(search_box)
+			search_box:SetText("")
+			_G.TradeSkillSearch_OnTextChanged(search_box)
+		end
 
 		-- Make sure we're only updating a profession the character actually knows - this could be a scan from a tradeskill link.
 		local tradeskill_is_linked = _G.IsTradeSkillLinked() or _G.IsTradeSkillGuild()
