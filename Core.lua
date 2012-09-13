@@ -789,6 +789,7 @@ do
 			self:Print(L["OpenTradeSkillWindow"])
 			return
 		end
+		private.current_profession_specialty = nil
 
 		if profession_name == private.LOCALIZED_PROFESSION_NAMES.RUNEFORGING then
 			prof_level = _G.UnitLevel("player")
@@ -829,16 +830,18 @@ do
 				insert_index = insert_index + 1
 			end
 		end
-		local specialty = SpecialtyTable[profession_name]
+		local profession_specialties = SpecialtyTable[profession_name]
 
-		for index, book_index in ipairs(specialtices_indices) do
-			local spell_name = _G.GetSpellBookItemName(book_index, _G.BOOKTYPE_PROFESSION)
+		if profession_specialties then
+			for index, book_index in ipairs(specialtices_indices) do
+				local spell_name = _G.GetSpellBookItemName(book_index, _G.BOOKTYPE_PROFESSION)
 
-			if not spell_name then
-				private.current_profession_specialty = nil
-				break
-			elseif specialty and specialty[spell_name] then
-				private.current_profession_specialty = specialty[spell_name]
+				if not spell_name then
+					break
+				elseif profession_specialties[spell_name] then
+					private.current_profession_specialty = profession_specialties[spell_name]
+					break
+				end
 			end
 		end
 
