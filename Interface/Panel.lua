@@ -18,10 +18,10 @@ This source code is released under All Rights Reserved.
 -------------------------------------------------------------------------------
 local _G = getfenv(0)
 
-local string = _G.string
-
 local select = _G.select
 
+local math = _G.math
+local string = _G.string
 local table = _G.table
 
 local ipairs, pairs = _G.ipairs, _G.pairs
@@ -419,85 +419,65 @@ function private.InitializeFrame()
 	-------------------------------------------------------------------------------
 	-- ProfCycle scripts/functions.
 	-------------------------------------------------------------------------------
-	profession_cycler:SetScript("OnClick", function(self, button, down)
-	-- Known professions should be in Player.professions
+	do
+		local profession_registry = {}
 
-	-- This loop is gonna be weird. The reason is because we need to
-	-- ensure that we cycle through all the known professions, but also
-	-- that we do so in order. That means that if the currently displayed
-	-- profession is the last one in the list, we're actually going to
-	-- iterate completely once to get to the currently displayed profession
-	-- and then iterate again to make sure we display the next one in line.
-	-- Further, there is the nuance that the person may not know any
-	-- professions yet at all. Users are so annoying.
-		local loop_start = 0
-		local loop_end = 0
+		profession_cycler:SetScript("OnClick", function(self, button_name, down)
+			local player = private.Player
+			table.wipe(profession_registry)
 
-		local num_professions = #private.ORDERED_PROFESSIONS
-
-		-- ok, so first off, if we've never done this before, there is no "current"
-		-- and a single iteration will do nicely, thank you
-		if button == "LeftButton" then
-			-- normal profession switch
-			if MainPanel.current_profession == 0 then
-				loop_start = 1
-				loop_end = num_professions + 1
-			else
-				loop_start = MainPanel.current_profession + 1
-				loop_end = MainPanel.current_profession
-			end
-			local index = loop_start
-
-			while index ~= loop_end do
-				if index > num_professions then
-					index = 1
-				elseif private.Player.professions[ORDERED_PROFESSIONS[index]] then
-					MainPanel.profession = index
-					break
-				else
-					index = index + 1
+			for index = 1, #ORDERED_PROFESSIONS do
+				if player.professions[ORDERED_PROFESSIONS[index]] then
+					profession_registry[#profession_registry + 1] = index
 				end
 			end
-		elseif button == "RightButton" then
-			-- reverse profession switch
-			if MainPanel.current_profession == 0 then
-				loop_start = num_professions + 1
-				loop_end = 0
-			else
-				loop_start = MainPanel.current_profession - 1
-				loop_end = MainPanel.current_profession
-			end
-			local index = loop_start
+			local current_index
 
-			while index ~= loop_end do
-				if index < 1 then
-					index = num_professions
-				elseif private.Player.professions[ORDERED_PROFESSIONS[index]] then
-					MainPanel.profession = index
+			for index = 1, #profession_registry do
+				if profession_registry[index] == MainPanel.current_profession then
+					current_index = index
 					break
-				else
-					index = index - 1
 				end
 			end
-		end
-		local is_shown = addon.scan_button:GetParent():IsVisible()
-		local sfx
 
-		_G.PlaySound("igCharacterNPCSelect")
+			if button_name == "LeftButton" then
+				current_index = current_index + 1
 
-		-- If not shown, save the current sound effects setting then set it to 0.
-		if not is_shown then
-			sfx = tonumber(_G.GetCVar("Sound_EnableSFX"))
-			_G.SetCVar("Sound_EnableSFX", 0)
-		end
-		_G.CastSpellByName(ORDERED_PROFESSIONS[MainPanel.profession])
-		addon:Scan()
+				if current_index > #profession_registry then
+					current_index = 1
+				end
+			elseif button_name == "RightButton" then
+				current_index = current_index - 1
 
-		if not is_shown then
-			_G.CloseTradeSkill()
-			_G.SetCVar("Sound_EnableSFX", sfx)
-		end
-	end)
+				if current_index < 1 then
+					current_index = #profession_registry
+				end
+			end
+
+			if MainPanel.current_profession == profession_registry[current_index] then
+				return
+			end
+			MainPanel.current_profession = profession_registry[current_index]
+
+			local is_shown = addon.scan_button:GetParent():IsVisible()
+			local sfx
+
+			_G.PlaySound("igCharacterNPCSelect")
+
+			-- If not shown, save the current sound effects setting then set it to 0.
+			if not is_shown then
+				sfx = tonumber(_G.GetCVar("Sound_EnableSFX"))
+				_G.SetCVar("Sound_EnableSFX", 0)
+			end
+			_G.CastSpellByName(ORDERED_PROFESSIONS[MainPanel.current_profession])
+			addon:Scan()
+
+			if not is_shown then
+				_G.CloseTradeSkill()
+				_G.SetCVar("Sound_EnableSFX", sfx)
+			end
+		end)
+	end -- do-block
 
 	function profession_cycler:SetTexture()
 		_G.SetPortraitToTexture("ARL_ProfessionButtonPortrait", _G.GetTradeSkillTexture())
