@@ -919,7 +919,7 @@ do
 	local output = {}
 
 	function addon:ScanTooltipRecipe(spell_id, is_vendor, is_largescan)
-		local recipe_list = private.LoadAllRecipes()
+		local recipe_list = private.recipe_list
 
 		if not recipe_list then
 			self:Debug(L["DATAMINER_NODB_ERROR"])
