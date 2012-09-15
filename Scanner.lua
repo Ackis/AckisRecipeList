@@ -396,7 +396,7 @@ end
 do
 	local ORDERED_PROFESSIONS = private.ORDERED_PROFESSIONS
 
-	local recipe_list = {}
+	local intermediary_recipe_list = {}
 	local output = {}
 
 	local function Sort_AscID(a, b)
@@ -409,8 +409,8 @@ do
 		local sorted_recipes = addon.sorted_recipes
 		table.wipe(sorted_recipes)
 
-		for n, v in pairs(recipe_list) do
-			table.insert(sorted_recipes, n)
+		for spell_id in pairs(intermediary_recipe_list) do
+			table.insert(sorted_recipes, spell_id)
 		end
 		table.sort(sorted_recipes, Sort_AscID)
 	end
@@ -418,28 +418,20 @@ do
 	-------------------------------------------------------------------------------
 	--- Scans the items in the specified profession
 	-------------------------------------------------------------------------------
-	local function ProfessionScan(prof_name)
-		local master_list = private.LoadAllRecipes()
+	local function ProfessionScan(profession_name)
+		table.wipe(intermediary_recipe_list)
 
-		if not master_list then
-			addon:Debug(L["DATAMINER_NODB_ERROR"])
-			return
-		end
-		table.wipe(recipe_list)
+		local profession_recipe_list = private.profession_recipe_list[profession_name]
 
-		for i in pairs(master_list) do
-			local prof = master_list[i].profession:lower()
-
-			if prof and prof == prof_name then
-				recipe_list[i] = master_list[i]
-			end
+		for spell_id in pairs(profession_recipe_list) do
+			intermediary_recipe_list[spell_id] = profession_recipe_list[spell_id]
 		end
 		SortRecipesByID()
 		table.wipe(output)
 
 		-- Parse the entire recipe database
-		for index, id in ipairs(addon.sorted_recipes) do
-			local scanned_text = addon:ScanTooltipRecipe(id, false, true)
+		for index, spell_id in ipairs(addon.sorted_recipes) do
+			local scanned_text = addon:ScanTooltipRecipe(spell_id, false, true)
 
 			if scanned_text and scanned_text ~= "" then
 				table.insert(output, scanned_text)
@@ -453,30 +445,36 @@ do
 		ARLDatamineTT:Hide()
 	end
 
+	local function ScheduleProfessionScan(profession_name)
+		addon:InitializeProfession(profession_name)
+		addon:ScheduleTimer(ProfessionScan, 0.1, profession_name)
+	end
+
 	--- Parses all recipes for a specified profession, scanning their tool tips.
 	-- @name AckisRecipeList:ScanProfession
 	-- @usage AckisRecipeList:ScanProfession("first aid")
 	-- @param prof_name The profession name or the spell ID of it, which you wish to scan.
 	-- @return Recipes in the given profession have their tooltips scanned.
-	function addon:ScanProfession(prof_name)
-		if type(prof_name) == "number" then
-			prof_name = _G.GetSpellInfo(prof_name)
+	function addon:ScanProfession(input_text)
+		if type(input_text) == "number" then
+			input_text = _G.GetSpellInfo(input_text)
 		end
-		prof_name = prof_name:lower()
+		input_text = input_text:lower()
 
-		if prof_name == "all" then
-			for idx, name in ipairs(ORDERED_PROFESSIONS) do
-				ProfessionScan(name:lower())
+		if input_text == "all" then
+			for index, profession_name in ipairs(ORDERED_PROFESSIONS) do
+				ScheduleProfessionScan(profession_name)
 			end
-		else
-			for idx, name in ipairs(ORDERED_PROFESSIONS) do
-				if prof_name == name:lower() then
-					ProfessionScan(prof_name)
-					return
-				end
-			end
-			self:Debug(L["DATAMINER_NODB_ERROR"])
+			return
 		end
+
+		for index, profession_name in ipairs(ORDERED_PROFESSIONS) do
+			if input_text == profession_name:lower() then
+				ScheduleProfessionScan(profession_name)
+				return
+			end
+		end
+		self:Debug(L["DATAMINER_NODB_ERROR"])
 	end
 
 	local function RecipeDump(id, single)
@@ -492,27 +490,20 @@ do
 	-------------------------------------------------------------------------------
 	--- Dumps the items in the specified profession
 	-------------------------------------------------------------------------------
-	local function ProfessionDump(prof_name)
-		local master_list = private.LoadAllRecipes()
+	local function ProfessionDump(profession_name)
+		addon:InitializeProfession(profession_name)
+		table.wipe(intermediary_recipe_list)
 
-		if not master_list then
-			addon:Debug(L["DATAMINE_NODB_ERROR"])
-			return
-		end
-		table.wipe(recipe_list)
+		local profession_recipe_list = private.profession_recipe_list[profession_name]
 
-		for i in pairs(master_list) do
-			local prof = master_list[i].profession:lower()
-
-			if prof and prof == prof_name then
-				recipe_list[i] = master_list[i]
-			end
+		for spell_id in pairs(profession_recipe_list) do
+			intermediary_recipe_list[spell_id] = profession_recipe_list[spell_id]
 		end
 		SortRecipesByID()
 		table.wipe(output)
 
-		for index, id in ipairs(addon.sorted_recipes) do
-			RecipeDump(id, false)
+		for index, spell_id in ipairs(addon.sorted_recipes) do
+			RecipeDump(spell_id, false)
 		end
 		addon:DisplayTextDump(nil, nil, table.concat(output, "\n"))
 	end
@@ -523,25 +514,25 @@ do
 		addon:DisplayTextDump(nil, nil, table.concat(output, "\n"))
 	end
 
-	function addon:DumpProfession(prof_name)
-		if type(prof_name) == "number" then
-			prof_name = _G.GetSpellInfo(prof_name)
+	function addon:DumpProfession(input_text)
+		if type(input_text) == "number" then
+			input_text = _G.GetSpellInfo(input_text)
 		end
-		prof_name = prof_name:lower()
+		input_text = input_text:lower()
 
-		if prof_name == "all" then
-			for idx, name in ipairs(ORDERED_PROFESSIONS) do
-				ProfessionDump(name:lower())
+		if input_text == "all" then
+			for index, profession_name in ipairs(ORDERED_PROFESSIONS) do
+				ProfessionDump(profession_name)
 			end
-		else
-			for idx, name in ipairs(ORDERED_PROFESSIONS) do
-				if prof_name == name:lower() then
-					ProfessionDump(prof_name)
-					return
-				end
-			end
-			self:Debug(L["DATAMINER_NODB_ERROR"])
 		end
+
+		for index, profession_name in ipairs(ORDERED_PROFESSIONS) do
+			if input_text == profession_name:lower() then
+				ProfessionDump(profession_name)
+				return
+			end
+		end
+		self:Debug(L["DATAMINER_NODB_ERROR"])
 	end
 
 	-------------------------------------------------------------------------------
@@ -550,21 +541,14 @@ do
 	local source_registry = {}
 	local sorted_data = {}
 
-	local function ProfessionTrainerDump(prof_name)
-		local master_list = private.LoadAllRecipes()
+	local function ProfessionTrainerDump(profession_name)
+		addon:InitializeProfession(profession_name)
+		table.wipe(intermediary_recipe_list)
 
-		if not master_list then
-			addon:Debug(L["DATAMINE_NODB_ERROR"])
-			return
-		end
-		table.wipe(recipe_list)
+		local profession_recipe_list = private.profession_recipe_list[profession_name]
 
-		for i in pairs(master_list) do
-			local prof = master_list[i].profession:lower()
-
-			if prof and prof == prof_name then
-				recipe_list[i] = master_list[i]
-			end
+		for spell_id in pairs(profession_recipe_list) do
+			intermediary_recipe_list[spell_id] = profession_recipe_list[spell_id]
 		end
 		SortRecipesByID()
 		table.wipe(output)
@@ -594,25 +578,25 @@ do
 		addon:DisplayTextDump(nil, nil, table.concat(output, "\n"))
 	end
 
-	function addon:DumpTrainers(prof_name)
-		if type(prof_name) == "number" then
-			prof_name = _G.GetSpellInfo(prof_name)
+	function addon:DumpTrainers(input_text)
+		if type(input_text) == "number" then
+			input_text = _G.GetSpellInfo(input_text)
 		end
-		prof_name = prof_name:lower()
+		input_text = input_text:lower()
 
-		if prof_name == "all" then
-			for idx, name in ipairs(ORDERED_PROFESSIONS) do
-				ProfessionTrainerDump(name:lower())
+		if input_text == "all" then
+			for index, profession_name in ipairs(ORDERED_PROFESSIONS) do
+				ProfessionTrainerDump(profession_name)
 			end
-		else
-			for idx, name in ipairs(ORDERED_PROFESSIONS) do
-				if prof_name == name:lower() then
-					ProfessionTrainerDump(prof_name)
-					return
-				end
-			end
-			self:Debug(L["DATAMINER_NODB_ERROR"])
 		end
+
+		for index, profession_name in ipairs(ORDERED_PROFESSIONS) do
+			if input_text == profession_name:lower() then
+				ProfessionTrainerDump(profession_name)
+				return
+			end
+		end
+		self:Debug(L["DATAMINER_NODB_ERROR"])
 	end
 end	-- do
 
