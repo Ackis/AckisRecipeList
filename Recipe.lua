@@ -87,6 +87,7 @@ end
 -- Recipe methods.
 -------------------------------------------------------------------------------
 function recipe_prototype:SetRecipeItemID(item_id)
+	local item_name, item_link, item_quality = _G.GetItemInfo(item_id) -- Do this now to get the item into the cache.
 	self.recipe_item_id = item_id
 end
 
@@ -95,6 +96,7 @@ function recipe_prototype:RecipeItemID()
 end
 
 function recipe_prototype:SetCraftedItemID(item_id)
+	local item_name, item_link, item_quality = _G.GetItemInfo(item_id) -- Do this now to get the item into the cache.
 	self.crafted_item_id = item_id
 end
 
