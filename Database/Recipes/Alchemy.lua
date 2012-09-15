@@ -2455,6 +2455,7 @@ function addon:InitAlchemy()
 
 	-- Vial of the Sands -- 93328
 	recipe = AddRecipe(93328, V.CATA, Q.EPIC)
+	recipe:SetRecipeItemID(67538)
 	recipe:SetCraftedItemID(65891)
 	recipe:SetSkillLevels(525, 525, 525, 530, 535)
 	recipe:SetItemFilterType("ALCHEMY_MISC")
