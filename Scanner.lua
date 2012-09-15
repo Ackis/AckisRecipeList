@@ -759,8 +759,6 @@ do
 
 				if recipe_item_id then
 					RECIPE_ITEM_TO_SPELL_MAP[recipe_item_id] = spell_id
-				elseif recipe:HasFilter("common1", "VENDOR") or recipe:HasFilter("common1", "INSTANCE") or recipe:HasFilter("common1", "RAID") or recipe:HasFilter("common1", "MOB_DROP") or recipe:HasFilter("common1", "WORLD_DROP") then
-					self:Debug("Recipe %d (%s) is missing a recipe item ID.", spell_id, recipe.name)
 				end
 			end
 		end
