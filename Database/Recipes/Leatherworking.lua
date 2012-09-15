@@ -2255,7 +2255,7 @@ function addon:InitLeatherworking()
 	recipe:SetCraftedItemID(25685)
 	recipe:SetSkillLevels(340, 340, 350, 360, 370)
 	recipe:SetItemFilterType("LEATHERWORKING_HANDS")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.RBOP, F.DPS, F.TANK, F.HEALER, F.CASTER, F.REPUTATION, F.CONSORTIUM)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.TANK, F.HEALER, F.CASTER, F.REPUTATION, F.CONSORTIUM)
 	recipe:AddRepVendor(FAC.CONSORTIUM, REP.FRIENDLY, 20242, 23007)
 
 	-- Fel Leather Boots -- 32493
@@ -2264,7 +2264,7 @@ function addon:InitLeatherworking()
 	recipe:SetCraftedItemID(25686)
 	recipe:SetSkillLevels(350, 350, 360, 370, 380)
 	recipe:SetItemFilterType("LEATHERWORKING_FEET")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.RBOP, F.DPS, F.TANK, F.HEALER, F.CASTER, F.REPUTATION, F.CONSORTIUM)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.TANK, F.HEALER, F.CASTER, F.REPUTATION, F.CONSORTIUM)
 	recipe:AddRepVendor(FAC.CONSORTIUM, REP.HONORED, 20242, 23007)
 
 	-- Fel Leather Leggings -- 32494
@@ -2273,7 +2273,7 @@ function addon:InitLeatherworking()
 	recipe:SetCraftedItemID(25687)
 	recipe:SetSkillLevels(350, 350, 360, 370, 380)
 	recipe:SetItemFilterType("LEATHERWORKING_LEGS")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.RBOP, F.DPS, F.TANK, F.HEALER, F.CASTER, F.REPUTATION, F.CONSORTIUM)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.TANK, F.HEALER, F.CASTER, F.REPUTATION, F.CONSORTIUM)
 	recipe:AddRepVendor(FAC.CONSORTIUM, REP.REVERED, 20242, 23007)
 
 	-- Heavy Clefthoof Vest -- 32495
@@ -2282,7 +2282,7 @@ function addon:InitLeatherworking()
 	recipe:SetCraftedItemID(25689)
 	recipe:SetSkillLevels(360, 360, 370, 380, 390)
 	recipe:SetItemFilterType("LEATHERWORKING_CHEST")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.RBOP, F.DPS, F.TANK, F.REPUTATION, F.CENARION_EXPEDITION)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.TANK, F.REPUTATION, F.CENARION_EXPEDITION)
 	recipe:AddRepVendor(FAC.CENARION_EXPEDITION, REP.HONORED, 17904)
 
 	-- Heavy Clefthoof Leggings -- 32496
@@ -2291,7 +2291,7 @@ function addon:InitLeatherworking()
 	recipe:SetCraftedItemID(25690)
 	recipe:SetSkillLevels(355, 355, 365, 375, 385)
 	recipe:SetItemFilterType("LEATHERWORKING_LEGS")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.RBOP, F.DPS, F.TANK, F.REPUTATION, F.CENARION_EXPEDITION)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.TANK, F.REPUTATION, F.CENARION_EXPEDITION)
 	recipe:AddRepVendor(FAC.CENARION_EXPEDITION, REP.HONORED, 17904)
 
 	-- Heavy Clefthoof Boots -- 32497
@@ -2300,7 +2300,7 @@ function addon:InitLeatherworking()
 	recipe:SetCraftedItemID(25691)
 	recipe:SetSkillLevels(355, 355, 365, 375, 385)
 	recipe:SetItemFilterType("LEATHERWORKING_FEET")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.RBOP, F.DPS, F.TANK, F.REPUTATION, F.CENARION_EXPEDITION)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.TANK, F.REPUTATION, F.CENARION_EXPEDITION)
 	recipe:AddRepVendor(FAC.CENARION_EXPEDITION, REP.FRIENDLY, 17904)
 
 	-- Felstalker Belt -- 32498
@@ -2309,7 +2309,7 @@ function addon:InitLeatherworking()
 	recipe:SetCraftedItemID(25695)
 	recipe:SetSkillLevels(350, 350, 360, 370, 380)
 	recipe:SetItemFilterType("LEATHERWORKING_WAIST")
-	recipe:AddFilters(F.ALLIANCE, F.IBOE, F.RBOP, F.DPS, F.HEALER, F.CASTER, F.REPUTATION, F.HELLFIRE)
+	recipe:AddFilters(F.ALLIANCE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.HEALER, F.CASTER, F.REPUTATION, F.HELLFIRE)
 	recipe:AddRepVendor(FAC.HONOR_HOLD, REP.FRIENDLY, 17657)
 	recipe:AddRepVendor(FAC.THRALLMAR, REP.FRIENDLY, 17585)
 
@@ -2319,7 +2319,7 @@ function addon:InitLeatherworking()
 	recipe:SetCraftedItemID(25697)
 	recipe:SetSkillLevels(360, 360, 370, 380, 390)
 	recipe:SetItemFilterType("LEATHERWORKING_WRIST")
-	recipe:AddFilters(F.ALLIANCE, F.IBOE, F.RBOP, F.DPS, F.HEALER, F.CASTER, F.REPUTATION, F.HELLFIRE)
+	recipe:AddFilters(F.ALLIANCE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.HEALER, F.CASTER, F.REPUTATION, F.HELLFIRE)
 	recipe:AddRepVendor(FAC.HONOR_HOLD, REP.HONORED, 17657)
 	recipe:AddRepVendor(FAC.THRALLMAR, REP.HONORED, 17585)
 
@@ -2329,7 +2329,7 @@ function addon:InitLeatherworking()
 	recipe:SetCraftedItemID(25696)
 	recipe:SetSkillLevels(360, 360, 370, 380, 390)
 	recipe:SetItemFilterType("LEATHERWORKING_CHEST")
-	recipe:AddFilters(F.ALLIANCE, F.IBOE, F.RBOP, F.DPS, F.HEALER, F.CASTER, F.REPUTATION, F.HELLFIRE)
+	recipe:AddFilters(F.ALLIANCE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.HEALER, F.CASTER, F.REPUTATION, F.HELLFIRE)
 	recipe:AddRepVendor(FAC.HONOR_HOLD, REP.HONORED, 17657)
 	recipe:AddRepVendor(FAC.THRALLMAR, REP.HONORED, 17585)
 
@@ -2524,21 +2524,21 @@ function addon:InitLeatherworking()
 
 	-- Cobrahide Leg Armor -- 35549
 	recipe = AddRecipe(35549, V.TBC, Q.COMMON)
-	recipe:SetRecipeItemID(31361)
+	recipe:SetRecipeItemID(29719)
 	recipe:SetCraftedItemID(29533)
 	recipe:SetSkillLevels(335, 335, 335, 345, 355)
 	recipe:SetItemFilterType("LEATHERWORKING_ITEM_ENHANCEMENT")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.RBOP, F.DPS, F.HEALER, F.CASTER, F.REPUTATION, F.HELLFIRE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.HEALER, F.CASTER, F.REPUTATION, F.HELLFIRE)
 	recipe:AddRepVendor(FAC.HONOR_HOLD, REP.HONORED, 17657)
 	recipe:AddRepVendor(FAC.THRALLMAR, REP.HONORED, 17585)
 
 	-- Nethercobra Leg Armor -- 35554
 	recipe = AddRecipe(35554, V.TBC, Q.COMMON)
-	recipe:SetRecipeItemID(31362)
+	recipe:SetRecipeItemID(29722)
 	recipe:SetCraftedItemID(29535)
 	recipe:SetSkillLevels(365, 365, 365, 375, 385)
 	recipe:SetItemFilterType("LEATHERWORKING_ITEM_ENHANCEMENT")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.RBOP, F.DPS, F.HEALER, F.CASTER, F.REPUTATION, F.HELLFIRE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.HEALER, F.CASTER, F.REPUTATION, F.HELLFIRE)
 	recipe:AddRepVendor(FAC.HONOR_HOLD, REP.EXALTED, 17657)
 	recipe:AddRepVendor(FAC.THRALLMAR, REP.EXALTED, 17585)
 
@@ -2548,7 +2548,7 @@ function addon:InitLeatherworking()
 	recipe:SetCraftedItemID(29534)
 	recipe:SetSkillLevels(335, 335, 335, 345, 355)
 	recipe:SetItemFilterType("LEATHERWORKING_ITEM_ENHANCEMENT")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.RBOP, F.DPS, F.REPUTATION, F.CENARION_EXPEDITION)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.REPUTATION, F.CENARION_EXPEDITION)
 	recipe:AddRepVendor(FAC.CENARION_EXPEDITION, REP.HONORED, 17904)
 
 	-- Nethercleft Leg Armor -- 35557
@@ -2557,7 +2557,7 @@ function addon:InitLeatherworking()
 	recipe:SetCraftedItemID(29536)
 	recipe:SetSkillLevels(365, 365, 365, 375, 385)
 	recipe:SetItemFilterType("LEATHERWORKING_ITEM_ENHANCEMENT")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.RBOP, F.DPS, F.REPUTATION, F.CENARION_EXPEDITION)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.REPUTATION, F.CENARION_EXPEDITION)
 	recipe:AddRepVendor(FAC.CENARION_EXPEDITION, REP.EXALTED, 17904)
 
 	-- Cobrascale Hood -- 35558
@@ -4322,7 +4322,7 @@ function addon:InitLeatherworking()
 	recipe:SetCraftedItemID(47599)
 	recipe:SetSkillLevels(450, 450, 460, 467, 475)
 	recipe:SetRequiredFaction("Alliance")
-	recipe:AddFilters(F.ALLIANCE, F.RAID)
+	recipe:AddFilters(F.ALLIANCE, F.RAID, F.IBOE, F.RBOE, F.DPS, F.HEALER, F.CASTER)
 	recipe:AddCustom("TOC25_RANDOM")
 
 	-- Bracers of Swift Death -- 67087
@@ -5171,7 +5171,7 @@ function addon:InitLeatherworking()
 	recipe:SetSkillLevels(500, 500, 510, 512, 515)
 	recipe:SetItemFilterType("LEATHERWORKING_BACK")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(3365, 5127, 26911, 26998, 28700, 29507, 29508, 29509)
+	recipe:AddTrainer(3365, 5127, 26911, 26998, 28700, 29507, 29508, 29509, 33612, 33635)
 
 	-- Vicious Fur Cloak -- 99536
 	recipe = AddRecipe(99536, V.CATA, Q.COMMON)
@@ -5179,7 +5179,7 @@ function addon:InitLeatherworking()
 	recipe:SetSkillLevels(500, 500, 510, 512, 515)
 	recipe:SetItemFilterType("LEATHERWORKING_BACK")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(3365, 5127, 26911, 26998, 28700, 29507, 29508, 29509)
+	recipe:AddTrainer(3365, 5127, 26911, 26998, 28700, 29507, 29508, 29509, 33612, 33635)
 
 	-- Royal Scribe's Satchel -- 100583
 	recipe = AddRecipe(100583, V.CATA, Q.RARE)
