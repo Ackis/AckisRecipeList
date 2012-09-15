@@ -1022,7 +1022,7 @@ do
 		elseif not recipe:HasFilter("common1", "RETIRED") then
 			-- We are dealing with a recipe that does not have an item to learn it from.
 			-- Lets check the recipe flags to see if we have a data error and the item should exist
-			if recipe:HasFilter("common1", "VENDOR") or recipe:HasFilter("common1", "INSTANCE") or recipe:HasFilter("common1", "RAID") then
+			if recipe:HasFilter("common1", "VENDOR") or recipe:HasFilter("common1", "INSTANCE") or recipe:HasFilter("common1", "RAID") or recipe:HasFilter("common1", "MOB_DROP") or recipe:HasFilter("common1", "WORLD_DROP") then
 				table.insert(output, ("Recipe %d (%s) is missing a recipe item ID."):format(spell_id, recipe.name))
 			elseif recipe:HasFilter("common1", "TRAINER") and recipe.quality ~= private.ITEM_QUALITIES["COMMON"] then
 				table.insert(output, ("%s: %d"):format(recipe.name, spell_id))
