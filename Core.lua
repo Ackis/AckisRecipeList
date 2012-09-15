@@ -662,18 +662,37 @@ end
 -------------------------------------------------------------------------------
 -- ARL Logic Functions
 -------------------------------------------------------------------------------
-function addon:InitializeProfession(profession)
-	if not profession then
-		addon:Debug("nil profession passed to InitializeProfession()")
-		return
-	end
-	local func = PROFESSION_INIT_FUNCS[profession]
+do
+	local function InitializeLookups()
+		addon:InitCustom()
+		addon:InitDiscovery()
+		addon:InitMob()
+		addon:InitQuest()
+		addon:InitReputation()
+		addon:InitTrainer()
+		addon:InitSeasons()
+		addon:InitVendor()
 
-	if func then
-		func(addon)
-		PROFESSION_INIT_FUNCS[profession] = nil
+		InitializeLookups = nil
 	end
-end
+
+	function addon:InitializeProfession(profession)
+		if not profession then
+			addon:Debug("nil profession passed to InitializeProfession()")
+			return
+		end
+
+		if InitializeLookups then
+			InitializeLookups()
+		end
+		local func = PROFESSION_INIT_FUNCS[profession]
+
+		if func then
+			func(addon)
+			PROFESSION_INIT_FUNCS[profession] = nil
+		end
+	end
+end -- do-block
 
 do
 	-- Code snippet stolen from GearGuage by Torhal and butchered by Ackis
@@ -740,22 +759,6 @@ do
 			LibStub("AceConfigCmd-3.0"):HandleCommand("arl", "Ackis Recipe List", arg1)
 		end
 	end
-end
-
---- Public API function to initialize all of the lookup lists - self-nils once run.
--- @name AckisRecipeList:InitializeLookups()
--- @usage if AckisRecipeList.InitializeLookups then AckisRecipeList:InitializeLookups() end
-function addon:InitializeLookups()
-	self:InitCustom()
-	self:InitDiscovery()
-	self:InitMob()
-	self:InitQuest()
-	self:InitReputation()
-	self:InitTrainer()
-	self:InitSeasons()
-	self:InitVendor()
-
-	self.InitializeLookups = nil
 end
 
 -------------------------------------------------------------------------------
@@ -843,10 +846,6 @@ do
 					break
 				end
 			end
-		end
-
-		if self.InitializeLookups then
-			self:InitializeLookups()
 		end
 		addon:InitializeProfession(profession_name)
 

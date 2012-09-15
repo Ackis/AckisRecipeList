@@ -59,11 +59,6 @@ function private.LoadAllRecipes()
 	local recipe_list = private.recipe_list
 
 	if addon.db.profile.autoloaddb then
-		-- Make sure the lookup lists are loaded as well, since they are no longer automatically loaded in addon:OnEnable().
-		if addon.InitializeLookups then
-			addon:InitializeLookups()
-		end
-
 		for identifier, name in pairs(private.LOCALIZED_PROFESSION_NAMES) do
 			addon:InitializeProfession(name)
 		end
