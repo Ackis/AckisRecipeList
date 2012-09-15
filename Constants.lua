@@ -149,6 +149,12 @@ for index = 1, #private.GAME_VERSION_NAMES do
 	private.GAME_VERSIONS[private.GAME_VERSION_NAMES[index]] = index
 end
 
+private.EXPANSION_FILTERS = {}
+
+for index = 1, #private.GAME_VERSION_NAMES do
+	private.EXPANSION_FILTERS[index] = ("expansion%d"):format(index - 1)
+end
+
 -------------------------------------------------------------------------------
 -- Common filter bitfield word 1.
 -------------------------------------------------------------------------------

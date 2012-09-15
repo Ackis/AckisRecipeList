@@ -505,13 +505,6 @@ function private.InitializeListFrame()
 		local obtain_filters	= filter_db.obtain
 		local general_filters	= filter_db.general
 
-		local V = private.GAME_VERSIONS
-		local EXPANSION_FILTERS = {
-			[V.ORIG]	= "expansion0",
-			[V.TBC]		= "expansion1",
-			[V.WOTLK]	= "expansion2",
-			[V.CATA]	= "expansion3",
-		}
 
 		local Q = private.ITEM_QUALITIES
 		local QUALITY_FILTERS = {
@@ -667,7 +660,7 @@ function private.InitializeListFrame()
 			end
 
 			-- Expansion filters.
-			if not obtain_filters[EXPANSION_FILTERS[private.GAME_VERSIONS[recipe.genesis]]] then
+			if not obtain_filters[private.EXPANSION_FILTERS[private.GAME_VERSIONS[recipe.genesis]]] then
 				return false
 			end
 
