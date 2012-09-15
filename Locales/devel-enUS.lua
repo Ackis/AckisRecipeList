@@ -1291,3 +1291,4 @@ L["Zorbin Fandazzle"] = true
 L["Zula Slagfury"] = true
 L["Zurai"] = true
 L["Zurii"] = true
+L["DISCOVERY_ALCH_PANDARIA"] = "Discovered randomly by creating any Mists of Pandaria recipe."

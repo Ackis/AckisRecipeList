@@ -46,3 +46,7 @@ function private:InitializeAlchemyTrainers()
 
 	self.InitializeAlchemyTrainers = nil
 end
+
+--[[ ADD WHEN MOP IS RELEASED
+self:AddTrainer(65186, "Poisoncrafter Kil'zit", "Dread Wastes", 55.6, 32.3, "Neutral")
+-----]]
