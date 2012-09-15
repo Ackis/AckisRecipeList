@@ -676,10 +676,11 @@ do
 		InitializeLookups = nil
 	end
 
+	-- Returns true if a profession was initialized.
 	function addon:InitializeProfession(profession)
 		if not profession then
 			addon:Debug("nil profession passed to InitializeProfession()")
-			return
+			return false
 		end
 
 		if InitializeLookups then
@@ -690,7 +691,9 @@ do
 		if func then
 			func(addon)
 			PROFESSION_INIT_FUNCS[profession] = nil
+			return true
 		end
+		return false
 	end
 end -- do-block
 

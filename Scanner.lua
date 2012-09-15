@@ -446,8 +446,12 @@ do
 	end
 
 	local function ScheduleProfessionScan(profession_name)
-		addon:InitializeProfession(profession_name)
-		addon:ScheduleTimer(ProfessionScan, 0.1, profession_name)
+		if addon:InitializeProfession(profession_name) then
+			addon:ScheduleTimer(ProfessionScan, 2, profession_name)
+			addon:Printf("%s had to be loaded - starting scan in 2 seconds to ensure everything is in the cache.", profession_name)
+		else
+			ProfessionScan(profession_name)
+		end
 	end
 
 	--- Parses all recipes for a specified profession, scanning their tool tips.
