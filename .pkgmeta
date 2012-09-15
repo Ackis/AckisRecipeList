@@ -45,6 +45,8 @@ externals:
   url: svn://svn.wowace.com/wow/ace3/mainline/trunk/AceGUI-3.0
  libs/AceAddon-3.0:
   url: svn://svn.wowace.com/wow/ace3/mainline/trunk/AceAddon-3.0
+ libs/AceTimer-3.0:
+  url: svn://svn.wowace.com/wow/ace3/mainline/trunk/AceTimer-3.0
  libs/LibBabble-Faction-3.0:
   url: svn://svn.wowace.com/wow/libbabble-faction-3-0/mainline/trunk
  libs/LibBabble-Boss-3.0:
@@ -80,4 +82,3 @@ ignore:
  - libs/LibStub/tests
  - libs/LibToast-1.0/LibStub
  - libs/LibSharedMedia-3.0/LibStub
- 

@@ -42,7 +42,7 @@ local table = _G.table
 local FOLDER_NAME, private = ...
 
 local LibStub = _G.LibStub
-local addon = LibStub("AceAddon-3.0"):NewAddon(private.addon_name, "AceConsole-3.0", "AceEvent-3.0")
+local addon = LibStub("AceAddon-3.0"):NewAddon(private.addon_name, "AceConsole-3.0", "AceEvent-3.0", "AceTimer-3.0")
 _G.AckisRecipeList = addon
 
 --@alpha@
