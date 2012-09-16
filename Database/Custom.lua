@@ -69,6 +69,7 @@ function addon:InitCustom()
 	AddCustom("FIRELANDS_RANDOM", Z.FIRELANDS)
 	AddCustom("DRAGONSOUL_RANDOM", Z.DRAGON_SOUL)
 	AddCustom("PREREQ")
+	AddCustom("BLACK_MARKET_AUCTION_HOUSE")
 
 	self.InitCustom = nil
 end

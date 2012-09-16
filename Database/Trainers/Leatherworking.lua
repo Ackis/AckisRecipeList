@@ -49,3 +49,7 @@ function private:InitializeLeatherworkingTrainers()
 
 	self.InitializeLeatherworkingTrainers = nil
 end
+
+--[[ ADD WITH MOP
+	self:AddTrainer(65121, "Clean Pelt", "Kun-Lai Summit", 64.6, 60.9, "Neutral")
+---- ]]--

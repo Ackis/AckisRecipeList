@@ -1292,3 +1292,4 @@ L["Zula Slagfury"] = true
 L["Zurai"] = true
 L["Zurii"] = true
 L["DISCOVERY_ALCH_PANDARIA"] = "Discovered randomly by creating any Mists of Pandaria recipe."
+L["BLACK_MARKET_AUCTION_HOUSE"] = "Sold only by Madam Goya in the Black Market Auction House. Not guaranteed to be selling at any point."

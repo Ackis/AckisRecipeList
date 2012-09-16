@@ -73,5 +73,8 @@ function addon:InitReputation()
 	AddReputation(1119, "The Sons of Hodir")
 	AddReputation(1156, "The Ashen Verdict")
 
+--[[ ADD WITH MOP
+	AddReputation(1269, "Golden Lotus")
+--]]
 	self.InitReputation = nil
 end
