@@ -41,12 +41,9 @@ function private:AddTrainer(id_num, trainer_name, zone_name, coord_x, coord_y, f
 end
 
 function addon:InitTrainer()
-
-	private:AddTrainer(47384, "Lien Farner", Z.ELWYNN_FOREST, 41.95, 67.16, "Alliance") -- COMPLETELY UPDATED
 	private:AddTrainer(47396, "Wembil Taskwidget", Z.DUN_MOROGH, 53.8, 52.0, "Alliance") -- COMPLETELY UPDATED
 	private:AddTrainer(47418, "Runda", Z.DUROTAR, 52.8, 42.0, "Horde") -- COMPLETELY UPDATED
-	private:AddTrainer(47420, "Iranis Shadebloom", Z.TELDRASSIL, 56.0, 52.2, "Alliance") -- COMPLETELY UPDATED
-	private:AddTrainer(47431, "Valn", Z.AZUREMYST_ISLE, 48.7, 52.4, "Alliance") -- COMPLETELY UPDATED
+	private:AddTrainer(47384, "Lien Farner", Z.ELWYNN_FOREST, 41.95, 67.16, "Alliance") -- COMPLETELY UPDATED
 	
 	self.InitTrainer = nil
 end

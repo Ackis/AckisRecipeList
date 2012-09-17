@@ -596,6 +596,21 @@ function private.InitializeListFrame()
 			[REP2.RAMKAHEN]			= "ramkahen",
 			[REP2.EARTHEN_RING]		= "earthenring",
 			[REP2.THERAZANE]		= "therazane",
+			[REP2.FORESTHOZEN]		= "foresthozen",
+			[REP2.GOLDENLOTUS]		= "goldenlotus",
+			[REP2.HUOJINPANDAREN]		= "huojinpandaren",
+			[REP2.CLOUDSERPENT]		= "cloudserpent",
+			[REP2.PEARLFINJINYU]		= "pearlfinjinyu",
+			[REP2.SHADOPAN]			= "shadopan",
+			[REP2.ANGLERS]			= "anglers",
+			[REP2.AUGUSTCELESTIALS]		= "augustcelestials",
+			[REP2.BREWMASTERS]		= "brewmasters",
+			[REP2.KLAXXI]			= "klaxxi",
+			[REP2.LOREWALKERS]		= "lorewalkers",
+			[REP2.TILLERS]			= "tillers",
+			[REP2.TUSHUIPANDAREN]		= "tushuipandaren",
+			[REP2.BLACKPRINCE]		= "blackprince",
+			[REP2.SHANGXIACADEMY]		= "shangxiacademy",
 		}
 
 		local CLASS1 = private.CLASS_FLAGS_WORD1
