@@ -1133,6 +1133,21 @@ function private.InitializeFilterPanel()
 --			tushuipandaren		= { tt = ReputationDesc(BFAC["Tushui Pandaren"]),		text = BFAC["Tushui Pandaren"],				row = 14,	col = 1 },
 --			blackprince		= { tt = ReputationDesc(BFAC["The Black Prince"]),		text = BFAC["The Black Prince"],			row = 15,	col = 1 },
 --			shangxiacademy		= { tt = ReputationDesc(BFAC["Shang Xi's Academy"]),		text = BFAC["Shang Xi's Academy"],			row = 16,	col = 1 },
+			foresthozen		= { tt = ReputationDesc("Forest Hozen"),			text = "Forest Hozen",				row = 2,	col = 1 },
+			goldenlotus		= { tt = ReputationDesc("Golden Lotus"),			text = "Golden Lotus",				row = 3,	col = 1 },
+			huojinpandaren		= { tt = ReputationDesc("Huojin Pandaren"),		text = "Huojin Pandaren",				row = 4,	col = 1 },
+			cloudserpent		= { tt = ReputationDesc("Order of the Cloud Serpent"),	text = "Order of the Cloud Serpent",		row = 5,	col = 1 },
+			pearlfinjinyu		= { tt = ReputationDesc("Pearlfin Jinyu"),		text = "Pearlfin Jinyu",				row = 6,	col = 1 },
+			shadopan		= { tt = ReputationDesc("Shado-Pan"),			text = "Shado-Pan",				row = 7,	col = 1 },
+			anglers			= { tt = ReputationDesc("The Anglers"),			text = "The Anglers",				row = 8,	col = 1 },
+			augustcelestials	= { tt = ReputationDesc("The August Celestials"),		text = "The August Celestials",			row = 9,	col = 1 },
+			brewmasters		= { tt = ReputationDesc("The Brewmasters"),		text = "The Brewmasters",				row = 10,	col = 1 },
+			klaxxi			= { tt = ReputationDesc("The Klaxxi"),			text = "The Klaxxi",				row = 11,	col = 1 },
+			lorewalkers		= { tt = ReputationDesc("The Lorewalkers"),		text = "The Lorewalkers",				row = 12,	col = 1 },
+			tillers			= { tt = ReputationDesc("The Tillers"),			text = "The Tillers",				row = 13,	col = 1 },
+			tushuipandaren		= { tt = ReputationDesc("Tushui Pandaren"),		text = "Tushui Pandaren",				row = 14,	col = 1 },
+			blackprince		= { tt = ReputationDesc("The Black Prince"),		text = "The Black Prince",			row = 15,	col = 1 },
+			shangxiacademy		= { tt = ReputationDesc("Shang Xi's Academy"),		text = "Shang Xi's Academy",			row = 16,	col = 1 },
 		}
 		private.GenerateCheckBoxes(expansion4_frame, expansion4_buttons)
 
