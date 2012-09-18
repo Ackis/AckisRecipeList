@@ -8,6 +8,7 @@ local Z = private.ZONE_NAMES
 -- What we _really_ came here to see...
 -----------------------------------------------------------------------
 function private:InitializeAlchemyTrainers()
+
 	self:AddTrainer(1215, "Alchemist Mallory", Z.ELWYNN_FOREST, 39.8, 48.3, "Alliance")
 	self:AddTrainer(1246, "Vosur Brakthel", Z.IRONFORGE, 66.5, 55.2, "Alliance")
 	self:AddTrainer(1386, "Rogvar", Z.SWAMP_OF_SORROWS, 50, 56.2, "Horde") -- COMPLETELY UPDATED
@@ -44,7 +45,7 @@ function private:InitializeAlchemyTrainers()
 	self:AddTrainer(33608, 51304, Z.SHATTRATH_CITY, 44.3, 90.4, "Neutral")
 	self:AddTrainer(33630, "Aelthin", Z.SHATTRATH_CITY, 38.6, 70.8, "Neutral")
 	self:AddTrainer(33674, "Alchemist Kanhu", Z.SHATTRATH_CITY, 38.6, 30, "Neutral")
-	self:AddTrainer(56777, "Ni Gentlepaw", Z.THE_JADE_FOREST, 46.6, 46, "Neutral")
+	self:AddTrainer(56777, "Ni Gentlepaw", Z.THE_JADE_FOREST, 46.6, 46, "Neutral") -- COMPLETELY UPDATED
 	self:AddTrainer(65186, "Poisoncrafter Kil'zit", Z.DREAD_WASTES, 55.6, 32.3, "Neutral")
 
 	self.InitializeAlchemyTrainers = nil

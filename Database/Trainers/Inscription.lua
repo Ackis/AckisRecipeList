@@ -8,6 +8,7 @@ local Z = private.ZONE_NAMES
 -- What we _really_ came here to see...
 -----------------------------------------------------------------------
 function private:InitializeInscriptionTrainers()
+
 	self:AddTrainer(26916, "Mindri Dinkles", Z.HOWLING_FJORD, 58.6, 62.8, "Alliance")
 	self:AddTrainer(26959, "Booker Kells", Z.HOWLING_FJORD, 79.4, 29.3, "Horde")
 	self:AddTrainer(26977, "Adelene Sunlance", Z.BOREAN_TUNDRA, 41.2, 53.9, "Horde")
