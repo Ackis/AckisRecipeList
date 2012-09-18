@@ -4978,13 +4978,22 @@ function addon:InitBlacksmithing()
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOE, F.DPS, F.TANK)
 	recipe:AddCustom("DRAGONSOUL_RANDOM")
 
+--[[------------------------------------------------------------------------------------------------------------------
+-- ADD WHEN MOP IS RELEASED
+
 	-- Socket Bracer -- 113263
 	recipe = AddRecipe(113263, V.MOP, Q.COMMON)
-	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+	recipe:SetSkillLevels(550, 550, 550, 550, 550)
+	recipe:SetItemFilterType("BLACKSMITHING_ITEM_ENHANCEMENT")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	recipe:AddTrainer(2998, 3174, 3355, 5511, 7230, 7231, 11177, 11178, 20124, 20125, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 33609, 33631, 37072, 44781, 45548)
 
 	-- Socket Gloves -- 114112
 	recipe = AddRecipe(114112, V.MOP, Q.COMMON)
-	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+	recipe:SetSkillLevels(550, 550, 550, 550, 550)
+	recipe:SetItemFilterType("BLACKSMITHING_ITEM_ENHANCEMENT")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	recipe:AddTrainer(2998, 3174, 3355, 5511, 7230, 7231, 11177, 11178, 20124, 20125, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 33609, 33631, 37072, 44781, 45548)
 
 	-- Spiritguard Helm -- 122568
 	recipe = AddRecipe(122568, V.MOP, Q.COMMON)
@@ -5337,25 +5346,11 @@ function addon:InitBlacksmithing()
 	-- Living Steel Weapon Chain -- 131929
 	recipe = AddRecipe(131929, V.MOP, Q.COMMON)
 	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+-----------------------------------------------------------------------------------------------------------------------------------------]]
 
 	self.InitBlacksmithing = nil
 end
 
 
---[[------------------------------------------------------------------------------------------------------------------
--- ADD WHEN MOP IS RELEASED
 
-	-- Socket Bracer -- 113263
-	recipe = AddRecipe(113263, V.MOP, Q.COMMON)
-	recipe:SetSkillLevels(550, 550, 550, 550, 550)
-	recipe:SetItemFilterType("BLACKSMITHING_ITEM_ENHANCEMENT")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(2998, 3174, 3355, 5511, 7230, 7231, 11177, 11178, 20124, 20125, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 33609, 33631, 37072, 44781, 45548)
-
-	-- Socket Gloves -- 114112
-	recipe = AddRecipe(114112, V.MOP, Q.COMMON)
-	recipe:SetSkillLevels(550, 550, 550, 550, 550)
-	recipe:SetItemFilterType("BLACKSMITHING_ITEM_ENHANCEMENT")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(2998, 3174, 3355, 5511, 7230, 7231, 11177, 11178, 20124, 20125, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 33609, 33631, 37072, 44781, 45548)
 -----------------------------------------------------------------------------------------------------------------------------------------]]

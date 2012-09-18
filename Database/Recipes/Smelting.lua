@@ -253,6 +253,9 @@ function addon:InitSmelting()
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	recipe:AddTrainer(3001, 3357, 4254, 5513, 8128, 16663, 18747, 33617, 33640, 46357, 52170)
 
+--[[----------------------------------------------------------------------------------------------------------------
+-- ADD WHEN MOP IS RELEASED
+
 	-- Smelt Ghost Iron -- 102165
 	recipe = AddRecipe(102165, V.MOP, Q.COMMON)
 	recipe:SetSkillLevels(0, 0, 0, 0, 0)
@@ -260,6 +263,8 @@ function addon:InitSmelting()
 	-- Smelt Trillium -- 102167
 	recipe = AddRecipe(102167, V.MOP, Q.COMMON)
 	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+----------------------------------------------------------------------------------------------------------------]]
 
 	self.InitSmelting = nil
 end

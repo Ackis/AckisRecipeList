@@ -912,10 +912,6 @@ function addon:InitInscription()
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.PALADIN)
 	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30709, 30713, 30715, 30716, 30717, 30721, 33603, 33615, 33638, 46716, 62327)
 
-	-- Glyph of Focused Wrath -- 57037
-	recipe = AddRecipe(57037, V.MOP, Q.COMMON)
-	recipe:SetSkillLevels(0, 0, 0, 0, 0)
-
 	-- Glyph of Shadow Walk -- 57112
 	recipe = AddRecipe(57112, V.WOTLK, Q.COMMON)
 	recipe:SetCraftedItemID(42954)
@@ -3779,74 +3775,6 @@ function addon:InitInscription()
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOE, F.PRIEST)
 	recipe:AddDiscovery("DISCOVERY_INSC_MINOR")
 
-	-- Ink of Dreams -- 111645
-	recipe = AddRecipe(111645, V.MOP, Q.COMMON)
-	recipe:SetSkillLevels(0, 0, 0, 0, 0)
-
-	-- Starlight Ink -- 111646
-	recipe = AddRecipe(111646, V.MOP, Q.COMMON)
-	recipe:SetSkillLevels(0, 0, 0, 0, 0)
-
-	-- Darkmoon Card of Mists -- 111830
-	recipe = AddRecipe(111830, V.MOP, Q.COMMON)
-	recipe:SetSkillLevels(0, 0, 0, 0, 0)
-
-	-- Inscribed Fan -- 111908
-	recipe = AddRecipe(111908, V.MOP, Q.COMMON)
-	recipe:SetSkillLevels(0, 0, 0, 0, 0)
-
-	-- Inscribed Jade Fan -- 111909
-	recipe = AddRecipe(111909, V.MOP, Q.COMMON)
-	recipe:SetSkillLevels(0, 0, 0, 0, 0)
-
-	-- Inscribed Red Fan -- 111910
-	recipe = AddRecipe(111910, V.MOP, Q.COMMON)
-	recipe:SetSkillLevels(0, 0, 0, 0, 0)
-
-	-- Rain Poppy Staff -- 111917
-	recipe = AddRecipe(111917, V.MOP, Q.COMMON)
-	recipe:SetSkillLevels(0, 0, 0, 0, 0)
-
-	-- Inscribed Crane Staff -- 111918
-	recipe = AddRecipe(111918, V.MOP, Q.COMMON)
-	recipe:SetSkillLevels(0, 0, 0, 0, 0)
-
-	-- Inscribed Serpent Staff -- 111919
-	recipe = AddRecipe(111919, V.MOP, Q.COMMON)
-	recipe:SetSkillLevels(0, 0, 0, 0, 0)
-
-	-- Ghost Iron Staff -- 111920
-	recipe = AddRecipe(111920, V.MOP, Q.COMMON)
-	recipe:SetSkillLevels(0, 0, 0, 0, 0)
-
-	-- Inscribed Tiger Staff -- 111921
-	recipe = AddRecipe(111921, V.MOP, Q.COMMON)
-	recipe:SetSkillLevels(0, 0, 0, 0, 0)
-
-	-- Runescroll of Fortitude III -- 112045
-	recipe = AddRecipe(112045, V.MOP, Q.COMMON)
-	recipe:SetSkillLevels(0, 0, 0, 0, 0)
-
-	-- Glyph of the Falling Avenger -- 112264
-	recipe = AddRecipe(112264, V.MOP, Q.COMMON)
-	recipe:SetSkillLevels(0, 0, 0, 0, 0)
-
-	-- Glyph of Righteous Retreat -- 112265
-	recipe = AddRecipe(112265, V.MOP, Q.COMMON)
-	recipe:SetSkillLevels(0, 0, 0, 0, 0)
-
-	-- Glyph of Bladed Judgment -- 112266
-	recipe = AddRecipe(112266, V.MOP, Q.COMMON)
-	recipe:SetSkillLevels(0, 0, 0, 0, 0)
-
-	-- Glyph of Crow Feast -- 112429
-	recipe = AddRecipe(112429, V.MOP, Q.COMMON)
-	recipe:SetSkillLevels(0, 0, 0, 0, 0)
-
-	-- Glyph of Burning Anger -- 112430
-	recipe = AddRecipe(112430, V.MOP, Q.COMMON)
-	recipe:SetSkillLevels(0, 0, 0, 0, 0)
-
 	-- Glyph of Crackling Jade Lightning -- 112437
 	recipe = AddRecipe(112437, V.MOP, Q.COMMON)
 	recipe:SetCraftedItemID(87880)
@@ -3927,14 +3855,6 @@ function addon:InitInscription()
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30709, 30710, 30711, 30713, 30715, 30716, 30717, 30721, 30722, 33603, 33615, 33638, 33679, 46716, 62327)
 
-	-- Glyph of Zen Flight -- 112460
-	recipe = AddRecipe(112460, V.MOP, Q.COMMON)
-	recipe:SetSkillLevels(0, 0, 0, 0, 0)
-
-	-- Glyph of Water Roll -- 112461
-	recipe = AddRecipe(112461, V.MOP, Q.COMMON)
-	recipe:SetSkillLevels(0, 0, 0, 0, 0)
-
 	-- Glyph of Crackling Tiger Lightning -- 112462
 	recipe = AddRecipe(112462, V.MOP, Q.COMMON)
 	recipe:SetCraftedItemID(87881)
@@ -3951,22 +3871,6 @@ function addon:InitInscription()
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30709, 30710, 30711, 30713, 30715, 30716, 30717, 30721, 30722, 33603, 33615, 33638, 33679, 46716, 62327)
 
-	-- Glyph of Honor -- 112464
-	recipe = AddRecipe(112464, V.MOP, Q.COMMON)
-	recipe:SetSkillLevels(0, 0, 0, 0, 0)
-
-	-- Glyph of Jab -- 112465
-	recipe = AddRecipe(112465, V.MOP, Q.COMMON)
-	recipe:SetSkillLevels(0, 0, 0, 0, 0)
-
-	-- Glyph of Rising Tiger Kick -- 112466
-	recipe = AddRecipe(112466, V.MOP, Q.COMMON)
-	recipe:SetSkillLevels(0, 0, 0, 0, 0)
-
-	-- Glyph of Spirit Roll -- 112468
-	recipe = AddRecipe(112468, V.MOP, Q.COMMON)
-	recipe:SetSkillLevels(0, 0, 0, 0, 0)
-
 	-- Glyph of Fighting Pose -- 112469
 	recipe = AddRecipe(112469, V.MOP, Q.COMMON)
 	recipe:SetCraftedItemID(87888)
@@ -3974,30 +3878,6 @@ function addon:InitInscription()
 	recipe:SetItemFilterType("INSCRIPTION_MINOR_GLYPH")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30709, 30710, 30711, 30713, 30715, 30716, 30717, 30721, 30722, 33603, 33615, 33638, 33679, 46716, 62327)
-
-	-- Tome of the Clear Mind -- 112883
-	recipe = AddRecipe(112883, V.MOP, Q.COMMON)
-	recipe:SetSkillLevels(0, 0, 0, 0, 0)
-
-	-- Scroll of Wisdom -- 112996
-	recipe = AddRecipe(112996, V.MOP, Q.COMMON)
-	recipe:SetSkillLevels(0, 0, 0, 0, 0)
-
-	-- Glyph of the Battle Healer -- 119481
-	recipe = AddRecipe(119481, V.MOP, Q.COMMON)
-	recipe:SetSkillLevels(0, 0, 0, 0, 0)
-
-	-- Glyph of Incite -- 122015
-	recipe = AddRecipe(122015, V.MOP, Q.COMMON)
-	recipe:SetSkillLevels(0, 0, 0, 0, 0)
-
-	-- Glyph of Mass Exorcism -- 122030
-	recipe = AddRecipe(122030, V.MOP, Q.COMMON)
-	recipe:SetSkillLevels(0, 0, 0, 0, 0)
-
-	-- Glyph of the Blazing Trail -- 123781
-	recipe = AddRecipe(123781, V.MOP, Q.COMMON)
-	recipe:SetSkillLevels(0, 0, 0, 0, 0)
 
 	-- Glyph of Aspect of the Beast -- 124442
 	recipe = AddRecipe(124442, V.MOP, Q.COMMON)
@@ -4007,14 +3887,6 @@ function addon:InitInscription()
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30709, 30710, 30711, 30713, 30715, 30716, 30717, 30721, 30722, 33603, 33615, 33638, 33679, 46716, 62327)
 
-	-- Glyph of Black Ice -- 124443
-	recipe = AddRecipe(124443, V.MOP, Q.COMMON)
-	recipe:SetSkillLevels(0, 0, 0, 0, 0)
-
-	-- Glyph of Breath of Fire -- 124444
-	recipe = AddRecipe(124444, V.MOP, Q.COMMON)
-	recipe:SetSkillLevels(0, 0, 0, 0, 0)
-
 	-- Glyph of Fists of Fury -- 124445
 	recipe = AddRecipe(124445, V.MOP, Q.COMMON)
 	recipe:SetCraftedItemID(87892)
@@ -4022,26 +3894,6 @@ function addon:InitInscription()
 	recipe:SetItemFilterType("INSCRIPTION_MAJOR_GLYPH")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30709, 30710, 30711, 30713, 30715, 30716, 30717, 30721, 30722, 33603, 33615, 33638, 33679, 46716, 62327)
-
-	-- Glyph of Clash -- 124446
-	recipe = AddRecipe(124446, V.MOP, Q.COMMON)
-	recipe:SetSkillLevels(0, 0, 0, 0, 0)
-
-	-- Glyph of Enduring Healing Sphere -- 124447
-	recipe = AddRecipe(124447, V.MOP, Q.COMMON)
-	recipe:SetSkillLevels(0, 0, 0, 0, 0)
-
-	-- Glyph of Expel Harm -- 124448
-	recipe = AddRecipe(124448, V.MOP, Q.COMMON)
-	recipe:SetSkillLevels(0, 0, 0, 0, 0)
-
-	-- Glyph of Guard -- 124449
-	recipe = AddRecipe(124449, V.MOP, Q.COMMON)
-	recipe:SetSkillLevels(0, 0, 0, 0, 0)
-
-	-- Glyph of Mana Tea -- 124450
-	recipe = AddRecipe(124450, V.MOP, Q.COMMON)
-	recipe:SetSkillLevels(0, 0, 0, 0, 0)
 
 	-- Glyph of Zen Meditation -- 124451
 	recipe = AddRecipe(124451, V.MOP, Q.COMMON)
@@ -4067,10 +3919,6 @@ function addon:InitInscription()
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30709, 30710, 30711, 30713, 30715, 30716, 30717, 30721, 30722, 33603, 33615, 33638, 33679, 46716, 62327)
 
-	-- Glyph of Spinning Fire Blossom -- 124454
-	recipe = AddRecipe(124454, V.MOP, Q.COMMON)
-	recipe:SetSkillLevels(0, 0, 0, 0, 0)
-
 	-- Glyph of Surging Mist -- 124455
 	recipe = AddRecipe(124455, V.MOP, Q.COMMON)
 	recipe:SetCraftedItemID(85699)
@@ -4087,10 +3935,6 @@ function addon:InitInscription()
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30709, 30710, 30711, 30713, 30715, 30716, 30717, 30721, 30722, 33603, 33615, 33638, 33679, 46716, 62327)
 
-	-- Glyph of Transcendence -- 124457
-	recipe = AddRecipe(124457, V.MOP, Q.COMMON)
-	recipe:SetSkillLevels(0, 0, 0, 0, 0)
-
 	-- Glyph of Mind Flay -- 124459
 	recipe = AddRecipe(124459, V.MOP, Q.COMMON)
 	recipe:SetCraftedItemID(79513)
@@ -4099,14 +3943,6 @@ function addon:InitInscription()
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30709, 30710, 30711, 30713, 30715, 30716, 30717, 30721, 30722, 33603, 33615, 33638, 33679, 46716, 62327)
 
-	-- Glyph of Vampiric Embrace -- 124460
-	recipe = AddRecipe(124460, V.MOP, Q.COMMON)
-	recipe:SetSkillLevels(0, 0, 0, 0, 0)
-
-	-- Glyph of Shadow Word: Death -- 124461
-	recipe = AddRecipe(124461, V.MOP, Q.COMMON)
-	recipe:SetSkillLevels(0, 0, 0, 0, 0)
-
 	-- Glyph of Retreat -- 124463
 	recipe = AddRecipe(124463, V.MOP, Q.COMMON)
 	recipe:SetCraftedItemID(87896)
@@ -4114,6 +3950,189 @@ function addon:InitInscription()
 	recipe:SetItemFilterType("INSCRIPTION_MAJOR_GLYPH")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30709, 30710, 30711, 30713, 30715, 30716, 30717, 30721, 30722, 33603, 33615, 33638, 33679, 46716, 62327)
+
+	-- Glyph of Fetch -- 126801
+	recipe = AddRecipe(126801, V.MOP, Q.COMMON)
+	recipe:SetCraftedItemID(87393)
+	recipe:SetSkillLevels(440, 440, 450, 455, 460)
+	recipe:SetItemFilterType("INSCRIPTION_MINOR_GLYPH")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30709, 30710, 30711, 30713, 30715, 30716, 30717, 30721, 30722, 33603, 33615, 33638, 33679, 46716, 62327)
+
+	-- Glyph of Lightspring -- 127625
+	recipe = AddRecipe(127625, V.MOP, Q.COMMON)
+	recipe:SetCraftedItemID(87902)
+	recipe:SetSkillLevels(255, 255, 265, 270, 275)
+	recipe:SetItemFilterType("INSCRIPTION_MAJOR_GLYPH")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30709, 30710, 30711, 30713, 30715, 30716, 30717, 30721, 30722, 33603, 33615, 33638, 33679, 46716, 62327)
+	
+--[[----------------------------------------------------------------------------------------------------------------
+-- ADD WHEN MOP IS RELEASED
+
+	-- Glyph of Focused Wrath -- 57037
+	recipe = AddRecipe(57037, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Ink of Dreams -- 111645
+	recipe = AddRecipe(111645, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Starlight Ink -- 111646
+	recipe = AddRecipe(111646, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Darkmoon Card of Mists -- 111830
+	recipe = AddRecipe(111830, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Inscribed Fan -- 111908
+	recipe = AddRecipe(111908, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Inscribed Jade Fan -- 111909
+	recipe = AddRecipe(111909, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Inscribed Red Fan -- 111910
+	recipe = AddRecipe(111910, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Rain Poppy Staff -- 111917
+	recipe = AddRecipe(111917, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Inscribed Crane Staff -- 111918
+	recipe = AddRecipe(111918, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Inscribed Serpent Staff -- 111919
+	recipe = AddRecipe(111919, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Ghost Iron Staff -- 111920
+	recipe = AddRecipe(111920, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Inscribed Tiger Staff -- 111921
+	recipe = AddRecipe(111921, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Runescroll of Fortitude III -- 112045
+	recipe = AddRecipe(112045, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Glyph of the Falling Avenger -- 112264
+	recipe = AddRecipe(112264, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Glyph of Righteous Retreat -- 112265
+	recipe = AddRecipe(112265, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Glyph of Bladed Judgment -- 112266
+	recipe = AddRecipe(112266, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Glyph of Crow Feast -- 112429
+	recipe = AddRecipe(112429, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Glyph of Burning Anger -- 112430
+	recipe = AddRecipe(112430, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Glyph of Zen Flight -- 112460
+	recipe = AddRecipe(112460, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Glyph of Water Roll -- 112461
+	recipe = AddRecipe(112461, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Glyph of Honor -- 112464
+	recipe = AddRecipe(112464, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Glyph of Jab -- 112465
+	recipe = AddRecipe(112465, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Glyph of Rising Tiger Kick -- 112466
+	recipe = AddRecipe(112466, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Glyph of Spirit Roll -- 112468
+	recipe = AddRecipe(112468, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Tome of the Clear Mind -- 112883
+	recipe = AddRecipe(112883, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Scroll of Wisdom -- 112996
+	recipe = AddRecipe(112996, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Glyph of the Battle Healer -- 119481
+	recipe = AddRecipe(119481, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Glyph of Incite -- 122015
+	recipe = AddRecipe(122015, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Glyph of Mass Exorcism -- 122030
+	recipe = AddRecipe(122030, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Glyph of the Blazing Trail -- 123781
+	recipe = AddRecipe(123781, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Glyph of Black Ice -- 124443
+	recipe = AddRecipe(124443, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Glyph of Breath of Fire -- 124444
+	recipe = AddRecipe(124444, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Glyph of Clash -- 124446
+	recipe = AddRecipe(124446, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Glyph of Enduring Healing Sphere -- 124447
+	recipe = AddRecipe(124447, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Glyph of Expel Harm -- 124448
+	recipe = AddRecipe(124448, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Glyph of Guard -- 124449
+	recipe = AddRecipe(124449, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Glyph of Mana Tea -- 124450
+	recipe = AddRecipe(124450, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Glyph of Spinning Fire Blossom -- 124454
+	recipe = AddRecipe(124454, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Glyph of Transcendence -- 124457
+	recipe = AddRecipe(124457, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Glyph of Vampiric Embrace -- 124460
+	recipe = AddRecipe(124460, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Glyph of Shadow Word: Death -- 124461
+	recipe = AddRecipe(124461, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
 
 	-- Glyph of the Heavens -- 124466
 	recipe = AddRecipe(124466, V.MOP, Q.COMMON)
@@ -4142,14 +4161,6 @@ function addon:InitInscription()
 	-- Glyph of Shadowy Friends -- 126800
 	recipe = AddRecipe(126800, V.MOP, Q.COMMON)
 	recipe:SetSkillLevels(0, 0, 0, 0, 0)
-
-	-- Glyph of Fetch -- 126801
-	recipe = AddRecipe(126801, V.MOP, Q.COMMON)
-	recipe:SetCraftedItemID(87393)
-	recipe:SetSkillLevels(440, 440, 450, 455, 460)
-	recipe:SetItemFilterType("INSCRIPTION_MINOR_GLYPH")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30709, 30710, 30711, 30713, 30715, 30716, 30717, 30721, 30722, 33603, 33615, 33638, 33679, 46716, 62327)
 
 	-- Origami Crane -- 126988
 	recipe = AddRecipe(126988, V.MOP, Q.COMMON)
@@ -4219,14 +4230,6 @@ function addon:InitInscription()
 	recipe = AddRecipe(127378, V.MOP, Q.COMMON)
 	recipe:SetSkillLevels(0, 0, 0, 0, 0)
 
-	-- Glyph of Lightspring -- 127625
-	recipe = AddRecipe(127625, V.MOP, Q.COMMON)
-	recipe:SetCraftedItemID(87902)
-	recipe:SetSkillLevels(255, 255, 265, 270, 275)
-	recipe:SetItemFilterType("INSCRIPTION_MAJOR_GLYPH")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30709, 30710, 30711, 30713, 30715, 30716, 30717, 30721, 30722, 33603, 33615, 33638, 33679, 46716, 62327)
-
 	-- Glyph of the Cheetah -- 131152
 	recipe = AddRecipe(131152, V.MOP, Q.COMMON)
 	recipe:SetSkillLevels(0, 0, 0, 0, 0)
@@ -4234,6 +4237,7 @@ function addon:InitInscription()
 	-- Glyph of Blackout Kick -- 132167
 	recipe = AddRecipe(132167, V.MOP, Q.COMMON)
 	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+----------------------------------------------------------------------------------------------------------------]]
 
 	self.InitInscription = nil
 end
