@@ -688,7 +688,7 @@ function addon:InitCooking()
 	recipe:SetCraftedItemID(21072)
 	recipe:SetSkillLevels(80, 80, 120, 140, 160)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	recipe:AddVendor(2397, 2664, 3027, 3085, 3400, 4223, 4265, 4553, 5160, 5483, 8307, 12033, 14738, 16253, 16677, 16718, 17246, 19195, 26868, 48060, 54232)
+	recipe:AddVendor(2397, 2664, 3027, 3085, 3400, 4223, 4265, 4553, 5160, 5483, 8307, 12033, 14738, 16253, 16677, 16718, 17246, 19195, 26868, 48060, 54232, 64465)
 
 	-- Sagefish Delight -- 25954
 	recipe = AddRecipe(25954, V.ORIG, Q.COMMON)
@@ -696,7 +696,7 @@ function addon:InitCooking()
 	recipe:SetCraftedItemID(21217)
 	recipe:SetSkillLevels(175, 175, 215, 235, 255)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	recipe:AddVendor(2397, 2664, 3027, 3085, 3400, 4223, 4265, 4553, 5160, 5483, 8307, 12033, 14738, 16253, 16677, 16718, 17246, 19195, 26868, 48060, 54232)
+	recipe:AddVendor(2397, 2664, 3027, 3085, 3400, 4223, 4265, 4553, 5160, 5483, 8307, 12033, 14738, 16253, 16677, 16718, 17246, 19195, 26868, 48060, 54232, 64465)
 
 	-- Crunchy Spider Surprise -- 28267
 	recipe = AddRecipe(28267, V.TBC, Q.COMMON)
@@ -1697,6 +1697,186 @@ function addon:InitCooking()
 	recipe:SetSkillLevels(500, 500, 500, 500, 510)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	recipe:AddVendor(3027, 4223, 4553, 5160, 49701, 49737)
+
+	-- Golden Carp Consomme -- 104237
+	recipe = AddRecipe(104237, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Fish Cake -- 104297
+	recipe = AddRecipe(104297, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Charbroiled Tiger Steak -- 104298
+	recipe = AddRecipe(104298, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Eternal Blossom Fish -- 104299
+	recipe = AddRecipe(104299, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Sauteed Carrots -- 104301
+	recipe = AddRecipe(104301, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Valley Stir Fry -- 104302
+	recipe = AddRecipe(104302, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Swirling Mist Soup -- 104304
+	recipe = AddRecipe(104304, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Braised Turtle -- 104305
+	recipe = AddRecipe(104305, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Shrimp Dumplings -- 104307
+	recipe = AddRecipe(104307, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Fire Spirit Salmon -- 104308
+	recipe = AddRecipe(104308, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Wildfowl Roast -- 104310
+	recipe = AddRecipe(104310, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Twin Fish Platter -- 104311
+	recipe = AddRecipe(104311, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Ginseng Tea -- 124052
+	recipe = AddRecipe(124052, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Jade Witch Brew -- 124053
+	recipe = AddRecipe(124053, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Mad Brewer's Breakfast -- 124054
+	recipe = AddRecipe(124054, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Pounded Rice Cake -- 124223
+	recipe = AddRecipe(124223, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Yak Cheese Curds -- 124224
+	recipe = AddRecipe(124224, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Toasted Fish Jerky -- 124225
+	recipe = AddRecipe(124225, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Dried Peaches -- 124226
+	recipe = AddRecipe(124226, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Dried Needle Mushrooms -- 124227
+	recipe = AddRecipe(124227, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Boiled Silkworm Pupa -- 124228
+	recipe = AddRecipe(124228, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Red Bean Bun -- 124229
+	recipe = AddRecipe(124229, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Tangy Yogurt -- 124230
+	recipe = AddRecipe(124230, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Green Curry Fish -- 124231
+	recipe = AddRecipe(124231, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Peach Pie -- 124232
+	recipe = AddRecipe(124232, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Blanched Needle Mushrooms -- 124233
+	recipe = AddRecipe(124233, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Skewered Peanut Chicken -- 124234
+	recipe = AddRecipe(124234, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Perfectly Cooked Instant Noodles -- 125067
+	recipe = AddRecipe(125067, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Roasted Barley Tea -- 125078
+	recipe = AddRecipe(125078, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Pearl Milk Tea -- 125080
+	recipe = AddRecipe(125080, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Sliced Peaches -- 125117
+	recipe = AddRecipe(125117, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Spicy Salmon -- 125120
+	recipe = AddRecipe(125120, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Wildfowl Ginseng Soup -- 125121
+	recipe = AddRecipe(125121, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Rice Pudding -- 125122
+	recipe = AddRecipe(125122, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Spicy Vegetable Chips -- 125123
+	recipe = AddRecipe(125123, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Banquet of the Wok -- 125594
+	recipe = AddRecipe(125594, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Great Banquet of the Wok -- 125595
+	recipe = AddRecipe(125595, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Banquet of the Pot -- 125596
+	recipe = AddRecipe(125596, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Great Banquet of the Pot -- 125597
+	recipe = AddRecipe(125597, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Banquet of the Steamer -- 125598
+	recipe = AddRecipe(125598, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Great Banquet of the Steamer -- 125599
+	recipe = AddRecipe(125599, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Banquet of the Oven -- 125600
+	recipe = AddRecipe(125600, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Great Banquet of the Oven -- 125601
+	recipe = AddRecipe(125601, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Banquet of the Brew -- 125602
+	recipe = AddRecipe(125602, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Great Banquet of the Brew -- 125603
+	recipe = AddRecipe(125603, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
 
 	self.InitCooking = nil
 end

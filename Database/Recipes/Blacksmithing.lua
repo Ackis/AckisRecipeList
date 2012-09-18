@@ -4978,6 +4978,366 @@ function addon:InitBlacksmithing()
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOE, F.DPS, F.TANK)
 	recipe:AddCustom("DRAGONSOUL_RANDOM")
 
+	-- Socket Bracer -- 113263
+	recipe = AddRecipe(113263, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Socket Gloves -- 114112
+	recipe = AddRecipe(114112, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Spiritguard Helm -- 122568
+	recipe = AddRecipe(122568, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Spiritguard Shoulders -- 122569
+	recipe = AddRecipe(122569, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Spiritguard Breastplate -- 122570
+	recipe = AddRecipe(122570, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Spiritguard Gauntlets -- 122571
+	recipe = AddRecipe(122571, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Spiritguard Legplates -- 122572
+	recipe = AddRecipe(122572, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Spiritguard Bracers -- 122573
+	recipe = AddRecipe(122573, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Spiritguard Boots -- 122574
+	recipe = AddRecipe(122574, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Spiritguard Belt -- 122575
+	recipe = AddRecipe(122575, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Ghost-Forged Helm -- 122576
+	recipe = AddRecipe(122576, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Ghost-Forged Shoulders -- 122577
+	recipe = AddRecipe(122577, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Ghost-Forged Breastplate -- 122578
+	recipe = AddRecipe(122578, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Ghost-Forged Gauntlets -- 122579
+	recipe = AddRecipe(122579, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Ghost-Forged Legplates -- 122580
+	recipe = AddRecipe(122580, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Ghost-Forged Bracers -- 122581
+	recipe = AddRecipe(122581, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Ghost-Forged Boots -- 122582
+	recipe = AddRecipe(122582, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Ghost-Forged Belt -- 122583
+	recipe = AddRecipe(122583, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Lightsteel Helm -- 122584
+	recipe = AddRecipe(122584, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Lightsteel Shoulders -- 122585
+	recipe = AddRecipe(122585, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Lightsteel Breastplate -- 122586
+	recipe = AddRecipe(122586, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Lightsteel Gauntlets -- 122587
+	recipe = AddRecipe(122587, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Lightsteel Legplates -- 122588
+	recipe = AddRecipe(122588, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Lightsteel Bracers -- 122589
+	recipe = AddRecipe(122589, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Lightsteel Boots -- 122590
+	recipe = AddRecipe(122590, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Lightsteel Belt -- 122591
+	recipe = AddRecipe(122591, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Masterwork Spiritguard Helm -- 122592
+	recipe = AddRecipe(122592, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Masterwork Spiritguard Shoulders -- 122593
+	recipe = AddRecipe(122593, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Masterwork Spiritguard Breastplate -- 122594
+	recipe = AddRecipe(122594, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Masterwork Spiritguard Gauntlets -- 122595
+	recipe = AddRecipe(122595, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Masterwork Spiritguard Legplates -- 122596
+	recipe = AddRecipe(122596, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Masterwork Spiritguard Bracers -- 122597
+	recipe = AddRecipe(122597, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Masterwork Spiritguard Boots -- 122598
+	recipe = AddRecipe(122598, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Masterwork Spiritguard Belt -- 122599
+	recipe = AddRecipe(122599, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Masterwork Ghost-Forged Helm -- 122600
+	recipe = AddRecipe(122600, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Masterwork Ghost-Forged Shoulders -- 122601
+	recipe = AddRecipe(122601, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Masterwork Ghost-Forged Breastplate -- 122602
+	recipe = AddRecipe(122602, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Masterwork Ghost-Forged Gauntlets -- 122603
+	recipe = AddRecipe(122603, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Masterwork Ghost-Forged Legplates -- 122604
+	recipe = AddRecipe(122604, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Masterwork Ghost-Forged Bracers -- 122605
+	recipe = AddRecipe(122605, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Masterwork Ghost-Forged Boots -- 122606
+	recipe = AddRecipe(122606, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Masterwork Ghost-Forged Belt -- 122607
+	recipe = AddRecipe(122607, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Masterwork Lightsteel Helm -- 122608
+	recipe = AddRecipe(122608, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Masterwork Lightsteel Shoulders -- 122609
+	recipe = AddRecipe(122609, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Masterwork Lightsteel Breastplate -- 122610
+	recipe = AddRecipe(122610, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Masterwork Lightsteel Gauntlets -- 122611
+	recipe = AddRecipe(122611, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Masterwork Lightsteel Legplates -- 122612
+	recipe = AddRecipe(122612, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Masterwork Lightsteel Bracers -- 122613
+	recipe = AddRecipe(122613, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Masterwork Lightsteel Boots -- 122614
+	recipe = AddRecipe(122614, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Masterwork Lightsteel Belt -- 122615
+	recipe = AddRecipe(122615, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Contender's Revenant Helm -- 122616
+	recipe = AddRecipe(122616, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Contender's Revenant Shoulders -- 122617
+	recipe = AddRecipe(122617, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Contender's Revenant Breastplate -- 122618
+	recipe = AddRecipe(122618, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Contender's Revenant Gauntlets -- 122619
+	recipe = AddRecipe(122619, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Contender's Revenant Legplates -- 122620
+	recipe = AddRecipe(122620, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Contender's Revenant Bracers -- 122621
+	recipe = AddRecipe(122621, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Contender's Revenant Boots -- 122622
+	recipe = AddRecipe(122622, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Contender's Revenant Belt -- 122623
+	recipe = AddRecipe(122623, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Contender's Spirit Helm -- 122624
+	recipe = AddRecipe(122624, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Contender's Spirit Shoulders -- 122625
+	recipe = AddRecipe(122625, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Contender's Spirit Breastplate -- 122626
+	recipe = AddRecipe(122626, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Contender's Spirit Gauntlets -- 122627
+	recipe = AddRecipe(122627, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Contender's Spirit Legplates -- 122628
+	recipe = AddRecipe(122628, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Contender's Spirit Bracers -- 122629
+	recipe = AddRecipe(122629, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Contender's Spirit Boots -- 122630
+	recipe = AddRecipe(122630, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Contender's Spirit Belt -- 122631
+	recipe = AddRecipe(122631, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Living Steel Belt Buckle -- 122632
+	recipe = AddRecipe(122632, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Ghostly Skeleton Key -- 122633
+	recipe = AddRecipe(122633, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Lightsteel Shield -- 122635
+	recipe = AddRecipe(122635, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Spiritguard Shield -- 122636
+	recipe = AddRecipe(122636, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Forgewire Axe -- 122637
+	recipe = AddRecipe(122637, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Ghost-Forged Blade -- 122638
+	recipe = AddRecipe(122638, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Phantasmal Hammer -- 122639
+	recipe = AddRecipe(122639, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Spiritblade Decimator -- 122640
+	recipe = AddRecipe(122640, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Ghost Shard -- 122641
+	recipe = AddRecipe(122641, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Masterwork Lightsteel Shield -- 122642
+	recipe = AddRecipe(122642, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Masterwork Spiritguard Shield -- 122643
+	recipe = AddRecipe(122643, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Masterwork Forgewire Axe -- 122644
+	recipe = AddRecipe(122644, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Masterwork Ghost-Forged Blade -- 122645
+	recipe = AddRecipe(122645, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Masterwork Phantasmal Hammer -- 122646
+	recipe = AddRecipe(122646, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Masterwork Spiritblade Decimator -- 122647
+	recipe = AddRecipe(122647, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Masterwork Ghost Shard -- 122648
+	recipe = AddRecipe(122648, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Ghost Reaver's Breastplate -- 122649
+	recipe = AddRecipe(122649, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Ghost Reaver's Gauntlets -- 122650
+	recipe = AddRecipe(122650, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Living Steel Breastplate -- 122651
+	recipe = AddRecipe(122651, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Living Steel Gauntlets -- 122652
+	recipe = AddRecipe(122652, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Breastplate of Ancient Steel -- 122653
+	recipe = AddRecipe(122653, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Gauntlets of Ancient Steel -- 122654
+	recipe = AddRecipe(122654, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Ghost Iron Shield Spike -- 131928
+	recipe = AddRecipe(131928, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Living Steel Weapon Chain -- 131929
+	recipe = AddRecipe(131929, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
 	self.InitBlacksmithing = nil
 end
 

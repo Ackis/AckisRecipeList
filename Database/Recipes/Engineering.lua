@@ -2455,8 +2455,8 @@ function addon:InitEngineering()
 
 	-- Wormhole Generator: Northrend -- 67920
 	recipe = AddRecipe(67920, V.WOTLK, Q.COMMON)
-	recipe:SetCraftedItemID(48933)
 	recipe:SetRecipeItemID(49050)
+	recipe:SetCraftedItemID(48933)
 	recipe:SetSkillLevels(435, 435, 450, 455, 460)
 	recipe:SetItemFilterType("ENGINEERING_CREATED_ITEM")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP)
@@ -2781,13 +2781,21 @@ function addon:InitEngineering()
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.HEALER, F.CASTER)
 	recipe:AddVendor(53214)
 
-	self.InitEngineering = nil
-end
+	-- Phase Fingers -- 108789
+	recipe = AddRecipe(108789, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
 
+	-- Incendiary Fireworks Launcher -- 109077
+	recipe = AddRecipe(109077, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
 
+	-- Watergliding Jets -- 109099
+	recipe = AddRecipe(109099, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
 
---[[------------------------------------------------------------------------------------------------------------------
--- ADD WHEN MOP IS RELEASED
+	-- Goblin Glider -- 126392
+	recipe = AddRecipe(126392, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
 
 	-- Synapse Springs -- 126731
 	recipe = AddRecipe(126731, V.MOP, Q.COMMON)
@@ -2796,4 +2804,158 @@ end
 	recipe:SetItemFilterType("ENGINEERING_ITEM_ENHANCEMENT")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOP, F.RBOP)
 	recipe:AddDiscovery("ENG_DISC")
+
+	-- Ghost Iron Bolts -- 127113
+	recipe = AddRecipe(127113, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- High-Explosive Gunpowder -- 127114
+	recipe = AddRecipe(127114, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Lord Blastington's Scope of Doom -- 127115
+	recipe = AddRecipe(127115, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Mirror Scope -- 127116
+	recipe = AddRecipe(127116, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Lightweight Retinal Armor -- 127117
+	recipe = AddRecipe(127117, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Agile Retinal Armor -- 127118
+	recipe = AddRecipe(127118, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Deadly Retinal Armor -- 127120
+	recipe = AddRecipe(127120, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Energized Retinal Armor -- 127121
+	recipe = AddRecipe(127121, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Reinforced Retinal Armor -- 127123
+	recipe = AddRecipe(127123, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Locksmith's Powderkeg -- 127124
+	recipe = AddRecipe(127124, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- G91 Landshark -- 127127
+	recipe = AddRecipe(127127, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Goblin Flame Thrower, Mark II -- 127128
+	recipe = AddRecipe(127128, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Blingtron 4000 -- 127129
+	recipe = AddRecipe(127129, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Mist-Piercing Goggles -- 127130
+	recipe = AddRecipe(127130, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Thermal Anvil -- 127131
+	recipe = AddRecipe(127131, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Wormhole Generator: Pandaria -- 127132
+	recipe = AddRecipe(127132, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Ghost Iron Dragonling -- 127134
+	recipe = AddRecipe(127134, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Mechanical Pandaren Dragonling -- 127135
+	recipe = AddRecipe(127135, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Big Game Hunter -- 127136
+	recipe = AddRecipe(127136, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Long-Range Trillium Sniper -- 127137
+	recipe = AddRecipe(127137, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Depleted-Kyparium Rocket -- 127138
+	recipe = AddRecipe(127138, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Geosynchronous World Spinner -- 127139
+	recipe = AddRecipe(127139, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Celestial Firework -- 128260
+	recipe = AddRecipe(128260, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Grand Celebration Firework -- 128261
+	recipe = AddRecipe(128261, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Serpent's Heart Firework -- 128262
+	recipe = AddRecipe(128262, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Flashing Tinker's Gear -- 131211
+	recipe = AddRecipe(131211, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Fractured Tinker's Gear -- 131212
+	recipe = AddRecipe(131212, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Precise Tinker's Gear -- 131213
+	recipe = AddRecipe(131213, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Quick Tinker's Gear -- 131214
+	recipe = AddRecipe(131214, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Rigid Tinker's Gear -- 131215
+	recipe = AddRecipe(131215, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Smooth Tinker's Gear -- 131216
+	recipe = AddRecipe(131216, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Sparkling Tinker's Gear -- 131217
+	recipe = AddRecipe(131217, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Subtle Tinker's Gear -- 131218
+	recipe = AddRecipe(131218, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Autumn Flower Firework -- 131256
+	recipe = AddRecipe(131256, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Pandaria Fireworks -- 131353
+	recipe = AddRecipe(131353, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Tinker's Kit -- 131563
+	recipe = AddRecipe(131563, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	self.InitEngineering = nil
+end
+
+
+
+--[[------------------------------------------------------------------------------------------------------------------
+-- ADD WHEN MOP IS RELEASED
+
+
 ----------------------------------------------------------------------------------------------------------------]]

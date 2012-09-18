@@ -1295,3 +1295,5 @@ L["Zurai"] = true
 L["Zurii"] = true
 L["Iranis Shadebloom"] = true
 L["Valn"] = true
+L["Noodles"] = true
+L["Nat Pagle"] = true

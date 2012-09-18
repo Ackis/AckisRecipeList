@@ -3948,7 +3948,7 @@ function addon:InitJewelcrafting()
 	recipe:SetCraftedItemID(52083)
 	recipe:SetSkillLevels(425, 425, 450, 467, 485)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_RED")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.TANK)
 	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Brilliant Carnelian -- 73225
@@ -3985,8 +3985,8 @@ function addon:InitJewelcrafting()
 
 	-- Stormy Zephyrite -- 73229
 	recipe = AddRecipe(73229, V.CATA, Q.UNCOMMON)
-	recipe:SetCraftedItemID(52088)
 	recipe:SetRecipeItemID(52364)
+	recipe:SetCraftedItemID(52088)
 	recipe:SetSkillLevels(425, 425, 450, 467, 485)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_BLUE")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
@@ -4002,11 +4002,11 @@ function addon:InitJewelcrafting()
 
 	-- Subtle Alicite -- 73231
 	recipe = AddRecipe(73231, V.CATA, Q.UNCOMMON)
-	recipe:SetCraftedItemID(52090)
 	recipe:SetRecipeItemID(52365)
+	recipe:SetCraftedItemID(52090)
 	recipe:SetSkillLevels(425, 425, 450, 467, 485)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_YELLOW")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.TANK)
 	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Smooth Alicite -- 73232
@@ -4051,11 +4051,11 @@ function addon:InitJewelcrafting()
 
 	-- Defender's Nightstone -- 73242
 	recipe = AddRecipe(73242, V.CATA, Q.UNCOMMON)
-	recipe:SetCraftedItemID(52097)
 	recipe:SetRecipeItemID(52366)
+	recipe:SetCraftedItemID(52097)
 	recipe:SetSkillLevels(425, 425, 450, 467, 485)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_PURPLE")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.TANK)
 	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Timeless Nightstone -- 73243
@@ -4068,20 +4068,20 @@ function addon:InitJewelcrafting()
 
 	-- Guardian's Nightstone -- 73244
 	recipe = AddRecipe(73244, V.CATA, Q.UNCOMMON)
-	recipe:SetCraftedItemID(52099)
 	recipe:SetRecipeItemID(52367)
+	recipe:SetCraftedItemID(52099)
 	recipe:SetSkillLevels(425, 425, 450, 467, 485)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_PURPLE")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.TANK)
 	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Purified Nightstone -- 73245
 	recipe = AddRecipe(73245, V.CATA, Q.UNCOMMON)
-	recipe:SetCraftedItemID(52100)
 	recipe:SetRecipeItemID(52368)
+	recipe:SetCraftedItemID(52100)
 	recipe:SetSkillLevels(425, 425, 450, 467, 485)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_PURPLE")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
 	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Etched Nightstone -- 73246
@@ -4102,11 +4102,11 @@ function addon:InitJewelcrafting()
 
 	-- Retaliating Nightstone -- 73248
 	recipe = AddRecipe(73248, V.CATA, Q.UNCOMMON)
-	recipe:SetCraftedItemID(52103)
 	recipe:SetRecipeItemID(52369)
+	recipe:SetCraftedItemID(52103)
 	recipe:SetSkillLevels(425, 425, 450, 467, 485)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_PURPLE")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.TANK, F.CASTER)
 	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Veiled Nightstone -- 73249
@@ -4127,56 +4127,56 @@ function addon:InitJewelcrafting()
 
 	-- Polished Hessonite -- 73258
 	recipe = AddRecipe(73258, V.CATA, Q.UNCOMMON)
-	recipe:SetCraftedItemID(52106)
 	recipe:SetRecipeItemID(52370)
+	recipe:SetCraftedItemID(52106)
 	recipe:SetSkillLevels(425, 425, 450, 467, 485)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_ORANGE")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.TANK)
 	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Inscribed Hessonite -- 73260
 	recipe = AddRecipe(73260, V.CATA, Q.UNCOMMON)
-	recipe:SetCraftedItemID(52108)
 	recipe:SetRecipeItemID(52371)
+	recipe:SetCraftedItemID(52108)
 	recipe:SetSkillLevels(425, 425, 450, 467, 485)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_ORANGE")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.HEALER, F.CASTER)
 	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Deadly Hessonite -- 73262
 	recipe = AddRecipe(73262, V.CATA, Q.UNCOMMON)
-	recipe:SetCraftedItemID(52109)
 	recipe:SetRecipeItemID(52372)
+	recipe:SetCraftedItemID(52109)
 	recipe:SetSkillLevels(425, 425, 450, 467, 485)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_ORANGE")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.HEALER, F.CASTER)
 	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Potent Hessonite -- 73263
 	recipe = AddRecipe(73263, V.CATA, Q.UNCOMMON)
-	recipe:SetCraftedItemID(52110)
 	recipe:SetRecipeItemID(52373)
+	recipe:SetCraftedItemID(52110)
 	recipe:SetSkillLevels(425, 425, 450, 467, 485)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_ORANGE")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.HEALER, F.CASTER)
 	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Fierce Hessonite -- 73264
 	recipe = AddRecipe(73264, V.CATA, Q.UNCOMMON)
-	recipe:SetCraftedItemID(52111)
 	recipe:SetRecipeItemID(52374)
+	recipe:SetCraftedItemID(52111)
 	recipe:SetSkillLevels(425, 425, 450, 467, 485)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_ORANGE")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.HEALER, F.CASTER)
 	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Deft Hessonite -- 73265
 	recipe = AddRecipe(73265, V.CATA, Q.UNCOMMON)
-	recipe:SetCraftedItemID(52112)
 	recipe:SetRecipeItemID(52375)
+	recipe:SetCraftedItemID(52112)
 	recipe:SetSkillLevels(425, 425, 450, 467, 485)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_ORANGE")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.HEALER, F.CASTER)
 	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Reckless Hessonite -- 73266
@@ -4205,11 +4205,11 @@ function addon:InitJewelcrafting()
 
 	-- Fine Hessonite -- 73269
 	recipe = AddRecipe(73269, V.CATA, Q.UNCOMMON)
-	recipe:SetCraftedItemID(52116)
 	recipe:SetRecipeItemID(52376)
+	recipe:SetCraftedItemID(52116)
 	recipe:SetSkillLevels(425, 425, 450, 467, 485)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_ORANGE")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.TANK)
 	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Artful Hessonite -- 73270
@@ -4222,29 +4222,29 @@ function addon:InitJewelcrafting()
 
 	-- Keen Hessonite -- 73271
 	recipe = AddRecipe(73271, V.CATA, Q.UNCOMMON)
-	recipe:SetCraftedItemID(52118)
 	recipe:SetRecipeItemID(52377)
+	recipe:SetCraftedItemID(52118)
 	recipe:SetSkillLevels(425, 425, 450, 467, 485)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_ORANGE")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.TANK)
 	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Regal Jasper -- 73272
 	recipe = AddRecipe(73272, V.CATA, Q.UNCOMMON)
-	recipe:SetCraftedItemID(52119)
 	recipe:SetRecipeItemID(52378)
+	recipe:SetCraftedItemID(52119)
 	recipe:SetSkillLevels(425, 425, 450, 467, 485)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_GREEN")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.TANK)
 	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Nimble Jasper -- 73273
 	recipe = AddRecipe(73273, V.CATA, Q.UNCOMMON)
-	recipe:SetCraftedItemID(52120)
 	recipe:SetRecipeItemID(52379)
+	recipe:SetCraftedItemID(52120)
 	recipe:SetSkillLevels(425, 425, 450, 467, 485)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_GREEN")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.TANK, F.CASTER)
 	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Jagged Jasper -- 73274
@@ -4257,17 +4257,17 @@ function addon:InitJewelcrafting()
 
 	-- Piercing Jasper -- 73275
 	recipe = AddRecipe(73275, V.CATA, Q.UNCOMMON)
-	recipe:SetCraftedItemID(52122)
 	recipe:SetRecipeItemID(52382)
+	recipe:SetCraftedItemID(52122)
 	recipe:SetSkillLevels(425, 425, 450, 467, 485)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_GREEN")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.HEALER, F.CASTER)
 	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Steady Jasper -- 73276
 	recipe = AddRecipe(73276, V.CATA, Q.UNCOMMON)
-	recipe:SetCraftedItemID(52123)
 	recipe:SetRecipeItemID(52383)
+	recipe:SetCraftedItemID(52123)
 	recipe:SetSkillLevels(425, 425, 450, 467, 485)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_GREEN")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
@@ -4275,20 +4275,20 @@ function addon:InitJewelcrafting()
 
 	-- Forceful Jasper -- 73277
 	recipe = AddRecipe(73277, V.CATA, Q.UNCOMMON)
-	recipe:SetCraftedItemID(52124)
 	recipe:SetRecipeItemID(52385)
+	recipe:SetCraftedItemID(52124)
 	recipe:SetSkillLevels(425, 425, 450, 467, 485)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_GREEN")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.HEALER, F.CASTER)
 	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Lightning Jasper -- 73278
 	recipe = AddRecipe(73278, V.CATA, Q.UNCOMMON)
-	recipe:SetCraftedItemID(52125)
 	recipe:SetRecipeItemID(52386)
+	recipe:SetCraftedItemID(52125)
 	recipe:SetSkillLevels(425, 425, 450, 467, 485)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_GREEN")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.HEALER, F.CASTER)
 	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Puissant Jasper -- 73279
@@ -4301,11 +4301,11 @@ function addon:InitJewelcrafting()
 
 	-- Zen Jasper -- 73280
 	recipe = AddRecipe(73280, V.CATA, Q.UNCOMMON)
-	recipe:SetCraftedItemID(52127)
 	recipe:SetRecipeItemID(52388)
+	recipe:SetCraftedItemID(52127)
 	recipe:SetSkillLevels(425, 425, 450, 467, 485)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_GREEN")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
 	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Sensei's Jasper -- 73281
@@ -5057,8 +5057,8 @@ function addon:InitJewelcrafting()
 
 	-- Jeweler's Ruby Monocle -- 73625
 	recipe = AddRecipe(73625, V.CATA, Q.RARE)
-	recipe:SetCraftedItemID(52485)
 	recipe:SetRecipeItemID(52494)
+	recipe:SetCraftedItemID(52485)
 	recipe:SetSkillLevels(450, 450, 480, 490, 500)
 	recipe:SetItemFilterType("JEWELCRAFTING_HEAD")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
@@ -5066,8 +5066,8 @@ function addon:InitJewelcrafting()
 
 	-- Jeweler's Sapphire Monocle -- 73626
 	recipe = AddRecipe(73626, V.CATA, Q.RARE)
-	recipe:SetCraftedItemID(52486)
 	recipe:SetRecipeItemID(52495)
+	recipe:SetCraftedItemID(52486)
 	recipe:SetSkillLevels(455, 455, 485, 495, 505)
 	recipe:SetItemFilterType("JEWELCRAFTING_HEAD")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
@@ -5075,8 +5075,8 @@ function addon:InitJewelcrafting()
 
 	-- Jeweler's Amber Monocle -- 73627
 	recipe = AddRecipe(73627, V.CATA, Q.RARE)
-	recipe:SetCraftedItemID(52487)
 	recipe:SetRecipeItemID(52496)
+	recipe:SetCraftedItemID(52487)
 	recipe:SetSkillLevels(460, 460, 490, 500, 510)
 	recipe:SetItemFilterType("JEWELCRAFTING_HEAD")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
@@ -5117,29 +5117,29 @@ function addon:InitJewelcrafting()
 
 	-- Agile Shadowspirit Diamond -- 96255
 	recipe = AddRecipe(96255, V.CATA, Q.RARE)
-	recipe:SetCraftedItemID(68778)
 	recipe:SetRecipeItemID(68781)
+	recipe:SetCraftedItemID(68778)
 	recipe:SetSkillLevels(490, 490, 515, 520, 525)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_META")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS)
 	recipe:AddWorldDrop(Z.DEEPHOLM, Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Reverberating Shadowspirit Diamond -- 96256
 	recipe = AddRecipe(96256, V.CATA, Q.RARE)
-	recipe:SetCraftedItemID(68779)
 	recipe:SetRecipeItemID(68782)
+	recipe:SetCraftedItemID(68779)
 	recipe:SetSkillLevels(490, 490, 515, 520, 525)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_META")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS)
 	recipe:AddWorldDrop(Z.DEEPHOLM, Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Burning Shadowspirit Diamond -- 96257
 	recipe = AddRecipe(96257, V.CATA, Q.RARE)
-	recipe:SetCraftedItemID(68780)
 	recipe:SetRecipeItemID(68783)
+	recipe:SetCraftedItemID(68780)
 	recipe:SetSkillLevels(490, 490, 515, 520, 525)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_META")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
 	recipe:AddWorldDrop(Z.DEEPHOLM, Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Punisher's Band -- 98921
@@ -5727,6 +5727,738 @@ function addon:InitJewelcrafting()
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_YELLOW")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	recipe:AddVendor(56925, 57922)
+
+	-- Rigid River's Heart -- 106947
+	recipe = AddRecipe(106947, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Stormy River's Heart -- 106948
+	recipe = AddRecipe(106948, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Sparkling River's Heart -- 106949
+	recipe = AddRecipe(106949, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Solid River's Heart -- 106950
+	recipe = AddRecipe(106950, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Misty Wild Jade -- 106953
+	recipe = AddRecipe(106953, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Piercing Wild Jade -- 106954
+	recipe = AddRecipe(106954, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Lightning Wild Jade -- 106955
+	recipe = AddRecipe(106955, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Sensei's Wild Jade -- 106956
+	recipe = AddRecipe(106956, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Effulgent Wild Jade -- 106957
+	recipe = AddRecipe(106957, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Zen Wild Jade -- 106958
+	recipe = AddRecipe(106958, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Balanced Wild Jade -- 106960
+	recipe = AddRecipe(106960, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Vivid Wild Jade -- 106961
+	recipe = AddRecipe(106961, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Turbid Wild Jade -- 106962
+	recipe = AddRecipe(106962, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Balanced Alexandrite -- 107598
+	recipe = AddRecipe(107598, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Effulgent Alexandrite -- 107599
+	recipe = AddRecipe(107599, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Energized Alexandrite -- 107600
+	recipe = AddRecipe(107600, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Forceful Alexandrite -- 107601
+	recipe = AddRecipe(107601, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Jagged Alexandrite -- 107602
+	recipe = AddRecipe(107602, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Lightning Alexandrite -- 107604
+	recipe = AddRecipe(107604, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Misty Alexandrite -- 107605
+	recipe = AddRecipe(107605, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Nimble Alexandrite -- 107606
+	recipe = AddRecipe(107606, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Piercing Alexandrite -- 107607
+	recipe = AddRecipe(107607, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Puissant Alexandrite -- 107608
+	recipe = AddRecipe(107608, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Radiant Alexandrite -- 107609
+	recipe = AddRecipe(107609, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Regal Alexandrite -- 107610
+	recipe = AddRecipe(107610, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Sensei's Alexandrite -- 107611
+	recipe = AddRecipe(107611, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Shattered Alexandrite -- 107612
+	recipe = AddRecipe(107612, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Steady Alexandrite -- 107613
+	recipe = AddRecipe(107613, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Turbid Alexandrite -- 107614
+	recipe = AddRecipe(107614, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Vivid Alexandrite -- 107615
+	recipe = AddRecipe(107615, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Zen Alexandrite -- 107616
+	recipe = AddRecipe(107616, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Rigid Lapis Lazuli -- 107617
+	recipe = AddRecipe(107617, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Solid Lapis Lazuli -- 107619
+	recipe = AddRecipe(107619, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Sparkling Lapis Lazuli -- 107620
+	recipe = AddRecipe(107620, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Stormy Lapis Lazuli -- 107621
+	recipe = AddRecipe(107621, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Bold Pandarian Garnet -- 107622
+	recipe = AddRecipe(107622, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Brilliant Pandarian Garnet -- 107623
+	recipe = AddRecipe(107623, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Delicate Pandarian Garnet -- 107624
+	recipe = AddRecipe(107624, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Flashing Pandarian Garnet -- 107625
+	recipe = AddRecipe(107625, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Precise Pandarian Garnet -- 107626
+	recipe = AddRecipe(107626, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Accurate Roguestone -- 107627
+	recipe = AddRecipe(107627, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Defender's Roguestone -- 107628
+	recipe = AddRecipe(107628, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Etched Roguestone -- 107630
+	recipe = AddRecipe(107630, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Glinting Roguestone -- 107631
+	recipe = AddRecipe(107631, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Guardian's Roguestone -- 107632
+	recipe = AddRecipe(107632, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Mysterious Roguestone -- 107633
+	recipe = AddRecipe(107633, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Purified Roguestone -- 107634
+	recipe = AddRecipe(107634, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Retaliating Roguestone -- 107635
+	recipe = AddRecipe(107635, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Shifting Roguestone -- 107636
+	recipe = AddRecipe(107636, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Sovereign Roguestone -- 107637
+	recipe = AddRecipe(107637, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Timeless Roguestone -- 107638
+	recipe = AddRecipe(107638, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Veiled Roguestone -- 107639
+	recipe = AddRecipe(107639, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Fractured Sunstone -- 107640
+	recipe = AddRecipe(107640, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Mystic Sunstone -- 107641
+	recipe = AddRecipe(107641, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Quick Sunstone -- 107642
+	recipe = AddRecipe(107642, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Smooth Sunstone -- 107643
+	recipe = AddRecipe(107643, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Subtle Sunstone -- 107644
+	recipe = AddRecipe(107644, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Adept Tiger Opal -- 107645
+	recipe = AddRecipe(107645, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Artful Tiger Opal -- 107646
+	recipe = AddRecipe(107646, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Champion's Tiger Opal -- 107647
+	recipe = AddRecipe(107647, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Crafty Tiger Opal -- 107648
+	recipe = AddRecipe(107648, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Deadly Tiger Opal -- 107649
+	recipe = AddRecipe(107649, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Deft Tiger Opal -- 107650
+	recipe = AddRecipe(107650, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Fierce Tiger Opal -- 107651
+	recipe = AddRecipe(107651, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Fine Tiger Opal -- 107652
+	recipe = AddRecipe(107652, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Inscribed Tiger Opal -- 107653
+	recipe = AddRecipe(107653, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Keen Tiger Opal -- 107654
+	recipe = AddRecipe(107654, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Lucent Tiger Opal -- 107655
+	recipe = AddRecipe(107655, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Polished Tiger Opal -- 107656
+	recipe = AddRecipe(107656, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Potent Tiger Opal -- 107657
+	recipe = AddRecipe(107657, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Reckless Tiger Opal -- 107658
+	recipe = AddRecipe(107658, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Resolute Tiger Opal -- 107659
+	recipe = AddRecipe(107659, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Resplendent Tiger Opal -- 107660
+	recipe = AddRecipe(107660, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Skillful Tiger Opal -- 107661
+	recipe = AddRecipe(107661, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Splendid Tiger Opal -- 107662
+	recipe = AddRecipe(107662, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Stalwart Tiger Opal -- 107663
+	recipe = AddRecipe(107663, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Tenuous Tiger Opal -- 107665
+	recipe = AddRecipe(107665, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Wicked Tiger Opal -- 107666
+	recipe = AddRecipe(107666, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Willful Tiger Opal -- 107667
+	recipe = AddRecipe(107667, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Accurate Imperial Amethyst -- 107693
+	recipe = AddRecipe(107693, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Defender's Imperial Amethyst -- 107694
+	recipe = AddRecipe(107694, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Etched Imperial Amethyst -- 107695
+	recipe = AddRecipe(107695, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Glinting Imperial Amethyst -- 107696
+	recipe = AddRecipe(107696, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Guardian's Imperial Amethyst -- 107697
+	recipe = AddRecipe(107697, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Mysterious Imperial Amethyst -- 107698
+	recipe = AddRecipe(107698, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Retaliating Imperial Amethyst -- 107700
+	recipe = AddRecipe(107700, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Shifting Imperial Amethyst -- 107701
+	recipe = AddRecipe(107701, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Sovereign Imperial Amethyst -- 107702
+	recipe = AddRecipe(107702, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Timeless Imperial Amethyst -- 107703
+	recipe = AddRecipe(107703, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Veiled Imperial Amethyst -- 107704
+	recipe = AddRecipe(107704, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Bold Primordial Ruby -- 107705
+	recipe = AddRecipe(107705, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Brilliant Primordial Ruby -- 107706
+	recipe = AddRecipe(107706, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Delicate Primordial Ruby -- 107707
+	recipe = AddRecipe(107707, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Flashing Primordial Ruby -- 107708
+	recipe = AddRecipe(107708, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Precise Primordial Ruby -- 107709
+	recipe = AddRecipe(107709, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Fractured Sun's Radiance -- 107710
+	recipe = AddRecipe(107710, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Mystic Sun's Radiance -- 107711
+	recipe = AddRecipe(107711, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Quick Sun's Radiance -- 107712
+	recipe = AddRecipe(107712, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Smooth Sun's Radiance -- 107713
+	recipe = AddRecipe(107713, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Subtle Sun's Radiance -- 107714
+	recipe = AddRecipe(107714, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Adept Vermilion Onyx -- 107715
+	recipe = AddRecipe(107715, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Artful Vermilion Onyx -- 107716
+	recipe = AddRecipe(107716, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Champion's Vermilion Onyx -- 107717
+	recipe = AddRecipe(107717, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Crafty Vermilion Onyx -- 107718
+	recipe = AddRecipe(107718, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Deft Vermilion Onyx -- 107720
+	recipe = AddRecipe(107720, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Fine Vermilion Onyx -- 107722
+	recipe = AddRecipe(107722, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Inscribed Vermilion Onyx -- 107723
+	recipe = AddRecipe(107723, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Keen Vermilion Onyx -- 107724
+	recipe = AddRecipe(107724, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Lucent Vermilion Onyx -- 107725
+	recipe = AddRecipe(107725, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Polished Vermilion Onyx -- 107726
+	recipe = AddRecipe(107726, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Potent Vermilion Onyx -- 107727
+	recipe = AddRecipe(107727, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Reckless Vermilion Onyx -- 107728
+	recipe = AddRecipe(107728, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Resolute Vermilion Onyx -- 107729
+	recipe = AddRecipe(107729, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Resplendent Vermilion Onyx -- 107730
+	recipe = AddRecipe(107730, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Skillful Vermilion Onyx -- 107731
+	recipe = AddRecipe(107731, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Stalwart Vermilion Onyx -- 107733
+	recipe = AddRecipe(107733, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Tenuous Vermilion Onyx -- 107734
+	recipe = AddRecipe(107734, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Wicked Vermilion Onyx -- 107735
+	recipe = AddRecipe(107735, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Willful Vermilion Onyx -- 107736
+	recipe = AddRecipe(107736, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Energized Wild Jade -- 107737
+	recipe = AddRecipe(107737, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Forceful Wild Jade -- 107738
+	recipe = AddRecipe(107738, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Nimble Wild Jade -- 107740
+	recipe = AddRecipe(107740, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Puissant Wild Jade -- 107742
+	recipe = AddRecipe(107742, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Radiant Wild Jade -- 107743
+	recipe = AddRecipe(107743, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Regal Wild Jade -- 107744
+	recipe = AddRecipe(107744, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Shattered Wild Jade -- 107745
+	recipe = AddRecipe(107745, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Steady Wild Jade -- 107746
+	recipe = AddRecipe(107746, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Agile Primal Diamond -- 107753
+	recipe = AddRecipe(107753, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Austere Primal Diamond -- 107754
+	recipe = AddRecipe(107754, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Burning Primal Diamond -- 107756
+	recipe = AddRecipe(107756, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Destructive Primal Diamond -- 107757
+	recipe = AddRecipe(107757, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Effulgent Primal Diamond -- 107758
+	recipe = AddRecipe(107758, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Ember Primal Diamond -- 107759
+	recipe = AddRecipe(107759, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Enigmatic Primal Diamond -- 107760
+	recipe = AddRecipe(107760, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Eternal Primal Diamond -- 107762
+	recipe = AddRecipe(107762, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Fleet Primal Diamond -- 107763
+	recipe = AddRecipe(107763, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Forlorn Primal Diamond -- 107764
+	recipe = AddRecipe(107764, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Impassive Primal Diamond -- 107765
+	recipe = AddRecipe(107765, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Powerful Primal Diamond -- 107766
+	recipe = AddRecipe(107766, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Reverberating Primal Diamond -- 107767
+	recipe = AddRecipe(107767, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Revitalizing Primal Diamond -- 107768
+	recipe = AddRecipe(107768, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Jeweled Onyx Panther -- 120045
+	recipe = AddRecipe(120045, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Ruby Panther -- 121841
+	recipe = AddRecipe(121841, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Sapphire Panther -- 121842
+	recipe = AddRecipe(121842, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Sunstone Panther -- 121843
+	recipe = AddRecipe(121843, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Jade Panther -- 121844
+	recipe = AddRecipe(121844, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Ornate Band -- 122661
+	recipe = AddRecipe(122661, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Shadowfire Necklace -- 122662
+	recipe = AddRecipe(122662, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Scrying Roguestone -- 122663
+	recipe = AddRecipe(122663, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Heart of the Earth -- 122664
+	recipe = AddRecipe(122664, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Roguestone Shadowband -- 122665
+	recipe = AddRecipe(122665, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Lord's Signet -- 122666
+	recipe = AddRecipe(122666, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Lionsfall Ring -- 122667
+	recipe = AddRecipe(122667, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Band of Blood -- 122668
+	recipe = AddRecipe(122668, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Reflection of the Sea -- 122669
+	recipe = AddRecipe(122669, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Golembreaker Amulet -- 122670
+	recipe = AddRecipe(122670, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Widow Chain -- 122671
+	recipe = AddRecipe(122671, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Skymage Circle -- 122672
+	recipe = AddRecipe(122672, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Tiger Opal Pendant -- 122673
+	recipe = AddRecipe(122673, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Delicate Serpent's Eye -- 122674
+	recipe = AddRecipe(122674, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Bold Serpent's Eye -- 122675
+	recipe = AddRecipe(122675, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Brilliant Serpent's Eye -- 122676
+	recipe = AddRecipe(122676, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Sparkling Serpent's Eye -- 122677
+	recipe = AddRecipe(122677, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Solid Serpent's Eye -- 122678
+	recipe = AddRecipe(122678, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Subtle Serpent's Eye -- 122679
+	recipe = AddRecipe(122679, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Smooth Serpent's Eye -- 122680
+	recipe = AddRecipe(122680, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Rigid Serpent's Eye -- 122681
+	recipe = AddRecipe(122681, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Quick Serpent's Eye -- 122682
+	recipe = AddRecipe(122682, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Precise Serpent's Eye -- 122683
+	recipe = AddRecipe(122683, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Fractured Serpent's Eye -- 122684
+	recipe = AddRecipe(122684, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Flashing Serpent's Eye -- 122685
+	recipe = AddRecipe(122685, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Tense Roguestone -- 130655
+	recipe = AddRecipe(130655, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Assassin's Roguestone -- 130656
+	recipe = AddRecipe(130656, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Assassin's Imperial Amethyst -- 130657
+	recipe = AddRecipe(130657, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Tense Imperial Amethyst -- 130658
+	recipe = AddRecipe(130658, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- River's Heart -- 131593
+	recipe = AddRecipe(131593, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Primordial Ruby -- 131686
+	recipe = AddRecipe(131686, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Wild Jade -- 131688
+	recipe = AddRecipe(131688, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Vermilion Onyx -- 131690
+	recipe = AddRecipe(131690, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Imperial Amethyst -- 131691
+	recipe = AddRecipe(131691, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Sun's Radiance -- 131695
+	recipe = AddRecipe(131695, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Secrets of the Stone -- 131759
+	recipe = AddRecipe(131759, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Sapphire Cub -- 131898
+	recipe = AddRecipe(131898, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
 
 	self.InitJewelcrafting = nil
 end

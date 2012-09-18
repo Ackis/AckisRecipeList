@@ -697,7 +697,7 @@ function addon:InitEnchanting()
 	recipe:SetCraftedItemID(45050)
 	recipe:SetSkillLevels(265, 265, 285, 305, 325)
 	recipe:SetItemFilterType("ENCHANTING_MISC")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.INSTANCE, F.MOB_DROP, F.IBOP, F.RBOP, F.DPS, F.HEALER, F.CASTER)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.INSTANCE, F.MOB_DROP, F.IBOE, F.RBOP)
 	recipe:AddMobDrop(9025)
 
 	-- Enchanted Thorium Bar -- 17180
@@ -2512,7 +2512,7 @@ function addon:InitEnchanting()
 	recipe:SetRecipeItemID(68789)
 	recipe:SetSkillLevels(515, 515, 525, 532, 540)
 	recipe:SetItemFilterType("ENCHANTING_BRACER")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
 	recipe:AddWorldDrop(Z.DEEPHOLM, Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Enchant Bracer - Agility -- 96264
@@ -2520,8 +2520,136 @@ function addon:InitEnchanting()
 	recipe:SetRecipeItemID(68787)
 	recipe:SetSkillLevels(515, 515, 525, 532, 540)
 	recipe:SetItemFilterType("ENCHANTING_BRACER")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS)
 	recipe:AddWorldDrop(Z.DEEPHOLM, Z.EASTERN_KINGDOMS, Z.KALIMDOR)
+
+	-- Enchant Ring - Greater Agility -- 103461
+	recipe = AddRecipe(103461, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Enchant Ring - Greater Intellect -- 103462
+	recipe = AddRecipe(103462, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Enchant Ring - Greater Stamina -- 103463
+	recipe = AddRecipe(103463, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Enchant Ring - Greater Strength -- 103465
+	recipe = AddRecipe(103465, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Enchant Bracer - Mastery -- 104338
+	recipe = AddRecipe(104338, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Enchant Bracer - Major Dodge -- 104385
+	recipe = AddRecipe(104385, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Enchant Bracer - Super Intellect -- 104389
+	recipe = AddRecipe(104389, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Enchant Bracer - Exceptional Strength -- 104390
+	recipe = AddRecipe(104390, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Enchant Bracer - Greater Agility -- 104391
+	recipe = AddRecipe(104391, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Enchant Chest - Super Resilience -- 104392
+	recipe = AddRecipe(104392, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Enchant Chest - Mighty Spirit -- 104393
+	recipe = AddRecipe(104393, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Enchant Chest - Glorious Stats -- 104395
+	recipe = AddRecipe(104395, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Enchant Chest - Superior Stamina -- 104397
+	recipe = AddRecipe(104397, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Enchant Cloak - Accuracy -- 104398
+	recipe = AddRecipe(104398, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Enchant Cloak - Greater Protection -- 104401
+	recipe = AddRecipe(104401, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Enchant Cloak - Superior Intellect -- 104403
+	recipe = AddRecipe(104403, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Enchant Cloak - Superior Critical Strike -- 104404
+	recipe = AddRecipe(104404, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Enchant Boots - Greater Haste -- 104407
+	recipe = AddRecipe(104407, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Enchant Boots - Greater Precision -- 104408
+	recipe = AddRecipe(104408, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Enchant Boots - Blurred Speed -- 104409
+	recipe = AddRecipe(104409, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Enchant Boots - Pandaren's Step -- 104414
+	recipe = AddRecipe(104414, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Enchant Gloves - Greater Haste -- 104416
+	recipe = AddRecipe(104416, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Enchant Gloves - Superior Expertise -- 104417
+	recipe = AddRecipe(104417, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Enchant Gloves - Super Strength -- 104419
+	recipe = AddRecipe(104419, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Enchant Gloves - Superior Mastery -- 104420
+	recipe = AddRecipe(104420, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Enchant Weapon - Windsong -- 104425
+	recipe = AddRecipe(104425, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Enchant Weapon - Jade Spirit -- 104427
+	recipe = AddRecipe(104427, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Enchant Weapon - Elemental Force -- 104430
+	recipe = AddRecipe(104430, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Enchant Weapon - Dancing Steel -- 104434
+	recipe = AddRecipe(104434, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Enchant Weapon - Colossus -- 104440
+	recipe = AddRecipe(104440, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Enchant Weapon - River's Song -- 104442
+	recipe = AddRecipe(104442, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Enchant Off-Hand - Major Intellect -- 104445
+	recipe = AddRecipe(104445, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
 
 	-- Maelstrom Shatter -- 104698
 	recipe = AddRecipe(104698, V.CATA, Q.COMMON)
@@ -2529,6 +2657,34 @@ function addon:InitEnchanting()
 	recipe:SetItemFilterType("ENCHANTING_MISC")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP)
 	recipe:AddTrainer(1317, 3011, 3345)
+
+	-- Mysterious Essence -- 116497
+	recipe = AddRecipe(116497, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Ethereal Shard -- 116498
+	recipe = AddRecipe(116498, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Sha Crystal -- 116499
+	recipe = AddRecipe(116499, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Mysterious Diffusion -- 118237
+	recipe = AddRecipe(118237, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Ethereal Shatter -- 118238
+	recipe = AddRecipe(118238, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Sha Shatter -- 118239
+	recipe = AddRecipe(118239, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+
+	-- Enchant Shield - Greater Parry -- 130758
+	recipe = AddRecipe(130758, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
 
 	self.InitEnchanting = nil
 end
