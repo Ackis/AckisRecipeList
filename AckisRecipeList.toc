@@ -32,7 +32,7 @@
 ## Notes: Latest alpha version of Ackis Recipe List
 #@end-debug@
 
-## Author: Torhal, Pompachomp, Ackis, Zhinjio, Jim-Bim
+## Author: Ackis, Torhal, Zhinjio
 ## X-Donate: http://www.wowace.com/addons/arl/pages/donations/
  
 ## Interface: 50001
