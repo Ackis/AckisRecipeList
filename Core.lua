@@ -372,7 +372,7 @@ function addon:OnInitialize()
 	version = debug_version and "Devel" or (alpha_version and version .. "-Alpha") or version
 
 	self.version = version
-
+	self.is_development_version = debug_version
 	self:SetupOptions()
 
 	-- Register slash commands
@@ -918,8 +918,8 @@ do
 			local entry_name, entry_type = _G.GetTradeSkillInfo(skill_index)
 
 			if entry_type ~= "header" and entry_type ~= "subheader" then
-				local spell_string = _G.GetTradeSkillRecipeLink(skill_index):match("^|c%x%x%x%x%x%x%x%x|H%w+:(%d+)")
-				local recipe = profession_recipes[tonumber(spell_string)]
+				local spell_id = tonumber(_G.GetTradeSkillRecipeLink(skill_index):match("^|c%x%x%x%x%x%x%x%x|H%w+:(%d+)"))
+				local recipe = profession_recipes[spell_id]
 
 				if recipe then
 					local previous_rank_id = recipe:PreviousRankID()
@@ -936,7 +936,21 @@ do
 					recipe:SetAsKnownOrLinked(tradeskill_is_linked)
 					recipes_found = recipes_found + 1
 				else
-					self:Debug("%s (%s): %s", entry_name, spell_string, L["MissingFromDB"])
+					--@debug@
+					local profession_id
+					for name, profession_spell_id in pairs(private.PROFESSION_SPELL_IDS) do
+						if profession_name == _G.GetSpellInfo(profession_spell_id) then
+							profession_id = profession_spell_id
+							break
+						end
+					end
+					addon:AddRecipe(spell_id, profession_id, _G.GetExpansionLevel() + 1, private.ITEM_QUALITIES.COMMON)
+					addon:Printf("Added '%s (%d)' to %s. Do a profession dump.", entry_name, spell_id, profession_name)
+					--@end-debug@
+
+					if not self.is_development_version then
+						self:Debug("%s (%d): %s", entry_name, spell_id, L["MissingFromDB"])
+					end
 				end
 			end
 		end
