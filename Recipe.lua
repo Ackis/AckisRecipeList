@@ -579,8 +579,10 @@ function recipe_prototype:Dump(output)
 			end
 		end
 	end
-	table.insert(output, ("recipe:AddFilters(%s)"):format(flag_string))
 
+	if flag_string then
+		table.insert(output, ("recipe:AddFilters(%s)"):format(flag_string))
+	end
 	flag_string = nil
 
 	local ZL = private.ZONE_LABELS_FROM_NAME
