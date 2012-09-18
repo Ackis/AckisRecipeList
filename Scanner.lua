@@ -133,7 +133,7 @@ do
 			self:Debug("Warning: Trainer is bugged, reporting 0 trainer items.")
 			return
 		end
-		local trainer_profession = _G.GetTrainerServiceSkillLine(1)
+		local trainer_profession = private.PROFESSION_NAME_MAP[_G.GetTrainerServiceSkillLine(1)]
 		addon:InitializeProfession(trainer_profession)
 
 		local recipe_list = private.profession_recipe_list[trainer_profession]

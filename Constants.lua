@@ -16,6 +16,8 @@
 -------------------------------------------------------------------------------
 local _G = getfenv(0)
 
+local pairs = _G.pairs
+
 -------------------------------------------------------------------------------
 -- AddOn namespace.
 -------------------------------------------------------------------------------
@@ -54,13 +56,27 @@ private.PROFESSION_SPELL_IDS = {
 
 private.LOCALIZED_PROFESSION_NAMES = {}
 
-for name, spell_id in _G.pairs(private.PROFESSION_SPELL_IDS) do
+for name, spell_id in pairs(private.PROFESSION_SPELL_IDS) do
 	private.LOCALIZED_PROFESSION_NAMES[name] = _G.GetSpellInfo(spell_id)
 end
 
 -- Special case for Runeforging is needed because the French translation is non-conforming.
 if _G.GetLocale() == "frFR" then
 	private.LOCALIZED_PROFESSION_NAMES.RUNEFORGING = "Runeforger"
+end
+
+-- This is needed due to Pandaren cooking spells.
+private.PROFESSION_NAME_MAP = {
+	[_G.GetSpellInfo(124694)] = private.LOCALIZED_PROFESSION_NAMES.COOKING, -- Way of the Grill
+	[_G.GetSpellInfo(125584)] = private.LOCALIZED_PROFESSION_NAMES.COOKING, -- Way of the Wok
+	[_G.GetSpellInfo(125586)] = private.LOCALIZED_PROFESSION_NAMES.COOKING, -- Way of the Pot
+	[_G.GetSpellInfo(125587)] = private.LOCALIZED_PROFESSION_NAMES.COOKING, -- Way of the Steamer
+	[_G.GetSpellInfo(125588)] = private.LOCALIZED_PROFESSION_NAMES.COOKING, -- Way of the Oven
+	[_G.GetSpellInfo(125589)] = private.LOCALIZED_PROFESSION_NAMES.COOKING, -- Way of the Brew
+}
+
+for name, localized_name in pairs(private.LOCALIZED_PROFESSION_NAMES) do
+	localized_name = private.PROFESSION_NAME_MAP[name]
 end
 
 private.PROFESSION_LABELS = {
@@ -295,7 +311,7 @@ private.FLAG_MEMBERS = {
 private.FILTER_STRINGS = {}
 
 for index = 1, #private.FLAG_WORDS do
-	for flag_name in _G.pairs(private.FLAG_WORDS[index]) do
+	for flag_name in pairs(private.FLAG_WORDS[index]) do
 		private.FILTER_STRINGS[#private.FILTER_STRINGS + 1] = flag_name
 	end
 end
@@ -548,7 +564,7 @@ private.FACTION_STRINGS = {
 
 private.FACTION_IDS = {}
 
-for id, name in _G.pairs(private.FACTION_STRINGS) do
+for id, name in pairs(private.FACTION_STRINGS) do
 	private.FACTION_IDS[name] = id
 end
 
@@ -694,7 +710,7 @@ end
 
 private.ZONE_LABELS_FROM_NAME = {}
 
-for label, name in _G.pairs(private.ZONE_NAMES) do
+for label, name in pairs(private.ZONE_NAMES) do
 	private.ZONE_LABELS_FROM_NAME[name] = label
 end
 
