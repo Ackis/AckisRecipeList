@@ -196,12 +196,10 @@ do
 					trainer_entry.coord_y = trainer_y
 				end
 			else
-				table.insert(output, ("%s was not found in the trainer list - a trainer dump for %s will fix this."):format(trainer_name, trainer_profession))
+				table.insert(output, ("%s was not found in the trainer list - a trainer dump for %s will fix this. (Dump localization phrases as well.)"):format(trainer_name, trainer_profession))
 				_G.SetMapToCurrentZone() -- Make sure were are looking at the right zone
 
-				if not L[trainer_name] then
-					L[trainer_name] = true
-				end
+				L[trainer_name] = true
 				private:AddTrainer(trainer_id, trainer_name, _G.GetRealZoneText(), trainer_x, trainer_y, private.Player.faction)
 			end
 
