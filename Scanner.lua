@@ -97,7 +97,7 @@ do
 	-- Tables used in addon:ScanTrainerData
 	local scanned_recipes, scanned_items, output = {}, {}, {}
 	local missing_spell_ids, extra_spell_ids, fixed_item_spell_ids = {}, {}, {}
-	local mismatched_levels, mismatched_levels_unconfirmed = {}, {}
+	local mismatched_item_levels, mismatched_recipe_levels = {}, {}
 	local itemless_spells = {}
 
 	--- Function to compare which recipes are available from a trainer and compare with the internal ARL database.
@@ -146,30 +146,47 @@ do
 		table.wipe(scanned_recipes)
 
 		for index = 1, _G.GetNumTrainerServices(), 1 do
-			local item_name = _G.GetTrainerServiceInfo(index)
+			local recipe_name = _G.GetTrainerServiceInfo(index)
 			local item_id = private.ItemLinkToID(_G.GetTrainerServiceItemLink(index))
 			local _, skill_level = _G.GetTrainerServiceSkillReq(index)
 
 			if not skill_level then
 				skill_level = 0
 			end
+			scanned_recipes[recipe_name] = skill_level
 
 			if item_id then
 				scanned_items[item_id] = skill_level
-			else
-				scanned_recipes[item_name] = skill_level
 			end
 		end
 		table.wipe(missing_spell_ids)
 		table.wipe(extra_spell_ids)
 		table.wipe(fixed_item_spell_ids)
-		table.wipe(mismatched_levels)
-		table.wipe(mismatched_levels_unconfirmed)
+		table.wipe(mismatched_item_levels)
+		table.wipe(mismatched_recipe_levels)
 		table.wipe(output)
 
 		-- Dump out trainer info
 		local trainer_id = private.MobGUIDToIDNum(_G.UnitGUID("target"))
 		local trainer_name = _G.UnitName("target")
+		local trainer_entry = private.trainer_list[trainer_id]
+		local trainer_x, trainer_y = _G.GetPlayerMapPosition("player")
+		trainer_x = ("%.2f"):format(trainer_x * 100)
+		trainer_y = ("%.2f"):format(trainer_y * 100)
+
+		if trainer_entry then
+			if trainer_entry.coord_x ~= trainer_x or trainer_entry.coord_y ~= trainer_y then
+				table.insert(output, ("%s appears to have different coordinates (%s, %s) than those in the database (%s, %s) - a trainer dump for %s will fix this."):format(trainer_name, trainer_entry.coord_x, trainer_entry.coord_y, trainer_x, trainer_y, trainer_profession))
+				trainer_entry.coord_x = trainer_x
+				trainer_entry.coord_y = trainer_y
+			end
+		else
+			table.insert(output, ("%s was not found in the trainer list - a trainer dump for %s will fix this. (Dump localization phrases as well.)"):format(trainer_name, trainer_profession))
+			_G.SetMapToCurrentZone() -- Make sure were are looking at the right zone
+
+			L[trainer_name] = true
+			private:AddTrainer(trainer_id, trainer_name, _G.GetRealZoneText(), trainer_x, trainer_y, private.Player.faction)
+		end
 
 		for spell_id, recipe in pairs(recipe_list) do
 			local train_data = recipe.acquire_data[A.TRAINER]
@@ -178,32 +195,10 @@ do
 			if train_data and train_data[trainer_id] then
 				matching_trainer = true
 			end
-			local matching_item = scanned_items[recipe:CraftedItemID()]
 			local matching_recipe = scanned_recipes[recipe.name]
+			local matching_item = scanned_items[recipe:CraftedItemID()]
 
-			if recipe:CraftedItemID() then
-				matching_recipe = nil
-			end
-			local trainer_entry = private.trainer_list[trainer_id]
-			local trainer_x, trainer_y = _G.GetPlayerMapPosition("player")
-			trainer_x = ("%.2f"):format(trainer_x * 100)
-			trainer_y = ("%.2f"):format(trainer_y * 100)
-
-			if trainer_entry then
-				if trainer_entry.coord_x ~= trainer_x or trainer_entry.coord_y ~= trainer_y then
-					table.insert(output, ("%s appears to have different coordinates (%s, %s) than those in the database (%s, %s) - a trainer dump for %s will fix this."):format(trainer_name, trainer_entry.coord_x, trainer_entry.coord_y, trainer_x, trainer_y, trainer_profession))
-					trainer_entry.coord_x = trainer_x
-					trainer_entry.coord_y = trainer_y
-				end
-			else
-				table.insert(output, ("%s was not found in the trainer list - a trainer dump for %s will fix this. (Dump localization phrases as well.)"):format(trainer_name, trainer_profession))
-				_G.SetMapToCurrentZone() -- Make sure were are looking at the right zone
-
-				L[trainer_name] = true
-				private:AddTrainer(trainer_id, trainer_name, _G.GetRealZoneText(), trainer_x, trainer_y, private.Player.faction)
-			end
-
-			if matching_item or matching_recipe then
+			if matching_recipe or matching_item then
 				if not matching_trainer then
 					table.insert(missing_spell_ids, spell_id)
 
@@ -225,9 +220,11 @@ do
 				local recipe_skill = recipe:SkillLevels()
 
 				if matching_item and matching_item ~= recipe_skill then
-					table.insert(mismatched_levels, spell_id)
-				elseif matching_recipe and matching_recipe ~= recipe_skill then
-					table.insert(mismatched_levels_unconfirmed, spell_id)
+					table.insert(mismatched_item_levels, spell_id)
+				end
+
+				if matching_recipe and matching_recipe ~= recipe_skill then
+					table.insert(mismatched_recipe_levels, spell_id)
 				end
 			elseif matching_trainer then
 				table.wipe(itemless_spells)
@@ -286,12 +283,12 @@ do
 			end
 		end
 
-		if #mismatched_levels > 0 then
-			table.insert(output, "\nRecipes which had an incorrect skill level, but will not once a dump is performed:")
-			table.sort(mismatched_levels)
+		if #mismatched_item_levels > 0 then
+			table.insert(output, "\nRecipes with items which had an incorrect skill level, but will not once a dump is performed:")
+			table.sort(mismatched_item_levels)
 
-			for index in ipairs(mismatched_levels) do
-				local spell_id = mismatched_levels[index]
+			for index in ipairs(mismatched_item_levels) do
+				local spell_id = mismatched_item_levels[index]
 				local recipe = recipe_list[spell_id]
 				local recipe_skill = recipe:SkillLevels()
 				local corrected_skill = scanned_items[recipe:CraftedItemID()]
@@ -300,15 +297,17 @@ do
 			end
 		end
 
-		if #mismatched_levels_unconfirmed > 0 then
-			table.insert(output, "\nRecipes with possible incorrect skill levels - unable to confirm:")
-			table.sort(mismatched_levels_unconfirmed)
+		if #mismatched_recipe_levels > 0 then
+			table.insert(output, "\nRecipes which had an incorrect skill level, but will not once a dump is performed:")
+			table.sort(mismatched_recipe_levels)
 
-			for index in ipairs(mismatched_levels_unconfirmed) do
-				local spell_id = mismatched_levels_unconfirmed[index]
+			for index in ipairs(mismatched_recipe_levels) do
+				local spell_id = mismatched_recipe_levels[index]
 				local recipe = recipe_list[spell_id]
 				local recipe_skill = recipe:SkillLevels()
+				local corrected_skill = scanned_recipes[recipe.name]
 				table.insert(output, ("%d (%s): Skill set to %d; trainer reports %d."):format(spell_id, recipe.name, recipe_skill, scanned_recipes[recipe.name]))
+				recipe:SetSkillLevels(corrected_skill)
 			end
 		end
 
