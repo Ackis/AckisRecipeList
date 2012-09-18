@@ -27,6 +27,7 @@ function private:InitializeInscriptionTrainers()
 	self:AddTrainer(33638, "Scribe Lanloer", "Shattrath City", 56.0, 74.4, "Neutral")
 	self:AddTrainer(33679, "Recorder Lidio", "Shattrath City", 36.2, 44, "Neutral")
 	self:AddTrainer(46716, "Nerog", "Orgrimmar", 55.2, 56.7, "Horde")
+	self:AddTrainer(62327, "Scribe Rinji", "Orgrimmar", 55.2, 56.7, "Horde")
 
 	self.InitializeInscriptionTrainers = nil
 end

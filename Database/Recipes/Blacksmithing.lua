@@ -4129,7 +4129,7 @@ function addon:InitBlacksmithing()
 	recipe:SetSkillLevels(450, 450, 455, 465, 475)
 	recipe:SetRequiredFaction("Alliance")
 	recipe:SetItemFilterType("BLACKSMITHING_WRIST")
-	recipe:AddFilters(F.ALLIANCE, F.RAID, F.IBOE, F.RBOE, F.HEALER)
+	recipe:AddFilters(F.ALLIANCE, F.RAID, F.IBOE, F.RBOE, F.DPS, F.HEALER, F.CASTER)
 	recipe:AddCustom("TOC25_RANDOM")
 
 	-- Breastplate of the White Knight -- 67130
@@ -4149,7 +4149,7 @@ function addon:InitBlacksmithing()
 	recipe:SetSkillLevels(450, 450, 455, 465, 475)
 	recipe:SetRequiredFaction("Horde")
 	recipe:SetItemFilterType("BLACKSMITHING_WRIST")
-	recipe:AddFilters(F.HORDE, F.RAID, F.IBOE, F.RBOE, F.TANK)
+	recipe:AddFilters(F.HORDE, F.RAID, F.IBOE, F.RBOE, F.DPS, F.TANK, F.CASTER)
 	recipe:AddCustom("TOC25_RANDOM")
 
 	-- Titanium Razorplate -- 67132
@@ -4980,11 +4980,15 @@ function addon:InitBlacksmithing()
 
 	-- Socket Bracer -- 113263
 	recipe = AddRecipe(113263, V.MOP, Q.COMMON)
-	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+	recipe:SetSkillLevels(400, 400, 410, 415, 420)
+	recipe:AddFilters(F.TRAINER)
+	recipe:AddTrainer(11178)
 
 	-- Socket Gloves -- 114112
 	recipe = AddRecipe(114112, V.MOP, Q.COMMON)
-	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+	recipe:SetSkillLevels(400, 400, 410, 415, 420)
+	recipe:AddFilters(F.TRAINER)
+	recipe:AddTrainer(11178)
 
 	-- Spiritguard Helm -- 122568
 	recipe = AddRecipe(122568, V.MOP, Q.COMMON)
@@ -5020,35 +5024,51 @@ function addon:InitBlacksmithing()
 
 	-- Ghost-Forged Helm -- 122576
 	recipe = AddRecipe(122576, V.MOP, Q.COMMON)
-	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+	recipe:SetSkillLevels(550, 550, 560, 565, 570)
+	recipe:AddFilters(F.TRAINER)
+	recipe:AddTrainer(11178)
 
 	-- Ghost-Forged Shoulders -- 122577
 	recipe = AddRecipe(122577, V.MOP, Q.COMMON)
-	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+	recipe:SetSkillLevels(540, 540, 550, 555, 560)
+	recipe:AddFilters(F.TRAINER)
+	recipe:AddTrainer(11178)
 
 	-- Ghost-Forged Breastplate -- 122578
 	recipe = AddRecipe(122578, V.MOP, Q.COMMON)
-	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+	recipe:SetSkillLevels(550, 550, 560, 565, 570)
+	recipe:AddFilters(F.TRAINER)
+	recipe:AddTrainer(11178)
 
 	-- Ghost-Forged Gauntlets -- 122579
 	recipe = AddRecipe(122579, V.MOP, Q.COMMON)
-	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+	recipe:SetSkillLevels(525, 525, 535, 540, 545)
+	recipe:AddFilters(F.TRAINER)
+	recipe:AddTrainer(11178)
 
 	-- Ghost-Forged Legplates -- 122580
 	recipe = AddRecipe(122580, V.MOP, Q.COMMON)
-	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+	recipe:SetSkillLevels(530, 530, 540, 545, 550)
+	recipe:AddFilters(F.TRAINER)
+	recipe:AddTrainer(11178)
 
 	-- Ghost-Forged Bracers -- 122581
 	recipe = AddRecipe(122581, V.MOP, Q.COMMON)
-	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+	recipe:SetSkillLevels(500, 500, 510, 515, 520)
+	recipe:AddFilters(F.TRAINER)
+	recipe:AddTrainer(11178)
 
 	-- Ghost-Forged Boots -- 122582
 	recipe = AddRecipe(122582, V.MOP, Q.COMMON)
-	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+	recipe:SetSkillLevels(530, 530, 540, 545, 550)
+	recipe:AddFilters(F.TRAINER)
+	recipe:AddTrainer(11178)
 
 	-- Ghost-Forged Belt -- 122583
 	recipe = AddRecipe(122583, V.MOP, Q.COMMON)
-	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+	recipe:SetSkillLevels(525, 525, 535, 540, 545)
+	recipe:AddFilters(F.TRAINER)
+	recipe:AddTrainer(11178)
 
 	-- Lightsteel Helm -- 122584
 	recipe = AddRecipe(122584, V.MOP, Q.COMMON)
@@ -5248,35 +5268,51 @@ function addon:InitBlacksmithing()
 
 	-- Ghostly Skeleton Key -- 122633
 	recipe = AddRecipe(122633, V.MOP, Q.COMMON)
-	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+	recipe:SetSkillLevels(500, 500, 510, 515, 520)
+	recipe:AddFilters(F.TRAINER)
+	recipe:AddTrainer(11178)
 
 	-- Lightsteel Shield -- 122635
 	recipe = AddRecipe(122635, V.MOP, Q.COMMON)
-	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+	recipe:SetSkillLevels(540, 540, 550, 555, 560)
+	recipe:AddFilters(F.TRAINER)
+	recipe:AddTrainer(11178)
 
 	-- Spiritguard Shield -- 122636
 	recipe = AddRecipe(122636, V.MOP, Q.COMMON)
-	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+	recipe:SetSkillLevels(545, 545, 555, 560, 565)
+	recipe:AddFilters(F.TRAINER)
+	recipe:AddTrainer(11178)
 
 	-- Forgewire Axe -- 122637
 	recipe = AddRecipe(122637, V.MOP, Q.COMMON)
-	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+	recipe:SetSkillLevels(545, 545, 555, 560, 565)
+	recipe:AddFilters(F.TRAINER)
+	recipe:AddTrainer(11178)
 
 	-- Ghost-Forged Blade -- 122638
 	recipe = AddRecipe(122638, V.MOP, Q.COMMON)
-	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+	recipe:SetSkillLevels(545, 545, 555, 560, 565)
+	recipe:AddFilters(F.TRAINER)
+	recipe:AddTrainer(11178)
 
 	-- Phantasmal Hammer -- 122639
 	recipe = AddRecipe(122639, V.MOP, Q.COMMON)
-	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+	recipe:SetSkillLevels(560, 560, 570, 575, 580)
+	recipe:AddFilters(F.TRAINER)
+	recipe:AddTrainer(11178)
 
 	-- Spiritblade Decimator -- 122640
 	recipe = AddRecipe(122640, V.MOP, Q.COMMON)
-	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+	recipe:SetSkillLevels(565, 565, 575, 580, 585)
+	recipe:AddFilters(F.TRAINER)
+	recipe:AddTrainer(11178)
 
 	-- Ghost Shard -- 122641
 	recipe = AddRecipe(122641, V.MOP, Q.COMMON)
-	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+	recipe:SetSkillLevels(565, 565, 575, 580, 585)
+	recipe:AddFilters(F.TRAINER)
+	recipe:AddTrainer(11178)
 
 	-- Masterwork Lightsteel Shield -- 122642
 	recipe = AddRecipe(122642, V.MOP, Q.COMMON)

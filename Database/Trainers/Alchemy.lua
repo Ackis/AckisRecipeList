@@ -43,6 +43,7 @@ function private:InitializeAlchemyTrainers()
 	self:AddTrainer(33608, 51304, "Shattrath City", 44.3, 90.4, "Neutral")
 	self:AddTrainer(33630, "Aelthin", "Shattrath City", 38.6, 70.8, "Neutral")
 	self:AddTrainer(33674, "Alchemist Kanhu", "Shattrath City", 38.6, 30, "Neutral")
+	self:AddTrainer(56777,	"Ni Gentlepaw",			"Howling Fjord",		68.4, 	43.5,	"Alliance") -- COMPLETELY UPDATED
 
 	self.InitializeAlchemyTrainers = nil
 end
