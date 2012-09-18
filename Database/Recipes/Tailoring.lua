@@ -3402,7 +3402,7 @@ function addon:InitTailoring()
 	recipe:SetCraftedItemID(45102)
 	recipe:SetSkillLevels(450, 450, 455, 460, 465)
 	recipe:SetItemFilterType("TAILORING_WAIST")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOE, F.DPS, F.HEALER, F.CASTER)
 	recipe:AddCustom("ULDUAR_RANDOM")
 
 	-- Spellslinger's Slippers -- 63204
@@ -3420,7 +3420,7 @@ function addon:InitTailoring()
 	recipe:SetCraftedItemID(45104)
 	recipe:SetSkillLevels(450, 450, 455, 460, 465)
 	recipe:SetItemFilterType("TAILORING_WAIST")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOE, F.DPS, F.HEALER, F.CASTER)
 	recipe:AddCustom("ULDUAR_RANDOM")
 
 	-- Savior's Slippers -- 63206
@@ -3632,7 +3632,7 @@ function addon:InitTailoring()
 	-- Master's Spellthread -- 75154
 	recipe = AddRecipe(75154, V.CATA, Q.COMMON)
 	recipe:SetPreviousRankID(56034)
-	recipe:SetSkillLevels(475, 475, 475, 475, 475)
+	recipe:SetSkillLevels(405, 405, 415, 420, 425)
 	recipe:SetItemFilterType("TAILORING_ITEM_ENHANCEMENT")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	recipe:AddTrainer(1346, 2399, 3004, 3363, 4159, 4576, 5153, 9584, 16640, 16729, 18772, 26914, 27001, 28699, 33580, 33613, 33636, 44783, 45559)
@@ -3640,7 +3640,7 @@ function addon:InitTailoring()
 	-- Sanctified Spellthread -- 75155
 	recipe = AddRecipe(75155, V.CATA, Q.COMMON)
 	recipe:SetPreviousRankID(56039)
-	recipe:SetSkillLevels(475, 475, 475, 475, 475)
+	recipe:SetSkillLevels(405, 405, 415, 420, 425)
 	recipe:SetItemFilterType("TAILORING_ITEM_ENHANCEMENT")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	recipe:AddTrainer(1346, 2399, 3004, 3363, 4159, 4576, 5153, 9584, 16640, 16729, 18772, 26914, 27001, 28699, 33580, 33613, 33636, 44783, 45559)
@@ -3648,7 +3648,7 @@ function addon:InitTailoring()
 	-- Lightweave Embroidery -- 75172
 	recipe = AddRecipe(75172, V.CATA, Q.COMMON)
 	recipe:SetPreviousRankID(55642)
-	recipe:SetSkillLevels(500, 500, 500, 500, 500)
+	recipe:SetSkillLevels(420, 420, 430, 435, 440)
 	recipe:SetItemFilterType("TAILORING_ITEM_ENHANCEMENT")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	recipe:AddTrainer(1346, 2399, 3004, 3363, 4159, 4576, 5153, 9584, 16640, 16729, 18772, 26914, 27001, 28699, 33580, 33613, 33636, 44783, 45559)
@@ -3656,7 +3656,7 @@ function addon:InitTailoring()
 	-- Darkglow Embroidery -- 75175
 	recipe = AddRecipe(75175, V.CATA, Q.COMMON)
 	recipe:SetPreviousRankID(55769)
-	recipe:SetSkillLevels(500, 500, 500, 500, 500)
+	recipe:SetSkillLevels(420, 420, 430, 435, 440)
 	recipe:SetItemFilterType("TAILORING_ITEM_ENHANCEMENT")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	recipe:AddTrainer(1346, 2399, 3004, 3363, 4159, 4576, 5153, 9584, 16640, 16729, 18772, 26914, 27001, 28699, 33580, 33613, 33636, 44783, 45559)
@@ -3664,7 +3664,7 @@ function addon:InitTailoring()
 	-- Swordguard Embroidery -- 75178
 	recipe = AddRecipe(75178, V.CATA, Q.COMMON)
 	recipe:SetPreviousRankID(55777)
-	recipe:SetSkillLevels(500, 500, 500, 500, 500)
+	recipe:SetSkillLevels(420, 420, 430, 435, 440)
 	recipe:SetItemFilterType("TAILORING_ITEM_ENHANCEMENT")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	recipe:AddTrainer(1346, 2399, 3004, 3363, 4159, 4576, 5153, 9584, 16640, 16729, 18772, 26914, 27001, 28699, 33580, 33613, 33636, 44783, 45559)
@@ -3976,7 +3976,7 @@ function addon:InitTailoring()
 	recipe:SetCraftedItemID(54491)
 	recipe:SetSkillLevels(525, 525, 525, 530, 535)
 	recipe:SetItemFilterType("TAILORING_LEGS")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.HEALER, F.CASTER)
 	recipe:AddVendor(1347, 3005, 3364, 4168, 4577, 5154, 16638, 16767, 45558, 50386, 50433)
 
 	-- Vicious Fireweave Robe -- 75303
@@ -3985,7 +3985,7 @@ function addon:InitTailoring()
 	recipe:SetCraftedItemID(54494)
 	recipe:SetSkillLevels(525, 525, 525, 530, 535)
 	recipe:SetItemFilterType("TAILORING_CHEST")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.HEALER, F.CASTER)
 	recipe:AddVendor(1347, 3005, 3364, 4168, 4577, 5154, 16638, 16767, 45558, 50386, 50433)
 
 	-- Vicious Fireweave Cowl -- 75304
@@ -3994,7 +3994,7 @@ function addon:InitTailoring()
 	recipe:SetCraftedItemID(54493)
 	recipe:SetSkillLevels(525, 525, 525, 530, 535)
 	recipe:SetItemFilterType("TAILORING_HEAD")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.HEALER, F.CASTER)
 	recipe:AddVendor(1347, 3005, 3364, 4168, 4577, 5154, 16638, 16767, 45558, 50386, 50433)
 
 	-- Vicious Embersilk Robe -- 75305
@@ -4003,7 +4003,7 @@ function addon:InitTailoring()
 	recipe:SetCraftedItemID(54495)
 	recipe:SetSkillLevels(525, 525, 525, 530, 535)
 	recipe:SetItemFilterType("TAILORING_CHEST")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
 	recipe:AddVendor(1347, 3005, 3364, 4168, 4577, 5154, 16638, 16767, 45558, 50386, 50433)
 
 	-- Vicious Embersilk Cowl -- 75306
@@ -4012,7 +4012,7 @@ function addon:InitTailoring()
 	recipe:SetCraftedItemID(54496)
 	recipe:SetSkillLevels(525, 525, 525, 530, 535)
 	recipe:SetItemFilterType("TAILORING_HEAD")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.HEALER, F.CASTER)
 	recipe:AddVendor(1347, 3005, 3364, 4168, 4577, 5154, 16638, 16767, 45558, 50386, 50433)
 
 	-- Vicious Embersilk Pants -- 75307
@@ -4021,7 +4021,7 @@ function addon:InitTailoring()
 	recipe:SetCraftedItemID(54498)
 	recipe:SetSkillLevels(525, 525, 525, 530, 535)
 	recipe:SetItemFilterType("TAILORING_LEGS")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
 	recipe:AddVendor(1347, 3005, 3364, 4168, 4577, 5154, 16638, 16767, 45558, 50386, 50433)
 
 	-- Illusionary Bag -- 75308
@@ -4110,7 +4110,7 @@ function addon:InitTailoring()
 	recipe:SetSkillLevels(490, 490, 500, 502, 505)
 	recipe:SetItemFilterType("TAILORING_BACK")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(3363)
+	recipe:AddTrainer(1346, 3363)
 
 	-- Luxurious Silk Gem Bag -- 100585
 	recipe = AddRecipe(100585, V.CATA, Q.RARE)
@@ -4157,32 +4157,10 @@ function addon:InitTailoring()
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOE, F.DPS, F.HEALER, F.CASTER)
 	recipe:AddCustom("DRAGONSOUL_RANDOM")
 
-	self.InitTailoring = nil
-end
-
---[[------------------------------------------------------------------------------------------------------------------
--- ADD WHEN MOP IS RELEASED
-
-	-- Master's Spellthread -- 125496
-	recipe = AddRecipe(125496, V.MOP, Q.COMMON)
-	recipe:SetPreviousRankID(75154)
-	recipe:SetSkillLevels(550, 550, 550, 550, 550)
-	recipe:SetItemFilterType("TAILORING_ITEM_ENHANCEMENT")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(1346, 2399, 3004, 3363, 4159, 4576, 5153, 9584, 16640, 28699, 33580, 33613, 33636, 44783, 45559)
-
-	-- Sanctified Spellthread -- 125497
-	recipe = AddRecipe(75155, V.MOP, Q.COMMON)
-	recipe:SetPreviousRankID(75155)
-	recipe:SetSkillLevels(550, 550, 550, 550, 550)
-	recipe:SetItemFilterType("TAILORING_ITEM_ENHANCEMENT")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(1346, 2399, 3004, 3363, 4159, 4576, 5153, 9584, 16640, 28699, 33580, 33613, 33636, 44783, 45559)
-
 	-- Lightweave Embroidery -- 125481
 	recipe = AddRecipe(125481, V.MOP, Q.COMMON)
 	recipe:SetPreviousRankID(75172)
-	recipe:SetSkillLevels(550, 550, 550, 550, 550)
+	recipe:SetSkillLevels(420, 420, 430, 435, 440)
 	recipe:SetItemFilterType("TAILORING_ITEM_ENHANCEMENT")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	recipe:AddTrainer(1346, 2399, 3004, 3363, 4159, 4576, 5153, 9584, 16640, 28699, 33580, 33613, 33636, 44783, 45559)
@@ -4190,7 +4168,7 @@ end
 	-- Darkglow Embroidery -- 125482
 	recipe = AddRecipe(125482, V.MOP, Q.COMMON)
 	recipe:SetPreviousRankID(75175)
-	recipe:SetSkillLevels(550, 550, 550, 550, 550)
+	recipe:SetSkillLevels(420, 420, 430, 435, 440)
 	recipe:SetItemFilterType("TAILORING_ITEM_ENHANCEMENT")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	recipe:AddTrainer(1346, 2399, 3004, 3363, 4159, 4576, 5153, 9584, 16640, 28699, 33580, 33613, 33636, 44783, 45559)
@@ -4198,168 +4176,348 @@ end
 	-- Swordguard Embroidery -- 125483
 	recipe = AddRecipe(125483, V.MOP, Q.COMMON)
 	recipe:SetPreviousRankID(75178)
-	recipe:SetSkillLevels(550, 550, 550, 550, 550)
+	recipe:SetSkillLevels(420, 420, 430, 435, 440)
+	recipe:SetItemFilterType("TAILORING_ITEM_ENHANCEMENT")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	recipe:AddTrainer(1346, 2399, 3004, 3363, 4159, 4576, 5153, 9584, 16640, 28699, 33580, 33613, 33636, 44783, 45559)
+
+	-- Master's Spellthread -- 125496
+	recipe = AddRecipe(125496, V.MOP, Q.COMMON)
+	recipe:SetPreviousRankID(75154)
+	recipe:SetSkillLevels(405, 405, 415, 420, 425)
+	recipe:SetItemFilterType("TAILORING_ITEM_ENHANCEMENT")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	recipe:AddTrainer(1346, 2399, 3004, 3363, 4159, 4576, 5153, 9584, 16640, 28699, 33580, 33613, 33636, 44783, 45559)
+
+	-- Sanctified Spellthread -- 125497
+	recipe = AddRecipe(125497, V.MOP, Q.COMMON)
+	recipe:SetPreviousRankID(75155)
+	recipe:SetSkillLevels(405, 405, 415, 420, 425)
 	recipe:SetItemFilterType("TAILORING_ITEM_ENHANCEMENT")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	recipe:AddTrainer(1346, 2399, 3004, 3363, 4159, 4576, 5153, 9584, 16640, 28699, 33580, 33613, 33636, 44783, 45559)
 
 	-- Windwool Hood -- 125523
 	recipe = AddRecipe(125523, V.MOP, Q.COMMON)
-	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+	recipe:SetSkillLevels(555, 555, 565, 570, 575)
+	recipe:SetItemFilterType("TAILORING_HEAD")
+	recipe:SetCraftedItemID(82397)
+	recipe:AddFilters(F.TRAINER)
+	recipe:AddTrainer(1346)
 
 	-- Windwool Shoulders -- 125524
 	recipe = AddRecipe(125524, V.MOP, Q.COMMON)
-	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+	recipe:SetSkillLevels(535, 535, 545, 550, 555)
+	recipe:SetItemFilterType("TAILORING_SHOULDER")
+	recipe:SetCraftedItemID(82398)
+	recipe:AddFilters(F.TRAINER)
+	recipe:AddTrainer(1346)
 
 	-- Windwool Tunic -- 125525
 	recipe = AddRecipe(125525, V.MOP, Q.COMMON)
-	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+	recipe:SetSkillLevels(555, 555, 565, 570, 575)
+	recipe:SetItemFilterType("TAILORING_CHEST")
+	recipe:SetCraftedItemID(82399)
+	recipe:AddFilters(F.TRAINER)
+	recipe:AddTrainer(1346)
 
 	-- Windwool Gloves -- 125526
 	recipe = AddRecipe(125526, V.MOP, Q.COMMON)
-	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+	recipe:SetSkillLevels(525, 525, 535, 540, 545)
+	recipe:SetItemFilterType("TAILORING_HANDS")
+	recipe:SetCraftedItemID(82400)
+	recipe:AddFilters(F.TRAINER)
+	recipe:AddTrainer(1346)
 
 	-- Windwool Pants -- 125527
 	recipe = AddRecipe(125527, V.MOP, Q.COMMON)
-	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+	recipe:SetSkillLevels(545, 545, 555, 560, 565)
+	recipe:SetItemFilterType("TAILORING_LEGS")
+	recipe:SetCraftedItemID(82401)
+	recipe:AddFilters(F.TRAINER)
+	recipe:AddTrainer(1346)
 
 	-- Windwool Bracers -- 125528
 	recipe = AddRecipe(125528, V.MOP, Q.COMMON)
-	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+	recipe:SetSkillLevels(525, 525, 535, 540, 545)
+	recipe:SetItemFilterType("TAILORING_WRIST")
+	recipe:SetCraftedItemID(82402)
+	recipe:AddFilters(F.TRAINER)
+	recipe:AddTrainer(1346)
 
 	-- Windwool Boots -- 125529
 	recipe = AddRecipe(125529, V.MOP, Q.COMMON)
-	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+	recipe:SetSkillLevels(545, 545, 555, 560, 565)
+	recipe:SetItemFilterType("TAILORING_FEET")
+	recipe:SetCraftedItemID(82403)
+	recipe:AddFilters(F.TRAINER)
+	recipe:AddTrainer(1346)
 
 	-- Windwool Belt -- 125530
 	recipe = AddRecipe(125530, V.MOP, Q.COMMON)
-	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+	recipe:SetSkillLevels(535, 535, 545, 550, 555)
+	recipe:SetItemFilterType("TAILORING_WAIST")
+	recipe:SetCraftedItemID(82404)
+	recipe:AddFilters(F.TRAINER)
+	recipe:AddTrainer(1346)
 
 	-- Contender's Silk Cowl -- 125531
 	recipe = AddRecipe(125531, V.MOP, Q.COMMON)
-	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+	recipe:SetSkillLevels(590, 590, 590, 590, 600)
+	recipe:SetItemFilterType("TAILORING_HEAD")
+	recipe:SetCraftedItemID(82421)
+	recipe:AddFilters(F.VENDOR)
+	recipe:AddVendor(64051,64052)
 
 	-- Contender's Silk Amice -- 125532
 	recipe = AddRecipe(125532, V.MOP, Q.COMMON)
-	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+	recipe:SetSkillLevels(575, 575, 575, 575, 600)
+	recipe:SetItemFilterType("TAILORING_SHOULDER")
+	recipe:SetCraftedItemID(82422)
+	recipe:AddFilters(F.VENDOR)
+	recipe:AddVendor(64051,64052)
 
 	-- Contender's Silk Rainment -- 125533
 	recipe = AddRecipe(125533, V.MOP, Q.COMMON)
-	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+	recipe:SetSkillLevels(590, 590, 590, 590, 600)
+	recipe:SetItemFilterType("TAILORING_CHEST")
+	recipe:SetCraftedItemID(82423)
+	recipe:AddFilters(F.VENDOR)
+	recipe:AddVendor(64051,64052)
 
 	-- Contender's Silk Handwraps -- 125534
 	recipe = AddRecipe(125534, V.MOP, Q.COMMON)
-	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+	recipe:SetSkillLevels(565, 565, 565, 565, 600)
+	recipe:SetItemFilterType("TAILORING_HANDS")
+	recipe:SetCraftedItemID(82424)
+	recipe:AddFilters(F.VENDOR)
+	recipe:AddVendor(64051,64052)
 
 	-- Contender's Silk Pants -- 125535
 	recipe = AddRecipe(125535, V.MOP, Q.COMMON)
-	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+	recipe:SetSkillLevels(565, 565, 565, 565, 600)
+	recipe:SetItemFilterType("TAILORING_LEGS")
+	recipe:SetCraftedItemID(82425)
+	recipe:AddFilters(F.VENDOR)
+	recipe:AddVendor(64051,64052)
 
 	-- Contender's Silk Cuffs -- 125536
 	recipe = AddRecipe(125536, V.MOP, Q.COMMON)
-	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+	recipe:SetSkillLevels(555, 555, 555, 555, 600)
+	recipe:SetItemFilterType("TAILORING_WRIST")
+	recipe:SetCraftedItemID(82426)
+	recipe:AddFilters(F.VENDOR)
+	recipe:AddVendor(64051,64052)
 
 	-- Contender's Silk Footwraps -- 125537
 	recipe = AddRecipe(125537, V.MOP, Q.COMMON)
-	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+	recipe:SetSkillLevels(565, 565, 565, 565, 600)
+	recipe:SetItemFilterType("TAILORING_FEET")
+	recipe:SetCraftedItemID(82427)
+	recipe:AddFilters(F.VENDOR)
+	recipe:AddVendor(64051,64052)
 
 	-- Contender's Silk Belt -- 125538
 	recipe = AddRecipe(125538, V.MOP, Q.COMMON)
-	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+	recipe:SetSkillLevels(565, 565, 565, 565, 600)
+	recipe:SetItemFilterType("TAILORING_WAIST")
+	recipe:SetCraftedItemID(82428)
+	recipe:AddFilters(F.VENDOR)
+	recipe:AddVendor(64051,64052)
 
 	-- Contender's Satin Cowl -- 125539
 	recipe = AddRecipe(125539, V.MOP, Q.COMMON)
-	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+	recipe:SetSkillLevels(590, 590, 590, 590, 600)
+	recipe:SetItemFilterType("TAILORING_HEAD")
+	recipe:SetCraftedItemID(82429)
+	recipe:AddFilters(F.VENDOR)
+	recipe:AddVendor(64051,64052)
 
 	-- Contender's Satin Amice -- 125540
 	recipe = AddRecipe(125540, V.MOP, Q.COMMON)
-	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+	recipe:SetSkillLevels(575, 575, 575, 575, 600)
+	recipe:SetItemFilterType("TAILORING_SHOULDER")
+	recipe:SetCraftedItemID(82430)
+	recipe:AddFilters(F.VENDOR)
+	recipe:AddVendor(64051,64052)
 
 	-- Contender's Satin Rainment -- 125541
 	recipe = AddRecipe(125541, V.MOP, Q.COMMON)
-	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+	recipe:SetSkillLevels(590, 590, 590, 590, 600)
+	recipe:SetItemFilterType("TAILORING_CHEST")
+	recipe:SetCraftedItemID(82431)
+	recipe:AddFilters(F.VENDOR)
+	recipe:AddVendor(64051,64052)
 
 	-- Contender's Satin Handwraps -- 125542
 	recipe = AddRecipe(125542, V.MOP, Q.COMMON)
-	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+	recipe:SetSkillLevels(565, 565, 565, 565, 600)
+	recipe:SetItemFilterType("TAILORING_HANDS")
+	recipe:SetCraftedItemID(82432)
+	recipe:AddFilters(F.VENDOR)
+	recipe:AddVendor(64051,64052)
 
 	-- Contender's Satin Pants -- 125543
 	recipe = AddRecipe(125543, V.MOP, Q.COMMON)
-	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+	recipe:SetSkillLevels(565, 565, 565, 565, 600)
+	recipe:SetItemFilterType("TAILORING_LEGS")
+	recipe:SetCraftedItemID(82433)
+	recipe:AddFilters(F.VENDOR)
+	recipe:AddVendor(64051,64052)
 
 	-- Contender's Satin Cuffs -- 125544
 	recipe = AddRecipe(125544, V.MOP, Q.COMMON)
-	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+	recipe:SetSkillLevels(555, 555, 555, 555, 600)
+	recipe:SetItemFilterType("TAILORING_WRIST")
+	recipe:SetCraftedItemID(82434)
+	recipe:AddFilters(F.VENDOR)
+	recipe:AddVendor(64051,64052)
 
 	-- Contender's Satin Footwraps -- 125545
 	recipe = AddRecipe(125545, V.MOP, Q.COMMON)
-	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+	recipe:SetSkillLevels(565, 565, 565, 565, 600)
+	recipe:SetItemFilterType("TAILORING_FEET")
+	recipe:SetCraftedItemID(82435)
+	recipe:AddFilters(F.VENDOR)
+	recipe:AddVendor(64051,64052)
 
 	-- Contender's Satin Belt -- 125546
 	recipe = AddRecipe(125546, V.MOP, Q.COMMON)
-	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+	recipe:SetSkillLevels(565, 565, 565, 565, 600)
+	recipe:SetItemFilterType("TAILORING_WAIST")
+	recipe:SetCraftedItemID(82436)
+	recipe:AddFilters(F.VENDOR)
+	recipe:AddVendor(64051,64052)
 
 	-- Spelltwister's Grand Robe -- 125547
 	recipe = AddRecipe(125547, V.MOP, Q.COMMON)
-	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+	recipe:SetRecipeItemID(86368)
+	recipe:SetSkillLevels(600, 600, 600, 600, 600)
+	recipe:SetItemFilterType("TAILORING_CHEST")
+	recipe:SetCraftedItemID(82437)
+	recipe:AddFilters(F.VENDOR, F.REPUTATION, F.GOLDENLOTUS)
+	recipe:AddRepVendor(FAC.GOLDENLOTUS, REP.HONORED, 59908)
 
 	-- Spelltwister's Gloves -- 125548
 	recipe = AddRecipe(125548, V.MOP, Q.COMMON)
-	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+	recipe:SetRecipeItemID(86369)
+	recipe:SetCraftedItemID(82438)
+	recipe:SetSkillLevels(600, 600, 600, 600, 600)
+	recipe:SetItemFilterType("TAILORING_HANDS")
+	recipe:AddFilters(F.VENDOR, F.REPUTATION, F.GOLDENLOTUS)
+	recipe:AddRepVendor(FAC.GOLDENLOTUS, REP.HONORED, 59908)
 
 	-- Robes of Creation -- 125549
 	recipe = AddRecipe(125549, V.MOP, Q.COMMON)
-	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+	recipe:SetRecipeItemID(86370)
+	recipe:SetSkillLevels(600, 600, 600, 600, 600)
+	recipe:SetItemFilterType("TAILORING_CHEST")
+	recipe:SetCraftedItemID(82439)
+	recipe:AddFilters(F.VENDOR, F.REPUTATION, F.GOLDENLOTUS)
+	recipe:AddRepVendor(FAC.GOLDENLOTUS, REP.HONORED, 59908)
 
 	-- Gloves of Creation -- 125550
 	recipe = AddRecipe(125550, V.MOP, Q.COMMON)
-	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+	recipe:SetRecipeItemID(86371)
+	recipe:SetCraftedItemID(82440)
+	recipe:SetSkillLevels(600, 600, 600, 600, 600)
+	recipe:SetItemFilterType("TAILORING_HANDS")
+	recipe:AddFilters(F.VENDOR, F.REPUTATION, F.GOLDENLOTUS)
+	recipe:AddRepVendor(FAC.GOLDENLOTUS, REP.HONORED, 59908)
 
 	-- Bolt of Windwool Cloth -- 125551
 	recipe = AddRecipe(125551, V.MOP, Q.COMMON)
-	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+	recipe:SetSkillLevels(500, 500, 510, 515, 520)
+	recipe:SetItemFilterType("TAILORING_MATERIALS")
+	recipe:SetCraftedItemID(82441)
+	recipe:AddFilters(F.TRAINER)
+	recipe:AddTrainer(1346)
 
 	-- Pearlescent Spellthread -- 125552
 	recipe = AddRecipe(125552, V.MOP, Q.COMMON)
-	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+	recipe:SetSkillLevels(530, 530, 540, 545, 550)
+	recipe:SetItemFilterType("TAILORING_ITEM_ENHANCEMENT")
+	recipe:AddFilters(F.TRAINER)
+	recipe:AddTrainer(1346)
 
 	-- Cerulean Spellthread -- 125553
 	recipe = AddRecipe(125553, V.MOP, Q.COMMON)
-	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+	recipe:SetSkillLevels(540, 540, 550, 555, 560)
+	recipe:SetItemFilterType("TAILORING_ITEM_ENHANCEMENT")
+	recipe:AddFilters(F.TRAINER)
+	recipe:AddTrainer(1346)
 
 	-- Greater Pearlescent Spellthread -- 125554
 	recipe = AddRecipe(125554, V.MOP, Q.COMMON)
-	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+	recipe:SetSkillLevels(575, 575, 575, 575, 600)
+	recipe:SetItemFilterType("TAILORING_ITEM_ENHANCEMENT")
+	recipe:SetRecipeItemID(86375)
+	recipe:SetCraftedItemID(82444)
+	recipe:AddFilters(F.VENDOR, F.REPUTATION, F.GOLDENLOTUS)
+	recipe:AddRepVendor(FAC.GOLDENLOTUS, REP.HONORED, 59908)
 
 	-- Greater Cerulean Spellthread -- 125555
 	recipe = AddRecipe(125555, V.MOP, Q.COMMON)
-	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+	recipe:SetSkillLevels(575, 575, 575, 575, 600)
+	recipe:SetItemFilterType("TAILORING_ITEM_ENHANCEMENT")
+	recipe:SetRecipeItemID(86376)
+	recipe:SetCraftedItemID(82445)
+	recipe:AddFilters(F.VENDOR, F.REPUTATION, F.GOLDENLOTUS)
+	recipe:AddRepVendor(FAC.GOLDENLOTUS, REP.HONORED, 59908)
 
 	-- Royal Satchel -- 125556
 	recipe = AddRecipe(125556, V.MOP, Q.COMMON)
-	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+	recipe:SetSkillLevels(600, 600, 600, 600, 600)
+	recipe:SetItemFilterType("TAILORING_BAG")
+	recipe:SetRecipeItemID(86377)
+	recipe:SetCraftedItemID(82446)
+	recipe:AddFilters(F.VENDOR, F.REPUTATION, F.AUGUSTCELESTIALS)
+	recipe:AddRepVendor(FAC.AUGUSTCELESTIALS, REP.EXALTED, 64032)
 
 	-- Imperial Silk -- 125557
 	recipe = AddRecipe(125557, V.MOP, Q.COMMON)
-	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+	recipe:SetSkillLevels(550, 550, 560, 565, 570)
+	recipe:SetItemFilterType("TAILORING_MATERIALS")
+	recipe:AddFilters(F.TRAINER)
+	recipe:AddTrainer(1346)
 
 	-- Robe of Eternal Rule -- 125558
 	recipe = AddRecipe(125558, V.MOP, Q.COMMON)
-	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+	recipe:SetSkillLevels(600, 600, 600, 600, 600)
+	recipe:SetItemFilterType("TAILORING_CHEST")
+	recipe:SetRecipeItemID(86379)
+	recipe:SetCraftedItemID(86311)
+	recipe:AddCustom("MOP_RAIDS_RANDOM")
 
 	-- Imperial Silk Gloves -- 125559
 	recipe = AddRecipe(125559, V.MOP, Q.COMMON)
-	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+	recipe:SetSkillLevels(600, 600, 600, 600, 600)
+	recipe:SetItemFilterType("TAILORING_CHEST")
+	recipe:SetRecipeItemID(86380)
+	recipe:SetCraftedItemID(86313)
+	recipe:AddCustom("MOP_RAIDS_RANDOM")
 
 	-- Legacy of the Emperor -- 125560
 	recipe = AddRecipe(125560, V.MOP, Q.COMMON)
-	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+	recipe:SetSkillLevels(600, 600, 600, 600, 600)
+	recipe:SetItemFilterType("TAILORING_CHEST")
+	recipe:SetRecipeItemID(86381)
+	recipe:SetCraftedItemID(86312)
+	recipe:AddCustom("MOP_RAIDS_RANDOM")
 
 	-- Touch of the Light -- 125561
 	recipe = AddRecipe(125561, V.MOP, Q.COMMON)
-	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+	recipe:SetSkillLevels(600, 600, 600, 600, 600)
+	recipe:SetItemFilterType("TAILORING_HANDS")
+	recipe:SetRecipeItemID(86382)
+	recipe:SetCraftedItemID(86314)
+	recipe:AddCustom("MOP_RAIDS_RANDOM")
 
 	-- Song of Harmony -- 130325
 	recipe = AddRecipe(130325, V.MOP, Q.COMMON)
-	recipe:SetSkillLevels(0, 0, 0, 0, 0)
------------------------------------------------------------------------------------------------------------------------------------------]]
+	recipe:SetSkillLevels(560, 560, 570, 575, 580)
+	recipe:AddFilters(F.TRAINER)
+	recipe:AddTrainer(1346)
+
+	self.InitTailoring = nil
+end

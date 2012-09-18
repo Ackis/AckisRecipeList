@@ -426,6 +426,11 @@ function addon:InitVendor()
 	AddVendor(63721,	L["Nat Pagle"],				Z.KRASARANG_WILDS,		68.4, 	43.5,	"Neutral") -- COMPLETELY UPDATED
 	AddVendor(64465,	L["Noodles"],				Z.VALLEY_OF_THE_FOUR_WINDS,	52.4,	51.6,	"Neutral") -- COMPLETELY UPDATED
 	AddVendor(58706,	L["Gina Mudclaw"],			Z.VALLEY_OF_THE_FOUR_WINDS,	52.4,	51.6,	"Neutral") -- COMPLETELY UPDATED
+	AddVendor(59908,	L["Jaluu the Generous"],		Z.VALE_OF_ETERNAL_BLOSSOMS,	74.2,	42.6,	"Neutral")
+	AddVendor(64001,	L["Sage Lotusbloom"],			Z.SHRINE_OF_TWO_MOONS,		62.6,	23.2,	"Horde")
+	AddVendor(64032,	L["Sage Whiteheart"],			Z.SHRINE_OF_SEVEN_STARS,	84.6,	63.6,	"Alliance")
+	AddVendor(64051,	L["Esha the Loommaiden"],		Z.SHRINE_OF_TWO_MOONS,		29.8,	54.0,	"Horde")
+	AddVendor(64052,	L["Raishen the Needle"],		Z.SHRINE_OF_SEVEN_STARS,	67.6,	46.2,	"Alliance")
 
 	self.InitVendor = nil
 end
