@@ -76,7 +76,7 @@ private.PROFESSION_NAME_MAP = {
 }
 
 for name, localized_name in pairs(private.LOCALIZED_PROFESSION_NAMES) do
-	localized_name = private.PROFESSION_NAME_MAP[name]
+	private.PROFESSION_NAME_MAP[localized_name] = localized_name
 end
 
 private.PROFESSION_LABELS = {
