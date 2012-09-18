@@ -5568,7 +5568,7 @@ end
 	recipe:SetCraftedItem(83765)
 	recipe:SetSkillLevels(575, 575, 600, 602, 605)
 	recipe:SetItemFilterType("LEATHERWORKING_ITEM_ENHANCEMENT")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.RBOP, F.REPUTATION)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.REPUTATION)
 	recipe:AddRepVendor(FAC.GOLDEN_LOTUS, REP.HONORED, 59908)
 
 	-- Ironscale Leg Armor -- 124128
@@ -5576,7 +5576,7 @@ end
 	recipe:SetCraftedItem(83763)
 	recipe:SetSkillLevels(575, 575, 600, 602, 605)
 	recipe:SetItemFilterType("LEATHERWORKING_ITEM_ENHANCEMENT")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.RBOP, F.REPUTATION)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.REPUTATION)
 	recipe:AddRepVendor(FAC.GOLDEN_LOTUS, REP.HONORED, 59908)
 
 	-- Shadowleather Leg Armor -- 124129
@@ -5584,7 +5584,7 @@ end
 	recipe:SetCraftedItem(83764)
 	recipe:SetSkillLevels(575, 575, 600, 602, 605)
 	recipe:SetItemFilterType("LEATHERWORKING_ITEM_ENHANCEMENT")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.RBOP, F.REPUTATION)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.REPUTATION)
 	recipe:AddRepVendor(FAC.GOLDEN_LOTUS, REP.HONORED, 59908)
 
 	-- Gloves of Earthen Harmony -- 124626
@@ -5592,7 +5592,7 @@ end
 	recipe:SetCraftedItem(85822)
 	recipe:SetSkillLevels(600, 600, 605, 610, 615)
 	recipe:SetItemFilterType("LEATHERWORKING_HANDS")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.RBOP, F.REPUTATION)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.REPUTATION)
 	recipe:AddRepVendor(FAC.GOLDEN_LOTUS, REP.HONORED, 59908)
 
 	-- Chestguard of Earthen Harmony -- 124625
@@ -5600,7 +5600,7 @@ end
 	recipe:SetCraftedItem(85787)
 	recipe:SetSkillLevels(600, 600, 605, 610, 615)
 	recipe:SetItemFilterType("LEATHERWORKING_CHEST")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.RBOP, F.REPUTATION)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.REPUTATION)
 	recipe:AddRepVendor(FAC.GOLDEN_LOTUS, REP.HONORED, 59908)
 
 	-- Lifekeeper's Gloves -- 124624
@@ -5608,7 +5608,7 @@ end
 	recipe:SetCraftedItem(85825)
 	recipe:SetSkillLevels(600, 600, 605, 610, 615)
 	recipe:SetItemFilterType("LEATHERWORKING_HANDS")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.RBOP, F.REPUTATION)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.REPUTATION)
 	recipe:AddRepVendor(FAC.GOLDEN_LOTUS, REP.HONORED, 59908)
 
 	-- Lifekeeper's Robe -- 124623
@@ -5616,7 +5616,7 @@ end
 	recipe:SetCraftedItem(85826)
 	recipe:SetSkillLevels(600, 600, 605, 610, 615)
 	recipe:SetItemFilterType("LEATHERWORKING_CHEST")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.RBOP, F.REPUTATION)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.REPUTATION)
 	recipe:AddRepVendor(FAC.GOLDEN_LOTUS, REP.HONORED, 59908)
 
 	-- Wildblood Gloves -- 124622
@@ -5624,7 +5624,7 @@ end
 	recipe:SetCraftedItem(85849)
 	recipe:SetSkillLevels(600, 600, 605, 610, 615)
 	recipe:SetItemFilterType("LEATHERWORKING_HANDS")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.RBOP, F.REPUTATION)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.REPUTATION)
 	recipe:AddRepVendor(FAC.GOLDEN_LOTUS, REP.HONORED, 59908)
 
 	-- Wildblood Vest -- 124621
@@ -5632,7 +5632,7 @@ end
 	recipe:SetCraftedItem(85850)
 	recipe:SetSkillLevels(600, 600, 605, 610, 615)
 	recipe:SetItemFilterType("LEATHERWORKING_CHEST")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.RBOP, F.REPUTATION)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.REPUTATION)
 	recipe:AddRepVendor(FAC.GOLDEN_LOTUS, REP.HONORED, 59908)
 
 	-- Greyshadow Gloves -- 124620
@@ -5640,7 +5640,7 @@ end
 	recipe:SetCraftedItem(85824)
 	recipe:SetSkillLevels(600, 600, 605, 610, 615)
 	recipe:SetItemFilterType("LEATHERWORKING_HANDS")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.RBOP, F.REPUTATION)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.REPUTATION)
 	recipe:AddRepVendor(FAC.GOLDEN_LOTUS, REP.HONORED, 59908)
 
 	-- Greyshadow Chestguard -- 124619
@@ -5648,7 +5648,7 @@ end
 	recipe:SetCraftedItem(85823)
 	recipe:SetSkillLevels(600, 600, 605, 610, 615)
 	recipe:SetItemFilterType("LEATHERWORKING_CHEST")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.RBOP, F.REPUTATION)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.REPUTATION)
 	recipe:AddRepVendor(FAC.GOLDEN_LOTUS, REP.HONORED, 59908)
 
 	-- Chestguard of Nemeses -- 124638

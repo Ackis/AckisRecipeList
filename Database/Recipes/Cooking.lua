@@ -1698,9 +1698,6 @@ function addon:InitCooking()
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	recipe:AddVendor(3027, 4223, 4553, 5160, 49701, 49737)
 
---[[------------------------------------------------------------------------------------------------------------------
--- ADD WHEN MOP IS RELEASED
-
 	-- Golden Carp Consomme -- 104237
 	recipe = AddRecipe(104237, V.MOP, Q.COMMON)
 	recipe:SetSkillLevels(0, 0, 0, 0, 0)
@@ -1880,7 +1877,6 @@ function addon:InitCooking()
 	-- Great Banquet of the Brew -- 125603
 	recipe = AddRecipe(125603, V.MOP, Q.COMMON)
 	recipe:SetSkillLevels(0, 0, 0, 0, 0)
-------------------------------------------------------------------------------------------------------------------]]
 
 	self.InitCooking = nil
 end

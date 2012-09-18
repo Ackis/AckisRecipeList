@@ -2517,17 +2517,6 @@ function addon:InitAlchemy()
 	recipe:SetItemFilterType("ALCHEMY_POTION")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	recipe:AddTrainer(5499)
-	
-	-- Alchemist's Flask -- 114786
-	recipe = AddRecipe(114786, V.MOP, Q.COMMON)
-	recipe:SetCraftedItemID(75525)
-	recipe:SetSkillLevels(300, 300, 310, 315, 320)
-	recipe:SetItemFilterType("ALCHEMY_FLASK")
-	recipe:AddFilters(F.TRAINER)
-	recipe:AddTrainer(3603, 5177, 5499, 16723, 18802, 19052, 26903, 26987, 28703, 33608, 33630, 56777)
-
---[[------------------------------------------------------------------------------------------------------------------
--- ADD WHEN MOP IS RELEASED
 
 	-- Potion of the Mountains -- 114753
 	recipe = AddRecipe(114753, V.MOP, Q.COMMON)
@@ -2777,6 +2766,14 @@ function addon:InitAlchemy()
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC)
 	recipe:AddDiscovery("DISCOVERY_ALCH_PANDARIA")
 
+	-- Alchemist's Flask -- 114786
+	recipe = AddRecipe(114786, V.MOP, Q.COMMON)
+	recipe:SetCraftedItemID(75525)
+	recipe:SetSkillLevels(300, 300, 310, 315, 320)
+	recipe:SetItemFilterType("ALCHEMY_FLASK")
+	recipe:AddFilters(F.TRAINER)
+	recipe:AddTrainer(3603, 5177, 5499, 16723, 18802, 19052, 26903, 26987, 28703, 33608, 33630, 56777)
+
 	-- Riddle of Steel -- 130326
 	recipe = AddRecipe(130326, V.MOP, Q.COMMON)
 	recipe:SetCraftedItemID(72104)
@@ -2784,8 +2781,6 @@ function addon:InitAlchemy()
 	recipe:SetItemFilterType("ALCHEMY_TRANSMUTE")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC)
 	recipe:AddDiscovery("DISCOVERY_ALCH_PANDARIA")
-
-------------------------------------------------------------------------------------------------------------------]]
 
 	self.InitAlchemy = nil
 end

@@ -2523,16 +2523,6 @@ function addon:InitEnchanting()
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS)
 	recipe:AddWorldDrop(Z.DEEPHOLM, Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
-	-- Maelstrom Shatter -- 104698
-	recipe = AddRecipe(104698, V.CATA, Q.COMMON)
-	recipe:SetSkillLevels(515, 515, 525, 530, 535)
-	recipe:SetItemFilterType("ENCHANTING_MISC")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP)
-	recipe:AddTrainer(1317, 3011, 3345)
-
---[[------------------------------------------------------------------------------------------------------------------
--- ADD WHEN MOP IS RELEASED
-
 	-- Enchant Ring - Greater Agility -- 103461
 	recipe = AddRecipe(103461, V.MOP, Q.COMMON)
 	recipe:SetSkillLevels(0, 0, 0, 0, 0)
@@ -2661,6 +2651,13 @@ function addon:InitEnchanting()
 	recipe = AddRecipe(104445, V.MOP, Q.COMMON)
 	recipe:SetSkillLevels(0, 0, 0, 0, 0)
 
+	-- Maelstrom Shatter -- 104698
+	recipe = AddRecipe(104698, V.CATA, Q.COMMON)
+	recipe:SetSkillLevels(515, 515, 525, 530, 535)
+	recipe:SetItemFilterType("ENCHANTING_MISC")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP)
+	recipe:AddTrainer(1317, 3011, 3345)
+
 	-- Mysterious Essence -- 116497
 	recipe = AddRecipe(116497, V.MOP, Q.COMMON)
 	recipe:SetSkillLevels(0, 0, 0, 0, 0)
@@ -2688,7 +2685,6 @@ function addon:InitEnchanting()
 	-- Enchant Shield - Greater Parry -- 130758
 	recipe = AddRecipe(130758, V.MOP, Q.COMMON)
 	recipe:SetSkillLevels(0, 0, 0, 0, 0)
-------------------------------------------------------------------------------------------------------------------]]
 
 	self.InitEnchanting = nil
 end

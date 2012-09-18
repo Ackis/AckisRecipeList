@@ -423,14 +423,7 @@ function addon:InitVendor()
 	AddVendor(54232,	L["Mrs. Gant"],				Z.THE_CAPE_OF_STRANGLETHORN,	42.6,	72.8,	"Neutral") -- COMPLETLY UPDATED
 	AddVendor(56925,	L["Farrah Facet"],			Z.STORMWIND_CITY,		63.8,	61.6,	"Alliance") -- COMPLETLY UPDATED
 	AddVendor(57922,	L["Taryssa Lazuria"],			Z.ORGRIMMAR,			72.4,	34.6,	"Horde") -- COMPLETLY UPDATED
-
-	self.InitVendor = nil
-end
-
-
---[[----------------------------------------------------------------------------------------------------------------
--- ADD WHEN MOP IS RELEASED
-
 	AddVendor(63721,	L["Nat Pagle"],				Z.KRASARANG_WILDS,		68.4, 	43.5,	"Neutral") -- COMPLETELY UPDATED
 	AddVendor(64465,	L["Noodles"],				Z.VALLEY_OF_THE_FOUR_WINDS,	52.4,	51.6,	"Neutral") -- COMPLETELY UPDATED
-----------------------------------------------------------------------------------------------------------------]]
+	self.InitVendor = nil
+end

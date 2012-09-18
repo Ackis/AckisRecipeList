@@ -5728,9 +5728,6 @@ function addon:InitJewelcrafting()
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	recipe:AddVendor(56925, 57922)
 
---[[----------------------------------------------------------------------------------------------------------------
--- ADD WHEN MOP IS RELEASED
-
 	-- Rigid River's Heart -- 106947
 	recipe = AddRecipe(106947, V.MOP, Q.COMMON)
 	recipe:SetSkillLevels(0, 0, 0, 0, 0)
@@ -6462,7 +6459,6 @@ function addon:InitJewelcrafting()
 	-- Sapphire Cub -- 131898
 	recipe = AddRecipe(131898, V.MOP, Q.COMMON)
 	recipe:SetSkillLevels(0, 0, 0, 0, 0)
-----------------------------------------------------------------------------------------------------------------]]
 
 	self.InitJewelcrafting = nil
 end

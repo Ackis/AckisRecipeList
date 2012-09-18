@@ -2781,9 +2781,6 @@ function addon:InitEngineering()
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.HEALER, F.CASTER)
 	recipe:AddVendor(53214)
 
---[[------------------------------------------------------------------------------------------------------------------
--- ADD WHEN MOP IS RELEASED
-
 	-- Phase Fingers -- 108789
 	recipe = AddRecipe(108789, V.MOP, Q.COMMON)
 	recipe:SetSkillLevels(0, 0, 0, 0, 0)
@@ -2951,7 +2948,14 @@ function addon:InitEngineering()
 	-- Tinker's Kit -- 131563
 	recipe = AddRecipe(131563, V.MOP, Q.COMMON)
 	recipe:SetSkillLevels(0, 0, 0, 0, 0)
-------------------------------------------------------------------------------------------------------------------]]
 
 	self.InitEngineering = nil
 end
+
+
+
+--[[------------------------------------------------------------------------------------------------------------------
+-- ADD WHEN MOP IS RELEASED
+
+
+----------------------------------------------------------------------------------------------------------------]]
