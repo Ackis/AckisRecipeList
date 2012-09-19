@@ -2523,18 +2523,15 @@ function addon:InitAlchemy()
 	recipe:SetCraftedItemID(75525)
 	recipe:SetSkillLevels(300, 300, 310, 315, 320)
 	recipe:SetItemFilterType("ALCHEMY_FLASK")
-	recipe:AddFilters(F.TRAINER)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	recipe:AddTrainer(3603, 5177, 5499, 16723, 18802, 19052, 26903, 26987, 28703, 33608, 33630, 56777)
-
---[[------------------------------------------------------------------------------------------------------------------
--- ADD WHEN MOP IS RELEASED
 
 	-- Potion of the Mountains -- 114753
 	recipe = AddRecipe(114753, V.MOP, Q.COMMON)
 	recipe:SetCraftedItemID(76090)
 	recipe:SetSkillLevels(525, 525, 540, 552, 565)
 	recipe:SetItemFilterType("ALCHEMY_POTION")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP)
 	recipe:AddDiscovery("DISCOVERY_ALCH_PANDARIA")
 
 	-- Mad Hozen Elixir -- 114754
@@ -2542,7 +2539,7 @@ function addon:InitAlchemy()
 	recipe:SetCraftedItemID(76076)
 	recipe:SetSkillLevels(525, 525, 540, 552, 565)
 	recipe:SetItemFilterType("ALCHEMY_ELIXIR")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP)
 	recipe:AddDiscovery("DISCOVERY_ALCH_PANDARIA")
 
 	-- Mantid Elixir -- 114755
@@ -2550,7 +2547,7 @@ function addon:InitAlchemy()
 	recipe:SetCraftedItemID(76075)
 	recipe:SetSkillLevels(525, 525, 540, 552, 565)
 	recipe:SetItemFilterType("ALCHEMY_ELIXIR")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP)
 	recipe:AddDiscovery("DISCOVERY_ALCH_PANDARIA")
 
 	-- Elixir of Weaponry -- 114756
@@ -2558,7 +2555,7 @@ function addon:InitAlchemy()
 	recipe:SetCraftedItemID(76077)
 	recipe:SetSkillLevels(525, 525, 540, 552, 565)
 	recipe:SetItemFilterType("ALCHEMY_ELIXIR")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP)
 	recipe:AddDiscovery("DISCOVERY_ALCH_PANDARIA")
 
 	-- Potion of the Jade Serpent -- 114757
@@ -2566,7 +2563,7 @@ function addon:InitAlchemy()
 	recipe:SetCraftedItemID(76093)
 	recipe:SetSkillLevels(525, 525, 540, 552, 565)
 	recipe:SetItemFilterType("ALCHEMY_POTION")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP)
 	recipe:AddDiscovery("DISCOVERY_ALCH_PANDARIA")
 
 	-- Monk's Elixir -- 114758
@@ -2574,7 +2571,7 @@ function addon:InitAlchemy()
 	recipe:SetCraftedItemID(76083)
 	recipe:SetSkillLevels(525, 525, 540, 552, 565)
 	recipe:SetItemFilterType("ALCHEMY_ELIXIR")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP)
 	recipe:AddDiscovery("DISCOVERY_ALCH_PANDARIA")
 
 	-- Elixir of the Rapids -- 114759
@@ -2582,7 +2579,7 @@ function addon:InitAlchemy()
 	recipe:SetCraftedItemID(76078)
 	recipe:SetSkillLevels(550, 550, 565, 577, 590)
 	recipe:SetItemFilterType("ALCHEMY_ELIXIR")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP)
 	recipe:AddDiscovery("DISCOVERY_ALCH_PANDARIA")
 
 	-- Potion of Mogu Power -- 114760
@@ -2590,7 +2587,7 @@ function addon:InitAlchemy()
 	recipe:SetCraftedItemID(76095)
 	recipe:SetSkillLevels(550, 550, 565, 577, 590)
 	recipe:SetItemFilterType("ALCHEMY_ELIXIR")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP)
 	recipe:AddDiscovery("DISCOVERY_ALCH_PANDARIA")
 
 	-- Desecrated Oil -- 114761
@@ -2598,7 +2595,7 @@ function addon:InitAlchemy()
 	recipe:SetCraftedItemID(87872)
 	recipe:SetSkillLevels(550, 550, 550, 552, 565)
 	recipe:SetItemFilterType("ALCHEMY_OIL")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP)
 	recipe:AddDiscovery("DISCOVERY_ALCH_PANDARIA")
 
 	-- Elixir of Perfection -- 114762
@@ -2606,7 +2603,7 @@ function addon:InitAlchemy()
 	recipe:SetCraftedItemID(76080)
 	recipe:SetSkillLevels(550, 550, 565, 577, 590)
 	recipe:SetItemFilterType("ALCHEMY_ELIXIR")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP)
 	recipe:AddDiscovery("DISCOVERY_ALCH_PANDARIA")
 
 	-- Elixir of Mirrors -- 114763
@@ -2614,7 +2611,7 @@ function addon:InitAlchemy()
 	recipe:SetCraftedItemID(76079)
 	recipe:SetSkillLevels(550, 550, 565, 577, 590)
 	recipe:SetItemFilterType("ALCHEMY_ELIXIR")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP)
 	recipe:AddDiscovery("DISCOVERY_ALCH_PANDARIA")
 
 	-- Elixir of Peace -- 114764
@@ -2622,7 +2619,7 @@ function addon:InitAlchemy()
 	recipe:SetCraftedItemID(76089)
 	recipe:SetSkillLevels(550, 550, 565, 577, 590)
 	recipe:SetItemFilterType("ALCHEMY_ELIXIR")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP)
 	recipe:AddDiscovery("DISCOVERY_ALCH_PANDARIA")
 
 	-- Virmen's Bite -- 114765
@@ -2630,7 +2627,7 @@ function addon:InitAlchemy()
 	recipe:SetCraftedItemID(76081)
 	recipe:SetSkillLevels(550, 550, 565, 577, 590)
 	recipe:SetItemFilterType("ALCHEMY_POTION")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP)
 	recipe:AddDiscovery("DISCOVERY_ALCH_PANDARIA")
 
 	-- Transmute: River's Heart -- 114766
@@ -2638,7 +2635,7 @@ function addon:InitAlchemy()
 	recipe:SetCraftedItemID(76138)
 	recipe:SetSkillLevels(550, 550, 600, 605, 610)
 	recipe:SetItemFilterType("ALCHEMY_TRANSMUTE")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP)
 	recipe:AddDiscovery("DISCOVERY_ALCH_PANDARIA")
 
 	-- Transmute: Wild Jade -- 114767
@@ -2646,7 +2643,7 @@ function addon:InitAlchemy()
 	recipe:SetCraftedItemID(76139)
 	recipe:SetSkillLevels(550, 550, 600, 605, 610)
 	recipe:SetItemFilterType("ALCHEMY_TRANSMUTE")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP)
 	recipe:AddDiscovery("DISCOVERY_ALCH_PANDARIA")
 
 	-- Flask of Spring Blossoms -- 114769
@@ -2654,7 +2651,7 @@ function addon:InitAlchemy()
 	recipe:SetCraftedItemID(76084)
 	recipe:SetSkillLevels(550, 550, 600, 602, 605)
 	recipe:SetItemFilterType("ALCHEMY_FLASK")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP)
 	recipe:AddDiscovery("DISCOVERY_ALCH_PANDARIA")
 
 	-- Flask of the Earth -- 114770
@@ -2662,7 +2659,7 @@ function addon:InitAlchemy()
 	recipe:SetCraftedItemID(76087)
 	recipe:SetSkillLevels(550, 550, 600, 602, 605)
 	recipe:SetItemFilterType("ALCHEMY_FLASK")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP)
 	recipe:AddDiscovery("DISCOVERY_ALCH_PANDARIA")
 
 	-- Flask of the Warm Sun -- 114771
@@ -2670,7 +2667,7 @@ function addon:InitAlchemy()
 	recipe:SetCraftedItemID(76085)
 	recipe:SetSkillLevels(550, 550, 600, 602, 605)
 	recipe:SetItemFilterType("ALCHEMY_FLASK")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP)
 	recipe:AddDiscovery("DISCOVERY_ALCH_PANDARIA")
 
 	-- Flask of Falling Leaves -- 114772
@@ -2678,7 +2675,7 @@ function addon:InitAlchemy()
 	recipe:SetCraftedItemID(76088)
 	recipe:SetSkillLevels(550, 550, 600, 602, 605)
 	recipe:SetItemFilterType("ALCHEMY_FLASK")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP)
 	recipe:AddDiscovery("DISCOVERY_ALCH_PANDARIA")
 
 	-- Flask of Winter's Bite -- 114773
@@ -2686,7 +2683,7 @@ function addon:InitAlchemy()
 	recipe:SetCraftedItemID(76086)
 	recipe:SetSkillLevels(550, 550, 600, 602, 605)
 	recipe:SetItemFilterType("ALCHEMY_FLASK")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP)
 	recipe:AddDiscovery("DISCOVERY_ALCH_PANDARIA")
 
 	-- Darkwater Potion -- 114774
@@ -2694,7 +2691,7 @@ function addon:InitAlchemy()
 	recipe:SetCraftedItemID(76096)
 	recipe:SetSkillLevels(575, 575, 575, 577, 590)
 	recipe:SetItemFilterType("ALCHEMY_POTION")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP)
 	recipe:AddDiscovery("DISCOVERY_ALCH_PANDARIA")
 
 	-- Master Mana Potion -- 114775
@@ -2702,7 +2699,7 @@ function addon:InitAlchemy()
 	recipe:SetCraftedItemID(76098)
 	recipe:SetSkillLevels(575, 575, 600, 602, 605)
 	recipe:SetItemFilterType("ALCHEMY_POTION")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP)
 	recipe:AddDiscovery("DISCOVERY_ALCH_PANDARIA")
 
 	-- Transmute: Vermilion Onyx -- 114776
@@ -2710,7 +2707,7 @@ function addon:InitAlchemy()
 	recipe:SetCraftedItemID(76140)
 	recipe:SetSkillLevels(575, 575, 600, 605, 610)
 	recipe:SetItemFilterType("ALCHEMY_TRANSMUTE")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP)
 	recipe:AddDiscovery("DISCOVERY_ALCH_PANDARIA")
 
 	-- Transmute: Imperial Amethyst -- 114777
@@ -2718,7 +2715,7 @@ function addon:InitAlchemy()
 	recipe:SetCraftedItemID(76141)
 	recipe:SetSkillLevels(575, 575, 600, 605, 610)
 	recipe:SetItemFilterType("ALCHEMY_TRANSMUTE")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP)
 	recipe:AddDiscovery("DISCOVERY_ALCH_PANDARIA")
 
 	-- Transmute: Sun's Radiance -- 114778
@@ -2726,7 +2723,7 @@ function addon:InitAlchemy()
 	recipe:SetCraftedItemID(76141)
 	recipe:SetSkillLevels(575, 575, 600, 605, 610)
 	recipe:SetItemFilterType("ALCHEMY_TRANSMUTE")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP)
 	recipe:AddDiscovery("DISCOVERY_ALCH_PANDARIA")
 
 	-- Potion of Luck -- 114779
@@ -2734,7 +2731,7 @@ function addon:InitAlchemy()
 	recipe:SetCraftedItemID(76091)
 	recipe:SetSkillLevels(600, 600, 605, 610, 615)
 	recipe:SetItemFilterType("ALCHEMY_POTION")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP)
 	recipe:AddDiscovery("DISCOVERY_ALCH_PANDARIA")
 
 	-- Transmute: Living Steel -- 114780
@@ -2742,7 +2739,7 @@ function addon:InitAlchemy()
 	recipe:SetCraftedItemID(72104)
 	recipe:SetSkillLevels(600, 600, 605, 610, 615)
 	recipe:SetItemFilterType("ALCHEMY_TRANSMUTE")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP)
 	recipe:AddDiscovery("DISCOVERY_ALCH_PANDARIA")
 
 	-- Transmute: Primal Diamond -- 114781
@@ -2750,7 +2747,7 @@ function addon:InitAlchemy()
 	recipe:SetCraftedItemID(76132)
 	recipe:SetSkillLevels(600, 600, 600, 605, 610)
 	recipe:SetItemFilterType("ALCHEMY_TRANSMUTE")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP)
 	recipe:AddDiscovery("DISCOVERY_ALCH_PANDARIA")
 
 	-- Potion of Focus -- 114782
@@ -2758,7 +2755,7 @@ function addon:InitAlchemy()
 	recipe:SetCraftedItemID(76092)
 	recipe:SetSkillLevels(600, 600, 600, 600, 600)
 	recipe:SetItemFilterType("ALCHEMY_POTION")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP)
 	recipe:AddDiscovery("DISCOVERY_ALCH_PANDARIA")
 
 	-- Transmute: Trillium Bar -- 114783
@@ -2766,7 +2763,7 @@ function addon:InitAlchemy()
 	recipe:SetCraftedItemID(72095)
 	recipe:SetSkillLevels(600, 600, 600, 605, 610)
 	recipe:SetItemFilterType("ALCHEMY_TRANSMUTE")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP)
 	recipe:AddDiscovery("DISCOVERY_ALCH_PANDARIA")
 
 	-- Transmute: Primordial Ruby -- 114784
@@ -2774,7 +2771,7 @@ function addon:InitAlchemy()
 	recipe:SetCraftedItemID(76131)
 	recipe:SetSkillLevels(600, 600, 600, 605, 610)
 	recipe:SetItemFilterType("ALCHEMY_TRANSMUTE")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP)
 	recipe:AddDiscovery("DISCOVERY_ALCH_PANDARIA")
 
 	-- Riddle of Steel -- 130326
@@ -2782,10 +2779,8 @@ function addon:InitAlchemy()
 	recipe:SetCraftedItemID(72104)
 	recipe:SetSkillLevels(600, 600, 605, 610, 615)
 	recipe:SetItemFilterType("ALCHEMY_TRANSMUTE")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP)
 	recipe:AddDiscovery("DISCOVERY_ALCH_PANDARIA")
-
-------------------------------------------------------------------------------------------------------------------]]
 
 	self.InitAlchemy = nil
 end
