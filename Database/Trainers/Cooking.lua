@@ -47,6 +47,7 @@ function private:InitializeCookingTrainers()
 	self:AddTrainer(47405, "The Chef", Z.TIRISFAL_GLADES, 61.2, 52.6, "Horde")
 	self:AddTrainer(49789, "Allison", Z.HELLFIRE_PENINSULA, 56.8, 37.4, "Horde")
 	self:AddTrainer(54232, "Mrs. Gant", Z.THE_CAPE_OF_STRANGLETHORN, 42.6, 72.8, "Neutral") -- COMPLETELY UPDATED
+	self:AddTrainer(56707, "Chin", Z.THE_JADE_FOREST, 46.2, 45.4, "Neutral")
 	self:AddTrainer(58712, "Kol Ironpaw", Z.VALLEY_OF_THE_FOUR_WINDS, 53, 51.3, "Neutral")
 	self:AddTrainer(58713, "Anthea Ironpaw", Z.VALLEY_OF_THE_FOUR_WINDS, 52.7, 52, "Neutral")
 	self:AddTrainer(58714, "Mei Mei Ironpaw", Z.VALLEY_OF_THE_FOUR_WINDS, 52.6, 51.5, "Neutral")
