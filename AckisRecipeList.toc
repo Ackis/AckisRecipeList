@@ -34,7 +34,7 @@
 
 ## Author: Ackis, Torhal, Zhinjio
 ## X-Donate: http://www.wowace.com/addons/arl/pages/donations/
- 
+
 ## Interface: 50001
 ## X-Compatible-With: 50001
 ## Version: @project-version@
@@ -70,12 +70,12 @@ locale.xml
 Constants.lua
 
 Core.lua
+Utilities.lua
 Recipe.lua
 Config.lua
 Waypoint.lua
 Scanner.lua
 Player.lua
-Utilities.lua
 
 # User Interface files
 interface.xml

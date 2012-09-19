@@ -986,7 +986,8 @@ do
 		-- Everything is ready - display the GUI or dump the list to text.
 		-------------------------------------------------------------------------------
 		if textdump then
-			self:DisplayTextDump(profession_recipes, profession_name)
+			private.TextDump:AddLine(self:GetTextDump(profession_name))
+			private.TextDump:Display()
 		else
 			if private.InitializeFrame then
 				private.InitializeFrame()
@@ -995,78 +996,6 @@ do
 		end
 	end
 end
-
--------------------------------------------------------------------------------
--- Text dumping functions
--------------------------------------------------------------------------------
-
---------------------------------------------------------------------------------
---- Creates a new frame with the contents of a text dump so you can copy and paste
--- Code borrowed from Antiarc (Chatter) with permission
--- @name AckisRecipeList:DisplayTextDump
--- @param RecipeDB The database (array) which you wish read data from.
--- @param profession Which profession are you displaying data for
--- @param text The text to be dumped
---------------------------------------------------------------------------------
-do
-	local copy_frame = _G.CreateFrame("Frame", "ARLCopyFrame", _G.UIParent)
-	copy_frame:SetBackdrop({
-		bgFile = [[Interface\DialogFrame\UI-DialogBox-Background]],
-		edgeFile = [[Interface\DialogFrame\UI-DialogBox-Border]],
-		tile = true,
-		tileSize = 16,
-		edgeSize = 16,
-		insets = {
-			left = 3,
-			right = 3,
-			top = 5,
-			bottom = 3
-		}
-	})
-	copy_frame:SetBackdropColor(0, 0, 0, 1)
-	copy_frame:SetWidth(750)
-	copy_frame:SetHeight(400)
-	copy_frame:SetPoint("CENTER", _G.UIParent, "CENTER")
-	copy_frame:SetFrameStrata("DIALOG")
-
-	table.insert(_G.UISpecialFrames, "ARLCopyFrame")
-
-	local scrollArea = _G.CreateFrame("ScrollFrame", "ARLCopyScroll", copy_frame, "UIPanelScrollFrameTemplate")
-	scrollArea:SetPoint("TOPLEFT", copy_frame, "TOPLEFT", 8, -30)
-	scrollArea:SetPoint("BOTTOMRIGHT", copy_frame, "BOTTOMRIGHT", -30, 8)
-
-	local edit_box = _G.CreateFrame("EditBox", nil, copy_frame)
-	edit_box:SetMultiLine(true)
-	edit_box:SetMaxLetters(0)
-	edit_box:EnableMouse(true)
-	edit_box:SetAutoFocus(true)
-	edit_box:SetFontObject("ChatFontNormal")
-	edit_box:SetWidth(650)
-	edit_box:SetHeight(270)
-	edit_box:SetScript("OnEscapePressed", function()
-		copy_frame:Hide()
-	end)
-	edit_box:HighlightText(0)
-
-	scrollArea:SetScrollChild(edit_box)
-
-	local close = _G.CreateFrame("Button", nil, copy_frame, "UIPanelCloseButton")
-	close:SetPoint("TOPRIGHT", copy_frame, "TOPRIGHT")
-
-	copy_frame:Hide()
-
-	function addon:DisplayTextDump(recipe_list, profession, text)
-		local display_text = (not recipe_list and not profession) and text or self:GetTextDump(profession)
-
-		if display_text == "" then
-			return
-		end
-		edit_box:SetText(display_text)
-		edit_box:HighlightText(0)
-		edit_box:SetCursorPosition(1)
-		copy_frame:Show()
-	end
-end -- do
 
 do
 	-------------------------------------------------------------------------------

@@ -80,17 +80,110 @@ function private.MobGUIDToIDNum(guid)
 	return tonumber(guid:sub(-12,-9), 16)
 end
 
--------------------------------------------------------------------------------
--- Miscellaneous utilities
--------------------------------------------------------------------------------
 --@debug@
+-------------------------------------------------------------------------------
+-- Text dumping functions
+-------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+--- Creates a new frame with the contents of a text dump so you can copy and paste
+-- Code borrowed from Antiarc (Chatter) with permission
+--------------------------------------------------------------------------------
+do
+	local copy_frame = _G.CreateFrame("Frame", "ARL_CopyFrame", _G.UIParent)
+	copy_frame:SetBackdrop({
+		bgFile = [[Interface\DialogFrame\UI-DialogBox-Background]],
+		edgeFile = [[Interface\DialogFrame\UI-DialogBox-Border]],
+		tile = true,
+		tileSize = 16,
+		edgeSize = 16,
+		insets = {
+			left = 3,
+			right = 3,
+			top = 5,
+			bottom = 3
+		}
+	})
+	copy_frame:SetBackdropColor(0, 0, 0, 1)
+	copy_frame:SetWidth(750)
+	copy_frame:SetHeight(400)
+	copy_frame:SetPoint("CENTER", _G.UIParent, "CENTER")
+	copy_frame:SetFrameStrata("DIALOG")
+
+	table.insert(_G.UISpecialFrames, "ARL_CopyFrame")
+
+	local scrollArea = _G.CreateFrame("ScrollFrame", "ARL_CopyScroll", copy_frame, "UIPanelScrollFrameTemplate")
+	scrollArea:SetPoint("TOPLEFT", copy_frame, "TOPLEFT", 8, -30)
+	scrollArea:SetPoint("BOTTOMRIGHT", copy_frame, "BOTTOMRIGHT", -30, 8)
+
+	local edit_box = _G.CreateFrame("EditBox", nil, copy_frame)
+	edit_box:SetMultiLine(true)
+	edit_box:SetMaxLetters(0)
+	edit_box:EnableMouse(true)
+	edit_box:SetAutoFocus(true)
+	edit_box:SetFontObject("ChatFontNormal")
+	edit_box:SetWidth(650)
+	edit_box:SetHeight(270)
+	edit_box:SetScript("OnEscapePressed", function()
+		copy_frame:Hide()
+	end)
+	edit_box:HighlightText(0)
+
+	scrollArea:SetScrollChild(edit_box)
+
+	local close = _G.CreateFrame("Button", nil, copy_frame, "UIPanelCloseButton")
+	close:SetPoint("TOPRIGHT", copy_frame, "TOPRIGHT")
+
+	copy_frame:Hide()
+
+	private.TextDump = {
+		output = {}
+	}
+
+	function private.TextDump:AddLine(text)
+		self:InsertLine(#self.output + 1, text)
+	end
+
+	function private.TextDump:Clear()
+		print("Wiping TextDump output.")
+		table.wipe(self.output)
+	end
+
+	function private.TextDump:Display(separator)
+		local display_text = table.concat(self.output, separator or "\n")
+
+		if display_text == "" then
+			return
+		end
+		edit_box:SetText(display_text)
+		edit_box:HighlightText(0)
+		edit_box:SetCursorPosition(1)
+		copy_frame:Show()
+	end
+
+	function private.TextDump:InsertLine(position, text)
+		if _G.type(text) ~= "string" or text == "" then
+			return
+		end
+		table.insert(self.output, position, text)
+	end
+
+	function private.TextDump:Lines()
+		return #self.output
+	end
+
+	function private.TextDump:String(separator)
+		local display_text = table.concat(self.output, separator or "\n")
+		return display_text
+	end
+end -- do
+
 do
 	local L = LibStub("AceLocale-3.0"):GetLocale(private.addon_name)
-	local output = {}
+	local TextDump = private.TextDump
 
 	function addon:DumpPhrases()
 		local sorted = {}
-		table.wipe(output)
 
 		for phrase, translation in pairs(L) do
 			sorted[#sorted + 1] = phrase
@@ -102,19 +195,18 @@ do
 			local translation = L[phrase]
 
 			if phrase == translation then
-				table.insert(output, ("L[\"%s\"] = true"):format(phrase:gsub("\"", "\\\"")))
+				TextDump:AddLine(("L[\"%s\"] = true"):format(phrase:gsub("\"", "\\\"")))
 			elseif translation:find("\n") then
-				table.insert(output, ("L[\"%s\"] = [[%s]]"):format(phrase:gsub("\"", "\\\""), translation))
+				TextDump:AddLine(("L[\"%s\"] = [[%s]]"):format(phrase:gsub("\"", "\\\""), translation))
 			else
-				table.insert(output, ("L[\"%s\"] = \"%s\""):format(phrase:gsub("\"", "\\\""), translation:gsub('\"', '\\"')))
+				TextDump:AddLine(("L[\"%s\"] = \"%s\""):format(phrase:gsub("\"", "\\\""), translation:gsub('\"', '\\"')))
 			end
 		end
-		self:DisplayTextDump(nil, nil, table.concat(output, "\n"))
+		TextDump:Display()
 	end
 
 	function addon:DumpMembers(match)
-		table.wipe(output)
-		table.insert(output, "Addon Object members.\n")
+		TextDump:AddLine("Addon Object members.\n")
 
 		local count = 0
 
@@ -122,12 +214,12 @@ do
 			local val_type = type(value)
 
 			if not match or val_type == match then
-				table.insert(output, ("%s (%s)"):format(key, val_type))
+				TextDump:AddLine(("%s (%s)"):format(key, val_type))
 				count = count + 1
 			end
 		end
-		table.insert(output, ("\n%d found\n"):format(count))
-		self:DisplayTextDump(nil, nil, table.concat(output, "\n"))
+		TextDump:AddLine(("\n%d found\n"):format(count))
+		TextDump:Display()
 	end
 
 	local function TableKeyFormat(input)
@@ -138,19 +230,70 @@ do
 		return input:upper():gsub(" ", "_"):gsub("'", ""):gsub(":", ""):gsub("-", "_"):gsub("%(", ""):gsub("%)", "")
 	end
 
-	function addon:DumpBossIDs(name)
-		table.wipe(output)
+	function addon:DumpZones(name)
+		for index = 1, 100000 do
+			local zone_name = _G.GetMapNameByID(index)
 
+			if zone_name and zone_name:lower():find(name:lower()) then
+				TextDump:AddLine(("%s = _G.GetMapNameByID(%d),"):format(TableKeyFormat(zone_name), index))
+			end
+		end
+		TextDump:Display()
+	end
+
+	--[=[
+		private.ZONE_NAME_LIST = {}
+
+		local old_GetMapNameByID = _G.GetMapNameByID
+		local function My_GetMapNameByID(id_num)
+			if not id_num then
+				return
+			end
+			local Z = private.ZONE_NAME_LIST
+			local name = old_GetMapNameByID(id_num)
+
+			if not name then
+				return
+			end
+			Z[name] = id_num
+			return name
+		end
+		_G.GetMapNameByID = My_GetMapNameByID
+
+	function addon:DumpCapturedZones()
+		table.wipe(output)
+		TextDump:AddLine("private.ZONE_NAMES = {")
+		local sorted_zones = {}
+		for name, idnum in pairs(private.ZONE_NAME_LIST) do
+			sorted_zones[#sorted_zones + 1] = name
+		end
+		table.sort(sorted_zones, function(a, b)
+			return private.ZONE_NAME_LIST[a] < private.ZONE_NAME_LIST[b]
+		end)
+
+		for index = 1, #sorted_zones do
+			local zone_id = private.ZONE_NAME_LIST[sorted_zones[index]]
+			TextDump:AddLine(("%s = _G.GetMapNameByID(%d),"):format(TableKeyFormat(sorted_zones[index]), zone_id))
+		end
+		TextDump:AddLine("}\n")
+		TextDump:Display()
+	end
+--]=]
+
+	function addon:DumpBossIDs(name)
 		for index = 1, 10000 do
 			local boss_name = _G.EJ_GetEncounterInfo(index)
 
 			if boss_name and boss_name:lower():find(name:lower()) then
-				table.insert(output, ("%s = _G.EJ_GetEncounterInfo(%d),"):format(TableKeyFormat(boss_name), index))
+				TextDump:AddLine(("%s = _G.EJ_GetEncounterInfo(%d),"):format(TableKeyFormat(boss_name), index))
 			end
 		end
-		self:DisplayTextDump(nil, nil, table.concat(output, "\n"))
+		TextDump:Display()
 	end
 
+	-------------------------------------------------------------------------------
+	-- Miscellaneous utilities
+	-------------------------------------------------------------------------------
 	local function find_empties(unit_list, description)
 		local count
 
@@ -180,57 +323,5 @@ do
 		find_empties(private.discovery_list, "Discovery")
 		find_empties(private.seasonal_list, "World Event")
 	end
-
-	function addon:DumpZones(name)
-		table.wipe(output)
-
-		for index = 1, 100000 do
-			local zone_name = _G.GetMapNameByID(index)
-
-			if zone_name and zone_name:lower():find(name:lower()) then
-				table.insert(output, ("%s = _G.GetMapNameByID(%d),"):format(TableKeyFormat(zone_name), index))
-			end
-		end
-		self:DisplayTextDump(nil, nil, table.concat(output, "\n"))
-	end
-
---[=[
-		private.ZONE_NAME_LIST = {}
-
-		local old_GetMapNameByID = _G.GetMapNameByID
-		local function My_GetMapNameByID(id_num)
-			if not id_num then
-				return
-			end
-			local Z = private.ZONE_NAME_LIST
-			local name = old_GetMapNameByID(id_num)
-
-			if not name then
-				return
-			end
-			Z[name] = id_num
-			return name
-		end
-		_G.GetMapNameByID = My_GetMapNameByID
-
-	function addon:DumpCapturedZones()
-		table.wipe(output)
-		table.insert(output, "private.ZONE_NAMES = {")
-		local sorted_zones = {}
-		for name, idnum in pairs(private.ZONE_NAME_LIST) do
-			sorted_zones[#sorted_zones + 1] = name
-		end
-		table.sort(sorted_zones, function(a, b)
-			return private.ZONE_NAME_LIST[a] < private.ZONE_NAME_LIST[b]
-		end)
-
-		for index = 1, #sorted_zones do
-			local zone_id = private.ZONE_NAME_LIST[sorted_zones[index]]
-			table.insert(output, ("%s = _G.GetMapNameByID(%d),"):format(TableKeyFormat(sorted_zones[index]), zone_id))
-		end
-		table.insert(output, "}\n")
-		self:DisplayTextDump(nil, nil, table.concat(output, "\n"))
-	end
---]=]
 end -- do
 --@end-debug@
