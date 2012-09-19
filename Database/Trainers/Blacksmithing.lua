@@ -55,6 +55,7 @@ function private:InitializeBlacksmithingTrainers()
 	self:AddTrainer(45548, "Kark Helmbreaker", Z.ORGRIMMAR, 36, 83, "Horde")
 	self:AddTrainer(52640, "Rolf Karner", Z.DARNASSUS, 56.8, 52.8, "Alliance")
 	self:AddTrainer(65114, "Len the Hammer", Z.THE_JADE_FOREST, 48.5, 36.8, "Neutral")
+	self:AddTrainer(65129, "Zen Master Lao", Z.VALE_OF_ETERNAL_BLOSSOMS ,21.8, 72.5, "Neutral")
 
 	self.InitializeBlacksmithingTrainers = nil
 end
