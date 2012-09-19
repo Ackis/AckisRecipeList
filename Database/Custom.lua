@@ -70,7 +70,7 @@ function addon:InitCustom()
 	AddCustom("DRAGONSOUL_RANDOM", Z.DRAGON_SOUL)
 	AddCustom("PREREQ")
 	AddCustom("BLACK_MARKET_AUCTION_HOUSE")
-	AddCustom("MOP_RAIDS_RANDOM")
+	AddCustom("MOP_RAIDS_RANDOM", Z.HEART_OF_FEAR)
 
 	self.InitCustom = nil
 end
