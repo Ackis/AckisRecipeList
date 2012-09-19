@@ -513,43 +513,42 @@ local DUMP_FUNCTION_FORMATS = {
 local sorted_data = {}
 local reverse_map = {}
 
-function recipe_prototype:Dump(output)
-	local genesis = private.GAME_VERSIONS[self.genesis]
+function recipe_prototype:Dump()
+	local output = private.TextDump
 
-	table.insert(output, ("-- %s -- %d"):format(self.name, self.spell_id))
-	table.insert(output, ("recipe = AddRecipe(%d, V.%s, Q.%s)"):format(self.spell_id, private.GAME_VERSION_NAMES[genesis], private.ITEM_QUALITY_NAMES[self.quality]))
+	output:AddLine(("-- %s -- %d"):format(self.name, self.spell_id))
+	output:AddLine(("recipe = AddRecipe(%d, V.%s, Q.%s)"):format(self.spell_id, self.genesis, private.ITEM_QUALITY_NAMES[self.quality]))
 
 	if self.recipe_item_id then
-		table.insert(output, ("recipe:SetRecipeItemID(%d)"):format(self.recipe_item_id))
+		output:AddLine(("recipe:SetRecipeItemID(%d)"):format(self.recipe_item_id))
 	end
 
 	if self.crafted_item_id then
-		table.insert(output, ("recipe:SetCraftedItemID(%d)"):format(self.crafted_item_id))
+		output:AddLine(("recipe:SetCraftedItemID(%d)"):format(self.crafted_item_id))
 	end
 	local previous_rank_recipe = private.profession_recipe_list[self.profession][self:PreviousRankID()]
 
 	if previous_rank_recipe then
-		table.insert(output, ("recipe:SetPreviousRankID(%d)"):format(previous_rank_recipe.spell_id))
+		output:AddLine(("recipe:SetPreviousRankID(%d)"):format(previous_rank_recipe.spell_id))
 	end
-
 	local skill_level = self.skill_level
 	local optimal_level = self.optimal_level
 	local medium_level = self.medium_level
 	local easy_level = self.easy_level
 	local trivial_level = self.trivial_level
 
-	table.insert(output, ("recipe:SetSkillLevels(%d, %d, %d, %d, %d)"):format(skill_level, optimal_level, medium_level, easy_level, trivial_level))
+	output:AddLine(("recipe:SetSkillLevels(%d, %d, %d, %d, %d)"):format(skill_level, optimal_level, medium_level, easy_level, trivial_level))
 
 	if self.specialty then
-		table.insert(output, ("recipe:SetSpecialty(%d)"):format(self.specialty))
+		output:AddLine(("recipe:SetSpecialty(%d)"):format(self.specialty))
 	end
 
 	if self.required_faction then
-		table.insert(output, ("recipe:SetRequiredFaction(\"%s\")"):format(self.required_faction))
+		output:AddLine(("recipe:SetRequiredFaction(\"%s\")"):format(self.required_faction))
 	end
 
 	if self.item_filter_type then
-		table.insert(output, ("recipe:SetItemFilterType(\"%s\")"):format(self.item_filter_type:upper()))
+		output:AddLine(("recipe:SetItemFilterType(\"%s\")"):format(self.item_filter_type:upper()))
 	end
 	local flag_string
 
@@ -581,11 +580,11 @@ function recipe_prototype:Dump(output)
 	end
 
 	if flag_string then
-		table.insert(output, ("recipe:AddFilters(%s)"):format(flag_string))
+		output:AddLine(("recipe:AddFilters(%s)"):format(flag_string))
 	end
-	flag_string = nil
-
 	local ZL = private.ZONE_LABELS_FROM_NAME
+
+	flag_string = nil
 
 	for acquire_type, acquire_info in pairs(self.acquire_data) do
 		if acquire_type == A.REPUTATION then
@@ -618,7 +617,7 @@ function recipe_prototype:Dump(output)
 							values = vendor_id
 						end
 					end
-					table.insert(output, ("recipe:AddRepVendor(%s, %s, %s)"):format(faction_string, rep_string, values))
+					output:AddLine(("recipe:AddRepVendor(%s, %s, %s)"):format(faction_string, rep_string, values))
 				end
 			end
 		elseif acquire_type == A.VENDOR then
@@ -660,11 +659,11 @@ function recipe_prototype:Dump(output)
 			end
 
 			if values then
-				table.insert(output, ("recipe:AddVendor(%s)"):format(values))
+				output:AddLine(("recipe:AddVendor(%s)"):format(values))
 			end
 
 			if limited_values then
-				table.insert(output, ("recipe:AddLimitedVendor(%s)"):format(limited_values))
+				output:AddLine(("recipe:AddLimitedVendor(%s)"):format(limited_values))
 			end
 		elseif DUMP_FUNCTION_FORMATS[acquire_type] then
 			local values
@@ -696,7 +695,7 @@ function recipe_prototype:Dump(output)
 					values = saved_id
 				end
 			end
-			table.insert(output, (DUMP_FUNCTION_FORMATS[acquire_type]):format(values))
+			output:AddLine((DUMP_FUNCTION_FORMATS[acquire_type]):format(values))
 		else
 			for identifier in pairs(acquire_info) do
 				local saved_id
@@ -717,9 +716,9 @@ function recipe_prototype:Dump(output)
 	end
 
 	if flag_string then
-		table.insert(output, ("recipe:AddAcquireData(%s)"):format(flag_string))
+		output:AddLine(("recipe:AddAcquireData(%s)"):format(flag_string))
 	end
-	table.insert(output, "")
+	output:AddLine(" ")
 end
 
 function recipe_prototype:DumpTrainers(registry)
