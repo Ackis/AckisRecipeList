@@ -180,7 +180,7 @@ end -- do
 
 do
 	local L = LibStub("AceLocale-3.0"):GetLocale(private.addon_name)
-	local TextDump = private.TextDump
+	local output = private.TextDump
 
 	function addon:DumpPhrases()
 		local sorted = {}
@@ -189,24 +189,26 @@ do
 			sorted[#sorted + 1] = phrase
 		end
 		table.sort(sorted)
+		output:Clear()
 
 		for index = 1, #sorted do
 			local phrase = sorted[index]
 			local translation = L[phrase]
 
 			if phrase == translation then
-				TextDump:AddLine(("L[\"%s\"] = true"):format(phrase:gsub("\"", "\\\"")))
+				output:AddLine(("L[\"%s\"] = true"):format(phrase:gsub("\"", "\\\"")))
 			elseif translation:find("\n") then
-				TextDump:AddLine(("L[\"%s\"] = [[%s]]"):format(phrase:gsub("\"", "\\\""), translation))
+				output:AddLine(("L[\"%s\"] = [[%s]]"):format(phrase:gsub("\"", "\\\""), translation))
 			else
-				TextDump:AddLine(("L[\"%s\"] = \"%s\""):format(phrase:gsub("\"", "\\\""), translation:gsub('\"', '\\"')))
+				output:AddLine(("L[\"%s\"] = \"%s\""):format(phrase:gsub("\"", "\\\""), translation:gsub('\"', '\\"')))
 			end
 		end
-		TextDump:Display()
+		output:Display()
 	end
 
 	function addon:DumpMembers(match)
-		TextDump:AddLine("Addon Object members.\n")
+		output:Clear()
+		output:AddLine("Addon Object members.\n")
 
 		local count = 0
 
@@ -214,12 +216,12 @@ do
 			local val_type = type(value)
 
 			if not match or val_type == match then
-				TextDump:AddLine(("%s (%s)"):format(key, val_type))
+				output:AddLine(("%s (%s)"):format(key, val_type))
 				count = count + 1
 			end
 		end
-		TextDump:AddLine(("\n%d found\n"):format(count))
-		TextDump:Display()
+		output:AddLine(("\n%d found\n"):format(count))
+		output:Display()
 	end
 
 	local function TableKeyFormat(input)
@@ -231,14 +233,16 @@ do
 	end
 
 	function addon:DumpZones(name)
+		output:Clear()
+
 		for index = 1, 100000 do
 			local zone_name = _G.GetMapNameByID(index)
 
 			if zone_name and zone_name:lower():find(name:lower()) then
-				TextDump:AddLine(("%s = _G.GetMapNameByID(%d),"):format(TableKeyFormat(zone_name), index))
+				output:AddLine(("%s = _G.GetMapNameByID(%d),"):format(TableKeyFormat(zone_name), index))
 			end
 		end
-		TextDump:Display()
+		output:Display()
 	end
 
 	--[=[
@@ -281,14 +285,16 @@ do
 --]=]
 
 	function addon:DumpBossIDs(name)
+		output:Clear()
+
 		for index = 1, 10000 do
 			local boss_name = _G.EJ_GetEncounterInfo(index)
 
 			if boss_name and boss_name:lower():find(name:lower()) then
-				TextDump:AddLine(("%s = _G.EJ_GetEncounterInfo(%d),"):format(TableKeyFormat(boss_name), index))
+				output:AddLine(("%s = _G.EJ_GetEncounterInfo(%d),"):format(TableKeyFormat(boss_name), index))
 			end
 		end
-		TextDump:Display()
+		output:Display()
 	end
 
 	-------------------------------------------------------------------------------
