@@ -1046,6 +1046,7 @@ L["Sage Lotusbloom"] = true
 L["Sage Whiteheart"] = true
 L["Sairuk"] = true
 L["Sal Ferraga"] = true
+L["Sally Fizzlefury"] = true
 L["Sally Tompkins"] = true
 L["Samuel Van Brunt"] = true
 L["Sara Lanner"] = true

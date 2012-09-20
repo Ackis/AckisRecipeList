@@ -49,6 +49,7 @@ function private:InitializeEngineeringTrainers()
 	self:AddTrainer(33634, "Engineer Sinbei", Z.SHATTRATH_CITY, 43.1, 64.9, "Neutral")
 	self:AddTrainer(45545, "\"Jack\" Pisarek Slamfix", Z.ORGRIMMAR, 36.34, 86.74, "Horde")
 	self:AddTrainer(52636, "Tana Lentner", Z.DARNASSUS, 49.6, 32.6, "Alliance")
+	self:AddTrainer(55143, "Sally Fizzlefury", Z.VALLEY_OF_THE_FOUR_WINDS, 16.1, 83.1, "Neutral")
 
 	self.InitializeEngineeringTrainers = nil
 end
