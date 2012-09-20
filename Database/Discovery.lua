@@ -48,6 +48,7 @@ function addon:InitDiscovery()
 	AddDiscovery("DISCOVERY_ALCH_NORTHREND_XMUTE")
 	AddDiscovery("ENG_DISC")
 	AddDiscovery("DISCOVERY_ALCH_PANDARIA")
+	AddDiscovery("DISCOVERY_INSC_PANDARIA")
 
 	self.InitDiscovery = nil
 end
