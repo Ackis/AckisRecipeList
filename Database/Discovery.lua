@@ -49,6 +49,7 @@ function addon:InitDiscovery()
 	AddDiscovery("ENG_DISC")
 	AddDiscovery("DISCOVERY_ALCH_PANDARIA")
 	AddDiscovery("DISCOVERY_INSC_PANDARIA")
+	AddDiscovery("DISCOVERY_JC_PANDARIA")
 
 	self.InitDiscovery = nil
 end

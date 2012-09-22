@@ -134,6 +134,8 @@ function private:InitializeItemFilters_Jewelcrafting(parent_panel)
 	local general_types = {
 		jewelcrafting_created_item	= { tt = L["FILTER_DESC_FORMAT"]:format(_G.NONEQUIPSLOT),	text = _G.NONEQUIPSLOT,		row = 1, col = 1 },
 		jewelcrafting_materials		= { tt = L["FILTER_DESC_FORMAT"]:format(L["Materials"]),	text = L["Materials"],		row = 1, col = 2 },
+		jewelcrafting_mount		= { tt = L["FILTER_DESC_FORMAT"]:format(_G.MOUNTS),		text = _G.MOUNTS,		row = 2, col = 1 },
+		jewelcrafting_pet		= { tt = L["FILTER_DESC_FORMAT"]:format(_G.PETS),		text = _G.PETS,			row = 2, col = 2 },
 	}
 
 	general_toggle:SetScript("OnClick", function(self, button)
