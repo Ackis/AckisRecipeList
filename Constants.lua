@@ -410,6 +410,7 @@ private.ITEM_FILTER_TYPES = {
 	INSCRIPTION_OFF_HAND = true,
 	INSCRIPTION_STAFF = true,
 	INSCRIPTION_SCROLL = true,
+	INSCRIPTION_PET = true,
 	-------------------------------------------------------------------------------
 	-- Jewelcrafting
 	-------------------------------------------------------------------------------
@@ -428,6 +429,8 @@ private.ITEM_FILTER_TYPES = {
 	JEWELCRAFTING_GEM_PURPLE = true,
 	JEWELCRAFTING_GEM_RED = true,
 	JEWELCRAFTING_GEM_YELLOW = true,
+	JEWELCRAFTING_MOUNT = true,
+	JEWELCRAFTING_PET = true,
 	-------------------------------------------------------------------------------
 	-- Leatherworking
 	-------------------------------------------------------------------------------
@@ -566,7 +569,7 @@ private.FACTION_STRINGS = {
 	[1242]	=  "PEARLFINJINYU",
 	[1269]	=  "GOLDENLOTUS",
 	[1270]	=  "SHADOPAN",
-	[1271]	=  "CLOUD_SERPENT",
+	[1271]	=  "CLOUDSERPENT",
 	[1272]	=  "TILLERS",
 	[1273]	=  "JOGU_THE_DRUNK",
 	[1275]	=  "ELLA",

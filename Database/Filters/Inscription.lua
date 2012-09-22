@@ -82,6 +82,7 @@ function private:InitializeItemFilters_Inscription(parent_panel)
 		inscription_minor_glyph		= { tt = L["FILTER_DESC_FORMAT"]:format(_G.MINOR_GLYPHS), 	text = _G.MINOR_GLYPHS,		row = 3, col = 1 },
 		inscription_scroll		= { tt = L["FILTER_DESC_FORMAT"]:format(L["Scroll"]), 		text = L["Scroll"],		row = 3, col = 2 },
 		inscription_staff		= { tt = L["FILTER_DESC_FORMAT"]:format(L["Staff"]), 		text = L["Staff"],		row = 4, col = 1 },
+		inscription_pet			= { tt = L["FILTER_DESC_FORMAT"]:format(_G.PETS),		text = _G.PETS,			row = 4, col = 2 },
 	}
 
 	general_toggle:SetScript("OnClick", function(self, button)
