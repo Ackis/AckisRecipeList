@@ -625,6 +625,7 @@ function private.InitializeListFrame()
 			[CLASS1.ROGUE]		= "rogue",
 			[CLASS1.WARLOCK]	= "warlock",
 			[CLASS1.WARRIOR]	= "warrior",
+			[CLASS1.MONK]		= "monk",
 		}
 
 		-- Returns true if any of the filter flags are turned on.
