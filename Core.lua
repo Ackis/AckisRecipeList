@@ -343,6 +343,7 @@ function addon:OnInitialize()
 					shaman = true,
 					warlock = true,
 					warrior = true,
+					monk = true,
 				},
 			}
 		}
@@ -1056,6 +1057,7 @@ do
 				ROGUE = LC["ROGUE"],
 				WARLOCK = LC["WARLOCK"],
 				WARRIOR = LC["WARRIOR"],
+				MONK = LC["MONK"],
 				-------------------------------------------------------------------------------
 				-- Reputation flags.
 				-------------------------------------------------------------------------------

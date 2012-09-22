@@ -961,6 +961,7 @@ do
 		["Rogue"] = "ROGUE",
 		["Warlock"] = "WARLOCK",
 		["Warrior"] = "WARRIOR",
+		["Monk"] = "MONK",
 	}
 
 	local ORDERED_CLASS_TYPES = {
@@ -974,6 +975,7 @@ do
 		"Rogue",
 		"Warlock",
 		"Warrior",
+		"Monk",
 	}
 
 
