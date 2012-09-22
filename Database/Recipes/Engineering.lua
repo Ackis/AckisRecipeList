@@ -2529,7 +2529,7 @@ function addon:InitEngineering()
 
 	-- Synapse Springs -- 82175
 	recipe = AddRecipe(82175, V.CATA, Q.COMMON)
-	recipe:SetSkillLevels(550, 550, 560, 565, 570)
+	recipe:SetSkillLevels(450, 425, 425, 437, 450)
 	recipe:SetItemFilterType("ENGINEERING_ITEM_ENHANCEMENT")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.DISC, F.IBOP, F.RBOP)
 	recipe:AddTrainer(55143)
@@ -2816,8 +2816,7 @@ function addon:InitEngineering()
 	recipe:SetPreviousRankID(82175)
 	recipe:SetSkillLevels(550, 550, 550, 550, 550)
 	recipe:SetItemFilterType("ENGINEERING_ITEM_ENHANCEMENT")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.DISC, F.IBOP, F.RBOP)
-	recipe:AddTrainer(55143)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DISC, F.IBOP, F.RBOP)
 	recipe:AddDiscovery("ENG_DISC")
 
 	-- Ghost Iron Bolts -- 127113
@@ -3089,6 +3088,11 @@ function addon:InitEngineering()
 
 	-- Autumn Flower Firework -- 131256
 	recipe = AddRecipe(131256, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(0, 0, 0, 0, 0)
+	recipe:AddFilters(F.RETIRED)
+
+	-- Jade Blossom Firework -- 131258
+	recipe = AddRecipe(131258, V.MOP, Q.COMMON)
 	recipe:SetSkillLevels(0, 0, 0, 0, 0)
 	recipe:AddFilters(F.RETIRED)
 
