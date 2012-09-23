@@ -123,7 +123,7 @@ function addon:InitJewelcrafting()
 	recipe:SetCraftedItemID(20856)
 	recipe:SetSkillLevels(150, 150, 180, 195, 210)
 	recipe:SetItemFilterType("JEWELCRAFTING_NECK")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.DPS)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE)
 	recipe:AddLimitedVendor(1286, 1, 3367, 1, 16624, 1, 17512, 1)
 
 	-- Moonsoul Crown -- 25321
@@ -4713,7 +4713,7 @@ function addon:InitJewelcrafting()
 	recipe:SetRecipeItemID(52447)
 	recipe:SetSkillLevels(500, 500, 505, 507, 510)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_RED")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOP, F.RBOP, F.DPS)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	recipe:AddVendor(16624, 17512, 44583, 50480, 50482, 52584, 52588, 52644, 52658)
 
 	-- Flashing Chimera's Eye -- 73398
@@ -4721,7 +4721,7 @@ function addon:InitJewelcrafting()
 	recipe:SetRecipeItemID(52448)
 	recipe:SetSkillLevels(500, 500, 505, 507, 510)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_RED")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOP, F.RBOP, F.TANK)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	recipe:AddVendor(16624, 17512, 44583, 50480, 50482, 52584, 52588, 52644, 52658)
 
 	-- Brilliant Chimera's Eye -- 73399
@@ -4729,7 +4729,7 @@ function addon:InitJewelcrafting()
 	recipe:SetRecipeItemID(52449)
 	recipe:SetSkillLevels(500, 500, 505, 507, 510)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_RED")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOP, F.RBOP, F.HEALER, F.CASTER)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	recipe:AddVendor(16624, 17512, 44583, 50480, 50482, 52584, 52588, 52644, 52658)
 
 	-- Precise Chimera's Eye -- 73400
@@ -4737,7 +4737,7 @@ function addon:InitJewelcrafting()
 	recipe:SetRecipeItemID(52450)
 	recipe:SetSkillLevels(500, 500, 505, 507, 510)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_RED")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOP, F.RBOP, F.DPS, F.TANK)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	recipe:AddVendor(16624, 17512, 44583, 50480, 50482, 52584, 52588, 52644, 52658)
 
 	-- Solid Chimera's Eye -- 73401
@@ -4745,7 +4745,7 @@ function addon:InitJewelcrafting()
 	recipe:SetRecipeItemID(52451)
 	recipe:SetSkillLevels(500, 500, 505, 507, 510)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_BLUE")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOP, F.RBOP)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	recipe:AddVendor(16624, 17512, 44583, 50480, 50482, 52584, 52588, 52644, 52658)
 
 	-- Sparkling Chimera's Eye -- 73402
@@ -4771,7 +4771,7 @@ function addon:InitJewelcrafting()
 	recipe:SetRecipeItemID(52454)
 	recipe:SetSkillLevels(500, 500, 505, 507, 510)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_BLUE")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOP, F.RBOP, F.DPS, F.CASTER)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	recipe:AddVendor(16624, 17512, 44583, 50480, 50482, 52584, 52588, 52644, 52658)
 
 	-- Subtle Chimera's Eye -- 73405
@@ -4788,7 +4788,7 @@ function addon:InitJewelcrafting()
 	recipe:SetRecipeItemID(52456)
 	recipe:SetSkillLevels(500, 500, 505, 507, 510)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_YELLOW")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOP, F.RBOP, F.DPS, F.HEALER, F.CASTER)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	recipe:AddVendor(16624, 17512, 44583, 50480, 50482, 52584, 52588, 52644, 52658)
 
 	-- Mystic Chimera's Eye -- 73407
@@ -4796,7 +4796,7 @@ function addon:InitJewelcrafting()
 	recipe:SetRecipeItemID(52457)
 	recipe:SetSkillLevels(500, 500, 505, 507, 510)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_YELLOW")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOP, F.RBOP)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	recipe:AddVendor(16624, 17512, 44583, 50480, 50482, 52584, 52588, 52644, 52658)
 
 	-- Quick Chimera's Eye -- 73408
@@ -4804,7 +4804,7 @@ function addon:InitJewelcrafting()
 	recipe:SetRecipeItemID(52458)
 	recipe:SetSkillLevels(500, 500, 505, 507, 510)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_YELLOW")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOP, F.RBOP, F.DPS, F.HEALER, F.CASTER)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	recipe:AddVendor(16624, 17512, 44583, 50480, 50482, 52584, 52588, 52644, 52658)
 
 	-- Fractured Chimera's Eye -- 73409
@@ -4876,7 +4876,7 @@ function addon:InitJewelcrafting()
 	recipe:SetRecipeItemID(52440)
 	recipe:SetSkillLevels(490, 490, 515, 520, 525)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_META")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	recipe:AddVendor(16624, 17512, 44583, 50480, 50482, 52584, 52588, 52644, 52658)
 
 	-- Destructive Shadowspirit Diamond -- 73472
@@ -5236,7 +5236,7 @@ function addon:InitJewelcrafting()
 	recipe:SetRecipeItemID(71887)
 	recipe:SetSkillLevels(520, 520, 525, 530, 535)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_GREEN")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.HEALER, F.CASTER)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	recipe:AddVendor(56925, 57922)
 
 	-- Piercing Elven Peridot -- 101744
@@ -5388,7 +5388,7 @@ function addon:InitJewelcrafting()
 	recipe:SetRecipeItemID(71906)
 	recipe:SetSkillLevels(520, 520, 525, 530, 535)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_ORANGE")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.TANK, F.HEALER, F.CASTER)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	recipe:AddVendor(56925, 57922)
 
 	-- Potent Lava Coral -- 101763
@@ -5396,7 +5396,7 @@ function addon:InitJewelcrafting()
 	recipe:SetRecipeItemID(71907)
 	recipe:SetSkillLevels(520, 520, 525, 530, 535)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_ORANGE")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.HEALER, F.CASTER)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	recipe:AddVendor(56925, 57922)
 
 	-- Inscribed Lava Coral -- 101764
@@ -5404,7 +5404,7 @@ function addon:InitJewelcrafting()
 	recipe:SetRecipeItemID(71908)
 	recipe:SetSkillLevels(520, 520, 525, 530, 535)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_ORANGE")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.HEALER, F.CASTER)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	recipe:AddVendor(56925, 57922)
 
 	-- Polished Lava Coral -- 101765
@@ -5484,7 +5484,7 @@ function addon:InitJewelcrafting()
 	recipe:SetRecipeItemID(71918)
 	recipe:SetSkillLevels(520, 520, 525, 530, 535)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_ORANGE")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.TANK)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	recipe:AddVendor(56925, 57922)
 
 	-- Artful Lava Coral -- 101775
@@ -5516,7 +5516,7 @@ function addon:InitJewelcrafting()
 	recipe:SetRecipeItemID(71922)
 	recipe:SetSkillLevels(520, 520, 525, 530, 535)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_ORANGE")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	recipe:AddVendor(56925, 57922)
 
 	-- Tenuous Lava Coral -- 101779
@@ -5524,7 +5524,7 @@ function addon:InitJewelcrafting()
 	recipe:SetRecipeItemID(71923)
 	recipe:SetSkillLevels(520, 520, 525, 530, 535)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_ORANGE")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.TANK)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	recipe:AddVendor(56925, 57922)
 
 	-- Willful Lava Coral -- 101780
@@ -5540,7 +5540,7 @@ function addon:InitJewelcrafting()
 	recipe:SetRecipeItemID(71925)
 	recipe:SetSkillLevels(520, 520, 525, 530, 535)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_ORANGE")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.TANK)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	recipe:AddVendor(56925, 57922)
 
 	-- Resplendent Lava Coral -- 101782
@@ -5548,7 +5548,7 @@ function addon:InitJewelcrafting()
 	recipe:SetRecipeItemID(71926)
 	recipe:SetSkillLevels(520, 520, 525, 530, 535)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_ORANGE")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	recipe:AddVendor(56925, 57922)
 
 	-- Glinting Shadow Spinel -- 101783
@@ -5629,7 +5629,7 @@ function addon:InitJewelcrafting()
 	recipe:SetRecipeItemID(71936)
 	recipe:SetSkillLevels(520, 520, 525, 530, 535)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_PURPLE")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	recipe:AddVendor(56925, 57922)
 
 	-- Defender's Shadow Spinel -- 101793
@@ -6656,7 +6656,7 @@ function addon:InitJewelcrafting()
 	recipe:SetRecipeItemID(83811)
 	recipe:SetSkillLevels(575, 575, 600, 602, 605)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_META")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOP, F.DPS)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOP)
 	recipe:AddWorldDrop(Z.PANDARIA)
 
 	-- Austere Primal Diamond -- 107754
@@ -6672,7 +6672,7 @@ function addon:InitJewelcrafting()
 	recipe:SetRecipeItemID(83825)
 	recipe:SetSkillLevels(575, 575, 600, 602, 605)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_META")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOP)
 	recipe:AddWorldDrop(Z.PANDARIA)
 
 	-- Destructive Primal Diamond -- 107757
@@ -6680,7 +6680,7 @@ function addon:InitJewelcrafting()
 	recipe:SetRecipeItemID(83840)
 	recipe:SetSkillLevels(575, 575, 600, 602, 605)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_META")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOP, F.DPS, F.HEALER, F.CASTER)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOP)
 	recipe:AddWorldDrop(Z.PANDARIA)
 
 	-- Effulgent Primal Diamond -- 107758
@@ -6696,7 +6696,7 @@ function addon:InitJewelcrafting()
 	recipe:SetRecipeItemID(83844)
 	recipe:SetSkillLevels(575, 575, 600, 602, 605)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_META")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOP)
 	recipe:AddWorldDrop(Z.PANDARIA)
 
 	-- Enigmatic Primal Diamond -- 107760
@@ -6704,7 +6704,7 @@ function addon:InitJewelcrafting()
 	recipe:SetRecipeItemID(83848)
 	recipe:SetSkillLevels(575, 575, 600, 602, 605)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_META")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOP, F.DPS, F.HEALER, F.CASTER)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOP)
 	recipe:AddWorldDrop(Z.PANDARIA)
 
 	-- Eternal Primal Diamond -- 107762
@@ -6712,7 +6712,7 @@ function addon:InitJewelcrafting()
 	recipe:SetRecipeItemID(83851)
 	recipe:SetSkillLevels(575, 575, 600, 602, 605)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_META")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOP, F.TANK)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOP)
 	recipe:AddWorldDrop(Z.PANDARIA)
 
 	-- Fleet Primal Diamond -- 107763
@@ -6728,7 +6728,7 @@ function addon:InitJewelcrafting()
 	recipe:SetRecipeItemID(83862)
 	recipe:SetSkillLevels(575, 575, 600, 602, 605)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_META")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOP)
 	recipe:AddWorldDrop(Z.PANDARIA)
 
 	-- Impassive Primal Diamond -- 107765
@@ -6736,7 +6736,7 @@ function addon:InitJewelcrafting()
 	recipe:SetRecipeItemID(83872)
 	recipe:SetSkillLevels(575, 575, 600, 602, 605)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_META")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOP, F.DPS, F.HEALER, F.CASTER)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOP)
 	recipe:AddWorldDrop(Z.PANDARIA)
 
 	-- Powerful Primal Diamond -- 107766
@@ -6752,7 +6752,7 @@ function addon:InitJewelcrafting()
 	recipe:SetRecipeItemID(83925)
 	recipe:SetSkillLevels(575, 575, 600, 602, 605)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_META")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOP, F.DPS)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOP)
 	recipe:AddWorldDrop(Z.PANDARIA)
 
 	-- Revitalizing Primal Diamond -- 107768
@@ -6760,7 +6760,7 @@ function addon:InitJewelcrafting()
 	recipe:SetRecipeItemID(83926)
 	recipe:SetSkillLevels(575, 575, 600, 602, 605)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_META")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOP)
 	recipe:AddWorldDrop(Z.PANDARIA)
 
 	-- Jeweled Onyx Panther -- 120045
@@ -6796,7 +6796,7 @@ function addon:InitJewelcrafting()
 	recipe:SetCraftedItemID(83089)
 	recipe:SetSkillLevels(600, 600, 600, 600, 615)
 	recipe:SetItemFilterType("JEWELCRAFTING_MOUNT")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.DPS, F.HEALER, F.CASTER, F.REPUTATION, F.CLOUDSERPENT)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.REPUTATION, F.CLOUDSERPENT)
 	recipe:AddRepVendor(FAC.CLOUDSERPENT, REP.HONORED, 58414)
 
 	-- Jade Panther -- 121844
@@ -6805,7 +6805,7 @@ function addon:InitJewelcrafting()
 	recipe:SetCraftedItemID(83088)
 	recipe:SetSkillLevels(600, 600, 600, 600, 615)
 	recipe:SetItemFilterType("JEWELCRAFTING_MOUNT")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.DPS, F.HEALER, F.CASTER, F.REPUTATION, F.CLOUDSERPENT)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.REPUTATION, F.CLOUDSERPENT)
 	recipe:AddRepVendor(FAC.CLOUDSERPENT, REP.HONORED, 58414)
 
 	-- Ornate Band -- 122661

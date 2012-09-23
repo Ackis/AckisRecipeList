@@ -697,7 +697,7 @@ function addon:InitEnchanting()
 	recipe:SetCraftedItemID(45050)
 	recipe:SetSkillLevels(265, 265, 285, 305, 325)
 	recipe:SetItemFilterType("ENCHANTING_MISC")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.INSTANCE, F.MOB_DROP, F.IBOP, F.RBOP, F.DPS, F.HEALER, F.CASTER)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.INSTANCE, F.MOB_DROP, F.IBOE, F.RBOP)
 	recipe:AddMobDrop(9025)
 
 	-- Enchanted Thorium Bar -- 17180
