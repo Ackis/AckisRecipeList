@@ -5088,6 +5088,7 @@ function addon:InitLeatherworking()
 
 	-- Fur Lining - Intellect -- 85010
 	recipe = AddRecipe(85010, V.CATA, Q.COMMON)
+	recipe:SetPreviousRankID(57691)
 	recipe:SetSkillLevels(500, 500, 500, 500, 505)
 	recipe:SetItemFilterType("LEATHERWORKING_ITEM_ENHANCEMENT")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
