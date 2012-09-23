@@ -846,16 +846,19 @@ do
 		for index = 1, #PROFESSION_BUTTONS do
 			local button = PROFESSION_BUTTONS[index]
 			local spell_offset = button:GetParent().spellOffset
+			local specialization_offset = button:GetParent().specializationOffset
 
 			if spell_offset then
-				specialtices_indices[insert_index] = button:GetID() + spell_offset
+				specialtices_indices[insert_index] = specialization_offset + spell_offset
 				insert_index = insert_index + 1
 			end
 		end
+
 		local profession_specialties = SpecialtyTable[profession_name]
 
 		if profession_specialties then
 			for index, book_index in ipairs(specialtices_indices) do
+
 				local spell_name = _G.GetSpellBookItemName(book_index, _G.BOOKTYPE_PROFESSION)
 
 				if not spell_name then
