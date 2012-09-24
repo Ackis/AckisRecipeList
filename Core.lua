@@ -853,12 +853,10 @@ do
 				insert_index = insert_index + 1
 			end
 		end
-
 		local profession_specialties = SpecialtyTable[profession_name]
 
 		if profession_specialties then
 			for index, book_index in ipairs(specialtices_indices) do
-
 				local spell_name = _G.GetSpellBookItemName(book_index, _G.BOOKTYPE_PROFESSION)
 
 				if not spell_name then
