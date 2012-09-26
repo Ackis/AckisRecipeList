@@ -8,6 +8,7 @@ local Z = private.ZONE_NAMES
 -- What we _really_ came here to see...
 -----------------------------------------------------------------------
 function private:InitializeFirstAidTrainers()
+	self:AddTrainer(447, "Soraka", Z.THE_JADE_FOREST, 45.4, 85.8, "Alliance")
 	self:AddTrainer(2326, "Thamner Pol", Z.DUN_MOROGH, 47.2, 52.6, "Alliance")
 	self:AddTrainer(2327, "Shaina Fuller", Z.STORMWIND_CITY, 52.2, 45.4, "Alliance") -- COMPLETELY UPDATED
 	self:AddTrainer(2329, "Michelle Belle", Z.ELWYNN_FOREST, 43.4, 65.6, "Alliance")
@@ -42,7 +43,6 @@ function private:InitializeFirstAidTrainers()
 	self:AddTrainer(50574, "Amelia Atherton", Z.GILNEAS, 36.8, 65.7, "Alliance")
 	self:AddTrainer(56796, "Angela Leifeld", Z.STORMWIND_CITY, 52.19, 45.36, "Alliance")
 	self:AddTrainer(59077, "Apothecary Cheng", Z.KUN_LAI_SUMMIT, 71.6, 92.8, "Neutral")
-	self:AddTrainer(65983, "Soraka", Z.THE_JADE_FOREST, 45.4, 85.8, "Alliance")
 	self:AddTrainer(66222, "Elder Muur", Z.THE_JADE_FOREST, 28.2, 15.2, "Horde")
 
 	self.InitializeFirstAidTrainers = nil
