@@ -861,6 +861,7 @@ L["Nadyia Maneweaver"] = true
 L["Nahogg"] = true
 L["Naka"] = true
 L["Nakodu"] = true
+L["Nam Ironpaw"] = true
 L["Namha Moonwater"] = true
 L["Nardstrum Copperpinch"] = true
 L["Narj Deepslice"] = true

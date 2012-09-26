@@ -1782,6 +1782,23 @@ function addon:InitCooking()
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE)
 	recipe:AddTrainer(58716)
 
+	-- Pandaren Banquet -- 105190
+	recipe = AddRecipe(105190, V.MOP, Q.UNCOMMON)
+	recipe:SetRecipeItemID(75013)
+	recipe:SetCraftedItemID(74919)
+	recipe:SetSkillLevels(600, 600, 600, 600, 600)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE)
+	recipe:AddVendor(64395)
+
+	-- Great Pandaren Banquet -- 105194
+	recipe = AddRecipe(105194, V.MOP, Q.UNCOMMON)
+	recipe:SetRecipeItemID(75017)
+	recipe:SetCraftedItemID(75016)
+	recipe:SetSkillLevels(600, 600, 600, 600, 600)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.VENDOR, F.IBOE, F.RBOE)
+	recipe:AddTrainer(64395)
+	recipe:AddVendor(64395)
+
 	-- Viseclaw Soup -- 124029
 	recipe = AddRecipe(124029, V.MOP, Q.UNCOMMON)
 	recipe:SetRecipeItemID(85502)
