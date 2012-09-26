@@ -2776,7 +2776,7 @@ function addon:InitJewelcrafting()
 	recipe:SetCraftedItemID(40095)
 	recipe:SetSkillLevels(390, 390, 410, 425, 440)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_GREEN")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.HEALER, F.CASTER, F.REPUTATION)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.HEALER, F.CASTER, F.REPUTATION, F.ORACLES)
 	recipe:AddWorldDrop(Z.NORTHREND)
 	recipe:AddRepVendor(FAC.ORACLES, REP.REVERED, 31910)
 
