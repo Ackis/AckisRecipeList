@@ -857,7 +857,7 @@ function private.InitializeFilterPanel()
 	local Explorer_Hand_Text = 		isAlliance and FAC["Explorers' League"] or FAC["The Hand of Vengeance"]
 	local Tol_Barad = 			isAlliance and FAC["Baradin's Wardens"] or FAC["Hellscream's Reach"]
 	local Wildhammer_Dragonmaw = 		isAlliance and FAC["Wildhammer Clan"]	or FAC["Dragonmaw Clan"]
-	local Panda =				isAlliance and FAC["Tushui Pandaren"]	or FAC["Huojin Pandaren"]
+	local Tushui_Huojin =			isAlliance and FAC["Tushui Pandaren"]	or FAC["Huojin Pandaren"]
 
 	-- Used for the tooltip of every reputation checkbox.
 	local function ReputationDesc(text)
@@ -1133,7 +1133,7 @@ function private.InitializeFilterPanel()
 			tillers			= { tt = ReputationDesc(FAC["The Tillers"]),			text = FAC["The Tillers"],				row = 12,	col = 1 },
 			blackprince		= { tt = ReputationDesc(FAC["The Black Prince"]),		text = FAC["The Black Prince"],				row = 13,	col = 1 },
 			shangxiacademy		= { tt = ReputationDesc(FAC["Shang Xi's Academy"]),		text = FAC["Shang Xi's Academy"],			row = 14,	col = 1 },
-			pandacommon1		= { tt = ReputationDesc(Panda),					text = Panda,						row = 15,	col = 1 },
+			pandacommon1		= { tt = ReputationDesc(Tushui_Huojin),				text = Tushui_Huojin,					row = 15,	col = 1 },
 		}
 		private.GenerateCheckBoxes(expansion4_frame, expansion4_buttons)
 
@@ -1521,7 +1521,6 @@ function private.InitializeFilterPanel()
 		------------------------------------------------------------------------------------------------
 		["foresthozen"]		= { cb = expansion4.foresthozen,		svroot = filterdb.rep },
 		["goldenlotus"]		= { cb = expansion4.goldenlotus,		svroot = filterdb.rep },
-		["huojinpandaren"]	= { cb = expansion4.huojinpandaren,		svroot = filterdb.rep },
 		["cloudserpent"]	= { cb = expansion4.cloudserpent,		svroot = filterdb.rep },
 		["pearlfinjinyu"]	= { cb = expansion4.pearlfinjinyu,		svroot = filterdb.rep },
 		["shadopan"]		= { cb = expansion4.shadopan,			svroot = filterdb.rep },
@@ -1531,9 +1530,9 @@ function private.InitializeFilterPanel()
 		["klaxxi"]		= { cb = expansion4.klaxxi,			svroot = filterdb.rep },
 		["lorewalkers"]		= { cb = expansion4.lorewalkers,		svroot = filterdb.rep },
 		["tillers"]		= { cb = expansion4.tillers,			svroot = filterdb.rep },
-		["tushuipandaren"]	= { cb = expansion4.tushuipandaren,		svroot = filterdb.rep },
 		["blackprince"]		= { cb = expansion4.blackprince,		svroot = filterdb.rep },
 		["shangxiacademy"]	= { cb = expansion4.shangxiacademy,		svroot = filterdb.rep },
+		["pandacommon1"]	= { cb = expansion4.pandacommon1,		svroot = filterdb.rep },
 	}
 	private.InitializeFilterPanel = nil
 end

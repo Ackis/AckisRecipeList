@@ -1100,6 +1100,31 @@ do
 				RAMKAHEN = FAC["Ramkahen"],
 				EARTHEN_RING = FAC["The Earthen Ring"],
 				THERAZANE = FAC["Therazane"],
+--[[				SHANGXIACADEMY 
+				FORESTHOZEN
+				PEARLFINJINYU
+				GOLDENLOTUS
+				SHADOPAN
+				CLOUDSERPENT
+				TILLERS
+				JOGU_THE_DRUNK
+				ELLA
+				OLD_HILLPAW
+				CHEE_CHEE
+				SHO
+				HAOHAN_MUDCLAW
+				TINA_MUDCLAW
+				GINA_MUDCLAW
+				FISH_FELLREED
+				FARMER_FUNG
+				ANGLERS
+				KLAXX,
+				AUGUSTCELESTIALS
+				LOREWALKERS
+				BREWMASTERS
+				NAT_PAGLE
+				BLACKPRINCE]]--
+				TUSHUI_HUOJIN =	isAlliance and FAC["Tushui Pandaren"]	or FAC["Huojin Pandaren"]
 			}
 			return FILTER_FLAG_NAMES
 		end
