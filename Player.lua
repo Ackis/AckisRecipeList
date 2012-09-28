@@ -32,7 +32,6 @@ local FOLDER_NAME, private = ...
 local LibStub = _G.LibStub
 local addon = LibStub("AceAddon-3.0"):GetAddon(private.addon_name)
 local L = LibStub("AceLocale-3.0"):GetLocale(private.addon_name)
-local BFAC = LibStub("LibBabble-Faction-3.0"):GetLookupTable()
 
 ------------------------------------------------------------------------------
 -- Data which is stored regarding a players statistics (luadoc copied from Collectinator, needs updating)

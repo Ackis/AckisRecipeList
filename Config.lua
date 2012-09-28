@@ -36,7 +36,6 @@ local LibStub = _G.LibStub
 
 local addon		= LibStub("AceAddon-3.0"):GetAddon(private.addon_name)
 
-local BFAC		= LibStub("LibBabble-Faction-3.0"):GetLookupTable()
 local LC		= _G.LOCALIZED_CLASS_NAMES_MALE
 local L			= LibStub("AceLocale-3.0"):GetLocale(private.addon_name)
 
