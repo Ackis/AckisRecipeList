@@ -50,7 +50,6 @@ _G.ARL = addon
 --@end-alpha@
 
 local L = LibStub("AceLocale-3.0"):GetLocale(private.addon_name)
-local BFAC = LibStub("LibBabble-Faction-3.0"):GetLookupTable()
 local Toast = LibStub("LibToast-1.0")
 
 local debugger = _G.tekDebug and _G.tekDebug:GetFrame(private.addon_name)
@@ -1009,6 +1008,7 @@ do
 	local GetFilterFlagNames
 	do
 		local LC = _G.LOCALIZED_CLASS_NAMES_MALE
+		local FAC = private.LOCALIZED_FACTION_STRINGS
 		local FILTER_FLAG_NAMES
 
 		function GetFilterFlagNames()
@@ -1021,8 +1021,8 @@ do
 				-------------------------------------------------------------------------------
 				-- Common flags.
 				-------------------------------------------------------------------------------
-				ALLIANCE = BFAC["Alliance"],
-				HORDE = BFAC["Horde"],
+				ALLIANCE = FAC["Alliance"],
+				HORDE = FAC["Horde"],
 				TRAINER = L["Trainer"],
 				VENDOR = L["Vendor"],
 				INSTANCE = _G.INSTANCE,
@@ -1062,45 +1062,45 @@ do
 				-------------------------------------------------------------------------------
 				-- Reputation flags.
 				-------------------------------------------------------------------------------
-				ARGENTDAWN = BFAC["Argent Dawn"],
-				CENARION_CIRCLE = BFAC["Cenarion Circle"],
-				THORIUM_BROTHERHOOD = BFAC["Thorium Brotherhood"],
-				TIMBERMAW_HOLD = BFAC["Timbermaw Hold"],
-				ZANDALAR = BFAC["Zandalar Tribe"],
-				ALDOR = BFAC["The Aldor"],
-				ASHTONGUE = BFAC["Ashtongue Deathsworn"],
-				CENARION_EXPEDITION = BFAC["Cenarion Expedition"],
-				HELLFIRE = (is_alliance and BFAC["Honor Hold"] or BFAC["Thrallmar"]),
-				CONSORTIUM = BFAC["The Consortium"],
-				KOT = BFAC["Keepers of Time"],
-				LOWERCITY = BFAC["Lower City"],
-				NAGRAND = (is_alliance and BFAC["Kurenai"] or BFAC["The Mag'har"]),
-				SCALE_SANDS = BFAC["The Scale of the Sands"],
-				SCRYER = BFAC["The Scryers"],
-				SHATAR = BFAC["The Sha'tar"],
-				SHATTEREDSUN = BFAC["Shattered Sun Offensive"],
-				SPOREGGAR = BFAC["Sporeggar"],
-				VIOLETEYE = BFAC["The Violet Eye"],
-				ARGENTCRUSADE = BFAC["Argent Crusade"],
-				FRENZYHEART = BFAC["Frenzyheart Tribe"],
-				EBONBLADE = BFAC["Knights of the Ebon Blade"],
-				KIRINTOR = BFAC["Kirin Tor"],
-				HODIR = BFAC["The Sons of Hodir"],
-				KALUAK = BFAC["The Kalu'ak"],
-				ORACLES = BFAC["The Oracles"],
-				WYRMREST = BFAC["The Wyrmrest Accord"],
-				WRATHCOMMON1 = (is_alliance and BFAC["The Silver Covenant"] or BFAC["The Sunreavers"]),
-				WRATHCOMMON2 = (is_alliance and BFAC["Explorers' League"] or BFAC["The Hand of Vengeance"]),
-				WRATHCOMMON3 = (is_alliance and BFAC["Valiance Expedition"] or BFAC["Warsong Offensive"]),
-				WRATHCOMMON4 = (is_alliance and BFAC["The Frostborn"] or BFAC["The Taunka"]),
-				WRATHCOMMON5 = (is_alliance and BFAC["Alliance Vanguard"] or BFAC["Horde Expedition"]),
-				ASHEN_VERDICT = BFAC["The Ashen Verdict"],
-				CATACOMMON1 = (is_alliance and BFAC["Wildhammer Clan"] or BFAC["Dragonmaw Clan"]),
-				CATACOMMON2 = (is_alliance and BFAC["Baradin's Wardens"] or BFAC["Hellscream's Reach"]),
-				GUARDIANS = BFAC["Guardians of Hyjal"],
-				RAMKAHEN = BFAC["Ramkahen"],
-				EARTHEN_RING = BFAC["The Earthen Ring"],
-				THERAZANE = BFAC["Therazane"],
+				ARGENTDAWN = FAC["Argent Dawn"],
+				CENARION_CIRCLE = FAC["Cenarion Circle"],
+				THORIUM_BROTHERHOOD = FAC["Thorium Brotherhood"],
+				TIMBERMAW_HOLD = FAC["Timbermaw Hold"],
+				ZANDALAR = FAC["Zandalar Tribe"],
+				ALDOR = FAC["The Aldor"],
+				ASHTONGUE = FAC["Ashtongue Deathsworn"],
+				CENARION_EXPEDITION = FAC["Cenarion Expedition"],
+				HELLFIRE = (is_alliance and FAC["Honor Hold"] or FAC["Thrallmar"]),
+				CONSORTIUM = FAC["The Consortium"],
+				KOT = FAC["Keepers of Time"],
+				LOWERCITY = FAC["Lower City"],
+				NAGRAND = (is_alliance and FAC["Kurenai"] or FAC["The Mag'har"]),
+				SCALE_SANDS = FAC["The Scale of the Sands"],
+				SCRYER = FAC["The Scryers"],
+				SHATAR = FAC["The Sha'tar"],
+				SHATTEREDSUN = FAC["Shattered Sun Offensive"],
+				SPOREGGAR = FAC["Sporeggar"],
+				VIOLETEYE = FAC["The Violet Eye"],
+				ARGENTCRUSADE = FAC["Argent Crusade"],
+				FRENZYHEART = FAC["Frenzyheart Tribe"],
+				EBONBLADE = FAC["Knights of the Ebon Blade"],
+				KIRINTOR = FAC["Kirin Tor"],
+				HODIR = FAC["The Sons of Hodir"],
+				KALUAK = FAC["The Kalu'ak"],
+				ORACLES = FAC["The Oracles"],
+				WYRMREST = FAC["The Wyrmrest Accord"],
+				WRATHCOMMON1 = (is_alliance and FAC["The Silver Covenant"] or FAC["The Sunreavers"]),
+				WRATHCOMMON2 = (is_alliance and FAC["Explorers' League"] or FAC["The Hand of Vengeance"]),
+				WRATHCOMMON3 = (is_alliance and FAC["Valiance Expedition"] or FAC["Warsong Offensive"]),
+				WRATHCOMMON4 = (is_alliance and FAC["The Frostborn"] or FAC["The Taunka"]),
+				WRATHCOMMON5 = (is_alliance and FAC["Alliance Vanguard"] or FAC["Horde Expedition"]),
+				ASHEN_VERDICT = FAC["The Ashen Verdict"],
+				CATACOMMON1 = (is_alliance and FAC["Wildhammer Clan"] or FAC["Dragonmaw Clan"]),
+				CATACOMMON2 = (is_alliance and FAC["Baradin's Wardens"] or FAC["Hellscream's Reach"]),
+				GUARDIANS = FAC["Guardians of Hyjal"],
+				RAMKAHEN = FAC["Ramkahen"],
+				EARTHEN_RING = FAC["The Earthen Ring"],
+				THERAZANE = FAC["Therazane"],
 			}
 			return FILTER_FLAG_NAMES
 		end

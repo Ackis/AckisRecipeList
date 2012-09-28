@@ -20,7 +20,6 @@ local FOLDER_NAME, private = ...
 local LibStub	= _G.LibStub
 local addon	= LibStub("AceAddon-3.0"):GetAddon(private.addon_name)
 local L		= LibStub("AceLocale-3.0"):GetLocale(private.addon_name)
-local BFAC	= LibStub("LibBabble-Faction-3.0"):GetLookupTable()
 local QTip	= LibStub("LibQTip-1.0")
 local Dialog	= LibStub("LibDialog-1.0")
 
@@ -38,6 +37,7 @@ local BASIC_COLORS	= private.BASIC_COLORS
 local COMMON1		= private.COMMON_FLAGS_WORD1
 
 local A			= private.ACQUIRE_TYPES
+local FAC		= private.LOCALIZED_FACTION_STRINGS
 
 local COORD_FORMAT	= "(%.2f, %.2f)"
 
@@ -1192,11 +1192,11 @@ function private.InitializeListFrame()
 			local rep_color = private.REPUTATION_COLORS
 
 			FACTION_LABELS = {
-				[0] = SetTextColor(rep_color["neutral"], BFAC["Neutral"] .. " : "),
-				[1] = SetTextColor(rep_color["friendly"], BFAC["Friendly"] .. " : "),
-				[2] = SetTextColor(rep_color["honored"], BFAC["Honored"] .. " : "),
-				[3] = SetTextColor(rep_color["revered"], BFAC["Revered"] .. " : "),
-				[4] = SetTextColor(rep_color["exalted"], BFAC["Exalted"] .. " : ")
+				[0] = SetTextColor(rep_color["neutral"], FAC["Neutral"] .. " : "),
+				[1] = SetTextColor(rep_color["friendly"], FAC["Friendly"] .. " : "),
+				[2] = SetTextColor(rep_color["honored"], FAC["Honored"] .. " : "),
+				[3] = SetTextColor(rep_color["revered"], FAC["Revered"] .. " : "),
+				[4] = SetTextColor(rep_color["exalted"], FAC["Exalted"] .. " : ")
 			}
 		end
 
@@ -1674,15 +1674,15 @@ do
 							addline_func(0, -1, false, _G.REPUTATION, CATEGORY_COLORS["reputation"], private.reputation_list[identifier].name, CATEGORY_COLORS["repname"])
 
 							if rep_level == 0 then
-								addline_func(1, -2, false, BFAC["Neutral"], private.REPUTATION_COLORS["neutral"], rep_vendor.name, name_color)
+								addline_func(1, -2, false, FAC["Neutral"], private.REPUTATION_COLORS["neutral"], rep_vendor.name, name_color)
 							elseif rep_level == 1 then
-								addline_func(1, -2, false, BFAC["Friendly"], private.REPUTATION_COLORS["friendly"], rep_vendor.name, name_color)
+								addline_func(1, -2, false, FAC["Friendly"], private.REPUTATION_COLORS["friendly"], rep_vendor.name, name_color)
 							elseif rep_level == 2 then
-								addline_func(1, -2, false, BFAC["Honored"], private.REPUTATION_COLORS["honored"], rep_vendor.name, name_color)
+								addline_func(1, -2, false, FAC["Honored"], private.REPUTATION_COLORS["honored"], rep_vendor.name, name_color)
 							elseif rep_level == 3 then
-								addline_func(1, -2, false, BFAC["Revered"], private.REPUTATION_COLORS["revered"], rep_vendor.name, name_color)
+								addline_func(1, -2, false, FAC["Revered"], private.REPUTATION_COLORS["revered"], rep_vendor.name, name_color)
 							else
-								addline_func(1, -2, false, BFAC["Exalted"], private.REPUTATION_COLORS["exalted"], rep_vendor.name, name_color)
+								addline_func(1, -2, false, FAC["Exalted"], private.REPUTATION_COLORS["exalted"], rep_vendor.name, name_color)
 							end
 
 							if rep_vendor.coord_x ~= 0 and rep_vendor.coord_y ~= 0 then
