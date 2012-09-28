@@ -857,6 +857,7 @@ function private.InitializeFilterPanel()
 	local Explorer_Hand_Text = 		isAlliance and FAC["Explorers' League"] or FAC["The Hand of Vengeance"]
 	local Tol_Barad = 			isAlliance and FAC["Baradin's Wardens"] or FAC["Hellscream's Reach"]
 	local Wildhammer_Dragonmaw = 		isAlliance and FAC["Wildhammer Clan"]	or FAC["Dragonmaw Clan"]
+	local Panda =				isAlliance and FAC["Tushui Pandaren"]	or FAC["Huojin Pandaren"]
 
 	-- Used for the tooltip of every reputation checkbox.
 	local function ReputationDesc(text)
@@ -1064,7 +1065,7 @@ function private.InitializeFilterPanel()
 		local expansion3_buttons = {
 			catacommon1		= { tt = ReputationDesc(Wildhammer_Dragonmaw),			text = DisabledText(Wildhammer_Dragonmaw),		row = 2,	col = 1 },
 			catacommon2		= { tt = ReputationDesc(Tol_Barad),				text = DisabledText(Tol_Barad),				row = 3,	col = 1 },
-			guardiansofhyjal	= { tt = ReputationDesc(FAC["Guardians of Hyjal"]),		text = DisabledText(FAC["Guardians of Hyjal"]),	row = 4,	col = 1 },
+			guardiansofhyjal	= { tt = ReputationDesc(FAC["Guardians of Hyjal"]),		text = DisabledText(FAC["Guardians of Hyjal"]),		row = 4,	col = 1 },
 			ramkahen		= { tt = ReputationDesc(FAC["Ramkahen"]),			text = DisabledText(FAC["Ramkahen"]),			row = 5,	col = 1 },
 			earthenring		= { tt = ReputationDesc(FAC["The Earthen Ring"]),		text = DisabledText(FAC["The Earthen Ring"]),		row = 6,	col = 1 },
 			therazane		= { tt = ReputationDesc(FAC["Therazane"]),			text = DisabledText(FAC["Therazane"]),			row = 7,	col = 1 },
@@ -1121,19 +1122,18 @@ function private.InitializeFilterPanel()
 		local expansion4_buttons = {
 			foresthozen		= { tt = ReputationDesc(FAC["Forest Hozen"]),			text = FAC["Forest Hozen"],				row = 2,	col = 1 },
 			goldenlotus		= { tt = ReputationDesc(FAC["Golden Lotus"]),			text = FAC["Golden Lotus"],				row = 3,	col = 1 },
-			huojinpandaren		= { tt = ReputationDesc(FAC["Huojin Pandaren"]),		text = FAC["Huojin Pandaren"],				row = 4,	col = 1 },
-			cloudserpent		= { tt = ReputationDesc(FAC["Order of the Cloud Serpent"]),	text = FAC["Order of the Cloud Serpent"],		row = 5,	col = 1 },
-			pearlfinjinyu		= { tt = ReputationDesc(FAC["Pearlfin Jinyu"]),			text = FAC["Pearlfin Jinyu"],				row = 6,	col = 1 },
-			shadopan		= { tt = ReputationDesc(FAC["Shado-Pan"]),			text = FAC["Shado-Pan"],				row = 7,	col = 1 },
-			anglers			= { tt = ReputationDesc(FAC["The Anglers"]),			text = FAC["The Anglers"],				row = 8,	col = 1 },
-			augustcelestials	= { tt = ReputationDesc(FAC["The August Celestials"]),		text = FAC["The August Celestials"],			row = 9,	col = 1 },
-			brewmasters		= { tt = ReputationDesc(FAC["The Brewmasters"]),		text = FAC["The Brewmasters"],				row = 10,	col = 1 },
-			klaxxi			= { tt = ReputationDesc(FAC["The Klaxxi"]),			text = FAC["The Klaxxi"],				row = 11,	col = 1 },
-			lorewalkers		= { tt = ReputationDesc(FAC["The Lorewalkers"]),		text = FAC["The Lorewalkers"],				row = 12,	col = 1 },
-			tillers			= { tt = ReputationDesc(FAC["The Tillers"]),			text = FAC["The Tillers"],				row = 13,	col = 1 },
-			tushuipandaren		= { tt = ReputationDesc(FAC["Tushui Pandaren"]),		text = FAC["Tushui Pandaren"],				row = 14,	col = 1 },
-			blackprince		= { tt = ReputationDesc(FAC["The Black Prince"]),		text = FAC["The Black Prince"],			row = 15,	col = 1 },
-			shangxiacademy		= { tt = ReputationDesc(FAC["Shang Xi's Academy"]),		text = FAC["Shang Xi's Academy"],			row = 16,	col = 1 },
+			cloudserpent		= { tt = ReputationDesc(FAC["Order of the Cloud Serpent"]),	text = FAC["Order of the Cloud Serpent"],		row = 4,	col = 1 },
+			pearlfinjinyu		= { tt = ReputationDesc(FAC["Pearlfin Jinyu"]),			text = FAC["Pearlfin Jinyu"],				row = 5,	col = 1 },
+			shadopan		= { tt = ReputationDesc(FAC["Shado-Pan"]),			text = FAC["Shado-Pan"],				row = 6,	col = 1 },
+			anglers			= { tt = ReputationDesc(FAC["The Anglers"]),			text = FAC["The Anglers"],				row = 7,	col = 1 },
+			augustcelestials	= { tt = ReputationDesc(FAC["The August Celestials"]),		text = FAC["The August Celestials"],			row = 8,	col = 1 },
+			brewmasters		= { tt = ReputationDesc(FAC["The Brewmasters"]),		text = FAC["The Brewmasters"],				row = 9,	col = 1 },
+			klaxxi			= { tt = ReputationDesc(FAC["The Klaxxi"]),			text = FAC["The Klaxxi"],				row = 10,	col = 1 },
+			lorewalkers		= { tt = ReputationDesc(FAC["The Lorewalkers"]),		text = FAC["The Lorewalkers"],				row = 11,	col = 1 },
+			tillers			= { tt = ReputationDesc(FAC["The Tillers"]),			text = FAC["The Tillers"],				row = 12,	col = 1 },
+			blackprince		= { tt = ReputationDesc(FAC["The Black Prince"]),		text = FAC["The Black Prince"],				row = 13,	col = 1 },
+			shangxiacademy		= { tt = ReputationDesc(FAC["Shang Xi's Academy"]),		text = FAC["Shang Xi's Academy"],			row = 14,	col = 1 },
+			pandacommon1		= { tt = ReputationDesc(Panda),					text = Panda,						row = 15,	col = 1 },
 		}
 		private.GenerateCheckBoxes(expansion4_frame, expansion4_buttons)
 
