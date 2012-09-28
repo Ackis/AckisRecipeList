@@ -244,20 +244,20 @@ do
 		output:Display()
 	end
 
-	function addon:DumpReps(name)
+	function addon:DumpReps()
 		output:Clear()
 
-		for index = 1, 100000 do
-			local zone_name = _G.GetFactionInfoByID(index)
+		for index = 1, 1500 do
+			local rep_name = _G.GetFactionInfoByID(index)
 
-			if zone_name and zone_name:lower():find(name:lower()) then
-				output:AddLine(("%s = _G.GetFactionInfoByID(%d),"):format(TableKeyFormat(zone_name), index))
+			if rep_name then
+				output:AddLine(("[\"%s\"] = _G.GetFactionInfoByID(%d),"):format(rep_name, index))
 			end
 		end
 		output:Display()
 	end
 
-	--[=[
+--[=[
 		private.ZONE_NAME_LIST = {}
 
 		local old_GetMapNameByID = _G.GetMapNameByID
