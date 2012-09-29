@@ -1795,8 +1795,7 @@ function addon:InitCooking()
 	recipe:SetRecipeItemID(75017)
 	recipe:SetCraftedItemID(75016)
 	recipe:SetSkillLevels(600, 600, 600, 600, 600)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.VENDOR, F.IBOE, F.RBOE)
-	recipe:AddTrainer(64395)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE)
 	recipe:AddVendor(64395)
 
 	-- Viseclaw Soup -- 124029
@@ -2047,6 +2046,14 @@ function addon:InitCooking()
 	recipe:SetSkillLevels(575, 575, 585, 590, 595)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE)
 	recipe:AddTrainer(58717)
+
+	-- Banana Infused Rum -- 126655
+	recipe = AddRecipe(126655, V.MOP, Q.COMMON)
+	recipe:SetRecipeItemID(87266)
+	recipe:SetCraftedItemID(86432)
+	recipe:SetSkillLevels(600, 600, 600, 602, 605)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOP)
+	recipe:AddCustom("BANANA_INFUSED_RUM")
 
 	self.InitCooking = nil
 end
