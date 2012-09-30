@@ -2508,7 +2508,7 @@ function addon:InitAlchemy()
 	recipe:SetSkillLevels(500, 500, 515, 525, 535)
 	recipe:SetItemFilterType("ALCHEMY_POTION")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(5499)
+	recipe:AddTrainer(3347, 5499)
 
 	-- Master Healing Potion -- 114752
 	recipe = AddRecipe(114752, V.MOP, Q.COMMON)
@@ -2516,7 +2516,7 @@ function addon:InitAlchemy()
 	recipe:SetSkillLevels(500, 500, 515, 525, 535)
 	recipe:SetItemFilterType("ALCHEMY_POTION")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(5499)
+	recipe:AddTrainer(3347, 5499)
 
 	-- Potion of the Mountains -- 114753
 	recipe = AddRecipe(114753, V.MOP, Q.COMMON)
@@ -2772,7 +2772,7 @@ function addon:InitAlchemy()
 	recipe:SetSkillLevels(300, 300, 310, 315, 320)
 	recipe:SetItemFilterType("ALCHEMY_FLASK")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(3603, 5177, 5499, 16723, 18802, 19052, 26903, 26987, 28703, 33608, 33630, 56777)
+	recipe:AddTrainer(3347, 3603, 5177, 5499, 16723, 18802, 19052, 26903, 26987, 28703, 33608, 33630, 56777)
 
 	-- Riddle of Steel -- 130326
 	recipe = AddRecipe(130326, V.MOP, Q.COMMON)
