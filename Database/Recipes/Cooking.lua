@@ -1701,16 +1701,16 @@ function addon:InitCooking()
 	-- Golden Carp Consomme -- 104237
 	recipe = AddRecipe(104237, V.MOP, Q.COMMON)
 	recipe:SetCraftedItemID(74636)
-	recipe:SetSkillLevels(270, 270, 280, 285, 290)
+	recipe:SetSkillLevels(500, 500, 510, 515, 520)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE)
-	recipe:AddTrainer(56707, 64231)
+	recipe:AddTrainer(46709, 56707, 64231)
 
 	-- Fish Cake -- 104297
 	recipe = AddRecipe(104297, V.MOP, Q.COMMON)
 	recipe:SetCraftedItemID(74641)
-	recipe:SetSkillLevels(300, 300, 310, 315, 320)
+	recipe:SetSkillLevels(500, 500, 510, 515, 520)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE)
-	recipe:AddTrainer(56707, 64231)
+	recipe:AddTrainer(46709, 56707, 64231)
 
 	-- Charbroiled Tiger Steak -- 104298
 	recipe = AddRecipe(104298, V.MOP, Q.COMMON)
