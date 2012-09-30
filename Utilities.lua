@@ -144,7 +144,6 @@ do
 	end
 
 	function private.TextDump:Clear()
-		print("Wiping TextDump output.")
 		table.wipe(self.output)
 	end
 
