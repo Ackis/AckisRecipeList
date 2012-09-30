@@ -220,7 +220,7 @@ function addon:InitFirstAid()
 	-- Heavy Windwool Bandage -- 102699
 	recipe = AddRecipe(102699, V.MOP, Q.COMMON)
 	recipe:SetPreviousRankID(102698)
-	recipe:SetSkillLevels(600, 600, 605, 610, 615)
+	recipe:SetSkillLevels(550, 550, 560, 565, 570)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	recipe:AddTrainer(447, 2326, 2327, 2329, 2798, 3181, 4211, 4591, 5150, 5759, 5939, 5943, 6094, 16272, 16662, 16731, 17214, 17424, 18990, 18991, 19184, 19478, 22477, 23734, 26956, 26992, 28706, 29233, 33589, 33621, 45540, 49879, 50574, 56796, 59077, 66222)
 

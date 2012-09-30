@@ -1703,14 +1703,14 @@ function addon:InitCooking()
 	recipe:SetCraftedItemID(74636)
 	recipe:SetSkillLevels(500, 500, 510, 515, 520)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE)
-	recipe:AddTrainer(46709, 56707, 64231)
+	recipe:AddTrainer(3399, 45550, 46709, 56707, 64231)
 
 	-- Fish Cake -- 104297
 	recipe = AddRecipe(104297, V.MOP, Q.COMMON)
 	recipe:SetCraftedItemID(74641)
 	recipe:SetSkillLevels(500, 500, 510, 515, 520)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE)
-	recipe:AddTrainer(46709, 56707, 64231)
+	recipe:AddTrainer(3399, 45550, 46709, 56707, 64231)
 
 	-- Charbroiled Tiger Steak -- 104298
 	recipe = AddRecipe(104298, V.MOP, Q.COMMON)
