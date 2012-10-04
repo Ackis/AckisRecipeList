@@ -134,6 +134,10 @@ do
 			return
 		end
 		local trainer_profession = private.PROFESSION_NAME_MAP[_G.GetTrainerServiceSkillLine(1)]
+
+		if not trainer_profession then
+			return
+		end
 		addon:InitializeProfession(trainer_profession)
 
 		local recipe_list = private.profession_recipe_list[trainer_profession]
@@ -186,7 +190,7 @@ do
 			output:AddLine(("%s was not found in the trainer list - a trainer dump for %s will fix this. (Dump localization phrases as well.)"):format(trainer_name, trainer_profession))
 			_G.SetMapToCurrentZone() -- Make sure were are looking at the right zone
 
-			L[trainer_name] = true
+			L[trainer_name] = trainer_name
 			private:AddTrainer(trainer_id, trainer_name, _G.GetRealZoneText(), trainer_x, trainer_y, private.Player.faction)
 		end
 
