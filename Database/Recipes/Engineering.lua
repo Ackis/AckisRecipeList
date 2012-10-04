@@ -2854,7 +2854,7 @@ function addon:InitEngineering()
 	recipe:SetCraftedItemID(77533)
 	recipe:SetSkillLevels(600, 600, 610, 615, 620)
 	recipe:SetItemFilterType("ENGINEERING_HEAD")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.DPS, F.HEALER)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.DPS, F.HEALER, F.PRIEST, F.MAGE, F.WARLOCK)
 	recipe:AddTrainer(11017, 55143)
 
 	-- Agile Retinal Armor -- 127118
@@ -2862,7 +2862,7 @@ function addon:InitEngineering()
 	recipe:SetCraftedItemID(77534)
 	recipe:SetSkillLevels(600, 600, 600, 600, 600)
 	recipe:SetItemFilterType("ENGINEERING_HEAD")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.DPS, F.TANK)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.DPS, F.TANK, F.ROGUE, F.MONK, F.DRUID)
 	recipe:AddTrainer(55143)
 
 	-- Camouflage Retinal Armor -- 127119
@@ -2870,7 +2870,7 @@ function addon:InitEngineering()
 	recipe:SetCraftedItemID(77535)
 	recipe:SetSkillLevels(600, 600, 600, 600, 600)
 	recipe:SetItemFilterType("ENGINEERING_HEAD")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.DPS, F.HEALER)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.DPS, F.HEALER, F.MONK, F.DRUID)
 	recipe:AddTrainer(55143)
 
 	-- Deadly Retinal Armor -- 127120
@@ -2878,7 +2878,7 @@ function addon:InitEngineering()
 	recipe:SetCraftedItemID(77536)
 	recipe:SetSkillLevels(600, 600, 600, 600, 600)
 	recipe:SetItemFilterType("ENGINEERING_HEAD")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.DPS)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.DPS, F.HUNTER, F.SHAMAN)
 	recipe:AddTrainer(55143)
 
 	-- Energized Retinal Armor -- 127121
@@ -2886,7 +2886,7 @@ function addon:InitEngineering()
 	recipe:SetCraftedItemID(77537)
 	recipe:SetSkillLevels(600, 600, 600, 600, 600)
 	recipe:SetItemFilterType("ENGINEERING_HEAD")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.DPS, F.HEALER)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.DPS, F.HEALER, F.SHAMAN)
 	recipe:AddTrainer(55143)
 
 	-- Specialized Retinal Armor -- 127122
@@ -2894,7 +2894,7 @@ function addon:InitEngineering()
 	recipe:SetCraftedItemID(77538)
 	recipe:SetSkillLevels(600, 600, 600, 600, 600)
 	recipe:SetItemFilterType("ENGINEERING_HEAD")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.HEALER)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.HEALER, F.PALADIN)
 	recipe:AddTrainer(55143)
 
 	-- Reinforced Retinal Armor -- 127123
@@ -2902,7 +2902,7 @@ function addon:InitEngineering()
 	recipe:SetCraftedItemID(77539)
 	recipe:SetSkillLevels(600, 600, 600, 600, 600)
 	recipe:SetItemFilterType("ENGINEERING_HEAD")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.DPS, F.TANK)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.DPS, F.TANK, F.WARRIOR, F.PALADIN, F.DK)
 	recipe:AddTrainer(55143)
 
 	-- Locksmith's Powderkeg -- 127124
