@@ -2096,6 +2096,14 @@ function addon:InitCooking()
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE)
 	recipe:AddTrainer(58717)
 
+	-- Four Senses Brew -- 126654
+	recipe = AddRecipe(126654, V.MOP, Q.COMMON)
+	recipe:SetRecipeItemID(86393)
+	recipe:SetCraftedItemID(87264)
+	recipe:SetSkillLevels(600, 600, 600, 602, 605)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOP)
+	recipe:AddCustom("FOUR_SENSES_BREW")
+	
 	-- Banana Infused Rum -- 126655
 	recipe = AddRecipe(126655, V.MOP, Q.COMMON)
 	recipe:SetRecipeItemID(87266)
