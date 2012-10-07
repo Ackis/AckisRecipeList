@@ -1760,6 +1760,13 @@ function addon:InitCooking()
 	recipe:SetSkillLevels(550, 550, 560, 565, 570)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE)
 	recipe:AddTrainer(58714)
+	
+	-- Mogu Fish Stew -- 104306
+	recipe = AddRecipe(104306, V.MOP, Q.COMMON)
+	recipe:SetCraftedItemID(74650)
+	recipe:SetSkillLevels(600, 600, 600, 600, 600)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE)
+	recipe:AddTrainer(58714)
 
 	-- Shrimp Dumplings -- 104307
 	recipe = AddRecipe(104307, V.MOP, Q.COMMON)
