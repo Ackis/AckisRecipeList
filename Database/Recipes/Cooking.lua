@@ -1725,11 +1725,11 @@ function addon:InitCooking()
 	recipe:SetSkillLevels(550, 550, 560, 565, 570)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE)
 	recipe:AddTrainer(58712)
-	
-	-- Black Pepper Ribs and Steak -- 104300
+
+	-- Black Pepper Ribs and Shrimp -- 104300
 	recipe = AddRecipe(104300, V.MOP, Q.COMMON)
 	recipe:SetCraftedItemID(74646)
-	recipe:SetSkillLevels(600, 600, 600, 600, 600)
+	recipe:SetSkillLevels(600, 600, 610, 615, 620)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE)
 	recipe:AddTrainer(58712)
 
@@ -1747,6 +1747,13 @@ function addon:InitCooking()
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE)
 	recipe:AddTrainer(58713)
 
+	-- Sea Mist Rice Noodles -- 104303
+	recipe = AddRecipe(104303, V.MOP, Q.COMMON)
+	recipe:SetCraftedItemID(74648)
+	recipe:SetSkillLevels(600, 600, 610, 615, 620)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE)
+	recipe:AddTrainer(58713)
+
 	-- Swirling Mist Soup -- 104304
 	recipe = AddRecipe(104304, V.MOP, Q.COMMON)
 	recipe:SetCraftedItemID(74644)
@@ -1760,11 +1767,11 @@ function addon:InitCooking()
 	recipe:SetSkillLevels(550, 550, 560, 565, 570)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE)
 	recipe:AddTrainer(58714)
-	
+
 	-- Mogu Fish Stew -- 104306
 	recipe = AddRecipe(104306, V.MOP, Q.COMMON)
 	recipe:SetCraftedItemID(74650)
-	recipe:SetSkillLevels(600, 600, 600, 600, 600)
+	recipe:SetSkillLevels(600, 600, 610, 615, 620)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE)
 	recipe:AddTrainer(58714)
 
@@ -1782,6 +1789,13 @@ function addon:InitCooking()
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE)
 	recipe:AddTrainer(58715)
 
+	-- Steamed Crab Surprise -- 104309
+	recipe = AddRecipe(104309, V.MOP, Q.COMMON)
+	recipe:SetCraftedItemID(74653)
+	recipe:SetSkillLevels(600, 600, 610, 615, 620)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE)
+	recipe:AddTrainer(58715)
+
 	-- Wildfowl Roast -- 104310
 	recipe = AddRecipe(104310, V.MOP, Q.COMMON)
 	recipe:SetCraftedItemID(74654)
@@ -1793,6 +1807,13 @@ function addon:InitCooking()
 	recipe = AddRecipe(104311, V.MOP, Q.COMMON)
 	recipe:SetCraftedItemID(74655)
 	recipe:SetSkillLevels(550, 550, 560, 565, 570)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE)
+	recipe:AddTrainer(58716)
+
+	-- Chun Tian Spring Rolls -- 104312
+	recipe = AddRecipe(104312, V.MOP, Q.COMMON)
+	recipe:SetCraftedItemID(74656)
+	recipe:SetSkillLevels(600, 600, 610, 615, 620)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE)
 	recipe:AddTrainer(58716)
 
@@ -1990,18 +2011,18 @@ function addon:InitCooking()
 	recipe:SetSkillLevels(500, 500, 500, 500, 600)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.TANK, F.REPUTATION)
 	recipe:AddRepVendor(FAC.TILLERS, REP.EXALTED, 58706)
-	
+
 	-- Banquet of the Grill -- 125141
 	recipe = AddRecipe(125141, V.MOP, Q.COMMON)
 	recipe:SetCraftedItemID(87226)
-	recipe:SetSkillLevels(575, 575, 575, 575, 600)
+	recipe:SetSkillLevels(575, 575, 585, 590, 595)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE)
 	recipe:AddTrainer(58712)
-	
+
 	-- Great Banquet of the Grill -- 125142
 	recipe = AddRecipe(125142, V.MOP, Q.COMMON)
 	recipe:SetCraftedItemID(87228)
-	recipe:SetSkillLevels(575, 575, 575, 575, 600)
+	recipe:SetSkillLevels(575, 575, 585, 590, 595)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE)
 	recipe:AddTrainer(58712)
 
