@@ -470,6 +470,7 @@ L["Fizzix Blastbolt"] = true
 L["Flask"] = true
 L["Fono"] = true
 L["Foreman Marcrid"] = true
+L["FOUR_SENSES_BREW"] = "Contained in \"Tablet of Ren Yun\" found atop Mount Neverest in Kun-Lai-Summit."
 L["Fradd Swiftgear"] = true
 L["Franklin Lloyd"] = true
 L["Fremal Doohickey"] = true

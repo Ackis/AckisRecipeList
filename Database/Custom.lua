@@ -72,6 +72,7 @@ function addon:InitCustom()
 	AddCustom("BLACK_MARKET_AUCTION_HOUSE")
 	AddCustom("MOP_RAIDS_RANDOM", Z.HEART_OF_FEAR)
 	AddCustom("BANANA_INFUSED_RUM", Z.KRASARANG_WILDS)
+	AddCustom("FOUR_SENSES_BREW", Z.KUN_LAI_SUMMIT)
 
 	self.InitCustom = nil
 end
