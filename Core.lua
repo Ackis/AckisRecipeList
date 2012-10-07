@@ -943,7 +943,11 @@ do
 							break
 						end
 					end
-					addon:AddRecipe(spell_id, profession_id, _G.GetExpansionLevel() + 1, private.ITEM_QUALITIES.COMMON)
+					local F = private.FILTER_IDS
+
+					local recipe = addon:AddRecipe(spell_id, profession_id, _G.GetExpansionLevel() + 1, private.ITEM_QUALITIES.COMMON)
+					recipe:SetSkillLevels(0, 0, 0, 0, 0)
+					recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE)
 					addon:Printf("Added '%s (%d)' to %s. Do a profession dump.", entry_name, spell_id, profession_name)
 					--@end-debug@
 

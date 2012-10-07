@@ -1983,7 +1983,7 @@ function addon:InitCooking()
 	recipe:SetSkillLevels(500, 500, 500, 500, 600)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.TANK, F.REPUTATION)
 	recipe:AddRepVendor(FAC.TILLERS, REP.EXALTED, 58706)
-	
+--[[	
 	-- Banquet of the Grill -- 125141
 	recipe = AddRecipe(125141, V.MOP, Q.COMMON)
 	recipe:SetCraftedItemID(87226)
@@ -1997,7 +1997,7 @@ function addon:InitCooking()
 	recipe:SetSkillLevels(575, 575, 575, 575, 600)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE)
 	recipe:AddTrainer(58712)
-
+]]--
 	-- Banquet of the Wok -- 125594
 	recipe = AddRecipe(125594, V.MOP, Q.COMMON)
 	recipe:SetCraftedItemID(87230)
