@@ -47,6 +47,14 @@ do
 	local function Sort_SkillAsc(a, b)
 		local reca, recb = recipe_list[a], recipe_list[b]
 
+		if not reca.skill_level and not reca.skill_level then
+			return reca.name < recb.name
+		elseif not reca.skill_level then
+			return recb.skill_level < 0
+		elseif not recb.skill_level then
+			return 0 < reca.skill_level
+		end
+
 		if reca.skill_level == recb.skill_level then
 			return reca.name < recb.name
 		else
