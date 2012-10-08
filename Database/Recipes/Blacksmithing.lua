@@ -4025,7 +4025,7 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItemID(45088)
 	recipe:SetSkillLevels(450, 450, 455, 465, 475)
 	recipe:SetItemFilterType("BLACKSMITHING_WAIST")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOE, F.DPS, F.TANK, F.HEALER, F.CASTER)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOE)
 	recipe:AddCustom("ULDUAR_RANDOM")
 
 	-- Battlelord's Plate Boots -- 63188
@@ -4034,7 +4034,7 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItemID(45089)
 	recipe:SetSkillLevels(450, 450, 455, 465, 475)
 	recipe:SetItemFilterType("BLACKSMITHING_FEET")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOE, F.DPS, F.HEALER, F.CASTER)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOE)
 	recipe:AddCustom("ULDUAR_RANDOM")
 
 	-- Plate Girdle of Righteousness -- 63189
@@ -4052,7 +4052,7 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItemID(45091)
 	recipe:SetSkillLevels(450, 450, 455, 465, 475)
 	recipe:SetItemFilterType("BLACKSMITHING_FEET")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOE, F.DPS, F.HEALER, F.CASTER)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOE)
 	recipe:AddCustom("ULDUAR_RANDOM")
 
 	-- Indestructible Plate Girdle -- 63191
@@ -4061,7 +4061,7 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItemID(45092)
 	recipe:SetSkillLevels(450, 450, 455, 465, 475)
 	recipe:SetItemFilterType("BLACKSMITHING_WAIST")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOE, F.DPS, F.TANK)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOE)
 	recipe:AddCustom("ULDUAR_RANDOM")
 
 	-- Spiked Deathdealers -- 63192
@@ -5041,7 +5041,7 @@ function addon:InitBlacksmithing()
 	recipe:SetSkillLevels(550, 550, 560, 565, 570)
 	recipe:SetItemFilterType("BLACKSMITHING_HEAD")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER)
-	recipe:AddTrainer(37072, 45548, 65114, 65129)
+	recipe:AddTrainer(5511, 37072, 45548, 65114, 65129)
 
 	-- Ghost-Forged Shoulders -- 122577
 	recipe = AddRecipe(122577, V.MOP, Q.COMMON)
@@ -5049,7 +5049,7 @@ function addon:InitBlacksmithing()
 	recipe:SetSkillLevels(540, 540, 550, 555, 560)
 	recipe:SetItemFilterType("BLACKSMITHING_SHOULDER")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER)
-	recipe:AddTrainer(37072, 45548, 65114, 65129)
+	recipe:AddTrainer(5511, 37072, 45548, 65114, 65129)
 
 	-- Ghost-Forged Breastplate -- 122578
 	recipe = AddRecipe(122578, V.MOP, Q.COMMON)
@@ -5057,7 +5057,7 @@ function addon:InitBlacksmithing()
 	recipe:SetSkillLevels(550, 550, 560, 565, 570)
 	recipe:SetItemFilterType("BLACKSMITHING_CHEST")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER)
-	recipe:AddTrainer(37072, 45548, 65114, 65129)
+	recipe:AddTrainer(5511, 37072, 45548, 65114, 65129)
 
 	-- Ghost-Forged Gauntlets -- 122579
 	recipe = AddRecipe(122579, V.MOP, Q.COMMON)
@@ -5065,7 +5065,7 @@ function addon:InitBlacksmithing()
 	recipe:SetSkillLevels(525, 525, 535, 540, 545)
 	recipe:SetItemFilterType("BLACKSMITHING_WRIST")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER)
-	recipe:AddTrainer(37072, 45548, 65114, 65129)
+	recipe:AddTrainer(5511, 37072, 45548, 65114, 65129)
 
 	-- Ghost-Forged Legplates -- 122580
 	recipe = AddRecipe(122580, V.MOP, Q.COMMON)
@@ -5073,7 +5073,7 @@ function addon:InitBlacksmithing()
 	recipe:SetSkillLevels(530, 530, 540, 545, 550)
 	recipe:SetItemFilterType("BLACKSMITHING_LEGS")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER)
-	recipe:AddTrainer(37072, 45548, 65114, 65129)
+	recipe:AddTrainer(5511, 37072, 45548, 65114, 65129)
 
 	-- Ghost-Forged Bracers -- 122581
 	recipe = AddRecipe(122581, V.MOP, Q.COMMON)
@@ -5081,7 +5081,7 @@ function addon:InitBlacksmithing()
 	recipe:SetSkillLevels(500, 500, 510, 515, 520)
 	recipe:SetItemFilterType("BLACKSMITHING_WRIST")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER)
-	recipe:AddTrainer(37072, 45548, 65114, 65129)
+	recipe:AddTrainer(5511, 37072, 45548, 65114, 65129)
 
 	-- Ghost-Forged Boots -- 122582
 	recipe = AddRecipe(122582, V.MOP, Q.COMMON)
@@ -5089,7 +5089,7 @@ function addon:InitBlacksmithing()
 	recipe:SetSkillLevels(530, 530, 540, 545, 550)
 	recipe:SetItemFilterType("BLACKSMITHING_FEET")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER)
-	recipe:AddTrainer(37072, 45548, 65114, 65129)
+	recipe:AddTrainer(5511, 37072, 45548, 65114, 65129)
 
 	-- Ghost-Forged Belt -- 122583
 	recipe = AddRecipe(122583, V.MOP, Q.COMMON)
@@ -5097,7 +5097,7 @@ function addon:InitBlacksmithing()
 	recipe:SetSkillLevels(525, 525, 535, 540, 545)
 	recipe:SetItemFilterType("BLACKSMITHING_WAIST")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER)
-	recipe:AddTrainer(37072, 45548, 65114, 65129)
+	recipe:AddTrainer(5511, 37072, 45548, 65114, 65129)
 
 	-- Lightsteel Helm -- 122584
 	recipe = AddRecipe(122584, V.MOP, Q.COMMON)
@@ -5144,7 +5144,7 @@ function addon:InitBlacksmithing()
 	recipe:SetRecipeItemID(84224)
 	recipe:SetSkillLevels(575, 575, 575, 575, 600)
 	recipe:SetItemFilterType("BLACKSMITHING_HEAD")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.TANK)
 	recipe:AddVendor(64058, 64085)
 
 	-- Masterwork Spiritguard Shoulders -- 122593
@@ -5152,7 +5152,7 @@ function addon:InitBlacksmithing()
 	recipe:SetRecipeItemID(84227)
 	recipe:SetSkillLevels(575, 575, 575, 575, 600)
 	recipe:SetItemFilterType("BLACKSMITHING_SHOULDER")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.TANK)
 	recipe:AddVendor(64058, 64085)
 
 	-- Masterwork Spiritguard Breastplate -- 122594
@@ -5160,7 +5160,7 @@ function addon:InitBlacksmithing()
 	recipe:SetRecipeItemID(84222)
 	recipe:SetSkillLevels(575, 575, 575, 575, 600)
 	recipe:SetItemFilterType("BLACKSMITHING_CHEST")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.TANK)
 	recipe:AddVendor(64058, 64085)
 
 	-- Masterwork Spiritguard Gauntlets -- 122595
@@ -5176,7 +5176,7 @@ function addon:InitBlacksmithing()
 	recipe:SetRecipeItemID(84225)
 	recipe:SetSkillLevels(575, 575, 575, 575, 600)
 	recipe:SetItemFilterType("BLACKSMITHING_LEGS")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.TANK)
 	recipe:AddVendor(64058, 64085)
 
 	-- Masterwork Spiritguard Bracers -- 122597
@@ -5200,7 +5200,7 @@ function addon:InitBlacksmithing()
 	recipe:SetRecipeItemID(84219)
 	recipe:SetSkillLevels(575, 575, 575, 575, 600)
 	recipe:SetItemFilterType("BLACKSMITHING_WAIST")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.TANK)
 	recipe:AddVendor(64058, 64085)
 
 	-- Masterwork Ghost-Forged Helm -- 122600
@@ -5288,7 +5288,7 @@ function addon:InitBlacksmithing()
 	recipe:SetRecipeItemID(84163)
 	recipe:SetSkillLevels(575, 575, 575, 575, 600)
 	recipe:SetItemFilterType("BLACKSMITHING_HEAD")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.HEALER, F.CASTER)
 	recipe:AddVendor(64058, 64085)
 
 	-- Contender's Revenant Shoulders -- 122617
@@ -5296,7 +5296,7 @@ function addon:InitBlacksmithing()
 	recipe:SetRecipeItemID(84165)
 	recipe:SetSkillLevels(575, 575, 575, 575, 600)
 	recipe:SetItemFilterType("BLACKSMITHING_SHOULDER")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.CASTER)
 	recipe:AddVendor(64058, 64085)
 
 	-- Contender's Revenant Breastplate -- 122618
@@ -5304,7 +5304,7 @@ function addon:InitBlacksmithing()
 	recipe:SetRecipeItemID(84161)
 	recipe:SetSkillLevels(575, 575, 575, 575, 600)
 	recipe:SetItemFilterType("BLACKSMITHING_CHEST")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.HEALER, F.CASTER)
 	recipe:AddVendor(64058, 64085)
 
 	-- Contender's Revenant Gauntlets -- 122619
@@ -5320,7 +5320,7 @@ function addon:InitBlacksmithing()
 	recipe:SetRecipeItemID(84164)
 	recipe:SetSkillLevels(575, 575, 575, 575, 600)
 	recipe:SetItemFilterType("BLACKSMITHING_LEGS")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.HEALER, F.CASTER)
 	recipe:AddVendor(64058, 64085)
 
 	-- Contender's Revenant Bracers -- 122621
@@ -5328,7 +5328,7 @@ function addon:InitBlacksmithing()
 	recipe:SetRecipeItemID(84160)
 	recipe:SetSkillLevels(575, 575, 575, 575, 600)
 	recipe:SetItemFilterType("BLACKSMITHING_WRIST")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.CASTER)
 	recipe:AddVendor(64058, 64085)
 
 	-- Contender's Revenant Boots -- 122622
@@ -5336,7 +5336,7 @@ function addon:InitBlacksmithing()
 	recipe:SetRecipeItemID(84159)
 	recipe:SetSkillLevels(575, 575, 575, 575, 600)
 	recipe:SetItemFilterType("BLACKSMITHING_FEET")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.HEALER, F.CASTER)
 	recipe:AddVendor(64058, 64085)
 
 	-- Contender's Revenant Belt -- 122623
@@ -5352,7 +5352,7 @@ function addon:InitBlacksmithing()
 	recipe:SetRecipeItemID(84171)
 	recipe:SetSkillLevels(575, 575, 575, 575, 600)
 	recipe:SetItemFilterType("BLACKSMITHING_HEAD")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
 	recipe:AddVendor(64058, 64085)
 
 	-- Contender's Spirit Shoulders -- 122625
@@ -5368,7 +5368,7 @@ function addon:InitBlacksmithing()
 	recipe:SetRecipeItemID(84169)
 	recipe:SetSkillLevels(575, 575, 575, 575, 600)
 	recipe:SetItemFilterType("BLACKSMITHING_CHEST")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
 	recipe:AddVendor(64058, 64085)
 
 	-- Contender's Spirit Gauntlets -- 122627
@@ -5384,7 +5384,7 @@ function addon:InitBlacksmithing()
 	recipe:SetRecipeItemID(84172)
 	recipe:SetSkillLevels(575, 575, 575, 575, 600)
 	recipe:SetItemFilterType("BLACKSMITHING_LEGS")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
 	recipe:AddVendor(64058, 64085)
 
 	-- Contender's Spirit Bracers -- 122629
@@ -5425,14 +5425,14 @@ function addon:InitBlacksmithing()
 	recipe:SetSkillLevels(500, 500, 510, 515, 520)
 	recipe:SetItemFilterType("BLACKSMITHING_SKELETON_KEY")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER)
-	recipe:AddTrainer(37072, 45548, 65114, 65129)
+	recipe:AddTrainer(5511, 37072, 45548, 65114, 65129)
 
 	-- Lightsteel Shield -- 122635
 	recipe = AddRecipe(122635, V.MOP, Q.COMMON)
 	recipe:SetSkillLevels(540, 540, 550, 555, 560)
 	recipe:SetItemFilterType("BLACKSMITHING_SHIELD")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER)
-	recipe:AddTrainer(37072, 45548, 65114, 65129)
+	recipe:AddTrainer(5511, 37072, 45548, 65114, 65129)
 
 	-- Spiritguard Shield -- 122636
 	recipe = AddRecipe(122636, V.MOP, Q.COMMON)
@@ -5440,7 +5440,7 @@ function addon:InitBlacksmithing()
 	recipe:SetSkillLevels(545, 545, 555, 560, 565)
 	recipe:SetItemFilterType("BLACKSMITHING_SHIELD")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER)
-	recipe:AddTrainer(37072, 45548, 65114, 65129)
+	recipe:AddTrainer(5511, 37072, 45548, 65114, 65129)
 
 	-- Forgewire Axe -- 122637
 	recipe = AddRecipe(122637, V.MOP, Q.COMMON)
@@ -5448,7 +5448,7 @@ function addon:InitBlacksmithing()
 	recipe:SetSkillLevels(545, 545, 555, 560, 565)
 	recipe:SetItemFilterType("BLACKSMITHING_ONE_HAND_AXE")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER)
-	recipe:AddTrainer(37072, 45548, 65114, 65129)
+	recipe:AddTrainer(5511, 37072, 45548, 65114, 65129)
 
 	-- Ghost-Forged Blade -- 122638
 	recipe = AddRecipe(122638, V.MOP, Q.COMMON)
@@ -5456,7 +5456,7 @@ function addon:InitBlacksmithing()
 	recipe:SetSkillLevels(545, 545, 555, 560, 565)
 	recipe:SetItemFilterType("BLACKSMITHING_ONE_HAND_SWORD")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER)
-	recipe:AddTrainer(37072, 45548, 65114, 65129)
+	recipe:AddTrainer(5511, 37072, 45548, 65114, 65129)
 
 	-- Phantasmal Hammer -- 122639
 	recipe = AddRecipe(122639, V.MOP, Q.COMMON)
@@ -5464,7 +5464,7 @@ function addon:InitBlacksmithing()
 	recipe:SetSkillLevels(560, 560, 570, 575, 580)
 	recipe:SetItemFilterType("BLACKSMITHING_ONE_HAND_MACE")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER)
-	recipe:AddTrainer(37072, 45548, 65114, 65129)
+	recipe:AddTrainer(5511, 37072, 45548, 65114, 65129)
 
 	-- Spiritblade Decimator -- 122640
 	recipe = AddRecipe(122640, V.MOP, Q.COMMON)
@@ -5472,7 +5472,7 @@ function addon:InitBlacksmithing()
 	recipe:SetSkillLevels(565, 565, 575, 580, 585)
 	recipe:SetItemFilterType("BLACKSMITHING_DAGGER")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER)
-	recipe:AddTrainer(37072, 45548, 65114, 65129)
+	recipe:AddTrainer(5511, 37072, 45548, 65114, 65129)
 
 	-- Ghost Shard -- 122641
 	recipe = AddRecipe(122641, V.MOP, Q.COMMON)
@@ -5480,7 +5480,7 @@ function addon:InitBlacksmithing()
 	recipe:SetSkillLevels(565, 565, 575, 580, 585)
 	recipe:SetItemFilterType("BLACKSMITHING_DAGGER")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER)
-	recipe:AddTrainer(37072, 45548, 65114, 65129)
+	recipe:AddTrainer(5511, 37072, 45548, 65114, 65129)
 
 	-- Masterwork Lightsteel Shield -- 122642
 	recipe = AddRecipe(122642, V.MOP, Q.COMMON)
@@ -5533,7 +5533,7 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItemID(82974)
 	recipe:SetSkillLevels(575, 575, 600, 602, 605)
 	recipe:SetItemFilterType("BLACKSMITHING_TWO_HAND_AXE")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.REPUTATION, F.KLAXXI)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.HEALER, F.CASTER, F.REPUTATION, F.KLAXXI)
 	recipe:AddRepVendor(FAC.KLAXXI, REP.HONORED, 64599)
 
 	-- Masterwork Ghost Shard -- 122648
