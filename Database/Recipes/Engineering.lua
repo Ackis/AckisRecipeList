@@ -2990,7 +2990,7 @@ function addon:InitEngineering()
 	recipe:SetSkillLevels(565, 565, 575, 580, 585)
 	recipe:SetItemFilterType("ENGINEERING_GUN")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS)
-	recipe:AddTrainer(11017, 55143)
+	recipe:AddTrainer(5518, 11017, 55143)
 
 	-- Depleted-Kyparium Rocket -- 127138
 	recipe = AddRecipe(127138, V.MOP, Q.COMMON)
