@@ -76,7 +76,7 @@ end
 
 -- This wrapper exists primarily because Blizzard keeps changing how NPC ID numbers are extracted from GUIDs, and fixing it in one place is less error-prone.
 function private.MobGUIDToIDNum(guid)
-	return tonumber(guid:sub(-12,-9), 16)
+	return tonumber(guid:sub(6, 10), 16)
 end
 
 --@debug@
