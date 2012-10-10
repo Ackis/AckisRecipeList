@@ -206,8 +206,9 @@ function addon:InitCooking()
 	recipe:SetRecipeItemID(3734)
 	recipe:SetCraftedItemID(3726)
 	recipe:SetSkillLevels(110, 110, 150, 170, 190)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	recipe:AddLimitedVendor(12246, 1)
+	recipe:AddFilters(F.RETIRED)
+	--recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
+	--recipe:AddLimitedVendor(12246, 1) --NPC accidentally removed from game in 5.0, to be readded in future
 
 	-- Hot Lion Chops -- 3398
 	recipe = AddRecipe(3398, V.ORIG, Q.COMMON)
@@ -238,10 +239,9 @@ function addon:InitCooking()
 	recipe:SetRecipeItemID(4609)
 	recipe:SetCraftedItemID(4457)
 	recipe:SetSkillLevels(175, 175, 215, 235, 255)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
 	recipe:AddTrainer(1355, 1382, 1430, 1699, 2818, 3026, 3399, 4210, 4552, 5159, 5482, 6286, 16253, 16719, 18987, 18993, 19185, 19369, 26905, 26953, 26972, 26989, 28705, 29631, 33587, 33619, 45550, 46709, 47405, 49789, 54232)
-	recipe:AddVendor(2814)
-	recipe:AddLimitedVendor(12246, 1)
+	--recipe:AddLimitedVendor(12246, 1) --NPC accidentally removed from game in 5.0, to be readded in future
 
 	-- Kaldorei Spider Kabob -- 6412
 	recipe = AddRecipe(6412, V.ORIG, Q.COMMON)
@@ -436,8 +436,9 @@ function addon:InitCooking()
 	recipe:SetRecipeItemID(12227)
 	recipe:SetCraftedItemID(12209)
 	recipe:SetSkillLevels(125, 125, 165, 185, 205)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	recipe:AddLimitedVendor(12246, 1)
+	recipe:AddFilters(F.RETIRED)
+	--recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
+	--recipe:AddLimitedVendor(12246, 1) --NPC accidentally removed from game in 5.0, to be readded in future
 
 	-- Roast Raptor -- 15855
 	recipe = AddRecipe(15855, V.ORIG, Q.COMMON)
@@ -454,7 +455,7 @@ function addon:InitCooking()
 	recipe:SetSkillLevels(175, 175, 215, 235, 255)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
 	recipe:AddVendor(7947, 8145)
-	recipe:AddLimitedVendor(12246, 1)
+	--recipe:AddLimitedVendor(12246, 1) --NPC accidentally removed from game in 5.0, to be readded in future
 
 	-- Jungle Stew -- 15861
 	recipe = AddRecipe(15861, V.ORIG, Q.COMMON)
@@ -479,7 +480,7 @@ function addon:InitCooking()
 	recipe:SetSkillLevels(175, 175, 215, 235, 255)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
 	recipe:AddVendor(4897, 8150)
-	recipe:AddLimitedVendor(12246, 1)
+	--recipe:AddLimitedVendor(12246, 1) --NPC accidentally removed from game in 5.0, to be readded in future
 
 	-- Dragonbreath Chili -- 15906
 	recipe = AddRecipe(15906, V.ORIG, Q.COMMON)
@@ -488,7 +489,7 @@ function addon:InitCooking()
 	recipe:SetSkillLevels(200, 200, 225, 237, 250)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE)
 	recipe:AddVendor(4879, 4897)
-	recipe:AddLimitedVendor(12246, 1)
+	--recipe:AddLimitedVendor(12246, 1) --NPC accidentally removed from game in 5.0, to be readded in future
 
 	-- Heavy Kodo Stew -- 15910
 	recipe = AddRecipe(15910, V.ORIG, Q.COMMON)
@@ -1138,18 +1139,16 @@ function addon:InitCooking()
 	recipe:SetRecipeItemID(35564)
 	recipe:SetCraftedItemID(35563)
 	recipe:SetSkillLevels(250, 250, 275, 285, 295)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.VENDOR, F.IBOE, F.RBOE, F.DPS)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE, F.DPS)
 	recipe:AddTrainer(1355, 1382, 1430, 1699, 2818, 3026, 3399, 4210, 4552, 5159, 5482, 6286, 16253, 16719, 18987, 18993, 19185, 19369, 26905, 26953, 26972, 26989, 28705, 29631, 33587, 33619, 45550, 46709, 47405, 49789, 54232)
-	recipe:AddVendor(2803)
 
 	-- Juicy Bear Burger -- 46688
 	recipe = AddRecipe(46688, V.WOTLK, Q.COMMON)
 	recipe:SetRecipeItemID(35566)
 	recipe:SetCraftedItemID(35565)
 	recipe:SetSkillLevels(250, 250, 275, 285, 295)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
 	recipe:AddTrainer(1355, 1382, 1430, 1699, 2818, 3026, 3399, 4210, 4552, 5159, 5482, 6286, 16253, 16719, 18987, 18993, 19185, 19369, 26905, 26953, 26972, 26989, 28705, 29631, 33587, 33619, 45550, 46709, 47405, 49789, 54232)
-	recipe:AddVendor(2803)
 
 	-- Kungaloosh -- 53056
 	recipe = AddRecipe(53056, V.WOTLK, Q.COMMON)
