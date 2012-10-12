@@ -51,7 +51,7 @@ local CATEGORY_TOOLTIP = {
 	["misc"]	= L["FILTERING_MISC_DESC"]
 }
 
-FAC = private.LOCALIZED_FACTION_STRINGS
+local FAC = private.LOCALIZED_FACTION_STRINGS
 
 -------------------------------------------------------------------------------
 -- Function to create and initialize a check-button with the given values.
