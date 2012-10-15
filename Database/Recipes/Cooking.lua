@@ -206,7 +206,7 @@ function addon:InitCooking()
 	recipe:SetRecipeItemID(3734)
 	recipe:SetCraftedItemID(3726)
 	recipe:SetSkillLevels(110, 110, 150, 170, 190)
-	recipe:AddFilters(F.RETIRED)
+	recipe:AddFilters(F.RETIRED, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
 	--recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
 	--recipe:AddLimitedVendor(12246, 1) --NPC accidentally removed from game in 5.0, to be readded in future
 
@@ -436,7 +436,7 @@ function addon:InitCooking()
 	recipe:SetRecipeItemID(12227)
 	recipe:SetCraftedItemID(12209)
 	recipe:SetSkillLevels(125, 125, 165, 185, 205)
-	recipe:AddFilters(F.RETIRED)
+	recipe:AddFilters(F.RETIRED, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
 	--recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
 	--recipe:AddLimitedVendor(12246, 1) --NPC accidentally removed from game in 5.0, to be readded in future
 
@@ -1821,7 +1821,7 @@ function addon:InitCooking()
 	recipe:SetRecipeItemID(75013)
 	recipe:SetCraftedItemID(74919)
 	recipe:SetSkillLevels(600, 600, 600, 600, 600)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	recipe:AddVendor(64395)
 
 	-- Great Pandaren Banquet -- 105194
@@ -1829,7 +1829,7 @@ function addon:InitCooking()
 	recipe:SetRecipeItemID(75017)
 	recipe:SetCraftedItemID(75016)
 	recipe:SetSkillLevels(600, 600, 600, 600, 600)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	recipe:AddVendor(64395)
 
 	-- Viseclaw Soup -- 124029
@@ -1837,7 +1837,7 @@ function addon:InitCooking()
 	recipe:SetRecipeItemID(85502)
 	recipe:SetCraftedItemID(85501)
 	recipe:SetSkillLevels(525, 525, 525, 525, 530)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.RBOP, F.REPUTATION)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.REPUTATION)
 	recipe:AddRepVendor(FAC.ANGLERS, REP.FRIENDLY, 63721)
 
 	-- Krasarang Fritters -- 124032
@@ -1845,7 +1845,7 @@ function addon:InitCooking()
 	recipe:SetRecipeItemID(85505)
 	recipe:SetCraftedItemID(85504)
 	recipe:SetSkillLevels(525, 525, 525, 525, 530)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.RBOP, F.REPUTATION)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.REPUTATION)
 	recipe:AddRepVendor(FAC.ANGLERS, REP.FRIENDLY, 63721)
 
 	-- Ginseng Tea -- 124052
@@ -2102,7 +2102,7 @@ function addon:InitCooking()
 	recipe:SetSkillLevels(600, 600, 600, 602, 605)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOP)
 	recipe:AddCustom("FOUR_SENSES_BREW")
-	
+
 	-- Banana Infused Rum -- 126655
 	recipe = AddRecipe(126655, V.MOP, Q.COMMON)
 	recipe:SetRecipeItemID(87266)
