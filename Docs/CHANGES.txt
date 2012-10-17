@@ -1,6 +1,17 @@
 ==ARL Change Log
 NOTE: Always remove the folder for old versions and install a fresh copy when upgrading.
 
+== 2.4.2
+
+=== Interface:
+* Removed some of the translation libraries to use internal Blizzard functions to get localization names.
+
+=== Recipe Database:
+* Added in a few missing MoP entries
+* Removed all resistance-based Armor Kit recipes.
+* Removed some NPCs which no longer had any recipe data associated to them.
+* Fixed the role assignments for several recipes.
+
 == 2.4.1
 
 === Interface:
