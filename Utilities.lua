@@ -171,8 +171,7 @@ do
 	end
 
 	function private.TextDump:String(separator)
-		local display_text = table.concat(self.output, separator or "\n")
-		return display_text
+		return table.concat(self.output, separator or "\n")
 	end
 end -- do
 
