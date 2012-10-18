@@ -2499,7 +2499,7 @@ function addon:InitTailoring()
 	recipe:SetCraftedItemID(24270)
 	recipe:SetSkillLevels(340, 340, 350, 355, 360)
 	recipe:SetItemFilterType("TAILORING_BAG")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.REPUTATION, F.CONSORTIUM)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.RBOP, F.REPUTATION, F.CONSORTIUM)
 	recipe:AddRepVendor(FAC.CONSORTIUM, REP.HONORED, 20242, 23007)
 
 	-- Netherweave Net -- 31460
@@ -2743,7 +2743,7 @@ function addon:InitTailoring()
 	recipe:SetCraftedItemID(38225)
 	recipe:SetSkillLevels(375, 375, 385, 390, 395)
 	recipe:SetItemFilterType("TAILORING_BAG")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.REPUTATION, F.SPOREGGAR)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.RBOP, F.REPUTATION, F.SPOREGGAR)
 	recipe:AddRepVendor(FAC.SPOREGGAR, REP.REVERED, 18382)
 
 	-- Haliscan Jacket -- 50644
@@ -4487,7 +4487,7 @@ function addon:InitTailoring()
 	recipe:SetCraftedItemID(82446)
 	recipe:SetSkillLevels(600, 600, 600, 600, 600)
 	recipe:SetItemFilterType("TAILORING_BAG")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.REPUTATION, F.AUGUSTCELESTIALS)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.RBOP, F.REPUTATION, F.AUGUSTCELESTIALS)
 	recipe:AddRepVendor(FAC.AUGUSTCELESTIALS, REP.EXALTED, 64032)
 
 	-- Imperial Silk -- 125557
