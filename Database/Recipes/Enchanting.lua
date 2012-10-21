@@ -2723,6 +2723,7 @@ function addon:InitEnchanting()
 	-- Enchant Weapon - Elemental Force -- 104430
 	recipe = AddRecipe(104430, V.MOP, Q.COMMON)
 	recipe:SetSkillLevels(525, 525, 535, 540, 545)
+	recipe:SetItemFilterType("ENCHANTING_WEAPON")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.RBOP)
 	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 16633, 16725, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 65127)
 
@@ -2752,6 +2753,7 @@ function addon:InitEnchanting()
 	-- Enchant Off-Hand - Major Intellect -- 104445
 	recipe = AddRecipe(104445, V.MOP, Q.COMMON)
 	recipe:SetSkillLevels(575, 575, 585, 590, 595)
+	recipe:SetItemFilterType("ENCHANTING_MISC")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.RBOP)
 	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 16633, 16725, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 65127)
 
