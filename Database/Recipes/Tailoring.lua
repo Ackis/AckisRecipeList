@@ -783,6 +783,7 @@ function addon:InitTailoring()
 	recipe:SetCraftedItemID(7053)
 	recipe:SetSkillLevels(175, 175, 195, 210, 225)
 	recipe:SetItemFilterType("TAILORING_BACK")
+	recipe:SetRequiredFaction("Horde")
 	recipe:AddFilters(F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
 	recipe:AddLimitedVendor(6574, 1)
 
@@ -2328,7 +2329,7 @@ function addon:InitTailoring()
 	recipe:SetCraftedItemID(24276)
 	recipe:SetSkillLevels(375, 375, 385, 390, 395)
 	recipe:SetItemFilterType("TAILORING_ITEM_ENHANCEMENT")
-	recipe:AddFilters(F.ALLIANCE, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.REPUTATION, F.ALDOR)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.REPUTATION, F.ALDOR)
 	recipe:AddRepVendor(FAC.ALDOR, REP.EXALTED, 19321)
 
 	-- Unyielding Bracers -- 31434
@@ -2570,7 +2571,7 @@ function addon:InitTailoring()
 	recipe:SetCraftedItemID(30837)
 	recipe:SetSkillLevels(350, 350, 360, 365, 370)
 	recipe:SetItemFilterType("TAILORING_WRIST")
-	recipe:AddFilters(F.ALLIANCE, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.REPUTATION, F.ALDOR)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.REPUTATION, F.ALDOR)
 	recipe:AddRepVendor(FAC.ALDOR, REP.FRIENDLY, 19321)
 
 	-- Flameheart Gloves -- 37883
@@ -2579,7 +2580,7 @@ function addon:InitTailoring()
 	recipe:SetCraftedItemID(30838)
 	recipe:SetSkillLevels(360, 360, 370, 375, 380)
 	recipe:SetItemFilterType("TAILORING_HANDS")
-	recipe:AddFilters(F.ALLIANCE, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.REPUTATION, F.ALDOR)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.REPUTATION, F.ALDOR)
 	recipe:AddRepVendor(FAC.ALDOR, REP.HONORED, 19321)
 
 	-- Flameheart Vest -- 37884
@@ -2588,7 +2589,7 @@ function addon:InitTailoring()
 	recipe:SetCraftedItemID(30839)
 	recipe:SetSkillLevels(370, 370, 380, 385, 390)
 	recipe:SetItemFilterType("TAILORING_CHEST")
-	recipe:AddFilters(F.ALLIANCE, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.REPUTATION, F.ALDOR)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.REPUTATION, F.ALDOR)
 	recipe:AddRepVendor(FAC.ALDOR, REP.EXALTED, 19321)
 
 	-- Soulguard Slippers -- 40020
@@ -3512,6 +3513,7 @@ function addon:InitTailoring()
 	recipe:SetSkillLevels(450, 450, 460, 467, 475)
 	recipe:SetRequiredFaction("Horde")
 	recipe:SetItemFilterType("TAILORING_CHEST")
+	recipe:SetRequiredFaction("Horde")
 	recipe:AddFilters(F.HORDE, F.RAID, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
 	recipe:AddCustom("TOC25_RANDOM")
 
