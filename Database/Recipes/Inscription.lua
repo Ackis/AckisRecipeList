@@ -3572,10 +3572,6 @@ function addon:InitInscription()
 	recipe:AddFilters(F.HORDE, F.TRAINER, F.IBOE, F.RBOE)
 	recipe:AddTrainer(26977, 28702, 30706, 30709, 30711, 30713, 33603, 33615, 33638, 46716, 56065, 62327, 64691)
 
-	-- Forged Documents -- 89244
-	recipe = AddRecipe(89244, V.CATA, Q.COMMON)
-	recipe:AddFilters(F.RETIRED)
-
 	-- Scroll of Intellect IX -- 89368
 	recipe = AddRecipe(89368, V.CATA, Q.COMMON)
 	recipe:SetCraftedItemID(63305)
@@ -4471,10 +4467,6 @@ function addon:InitInscription()
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOE)
 	recipe:AddDiscovery("DISCOVERY_INSC_PANDARIA")
 
-	-- Engraved Jade Disk -- 127391
-	recipe = AddRecipe(127391, V.MOP, Q.COMMON)
-	recipe:AddFilters(F.RETIRED)
-
 	-- Glyph of Lightspring -- 127625
 	recipe = AddRecipe(127625, V.MOP, Q.COMMON)
 	recipe:SetCraftedItemID(87902)
@@ -4482,10 +4474,6 @@ function addon:InitInscription()
 	recipe:SetItemFilterType("INSCRIPTION_MAJOR_GLYPH")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.PRIEST)
 	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30709, 30710, 30711, 30713, 30715, 30716, 30717, 30721, 30722, 33603, 33615, 33638, 33679, 46716, 56065, 62327, 64691)
-
-	-- Portrait of Madam Goya -- 128922
-	recipe = AddRecipe(128922, V.MOP, Q.COMMON)
-	recipe:AddFilters(F.RETIRED)
 
 	-- Mystery of the Mists -- 130407
 	recipe = AddRecipe(130407, V.MOP, Q.COMMON)
