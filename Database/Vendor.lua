@@ -183,7 +183,7 @@ function addon:InitVendor()
 	AddVendor(8161,		L["Harggan"],				Z.THE_HINTERLANDS,		13.4,	44.0,	"Alliance")
 	AddVendor(8176,		L["Gharash"],				Z.SWAMP_OF_SORROWS,		47.2,	52.1,	"Horde") -- COMPLETELY UPDATED
 	AddVendor(8177,		L["Rartar"],				Z.SWAMP_OF_SORROWS,		47.2,	57.1,	"Horde") -- COMPLETELY UPDATED
-	AddVendor(8178,		L["Nina Lightbrew"],			Z.BLASTED_LANDS,		66.9,	18.3,	"Alliance")
+	AddVendor(8178,		L["Nina Lightbrew"],			Z.BLASTED_LANDS,		62.4,	16.0,	"Alliance")
 	AddVendor(8307,		L["Tarban Hearthgrain"],		Z.NORTHERN_BARRENS,		55.1,	61.7,	"Horde")  -- UPDATED
 	AddVendor(8363,		L["Shadi Mistrunner"],			Z.THUNDER_BLUFF,		40.6,	64.0,	"Horde") -- COMPLETELY UPDATED
 	AddVendor(8508,		L["Gretta Ganter"],			Z.DUN_MOROGH,			38.6,	42.9,	"Alliance") -- COMPLETELY UPDATED
