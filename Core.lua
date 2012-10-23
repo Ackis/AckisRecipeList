@@ -253,10 +253,10 @@ function addon:OnInitialize()
 				-- Binding Filters
 				-------------------------------------------------------------------------------
 				binding = {
-					itemboe = true,
-					itembop = true,
-					recipebop = true,
-					recipeboe = true,
+					item_bind_on_equip = true,
+					item_bind_on_pickup = true,
+					recipe_bind_on_equip = true,
+					recipe_bind_on_pickup = true,
 				},
 				-------------------------------------------------------------------------------
 				-- Player Role Filters
@@ -947,7 +947,7 @@ do
 
 					local recipe = addon:AddRecipe(spell_id, profession_id, _G.GetExpansionLevel() + 1, private.ITEM_QUALITIES.COMMON)
 					recipe:SetSkillLevels(0, 0, 0, 0, 0)
-					recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE)
+					recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER)
 					addon:Printf("Added '%s (%d)' to %s. Do a profession dump.", entry_name, spell_id, profession_name)
 					--@end-debug@
 
@@ -1036,12 +1036,6 @@ do
 				MOB_DROP = L["Mob Drop"],
 				DISC = L["Discovery"],
 				RETIRED = L["Retired"],
-				IBOE = L["BOEFilter"],
-				IBOP = L["BOPFilter"],
-				IBOA = L["BOAFilter"],
-				RBOE = L["RecipeBOEFilter"],
-				RBOP = L["RecipeBOPFilter"],
-				RBOA = L["RecipeBOAFilter"],
 				DPS = _G.MELEE,
 				TANK = _G.TANK,
 				HEALER = _G.HEALER,
@@ -1103,7 +1097,7 @@ do
 				RAMKAHEN = FAC["Ramkahen"],
 				EARTHEN_RING = FAC["The Earthen Ring"],
 				THERAZANE = FAC["Therazane"],
---[[				SHANGXIACADEMY 
+--[[				SHANGXIACADEMY
 				FORESTHOZEN
 				PEARLFINJINYU
 				GOLDENLOTUS

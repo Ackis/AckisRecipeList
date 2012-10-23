@@ -1219,61 +1219,44 @@ do
 			end
 		end
 
-		if scan_data.item_bop and not recipe:HasFilter("common1", "IBOP") then
-			table.insert(missing_flags, flag_format:format(FS[F.IBOP]))
-			recipe:AddFilters(F.IBOP)
-
-			if recipe:HasFilter("common1", "IBOE") then
-				recipe:RemoveFilters(F.IBOE)
-				table.insert(extra_flags, flag_format:format(FS[F.IBOE]))
-			end
-
-			if recipe:HasFilter("common1", "IBOA") then
-				recipe:RemoveFilters(F.IBOA)
-				table.insert(extra_flags, flag_format:format(FS[F.IBOA]))
-			end
-		elseif not recipe:HasFilter("common1", "IBOE") and not scan_data.item_bop then
-			recipe:AddFilters(F.IBOE)
-			table.insert(missing_flags, flag_format:format(FS[F.IBOE]))
-
-			if recipe:HasFilter("common1", "IBOP") then
-				recipe:RemoveFilters(F.IBOP)
-				table.insert(extra_flags, flag_format:format(FS[F.IBOP]))
-			end
-
-			if recipe:HasFilter("common1", "IBOA") then
-				recipe:RemoveFilters(F.IBOP)
-				table.insert(extra_flags, flag_format:format(FS[F.IBOA]))
-			end
-		end
-
-		if scan_data.recipe_bop and not recipe:HasFilter("common1", "RBOP") then
-			table.insert(missing_flags, flag_format:format(FS[F.RBOP]))
-			recipe:AddFilters(F.RBOP)
-
-			if recipe:HasFilter("common1", "RBOE") then
-				recipe:RemoveFilters(F.RBOE)
-				table.insert(extra_flags, flag_format:format(FS[F.RBOE]))
-			end
-
-			if recipe:HasFilter("common1", "RBOA") then
-				recipe:RemoveFilters(F.RBOA)
-				table.insert(extra_flags, flag_format:format(FS[F.RBOA]))
-			end
-		elseif not recipe:HasFilter("common1", "TRAINER") and not recipe:HasFilter("common1", "RBOE") and not scan_data.recipe_bop then
-			table.insert(missing_flags, flag_format:format(FS[F.RBOE]))
-			recipe:AddFilters(F.RBOE)
-
-			if recipe:HasFilter("common1", "RBOP") then
-				recipe:RemoveFilters(F.RBOP)
-				table.insert(extra_flags, flag_format:format(FS[F.RBOP]))
-			end
-
-			if recipe:HasFilter("common1", "RBOA") then
-				recipe:RemoveFilters(F.RBOA)
-				table.insert(extra_flags, flag_format:format(FS[F.RBOA]))
-			end
-		end
+		-- TODO: Make this work with the new binding system, if even applicable anymore.
+		--		if scan_data.item_bop and not recipe:HasFilter("common1", "IBOP") then
+		--			table.insert(missing_flags, flag_format:format(FS[F.IBOP]))
+		--			recipe:AddFilters(F.IBOP)
+		--
+		--			if recipe:HasFilter("common1", "IBOE") then
+		--				recipe:RemoveFilters(F.IBOE)
+		--				table.insert(extra_flags, flag_format:format(FS[F.IBOE]))
+		--			end
+		--		elseif not recipe:HasFilter("common1", "IBOE") and not scan_data.item_bop then
+		--			recipe:AddFilters(F.IBOE)
+		--			table.insert(missing_flags, flag_format:format(FS[F.IBOE]))
+		--
+		--			if recipe:HasFilter("common1", "IBOP") then
+		--				recipe:RemoveFilters(F.IBOP)
+		--				table.insert(extra_flags, flag_format:format(FS[F.IBOP]))
+		--			end
+		--
+		--		end
+		--
+		--		if scan_data.recipe_bop and not recipe:HasFilter("common1", "RBOP") then
+		--			table.insert(missing_flags, flag_format:format(FS[F.RBOP]))
+		--			recipe:AddFilters(F.RBOP)
+		--
+		--			if recipe:HasFilter("common1", "RBOE") then
+		--				recipe:RemoveFilters(F.RBOE)
+		--				table.insert(extra_flags, flag_format:format(FS[F.RBOE]))
+		--			end
+		--
+		--		elseif not recipe:HasFilter("common1", "TRAINER") and not recipe:HasFilter("common1", "RBOE") and not scan_data.recipe_bop then
+		--			table.insert(missing_flags, flag_format:format(FS[F.RBOE]))
+		--			recipe:AddFilters(F.RBOE)
+		--
+		--			if recipe:HasFilter("common1", "RBOP") then
+		--				recipe:RemoveFilters(F.RBOP)
+		--				table.insert(extra_flags, flag_format:format(FS[F.RBOP]))
+		--			end
+		--		end
 
 		for role_index, role in ipairs(ORDERED_ROLE_TYPES) do
 			local role_string = ROLE_TYPES[role]
@@ -1410,15 +1393,18 @@ do
 			end
 		end
 
+		-- TODO: Make this work with the new binding system, if even applicable anymore.
+		--[[
 		-- Check for recipe binding information,  all recipes must have one of these
-		if not recipe:HasFilter("common1", "RBOE") and not recipe:HasFilter("common1", "RBOP") and not recipe:HasFilter("common1", "RBOA") then
+		if not recipe:HasFilter("common1", "RBOE") and not recipe:HasFilter("common1", "RBOP") then
 			output:AddLine("    No recipe binding information.")
 		end
 
 		-- Check for item binding information,  all recipes must have one of these
-		if not recipe:HasFilter("common1", "IBOE") and not recipe:HasFilter("common1", "IBOP") and not recipe:HasFilter("common1", "IBOA") then
+		if not recipe:HasFilter("common1", "IBOE") and not recipe:HasFilter("common1", "IBOP") then
 			output:AddLine("    No item binding information.")
 		end
+]] --
 
 		-- We need to code this better.  Some items (aka bags) won't have a role at all.
 		-- Check for player role flags

@@ -58,13 +58,13 @@ function addon:AddRecipe(spell_id, profession, genesis, quality)
 	end
 
 	local recipe = _G.setmetatable({
-		spell_id = spell_id,
-		profession = _G.GetSpellInfo(profession),
-		genesis = private.GAME_VERSION_NAMES[genesis],
-		quality = quality,
-		name = _G.GetSpellInfo(spell_id),
-		flags = {},
 		acquire_data = {},
+		flags = {},
+		genesis = private.GAME_VERSION_NAMES[genesis],
+		name = _G.GetSpellInfo(spell_id),
+		profession = _G.GetSpellInfo(profession),
+		quality = quality,
+		spell_id = spell_id,
 	}, recipe_meta)
 
 	if not recipe.name or recipe.name == "" then
@@ -85,22 +85,24 @@ end
 -------------------------------------------------------------------------------
 -- Recipe methods.
 -------------------------------------------------------------------------------
-function recipe_prototype:SetRecipeItemID(item_id)
+function recipe_prototype:SetRecipeItem(item_id, binding_type)
 	local item_name, item_link, item_quality = _G.GetItemInfo(item_id) -- Do this now to get the item into the cache.
 	self.recipe_item_id = item_id
+	self.recipe_item_binding = binding_type
 end
 
-function recipe_prototype:RecipeItemID()
-	return self.recipe_item_id
+function recipe_prototype:RecipeItem()
+	return self.recipe_item_id, self.recipe_item_binding
 end
 
-function recipe_prototype:SetCraftedItemID(item_id)
+function recipe_prototype:SetCraftedItem(item_id, binding_type)
 	local item_name, item_link, item_quality = _G.GetItemInfo(item_id) -- Do this now to get the item into the cache.
 	self.crafted_item_id = item_id
+	self.crafted_item_binding = binding_type
 end
 
-function recipe_prototype:CraftedItemID()
-	return self.crafted_item_id
+function recipe_prototype:CraftedItem()
+	return self.crafted_item_id, self.crafted_item_binding
 end
 
 function recipe_prototype:SetSkillLevels(skill_level, optimal_level, medium_level, easy_level, trivial_level)
@@ -540,26 +542,20 @@ function recipe_prototype:Dump()
 
 	output:AddLine(("-- %s -- %d"):format(self.name, self.spell_id))
 	output:AddLine(("recipe = AddRecipe(%d, V.%s, Q.%s)"):format(self.spell_id, self.genesis, private.ITEM_QUALITY_NAMES[self.quality]))
+	output:AddLine(("recipe:SetSkillLevels(%d, %d, %d, %d, %d)"):format(self.skill_level, self.optimal_level, self.medium_level, self.easy_level, self.trivial_level))
 
 	if self.recipe_item_id then
-		output:AddLine(("recipe:SetRecipeItemID(%d)"):format(self.recipe_item_id))
+		output:AddLine(("recipe:SetRecipeItem(%d, \"%s\")"):format(self.recipe_item_id, self.recipe_item_binding))
 	end
 
 	if self.crafted_item_id then
-		output:AddLine(("recipe:SetCraftedItemID(%d)"):format(self.crafted_item_id))
+		output:AddLine(("recipe:SetCraftedItem(%d, \"%s\")"):format(self.crafted_item_id, self.crafted_item_binding))
 	end
 	local previous_rank_recipe = private.profession_recipe_list[self.profession][self:PreviousRankID()]
 
 	if previous_rank_recipe then
 		output:AddLine(("recipe:SetPreviousRankID(%d)"):format(previous_rank_recipe.spell_id))
 	end
-	local skill_level = self.skill_level
-	local optimal_level = self.optimal_level
-	local medium_level = self.medium_level
-	local easy_level = self.easy_level
-	local trivial_level = self.trivial_level
-
-	output:AddLine(("recipe:SetSkillLevels(%d, %d, %d, %d, %d)"):format(skill_level, optimal_level, medium_level, easy_level, trivial_level))
 
 	if self.specialty then
 		output:AddLine(("recipe:SetSpecialty(%d)"):format(self.specialty))
