@@ -402,30 +402,37 @@ end
 
 function recipe_prototype:AddMobDrop(...)
 	self:AddAcquireData(A.MOB_DROP, "Mob", private.mob_list, ...)
+	self:AddFilters(private.FILTER_IDS.MOB_DROP)
 end
 
 function recipe_prototype:AddTrainer(...)
 	self:AddAcquireData(A.TRAINER, "Trainer", private.trainer_list, ...)
+	self:AddFilters(private.FILTER_IDS.TRAINER)
 end
 
 function recipe_prototype:AddVendor(...)
 	self:AddAcquireData(A.VENDOR, "Vendor", private.vendor_list, ...)
+	self:AddFilters(private.FILTER_IDS.VENDOR)
 end
 
 function recipe_prototype:AddLimitedVendor(...)
 	self:AddAcquireData(A.VENDOR, "Limited Vendor", private.vendor_list, ...)
+	self:AddFilters(private.FILTER_IDS.VENDOR)
 end
 
 function recipe_prototype:AddWorldDrop(...)
 	self:AddAcquireData(A.WORLD_DROP, nil, nil, ...)
+	self:AddFilters(private.FILTER_IDS.WORLD_DROP)
 end
 
 function recipe_prototype:AddQuest(...)
 	self:AddAcquireData(A.QUEST, "Quest", private.quest_list, ...)
+	self:AddFilters(private.FILTER_IDS.QUEST)
 end
 
 function recipe_prototype:AddAchievement(...)
 	self:AddAcquireData(A.ACHIEVEMENT, "Achievement", nil, ...)
+	self:AddFilters(private.FILTER_IDS.ACHIEVEMENT)
 end
 
 function recipe_prototype:AddCustom(...)
@@ -434,10 +441,12 @@ end
 
 function recipe_prototype:AddDiscovery(...)
 	self:AddAcquireData(A.DISCOVERY, "Discovery", private.discovery_list, ...)
+	self:AddFilters(private.FILTER_IDS.DISC)
 end
 
 function recipe_prototype:AddSeason(...)
 	self:AddAcquireData(A.SEASONAL, "Seasonal", private.seasonal_list, ...)
+	self:AddFilters(private.FILTER_IDS.SEASONAL)
 end
 
 function recipe_prototype:AddRepVendor(faction_id, rep_level, ...)
@@ -496,6 +505,7 @@ function recipe_prototype:AddRepVendor(faction_id, rep_level, ...)
 			location_list[location_name].recipes[self.spell_id] = affiliation or true
 		end
 	end
+	self:AddFilters(private.FILTER_IDS.REPUTATION)
 end
 
 local DUMP_FUNCTION_FORMATS = {
@@ -511,6 +521,19 @@ local DUMP_FUNCTION_FORMATS = {
 
 local sorted_data = {}
 local reverse_map = {}
+
+-- These are automatically added when assigning the appropriate acquire type; dumping them is redundant.
+local IMPLICIT_FLAGS = {
+	ACHIEVEMENT = true,
+	DISC = true,
+	MOB_DROP = true,
+	QUEST = true,
+	REPUTATION = true,
+	SEASONAL = true,
+	TRAINER = true,
+	VENDOR = true,
+	WORLD_DROP = true,
+}
 
 function recipe_prototype:Dump()
 	local output = private.TextDump
@@ -556,11 +579,13 @@ function recipe_prototype:Dump()
 		table.wipe(reverse_map)
 
 		for flag_name, flag in pairs(bits) do
-			local bitfield = self.flags[private.FLAG_MEMBERS[table_index]]
+			if not IMPLICIT_FLAGS[flag_name] then
+				local bitfield = self.flags[private.FLAG_MEMBERS[table_index]]
 
-			if bitfield and bit.band(bitfield, flag) == flag then
-				table.insert(sorted_data, flag)
-				reverse_map[flag] = flag_name
+				if bitfield and bit.band(bitfield, flag) == flag then
+					table.insert(sorted_data, flag)
+					reverse_map[flag] = flag_name
+				end
 			end
 		end
 		table.sort(sorted_data)
