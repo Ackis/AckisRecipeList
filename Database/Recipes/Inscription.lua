@@ -3569,8 +3569,18 @@ function addon:InitInscription()
 	recipe:SetSkillLevels(500, 500, 510, 522, 535)
 	recipe:SetRequiredFaction("Horde")
 	recipe:SetItemFilterType("INSCRIPTION_CREATED_ITEM")
-	recipe:AddFilters(F.HORDE, F.TRAINER, F.IBOE, F.RBOE)
-	recipe:AddTrainer(26977, 28702, 30706, 30709, 30711, 30713, 33603, 33615, 33638, 46716, 56065, 62327, 64691)
+	recipe:AddFilters(F.HORDE, F.RETIRED, F.IBOE, F.RBOE)
+	recipe:AddFilters(F.RETIRED)
+
+	-- Forged Documents -- 89244
+	recipe = AddRecipe(89244, V.CATA, Q.COMMON)
+	recipe:SetCraftedItemID(62056)
+	recipe:SetSkillLevels(500, 500, 510, 522, 535)
+	recipe:SetRequiredFaction("Alliance")
+	recipe:SetItemFilterType("INSCRIPTION_CREATED_ITEM")
+	recipe:AddFilters(F.ALLIANCE, F.RETIRED, F.IBOE, F.RBOE)
+	recipe:AddFilters(F.RETIRED)
+
 
 	-- Scroll of Intellect IX -- 89368
 	recipe = AddRecipe(89368, V.CATA, Q.COMMON)
