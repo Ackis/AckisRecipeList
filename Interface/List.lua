@@ -280,7 +280,7 @@ function private.InitializeListFrame()
 					edit_box:Insert(_G.GetSpellLink(profession_recipes[clicked_line.recipe_id].spell_id))
 				end
 			elseif _G.IsShiftKeyDown() then
-				local crafted_item_id = profession_recipes[clicked_line.recipe_id]:CraftedItemID()
+				local crafted_item_id = profession_recipes[clicked_line.recipe_id]:CraftedItem()
 
 				if crafted_item_id then
 					local _, item_link = _G.GetItemInfo(crafted_item_id)
@@ -1244,7 +1244,7 @@ function private.InitializeListFrame()
 		local drop_location = type(identifier) == "string" and SetTextColor(CATEGORY_COLORS["location"], identifier)
 
 		if drop_location then
-			local recipe_item_id = private.recipe_list[recipe_id]:RecipeItemID()
+			local recipe_item_id = private.recipe_list[recipe_id]:RecipeItem()
 			local recipe_item_level = recipe_item_id and select(4, _G.GetItemInfo(recipe_item_id))
 
 			if recipe_item_level then
@@ -1710,7 +1710,7 @@ do
 				return
 			end
 			local recipe = private.recipe_list[recipe_id]
-			local recipe_item_id = recipe:RecipeItemID()
+			local recipe_item_id = recipe:RecipeItem()
 			local recipe_item_level = recipe_item_id and select(4, _G.GetItemInfo(recipe_item_id))
 			local quality_color = select(4, _G.GetItemQualityColor(recipe.quality)):sub(3)
 			local location_text

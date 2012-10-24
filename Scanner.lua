@@ -202,7 +202,7 @@ do
 				matching_trainer = true
 			end
 			local matching_recipe = scanned_recipes[recipe.name]
-			local matching_item = scanned_items[recipe:CraftedItemID()]
+			local matching_item = scanned_items[recipe:CraftedItem()]
 
 			if matching_recipe or matching_item then
 				if not matching_trainer then
@@ -217,7 +217,7 @@ do
 						recipe:AddFilters(F.TRAINER)
 
 						if matching_item then
-							output:AddLine(("Added trainer flag to recipe with spell ID %d. (matching crafted item ID %d)"):format(spell_id, recipe:CraftedItemID()))
+							output:AddLine(("Added trainer flag to recipe with spell ID %d. (matching crafted item ID %d)"):format(spell_id, recipe:CraftedItem()))
 						elseif matching_recipe then
 							output:AddLine(("Added trainer flag to recipe with spell ID %d. (matching recipe name \"%s\")"):format(spell_id, recipe.name))
 						end
@@ -235,10 +235,10 @@ do
 			elseif matching_trainer then
 				table.wipe(itemless_spells)
 
-				if not recipe:CraftedItemID() then
+				if not recipe:CraftedItem() then
 					for item_id in pairs(scanned_items) do
 						if recipe.name == _G.GetItemInfo(item_id) then
-							recipe:SetCraftedItemID(item_id)
+							recipe:SetCraftedItem(item_id, "BIND_ON_EQUIP")
 							itemless_spells[spell_id] = true
 						end
 					end
@@ -269,7 +269,7 @@ do
 			for index in ipairs(extra_spell_ids) do
 				local spell_id = extra_spell_ids[index]
 				local recipe = recipe_list[spell_id]
-				local crafted_item = recipe:CraftedItemID()
+				local crafted_item = recipe:CraftedItem()
 
 				if crafted_item then
 					output:AddLine(("%d (%s) - Crafted item ID set to %d (%s)"):format(spell_id, recipe.name, crafted_item, _G.GetItemInfo(crafted_item) or _G.UNKNOWN))
@@ -297,7 +297,7 @@ do
 				local spell_id = mismatched_item_levels[index]
 				local recipe = recipe_list[spell_id]
 				local recipe_skill = recipe:SkillLevels()
-				local corrected_skill = scanned_items[recipe:CraftedItemID()]
+				local corrected_skill = scanned_items[recipe:CraftedItem()]
 				output:AddLine(("%d (%s): Corrected skill level from %d to %d."):format(spell_id, recipe.name, recipe_skill, corrected_skill))
 				recipe:SetSkillLevels(corrected_skill)
 			end
@@ -746,7 +746,7 @@ do
 			RECIPE_ITEM_TO_SPELL_MAP = {}
 
 			for spell_id, recipe in pairs(private.recipe_list) do
-				local recipe_item_id = recipe:RecipeItemID()
+				local recipe_item_id = recipe:RecipeItem()
 
 				if recipe_item_id then
 					RECIPE_ITEM_TO_SPELL_MAP[recipe_item_id] = spell_id
@@ -773,7 +773,7 @@ do
 							local recipe_type, match_text = (":"):split(item_name, 2)
 
 							if recipe.name == match_text:trim() then
-								recipe:SetRecipeItemID(item_id)
+								recipe:SetRecipeItem(item_id, "BIND_ON_EQUIP")
 								RECIPE_ITEM_TO_SPELL_MAP[item_id] = spell_id
 								NormalizeVendorData(spell_id, supply, vendor_id, vendor_name)
 							end
@@ -1647,7 +1647,7 @@ do
 		local reverse_lookup = GetReverseLookup(recipe_list)
 		ScanTooltip(recipe_name, recipe_list, reverse_lookup, is_vendor)
 
-		local recipe_item_id = recipe:RecipeItemID()
+		local recipe_item_id = recipe:RecipeItem()
 
 		table.wipe(scan_data)
 
