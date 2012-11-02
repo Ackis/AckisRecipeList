@@ -4087,7 +4087,7 @@ function addon:InitInscription()
 	recipe:SetSkillLevels(525, 525, 595, 600, 605)
 	recipe:SetCraftedItem(81956, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("INSCRIPTION_MAJOR_GLYPH")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.MONK)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.PALADIN)
 	recipe:AddDiscovery("DISCOVERY_INSC_PANDARIA")
 
 	-- Glyph of Incite -- 122015
