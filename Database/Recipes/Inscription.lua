@@ -4482,14 +4482,6 @@ function addon:InitInscription()
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.PRIEST)
 	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30709, 30710, 30711, 30713, 30715, 30716, 30717, 30721, 30722, 33603, 33615, 33638, 33679, 46716, 56065, 62327, 64691)
 
-	-- Mystery of the Mists -- 130407
-	recipe = AddRecipe(130407, V.MOP, Q.COMMON)
-	recipe:SetSkillLevels(600, 600, 605, 607, 610)
-	recipe:SetCraftedItem(79318, "BIND_ON_EQUIP")
-	recipe:SetItemFilterType("INSCRIPTION_CREATED_ITEM")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30709, 30710, 30711, 30713, 30715, 30716, 30717, 30721, 30722, 33603, 33615, 33638, 33679, 46716, 56065, 62327, 64691)
-
 	-- Glyph of the Cheetah -- 131152
 	recipe = AddRecipe(131152, V.MOP, Q.COMMON)
 	recipe:SetSkillLevels(525, 525, 595, 600, 605)
