@@ -57,7 +57,7 @@ function addon:InitMob()
 	-- Burning Steppes
 	AddMob(7035,	L["Firegut Brute"],			Z.BURNING_STEPPES,		82.5, 48.1)
 	AddMob(7037,	L["Thaurissan Firewalker"],		Z.BURNING_STEPPES,		61.1, 42.0)
-	AddMob(10119,	L["Volchan"],				Z.BURNING_STEPPES,		73.0, 49.3)
+	AddMob(10119,	L["Volchan"],				Z.BURNING_STEPPES,		22.0, 41.0)
 
 	-- Deadwind Pass
 	AddMob(7372,	L["Deadwind Warlock"],			Z.DEADWIND_PASS,		59.8, 74.4)
