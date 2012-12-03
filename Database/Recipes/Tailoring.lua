@@ -4541,5 +4541,13 @@ function addon:InitTailoring()
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
 	recipe:AddTrainer(1346, 2399, 3004, 3363, 4159, 4576, 5153, 9584, 16640, 28699, 33580, 33613, 33636, 44783, 45559)
 
+	-- Bipsi's Gloves -- 134585
+	recipe = AddRecipe(134585, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(515, 515, 520, 525, 530)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.CASTER, F.HEALER)
+	recipe:SetCraftedItem(92726, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("TAILORING_HANDS")
+	recipe:AddTrainer(1346, 3363)
+
 	self.InitTailoring = nil
 end
