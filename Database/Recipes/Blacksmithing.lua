@@ -1117,7 +1117,7 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItem(11606, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("BLACKSMITHING_CHEST")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.INSTANCE, F.DPS, F.HEALER, F.CASTER)
-	recipe:AddCustom("BRD_RANDOM_ROOM")
+	recipe:AddCustom("BRD_MAIL")
 
 	-- Dark Iron Sunderer -- 15294
 	recipe = AddRecipe(15294, V.ORIG, Q.RARE)
@@ -1135,7 +1135,7 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItem(11605, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("BLACKSMITHING_SHOULDER")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.INSTANCE, F.DPS, F.TANK)
-	recipe:AddCustom("BRD_RANDOM_ROOM")
+	recipe:AddCustom("BRD_SHOULDERS")
 
 	-- Dark Iron Plate -- 15296
 	recipe = AddRecipe(15296, V.ORIG, Q.RARE)
