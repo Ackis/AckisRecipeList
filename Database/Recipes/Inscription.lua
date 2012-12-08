@@ -4501,7 +4501,7 @@ function addon:InitInscription()
 	-- Glyph of Gateway Attunement -- 135561
 	recipe = AddRecipe(135561, V.MOP, Q.COMMON)
 	recipe:SetSkillLevels(595, 595, 595, 600, 605)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WARLOCK, )
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WARLOCK)
 	recipe:SetCraftedItem(93202, "BIND_ON_EQUIP")
 	recipe:AddDiscovery("DISCOVERY_INSC_PANDARIA")
 	recipe:SetItemFilterType("INSCRIPTION_MINOR_GLYPH")
