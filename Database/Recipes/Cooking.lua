@@ -52,7 +52,7 @@ function addon:InitCooking()
 	recipe = AddRecipe(2538, V.ORIG, Q.COMMON)
 	recipe:SetSkillLevels(1, 1, 45, 65, 85)
 	recipe:SetCraftedItem(2679, "BIND_ON_EQUIP")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER)
 	recipe:AddCustom("DEFAULT_RECIPE")
 
 	-- Spiced Wolf Meat -- 2539
@@ -66,7 +66,7 @@ function addon:InitCooking()
 	recipe = AddRecipe(2540, V.ORIG, Q.COMMON)
 	recipe:SetSkillLevels(1, 1, 45, 65, 85)
 	recipe:SetCraftedItem(2681, "BIND_ON_EQUIP")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER)
 	recipe:AddCustom("DEFAULT_RECIPE")
 
 	-- Coyote Steak -- 2541
@@ -406,7 +406,7 @@ function addon:InitCooking()
 	recipe = AddRecipe(8604, V.ORIG, Q.COMMON)
 	recipe:SetSkillLevels(1, 1, 45, 65, 85)
 	recipe:SetCraftedItem(6888, "BIND_ON_EQUIP")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.HEALER, F.CASTER)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.HEALER, F.CASTER, F.TRAINER)
 	recipe:AddCustom("DEFAULT_RECIPE")
 
 	-- Smoked Bear Meat -- 8607
@@ -2100,7 +2100,7 @@ function addon:InitCooking()
 	recipe:SetSkillLevels(600, 600, 600, 602, 605)
 	recipe:SetRecipeItem(86393, "BIND_ON_PICKUP")
 	recipe:SetCraftedItem(87264, "BIND_ON_EQUIP")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP)
 	recipe:AddCustom("FOUR_SENSES_BREW")
 
 	-- Banana Infused Rum -- 126655
@@ -2108,7 +2108,7 @@ function addon:InitCooking()
 	recipe:SetSkillLevels(600, 600, 600, 602, 605)
 	recipe:SetRecipeItem(87266, "BIND_ON_PICKUP")
 	recipe:SetCraftedItem(86432, "BIND_ON_EQUIP")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP)
 	recipe:AddCustom("BANANA_INFUSED_RUM")
 
 	self.InitCooking = nil
