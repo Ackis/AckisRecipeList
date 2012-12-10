@@ -1511,7 +1511,7 @@ function addon:InitEngineering()
 	recipe:SetCraftedItem(23746, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("ENGINEERING_GUN")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS)
-	recipe:AddLimitedVendor(16657, 1, 16782, 1, 19661, 1)
+	recipe:AddLimitedVendor(16657, 1, 16782, 1, 19661, 1, 67976, 1)
 
 	-- Felsteel Boomstick -- 30314
 	recipe = AddRecipe(30314, V.TBC, Q.RARE)
@@ -1538,7 +1538,7 @@ function addon:InitEngineering()
 	recipe:SetCraftedItem(23758, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("ENGINEERING_HEAD")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddVendor(19836)
+	recipe:AddVendor(19836, 67976)
 	recipe:AddLimitedVendor(18775, 1)
 
 	-- Power Amplification Goggles -- 30317
@@ -1557,6 +1557,7 @@ function addon:InitEngineering()
 	recipe:SetCraftedItem(23762, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("ENGINEERING_HEAD")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS, F.HEALER, F.CASTER)
+	recipe:AddVendor(67976)
 	recipe:AddLimitedVendor(18775, 1, 19383, 1)
 
 	-- Hyper-Vision Goggles -- 30325
@@ -1575,7 +1576,7 @@ function addon:InitEngineering()
 	recipe:SetCraftedItem(23764, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("ENGINEERING_ITEM_ENHANCEMENT")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddVendor(19351, 19836)
+	recipe:AddVendor(19351, 19836, 67976)
 
 	-- Khorium Scope -- 30332
 	recipe = AddRecipe(30332, V.TBC, Q.RARE)
@@ -1629,6 +1630,7 @@ function addon:InitEngineering()
 	recipe:SetCraftedItem(23774, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("ENGINEERING_BAG")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddVendor(67976)
 	recipe:AddLimitedVendor(16657, 1, 16782, 1, 18484, 1)
 
 	-- Titanium Toolbox -- 30349
