@@ -796,6 +796,24 @@ do
 		_G.PrimaryProfession2SpellButtonBottom,
 	}
 
+	local function SetPreviousRanksKnown(previous_rank_id, profession_recipes, tradeskill_is_linked)
+
+		local previous_rank_recipe = profession_recipes[previous_rank_id]
+
+		if previous_rank_recipe then
+			previous_rank_recipe:SetAsKnownOrLinked(tradeskill_is_linked)
+		else
+			self:Debug("%s (%d): %s", entry_name, previous_rank_id, L["MissingFromDB"])
+		end
+
+		local nested_previous_rank_id = previous_rank_recipe:PreviousRankID()
+
+		if nested_previous_rank_id then
+			SetPreviousRanksKnown(nested_previous_rank_id, profession_recipes, tradeskill_is_linked)
+		end
+
+	end
+
 	--- Causes a scan of the tradeskill to be conducted. Function called when the scan button is clicked.   Parses recipes and displays output
 	-- @name AckisRecipeList:Scan
 	-- @usage AckisRecipeList:Scan(true)
@@ -924,13 +942,7 @@ do
 					local previous_rank_id = recipe:PreviousRankID()
 
 					if previous_rank_id then
-						local previous_rank_recipe = profession_recipes[previous_rank_id]
-
-						if previous_rank_recipe then
-							previous_rank_recipe:SetAsKnownOrLinked(tradeskill_is_linked)
-						else
-							self:Debug("%s (%d): %s", entry_name, previous_rank_id, L["MissingFromDB"])
-						end
+						SetPreviousRanksKnown(previous_rank_id, profession_recipes, tradeskill_is_linked)
 					end
 					recipe:SetAsKnownOrLinked(tradeskill_is_linked)
 					recipes_found = recipes_found + 1
