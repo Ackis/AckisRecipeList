@@ -1,6 +1,15 @@
 ==ARL Change Log
 NOTE: Always remove the folder for old versions and install a fresh copy when upgrading.
 
+== 2.4.3
+
+=== Interface:
+* Fixed a bug where self-upgrading recipes would show the lower counterparts when doing a scan.
+* Fixed an issue where recipes that were custom only would not show up in the scan.
+
+=== Recipe Database:
+* Updated many recipes.
+
 == 2.4.2
 
 === Interface:
