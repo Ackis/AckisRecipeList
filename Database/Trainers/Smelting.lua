@@ -38,6 +38,7 @@ function private:InitializeSmeltingTrainers()
 	self:AddTrainer(33682, "Fono", Z.SHATTRATH_CITY, 36, 48.5, "Neutral")
 	self:AddTrainer(46357, "Gonto", Z.ORGRIMMAR, 44.57, 78.61, "Horde")
 	self:AddTrainer(52170, "Gizzik Oregrab", Z.ORGRIMMAR, 36.05, 82.58, "Horde")
+	self:AddTrainer(65092, "Smeltmaster Ashpaw", Z.THE_JADE_FOREST, 46.09, 29.44, "Alliance")
 
 	self.InitializeSmeltingTrainers = nil
 end

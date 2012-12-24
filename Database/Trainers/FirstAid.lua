@@ -44,6 +44,7 @@ function private:InitializeFirstAidTrainers()
 	self:AddTrainer(50574, "Amelia Atherton", Z.GILNEAS, 36.8, 65.7, "Alliance")
 	self:AddTrainer(56796, "Angela Leifeld", Z.STORMWIND_CITY, 52.19, 45.36, "Alliance")
 	self:AddTrainer(59077, "Apothecary Cheng", Z.KUN_LAI_SUMMIT, 71.6, 92.8, "Neutral")
+	self:AddTrainer(59619, "Mishka", Z.THE_JADE_FOREST, 59.91, 86.33, "Alliance")
 	self:AddTrainer(66222, "Elder Muur", Z.THE_JADE_FOREST, 28.2, 15.2, "Horde")
 
 	self.InitializeFirstAidTrainers = nil

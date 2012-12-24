@@ -52,7 +52,7 @@ function addon:InitCooking()
 	recipe = AddRecipe(2538, V.ORIG, Q.COMMON)
 	recipe:SetSkillLevels(1, 1, 45, 65, 85)
 	recipe:SetCraftedItem(2679, "BIND_ON_EQUIP")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE)
 	recipe:AddCustom("DEFAULT_RECIPE")
 
 	-- Spiced Wolf Meat -- 2539
@@ -66,7 +66,7 @@ function addon:InitCooking()
 	recipe = AddRecipe(2540, V.ORIG, Q.COMMON)
 	recipe:SetSkillLevels(1, 1, 45, 65, 85)
 	recipe:SetCraftedItem(2681, "BIND_ON_EQUIP")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE)
 	recipe:AddCustom("DEFAULT_RECIPE")
 
 	-- Coyote Steak -- 2541
@@ -406,7 +406,7 @@ function addon:InitCooking()
 	recipe = AddRecipe(8604, V.ORIG, Q.COMMON)
 	recipe:SetSkillLevels(1, 1, 45, 65, 85)
 	recipe:SetCraftedItem(6888, "BIND_ON_EQUIP")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.HEALER, F.CASTER, F.TRAINER)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.HEALER, F.CASTER)
 	recipe:AddCustom("DEFAULT_RECIPE")
 
 	-- Smoked Bear Meat -- 8607
@@ -1699,14 +1699,14 @@ function addon:InitCooking()
 
 	-- Golden Carp Consomme -- 104237
 	recipe = AddRecipe(104237, V.MOP, Q.COMMON)
-	recipe:SetSkillLevels(500, 500, 510, 515, 520)
+	recipe:SetSkillLevels(270, 270, 280, 285, 290)
 	recipe:SetCraftedItem(74636, "BIND_ON_EQUIP")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
 	recipe:AddTrainer(3399, 45550, 46709, 56707, 64231)
 
 	-- Fish Cake -- 104297
 	recipe = AddRecipe(104297, V.MOP, Q.COMMON)
-	recipe:SetSkillLevels(500, 500, 510, 515, 520)
+	recipe:SetSkillLevels(300, 300, 310, 315, 320)
 	recipe:SetCraftedItem(74641, "BIND_ON_EQUIP")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
 	recipe:AddTrainer(3399, 45550, 46709, 56707, 64231)

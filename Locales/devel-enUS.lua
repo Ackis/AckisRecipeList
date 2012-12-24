@@ -832,6 +832,7 @@ L["Mining"] = true
 L["Miralisse"] = true
 L["Mirla Silverblaze"] = true
 L["Misensi"] = true
+L["Mishka"] = true
 L["Mishta"] = true
 L["MissingFromDB"] = [[": is missing from the database.
 Please inform the author of the add-on about this recipe."]]
@@ -1117,6 +1118,7 @@ L["Skill (Desc)"] = true
 L["Skreah"] = true
 L["Slagg"] = true
 L["Small Font"] = true
+L["Smeltmaster Ashpaw"] = true
 L["Smiles O'Byron"] = true
 L["Smith Argus"] = true
 L["Smudge Thunderwood"] = true
