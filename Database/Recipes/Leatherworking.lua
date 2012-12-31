@@ -1522,8 +1522,8 @@ function addon:InitLeatherworking()
 	recipe:SetRecipeItem(15774, "BIND_ON_EQUIP")
 	recipe:SetCraftedItem(15081, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("LEATHERWORKING_SHOULDER")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.DPS)
-	recipe:AddCustom("REMOVED_FROM_GAME")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.INSTANCE, F.DPS)
+	recipe:AddMobDrop(10318)
 
 	-- Volcanic Shoulders -- 19101
 	recipe = AddRecipe(19101, V.ORIG, Q.UNCOMMON)
