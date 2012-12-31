@@ -160,6 +160,7 @@ L["Bernadette Dexter"] = true
 L["Bethany Cromwell"] = true
 L["Binding"] = true
 L["Binkie Brightgear"] = true
+L["Blackhand Assassin"] = true
 L["Blackhand Elite"] = true
 L["Blacksmith Calypso"] = true
 L["Blixrez Goodstitch"] = true
