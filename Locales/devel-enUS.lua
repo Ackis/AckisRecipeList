@@ -1106,6 +1106,7 @@ L["Sheri Zipstitch"] = true
 L["Shield"] = true
 L["Show Known"] = "Known"
 L["Sid Limbardi"] = true
+L["Silkmaster Tsai"] = true
 L["Silverbrook Defender"] = true
 L["Silverbrook Hunter"] = true
 L["Silverbrook Trapper"] = true

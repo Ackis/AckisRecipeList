@@ -42,6 +42,7 @@ function private:InitializeTailoringTrainers()
 	self:AddTrainer(33684, "Weaver Aoa", Z.SHATTRATH_CITY, 37.6, 27.2, "Neutral")
 	self:AddTrainer(44783, "Hiwahi Three-Feathers", Z.ORGRIMMAR, 38.8, 50.5, "Horde")
 	self:AddTrainer(45559, "Nivi Weavewell", Z.ORGRIMMAR, 41.1, 79.7, "Horde")
+	self:AddTrainer(57405, "Silkmaster Tsai", Z.VALLEY_OF_THE_FOUR_WINDS, 62.62, 59.81, "Alliance")
 
 	self.InitializeTailoringTrainers = nil
 end
