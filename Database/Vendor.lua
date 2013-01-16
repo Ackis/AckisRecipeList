@@ -254,7 +254,7 @@ function addon:InitVendor()
 	AddVendor(16782,	L["Yatheon"],				Z.SILVERMOON_CITY,		75.6,	40.7,	"Horde") -- COMPLETELY UPDATED
 	AddVendor(16826,	L["Sid Limbardi"],			Z.HELLFIRE_PENINSULA,		54.3,	63.6,	"Alliance")
 	AddVendor(17246,	L["\"Cookie\" McWeaksauce"],		Z.AZUREMYST_ISLE,		46.7,	70.5,	"Alliance")
-	AddVendor(17512,	L["Arred"],				Z.THUNDER_BLUFF,		45.9,	24.9,	"Alliance") -- COMPLETELY UPDATED
+	AddVendor(17512,	L["Arred"],				Z.THE_EXODAR,			45.9,	24.9,	"Alliance") -- COMPLETELY UPDATED
 	AddVendor(17518,	L["Ythyar"],				Z.KARAZHAN,			0,	0,	"Neutral")
 	AddVendor(17585,	L["Quartermaster Urgronn"],		Z.HELLFIRE_PENINSULA,		54.9,	37.9,	"Horde")
 	AddVendor(17657,	L["Logistics Officer Ulrike"],		Z.HELLFIRE_PENINSULA,		56.7,	62.6,	"Alliance")
