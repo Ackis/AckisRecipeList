@@ -50,6 +50,7 @@ function addon:InitVendor()
 	AddVendor(1149,		L["Uthok"],				Z.NORTHERN_STRANGLETHORN,	37.5,	49.2,	"Horde")   -- UPDATED
 	AddVendor(1250,		L["Drake Lindgren"],			Z.ELWYNN_FOREST,		83.3,	66.7,	"Alliance")
 	AddVendor(1286,		L["Edna Mullby"],			Z.STORMWIND_CITY,		64.7,	71.2,	"Alliance") -- COMPLETELY UPDATED
+	AddVendor(1304,		L["Darian Singh"],			Z.STORMWIND_CITY,		42.6,	76.8,	"Alliance") -- COMPLETELY UPDATED
 	AddVendor(1313,		L["Maria Lumere"],			Z.STORMWIND_CITY,		55.7,	85.5,	"Alliance") -- COMPLETELY UPDATED
 	AddVendor(1318,		L["Jessara Cordell"],			Z.STORMWIND_CITY,		53.0,	74.2,	"Alliance") -- COMPLETELY UPDATED
 	AddVendor(1347,		L["Alexandra Bolero"],			Z.STORMWIND_CITY,		53.3,	81.7,	"Alliance") -- COMPLETELY UPDATED

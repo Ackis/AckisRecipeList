@@ -1346,3 +1346,4 @@ L["Zorbin Fandazzle"] = true
 L["Zula Slagfury"] = true
 L["Zurai"] = true
 L["Zurii"] = true
+L["Darian Singh"] = true

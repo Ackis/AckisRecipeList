@@ -1106,9 +1106,7 @@ function addon:InitEngineering()
 	recipe:SetRecipeItem(18649, "BIND_ON_EQUIP")
 	recipe:SetCraftedItem(9312, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("ENGINEERING_CREATED_ITEM")
-	recipe:AddFilters(F.ALLIANCE)
-	recipe:AddVendor(5175)
-	recipe:AddLimitedVendor(49918, 1)
+	recipe:AddLimitedVendor(1304, 1, 5175, 1, 49918, 1)
 
 	-- Green Firework -- 23068
 	recipe = AddRecipe(23068, V.ORIG, Q.COMMON)
