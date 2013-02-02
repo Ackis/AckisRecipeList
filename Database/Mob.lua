@@ -322,7 +322,7 @@ function addon:InitMob()
 	AddMob(10426,	L["Risen Inquisitor"],			Z.STRATHOLME,			0, 0)
 	AddMob(10813,	BN.BALNAZZAR,				Z.STRATHOLME,			0, 0)
 	AddMob(10438,	BN.MALEKI_THE_PALLID,			Z.STRATHOLME,			0, 0)
-	AddMob(10997,	BB["Cannon Master Willey"],		Z.STRATHOLME,			0, 0)
+	AddMob(10997,	BB["Willey Hopebreaker"],		Z.STRATHOLME,			0, 0)
 
 	-- Temple of Ahn'Qiraj
 	AddMob(15263,	BB["The Prophet Skeram"],		Z.AHNQIRAJ_THE_FALLEN_KINGDOM,	0, 0)
