@@ -5056,6 +5056,15 @@ function addon:InitJewelcrafting()
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
 	recipe:AddTrainer(18774, 19778, 26915, 26997, 28701, 33614, 33637, 44582, 46675, 52586, 52645, 65098)
 
+	-- Rhinestone Sunglasses -- 73623
+	recipe = AddRecipe(73623, V.CATA, Q.RARE)
+	recipe:SetSkillLevels(525, 525, 525, 530, 535)
+	recipe:SetRecipeItem(71965, "BIND_ON_EQUIP")
+	recipe:SetCraftedItem(52489, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("JEWELCRAFTING_HEAD")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
+
 	-- Jeweler's Ruby Monocle -- 73625
 	recipe = AddRecipe(73625, V.CATA, Q.RARE)
 	recipe:SetSkillLevels(450, 450, 480, 490, 500)
