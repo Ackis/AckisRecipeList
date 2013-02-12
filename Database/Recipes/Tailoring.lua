@@ -1831,7 +1831,7 @@ function addon:InitTailoring()
 	recipe:SetSkillLevels(280, 280, 300, 315, 330)
 	recipe:SetCraftedItem(21341, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("TAILORING_BAG")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.INSTANCE, F.WARLOCK)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.INSTANCE, F.WARLOCK, F.RETIRED)
 	recipe:AddMobDrop(10503)
 	recipe:AddCustom("SCHOLO_BOOK_SPAWN")
 
