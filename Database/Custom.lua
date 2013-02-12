@@ -74,6 +74,7 @@ function addon:InitCustom()
 	AddCustom("MOP_RAIDS_RANDOM", Z.HEART_OF_FEAR)
 	AddCustom("BANANA_INFUSED_RUM", Z.KRASARANG_WILDS)
 	AddCustom("FOUR_SENSES_BREW", Z.KUN_LAI_SUMMIT)
+	AddCustom("LEARNT_BY_ACCEPTING_QUEST")
 
 	self.InitCustom = nil
 end

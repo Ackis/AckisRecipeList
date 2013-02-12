@@ -4605,7 +4605,8 @@ function addon:InitInscription()
 	recipe:SetCraftedItem(87811, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("INSCRIPTION_CREATED_ITEM")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddDiscovery("DISCOVERY_INSC_PANDARIA")
+	recipe:AddQuest(31539)
+	recipe:AddCustom("LEARNT_BY_ACCEPTING_QUEST")
 
 	-- Glyph of Lightspring -- 127625
 	recipe = AddRecipe(127625, V.MOP, Q.COMMON)
