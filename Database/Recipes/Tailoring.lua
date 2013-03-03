@@ -4551,5 +4551,325 @@ function addon:InitTailoring()
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.HEALER, F.CASTER)
 	recipe:AddTrainer(1346, 3363, 57405)
 
+	-- Crafted Dreadful Gladiator's Cape of Cruelty -- 137907
+	recipe = AddRecipe(137907, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(600, 600, 600, 602, 605)
+	recipe:SetCraftedItem(93420, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("TAILORING_BACK")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.HUNTER, F.ROGUE, F.SHAMAN, F.MONK, F.DRUID)
+	recipe:AddDiscovery("DISCOVERY_TAILOR_PANDARIA")
+
+	-- Crafted Dreadful Gladiator's Cape of Prowess -- 137908
+	recipe = AddRecipe(137908, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(600, 600, 600, 602, 605)
+	recipe:SetCraftedItem(93421, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("TAILORING_BACK")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.HUNTER, F.ROGUE, F.SHAMAN, F.MONK, F.DRUID)
+	recipe:AddDiscovery("DISCOVERY_TAILOR_PANDARIA")
+
+	-- Crafted Dreadful Gladiator's Cord of Cruelty -- 137909
+	recipe = AddRecipe(137909, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(600, 600, 600, 602, 605)
+	recipe:SetCraftedItem(93428, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("TAILORING_WAIST")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.MAGE, F.PRIEST, F.WARLOCK)
+	recipe:AddDiscovery("DISCOVERY_TAILOR_PANDARIA")
+
+	-- Crafted Dreadful Gladiator's Cord of Accuracy -- 137910
+	recipe = AddRecipe(137910, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(600, 600, 600, 602, 605)
+	recipe:SetCraftedItem(93429, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("TAILORING_WAIST")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.MAGE, F.PRIEST, F.WARLOCK)
+	recipe:AddDiscovery("DISCOVERY_TAILOR_PANDARIA")
+
+	-- Crafted Dreadful Gladiator's Cord of Meditation -- 137911
+	recipe = AddRecipe(137911, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(600, 600, 600, 602, 605)
+	recipe:SetCraftedItem(93430, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("TAILORING_WAIST")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.MAGE, F.PRIEST, F.WARLOCK)
+	recipe:AddDiscovery("DISCOVERY_TAILOR_PANDARIA")
+
+	-- Crafted Dreadful Gladiator's Treads of Cruelty -- 137912
+	recipe = AddRecipe(137912, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(600, 600, 600, 602, 605)
+	recipe:SetCraftedItem(93431, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("TAILORING_FEET")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.MAGE, F.PRIEST, F.WARLOCK)
+	recipe:AddDiscovery("DISCOVERY_TAILOR_PANDARIA")
+
+	-- Crafted Dreadful Gladiator's Treads of Alacrity -- 137913
+	recipe = AddRecipe(137913, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(600, 600, 600, 602, 605)
+	recipe:SetCraftedItem(93432, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("TAILORING_FEET")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.MAGE, F.PRIEST, F.WARLOCK)
+	recipe:AddDiscovery("DISCOVERY_TAILOR_PANDARIA")
+
+	-- Crafted Dreadful Gladiator's Treads of Meditation -- 137914
+	recipe = AddRecipe(137914, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(600, 600, 600, 602, 605)
+	recipe:SetCraftedItem(93433, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("TAILORING_FEET")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.MAGE, F.PRIEST, F.WARLOCK)
+	recipe:AddDiscovery("DISCOVERY_TAILOR_PANDARIA")
+
+	-- Crafted Dreadful Gladiator's Cuffs of Accuracy -- 137915
+	recipe = AddRecipe(137915, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(600, 600, 600, 602, 605)
+	recipe:SetCraftedItem(93434, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("TAILORING_WRIST")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.MAGE, F.PRIEST, F.WARLOCK)
+	recipe:AddDiscovery("DISCOVERY_TAILOR_PANDARIA")
+
+	-- Crafted Dreadful Gladiator's Cuffs of Prowess -- 137916
+	recipe = AddRecipe(137916, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(600, 600, 600, 602, 605)
+	recipe:SetCraftedItem(93435, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("TAILORING_WRIST")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.MAGE, F.PRIEST, F.WARLOCK)
+	recipe:AddDiscovery("DISCOVERY_TAILOR_PANDARIA")
+
+	-- Crafted Dreadful Gladiator's Cuffs of Meditation -- 137917
+	recipe = AddRecipe(137917, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(600, 600, 600, 602, 605)
+	recipe:SetCraftedItem(93436, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("TAILORING_WRIST")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.MAGE, F.PRIEST, F.WARLOCK)
+	recipe:AddDiscovery("DISCOVERY_TAILOR_PANDARIA")
+
+	-- Crafted Dreadful Gladiator's Drape of Cruelty -- 137918
+	recipe = AddRecipe(137918, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(600, 600, 600, 602, 605)
+	recipe:SetCraftedItem(93437, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("TAILORING_BACK")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.PALADIN, F.PRIEST, F.SHAMAN, F.MAGE, F.WARLOCK, F.MONK, F.DRUID)
+	recipe:AddDiscovery("DISCOVERY_TAILOR_PANDARIA")
+
+	-- Crafted Dreadful Gladiator's Drape of Prowess -- 137919
+	recipe = AddRecipe(137919, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(600, 600, 600, 602, 605)
+	recipe:SetCraftedItem(93438, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("TAILORING_BACK")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.PALADIN, F.PRIEST, F.SHAMAN, F.MAGE, F.WARLOCK, F.MONK, F.DRUID)
+	recipe:AddDiscovery("DISCOVERY_TAILOR_PANDARIA")
+
+	-- Crafted Dreadful Gladiator's Drape of Meditation -- 137920
+	recipe = AddRecipe(137920, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(600, 600, 600, 602, 605)
+	recipe:SetCraftedItem(93439, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("TAILORING_BACK")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.PALADIN, F.PRIEST, F.SHAMAN, F.MONK, F.DRUID)
+	recipe:AddDiscovery("DISCOVERY_TAILOR_PANDARIA")
+
+	-- Crafted Dreadful Gladiator's Silk Handguards -- 137921
+	recipe = AddRecipe(137921, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(600, 600, 600, 602, 605)
+	recipe:SetCraftedItem(93499, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("TAILORING_HANDS")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.MAGE)
+	recipe:AddDiscovery("DISCOVERY_TAILOR_PANDARIA")
+
+	-- Crafted Dreadful Gladiator's Silk Cowl -- 137922
+	recipe = AddRecipe(137922, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(600, 600, 600, 602, 605)
+	recipe:SetCraftedItem(93500, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("TAILORING_HEAD")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.MAGE)
+	recipe:AddDiscovery("DISCOVERY_TAILOR_PANDARIA")
+
+	-- Crafted Dreadful Gladiator's Silk Trousers -- 137923
+	recipe = AddRecipe(137923, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(600, 600, 600, 602, 605)
+	recipe:SetCraftedItem(93501, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("TAILORING_LEGS")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.MAGE)
+	recipe:AddDiscovery("DISCOVERY_TAILOR_PANDARIA")
+
+	-- Crafted Dreadful Gladiator's Silk Robe -- 137924
+	recipe = AddRecipe(137924, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(600, 600, 600, 602, 605)
+	recipe:SetCraftedItem(93502, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("TAILORING_CHEST")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.MAGE)
+	recipe:AddDiscovery("DISCOVERY_TAILOR_PANDARIA")
+
+	-- Crafted Dreadful Gladiator's Silk Amice -- 137925
+	recipe = AddRecipe(137925, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(603, 600, 600, 602, 605)
+	recipe:SetCraftedItem(93500, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("TAILORING_SHOULDER")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.MAGE)
+	recipe:AddDiscovery("DISCOVERY_TAILOR_PANDARIA")
+
+	-- Crafted Dreadful Gladiator's Mooncloth Gloves -- 137926
+	recipe = AddRecipe(137926, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(600, 600, 600, 602, 605)
+	recipe:SetCraftedItem(93550, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("TAILORING_HANDS")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.PRIEST)
+	recipe:AddDiscovery("DISCOVERY_TAILOR_PANDARIA")
+
+	-- Crafted Dreadful Gladiator's Mooncloth Helm -- 137927
+	recipe = AddRecipe(137927, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(600, 600, 600, 602, 605)
+	recipe:SetCraftedItem(93551, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("TAILORING_HEAD")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.PRIEST)
+	recipe:AddDiscovery("DISCOVERY_TAILOR_PANDARIA")
+
+	-- Crafted Dreadful Gladiator's Mooncloth Leggings -- 137928
+	recipe = AddRecipe(137928, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(600, 600, 600, 602, 605)
+	recipe:SetCraftedItem(93552, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("TAILORING_LEGS")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.PRIEST)
+	recipe:AddDiscovery("DISCOVERY_TAILOR_PANDARIA")
+
+	-- Crafted Dreadful Gladiator's Mooncloth Robe -- 137929
+	recipe = AddRecipe(137929, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(600, 600, 600, 602, 605)
+	recipe:SetCraftedItem(93553, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("TAILORING_CHEST")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.PRIEST)
+	recipe:AddDiscovery("DISCOVERY_TAILOR_PANDARIA")
+
+	-- Crafted Dreadful Gladiator's Mooncloth Mantle -- 137930
+	recipe = AddRecipe(137930, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(600, 600, 600, 602, 605)
+	recipe:SetCraftedItem(93554, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("TAILORING_SHOULDER")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.PRIEST)
+	recipe:AddDiscovery("DISCOVERY_TAILOR_PANDARIA")
+
+	-- Crafted Dreadful Gladiator's Satin Gloves -- 137931
+	recipe = AddRecipe(137931, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(600, 600, 600, 602, 605)
+	recipe:SetCraftedItem(93555, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("TAILORING_HANDS")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.PRIEST)
+	recipe:AddDiscovery("DISCOVERY_TAILOR_PANDARIA")
+
+	-- Crafted Dreadful Gladiator's Satin Hood -- 137932
+	recipe = AddRecipe(137932, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(600, 600, 600, 602, 605)
+	recipe:SetCraftedItem(93556, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("TAILORING_HEAD")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.PRIEST)
+	recipe:AddDiscovery("DISCOVERY_TAILOR_PANDARIA")
+
+	-- Crafted Dreadful Gladiator's Satin Leggings -- 137933
+	recipe = AddRecipe(137933, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(600, 600, 600, 602, 605)
+	recipe:SetCraftedItem(93557, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("TAILORING_LEGS")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.PRIEST)
+	recipe:AddDiscovery("DISCOVERY_TAILOR_PANDARIA")
+
+	-- Crafted Dreadful Gladiator's Satin Robe -- 137934
+	recipe = AddRecipe(137934, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(600, 600, 600, 602, 605)
+	recipe:SetCraftedItem(93558, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("TAILORING_CHEST")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.PRIEST)
+	recipe:AddDiscovery("DISCOVERY_TAILOR_PANDARIA")
+
+	-- Crafted Dreadful Gladiator's Satin Mantle -- 137935
+	recipe = AddRecipe(137935, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(600, 600, 600, 602, 605)
+	recipe:SetCraftedItem(93559, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("TAILORING_SHOULDER")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.PRIEST)
+	recipe:AddDiscovery("DISCOVERY_TAILOR_PANDARIA")
+
+	-- Crafted Dreadful Gladiator's Cloak of Alacrity -- 137936
+	recipe = AddRecipe(137936, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(600, 600, 600, 602, 605)
+	recipe:SetCraftedItem(93607, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("TAILORING_BACK")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WARRIOR, F.PALADIN, F.DK)
+	recipe:AddDiscovery("DISCOVERY_TAILOR_PANDARIA")
+
+	-- Crafted Dreadful Gladiator's Cloak of Prowess -- 137937
+	recipe = AddRecipe(137937, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(600, 600, 600, 602, 605)
+	recipe:SetCraftedItem(93608, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("TAILORING_BACK")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WARRIOR, F.PALADIN, F.DK)
+	recipe:AddDiscovery("DISCOVERY_TAILOR_PANDARIA")
+
+	-- Crafted Dreadful Gladiator's Felweave Handguards -- 137938
+	recipe = AddRecipe(137938, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(600, 600, 600, 602, 605)
+	recipe:SetCraftedItem(93615, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("TAILORING_HANDS")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WARLOCK)
+	recipe:AddDiscovery("DISCOVERY_TAILOR_PANDARIA")
+
+	-- Crafted Dreadful Gladiator's Felweave Cowl -- 137939
+	recipe = AddRecipe(137939, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(600, 600, 600, 602, 605)
+	recipe:SetCraftedItem(93616, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("TAILORING_HEAD")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WARLOCK)
+	recipe:AddDiscovery("DISCOVERY_TAILOR_PANDARIA")
+
+	-- Crafted Dreadful Gladiator's Felweave Trousers -- 137940
+	recipe = AddRecipe(137940, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(600, 600, 600, 602, 605)
+	recipe:SetCraftedItem(93617, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("TAILORING_LEGS")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WARLOCK)
+	recipe:AddDiscovery("DISCOVERY_TAILOR_PANDARIA")
+
+	-- Crafted Dreadful Gladiator's Felweave Raiment -- 137941
+	recipe = AddRecipe(137941, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(600, 600, 600, 602, 605)
+	recipe:SetCraftedItem(93618, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("TAILORING_CHEST")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WARLOCK)
+	recipe:AddDiscovery("DISCOVERY_TAILOR_PANDARIA")
+
+	-- Crafted Dreadful Gladiator's Felweave Amice -- 137942
+	recipe = AddRecipe(137942, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(600, 600, 600, 602, 605)
+	recipe:SetCraftedItem(93619, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("TAILORING_SHOULDER")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WARLOCK)
+	recipe:AddDiscovery("DISCOVERY_TAILOR_PANDARIA")
+
+	-- Falling Blossom Treads -- 138597
+	recipe = AddRecipe(138597, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(600, 600, 600, 602, 605)
+	recipe:SetCraftedItem(94277, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("TAILORING_FEET")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.CASTER)
+	recipe:AddDiscovery("DISCOVERY_TAILOR_PANDARIA")
+
+	-- Falling Blossom Cowl -- 138598
+	recipe = AddRecipe(138598, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(600, 600, 600, 602, 605)
+	recipe:SetCraftedItem(94278, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("TAILORING_HEAD")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.CASTER)
+	recipe:AddDiscovery("DISCOVERY_TAILOR_PANDARIA")
+
+	-- Falling Blossom Sandals -- 138599
+	recipe = AddRecipe(138599, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(600, 600, 600, 602, 605)
+	recipe:SetCraftedItem(94278, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("TAILORING_FEET")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.HEALER)
+	recipe:AddDiscovery("DISCOVERY_TAILOR_PANDARIA")
+
+	-- Falling Blossom Hood -- 138600
+	recipe = AddRecipe(138600, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(600, 600, 600, 602, 605)
+	recipe:SetCraftedItem(94280, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("TAILORING_HEAD")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.HEALER)
+	recipe:AddDiscovery("DISCOVERY_TAILOR_PANDARIA")
+
 	self.InitTailoring = nil
 end
