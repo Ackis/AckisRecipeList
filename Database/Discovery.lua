@@ -50,6 +50,10 @@ function addon:InitDiscovery()
 	AddDiscovery("DISCOVERY_ALCH_PANDARIA")
 	AddDiscovery("DISCOVERY_INSC_PANDARIA")
 	AddDiscovery("DISCOVERY_JC_PANDARIA")
+	AddDiscovery("DISCOVERY_LW_PANDARIA")
+	AddDiscovery("DISCOVERY_TAILOR_PANDARIA")
+	AddDiscovery("DISCOVERY_BS_PANDARIA")
+	AddDiscovery("DISCOVERY_BS_WEAP_PANDARIA")
 
 	self.InitDiscovery = nil
 end

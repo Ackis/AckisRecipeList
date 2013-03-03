@@ -270,6 +270,9 @@ function addon:InitMob()
 	-- Halls of Lightning
 	AddMob(28923,	BN.LOKEN,				Z.HALLS_OF_LIGHTNING,		0, 0)
 
+	-- Isle of Thunder
+	AddMob(69461,	L["Itoka"],				Z.ISLE_OF_THUNDER,		0, 0)
+
 	-- Karazhan
 	AddMob(16406,	L["Phantom Attendant"],			Z.KARAZHAN,			0, 0)
 	AddMob(16408,	L["Phantom Valet"],			Z.KARAZHAN,			0, 0)

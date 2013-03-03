@@ -919,6 +919,7 @@ private.ZONE_NAMES = {
 	SCHOLOMANCE = _G.GetMapNameByID(898),
 	SHRINE_OF_TWO_MOONS = _G.GetMapNameByID(903),
 	SHRINE_OF_SEVEN_STARS = _G.GetMapNameByID(905),
+	ISLE_OF_THUNDER = _G.GetMapNameByID(928),
 }
 
 do
