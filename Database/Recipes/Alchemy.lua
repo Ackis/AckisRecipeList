@@ -2783,5 +2783,13 @@ function addon:InitAlchemy()
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
 	recipe:AddDiscovery("DISCOVERY_ALCH_PANDARIA")
 
+	-- Zen Alchemist Stone -- 136197
+	recipe = AddRecipe(136197, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(515, 515, 515, 525, 535)
+	recipe:SetCraftedItem(75274, "BIND_ON_PICKUP")
+	recipe:SetItemFilterType("ALCHEMY_TRINKET")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddTrainer(1386, 2132, 2391, 3009, 3184, 3347, 3603, 4160, 4611, 5177, 5499, 16723, 18802, 19052, 26903, 26951, 26975, 26987, 27023, 27029, 28703, 33588, 33608, 33630, 56777, 65186)
+
 	self.InitAlchemy = nil
 end
