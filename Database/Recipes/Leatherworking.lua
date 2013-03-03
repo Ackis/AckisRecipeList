@@ -6051,5 +6051,685 @@ function addon:InitLeatherworking()
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
 	recipe:AddTrainer(3007, 3365, 3967, 4212, 4588, 5127, 5564, 21087, 26998, 28700, 29507, 29509, 33581, 33612, 33635, 65121)
 
+	-- Crafted Dreadful Gladiator's Dragonhide Gloves -- 137809
+	recipe = AddRecipe(137809, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(600, 600, 605, 610, 615)
+	recipe:SetCraftedItem(93458, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("LEATHERWORKING_HANDS")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DRUID)
+	recipe:AddDiscovery("DISCOVERY_LW_PANDARIA")
+
+	-- Crafted Dreadful Gladiator's Dragonhide Helm -- 137810
+	recipe = AddRecipe(137810, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(600, 600, 605, 610, 615)
+	recipe:SetCraftedItem(93459, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("LEATHERWORKING_HEAD")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DRUID)
+	recipe:AddDiscovery("DISCOVERY_LW_PANDARIA")
+
+	-- Crafted Dreadful Gladiator's Dragonhide Legguards -- 137811
+	recipe = AddRecipe(137811, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(600, 600, 605, 610, 615)
+	recipe:SetCraftedItem(93460, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("LEATHERWORKING_LEGS")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DRUID)
+	recipe:AddDiscovery("DISCOVERY_LW_PANDARIA")
+
+	-- Crafted Dreadful Gladiator's Dragonhide Robes -- 137812
+	recipe = AddRecipe(137812, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(600, 600, 605, 610, 615)
+	recipe:SetCraftedItem(93461, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("LEATHERWORKING_CHEST")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DRUID)
+	recipe:AddDiscovery("DISCOVERY_LW_PANDARIA")
+
+	-- Crafted Dreadful Gladiator's Dragonhide Spaulders -- 137813
+	recipe = AddRecipe(137813, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(600, 600, 605, 610, 615)
+	recipe:SetCraftedItem(93462, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("LEATHERWORKING_SHOULDER")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DRUID)
+	recipe:AddDiscovery("DISCOVERY_LW_PANDARIA")
+
+	-- Crafted Dreadful Gladiator's Belt of Meditation  -- 137814
+	recipe = AddRecipe(137814, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(600, 600, 605, 610, 615)
+	recipe:SetCraftedItem(93463, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("LEATHERWORKING_WAIST")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DRUID, F.MONK)
+	recipe:AddDiscovery("DISCOVERY_LW_PANDARIA")
+
+	-- Crafted Dreadful Gladiator's Leather Footguards of Meditation  -- 137815
+	recipe = AddRecipe(137815, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(600, 600, 605, 610, 615)
+	recipe:SetCraftedItem(93464, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("LEATHERWORKING_FEET")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DRUID, F.MONK)
+	recipe:AddDiscovery("DISCOVERY_LW_PANDARIA")
+
+	-- Crafted Dreadful Gladiator's Bindings of Meditation  -- 137816
+	recipe = AddRecipe(137816, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(600, 600, 605, 610, 615)
+	recipe:SetCraftedItem(93465, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("LEATHERWORKING_WRIST")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DRUID, F.MONK)
+	recipe:AddDiscovery("DISCOVERY_LW_PANDARIA")
+
+	-- Crafted Dreadful Gladiator's Kodohide Gloves -- 137817
+	recipe = AddRecipe(137817, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(600, 600, 605, 610, 615)
+	recipe:SetCraftedItem(93466, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("LEATHERWORKING_HANDS")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DRUID)
+	recipe:AddDiscovery("DISCOVERY_LW_PANDARIA")
+
+	-- Crafted Dreadful Gladiator's Kodohide Helm -- 137818
+	recipe = AddRecipe(137818, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(600, 600, 605, 610, 615)
+	recipe:SetCraftedItem(93467, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("LEATHERWORKING_HEAD")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DRUID)
+	recipe:AddDiscovery("DISCOVERY_LW_PANDARIA")
+
+	-- Crafted Dreadful Gladiator's Kodohide Legguards -- 137819
+	recipe = AddRecipe(137819, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(600, 600, 605, 610, 615)
+	recipe:SetCraftedItem(93468, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("LEATHERWORKING_LEGS")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DRUID)
+	recipe:AddDiscovery("DISCOVERY_LW_PANDARIA")
+
+	-- Crafted Dreadful Gladiator's Kodohide Robes -- 137820
+	recipe = AddRecipe(137820, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(600, 600, 605, 610, 615)
+	recipe:SetCraftedItem(93469, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("LEATHERWORKING_CHEST")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DRUID)
+	recipe:AddDiscovery("DISCOVERY_LW_PANDARIA")
+
+	-- Crafted Dreadful Gladiator's Kodohide Spaulders -- 137821
+	recipe = AddRecipe(137821, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(600, 600, 605, 610, 615)
+	recipe:SetCraftedItem(93470, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("LEATHERWORKING_SHOULDER")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DRUID)
+	recipe:AddDiscovery("DISCOVERY_LW_PANDARIA")
+
+	-- Crafted Dreadful Gladiator's Belt of Cruelty  -- 137822
+	recipe = AddRecipe(137822, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(600, 600, 605, 610, 615)
+	recipe:SetCraftedItem(93472, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("LEATHERWORKING_WAIST")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DRUID, F.MONK)
+	recipe:AddDiscovery("DISCOVERY_LW_PANDARIA")
+
+	-- Crafted Dreadful Gladiator's Leather Footguards of Alacrity  -- 137823
+	recipe = AddRecipe(137823, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(600, 600, 605, 610, 615)
+	recipe:SetCraftedItem(93473, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("LEATHERWORKING_FEET")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DRUID, F.MONK)
+	recipe:AddDiscovery("DISCOVERY_LW_PANDARIA")
+
+	-- Crafted Dreadful Gladiator's Bindings of Prowess  -- 137824
+	recipe = AddRecipe(137824, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(600, 600, 605, 610, 615)
+	recipe:SetCraftedItem(93474, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("LEATHERWORKING_WRIST")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DRUID, F.MONK)
+	recipe:AddDiscovery("DISCOVERY_LW_PANDARIA")
+
+	-- Crafted Dreadful Gladiator's Wyrmhide Gloves -- 137825
+	recipe = AddRecipe(137825, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(600, 600, 605, 610, 615)
+	recipe:SetCraftedItem(93475, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("LEATHERWORKING_HANDS")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DRUID)
+	recipe:AddDiscovery("DISCOVERY_LW_PANDARIA")
+
+	-- Crafted Dreadful Gladiator's Wyrmhide Helm -- 137826
+	recipe = AddRecipe(137826, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(600, 600, 605, 610, 615)
+	recipe:SetCraftedItem(93476, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("LEATHERWORKING_HEAD")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DRUID)
+	recipe:AddDiscovery("DISCOVERY_LW_PANDARIA")
+
+	-- Crafted Dreadful Gladiator's Wyrmhide Legguards -- 137827
+	recipe = AddRecipe(137827, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(600, 600, 605, 610, 615)
+	recipe:SetCraftedItem(93477, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("LEATHERWORKING_LEGS")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DRUID)
+	recipe:AddDiscovery("DISCOVERY_LW_PANDARIA")
+
+	-- Crafted Dreadful Gladiator's Wyrmhide Robes -- 137828
+	recipe = AddRecipe(137828, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(600, 600, 605, 610, 615)
+	recipe:SetCraftedItem(93478, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("LEATHERWORKING_CHEST")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DRUID)
+	recipe:AddDiscovery("DISCOVERY_LW_PANDARIA")
+
+	-- Crafted Dreadful Gladiator's Wyrmhide Spaulders -- 137829
+	recipe = AddRecipe(137829, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(600, 600, 605, 610, 615)
+	recipe:SetCraftedItem(93479, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("LEATHERWORKING_SHOULDER")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DRUID)
+	recipe:AddDiscovery("DISCOVERY_LW_PANDARIA")
+
+	-- Crafted Dreadful Gladiator's Waistband of Cruelty -- 137830
+	recipe = AddRecipe(137830, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(600, 600, 605, 610, 615)
+	recipe:SetCraftedItem(93504, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("LEATHERWORKING_WAIST")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.MONK, F.ROGUE, F.DRUID)
+	recipe:AddDiscovery("DISCOVERY_LW_PANDARIA")
+
+	-- Crafted Dreadful Gladiator's Boots of Alacrity -- 137831
+	recipe = AddRecipe(137831, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(600, 600, 605, 610, 615)
+	recipe:SetCraftedItem(93505, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("LEATHERWORKING_FEET")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.MONK, F.ROGUE, F.DRUID)
+	recipe:AddDiscovery("DISCOVERY_LW_PANDARIA")
+
+	-- Crafted Dreadful Gladiator's Armwraps of Accuracy -- 137832
+	recipe = AddRecipe(137832, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(600, 600, 605, 610, 615)
+	recipe:SetCraftedItem(93506, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("LEATHERWORKING_WRIST")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.MONK, F.ROGUE, F.DRUID)
+	recipe:AddDiscovery("DISCOVERY_LW_PANDARIA")
+
+	-- Crafted Dreadful Gladiator's Ironskin Gloves -- 137833
+	recipe = AddRecipe(137833, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(600, 600, 605, 610, 615)
+	recipe:SetCraftedItem(93507, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("LEATHERWORKING_HANDS")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.MONK)
+	recipe:AddDiscovery("DISCOVERY_LW_PANDARIA")
+
+	-- Crafted Dreadful Gladiator's Ironskin Helm -- 137834
+	recipe = AddRecipe(137834, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(600, 600, 605, 610, 615)
+	recipe:SetCraftedItem(93509, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("LEATHERWORKING_HEAD")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.MONK)
+	recipe:AddDiscovery("DISCOVERY_LW_PANDARIA")
+
+	-- Crafted Dreadful Gladiator's Ironskin Legguards -- 137835
+	recipe = AddRecipe(137835, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(600, 600, 605, 610, 615)
+	recipe:SetCraftedItem(93511, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("LEATHERWORKING_LEGS")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.MONK)
+	recipe:AddDiscovery("DISCOVERY_LW_PANDARIA")
+
+	-- Crafted Dreadful Gladiator's Ironskin Spaulders -- 137836
+	recipe = AddRecipe(137836, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(600, 600, 605, 610, 615)
+	recipe:SetCraftedItem(93513, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("LEATHERWORKING_SHOULDER")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.MONK)
+	recipe:AddDiscovery("DISCOVERY_LW_PANDARIA")
+
+	-- Crafted Dreadful Gladiator's Ironskin Tunic -- 137837
+	recipe = AddRecipe(137837, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(600, 600, 605, 610, 615)
+	recipe:SetCraftedItem(93515, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("LEATHERWORKING_CHEST")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.MONK)
+	recipe:AddDiscovery("DISCOVERY_LW_PANDARIA")
+
+	-- Crafted Dreadful Gladiator's Copperskin Gloves -- 137838
+	recipe = AddRecipe(137838, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(600, 600, 605, 610, 615)
+	recipe:SetCraftedItem(93517, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("LEATHERWORKING_HANDS")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.MONK)
+	recipe:AddDiscovery("DISCOVERY_LW_PANDARIA")
+
+	-- Crafted Dreadful Gladiator's Copperskin Helm -- 137839
+	recipe = AddRecipe(137839, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(600, 600, 605, 610, 615)
+	recipe:SetCraftedItem(93519, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("LEATHERWORKING_HEAD")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.MONK)
+	recipe:AddDiscovery("DISCOVERY_LW_PANDARIA")
+
+	-- Crafted Dreadful Gladiator's Copperskin Legguards -- 137840
+	recipe = AddRecipe(137840, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(600, 600, 605, 610, 615)
+	recipe:SetCraftedItem(93521, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("LEATHERWORKING_LEGS")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.MONK)
+	recipe:AddDiscovery("DISCOVERY_LW_PANDARIA")
+
+	-- Crafted Dreadful Gladiator's Copperskin Spaulders -- 137841
+	recipe = AddRecipe(137841, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(600, 600, 605, 610, 615)
+	recipe:SetCraftedItem(93523, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("LEATHERWORKING_SHOULDER")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.MONK)
+	recipe:AddDiscovery("DISCOVERY_LW_PANDARIA")
+
+	-- Crafted Dreadful Gladiator's Copperskin Tunic -- 137842
+	recipe = AddRecipe(137842, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(600, 600, 605, 610, 615)
+	recipe:SetCraftedItem(93525, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("LEATHERWORKING_CHEST")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.MONK)
+	recipe:AddDiscovery("DISCOVERY_LW_PANDARIA")
+
+	-- Crafted Dreadful Gladiator's Waistband of Accuracy -- 137843
+	recipe = AddRecipe(137843, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(600, 600, 605, 610, 615)
+	recipe:SetCraftedItem(93566, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("LEATHERWORKING_WAIST")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.MONK, F.ROGUE, F.DRUID)
+	recipe:AddDiscovery("DISCOVERY_LW_PANDARIA")
+
+	-- Crafted Dreadful Gladiator's Boots of Cruelty -- 137844
+	recipe = AddRecipe(137844, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(600, 600, 605, 610, 615)
+	recipe:SetCraftedItem(93567, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("LEATHERWORKING_FEET")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.MONK, F.ROGUE, F.DRUID)
+	recipe:AddDiscovery("DISCOVERY_LW_PANDARIA")
+
+	-- Crafted Dreadful Gladiator's Armwraps of Alacrity -- 137845
+	recipe = AddRecipe(137845, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(600, 600, 605, 610, 615)
+	recipe:SetCraftedItem(93568, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("LEATHERWORKING_WRIST")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.MONK, F.ROGUE, F.DRUID)
+	recipe:AddDiscovery("DISCOVERY_LW_PANDARIA")
+
+	-- Crafted Dreadful Gladiator's Leather Armor  -- 137846
+	recipe = AddRecipe(137846, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(600, 600, 605, 610, 615)
+	recipe:SetCraftedItem(93569, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("LEATHERWORKING_CHEST")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.ROGUE)
+	recipe:AddDiscovery("DISCOVERY_LW_PANDARIA")
+
+	-- Crafted Dreadful Gladiator's Leather Gauntlets -- 137847
+	recipe = AddRecipe(137847, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(600, 600, 605, 610, 615)
+	recipe:SetCraftedItem(93570, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("LEATHERWORKING_HANDS")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.ROGUE)
+	recipe:AddDiscovery("DISCOVERY_LW_PANDARIA")
+
+	-- Crafted Dreadful Gladiator's Leather Helm -- 137848
+	recipe = AddRecipe(137848, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(600, 600, 605, 610, 615)
+	recipe:SetCraftedItem(93571, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("LEATHERWORKING_HEAD")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.ROGUE)
+	recipe:AddDiscovery("DISCOVERY_LW_PANDARIA")
+
+	-- Crafted Dreadful Gladiator's Leather Leggings -- 137849
+	recipe = AddRecipe(137849, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(600, 600, 605, 610, 615)
+	recipe:SetCraftedItem(93572, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("LEATHERWORKING_LEGS")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.ROGUE)
+	recipe:AddDiscovery("DISCOVERY_LW_PANDARIA")
+
+	-- Crafted Dreadful Gladiator's Leather Spaulders -- 137850
+	recipe = AddRecipe(137850, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(600, 600, 605, 610, 615)
+	recipe:SetCraftedItem(93573, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("LEATHERWORKING_SHOULDER")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.ROGUE)
+	recipe:AddDiscovery("DISCOVERY_LW_PANDARIA")
+
+	-- Crafted Dreadful Gladiator's Links of Cruelty -- 137851
+	recipe = AddRecipe(137851, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(600, 600, 605, 610, 615)
+	recipe:SetCraftedItem(93488, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("LEATHERWORKING_WAIST")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.HUNTER, F.SHAMAN)
+	recipe:AddDiscovery("DISCOVERY_LW_PANDARIA")
+
+	-- Crafted Dreadful Gladiator's Links of Accuracy -- 137852
+	recipe = AddRecipe(137852, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(600, 600, 605, 610, 615)
+	recipe:SetCraftedItem(93489, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("LEATHERWORKING_WAIST")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.HUNTER, F.SHAMAN)
+	recipe:AddDiscovery("DISCOVERY_LW_PANDARIA")
+
+	-- Crafted Dreadful Gladiator's Sabatons of Cruelty -- 137853
+	recipe = AddRecipe(137853, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(600, 600, 605, 610, 615)
+	recipe:SetCraftedItem(93490, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("LEATHERWORKING_FEET")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.HUNTER, F.SHAMAN)
+	recipe:AddDiscovery("DISCOVERY_LW_PANDARIA")
+
+	-- Crafted Dreadful Gladiator's Sabatons of Alacrity -- 137854
+	recipe = AddRecipe(137854, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(600, 600, 605, 610, 615)
+	recipe:SetCraftedItem(93491, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("LEATHERWORKING_FEET")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.HUNTER, F.SHAMAN)
+	recipe:AddDiscovery("DISCOVERY_LW_PANDARIA")
+
+	-- Crafted Dreadful Gladiator's Wristguards of Alacrity -- 137855
+	recipe = AddRecipe(137855, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(600, 600, 605, 610, 615)
+	recipe:SetCraftedItem(93492, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("LEATHERWORKING_WRIST")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.HUNTER, F.SHAMAN)
+	recipe:AddDiscovery("DISCOVERY_LW_PANDARIA")
+
+	-- Crafted Dreadful Gladiator's Wristguards of Accuracy -- 137856
+	recipe = AddRecipe(137856, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(600, 600, 605, 610, 615)
+	recipe:SetCraftedItem(93493, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("LEATHERWORKING_WRIST")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.HUNTER, F.SHAMAN)
+	recipe:AddDiscovery("DISCOVERY_LW_PANDARIA")
+
+	-- Crafted Dreadful Gladiator's Chain Armor  -- 137857
+	recipe = AddRecipe(137857, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(600, 600, 605, 610, 615)
+	recipe:SetCraftedItem(93494, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("LEATHERWORKING_CHEST")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.HUNTER)
+	recipe:AddDiscovery("DISCOVERY_LW_PANDARIA")
+
+	-- Crafted Dreadful Gladiator's Chain Gauntlets -- 137858
+	recipe = AddRecipe(137858, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(600, 600, 605, 610, 615)
+	recipe:SetCraftedItem(93495, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("LEATHERWORKING_HANDS")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.HUNTER)
+	recipe:AddDiscovery("DISCOVERY_LW_PANDARIA")
+
+	-- Crafted Dreadful Gladiator's Chain Helm -- 137859
+	recipe = AddRecipe(137859, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(600, 600, 605, 610, 615)
+	recipe:SetCraftedItem(93496, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("LEATHERWORKING_HEAD")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.HUNTER)
+	recipe:AddDiscovery("DISCOVERY_LW_PANDARIA")
+
+	-- Crafted Dreadful Gladiator's Chain Leggings -- 137860
+	recipe = AddRecipe(137860, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(600, 600, 605, 610, 615)
+	recipe:SetCraftedItem(93497, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("LEATHERWORKING_LEGS")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.HUNTER)
+	recipe:AddDiscovery("DISCOVERY_LW_PANDARIA")
+
+	-- Crafted Dreadful Gladiator's Chain Spaulders -- 137861
+	recipe = AddRecipe(137861, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(600, 600, 605, 610, 615)
+	recipe:SetCraftedItem(93498, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("LEATHERWORKING_SHOULDER")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.HUNTER)
+	recipe:AddDiscovery("DISCOVERY_LW_PANDARIA")
+
+	-- Crafted Dreadful Gladiator's Waistguard of Meditation -- 137862
+	recipe = AddRecipe(137862, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(600, 600, 605, 610, 615)
+	recipe:SetCraftedItem(93574, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("LEATHERWORKING_WAIST")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.SHAMAN)
+	recipe:AddDiscovery("DISCOVERY_LW_PANDARIA")
+
+	-- Crafted Dreadful Gladiator's Mail Footguards of Alacrity -- 137863
+	recipe = AddRecipe(137863, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(600, 600, 605, 610, 615)
+	recipe:SetCraftedItem(93575, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("LEATHERWORKING_FEET")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.SHAMAN)
+	recipe:AddDiscovery("DISCOVERY_LW_PANDARIA")
+
+	-- Crafted Dreadful Gladiator's Mail Footguards of Meditation -- 137864
+	recipe = AddRecipe(137864, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(600, 600, 605, 610, 615)
+	recipe:SetCraftedItem(93576, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("LEATHERWORKING_FEET")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.SHAMAN)
+	recipe:AddDiscovery("DISCOVERY_LW_PANDARIA")
+
+	-- Crafted Dreadful Gladiator's Armbands of Prowess -- 137865
+	recipe = AddRecipe(137865, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(600, 600, 605, 610, 615)
+	recipe:SetCraftedItem(93577, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("LEATHERWORKING_WRIST")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.SHAMAN)
+	recipe:AddDiscovery("DISCOVERY_LW_PANDARIA")
+
+	-- Crafted Dreadful Gladiator's Armbands of Meditation -- 137866
+	recipe = AddRecipe(137866, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(600, 600, 605, 610, 615)
+	recipe:SetCraftedItem(93578, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("LEATHERWORKING_WRIST")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.SHAMAN)
+	recipe:AddDiscovery("DISCOVERY_LW_PANDARIA")
+
+	-- Crafted Dreadful Gladiator's Ringmail Armor -- 137867
+	recipe = AddRecipe(137867, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(600, 600, 605, 610, 615)
+	recipe:SetCraftedItem(93579, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("LEATHERWORKING_CHEST")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.SHAMAN)
+	recipe:AddDiscovery("DISCOVERY_LW_PANDARIA")
+
+	-- Crafted Dreadful Gladiator's Ringmail Gauntlets -- 137868
+	recipe = AddRecipe(137868, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(600, 600, 605, 610, 615)
+	recipe:SetCraftedItem(93580, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("LEATHERWORKING_HANDS")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.SHAMAN)
+	recipe:AddDiscovery("DISCOVERY_LW_PANDARIA")
+
+	-- Crafted Dreadful Gladiator's Ringmail Helm -- 137869
+	recipe = AddRecipe(137869, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(600, 600, 605, 610, 615)
+	recipe:SetCraftedItem(93581, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("LEATHERWORKING_HEAD")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.SHAMAN)
+	recipe:AddDiscovery("DISCOVERY_LW_PANDARIA")
+
+	-- Crafted Dreadful Gladiator's Ringmail Leggings -- 137870
+	recipe = AddRecipe(137870, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(600, 600, 605, 610, 615)
+	recipe:SetCraftedItem(93582, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("LEATHERWORKING_LEGS")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.SHAMAN)
+	recipe:AddDiscovery("DISCOVERY_LW_PANDARIA")
+
+	-- Crafted Dreadful Gladiator's Ringmail Spaulders -- 137871
+	recipe = AddRecipe(137871, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(600, 600, 605, 610, 615)
+	recipe:SetCraftedItem(93583, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("LEATHERWORKING_SHOULDER")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.SHAMAN)
+	recipe:AddDiscovery("DISCOVERY_LW_PANDARIA")
+
+	-- Crafted Dreadful Gladiator's Linked Armor -- 137872
+	recipe = AddRecipe(137872, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(600, 600, 605, 610, 615)
+	recipe:SetCraftedItem(93584, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("LEATHERWORKING_CHEST")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.SHAMAN)
+	recipe:AddDiscovery("DISCOVERY_LW_PANDARIA")
+
+	-- Crafted Dreadful Gladiator's Linked Gauntlets -- 137873
+	recipe = AddRecipe(137873, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(600, 600, 605, 610, 615)
+	recipe:SetCraftedItem(93585, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("LEATHERWORKING_HANDS")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.SHAMAN)
+	recipe:AddDiscovery("DISCOVERY_LW_PANDARIA")
+
+	-- Crafted Dreadful Gladiator's Linked Helm -- 137874
+	recipe = AddRecipe(137874, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(600, 600, 605, 610, 615)
+	recipe:SetCraftedItem(93586, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("LEATHERWORKING_HEAD")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.SHAMAN)
+	recipe:AddDiscovery("DISCOVERY_LW_PANDARIA")
+
+	-- Crafted Dreadful Gladiator's Linked Leggings -- 137875
+	recipe = AddRecipe(137875, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(600, 600, 605, 610, 615)
+	recipe:SetCraftedItem(93587, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("LEATHERWORKING_LEGS")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.SHAMAN)
+	recipe:AddDiscovery("DISCOVERY_LW_PANDARIA")
+
+	-- Crafted Dreadful Gladiator's Linked Spaulders -- 137876
+	recipe = AddRecipe(137876, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(600, 600, 605, 610, 615)
+	recipe:SetCraftedItem(93588, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("LEATHERWORKING_SHOULDER")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.SHAMAN)
+	recipe:AddDiscovery("DISCOVERY_LW_PANDARIA")
+
+	-- Crafted Dreadful Gladiator's Waistguard of Cruelty -- 137877
+	recipe = AddRecipe(137877, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(600, 600, 605, 610, 615)
+	recipe:SetCraftedItem(93589, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("LEATHERWORKING_WAIST")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.SHAMAN)
+	recipe:AddDiscovery("DISCOVERY_LW_PANDARIA")
+
+	-- Crafted Dreadful Gladiator's Mail Armor -- 137878
+	recipe = AddRecipe(137878, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(600, 600, 605, 610, 615)
+	recipe:SetCraftedItem(93590, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("LEATHERWORKING_CHEST")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.SHAMAN)
+	recipe:AddDiscovery("DISCOVERY_LW_PANDARIA")
+
+	-- Crafted Dreadful Gladiator's Mail Gauntlets -- 137879
+	recipe = AddRecipe(137879, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(600, 600, 605, 610, 615)
+	recipe:SetCraftedItem(93591, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("LEATHERWORKING_HANDS")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.SHAMAN)
+	recipe:AddDiscovery("DISCOVERY_LW_PANDARIA")
+
+	-- Crafted Dreadful Gladiator's Mail Helm -- 137880
+	recipe = AddRecipe(137880, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(600, 600, 605, 610, 615)
+	recipe:SetCraftedItem(93592, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("LEATHERWORKING_HEAD")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.SHAMAN)
+	recipe:AddDiscovery("DISCOVERY_LW_PANDARIA")
+
+	-- Crafted Dreadful Gladiator's Mail Leggings -- 137881
+	recipe = AddRecipe(137881, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(600, 600, 605, 610, 615)
+	recipe:SetCraftedItem(93593, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("LEATHERWORKING_LEGS")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.SHAMAN)
+	recipe:AddDiscovery("DISCOVERY_LW_PANDARIA")
+
+	-- Crafted Dreadful Gladiator's Mail Spaulders -- 137882
+	recipe = AddRecipe(137882, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(600, 600, 605, 610, 615)
+	recipe:SetCraftedItem(93594, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("LEATHERWORKING_SHOULDER")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.SHAMAN)
+	recipe:AddDiscovery("DISCOVERY_LW_PANDARIA")
+
+	-- Quilen Hide Boots -- 138589
+	recipe = AddRecipe(138589, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(600, 600, 605, 610, 615)
+	recipe:SetCraftedItem(94269, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("LEATHERWORKING_FEET")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddDiscovery("DISCOVERY_LW_PANDARIA")
+
+	-- Quilen Hide Helm -- 138590
+	recipe = AddRecipe(138590, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(600, 600, 605, 610, 615)
+	recipe:SetCraftedItem(94270, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("LEATHERWORKING_HEAD")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddDiscovery("DISCOVERY_LW_PANDARIA")
+
+	-- Dreadrunner Sabatons -- 138591
+	recipe = AddRecipe(138591, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(600, 600, 605, 610, 615)
+	recipe:SetCraftedItem(94271, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("LEATHERWORKING_SHOULDER")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddDiscovery("DISCOVERY_LW_PANDARIA")
+
+	-- Dreadrunner Helm -- 138592
+	recipe = AddRecipe(138592, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(600, 600, 605, 610, 615)
+	recipe:SetCraftedItem(94272, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("LEATHERWORKING_HEAD")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddDiscovery("DISCOVERY_LW_PANDARIA")
+
+	-- Spirit Keeper Footguards -- 138593
+	recipe = AddRecipe(138593, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(600, 600, 605, 610, 615)
+	recipe:SetCraftedItem(94273, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("LEATHERWORKING_FEET")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddDiscovery("DISCOVERY_LW_PANDARIA")
+
+	-- Spirit Keeper Helm -- 138594
+	recipe = AddRecipe(138594, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(600, 600, 605, 610, 615)
+	recipe:SetCraftedItem(94274, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("LEATHERWORKING_HEAD")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddDiscovery("DISCOVERY_LW_PANDARIA")
+
+	-- Cloud Serpent Sabatons -- 138595
+	recipe = AddRecipe(138595, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(600, 600, 605, 610, 615)
+	recipe:SetCraftedItem(94275, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("LEATHERWORKING_SHOULDER")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddDiscovery("DISCOVERY_LW_PANDARIA")
+
+	-- Cloud Serpent Helm -- 138596
+	recipe = AddRecipe(138596, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(600, 600, 605, 610, 615)
+	recipe:SetCraftedItem(94276, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("LEATHERWORKING_HEAD")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddDiscovery("DISCOVERY_LW_PANDARIA")
+
+	-- Magnificence of Leather -- 140040
+	recipe = AddRecipe(140040, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(550, 550, 560, 565, 570)
+	recipe:SetCraftedItem(72163, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("LEATHERWORKING_MATERIALS")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddTrainer(65121)
+
+	-- Magnificence of Scales -- 140041
+	recipe = AddRecipe(140041, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(550, 550, 560, 565, 570)
+	recipe:SetCraftedItem(72163, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("LEATHERWORKING_MATERIALS")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddTrainer(65121)
+
+	-- Magnificent Hide Bag -- 140185
+	recipe = AddRecipe(140185, V.MOP, Q.UNCOMMON)
+	recipe:SetSkillLevels(595, 595, 595, 597, 600)
+	recipe:SetCraftedItem(95536, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("LEATHERWORKING_BAG")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddDiscovery("DISCOVERY_LW_PANDARIA")
+
 	self.InitLeatherworking = nil
 end
