@@ -54,6 +54,8 @@ function private:InitializeBlacksmithingTrainers()
 	self:AddTrainer(44781, "Opuno Ironhorn", Z.ORGRIMMAR, 40.6, 49.4, "Horde")
 	self:AddTrainer(45548, "Kark Helmbreaker", Z.ORGRIMMAR, 36, 83, "Horde")
 	self:AddTrainer(52640, "Rolf Karner", Z.DARNASSUS, 56.8, 52.8, "Alliance")
+	self:AddTrainer(64058, "Jorunga Stonehoof", Z.SHRINE_OF_TWO_MOONS, 26.4, 45.8, "Horde")
+	self:AddTrainer(64085, "Cullen Hammerbrow", Z.SHRINE_OF_SEVEN_STARS, 90.6, 67.5, "Alliance")
 	self:AddTrainer(65114, "Len the Hammer", Z.THE_JADE_FOREST, 48.5, 36.8, "Neutral")
 	self:AddTrainer(65129, "Zen Master Lao", Z.VALE_OF_ETERNAL_BLOSSOMS ,21.8, 72.5, "Neutral")
 
