@@ -3115,5 +3115,14 @@ function addon:InitEngineering()
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
 	recipe:AddTrainer(11017, 55143)
 
+	-- Sky Claw -- 139192
+	recipe = AddRecipe(139192, V.MOP, Q.RARE)
+	recipe:SetSkillLevels(500, 500, 605, 610, 615)
+	recipe:SetCraftedItem(95416, "BIND_ON_EQUIP")
+	recipe:SetRecipeItem(94880, "BIND_ON_PICKUP")
+	recipe:SetItemFilterType("ENGINEERING_MOUNT")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP)
+	recipe:AddWorldDrop(Z.PANDARIA)
+
 	self.InitEngineering = nil
 end
