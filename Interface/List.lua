@@ -379,18 +379,13 @@ function private.InitializeListFrame()
 
 	for index = 1, NUM_RECIPE_LINES do
 		local cur_container = _G.CreateFrame("Frame", nil, ListFrame)
-
-		cur_container:SetHeight(16)
-		cur_container:SetWidth(LIST_ENTRY_WIDTH)
+		cur_container:SetSize(LIST_ENTRY_WIDTH, 16)
 
 		local cur_state = _G.CreateFrame("Button", nil, ListFrame)
-		cur_state:SetWidth(16)
-		cur_state:SetHeight(16)
+		cur_state:SetSize(16, 16)
 
-		local entry_name = ("%s_ListEntryButton%d"):format(FOLDER_NAME, index)
-		local cur_entry = _G.CreateFrame("Button", entry_name, cur_container)
-		cur_entry:SetWidth(LIST_ENTRY_WIDTH)
-		cur_entry:SetHeight(16)
+		local cur_entry = _G.CreateFrame("Button", ("%s_ListEntryButton%d"):format(FOLDER_NAME, index), cur_container)
+		cur_entry:SetSize(LIST_ENTRY_WIDTH, 16)
 
 		local highlight_texture = cur_entry:CreateTexture(nil, "BORDER")
 		highlight_texture:SetTexture([[Interface\ClassTrainerFrame\TrainerTextures]])
@@ -430,7 +425,6 @@ function private.InitializeListFrame()
 		cur_state.container = cur_container
 
 		cur_state:SetScript("OnClick", ListItem_OnClick)
-		cur_entry:SetScript("OnClick", ListItem_OnClick)
 
 		ListFrame.button_containers[index] = cur_container
 		ListFrame.state_buttons[index] = cur_state
