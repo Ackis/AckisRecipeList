@@ -37,7 +37,6 @@ local FOLDER_NAME, private	= ...
 local LibStub = _G.LibStub
 local addon	= LibStub("AceAddon-3.0"):GetAddon(private.addon_name)
 local L		= LibStub("AceLocale-3.0"):GetLocale(private.addon_name)
-local QTip	= LibStub("LibQTip-1.0")
 
 -------------------------------------------------------------------------------
 -- Upvalues
@@ -117,8 +116,6 @@ function private.InitializeFrame()
 	-------------------------------------------------------------------------------
 	MainPanel:SetScript("OnHide", function(self)
 		private.DismissDialogs()
-		QTip:Release(QTip:Acquire(private.addon_name.." Tooltip"))
-		_G["AckisRecipeList_SpellTooltip"]:Hide()
 	end)
 
 	MainPanel:SetScript("OnMouseDown", MainPanel.StartMoving)

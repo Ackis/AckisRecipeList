@@ -126,20 +126,22 @@ local SetTextColor = private.SetTextColor
 function private.InitializeListFrame()
 	local MainPanel	= addon.Frame
 	local ListFrame = _G.CreateFrame("Frame", nil, MainPanel)
-
-	MainPanel.list_frame = ListFrame
-
-	ListFrame:SetHeight(335)
-	ListFrame:SetWidth(LISTFRAME_WIDTH)
+	ListFrame:SetSize(LISTFRAME_WIDTH, 335)
 	ListFrame:SetPoint("TOPLEFT", MainPanel, "TOPLEFT", 22, -75)
 	ListFrame:SetBackdrop({
-				      bgFile = [[Interface\DialogFrame\UI-DialogBox-Background-Dark]],
-				      tile = true,
-				      tileSize = 16,
-			      })
+		bgFile = [[Interface\DialogFrame\UI-DialogBox-Background-Dark]],
+		tile = true,
+		tileSize = 16,
+	})
 	ListFrame:SetBackdropColor(1, 1, 1)
 	ListFrame:EnableMouse(true)
 	ListFrame:EnableMouseWheel(true)
+	ListFrame:SetScript("OnHide", function(self)
+		QTip:Release(acquire_tip)
+		spell_tip:Hide()
+		self.selected_entry = nil
+	end)
+	MainPanel.list_frame = ListFrame
 
 	-------------------------------------------------------------------------------
 	-- Scroll bar.
