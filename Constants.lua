@@ -985,57 +985,61 @@ private.BOSS_NAMES = {
 -------------------------------------------------------------------------------
 -- Colors.
 -------------------------------------------------------------------------------
-local function RGBtoHEX(r, g, b)
-	return ("%02x%02x%02x"):format(r * 255, g * 255, b * 255)
-end
 
-local function GetColorsFromTable(dict)
-	return dict.r, dict.g, dict.b
+-- Utility function for adding new colors.
+--function HexToRGB(hex)
+--	hex = hex:gsub("#", "")
+--	return tonumber("0x" .. hex:sub(1, 2)) / 255, tonumber("0x" .. hex:sub(3, 4)) / 255, tonumber("0x" .. hex:sub(5, 6)) / 255
+--end
+
+local function CreateColorTable(dict)
+	local r, g, b = dict.r, dict.g, dict.b
+	return { hex = ("%02x%02x%02x"):format(r * 255, g * 255, b * 255), r = r, g = g, b = b }
 end
 
 private.REPUTATION_COLORS = {
-	["exalted"]	= RGBtoHEX(GetColorsFromTable(_G.FACTION_BAR_COLORS[8])),
-	["revered"]	= RGBtoHEX(GetColorsFromTable(_G.FACTION_BAR_COLORS[7])),
-	["honored"]	= RGBtoHEX(GetColorsFromTable(_G.FACTION_BAR_COLORS[6])),
-	["friendly"]	= RGBtoHEX(GetColorsFromTable(_G.FACTION_BAR_COLORS[5])),
-	["neutral"]	= RGBtoHEX(GetColorsFromTable(_G.FACTION_BAR_COLORS[4])),
-	["unfriendly"]	= RGBtoHEX(GetColorsFromTable(_G.FACTION_BAR_COLORS[3])),
-	["hostile"]	= RGBtoHEX(GetColorsFromTable(_G.FACTION_BAR_COLORS[2])),
-	["hated"]	= RGBtoHEX(GetColorsFromTable(_G.FACTION_BAR_COLORS[1])),
+	exalted		= CreateColorTable(_G.FACTION_BAR_COLORS[8]),
+	revered		= CreateColorTable(_G.FACTION_BAR_COLORS[7]),
+	honored		= CreateColorTable(_G.FACTION_BAR_COLORS[6]),
+	friendly	= CreateColorTable(_G.FACTION_BAR_COLORS[5]),
+	neutral		= CreateColorTable(_G.FACTION_BAR_COLORS[4]),
+	unfriendly	= CreateColorTable(_G.FACTION_BAR_COLORS[3]),
+	hostile		= CreateColorTable(_G.FACTION_BAR_COLORS[2]),
+	hated		= CreateColorTable(_G.FACTION_BAR_COLORS[1]),
 }
 
 -- Recipe difficulty colors.
 private.DIFFICULTY_COLORS = {
-	["trivial"]	= "808080",
-	["easy"]	= "40bf40",
-	["medium"]	= "ffff00",
-	["optimal"]	= "ff8040",
-	["impossible"]	= "ff0000",
+	trivial		= { hex = "808080",	r = 0.50,	g = 0.50,	b = 0.50 },
+	easy		= { hex = "40bf40",	r = 0.25,	g = 0.75,	b = 0.25 },
+	medium		= { hex = "ffff00",	r = 1,		g = 1,		b = 0 },
+	optimal		= { hex = "ff8040",	r = 1,		g = 0.50,	b = 0.25 },
+	impossible	= { hex = "ff0000",	r = 1,		g = 0,		b = 0 },
 }
 
 private.BASIC_COLORS = {
-	["grey"]	= "666666",
-	["white"]	= "ffffff",
-	["yellow"]	= "ffff00",
-	["normal"]	= "ffd100",
+	grey	= { hex = "666666",	r = 0.40,	g = 0.40,	b = 0.40 },
+	white	= { hex = "ffffff",	r = 1,		g = 1,		b = 1 },
+	yellow	= { hex = "ffff00",	r = 1,		g = 1,		b = 0 },
+	normal	= { hex = "ffd100",	r = 1,		g = 0.81,	b = 0 },
 }
 
 -- Colors used in tooltips and the recipe list.
 private.CATEGORY_COLORS = {
 	-- Acquire type colors
-	["achievement"]	= "faeb98",
-	["custom"]	= "73b7ff",
-	["discovery"]	= "ff9500",
-	["mobdrop"]	= "962626",
-	["quest"]	= "dbdb2c",
-	["reputation"]	= "855a99",
-	["seasonal"]	= "80590e",
-	["trainer"]	= "c98e26",
-	["vendor"]	= "aad372",
+	achievement	= { hex = "faeb98",	r = 0.98,	g = 0.92,	b = 0.59 },
+	custom		= { hex = "73b7ff",	r = 0.45,	g = 0.71,	b = 1 },
+	discovery	= { hex = "ff9500",	r = 1,		g = 0.58,	b = 0 },
+	mobdrop		= { hex = "962626",	r = 0.59,	g = 0.15,	b = 0.15 },
+	quest		= { hex = "dbdb2c",	r = 0.86,	g = 0.86,	b = 0.17 },
+	reputation	= { hex = "855a99",	r = 0.52,	g = 0.35,	b = 0.6 },
+	seasonal	= { hex = "80590e",	r = 0.50,	g = 0.35,	b = 0.05 },
+	trainer		= { hex = "c98e26",	r = 0.79,	g = 0.56,	b = 0.14 },
+	vendor		= { hex = "aad372",	r = 0.67,	g = 0.83,	b = 0.45 },
 
 	-- Miscellaneous
-	["coords"]	= "d1ce6f",
-	["location"]	= "ffecc1",
-	["repname"]	= "6a9ad9",
-
+	coords		= { hex = "d1ce6f",	r = 0.82,	g = 0.81,	b = 0.44 },
+	hint		= { hex = "c9c781",	r = 0.79,	g = 0.78,	b = 0.51 },
+	location	= { hex = "ffecc1",	r = 1,		g = 0.93,	b = 0.76 },
+	repname		= { hex = "6a9ad9",	r = 0.42,	g = 0.60,	b = 0.85 },
 }

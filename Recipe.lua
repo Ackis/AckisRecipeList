@@ -250,7 +250,7 @@ do
 			diff_color = "impossible"
 		end
 		local display_name = ("|c%s%s|r"):format(quality_color, recipe_name)
-		local level_text = private.SetTextColor(private.DIFFICULTY_COLORS[diff_color], SKILL_LEVEL_FORMAT):format(recipe_level)
+		local level_text = private.SetTextColor(private.DIFFICULTY_COLORS[diff_color].hex, SKILL_LEVEL_FORMAT):format(recipe_level)
 
 		if addon.db.profile.skill_view then
 			display_name = ("%s - %s"):format(level_text, display_name)

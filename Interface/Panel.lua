@@ -383,7 +383,7 @@ function private.InitializeFrame()
 		local current_prof = ORDERED_PROFESSIONS[self.current_profession]
 
 		if not self.is_expanded then
-			self.title_bar:SetFormattedText(SetTextColor(private.BASIC_COLORS["normal"], "ARL (%s) - %s"), addon.version, current_prof)
+			self.title_bar:SetFormattedText(SetTextColor(private.BASIC_COLORS.normal.hex, "ARL (%s) - %s"), addon.version, current_prof)
 			return
 		end
 		local total, active = 0, 0
@@ -396,7 +396,7 @@ function private.InitializeFrame()
 				total = total + 1
 			end
 		end
-		self.title_bar:SetFormattedText(SetTextColor(private.BASIC_COLORS["normal"], "ARL (%s) - %s (%d/%d %s)"), addon.version, current_prof, active, total, _G.FILTERS)
+		self.title_bar:SetFormattedText(SetTextColor(private.BASIC_COLORS.normal.hex, "ARL (%s) - %s (%d/%d %s)"), addon.version, current_prof, active, total, _G.FILTERS)
 	end
 
 	-------------------------------------------------------------------------------

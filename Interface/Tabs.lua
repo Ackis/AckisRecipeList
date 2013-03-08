@@ -240,7 +240,8 @@ function private.InitializeTabs()
 				local entry = AcquireTable()
 
 				local acquire_str = private.ACQUIRE_STRINGS[acquire_type]:lower():gsub("_","")
-				local color_code = private.CATEGORY_COLORS[acquire_str] or "ffffff"
+				local color_table = private.CATEGORY_COLORS[acquire_str]
+				local color_code = color_table and color_table.hex or "ffffff"
 				local is_expanded = self[prof_name.." expanded"][private.ACQUIRE_NAMES[acquire_type]]
 
 				entry.text = ("%s (%d)"):format(SetTextColor(color_code, private.ACQUIRE_NAMES[acquire_type]),count)
@@ -348,10 +349,10 @@ function private.InitializeTabs()
 				local entry = AcquireTable()
 
 				if loc_name == _G.GetRealZoneText() then
-					entry.text = ("%s (%d)"):format(SetTextColor(private.DIFFICULTY_COLORS["optimal"], loc_name), count)
+					entry.text = ("%s (%d)"):format(SetTextColor(private.DIFFICULTY_COLORS.optimal.hex, loc_name), count)
 					entry.emphasized = true
 				else
-					entry.text = ("%s (%d)"):format(SetTextColor(private.CATEGORY_COLORS["location"], loc_name), count)
+					entry.text = ("%s (%d)"):format(SetTextColor(private.CATEGORY_COLORS.location.hex, loc_name), count)
 					entry.emphasized = nil
 				end
 				entry.location_id = loc_name

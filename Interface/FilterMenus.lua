@@ -996,7 +996,7 @@ function private.InitializeFilterPanel()
 		-- Create the Reputation toggle and CheckButtons
 		-------------------------------------------------------------------------------
 		local function DisabledText(text)
-			return SetTextColor(private.BASIC_COLORS["grey"], text)
+			return SetTextColor(private.BASIC_COLORS.grey.hex, text)
 		end
 
 		local expansion2_buttons = {
@@ -1059,7 +1059,7 @@ function private.InitializeFilterPanel()
 		-- Create the Reputation toggle and CheckButtons
 		-------------------------------------------------------------------------------
 		local function DisabledText(text)
-			return SetTextColor(private.BASIC_COLORS["grey"], text)
+			return SetTextColor(private.BASIC_COLORS.grey.hex, text)
 		end
 
 		local expansion3_buttons = {
@@ -1116,7 +1116,7 @@ function private.InitializeFilterPanel()
 		-- Create the Reputation toggle and CheckButtons
 		-------------------------------------------------------------------------------
 		local function DisabledText(text)
-			return SetTextColor(private.BASIC_COLORS["grey"], text)
+			return SetTextColor(private.BASIC_COLORS.grey.hex, text)
 		end
 
 		local expansion4_buttons = {
