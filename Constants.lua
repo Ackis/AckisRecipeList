@@ -925,12 +925,12 @@ private.ZONE_NAMES = {
 do
 	local continent_names = { _G.GetMapContinents() }
 
-	private.ZONE_NAMES["KALIMDOR"] = continent_names[1]
-	private.ZONE_NAMES["EASTERN_KINGDOMS"] = continent_names[2]
-	private.ZONE_NAMES["OUTLAND"] = continent_names[3]
-	private.ZONE_NAMES["NORTHREND"] = continent_names[4]
-	private.ZONE_NAMES["THE_MAELSTROM"] = continent_names[5]
-	private.ZONE_NAMES["PANDARIA"] = continent_names[6]
+	private.ZONE_NAMES.KALIMDOR = continent_names[1]
+	private.ZONE_NAMES.EASTERN_KINGDOMS = continent_names[2]
+	private.ZONE_NAMES.OUTLAND = continent_names[3]
+	private.ZONE_NAMES.NORTHREND = continent_names[4]
+	private.ZONE_NAMES.THE_MAELSTROM = continent_names[5]
+	private.ZONE_NAMES.PANDARIA = continent_names[6]
 end
 
 private.ZONE_LABELS_FROM_NAME = {}
