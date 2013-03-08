@@ -27,6 +27,10 @@ function private.SetTextColor(color_code, text)
 	return ("|cff%s%s|r"):format(color_code or "ffffff", text)
 end
 
+function private.ColorRGBtoHEX(r, g, b)
+	return ("%02x%02x%02x"):format(r * 255, g * 255, b * 255)
+end
+
 local NO_LOCATION_LISTS
 
 function private:AddListEntry(lookup_list, identifier, name, location, coord_x, coord_y, faction)

@@ -1612,6 +1612,24 @@ do
 	end
 
 	-------------------------------------------------------------------------------
+	-- Memoizing table for recipe qualities.
+	-------------------------------------------------------------------------------
+	local RECIPE_QUALITY_COLORS = _G.setmetatable({}, {
+		__index = function(t, recipe_quality)
+			local r, g, b = _G.GetItemQualityColor(recipe_quality)
+			local rgb_values = {
+				hex = private.ColorRGBtoHEX(r, g, b),
+				r = r,
+				g = g,
+				b = b
+			}
+
+			t[recipe_quality] = rgb_values
+			return rgb_values
+		end
+	})
+
+	-------------------------------------------------------------------------------
 	-- Functions for adding individual acquire type data to the tooltip.
 	-------------------------------------------------------------------------------
 	local TOOLTIP_ACQUIRE_FUNCS = {
@@ -1738,7 +1756,6 @@ do
 			local recipe = private.recipe_list[recipe_id]
 			local recipe_item_id = recipe:RecipeItem()
 			local recipe_item_level = recipe_item_id and select(4, _G.GetItemInfo(recipe_item_id))
-			local r, g, b = _G.GetItemQualityColor(recipe.quality)
 			local location_text
 
 			if recipe_item_level then
@@ -1746,7 +1763,7 @@ do
 			else
 				location_text = drop_location
 			end
-			addline_func(0, -1, false, L["World Drop"], { r, g, b }, location_text, CATEGORY_COLORS.location)
+			addline_func(0, -1, false, L["World Drop"], RECIPE_QUALITY_COLORS[recipe.quality], location_text, CATEGORY_COLORS.location)
 		end,
 		[A.ACHIEVEMENT] = function(recipe_id, identifier, location, acquire_info, addline_func)
 			local recipe = private.recipe_list[recipe_id]
@@ -1909,7 +1926,8 @@ do
 			return
 		end
 		acquire_tip:AddHeader()
-		acquire_tip:SetCell(1, 1, "|c"..select(4, _G.GetItemQualityColor(recipe.quality))..recipe.name, "CENTER", 2)
+		acquire_tip:SetCell(1, 1, recipe.name, "CENTER", 2)
+		acquire_tip:SetCellTextColor(1, 1, _G.GetItemQualityColor(recipe.quality))
 
 		local recipe_item_texture = recipe.crafted_item_id and _G.select(10, _G.GetItemInfo(recipe.crafted_item_id))
 
