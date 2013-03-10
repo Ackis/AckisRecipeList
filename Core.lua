@@ -401,7 +401,7 @@ function addon:OnInitialize()
 		if not addon.db.profile.recipes_in_tooltips then
 			return
 		end
-		local name, tooltip_unit = self:GetUnit()
+		local _, tooltip_unit = self:GetUnit()
 
 		if not tooltip_unit then
 			return
@@ -560,7 +560,7 @@ function addon:CreateScanButton()
 	scan_button:SetFrameStrata(scan_parent:GetFrameStrata())
 	scan_button:Enable()
 
-	scan_button:SetScript("OnClick", function(self, button, down)
+	scan_button:SetScript("OnClick", function(self, _, _)
 		local main_panel = addon.Frame
 		local prev_profession
 
@@ -797,21 +797,16 @@ do
 	}
 
 	local function SetPreviousRanksKnown(previous_rank_id, profession_recipes, tradeskill_is_linked)
-
 		local previous_rank_recipe = profession_recipes[previous_rank_id]
 
 		if previous_rank_recipe then
 			previous_rank_recipe:SetAsKnownOrLinked(tradeskill_is_linked)
-		else
-			self:Debug("%s (%d): %s", entry_name, previous_rank_id, L["MissingFromDB"])
 		end
-
 		local nested_previous_rank_id = previous_rank_recipe:PreviousRankID()
 
 		if nested_previous_rank_id then
 			SetPreviousRanksKnown(nested_previous_rank_id, profession_recipes, tradeskill_is_linked)
 		end
-
 	end
 
 	--- Causes a scan of the tradeskill to be conducted. Function called when the scan button is clicked.   Parses recipes and displays output
@@ -871,7 +866,7 @@ do
 		local profession_specialties = SpecialtyTable[profession_name]
 
 		if profession_specialties then
-			for index, book_index in ipairs(specialtices_indices) do
+			for _, book_index in ipairs(specialtices_indices) do
 				local spell_name = _G.GetSpellBookItemName(book_index, _G.BOOKTYPE_PROFESSION)
 
 				if not spell_name then
@@ -924,7 +919,7 @@ do
 		local profession_recipes = private.profession_recipe_list[profession_name]
 		local recipes_found = 0
 
-		for spell_id, recipe in pairs(profession_recipes) do
+		for _, recipe in pairs(profession_recipes) do
 			recipe:RemoveState("KNOWN")
 			recipe:RemoveState("RELEVANT")
 			recipe:RemoveState("VISIBLE")
@@ -949,7 +944,7 @@ do
 				else
 					--@debug@
 					local profession_id
-					for name, profession_spell_id in pairs(private.PROFESSION_SPELL_IDS) do
+					for _, profession_spell_id in pairs(private.PROFESSION_SPELL_IDS) do
 						if profession_name == _G.GetSpellInfo(profession_spell_id) then
 							profession_id = profession_spell_id
 							break
@@ -975,7 +970,7 @@ do
 			_G.MRTAPI:PopFilterSelection()
 		else
 			for skill_index = _G.GetNumTradeSkills(), 1, -1 do
-				local entry_name, _, _, is_expanded = _G.GetTradeSkillInfo(skill_index)
+				local entry_name = _G.GetTradeSkillInfo(skill_index)
 
 				if header_list[entry_name] then
 					_G.CollapseTradeSkillSubClass(skill_index)
@@ -1133,7 +1128,7 @@ do
 				BREWMASTERS
 				NAT_PAGLE
 				BLACKPRINCE]]--
-				TUSHUI_HUOJIN =	isAlliance and FAC["Tushui Pandaren"]	or FAC["Huojin Pandaren"]
+				TUSHUI_HUOJIN =	is_alliance and FAC["Tushui Pandaren"]	or FAC["Huojin Pandaren"]
 			}
 			return FILTER_FLAG_NAMES
 		end

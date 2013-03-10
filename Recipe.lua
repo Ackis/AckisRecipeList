@@ -12,7 +12,6 @@ local type = _G.type
 
 -- Libraries
 local bit = _G.bit
-local string = _G.string
 local table = _G.table
 
 -----------------------------------------------------------------------

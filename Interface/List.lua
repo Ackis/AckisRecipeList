@@ -3,7 +3,6 @@
 -------------------------------------------------------------------------------
 local _G = getfenv(0)
 
-local string = _G.string
 local table = _G.table
 local math = _G.math
 
@@ -189,7 +188,7 @@ function private.InitializeListFrame()
 		end
 	end
 
-	ScrollUpButton:SetScript("OnClick", function(self, button, down)
+	ScrollUpButton:SetScript("OnClick", function(self, _, _)
 		if _G.IsAltKeyDown() then
 			local min_val = ScrollBar:GetMinMaxValues()
 			ScrollBar:SetValue(min_val)
@@ -198,7 +197,7 @@ function private.InitializeListFrame()
 		end
 	end)
 
-	ScrollDownButton:SetScript("OnClick", function(self, button, down)
+	ScrollDownButton:SetScript("OnClick", function(self, _, _)
 		if _G.IsAltKeyDown() then
 			local _, max_val = ScrollBar:GetMinMaxValues()
 			ScrollBar:SetValue(max_val)
@@ -241,7 +240,7 @@ function private.InitializeListFrame()
 		if ListFrame.selected_entry then
 			return
 		end
-		ListItem_ShowTooltip(self, ListFrame.entries[self.string_index])
+		ListItem_ShowTooltip(ListFrame.entries[self.string_index])
 	end
 
 	local function Bar_OnLeave()
@@ -269,7 +268,7 @@ function private.InitializeListFrame()
 		end
 	end
 
-	local function ListItem_OnClick(self, button, down)
+	local function ListItem_OnClick(self, _, _)
 		local clicked_index = self.string_index
 
 		-- Don't do anything if they've clicked on an empty button
@@ -515,7 +514,6 @@ function private.InitializeListFrame()
 	do
 		local filter_db		= addon.db.profile.filters
 
-		local binding_filters	= filter_db.binding
 		local player_filters	= filter_db.player
 		local obtain_filters	= filter_db.obtain
 		local general_filters	= filter_db.general
@@ -770,7 +768,7 @@ function private.InitializeListFrame()
 			local recipes_known, recipes_known_filtered = 0, 0
 			local recipes_total, recipes_total_filtered = 0, 0
 
-			for recipe_id, recipe in pairs(profession_recipes) do
+			for _, recipe in pairs(profession_recipes) do
 				local can_display = false
 				recipe:RemoveState("VISIBLE")
 
@@ -1202,7 +1200,7 @@ function private.InitializeListFrame()
 		return ListFrame:InsertEntry(entry, parent_entry, entry_index, entry_type, true)
 	end
 
-	local function ExpandSeasonalData(entry_index, entry_type, parent_entry, id_num, recipe_id, hide_location, hide_type)
+	local function ExpandSeasonalData(entry_index, entry_type, parent_entry, id_num, recipe_id, _, hide_type)
 		local entry = AcquireTable()
 		entry.text = ("%s%s %s"):format(PADDING, hide_type and "" or SetTextColor(CATEGORY_COLORS.seasonal.hex, private.ACQUIRE_NAMES[A.SEASONAL]) .. ":", SetTextColor(CATEGORY_COLORS.seasonal.hex, private.seasonal_list[id_num].name))
 		entry.recipe_id = recipe_id
@@ -1262,7 +1260,7 @@ function private.InitializeListFrame()
 		return ListFrame:InsertEntry(entry, parent_entry, entry_index, entry_type, true)
 	end
 
-	local function ExpandWorldDropData(entry_index, entry_type, parent_entry, identifier, recipe_id, hide_location, hide_type)
+	local function ExpandWorldDropData(entry_index, entry_type, parent_entry, identifier, recipe_id, _, _)
 		local drop_location = type(identifier) == "string" and SetTextColor(CATEGORY_COLORS.location.hex, identifier)
 
 		if drop_location then
@@ -1284,7 +1282,7 @@ function private.InitializeListFrame()
 		return ListFrame:InsertEntry(entry, parent_entry, entry_index, entry_type, true)
 	end
 
-	local function ExpandCustomData(entry_index, entry_type, parent_entry, id_num, recipe_id, hide_location, hide_type)
+	local function ExpandCustomData(entry_index, entry_type, parent_entry, id_num, recipe_id, _, _)
 		local entry = AcquireTable()
 		entry.text = PADDING .. SetTextColor(CATEGORY_COLORS.custom.hex, private.custom_list[id_num].name)
 		entry.recipe_id = recipe_id
@@ -1292,7 +1290,7 @@ function private.InitializeListFrame()
 		return ListFrame:InsertEntry(entry, parent_entry, entry_index, entry_type, true)
 	end
 
-	local function ExpandDiscoveryData(entry_index, entry_type, parent_entry, id_num, recipe_id, hide_location, hide_type)
+	local function ExpandDiscoveryData(entry_index, entry_type, parent_entry, id_num, recipe_id, _, _)
 		local entry = AcquireTable()
 		entry.text = PADDING .. SetTextColor(CATEGORY_COLORS.discovery.hex, private.discovery_list[id_num].name)
 		entry.recipe_id = recipe_id
@@ -1300,7 +1298,7 @@ function private.InitializeListFrame()
 		return ListFrame:InsertEntry(entry, parent_entry, entry_index, entry_type, true)
 	end
 
-	local function ExpandAchievementData(entry_index, entry_type, parent_entry, id_num, recipe_id, hide_location, hide_type)
+	local function ExpandAchievementData(entry_index, entry_type, parent_entry, id_num, recipe_id, _, hide_type)
 		local entry = AcquireTable()
 		entry.text = ("%s%s %s"):format(PADDING, hide_type and "" or SetTextColor(CATEGORY_COLORS.achievement.hex, _G.ACHIEVEMENTS) .. ":",
 						SetTextColor(BASIC_COLORS.normal.hex, select(2, _G.GetAchievementInfo(id_num))))
@@ -1633,7 +1631,7 @@ do
 	-- Functions for adding individual acquire type data to the tooltip.
 	-------------------------------------------------------------------------------
 	local TOOLTIP_ACQUIRE_FUNCS = {
-		[A.TRAINER] = function(recipe_id, identifier, location, acquire_info, addline_func)
+		[A.TRAINER] = function(_, identifier, location, _, addline_func)
 			local trainer = private.trainer_list[identifier]
 
 			if not trainer or (location and trainer.location ~= location) then
@@ -1652,7 +1650,7 @@ do
 				addline_func(1, -2, true, trainer.location, CATEGORY_COLORS.location, "", CATEGORY_COLORS.coords)
 			end
 		end,
-		[A.VENDOR] = function(recipe_id, identifier, location, acquire_info, addline_func)
+		[A.VENDOR] = function(recipe_id, identifier, location, _, addline_func)
 			local vendor = private.vendor_list[identifier]
 
 			if not vendor or (location and vendor.location ~= location) then
@@ -1676,7 +1674,7 @@ do
 				addline_func(2, -2, true, L["LIMITED_SUPPLY"], CATEGORY_COLORS.vendor, ("(%d)"):format(quantity), BASIC_COLORS.white)
 			end
 		end,
-		[A.MOB_DROP] = function(recipe_id, identifier, location, acquire_info, addline_func)
+		[A.MOB_DROP] = function(_, identifier, location, _, addline_func)
 			local mob = private.mob_list[identifier]
 
 			if not mob or (location and mob.location ~= location) then
@@ -1691,7 +1689,7 @@ do
 
 			end
 		end,
-		[A.QUEST] = function(recipe_id, identifier, location, acquire_info, addline_func)
+		[A.QUEST] = function(_, identifier, location, _, addline_func)
 			local quest = private.quest_list[identifier]
 
 			if not quest or (location and quest.location ~= location) then
@@ -1710,11 +1708,11 @@ do
 				addline_func(1, -2, true, quest.location, CATEGORY_COLORS.location, "", CATEGORY_COLORS.coords)
 			end
 		end,
-		[A.SEASONAL] = function(recipe_id, identifier, location, acquire_info, addline_func)
+		[A.SEASONAL] = function(_, identifier, _, _, addline_func)
 			local hex_color = CATEGORY_COLORS.seasonal
 			addline_func(0, -1, 0, private.ACQUIRE_NAMES[A.SEASONAL], hex_color, private.seasonal_list[identifier].name, hex_color)
 		end,
-		[A.REPUTATION] = function(recipe_id, identifier, location, acquire_info, addline_func)
+		[A.REPUTATION] = function(_, identifier, location, acquire_info, addline_func)
 			for rep_level, level_info in pairs(acquire_info) do
 				for vendor_id in pairs(level_info) do
 					local rep_vendor = private.vendor_list[vendor_id]
@@ -1747,7 +1745,7 @@ do
 				end
 			end
 		end,
-		[A.WORLD_DROP] = function(recipe_id, identifier, location, acquire_info, addline_func)
+		[A.WORLD_DROP] = function(recipe_id, identifier, location, _, addline_func)
 			local drop_location = type(identifier) == "string" and identifier or _G.UNKNOWN
 
 			if location and drop_location ~= location then
@@ -1765,7 +1763,7 @@ do
 			end
 			addline_func(0, -1, false, L["World Drop"], RECIPE_QUALITY_COLORS[recipe.quality], location_text, CATEGORY_COLORS.location)
 		end,
-		[A.ACHIEVEMENT] = function(recipe_id, identifier, location, acquire_info, addline_func)
+		[A.ACHIEVEMENT] = function(recipe_id, identifier, _, _, addline_func)
 			local recipe = private.recipe_list[recipe_id]
 			local _, achievement_name, _, _, _, _, _, achievement_desc = _G.GetAchievementInfo(identifier)
 
@@ -1775,10 +1773,10 @@ do
 			end
 			addline_func(0, -1, false, achievement_desc, CATEGORY_COLORS.achievement)
 		end,
-		[A.DISCOVERY] = function(recipe_id, identifier, location, acquire_info, addline_func)
+		[A.DISCOVERY] = function(_, identifier, _, _, addline_func)
 			addline_func(0, -1, false, private.discovery_list[identifier].name, CATEGORY_COLORS.discovery)
 		end,
-		[A.CUSTOM] = function(recipe_id, identifier, location, acquire_info, addline_func)
+		[A.CUSTOM] = function(_, identifier, _, _, addline_func)
 			addline_func(0, -1, false, private.custom_list[identifier].name, CATEGORY_COLORS.custom)
 		end,
 	}
@@ -1911,7 +1909,7 @@ do
 		[A.DISCOVERY] = true,
 	}
 
-	function ListItem_ShowTooltip(owner, list_entry)
+	function ListItem_ShowTooltip(list_entry)
 		if not list_entry then
 			return
 		end
