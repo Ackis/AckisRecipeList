@@ -6711,17 +6711,19 @@ function addon:InitLeatherworking()
 	recipe = AddRecipe(140040, V.MOP, Q.COMMON)
 	recipe:SetSkillLevels(550, 550, 560, 565, 570)
 	recipe:SetCraftedItem(72163, "BIND_ON_EQUIP")
+	recipe:SetRecipeItem(95467, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("LEATHERWORKING_MATERIALS")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddTrainer(65121)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP)
+	recipe:AddWorldDrop(Z.PANDARIA)
 
 	-- Magnificence of Scales -- 140041
 	recipe = AddRecipe(140041, V.MOP, Q.COMMON)
 	recipe:SetSkillLevels(550, 550, 560, 565, 570)
 	recipe:SetCraftedItem(72163, "BIND_ON_EQUIP")
+	recipe:SetRecipeItem(95468, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("LEATHERWORKING_MATERIALS")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddTrainer(65121)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP)
+	recipe:AddWorldDrop(Z.PANDARIA)
 
 	-- Magnificent Hide Bag -- 140185
 	recipe = AddRecipe(140185, V.MOP, Q.UNCOMMON)
