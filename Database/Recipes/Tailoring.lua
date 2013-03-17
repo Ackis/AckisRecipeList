@@ -4697,7 +4697,7 @@ function addon:InitTailoring()
 
 	-- Crafted Dreadful Gladiator's Silk Amice -- 137925
 	recipe = AddRecipe(137925, V.MOP, Q.COMMON)
-	recipe:SetSkillLevels(603, 600, 600, 602, 605)
+	recipe:SetSkillLevels(600, 600, 600, 602, 605)
 	recipe:SetCraftedItem(93500, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("TAILORING_SHOULDER")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.MAGE)
