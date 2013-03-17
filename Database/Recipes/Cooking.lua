@@ -253,8 +253,7 @@ function addon:InitCooking()
 	recipe:SetSkillLevels(20, 20, 60, 80, 100)
 	recipe:SetRecipeItem(5483, "BIND_ON_EQUIP")
 	recipe:SetCraftedItem(5473, "BIND_ON_EQUIP")
-	recipe:SetRequiredFaction("Horde")
-	recipe:AddFilters(F.HORDE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE)
 	recipe:AddVendor(3881)
 
 	-- Roasted Kodo Meat -- 6414
@@ -262,8 +261,7 @@ function addon:InitCooking()
 	recipe:SetSkillLevels(35, 35, 75, 95, 115)
 	recipe:SetRecipeItem(5484, "BIND_ON_EQUIP")
 	recipe:SetCraftedItem(5474, "BIND_ON_EQUIP")
-	recipe:SetRequiredFaction("Horde")
-	recipe:AddFilters(F.HORDE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE)
 	recipe:AddVendor(3081)
 
 	-- Fillet of Frenzy -- 6415
@@ -279,8 +277,7 @@ function addon:InitCooking()
 	recipe:SetSkillLevels(50, 50, 90, 110, 130)
 	recipe:SetRecipeItem(5486, "BIND_ON_EQUIP")
 	recipe:SetCraftedItem(5477, "BIND_ON_EQUIP")
-	recipe:SetRequiredFaction("Horde")
-	recipe:AddFilters(F.HORDE, F.HEALER, F.CASTER)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.HEALER, F.CASTER)
 	recipe:AddVendor(3482)
 
 	-- Dig Rat Stew -- 6417
@@ -296,8 +293,7 @@ function addon:InitCooking()
 	recipe:SetSkillLevels(100, 100, 140, 160, 180)
 	recipe:SetRecipeItem(5488, "BIND_ON_EQUIP")
 	recipe:SetCraftedItem(5479, "BIND_ON_EQUIP")
-	recipe:SetRequiredFaction("Horde")
-	recipe:AddFilters(F.HORDE, F.HEALER, F.CASTER)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.HEALER, F.CASTER)
 	recipe:AddVendor(3482)
 
 	-- Lean Venison -- 6419
@@ -327,7 +323,7 @@ function addon:InitCooking()
 	recipe:SetSkillLevels(90, 90, 130, 150, 170)
 	recipe:SetRecipeItem(5528, "BIND_ON_EQUIP")
 	recipe:SetCraftedItem(5526, "BIND_ON_EQUIP")
-	recipe:AddFilters(F.ALLIANCE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE)
 	recipe:AddVendor(4305)
 
 	-- Giant Clam Scorcho -- 7213
@@ -367,7 +363,7 @@ function addon:InitCooking()
 	recipe:SetSkillLevels(50, 50, 90, 110, 130)
 	recipe:SetRecipeItem(6329, "BIND_ON_EQUIP")
 	recipe:SetCraftedItem(6316, "BIND_ON_EQUIP")
-	recipe:AddFilters(F.ALLIANCE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE)
 	recipe:AddVendor(1684)
 
 	-- Bristle Whisker Catfish -- 7755
@@ -516,8 +512,7 @@ function addon:InitCooking()
 	recipe:SetSkillLevels(1, 1, 45, 65, 85)
 	recipe:SetRecipeItem(12226, "BIND_ON_EQUIP")
 	recipe:SetCraftedItem(12224, "BIND_ON_EQUIP")
-	recipe:SetRequiredFaction("Horde")
-	recipe:AddFilters(F.HORDE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE)
 	recipe:AddVendor(2118)
 
 	-- Spotted Yellowtail -- 18238
@@ -662,8 +657,7 @@ function addon:InitCooking()
 	recipe:SetSkillLevels(150, 150, 160, 180, 200)
 	recipe:SetRecipeItem(20075, "BIND_ON_EQUIP")
 	recipe:SetCraftedItem(20074, "BIND_ON_EQUIP")
-	recipe:SetRequiredFaction("Horde")
-	recipe:AddFilters(F.HORDE, F.HEALER, F.CASTER)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.HEALER, F.CASTER)
 	recipe:AddVendor(4879)
 
 	-- Smoked Desert Dumplings -- 24801
@@ -711,8 +705,7 @@ function addon:InitCooking()
 	recipe:SetSkillLevels(1, 1, 45, 65, 85)
 	recipe:SetRecipeItem(27685, "BIND_ON_EQUIP")
 	recipe:SetCraftedItem(27635, "BIND_ON_EQUIP")
-	recipe:SetRequiredFaction("Horde")
-	recipe:AddFilters(F.HORDE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE)
 	recipe:AddVendor(16262)
 
 	-- Roasted Moongraze Tenderloin -- 33277
@@ -720,8 +713,7 @@ function addon:InitCooking()
 	recipe:SetSkillLevels(1, 1, 45, 65, 85)
 	recipe:SetRecipeItem(27686, "BIND_ON_EQUIP")
 	recipe:SetCraftedItem(24105, "BIND_ON_EQUIP")
-	recipe:SetRequiredFaction("Alliance")
-	recipe:AddFilters(F.ALLIANCE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE)
 	recipe:AddQuest(9454)
 
 	-- Bat Bites -- 33278
