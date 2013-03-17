@@ -2817,7 +2817,7 @@ function addon:InitEngineering()
 	recipe:SetPreviousRankID(82175)
 	recipe:SetItemFilterType("ENGINEERING_ITEM_ENHANCEMENT")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddTrainer(11017)
+	recipe:AddTrainer(11017, 55143)
 	recipe:AddDiscovery("ENG_DISC")
 
 	-- Ghost Iron Bolts -- 127113
@@ -3012,18 +3012,30 @@ function addon:InitEngineering()
 
 	-- Celestial Firework -- 128260
 	recipe = AddRecipe(128260, V.MOP, Q.COMMON)
-	recipe:SetSkillLevels(0, 0, 0, 0, 0)
-	recipe:AddFilters(F.RETIRED)
+	recipe:SetSkillLevels(500, 500, 525, 537, 550)
+	recipe:SetRecipeItem(89994, "BIND_ON_PICKUP")
+	recipe:SetCraftedItem(89493, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("ENGINEERING_CREATED_ITEM")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddDiscovery("ENG_DISC")
 
 	-- Grand Celebration Firework -- 128261
 	recipe = AddRecipe(128261, V.MOP, Q.COMMON)
-	recipe:SetSkillLevels(0, 0, 0, 0, 0)
-	recipe:AddFilters(F.RETIRED)
+	recipe:SetSkillLevels(500, 500, 525, 537, 550)
+	recipe:SetRecipeItem(89993, "BIND_ON_PICKUP")
+	recipe:SetCraftedItem(89491, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("ENGINEERING_CREATED_ITEM")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddDiscovery("ENG_DISC")
 
 	-- Serpent's Heart Firework -- 128262
 	recipe = AddRecipe(128262, V.MOP, Q.COMMON)
-	recipe:SetSkillLevels(0, 0, 0, 0, 0)
-	recipe:AddFilters(F.RETIRED)
+	recipe:SetSkillLevels(500, 500, 525, 537, 550)
+	recipe:SetRecipeItem(89992, "BIND_ON_PICKUP")
+	recipe:SetCraftedItem(87764, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("ENGINEERING_CREATED_ITEM")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddDiscovery("ENG_DISC")
 
 	-- Flashing Tinker's Gear -- 131211
 	recipe = AddRecipe(131211, V.MOP, Q.COMMON)
@@ -3091,13 +3103,22 @@ function addon:InitEngineering()
 
 	-- Autumn Flower Firework -- 131256
 	recipe = AddRecipe(131256, V.MOP, Q.COMMON)
-	recipe:SetSkillLevels(0, 0, 0, 0, 0)
-	recipe:AddFilters(F.RETIRED)
+	recipe:SetSkillLevels(500, 500, 525, 537, 550)
+	recipe:SetRecipeItem(89896, "BIND_ON_PICKUP")
+	recipe:SetCraftedItem(89893, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("ENGINEERING_CREATED_ITEM")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddDiscovery("ENG_DISC")
 
 	-- Jade Blossom Firework -- 131258
 	recipe = AddRecipe(131258, V.MOP, Q.COMMON)
-	recipe:SetSkillLevels(0, 0, 0, 0, 0)
-	recipe:AddFilters(F.RETIRED)
+	recipe:SetSkillLevels(500, 500, 525, 537, 550)
+	recipe:SetRecipeItem(89997, "BIND_ON_PICKUP")
+	recipe:SetCraftedItem(89888, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("ENGINEERING_CREATED_ITEM")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddDiscovery("ENG_DISC")
+	recipe:AddCustom("PANDARIA_FIREWORKS")
 
 	-- Pandaria Fireworks -- 131353
 	recipe = AddRecipe(131353, V.MOP, Q.COMMON)
