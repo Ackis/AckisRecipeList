@@ -1038,7 +1038,12 @@ function private.InitializeListFrame()
 			cur_button:SetText(cur_entry.text)
 			cur_button:SetScript("OnEnter", Bar_OnEnter)
 			cur_button:SetScript("OnLeave", Bar_OnLeave)
-			cur_button:SetScript("OnClick", Bar_OnClick)
+
+			if cur_entry.type == "entry" then
+				cur_button:SetScript("OnClick", ListItem_OnClick)
+			else
+				cur_button:SetScript("OnClick", Bar_OnClick)
+			end
 			cur_button:Enable()
 
 			-- This function could possibly have been called from a mouse click or by scrolling. Since, in those cases, the list entries have
