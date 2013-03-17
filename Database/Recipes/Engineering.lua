@@ -3118,7 +3118,6 @@ function addon:InitEngineering()
 	recipe:SetItemFilterType("ENGINEERING_CREATED_ITEM")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
 	recipe:AddDiscovery("ENG_DISC")
-	recipe:AddCustom("PANDARIA_FIREWORKS")
 
 	-- Pandaria Fireworks -- 131353
 	recipe = AddRecipe(131353, V.MOP, Q.COMMON)
