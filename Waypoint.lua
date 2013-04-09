@@ -536,6 +536,9 @@ function addon:AddWaypoint(recipe_id, acquire_id, location_id, npc_id)
 		elseif NORTHREND_IDNUMS[location_name] then
 			continent = 4
 			zone = NORTHREND_IDNUMS[location_name]
+		elseif PANDARIA_IDNUMS[location_name] then
+			continent = 6
+			zone = PANDARIA_IDNUMS[location_name]
 		elseif INSTANCE_LOCATIONS[location_name] then
 			local info = INSTANCE_LOCATIONS[location_name]
 
