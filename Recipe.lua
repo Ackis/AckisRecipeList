@@ -484,6 +484,7 @@ function recipe_prototype:AddRepVendor(reputation_id, rep_level, ...)
 				affiliation = rep_vendor.faction
 				location_name = rep_vendor.location
 
+				rep_vendor.reputation_id = reputation_id
 				rep_vendor.item_list = rep_vendor.item_list or {}
 				rep_vendor.item_list[self.spell_id] = true
 			else
