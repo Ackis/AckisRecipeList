@@ -5612,6 +5612,14 @@ function addon:InitBlacksmithing()
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.PALADIN)
 	recipe:AddDiscovery("DISCOVERY_BS_PANDARIA")
 
+	-- Crafted Dreadful Gladiator's Greaves of Meditation -- 137779
+	recipe = AddRecipe(137779, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(600, 600, 600, 602, 605)
+	recipe:SetCraftedItem(93535, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("BLACKSMITHING_WAIST")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.PALADIN)
+	recipe:AddDiscovery("DISCOVERY_BS_PANDARIA")
+
 	-- Crafted Dreadful Gladiator's Bracers of Prowess -- 137780
 	recipe = AddRecipe(137780, V.MOP, Q.COMMON)
 	recipe:SetSkillLevels(600, 600, 600, 602, 605)
