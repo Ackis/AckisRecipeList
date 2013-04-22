@@ -456,27 +456,10 @@ function private.InitializeListFrame()
 
 		if parent_entry then
 			if parent_entry ~= entry then
-				local recipe_id = parent_entry.recipe_id
-				local acquire_id = parent_entry.acquire_id
-				local location_id = parent_entry.location_id
-				local npc_id = parent_entry.npc_id
-
-				-- These checks are necessary: Simply nilling fields will break things.
-				if recipe_id then
-					entry.recipe_id = recipe_id
-				end
-
-				if acquire_id then
-					entry.acquire_id = acquire_id
-				end
-
-				if location_id then
-					entry.location_id = location_id
-				end
-
-				if npc_id then
-					entry.npc_id = npc_id
-				end
+				entry.recipe_id = entry.recipe_id or parent_entry.recipe_id
+				entry.acquire_id = entry.acquire_id or parent_entry.acquire_id
+				entry.location_id = entry.location_id or parent_entry.location_id
+				entry.npc_id = entry.npc_id or parent_entry.npc_id
 				entry.parent = parent_entry
 			else
 				addon:Debug("Attempting to parent an entry to itself.")
@@ -1233,7 +1216,6 @@ function private.InitializeListFrame()
 			}
 		end
 
-		local name = ColorNameByFaction(rep_vendor.name, rep_vendor.faction)
 		local entry = AcquireTable()
 		entry.text = ("%s%s %s"):format(PADDING, hide_type and "" or SetTextColor(CATEGORY_COLORS.reputation.hex, _G.REPUTATION) .. ":", SetTextColor(CATEGORY_COLORS.repname.hex, private.reputation_list[rep_id].name))
 		entry.recipe_id = recipe_id
@@ -1242,7 +1224,7 @@ function private.InitializeListFrame()
 		entry_index = ListFrame:InsertEntry(entry, parent_entry, entry_index, entry_type, true)
 
 		entry = AcquireTable()
-		entry.text = PADDING .. PADDING .. FACTION_LABELS[rep_level] .. name
+		entry.text = PADDING .. PADDING .. FACTION_LABELS[rep_level] .. ColorNameByFaction(rep_vendor.name, rep_vendor.faction)
 		entry.recipe_id = recipe_id
 		entry.npc_id = vendor_id
 
@@ -1332,8 +1314,7 @@ function private.InitializeListFrame()
 			elseif acquire_type == A.REPUTATION then
 				for rep_level, level_info in pairs(info) do
 					for vendor_id in pairs(level_info) do
-						entry_index =  ExpandReputationData(entry_index, entry_type, parent_entry, vendor_id, id_num,
-										    rep_level, recipe_id, hide_location, hide_type)
+						entry_index =  ExpandReputationData(entry_index, entry_type, parent_entry, vendor_id, id_num, rep_level, recipe_id, hide_location, hide_type)
 					end
 				end
 			elseif acquire_type == A.WORLD_DROP and obtain_filters.worlddrop then
