@@ -486,10 +486,6 @@ end
 -- Input: An optional recipe ID, acquire ID, and location ID.
 -- Output: Points are added to the maps
 function addon:AddWaypoint(recipe_id, acquire_id, location_id, npc_id)
-addon:Print(recipe_id)
-addon:Print(acquire_id)
-addon:Print(location_id)
-addon:Print(npc_id)
 	if not _G.TomTom then
 		return
 	end
