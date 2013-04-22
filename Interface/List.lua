@@ -287,7 +287,6 @@ function private.InitializeListFrame()
 
 			if _G.IsControlKeyDown() then
 				if _G.IsShiftKeyDown() then
-addon:Print("CTRL-Shift")
 					addon:AddWaypoint(clicked_line.recipe_id, clicked_line.acquire_id, clicked_line.location_id, clicked_line.npc_id)
 				else
 					local edit_box = _G.ChatEdit_ChooseBoxForSend()
