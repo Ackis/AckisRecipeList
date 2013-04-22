@@ -287,6 +287,7 @@ function private.InitializeListFrame()
 
 			if _G.IsControlKeyDown() then
 				if _G.IsShiftKeyDown() then
+addon:Print("CTRL-Shift")
 					addon:AddWaypoint(clicked_line.recipe_id, clicked_line.acquire_id, clicked_line.location_id, clicked_line.npc_id)
 				else
 					local edit_box = _G.ChatEdit_ChooseBoxForSend()
@@ -1994,6 +1995,7 @@ do
 			acquire_tip:AddSeparator()
 			acquire_tip:AddSeparator()
 
+			ttAdd(0, -1, 0, L["CLICK"], hint_color)
 			ttAdd(0, -1, 0, L["ALT_CLICK"], hint_color)
 			ttAdd(0, -1, 0, L["CTRL_CLICK"], hint_color)
 			ttAdd(0, -1, 0, L["SHIFT_CLICK"], hint_color)

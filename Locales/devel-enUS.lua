@@ -1353,3 +1353,4 @@ L["Zurai"] = true
 L["Zurii"] = true
 L["Darian Singh"] = true
 L["LEARNT_BY_ACCEPTING_QUEST"] = "This recipe is learnt when you accept the quest."
+L["CLICK"] = "Click to sticky the tooltip."
