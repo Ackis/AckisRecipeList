@@ -3017,7 +3017,7 @@ function addon:InitEngineering()
 	recipe:SetCraftedItem(89493, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("ENGINEERING_CREATED_ITEM")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddDiscovery("ENG_DISC")
+	recipe:AddDiscovery("ENG_DISC_FIREWORKS")
 
 	-- Grand Celebration Firework -- 128261
 	recipe = AddRecipe(128261, V.MOP, Q.COMMON)
@@ -3026,7 +3026,7 @@ function addon:InitEngineering()
 	recipe:SetCraftedItem(89491, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("ENGINEERING_CREATED_ITEM")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddDiscovery("ENG_DISC")
+	recipe:AddDiscovery("ENG_DISC_FIREWORKS")
 
 	-- Serpent's Heart Firework -- 128262
 	recipe = AddRecipe(128262, V.MOP, Q.COMMON)
@@ -3035,7 +3035,7 @@ function addon:InitEngineering()
 	recipe:SetCraftedItem(87764, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("ENGINEERING_CREATED_ITEM")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddDiscovery("ENG_DISC")
+	recipe:AddDiscovery("ENG_DISC_FIREWORKS")
 
 	-- Flashing Tinker's Gear -- 131211
 	recipe = AddRecipe(131211, V.MOP, Q.COMMON)
@@ -3108,7 +3108,7 @@ function addon:InitEngineering()
 	recipe:SetCraftedItem(89893, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("ENGINEERING_CREATED_ITEM")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddDiscovery("ENG_DISC")
+	recipe:AddDiscovery("ENG_DISC_FIREWORKS")
 
 	-- Jade Blossom Firework -- 131258
 	recipe = AddRecipe(131258, V.MOP, Q.COMMON)
@@ -3117,7 +3117,7 @@ function addon:InitEngineering()
 	recipe:SetCraftedItem(89888, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("ENGINEERING_CREATED_ITEM")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddDiscovery("ENG_DISC")
+	recipe:AddDiscovery("ENG_DISC_FIREWORKS")
 
 	-- Pandaria Fireworks -- 131353
 	recipe = AddRecipe(131353, V.MOP, Q.COMMON)

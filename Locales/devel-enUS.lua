@@ -383,6 +383,7 @@ L["Durnholde Rifleman"] = true
 L["Dustin Vail"] = true
 L["Dwukk"] = true
 L["ENG_DISC"] = "This is discovered randomly while crafting other Engineering items."
+L["ENG_DISC_FIREWORKS"] = "This is discovered randomly while crafting Pandaria Fireworks."
 L["ENG_FLOOR_ITEM_BRD"] = "The schematic can be found on the floor near Golem Lord Argelmach in Blackrock Depths. Only engineers with 300 skill may learn the schematic after clicking on it."
 L["ENG_GNOMER"] = "Dropped from mobs in Gnomeregan."
 L["EXCLUDECOUNT_DESC"] = "Include excluded recipes in the count of total recipes."
