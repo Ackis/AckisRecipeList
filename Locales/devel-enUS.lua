@@ -1021,6 +1021,7 @@ L["Rikqiz"] = true
 L["Ring"] = true
 L["Risen Inquisitor"] = true
 L["Risen Sorcerer"] = true
+L["Robby Flay"] = true
 L["Rockseeker Guo"] = true
 L["Rod"] = true
 L["Rogg"] = true
