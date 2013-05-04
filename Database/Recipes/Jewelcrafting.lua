@@ -4714,7 +4714,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(500, 500, 505, 507, 510)
 	recipe:SetRecipeItem(52447, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_RED")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS)
 	recipe:AddVendor(16624, 17512, 44583, 50480, 50482, 52584, 52588, 52644, 52658)
 
 	-- Flashing Chimera's Eye -- 73398
@@ -4722,7 +4722,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(500, 500, 505, 507, 510)
 	recipe:SetRecipeItem(52448, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_RED")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TANK)
 	recipe:AddVendor(16624, 17512, 44583, 50480, 50482, 52584, 52588, 52644, 52658)
 
 	-- Brilliant Chimera's Eye -- 73399
@@ -4730,7 +4730,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(500, 500, 505, 507, 510)
 	recipe:SetRecipeItem(52449, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_RED")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.HEALER, F.CASTER)
 	recipe:AddVendor(16624, 17512, 44583, 50480, 50482, 52584, 52588, 52644, 52658)
 
 	-- Precise Chimera's Eye -- 73400
@@ -4738,7 +4738,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(500, 500, 505, 507, 510)
 	recipe:SetRecipeItem(52450, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_RED")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS, F.TANK)
 	recipe:AddVendor(16624, 17512, 44583, 50480, 50482, 52584, 52588, 52644, 52658)
 
 	-- Solid Chimera's Eye -- 73401
@@ -4772,7 +4772,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(500, 500, 505, 507, 510)
 	recipe:SetRecipeItem(52454, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_BLUE")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS, F.CASTER)
 	recipe:AddVendor(16624, 17512, 44583, 50480, 50482, 52584, 52588, 52644, 52658)
 
 	-- Subtle Chimera's Eye -- 73405
@@ -4789,7 +4789,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(500, 500, 505, 507, 510)
 	recipe:SetRecipeItem(52456, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_YELLOW")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS, F.HEALER, F.CASTER)
 	recipe:AddVendor(16624, 17512, 44583, 50480, 50482, 52584, 52588, 52644, 52658)
 
 	-- Mystic Chimera's Eye -- 73407
@@ -4805,7 +4805,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(500, 500, 505, 507, 510)
 	recipe:SetRecipeItem(52458, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_YELLOW")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS, F.HEALER, F.CASTER)
 	recipe:AddVendor(16624, 17512, 44583, 50480, 50482, 52584, 52588, 52644, 52658)
 
 	-- Fractured Chimera's Eye -- 73409
@@ -4877,7 +4877,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(490, 490, 515, 520, 525)
 	recipe:SetRecipeItem(52440, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_META")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.HEALER, F.CASTER)
 	recipe:AddVendor(16624, 17512, 44583, 50480, 50482, 52584, 52588, 52644, 52658)
 
 	-- Destructive Shadowspirit Diamond -- 73472
@@ -5167,7 +5167,7 @@ function addon:InitJewelcrafting()
 	recipe:SetCraftedItem(70071, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("JEWELCRAFTING_RING")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddTrainer(28701, 65098)
+	recipe:AddTrainer(28701, 44582, 65098)
 
 	-- Vicious Amberjewel Band -- 99540
 	recipe = AddRecipe(99540, V.CATA, Q.COMMON)
@@ -5175,7 +5175,7 @@ function addon:InitJewelcrafting()
 	recipe:SetCraftedItem(70072, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("JEWELCRAFTING_RING")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddTrainer(28701, 65098)
+	recipe:AddTrainer(28701, 44582, 65098)
 
 	-- Vicious Ruby Signet -- 99541
 	recipe = AddRecipe(99541, V.CATA, Q.COMMON)
@@ -5183,7 +5183,7 @@ function addon:InitJewelcrafting()
 	recipe:SetCraftedItem(70073, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("JEWELCRAFTING_RING")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddTrainer(28701, 65098)
+	recipe:AddTrainer(28701, 44582, 65098)
 
 	-- Vicious Sapphire Necklace -- 99542
 	recipe = AddRecipe(99542, V.CATA, Q.COMMON)
@@ -5191,7 +5191,7 @@ function addon:InitJewelcrafting()
 	recipe:SetCraftedItem(70074, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("JEWELCRAFTING_NECK")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddTrainer(28701, 65098)
+	recipe:AddTrainer(28701, 44582, 65098)
 
 	-- Vicious Amberjewel Pendant -- 99543
 	recipe = AddRecipe(99543, V.CATA, Q.COMMON)
@@ -5199,7 +5199,7 @@ function addon:InitJewelcrafting()
 	recipe:SetCraftedItem(70075, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("JEWELCRAFTING_NECK")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddTrainer(28701, 65098)
+	recipe:AddTrainer(28701, 44582, 65098)
 
 	-- Vicious Ruby Choker -- 99544
 	recipe = AddRecipe(99544, V.CATA, Q.COMMON)
@@ -5207,7 +5207,7 @@ function addon:InitJewelcrafting()
 	recipe:SetCraftedItem(70076, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("JEWELCRAFTING_NECK")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddTrainer(28701, 65098)
+	recipe:AddTrainer(28701, 44582, 65098)
 
 	-- Rigid Deepholm Iolite -- 101735
 	recipe = AddRecipe(101735, V.CATA, Q.RARE)
