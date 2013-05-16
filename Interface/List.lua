@@ -516,26 +516,26 @@ function private.InitializeListFrame()
 			------------------------------------------------------------------------------------------------
 			-- Player Type flags.
 			------------------------------------------------------------------------------------------------
-			["melee"]	= { flag = COMMON1.DPS,		field = "common1",	sv_root = player_filters },
-			["tank"]	= { flag = COMMON1.TANK,	field = "common1",	sv_root = player_filters },
-			["healer"]	= { flag = COMMON1.HEALER,	field = "common1",	sv_root = player_filters },
-			["caster"]	= { flag = COMMON1.CASTER,	field = "common1",	sv_root = player_filters },
+			melee	= { flag = COMMON1.DPS,		field = "common1",	sv_root = player_filters },
+			tank	= { flag = COMMON1.TANK,	field = "common1",	sv_root = player_filters },
+			healer	= { flag = COMMON1.HEALER,	field = "common1",	sv_root = player_filters },
+			caster	= { flag = COMMON1.CASTER,	field = "common1",	sv_root = player_filters },
 		}
 
 		local SOFT_FILTERS = {
-			["achievement"]	= { flag = COMMON1.ACHIEVEMENT,	field = "common1",	sv_root = obtain_filters },
-			["discovery"]	= { flag = COMMON1.DISC,	field = "common1",	sv_root = obtain_filters },
-			["instance"]	= { flag = COMMON1.INSTANCE,	field = "common1",	sv_root = obtain_filters },
-			["mobdrop"]	= { flag = COMMON1.MOB_DROP,	field = "common1",	sv_root = obtain_filters },
-			["pvp"]		= { flag = COMMON1.PVP,		field = "common1",	sv_root = obtain_filters },
-			["quest"]	= { flag = COMMON1.QUEST,	field = "common1",	sv_root = obtain_filters },
-			["raid"]	= { flag = COMMON1.RAID,	field = "common1",	sv_root = obtain_filters },
-			["retired"]	= { flag = COMMON1.RETIRED,	field = "common1",	sv_root = general_filters },
-			["reputation"]	= { flag = COMMON1.REPUTATION,	field = "common1",	sv_root = obtain_filters},
-			["seasonal"]	= { flag = COMMON1.SEASONAL,	field = "common1",	sv_root = obtain_filters },
-			["trainer"]	= { flag = COMMON1.TRAINER,	field = "common1",	sv_root = obtain_filters },
-			["vendor"]	= { flag = COMMON1.VENDOR,	field = "common1",	sv_root = obtain_filters },
-			["worlddrop"]	= { flag = COMMON1.WORLD_DROP,	field = "common1",	sv_root = obtain_filters },
+			achievement	= { flag = COMMON1.ACHIEVEMENT,	field = "common1",	sv_root = obtain_filters },
+			discovery	= { flag = COMMON1.DISC,	field = "common1",	sv_root = obtain_filters },
+			instance	= { flag = COMMON1.INSTANCE,	field = "common1",	sv_root = obtain_filters },
+			mobdrop		= { flag = COMMON1.MOB_DROP,	field = "common1",	sv_root = obtain_filters },
+			pvp		= { flag = COMMON1.PVP,		field = "common1",	sv_root = obtain_filters },
+			quest		= { flag = COMMON1.QUEST,	field = "common1",	sv_root = obtain_filters },
+			raid		= { flag = COMMON1.RAID,	field = "common1",	sv_root = obtain_filters },
+			retired		= { flag = COMMON1.RETIRED,	field = "common1",	sv_root = general_filters },
+			reputation	= { flag = COMMON1.REPUTATION,	field = "common1",	sv_root = obtain_filters },
+			seasonal	= { flag = COMMON1.SEASONAL,	field = "common1",	sv_root = obtain_filters },
+			trainer		= { flag = COMMON1.TRAINER,	field = "common1",	sv_root = obtain_filters },
+			vendor		= { flag = COMMON1.VENDOR,	field = "common1",	sv_root = obtain_filters },
+			worlddrop	= { flag = COMMON1.WORLD_DROP,	field = "common1",	sv_root = obtain_filters },
 		}
 
 		local REP1 = private.REP_FLAGS_WORD1
