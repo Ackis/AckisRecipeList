@@ -1,6 +1,38 @@
 ==ARL Change Log
 NOTE: Always remove the folder for old versions and install a fresh copy when upgrading.
 
+== 2.4.8
+
+=== Recipe Database:
+* Updated many recipes - per tickets
+* Add/update vendors & trainers
+
+=== Interface:
+* 5.3 compatible
+* Fix various bugs with tooltip functionality
+* Waypoints added for Pandaria
+* Remove debugging code
+
+== 2.4.7
+
+=== Recipe Database:
+* Updated many recipes - per tickets
+
+=== Interface:
+* Fix various bugs with tooltip functionality
+* Add Waypoint functionality
+
+== 2.4.6
+
+=== Interface:
+* New tooltip functionality
+
+== 2.4.5
+
+=== Recipe Database:
+* Updated with Profession changes for 5.2
+* Rescan several trainers
+
 == 2.4.4
 
 === Interface:
