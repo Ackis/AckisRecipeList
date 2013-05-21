@@ -255,7 +255,7 @@ function private.InitializeListFrame()
 		local old_selected = ListFrame.selected_entry
 		ListFrame.selected_entry = nil
 
-		if old_selected then
+		if old_selected and old_selected.button then
 			old_selected.button.selected_texture:Hide()
 			Bar_OnLeave(old_selected.button)
 		end
