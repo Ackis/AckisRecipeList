@@ -1044,8 +1044,8 @@ function addon:InitEngineering()
 	recipe:SetRecipeItem(16056, "BIND_ON_EQUIP")
 	recipe:SetCraftedItem(16007, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("ENGINEERING_GUN")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS, F.HEALER, F.CASTER)
-	recipe:AddMobDrop(8561)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS, F.HEALER, F.CASTER, F.RETIRED)
+--	recipe:AddMobDrop(8561)
 
 	-- Snowmaster 9000 -- 21940
 	recipe = AddRecipe(21940, V.ORIG, Q.UNCOMMON)
@@ -3135,6 +3135,13 @@ function addon:InitEngineering()
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
 	recipe:AddTrainer(5518, 11017, 55143)
 
+
+
+	self.InitEngineering = nil
+end
+
+-- [[ Didn't make 5.3
+
 	-- Sky Claw -- 139192
 	recipe = AddRecipe(139192, V.MOP, Q.RARE)
 	recipe:SetSkillLevels(500, 500, 605, 610, 615)
@@ -3143,6 +3150,5 @@ function addon:InitEngineering()
 	recipe:SetItemFilterType("ENGINEERING_MOUNT")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
 	recipe:AddWorldDrop(Z.PANDARIA)
+]] --
 
-	self.InitEngineering = nil
-end
