@@ -3140,7 +3140,7 @@ function addon:InitEngineering()
 	self.InitEngineering = nil
 end
 
--- [[ Didn't make 5.3
+--[[ Didn't make 5.3
 
 	-- Sky Claw -- 139192
 	recipe = AddRecipe(139192, V.MOP, Q.RARE)
