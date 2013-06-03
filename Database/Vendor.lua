@@ -419,8 +419,8 @@ function addon:InitVendor()
 	AddVendor(52644,	L["Tarien Silverdew"],			Z.DARNASSUS,			54.4,	30.7,	"Alliance") -- COMPLETELY UPDATED
 	AddVendor(52655,	L["Palehoof's Big Bag of Parts"],	Z.THUNDER_BLUFF,		36.2,	60.2,	"Horde") -- COMPLETELY UPDATED
 	AddVendor(52658,	L["Paku Cloudchaser"],			Z.THUNDER_BLUFF,		34.7,	53.5,	"Horde") -- COMPLETELY UPDATED
-	AddVendor(53214,	L["Damek Bloombeard"],			Z.MOUNT_HYJAL,			47.0,	90.2,	"Neutral")
-	AddVendor(53881,	L["Ayla Shadowstorm"],			Z.MOUNT_HYJAL,			72.5,	36.2,	"Neutral")
+	AddVendor(53214,	L["Damek Bloombeard"],			Z.MOLTEN_FRONT,			47.0,	90.6,	"Neutral")
+	AddVendor(53881,	L["Ayla Shadowstorm"],			Z.MOLTEN_FRONT,			44.8,	86.6,	"Neutral")
 	AddVendor(54232,	L["Mrs. Gant"],				Z.THE_CAPE_OF_STRANGLETHORN,	42.6,	72.8,	"Neutral") -- COMPLETLY UPDATED
 	AddVendor(56925,	L["Farrah Facet"],			Z.STORMWIND_CITY,		63.8,	61.6,	"Alliance") -- COMPLETLY UPDATED
 	AddVendor(57922,	L["Taryssa Lazuria"],			Z.ORGRIMMAR,			72.4,	34.6,	"Horde") -- COMPLETLY UPDATED
