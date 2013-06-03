@@ -1947,8 +1947,7 @@ function addon:InitLeatherworking()
 	recipe:SetRecipeItem(21548, "BIND_ON_EQUIP")
 	recipe:SetCraftedItem(21278, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("LEATHERWORKING_HANDS")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS, F.HEALER, F.CASTER)
-	recipe:AddMobDrop(14454, 14457)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS, F.HEALER, F.CASTER, F.RETIRED)
 
 	-- Polar Tunic -- 28219
 	recipe = AddRecipe(28219, V.ORIG, Q.EPIC)

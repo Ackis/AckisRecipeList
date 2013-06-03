@@ -155,9 +155,6 @@ function addon:InitMob()
 	AddMob(28123,	L["Venture Co. Excavator"],		Z.SHOLAZAR_BASIN,		35.8, 45.5)
 	AddMob(28379,	L["Shattertusk Mammoth"],		Z.SHOLAZAR_BASIN,		53.5, 24.4)
 
-	-- Silithus
-	AddMob(14454,	BB["The Windreaver"],			Z.SILITHUS,			27.0, 26.8)
-
 	-- Silverpine Forest
 	AddMob(3530,	L["Pyrewood Tailor"],			Z.SILVERPINE_FOREST,		45.7, 71.0)
 	AddMob(3531,	L["Moonrage Tailor"],			Z.SILVERPINE_FOREST,		45.5, 73.3)
@@ -213,7 +210,6 @@ function addon:InitMob()
 	AddMob(7438,	L["Winterfall Ursa"],			Z.WINTERSPRING,			67.5, 36.3)
 	AddMob(7440,	L["Winterfall Den Watcher"],		Z.WINTERSPRING,			68.0, 35.5)
 	AddMob(7441,	L["Winterfall Totemic"],		Z.WINTERSPRING,			24.2, 50.4)
-	AddMob(14457,	BB["Princess Tempestria"],		Z.WINTERSPRING,			52.7, 41.9)
 
 	-- Zul'drak
 	AddMob(28851,	L["Enraged Mammoth"],			Z.ZULDRAK,			72.0, 41.1)
