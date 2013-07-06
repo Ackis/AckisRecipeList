@@ -398,9 +398,57 @@ end
 
 do
 	local coroutine = _G.coroutine
+	local math = _G.math
+
 	local ORDERED_PROFESSIONS = private.ORDERED_PROFESSIONS
 
 	local intermediary_recipe_list = {}
+	local progress_bar
+
+	local function ProgressBar()
+		if not progress_bar then
+			progress_bar = _G.CreateFrame("Frame", nil, _G.UIParent)
+			progress_bar:SetSize(450, 30)
+			progress_bar:SetPoint("CENTER", 0, -250)
+			progress_bar:SetFrameStrata("DIALOG")
+			progress_bar:EnableMouse()
+
+			progress_bar:SetBackdrop({
+				bgFile = [[Interface\Tooltips\UI-Tooltip-Background]],
+				edgeFile = [[Interface\Tooltips\UI-Tooltip-Border]],
+				tile = true,
+				tileSize = 16,
+				edgeSize = 16,
+				insets = {
+					left = 4,
+					right = 4,
+					top = 4,
+					bottom = 4
+				}
+			});
+			progress_bar:SetBackdropColor(0, 0, 0, 1);
+
+			progress_bar.fg = progress_bar:CreateTexture()
+			progress_bar.fg:SetTexture(0, 0.7, 0.2, 0.5)
+			progress_bar.fg:SetPoint("LEFT", progress_bar, "LEFT", 5, 0)
+			progress_bar.fg:SetSize(300, 20)
+
+			progress_bar.left_text = progress_bar:CreateFontString(nil, "ARTWORK", "GameFontWhiteSmall")
+			progress_bar.left_text:SetPoint("LEFT", 10, 0)
+
+			progress_bar.right_text = progress_bar:CreateFontString(nil, "ARTWORK", "GameFontWhiteSmall")
+			progress_bar.right_text:SetPoint("RIGHT", -10, 0)
+
+			function progress_bar:Update(current, max, spell_id)
+				local percentage = math.floor(current / max * 100)
+				progress_bar.fg:SetWidth(4.4 * percentage)
+				progress_bar.left_text:SetFormattedText("%s (%d)", private.recipe_list[spell_id].name, spell_id)
+				progress_bar.right_text:SetFormattedText("%d/%d (%d%%)", current, max, percentage)
+			end
+		end
+		progress_bar.fg:SetWidth(0)
+		return progress_bar
+	end
 
 	local ScannerUpdateFrame = _G.CreateFrame("Frame")
 
@@ -456,8 +504,12 @@ do
 
 		SortRecipesByID()
 
-		-- Parse the entire recipe database
+		local num_recipes = #addon.sorted_recipes
+		local progress_bar = ProgressBar()
+		progress_bar:Show()
+
 		for index, spell_id in ipairs(addon.sorted_recipes) do
+			progress_bar:Update(index, num_recipes, spell_id)
 			addon:ScanTooltipRecipe(spell_id, false, true)
 			coroutine.yield()
 		end
@@ -465,6 +517,7 @@ do
 		if output:Lines() == 0 then
 			addon:Debug("ProfessionScan(): output is empty.")
 		end
+		progress_bar:Hide()
 		output:Display()
 		ARLDatamineTT:Hide()
 	end
@@ -546,20 +599,21 @@ do
 		for spell_id in pairs(profession_recipe_list) do
 			intermediary_recipe_list[spell_id] = profession_recipe_list[spell_id]
 		end
-		SortRecipesByID()
-
 		local output = private.TextDump
 		output:Clear()
 
+		SortRecipesByID()
+
 		local num_recipes = #addon.sorted_recipes
+		local progress_bar = ProgressBar()
+		progress_bar:Show()
+
 		for index, spell_id in ipairs(addon.sorted_recipes) do
-			local percentage = ((index / num_recipes) * 100)
-			if percentage % 10 == 0 then
-				addon:Debug("Dump percentage: %d", percentage)
-			end
+			progress_bar:Update(index, num_recipes, spell_id)
 			RecipeDump(spell_id, false)
 			coroutine.yield()
 		end
+		progress_bar:Hide()
 		output:Display()
 	end
 
