@@ -582,14 +582,14 @@ do
 		self:Debug(L["DATAMINER_NODB_ERROR"])
 	end
 
-	local function RecipeDump(id, single)
+	local function RecipeDump(id, output)
 		local recipe = private.recipe_list[id or 1]
 
-		if single and not recipe then
+		if not recipe then
 			addon:Debug("Invalid recipe ID: %s", id or "nil")
 			return
 		end
-		recipe:Dump()
+		recipe:Dump(output)
 	end
 
 	-------------------------------------------------------------------------------
@@ -615,7 +615,7 @@ do
 
 		for index, spell_id in ipairs(addon.sorted_recipes) do
 			progress_bar:Update(index, num_recipes, spell_id)
-			RecipeDump(spell_id, false)
+			RecipeDump(spell_id, output)
 			coroutine.yield()
 		end
 		progress_bar:Hide()
@@ -639,7 +639,7 @@ do
 	function addon:DumpRecipe(id_num)
 		local output = private.TextDump
 		output:Clear()
-		RecipeDump(id_num, true)
+		RecipeDump(id_num, output)
 		output:Display()
 	end
 

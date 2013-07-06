@@ -537,9 +537,7 @@ local IMPLICIT_FLAGS = {
 	WORLD_DROP = true,
 }
 
-function recipe_prototype:Dump()
-	local output = private.TextDump
-
+function recipe_prototype:Dump(output)
 	output:AddLine(("-- %s -- %d"):format(self.name, self.spell_id))
 	output:AddLine(("recipe = AddRecipe(%d, V.%s, Q.%s)"):format(self.spell_id, self.genesis, private.ITEM_QUALITY_NAMES[self.quality]))
 	output:AddLine(("recipe:SetSkillLevels(%d, %d, %d, %d, %d)"):format(self.skill_level, self.optimal_level, self.medium_level, self.easy_level, self.trivial_level))
