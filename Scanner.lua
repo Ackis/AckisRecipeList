@@ -537,7 +537,7 @@ do
 	-------------------------------------------------------------------------------
 	--- Dumps the items in the specified profession
 	-------------------------------------------------------------------------------
-	local function ProfessionDump(profession_name)
+	local function CoroutineProfessionDump(profession_name)
 		addon:InitializeProfession(profession_name)
 		table.wipe(intermediary_recipe_list)
 
@@ -551,10 +551,30 @@ do
 		local output = private.TextDump
 		output:Clear()
 
+		local num_recipes = #addon.sorted_recipes
 		for index, spell_id in ipairs(addon.sorted_recipes) do
+			local percentage = ((index / num_recipes) * 100)
+			if percentage % 10 == 0 then
+				addon:Debug("Dump percentage: %d", percentage)
+			end
 			RecipeDump(spell_id, false)
+			coroutine.yield()
 		end
 		output:Display()
+	end
+
+	local function ProfessionDump(profession_name)
+		if ScannerUpdateFrame.is_running then
+			return
+		end
+		ScannerUpdateFrame.scanner = coroutine.create(CoroutineProfessionDump)
+		ScannerUpdateFrame:SetScript("OnUpdate", ScannerUpdateFrame.OnUpdate)
+		ScannerUpdateFrame.is_running = true
+
+		local status = coroutine.resume(ScannerUpdateFrame.scanner, profession_name)
+		if not status then
+			ScannerUpdateFrame:Cleanup()
+		end
 	end
 
 	function addon:DumpRecipe(id_num)
@@ -565,6 +585,11 @@ do
 	end
 
 	function addon:DumpProfession(input_text)
+		if ScannerUpdateFrame.profession then
+			addon:Debug("Already dumping %s - wait until finished.", ScannerUpdateFrame.profession)
+			return
+		end
+
 		if type(input_text) == "number" then
 			input_text = _G.GetSpellInfo(input_text)
 		end
