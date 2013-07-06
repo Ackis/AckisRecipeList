@@ -411,7 +411,9 @@ do
 			progress_bar:SetSize(450, 30)
 			progress_bar:SetPoint("CENTER", 0, -250)
 			progress_bar:SetFrameStrata("DIALOG")
+			progress_bar:SetClampedToScreen(true)
 			progress_bar:EnableMouse()
+			progress_bar:SetMovable(true)
 
 			progress_bar:SetBackdrop({
 				bgFile = [[Interface\Tooltips\UI-Tooltip-Background]],
@@ -438,6 +440,9 @@ do
 
 			progress_bar.right_text = progress_bar:CreateFontString(nil, "ARTWORK", "GameFontWhiteSmall")
 			progress_bar.right_text:SetPoint("RIGHT", -10, 0)
+
+			progress_bar:SetScript("OnMouseDown", progress_bar.StartMoving)
+			progress_bar:SetScript("OnMouseUp", progress_bar.StopMovingOrSizing)
 
 			function progress_bar:Update(current, max, spell_id)
 				local percentage = math.floor(current / max * 100)
