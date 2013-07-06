@@ -397,9 +397,31 @@ function addon:GenerateLinks()
 end
 
 do
+	local coroutine = _G.coroutine
 	local ORDERED_PROFESSIONS = private.ORDERED_PROFESSIONS
 
 	local intermediary_recipe_list = {}
+
+	local ScannerUpdateFrame = _G.CreateFrame("Frame")
+
+	function ScannerUpdateFrame:Cleanup()
+		self:SetScript("OnUpdate", nil)
+		self.is_running = nil
+		self.profession = nil
+		self.scanner = nil
+	end
+
+	function ScannerUpdateFrame:OnUpdate(elapsed)
+		local is_finished = coroutine.resume(self.scanner)
+
+		if is_finished then
+			if coroutine.status(self.scanner) == "dead" then
+				self:Cleanup()
+			end
+		else
+			self:Cleanup()
+		end
+	end
 
 	local function Sort_AscID(a, b)
 		local reca, recb = private.recipe_list[a], private.recipe_list[b]
@@ -420,7 +442,8 @@ do
 	-------------------------------------------------------------------------------
 	--- Scans the items in the specified profession
 	-------------------------------------------------------------------------------
-	local function ProfessionScan(profession_name)
+	local function CoroutineProfessionScan(profession_name)
+		ScannerUpdateFrame.profession = profession_name
 		table.wipe(intermediary_recipe_list)
 
 		local profession_recipe_list = private.profession_recipe_list[profession_name]
@@ -436,6 +459,7 @@ do
 		-- Parse the entire recipe database
 		for index, spell_id in ipairs(addon.sorted_recipes) do
 			addon:ScanTooltipRecipe(spell_id, false, true)
+			coroutine.yield()
 		end
 
 		if output:Lines() == 0 then
@@ -445,7 +469,26 @@ do
 		ARLDatamineTT:Hide()
 	end
 
+	local function ProfessionScan(profession_name)
+		if ScannerUpdateFrame.is_running then
+			return
+		end
+		ScannerUpdateFrame.scanner = coroutine.create(CoroutineProfessionScan)
+		ScannerUpdateFrame:SetScript("OnUpdate", ScannerUpdateFrame.OnUpdate)
+		ScannerUpdateFrame.is_running = true
+
+		local status = coroutine.resume(ScannerUpdateFrame.scanner, profession_name)
+		if not status then
+			ScannerUpdateFrame:Cleanup()
+		end
+	end
+
 	local function ScheduleProfessionScan(profession_name)
+		if ScannerUpdateFrame.profession then
+			addon:Debug("Already scanning %s - wait until finished.", ScannerUpdateFrame.profession)
+			return
+		end
+
 		if addon:InitializeProfession(profession_name) then
 			addon:ScheduleTimer(ProfessionScan, 2, profession_name)
 			addon:Printf("%s had to be loaded - starting scan in 2 seconds to ensure everything is in the cache.", profession_name)
