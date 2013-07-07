@@ -1014,43 +1014,6 @@ function addon:InitEnchanting()
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.HEALER, F.CASTER)
 	recipe:AddCustom("AQ40_RANDOM_BOP")
 
-	-- Enchant Gloves - Superior Agility -- 25080
-	recipe = AddRecipe(25080, V.TBC, Q.RARE)
-	recipe:SetSkillLevels(300, 300, 310, 325, 340)
-	recipe:SetRecipeItem(20731, "BIND_ON_PICKUP")
-	recipe:SetItemFilterType("ENCHANTING_GLOVES")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.DPS, F.KOT)
-	recipe:AddRepVendor(FAC.KEEPERS_OF_TIME, REP.EXALTED, 21643)
-	recipe:AddCustom("AQ40_RANDOM_BOP")
-
-	-- Enchant Cloak - Stealth -- 25083
-	recipe = AddRecipe(25083, V.TBC, Q.RARE)
-	recipe:SetSkillLevels(300, 300, 310, 325, 340)
-	recipe:SetRecipeItem(33149, "BIND_ON_PICKUP")
-	recipe:SetItemFilterType("ENCHANTING_CLOAK")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.TANK, F.CENARION_EXPEDITION)
-	recipe:AddRepVendor(FAC.CENARION_EXPEDITION, REP.EXALTED, 17904)
-	recipe:AddCustom("AQ40_RANDOM_BOP")
-
-	-- Enchant Cloak - Subtlety -- 25084
-	recipe = AddRecipe(25084, V.TBC, Q.RARE)
-	recipe:SetSkillLevels(300, 300, 310, 325, 340)
-	recipe:SetRecipeItem(33150, "BIND_ON_PICKUP")
-	recipe:SetItemFilterType("ENCHANTING_CLOAK")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.TANK, F.HELLFIRE)
-	recipe:AddMobDrop(15276)
-	recipe:AddRepVendor(FAC.HONOR_HOLD, REP.EXALTED, 17657)
-	recipe:AddRepVendor(FAC.THRALLMAR, REP.EXALTED, 17585)
-
-	-- Enchant Cloak - Dodge -- 25086
-	recipe = AddRecipe(25086, V.TBC, Q.RARE)
-	recipe:SetSkillLevels(300, 300, 310, 325, 340)
-	recipe:SetRecipeItem(33148, "BIND_ON_PICKUP")
-	recipe:SetItemFilterType("ENCHANTING_CLOAK")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.TANK, F.LOWERCITY)
-	recipe:AddRepVendor(FAC.LOWERCITY, REP.EXALTED, 21655)
-	recipe:AddCustom("AQ40_RANDOM_BOP")
-
 	-- Minor Wizard Oil -- 25124
 	recipe = AddRecipe(25124, V.ORIG, Q.COMMON)
 	recipe:SetSkillLevels(45, 45, 55, 65, 75)
@@ -1121,6 +1084,43 @@ function addon:InitEnchanting()
 	recipe:SetItemFilterType("ENCHANTING_2H_WEAPON")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS, F.TIMBERMAW_HOLD)
 	recipe:AddRepVendor(FAC.TIMBERMAW_HOLD, REP.FRIENDLY, 11557)
+
+	-- Enchant Gloves - Superior Agility -- 25080
+	recipe = AddRecipe(25080, V.ORIG, Q.RARE)
+	recipe:SetSkillLevels(300, 300, 310, 325, 340)
+	recipe:SetRecipeItem(20731, "BIND_ON_PICKUP")
+	recipe:SetItemFilterType("ENCHANTING_GLOVES")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.DPS, F.KOT)
+	recipe:AddRepVendor(FAC.KEEPERS_OF_TIME, REP.EXALTED, 21643)
+	recipe:AddCustom("AQ40_RANDOM_BOP")
+
+	-- Enchant Cloak - Stealth -- 25083
+	recipe = AddRecipe(25083, V.ORIG, Q.RARE)
+	recipe:SetSkillLevels(300, 300, 310, 325, 340)
+	recipe:SetRecipeItem(33149, "BIND_ON_PICKUP")
+	recipe:SetItemFilterType("ENCHANTING_CLOAK")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.TANK, F.CENARION_EXPEDITION)
+	recipe:AddRepVendor(FAC.CENARION_EXPEDITION, REP.EXALTED, 17904)
+	recipe:AddCustom("AQ40_RANDOM_BOP")
+
+	-- Enchant Cloak - Subtlety -- 25084
+	recipe = AddRecipe(25084, V.TBC, Q.RARE)
+	recipe:SetSkillLevels(300, 300, 310, 325, 340)
+	recipe:SetRecipeItem(33150, "BIND_ON_PICKUP")
+	recipe:SetItemFilterType("ENCHANTING_CLOAK")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.TANK, F.HELLFIRE)
+	recipe:AddMobDrop(15276)
+	recipe:AddRepVendor(FAC.HONOR_HOLD, REP.EXALTED, 17657)
+	recipe:AddRepVendor(FAC.THRALLMAR, REP.EXALTED, 17585)
+
+	-- Enchant Cloak - Dodge -- 25086
+	recipe = AddRecipe(25086, V.ORIG, Q.RARE)
+	recipe:SetSkillLevels(300, 300, 310, 325, 340)
+	recipe:SetRecipeItem(33148, "BIND_ON_PICKUP")
+	recipe:SetItemFilterType("ENCHANTING_CLOAK")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.TANK, F.LOWERCITY)
+	recipe:AddRepVendor(FAC.LOWERCITY, REP.EXALTED, 21655)
+	recipe:AddCustom("AQ40_RANDOM_BOP")
 
 	-- Enchant Bracer - Brawn -- 27899
 	recipe = AddRecipe(27899, V.TBC, Q.COMMON)
@@ -1262,13 +1262,6 @@ function addon:InitEnchanting()
 	recipe:SetItemFilterType("ENCHANTING_CHEST")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
 	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 5157, 16725, 18753, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 33676, 65127)
-
-	-- Enchant Chest - Exceptional Mana -- 27958
-	recipe = AddRecipe(27958, V.WOTLK, Q.COMMON)
-	recipe:SetSkillLevels(350, 350, 360, 370, 380)
-	recipe:SetItemFilterType("ENCHANTING_CHEST")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 5157, 16725, 18773, 19251, 19252, 19540, 26906, 26954, 26980, 26990, 28693, 33583, 33610, 33633, 65127)
 
 	-- Enchant Chest - Exceptional Stats -- 27960
 	recipe = AddRecipe(27960, V.TBC, Q.COMMON)
@@ -1498,12 +1491,12 @@ function addon:InitEnchanting()
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS)
 	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 5157, 16725, 18753, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 33676, 65127)
 
-	-- Enchant Cloak - Spell Penetration -- 34003
+	-- Enchant Cloak - PvP Power -- 34003
 	recipe = AddRecipe(34003, V.TBC, Q.UNCOMMON)
 	recipe:SetSkillLevels(325, 325, 335, 350, 365)
 	recipe:SetRecipeItem(28274, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("ENCHANTING_CLOAK")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.CASTER, F.CONSORTIUM)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.CONSORTIUM)
 	recipe:AddRepVendor(FAC.CONSORTIUM, REP.FRIENDLY, 20242, 23007)
 
 	-- Enchant Cloak - Greater Agility -- 34004
@@ -1584,6 +1577,39 @@ function addon:InitEnchanting()
 	recipe:SetItemFilterType("ENCHANTING_SHIELD")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
 	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 5157, 16725, 18753, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 33676, 65127)
+
+	-- Void Shatter -- 45765
+	recipe = AddRecipe(45765, V.TBC, Q.COMMON)
+	recipe:SetSkillLevels(375, 375, 375, 375, 375)
+	recipe:SetRecipeItem(34872, "BIND_ON_PICKUP")
+	recipe:SetCraftedItem(22449, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("ENCHANTING_MISC")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.SHATTEREDSUN)
+	recipe:AddRepVendor(FAC.SHATTEREDSUN, REP.HONORED, 25032)
+
+	-- Enchant Weapon - Deathfrost -- 46578
+	recipe = AddRecipe(46578, V.TBC, Q.RARE)
+	recipe:SetSkillLevels(350, 350, 350, 357, 365)
+	recipe:SetRecipeItem(35498, "BIND_ON_PICKUP")
+	recipe:SetCraftedItem(35498, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("ENCHANTING_WEAPON")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddSeason("MIDSUMMER")
+
+	-- Enchant Cloak - Greater Dodge -- 47051
+	recipe = AddRecipe(47051, V.TBC, Q.RARE)
+	recipe:SetSkillLevels(375, 375, 380, 385, 390)
+	recipe:SetRecipeItem(35756, "BIND_ON_PICKUP")
+	recipe:SetItemFilterType("ENCHANTING_CLOAK")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.INSTANCE, F.TANK)
+	recipe:AddMobDrop(24560)
+
+	-- Enchant Chest - Exceptional Mana -- 27958
+	recipe = AddRecipe(27958, V.WOTLK, Q.COMMON)
+	recipe:SetSkillLevels(350, 350, 360, 370, 380)
+	recipe:SetItemFilterType("ENCHANTING_CHEST")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 5157, 16725, 18773, 19251, 19252, 19540, 26906, 26954, 26980, 26990, 28693, 33583, 33610, 33633, 65127)
 
 	-- Enchant Gloves - Expertise -- 44484
 	recipe = AddRecipe(44484, V.WOTLK, Q.COMMON)
@@ -1847,24 +1873,6 @@ function addon:InitEnchanting()
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS)
 	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 5157, 16725, 18773, 19251, 19252, 19540, 26906, 26954, 26980, 26990, 28693, 33583, 33610, 33633, 65127)
 
-	-- Void Shatter -- 45765
-	recipe = AddRecipe(45765, V.TBC, Q.COMMON)
-	recipe:SetSkillLevels(375, 375, 375, 375, 375)
-	recipe:SetRecipeItem(34872, "BIND_ON_PICKUP")
-	recipe:SetCraftedItem(22449, "BIND_ON_EQUIP")
-	recipe:SetItemFilterType("ENCHANTING_MISC")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.SHATTEREDSUN)
-	recipe:AddRepVendor(FAC.SHATTEREDSUN, REP.HONORED, 25032)
-
-	-- Enchant Weapon - Deathfrost -- 46578
-	recipe = AddRecipe(46578, V.TBC, Q.RARE)
-	recipe:SetSkillLevels(350, 350, 350, 357, 365)
-	recipe:SetRecipeItem(35498, "BIND_ON_PICKUP")
-	recipe:SetCraftedItem(35498, "BIND_ON_EQUIP")
-	recipe:SetItemFilterType("ENCHANTING_WEAPON")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddSeason("MIDSUMMER")
-
 	-- Enchant Chest - Dodge -- 46594
 	recipe = AddRecipe(46594, V.WOTLK, Q.COMMON)
 	recipe:SetSkillLevels(360, 360, 370, 385, 400)
@@ -1872,14 +1880,6 @@ function addon:InitEnchanting()
 	recipe:SetItemFilterType("ENCHANTING_CHEST")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TANK, F.SHATTEREDSUN)
 	recipe:AddRepVendor(FAC.SHATTEREDSUN, REP.HONORED, 25032)
-
-	-- Enchant Cloak - Greater Dodge -- 47051
-	recipe = AddRecipe(47051, V.TBC, Q.RARE)
-	recipe:SetSkillLevels(375, 375, 380, 385, 390)
-	recipe:SetRecipeItem(35756, "BIND_ON_PICKUP")
-	recipe:SetItemFilterType("ENCHANTING_CLOAK")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.INSTANCE, F.TANK)
-	recipe:AddMobDrop(24560)
 
 	-- Enchant Cloak - Mighty Stamina -- 47672
 	recipe = AddRecipe(47672, V.WOTLK, Q.UNCOMMON)
@@ -2525,6 +2525,13 @@ function addon:InitEnchanting()
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS)
 	recipe:AddWorldDrop(Z.DEEPHOLM, Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
+	-- Maelstrom Shatter -- 104698
+	recipe = AddRecipe(104698, V.CATA, Q.COMMON)
+	recipe:SetSkillLevels(515, 515, 525, 530, 535)
+	recipe:SetItemFilterType("ENCHANTING_MISC")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddTrainer(1317, 3011, 3345, 65127)
+
 	-- Enchant Ring - Greater Agility -- 103461
 	recipe = AddRecipe(103461, V.MOP, Q.COMMON)
 	recipe:SetSkillLevels(550, 550, 560, 565, 570)
@@ -2758,13 +2765,6 @@ function addon:InitEnchanting()
 	recipe:SetItemFilterType("ENCHANTING_MISC")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
 	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 16633, 16725, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 65127)
-
-	-- Maelstrom Shatter -- 104698
-	recipe = AddRecipe(104698, V.CATA, Q.COMMON)
-	recipe:SetSkillLevels(515, 515, 525, 530, 535)
-	recipe:SetItemFilterType("ENCHANTING_MISC")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddTrainer(1317, 3011, 3345, 65127)
 
 	-- Mysterious Essence -- 116497
 	recipe = AddRecipe(116497, V.MOP, Q.COMMON)

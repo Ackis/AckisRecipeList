@@ -1831,11 +1831,8 @@ function addon:InitTailoring()
 	recipe:SetSkillLevels(280, 280, 300, 315, 330)
 	recipe:SetCraftedItem(21341, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("TAILORING_BAG")
-	--recipe:AddFilters(F.ALLIANCE, F.HORDE, F.INSTANCE, F.WARLOCK, F.RETIRED)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WARLOCK, F.RETIRED)
-	--recipe:AddMobDrop(10503)
-	recipe:AddCustom("SCHOLO_BOOK_SPAWN")
-	recipe:AddCustom("REMOVED_FROM_GAME")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.WARLOCK)
+	recipe:AddCustom("REMOVED_FROM_GAME", "SCHOLO_BOOK_SPAWN")
 
 	-- Core Felcloth Bag -- 26087
 	recipe = AddRecipe(26087, V.ORIG, Q.RARE)
@@ -1865,6 +1862,110 @@ function addon:InitTailoring()
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
 	recipe:AddVendor(15909)
 	recipe:AddSeason("LUNAR_FESTIVAL")
+
+	-- Enchanted Runecloth Bag -- 27659
+	recipe = AddRecipe(27659, V.ORIG, Q.COMMON)
+	recipe:SetSkillLevels(275, 275, 290, 305, 320)
+	recipe:SetRecipeItem(22308, "BIND_ON_EQUIP")
+	recipe:SetCraftedItem(22248, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("TAILORING_BAG")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddVendor(15419)
+
+	-- Big Bag of Enchantment -- 27660
+	recipe = AddRecipe(27660, V.ORIG, Q.UNCOMMON)
+	recipe:SetSkillLevels(300, 300, 315, 330, 345)
+	recipe:SetRecipeItem(22309, "BIND_ON_EQUIP")
+	recipe:SetCraftedItem(22249, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("TAILORING_BAG")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.INSTANCE)
+	recipe:AddMobDrop(11487)
+
+	-- Cenarion Herb Bag -- 27724
+	recipe = AddRecipe(27724, V.ORIG, Q.COMMON)
+	recipe:SetSkillLevels(275, 275, 290, 305, 320)
+	recipe:SetRecipeItem(22310, "BIND_ON_PICKUP")
+	recipe:SetCraftedItem(22251, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("TAILORING_BAG")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.CENARION_CIRCLE)
+	recipe:AddRepVendor(FAC.CENARION_CIRCLE, REP.FRIENDLY, 15179)
+
+	-- Satchel of Cenarius -- 27725
+	recipe = AddRecipe(27725, V.ORIG, Q.COMMON)
+	recipe:SetSkillLevels(300, 300, 315, 330, 345)
+	recipe:SetRecipeItem(22312, "BIND_ON_PICKUP")
+	recipe:SetCraftedItem(22252, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("TAILORING_BAG")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.CENARION_CIRCLE)
+	recipe:AddRepVendor(FAC.CENARION_CIRCLE, REP.REVERED, 15179)
+
+	-- Glacial Gloves -- 28205
+	recipe = AddRecipe(28205, V.ORIG, Q.EPIC)
+	recipe:SetSkillLevels(300, 300, 315, 330, 345)
+	recipe:SetCraftedItem(22654, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("TAILORING_HANDS")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.HEALER, F.CASTER)
+	recipe:AddCustom("REMOVED_FROM_GAME")
+
+	-- Glacial Vest -- 28207
+	recipe = AddRecipe(28207, V.ORIG, Q.EPIC)
+	recipe:SetSkillLevels(300, 300, 315, 330, 345)
+	recipe:SetCraftedItem(22652, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("TAILORING_CHEST")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.HEALER, F.CASTER)
+	recipe:AddCustom("REMOVED_FROM_GAME")
+
+	-- Glacial Cloak -- 28208
+	recipe = AddRecipe(28208, V.ORIG, Q.EPIC)
+	recipe:SetSkillLevels(300, 300, 315, 330, 345)
+	recipe:SetCraftedItem(22658, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("TAILORING_BACK")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED)
+	recipe:AddCustom("REMOVED_FROM_GAME")
+
+	-- Glacial Wrists -- 28209
+	recipe = AddRecipe(28209, V.ORIG, Q.EPIC)
+	recipe:SetSkillLevels(300, 300, 315, 330, 345)
+	recipe:SetCraftedItem(22655, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("TAILORING_WRIST")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.HEALER, F.CASTER)
+	recipe:AddCustom("REMOVED_FROM_GAME")
+
+	-- Gaea's Embrace -- 28210
+	recipe = AddRecipe(28210, V.ORIG, Q.COMMON)
+	recipe:SetSkillLevels(300, 300, 315, 330, 345)
+	recipe:SetRecipeItem(22683, "BIND_ON_PICKUP")
+	recipe:SetCraftedItem(22660, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("TAILORING_BACK")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.CENARION_CIRCLE)
+	recipe:AddRepVendor(FAC.CENARION_CIRCLE, REP.REVERED, 15179)
+
+	-- Sylvan Vest -- 28480
+	recipe = AddRecipe(28480, V.ORIG, Q.COMMON)
+	recipe:SetSkillLevels(300, 300, 315, 330, 345)
+	recipe:SetRecipeItem(22774, "BIND_ON_PICKUP")
+	recipe:SetCraftedItem(22756, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("TAILORING_CHEST")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.HEALER, F.CASTER, F.CENARION_CIRCLE)
+	recipe:AddRepVendor(FAC.CENARION_CIRCLE, REP.REVERED, 15179)
+
+	-- Sylvan Crown -- 28481
+	recipe = AddRecipe(28481, V.ORIG, Q.COMMON)
+	recipe:SetSkillLevels(300, 300, 315, 330, 345)
+	recipe:SetRecipeItem(22773, "BIND_ON_PICKUP")
+	recipe:SetCraftedItem(22757, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("TAILORING_HEAD")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.HEALER, F.CASTER, F.CENARION_CIRCLE)
+	recipe:AddRepVendor(FAC.CENARION_CIRCLE, REP.HONORED, 15179)
+
+	-- Sylvan Shoulders -- 28482
+	recipe = AddRecipe(28482, V.ORIG, Q.COMMON)
+	recipe:SetSkillLevels(300, 300, 315, 330, 345)
+	recipe:SetRecipeItem(22772, "BIND_ON_PICKUP")
+	recipe:SetCraftedItem(22758, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("TAILORING_SHOULDER")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.HEALER, F.CASTER, F.CENARION_CIRCLE)
+	recipe:AddRepVendor(FAC.CENARION_CIRCLE, REP.FRIENDLY, 15179)
 
 	-- Bolt of Netherweave -- 26745
 	recipe = AddRecipe(26745, V.TBC, Q.COMMON)
@@ -2184,110 +2285,6 @@ function addon:InitTailoring()
 	recipe:SetItemFilterType("TAILORING_BAG")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
 	recipe:AddVendor(1318, 3012, 3346, 4228, 4617, 5158, 5757, 5758, 15419, 16635, 16722, 18753, 18773, 18951, 19234, 19537, 19540, 19663, 26569, 27030, 27054, 27147, 28714)
-
-	-- Enchanted Runecloth Bag -- 27659
-	recipe = AddRecipe(27659, V.ORIG, Q.COMMON)
-	recipe:SetSkillLevels(275, 275, 290, 305, 320)
-	recipe:SetRecipeItem(22308, "BIND_ON_EQUIP")
-	recipe:SetCraftedItem(22248, "BIND_ON_EQUIP")
-	recipe:SetItemFilterType("TAILORING_BAG")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddVendor(15419)
-
-	-- Big Bag of Enchantment -- 27660
-	recipe = AddRecipe(27660, V.ORIG, Q.UNCOMMON)
-	recipe:SetSkillLevels(300, 300, 315, 330, 345)
-	recipe:SetRecipeItem(22309, "BIND_ON_EQUIP")
-	recipe:SetCraftedItem(22249, "BIND_ON_EQUIP")
-	recipe:SetItemFilterType("TAILORING_BAG")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.INSTANCE)
-	recipe:AddMobDrop(11487)
-
-	-- Cenarion Herb Bag -- 27724
-	recipe = AddRecipe(27724, V.ORIG, Q.COMMON)
-	recipe:SetSkillLevels(275, 275, 290, 305, 320)
-	recipe:SetRecipeItem(22310, "BIND_ON_PICKUP")
-	recipe:SetCraftedItem(22251, "BIND_ON_EQUIP")
-	recipe:SetItemFilterType("TAILORING_BAG")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.CENARION_CIRCLE)
-	recipe:AddRepVendor(FAC.CENARION_CIRCLE, REP.FRIENDLY, 15179)
-
-	-- Satchel of Cenarius -- 27725
-	recipe = AddRecipe(27725, V.ORIG, Q.COMMON)
-	recipe:SetSkillLevels(300, 300, 315, 330, 345)
-	recipe:SetRecipeItem(22312, "BIND_ON_PICKUP")
-	recipe:SetCraftedItem(22252, "BIND_ON_EQUIP")
-	recipe:SetItemFilterType("TAILORING_BAG")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.CENARION_CIRCLE)
-	recipe:AddRepVendor(FAC.CENARION_CIRCLE, REP.REVERED, 15179)
-
-	-- Glacial Gloves -- 28205
-	recipe = AddRecipe(28205, V.ORIG, Q.EPIC)
-	recipe:SetSkillLevels(300, 300, 315, 330, 345)
-	recipe:SetCraftedItem(22654, "BIND_ON_EQUIP")
-	recipe:SetItemFilterType("TAILORING_HANDS")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.HEALER, F.CASTER)
-	recipe:AddCustom("REMOVED_FROM_GAME")
-
-	-- Glacial Vest -- 28207
-	recipe = AddRecipe(28207, V.ORIG, Q.EPIC)
-	recipe:SetSkillLevels(300, 300, 315, 330, 345)
-	recipe:SetCraftedItem(22652, "BIND_ON_EQUIP")
-	recipe:SetItemFilterType("TAILORING_CHEST")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.HEALER, F.CASTER)
-	recipe:AddCustom("REMOVED_FROM_GAME")
-
-	-- Glacial Cloak -- 28208
-	recipe = AddRecipe(28208, V.ORIG, Q.EPIC)
-	recipe:SetSkillLevels(300, 300, 315, 330, 345)
-	recipe:SetCraftedItem(22658, "BIND_ON_EQUIP")
-	recipe:SetItemFilterType("TAILORING_BACK")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED)
-	recipe:AddCustom("REMOVED_FROM_GAME")
-
-	-- Glacial Wrists -- 28209
-	recipe = AddRecipe(28209, V.ORIG, Q.EPIC)
-	recipe:SetSkillLevels(300, 300, 315, 330, 345)
-	recipe:SetCraftedItem(22655, "BIND_ON_EQUIP")
-	recipe:SetItemFilterType("TAILORING_WRIST")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.HEALER, F.CASTER)
-	recipe:AddCustom("REMOVED_FROM_GAME")
-
-	-- Gaea's Embrace -- 28210
-	recipe = AddRecipe(28210, V.ORIG, Q.COMMON)
-	recipe:SetSkillLevels(300, 300, 315, 330, 345)
-	recipe:SetRecipeItem(22683, "BIND_ON_PICKUP")
-	recipe:SetCraftedItem(22660, "BIND_ON_EQUIP")
-	recipe:SetItemFilterType("TAILORING_BACK")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.CENARION_CIRCLE)
-	recipe:AddRepVendor(FAC.CENARION_CIRCLE, REP.REVERED, 15179)
-
-	-- Sylvan Vest -- 28480
-	recipe = AddRecipe(28480, V.ORIG, Q.COMMON)
-	recipe:SetSkillLevels(300, 300, 315, 330, 345)
-	recipe:SetRecipeItem(22774, "BIND_ON_PICKUP")
-	recipe:SetCraftedItem(22756, "BIND_ON_EQUIP")
-	recipe:SetItemFilterType("TAILORING_CHEST")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.HEALER, F.CASTER, F.CENARION_CIRCLE)
-	recipe:AddRepVendor(FAC.CENARION_CIRCLE, REP.REVERED, 15179)
-
-	-- Sylvan Crown -- 28481
-	recipe = AddRecipe(28481, V.ORIG, Q.COMMON)
-	recipe:SetSkillLevels(300, 300, 315, 330, 345)
-	recipe:SetRecipeItem(22773, "BIND_ON_PICKUP")
-	recipe:SetCraftedItem(22757, "BIND_ON_EQUIP")
-	recipe:SetItemFilterType("TAILORING_HEAD")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.HEALER, F.CASTER, F.CENARION_CIRCLE)
-	recipe:AddRepVendor(FAC.CENARION_CIRCLE, REP.HONORED, 15179)
-
-	-- Sylvan Shoulders -- 28482
-	recipe = AddRecipe(28482, V.ORIG, Q.COMMON)
-	recipe:SetSkillLevels(300, 300, 315, 330, 345)
-	recipe:SetRecipeItem(22772, "BIND_ON_PICKUP")
-	recipe:SetCraftedItem(22758, "BIND_ON_EQUIP")
-	recipe:SetItemFilterType("TAILORING_SHOULDER")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.HEALER, F.CASTER, F.CENARION_CIRCLE)
-	recipe:AddRepVendor(FAC.CENARION_CIRCLE, REP.FRIENDLY, 15179)
 
 	-- Spellcloth -- 31373
 	recipe = AddRecipe(31373, V.TBC, Q.COMMON)
@@ -3405,7 +3402,7 @@ function addon:InitTailoring()
 	recipe:SetRecipeItem(45102, "BIND_ON_EQUIP")
 	recipe:SetCraftedItem(45102, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("TAILORING_WAIST")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.DPS, F.HEALER, F.CASTER)
 	recipe:AddCustom("ULDUAR_RANDOM")
 
 	-- Spellslinger's Slippers -- 63204
@@ -3423,7 +3420,7 @@ function addon:InitTailoring()
 	recipe:SetRecipeItem(45104, "BIND_ON_EQUIP")
 	recipe:SetCraftedItem(45104, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("TAILORING_WAIST")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.DPS, F.HEALER, F.CASTER)
 	recipe:AddCustom("ULDUAR_RANDOM")
 
 	-- Savior's Slippers -- 63206
@@ -3583,6 +3580,15 @@ function addon:InitTailoring()
 	recipe:SetItemFilterType("TAILORING_FEET")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS, F.HEALER, F.CASTER, F.ASHEN_VERDICT)
 	recipe:AddRepVendor(FAC.ASHEN_VERDICT, REP.HONORED, 37687)
+
+	-- Frosty Flying Carpet -- 75597
+	recipe = AddRecipe(75597, V.WOTLK, Q.RARE)
+	recipe:SetSkillLevels(425, 425, 435, 445, 455)
+	recipe:SetRecipeItem(54798, "BIND_ON_PICKUP")
+	recipe:SetCraftedItem(54797, "BIND_ON_PICKUP")
+	recipe:SetItemFilterType("TAILORING_MISC")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddVendor(40160)
 
 	-- Bolt of Embersilk Cloth -- 74964
 	recipe = AddRecipe(74964, V.CATA, Q.COMMON)
@@ -3979,7 +3985,7 @@ function addon:InitTailoring()
 	recipe:SetRecipeItem(54597, "BIND_ON_PICKUP")
 	recipe:SetCraftedItem(54491, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("TAILORING_LEGS")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS, F.HEALER, F.CASTER)
 	recipe:AddVendor(1347, 3005, 3364, 4168, 4577, 5154, 16638, 16767, 45558, 50386, 50433)
 
 	-- Vicious Fireweave Robe -- 75303
@@ -3988,7 +3994,7 @@ function addon:InitTailoring()
 	recipe:SetRecipeItem(54598, "BIND_ON_PICKUP")
 	recipe:SetCraftedItem(54494, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("TAILORING_CHEST")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS, F.HEALER, F.CASTER)
 	recipe:AddVendor(1347, 3005, 3364, 4168, 4577, 5154, 16638, 16767, 45558, 50386, 50433)
 
 	-- Vicious Fireweave Cowl -- 75304
@@ -3997,7 +4003,7 @@ function addon:InitTailoring()
 	recipe:SetRecipeItem(54596, "BIND_ON_PICKUP")
 	recipe:SetCraftedItem(54493, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("TAILORING_HEAD")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS, F.HEALER, F.CASTER)
 	recipe:AddVendor(1347, 3005, 3364, 4168, 4577, 5154, 16638, 16767, 45558, 50386, 50433)
 
 	-- Vicious Embersilk Robe -- 75305
@@ -4015,7 +4021,7 @@ function addon:InitTailoring()
 	recipe:SetRecipeItem(54593, "BIND_ON_PICKUP")
 	recipe:SetCraftedItem(54496, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("TAILORING_HEAD")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS, F.HEALER, F.CASTER)
 	recipe:AddVendor(1347, 3005, 3364, 4168, 4577, 5154, 16638, 16767, 45558, 50386, 50433)
 
 	-- Vicious Embersilk Pants -- 75307
@@ -4024,7 +4030,7 @@ function addon:InitTailoring()
 	recipe:SetRecipeItem(54594, "BIND_ON_PICKUP")
 	recipe:SetCraftedItem(54498, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("TAILORING_LEGS")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.HEALER, F.CASTER)
 	recipe:AddVendor(1347, 3005, 3364, 4168, 4577, 5154, 16638, 16767, 45558, 50386, 50433)
 
 	-- Illusionary Bag -- 75308
@@ -4053,15 +4059,6 @@ function addon:InitTailoring()
 	recipe:SetItemFilterType("TAILORING_ITEM_ENHANCEMENT")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.HEALER, F.CASTER)
 	recipe:AddVendor(1347, 3005, 3364, 4168, 4577, 5154, 16638, 16767, 45558, 50386, 50433)
-
-	-- Frosty Flying Carpet -- 75597
-	recipe = AddRecipe(75597, V.WOTLK, Q.RARE)
-	recipe:SetSkillLevels(425, 425, 435, 445, 455)
-	recipe:SetRecipeItem(54798, "BIND_ON_PICKUP")
-	recipe:SetCraftedItem(54797, "BIND_ON_PICKUP")
-	recipe:SetItemFilterType("TAILORING_MISC")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddVendor(40160)
 
 	-- Dream of Destruction -- 94743
 	recipe = AddRecipe(94743, V.CATA, Q.COMMON)
@@ -4556,7 +4553,7 @@ function addon:InitTailoring()
 	recipe:SetSkillLevels(600, 600, 600, 602, 605)
 	recipe:SetCraftedItem(93420, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("TAILORING_BACK")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.HUNTER, F.ROGUE, F.SHAMAN, F.MONK, F.DRUID)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DRUID, F.HUNTER, F.SHAMAN, F.ROGUE, F.MONK)
 	recipe:AddDiscovery("DISCOVERY_TAILOR_PANDARIA")
 
 	-- Crafted Dreadful Gladiator's Cape of Prowess -- 137908
@@ -4564,7 +4561,7 @@ function addon:InitTailoring()
 	recipe:SetSkillLevels(600, 600, 600, 602, 605)
 	recipe:SetCraftedItem(93421, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("TAILORING_BACK")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.HUNTER, F.ROGUE, F.SHAMAN, F.MONK, F.DRUID)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DRUID, F.HUNTER, F.SHAMAN, F.ROGUE, F.MONK)
 	recipe:AddDiscovery("DISCOVERY_TAILOR_PANDARIA")
 
 	-- Crafted Dreadful Gladiator's Cord of Cruelty -- 137909
@@ -4644,7 +4641,7 @@ function addon:InitTailoring()
 	recipe:SetSkillLevels(600, 600, 600, 602, 605)
 	recipe:SetCraftedItem(93437, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("TAILORING_BACK")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.PALADIN, F.PRIEST, F.SHAMAN, F.MAGE, F.WARLOCK, F.MONK, F.DRUID)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DRUID, F.MAGE, F.PALADIN, F.PRIEST, F.SHAMAN, F.WARLOCK, F.MONK)
 	recipe:AddDiscovery("DISCOVERY_TAILOR_PANDARIA")
 
 	-- Crafted Dreadful Gladiator's Drape of Prowess -- 137919
@@ -4652,7 +4649,7 @@ function addon:InitTailoring()
 	recipe:SetSkillLevels(600, 600, 600, 602, 605)
 	recipe:SetCraftedItem(93438, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("TAILORING_BACK")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.PALADIN, F.PRIEST, F.SHAMAN, F.MAGE, F.WARLOCK, F.MONK, F.DRUID)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DRUID, F.MAGE, F.PALADIN, F.PRIEST, F.SHAMAN, F.WARLOCK, F.MONK)
 	recipe:AddDiscovery("DISCOVERY_TAILOR_PANDARIA")
 
 	-- Crafted Dreadful Gladiator's Drape of Meditation -- 137920
@@ -4660,7 +4657,7 @@ function addon:InitTailoring()
 	recipe:SetSkillLevels(600, 600, 600, 602, 605)
 	recipe:SetCraftedItem(93439, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("TAILORING_BACK")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.PALADIN, F.PRIEST, F.SHAMAN, F.MONK, F.DRUID)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DRUID, F.PALADIN, F.PRIEST, F.SHAMAN, F.MONK)
 	recipe:AddDiscovery("DISCOVERY_TAILOR_PANDARIA")
 
 	-- Crafted Dreadful Gladiator's Silk Handguards -- 137921
@@ -4788,7 +4785,7 @@ function addon:InitTailoring()
 	recipe:SetSkillLevels(600, 600, 600, 602, 605)
 	recipe:SetCraftedItem(93607, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("TAILORING_BACK")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WARRIOR, F.PALADIN, F.DK)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DK, F.PALADIN, F.WARRIOR)
 	recipe:AddDiscovery("DISCOVERY_TAILOR_PANDARIA")
 
 	-- Crafted Dreadful Gladiator's Cloak of Prowess -- 137937
@@ -4796,7 +4793,7 @@ function addon:InitTailoring()
 	recipe:SetSkillLevels(600, 600, 600, 602, 605)
 	recipe:SetCraftedItem(93608, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("TAILORING_BACK")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WARRIOR, F.PALADIN, F.DK)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DK, F.PALADIN, F.WARRIOR)
 	recipe:AddDiscovery("DISCOVERY_TAILOR_PANDARIA")
 
 	-- Crafted Dreadful Gladiator's Felweave Handguards -- 137938

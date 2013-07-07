@@ -7087,42 +7087,42 @@ function addon:InitJewelcrafting()
 	recipe:AddWorldDrop(Z.PANDARIA)
 
 	-- Resplendent Serpent's Eye -- 136269
-	recipe = AddRecipe(136269, V.MOP, Q.RARE)
+	recipe = AddRecipe(136269, V.MOP, Q.COMMON)
 	recipe:SetSkillLevels(550, 550, 575, 580, 585)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_ORANGE")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
 	recipe:AddTrainer(65098)
 
 	-- Lucent Serpent's Eye -- 136270
-	recipe = AddRecipe(136270, V.MOP, Q.RARE)
+	recipe = AddRecipe(136270, V.MOP, Q.COMMON)
 	recipe:SetSkillLevels(550, 550, 575, 580, 585)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_ORANGE")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
 	recipe:AddTrainer(65098)
 
 	-- Willful Serpent's Eye -- 136272
-	recipe = AddRecipe(136272, V.MOP, Q.RARE)
+	recipe = AddRecipe(136272, V.MOP, Q.COMMON)
 	recipe:SetSkillLevels(550, 550, 575, 580, 585)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_ORANGE")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
 	recipe:AddTrainer(65098)
 
 	-- Tense Serpent's Eye -- 136273
-	recipe = AddRecipe(136273, V.MOP, Q.RARE)
+	recipe = AddRecipe(136273, V.MOP, Q.COMMON)
 	recipe:SetSkillLevels(550, 550, 575, 580, 585)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_PURPLE")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
 	recipe:AddTrainer(65098)
 
 	-- Assassin's Serpent's Eye -- 136274
-	recipe = AddRecipe(136274, V.MOP, Q.RARE)
+	recipe = AddRecipe(136274, V.MOP, Q.COMMON)
 	recipe:SetSkillLevels(550, 550, 575, 580, 585)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_PURPLE")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
 	recipe:AddTrainer(65098)
 
 	-- Mysterious Serpent's Eye -- 136275
-	recipe = AddRecipe(136275, V.MOP, Q.RARE)
+	recipe = AddRecipe(136275, V.MOP, Q.COMMON)
 	recipe:SetSkillLevels(550, 550, 575, 580, 585)
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_PURPLE")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)

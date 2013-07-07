@@ -206,7 +206,7 @@ function addon:InitCooking()
 	recipe:SetSkillLevels(110, 110, 150, 170, 190)
 	recipe:SetRecipeItem(3734, "BIND_ON_EQUIP")
 	recipe:SetCraftedItem(3726, "BIND_ON_EQUIP")
-	recipe:AddFilters(F.HEALER, F.CASTER, F.RETIRED)
+	recipe:AddFilters(F.RETIRED, F.HEALER, F.CASTER)
 
 	-- Hot Lion Chops -- 3398
 	recipe = AddRecipe(3398, V.ORIG, Q.COMMON)
@@ -215,7 +215,6 @@ function addon:InitCooking()
 	recipe:SetCraftedItem(3727, "BIND_ON_EQUIP")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.HEALER, F.CASTER)
 	recipe:AddVendor(3489)
---	recipe:AddVendor(3489, 12245)
 
 	-- Tasty Lion Steak -- 3399
 	recipe = AddRecipe(3399, V.ORIG, Q.COMMON)
@@ -282,7 +281,7 @@ function addon:InitCooking()
 	recipe:AddVendor(3482)
 
 	-- Dig Rat Stew -- 6417
-	recipe = AddRecipe(6417, V.WOTLK, Q.UNCOMMON)
+	recipe = AddRecipe(6417, V.ORIG, Q.UNCOMMON)
 	recipe:SetSkillLevels(90, 90, 130, 150, 170)
 	recipe:SetRecipeItem(78342, "BIND_ON_PICKUP")
 	recipe:SetCraftedItem(5478, "BIND_ON_EQUIP")
@@ -302,8 +301,7 @@ function addon:InitCooking()
 	recipe:SetSkillLevels(110, 110, 150, 170, 190)
 	recipe:SetRecipeItem(5489, "BIND_ON_EQUIP")
 	recipe:SetCraftedItem(5480, "BIND_ON_EQUIP")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.HEALER, F.CASTER, F.RETIRED)
---	recipe:AddLimitedVendor(12245, 1)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.HEALER, F.CASTER)
 
 	-- Boiled Clams -- 6499
 	recipe = AddRecipe(6499, V.ORIG, Q.COMMON)
@@ -443,7 +441,6 @@ function addon:InitCooking()
 	recipe:SetCraftedItem(12210, "BIND_ON_EQUIP")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.HEALER, F.CASTER)
 	recipe:AddVendor(734, 1148, 2810, 2821, 4879, 4897)
---	recipe:AddVendor(734, 1148, 2810, 2821, 4879, 4897, 12245)
 
 	-- Hot Wolf Ribs -- 15856
 	recipe = AddRecipe(15856, V.ORIG, Q.COMMON)
@@ -460,7 +457,6 @@ function addon:InitCooking()
 	recipe:SetCraftedItem(12212, "BIND_ON_EQUIP")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.HEALER, F.CASTER)
 	recipe:AddVendor(734, 1148)
---	recipe:AddVendor(734, 1148, 12245)
 
 	-- Carrion Surprise -- 15863
 	recipe = AddRecipe(15863, V.ORIG, Q.COMMON)
@@ -469,7 +465,6 @@ function addon:InitCooking()
 	recipe:SetCraftedItem(12213, "BIND_ON_EQUIP")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.HEALER, F.CASTER)
 	recipe:AddVendor(989, 4879, 9636)
---	recipe:AddVendor(989, 4879, 9636, 12245)
 
 	-- Mystery Stew -- 15865
 	recipe = AddRecipe(15865, V.ORIG, Q.COMMON)
@@ -494,7 +489,6 @@ function addon:InitCooking()
 	recipe:SetCraftedItem(12215, "BIND_ON_EQUIP")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.HEALER, F.CASTER)
 	recipe:AddVendor(8150, 9636)
---	recipe:AddVendor(8150, 9636, 12245)
 
 	-- Spiced Chili Crab -- 15915
 	recipe = AddRecipe(15915, V.ORIG, Q.COMMON)
@@ -625,7 +619,7 @@ function addon:InitCooking()
 	recipe:AddVendor(13420, 13429, 13432, 13433, 13435, 23010, 23012, 23064)
 	recipe:AddSeason("WINTER_VEIL")
 
-	-- Egg Nog -- 21144
+	-- Winter Veil Egg Nog -- 21144
 	recipe = AddRecipe(21144, V.ORIG, Q.COMMON)
 	recipe:SetSkillLevels(35, 35, 75, 95, 115)
 	recipe:SetRecipeItem(17201, "BIND_ON_EQUIP")
@@ -2097,7 +2091,7 @@ function addon:InitCooking()
 	recipe:SetSkillLevels(600, 600, 600, 602, 605)
 	recipe:SetRecipeItem(86393, "BIND_ON_PICKUP")
 	recipe:SetCraftedItem(87264, "BIND_ON_EQUIP")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE)
 	recipe:AddCustom("FOUR_SENSES_BREW")
 
 	-- Banana Infused Rum -- 126655
@@ -2105,7 +2099,7 @@ function addon:InitCooking()
 	recipe:SetSkillLevels(600, 600, 600, 602, 605)
 	recipe:SetRecipeItem(87266, "BIND_ON_PICKUP")
 	recipe:SetCraftedItem(86432, "BIND_ON_EQUIP")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE)
 	recipe:AddCustom("BANANA_INFUSED_RUM")
 
 	self.InitCooking = nil

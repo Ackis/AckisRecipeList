@@ -628,7 +628,7 @@ function addon:InitEngineering()
 	recipe:SetRecipeItem(10604, "BIND_ON_EQUIP")
 	recipe:SetCraftedItem(10510, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("ENGINEERING_GUN")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE)
 	recipe:AddWorldDrop(Z.EASTERN_KINGDOMS, Z.KALIMDOR)
 
 	-- Spellpower Goggles Xtreme -- 12615
@@ -1044,8 +1044,7 @@ function addon:InitEngineering()
 	recipe:SetRecipeItem(16056, "BIND_ON_EQUIP")
 	recipe:SetCraftedItem(16007, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("ENGINEERING_GUN")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS, F.HEALER, F.CASTER, F.RETIRED)
---	recipe:AddMobDrop(8561)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.DPS, F.HEALER, F.CASTER)
 
 	-- Snowmaster 9000 -- 21940
 	recipe = AddRecipe(21940, V.ORIG, Q.UNCOMMON)
@@ -1631,15 +1630,6 @@ function addon:InitEngineering()
 	recipe:AddVendor(67976)
 	recipe:AddLimitedVendor(16657, 1, 16782, 1, 18484, 1)
 
-	-- Titanium Toolbox -- 30349
-	recipe = AddRecipe(30349, V.WOTLK, Q.COMMON)
-	recipe:SetSkillLevels(405, 405, 425, 432, 440)
-	recipe:SetRecipeItem(23817, "BIND_ON_EQUIP")
-	recipe:SetCraftedItem(23775, "BIND_ON_EQUIP")
-	recipe:SetItemFilterType("ENGINEERING_BAG")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddLimitedVendor(28722, 5, 33594, 5)
-
 	-- Elemental Seaforium Charge -- 30547
 	recipe = AddRecipe(30547, V.TBC, Q.COMMON)
 	recipe:SetSkillLevels(350, 350, 350, 355, 360)
@@ -2071,6 +2061,39 @@ function addon:InitEngineering()
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
 	recipe:AddTrainer(1702, 3494, 5174, 5518, 8736, 11017, 11025, 16726, 17222, 17634, 17637, 25277, 26907, 26955, 26991, 28697, 33586, 33611, 33634, 45545, 52636, 55143)
 
+	-- Handful of Cobalt Bolts -- 56349
+	recipe = AddRecipe(56349, V.TBC, Q.COMMON)
+	recipe:SetSkillLevels(350, 350, 360, 370, 380)
+	recipe:SetCraftedItem(39681, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("ENGINEERING_MATERIALS")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddTrainer(1702, 3494, 5174, 5518, 8736, 11017, 11025, 16726, 17222, 17634, 17637, 25277, 26907, 26955, 26991, 28697, 33586, 33611, 33634, 45545, 52636, 55143)
+
+	-- Hammer Pick -- 56459
+	recipe = AddRecipe(56459, V.TBC, Q.COMMON)
+	recipe:SetSkillLevels(375, 375, 380, 385, 390)
+	recipe:SetCraftedItem(40892, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("ENGINEERING_CREATED_ITEM")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddTrainer(1702, 3494, 5174, 5518, 8736, 11017, 11025, 16726, 17222, 17634, 17637, 25277, 26907, 26955, 26991, 28697, 33586, 33611, 33634, 45545, 52636, 55143)
+
+	-- Cobalt Frag Bomb -- 56460
+	recipe = AddRecipe(56460, V.TBC, Q.COMMON)
+	recipe:SetSkillLevels(350, 350, 375, 382, 390)
+	recipe:SetCraftedItem(40771, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("ENGINEERING_CREATED_ITEM")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddTrainer(1702, 3494, 5174, 5518, 8736, 11017, 11025, 16726, 17222, 17634, 17637, 25277, 26907, 26955, 26991, 28697, 33586, 33611, 33634, 45545, 52636, 55143)
+
+	-- Titanium Toolbox -- 30349
+	recipe = AddRecipe(30349, V.WOTLK, Q.COMMON)
+	recipe:SetSkillLevels(405, 405, 425, 432, 440)
+	recipe:SetRecipeItem(23817, "BIND_ON_EQUIP")
+	recipe:SetCraftedItem(23775, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("ENGINEERING_BAG")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddLimitedVendor(28722, 5, 33594, 5)
+
 	-- Mark "S" Boomstick -- 54353
 	recipe = AddRecipe(54353, V.WOTLK, Q.COMMON)
 	recipe:SetSkillLevels(400, 400, 405, 410, 415)
@@ -2128,30 +2151,6 @@ function addon:InitEngineering()
 	recipe:SetItemFilterType("ENGINEERING_CREATED_ITEM")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
 	recipe:AddQuest(12889)
-
-	-- Handful of Cobalt Bolts -- 56349
-	recipe = AddRecipe(56349, V.TBC, Q.COMMON)
-	recipe:SetSkillLevels(350, 350, 360, 370, 380)
-	recipe:SetCraftedItem(39681, "BIND_ON_EQUIP")
-	recipe:SetItemFilterType("ENGINEERING_MATERIALS")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddTrainer(1702, 3494, 5174, 5518, 8736, 11017, 11025, 16726, 17222, 17634, 17637, 25277, 26907, 26955, 26991, 28697, 33586, 33611, 33634, 45545, 52636, 55143)
-
-	-- Hammer Pick -- 56459
-	recipe = AddRecipe(56459, V.TBC, Q.COMMON)
-	recipe:SetSkillLevels(375, 375, 380, 385, 390)
-	recipe:SetCraftedItem(40892, "BIND_ON_EQUIP")
-	recipe:SetItemFilterType("ENGINEERING_CREATED_ITEM")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddTrainer(1702, 3494, 5174, 5518, 8736, 11017, 11025, 16726, 17222, 17634, 17637, 25277, 26907, 26955, 26991, 28697, 33586, 33611, 33634, 45545, 52636, 55143)
-
-	-- Cobalt Frag Bomb -- 56460
-	recipe = AddRecipe(56460, V.TBC, Q.COMMON)
-	recipe:SetSkillLevels(350, 350, 375, 382, 390)
-	recipe:SetCraftedItem(40771, "BIND_ON_EQUIP")
-	recipe:SetItemFilterType("ENGINEERING_CREATED_ITEM")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddTrainer(1702, 3494, 5174, 5518, 8736, 11017, 11025, 16726, 17222, 17634, 17637, 25277, 26907, 26955, 26991, 28697, 33586, 33611, 33634, 45545, 52636, 55143)
 
 	-- Bladed Pickaxe -- 56461
 	recipe = AddRecipe(56461, V.WOTLK, Q.COMMON)
@@ -3135,8 +3134,6 @@ function addon:InitEngineering()
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
 	recipe:AddTrainer(5518, 11017, 55143)
 
-
-
 	self.InitEngineering = nil
 end
 
@@ -3151,4 +3148,3 @@ end
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
 	recipe:AddWorldDrop(Z.PANDARIA)
 ]] --
-

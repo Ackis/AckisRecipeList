@@ -304,14 +304,13 @@ function addon:InitInscription()
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DRUID)
 	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30709, 30713, 30715, 30716, 30717, 30721, 30722, 33603, 33615, 33638, 33679, 46716, 56065, 62327, 64691)
 
-	-- Glyph of Solar Beam -- 56944
+	-- Glyph of Omens -- 56944
 	recipe = AddRecipe(56944, V.WOTLK, Q.COMMON)
 	recipe:SetSkillLevels(385, 385, 390, 397, 405)
 	recipe:SetCraftedItem(40899, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("INSCRIPTION_MAJOR_GLYPH")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DRUID)
-	recipe:AddDiscovery("DISCOVERY_INSC_NORTHREND")
-	recipe:AddDiscovery("DISCOVERY_INSC_PANDARIA")
+	recipe:AddDiscovery("DISCOVERY_INSC_NORTHREND", "DISCOVERY_INSC_PANDARIA")
 
 	-- Glyph of Healing Touch -- 56945
 	recipe = AddRecipe(56945, V.WOTLK, Q.COMMON)
@@ -327,8 +326,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItem(40920, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("INSCRIPTION_MAJOR_GLYPH")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DRUID)
-	recipe:AddDiscovery("DISCOVERY_INSC_NORTHREND")
-	recipe:AddDiscovery("DISCOVERY_INSC_PANDARIA")
+	recipe:AddDiscovery("DISCOVERY_INSC_NORTHREND", "DISCOVERY_INSC_PANDARIA")
 
 	-- Glyph of Innervate -- 56947
 	recipe = AddRecipe(56947, V.WOTLK, Q.COMMON)
@@ -336,8 +334,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItem(40908, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("INSCRIPTION_MAJOR_GLYPH")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DRUID)
-	recipe:AddDiscovery("DISCOVERY_INSC_NORTHREND")
-	recipe:AddDiscovery("DISCOVERY_INSC_PANDARIA")
+	recipe:AddDiscovery("DISCOVERY_INSC_NORTHREND", "DISCOVERY_INSC_PANDARIA")
 
 	-- Glyph of the Orca -- 56948
 	recipe = AddRecipe(56948, V.WOTLK, Q.COMMON)
@@ -353,8 +350,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItem(40915, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("INSCRIPTION_MAJOR_GLYPH")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.HEALER, F.DRUID)
-	recipe:AddDiscovery("DISCOVERY_INSC_NORTHREND")
-	recipe:AddDiscovery("DISCOVERY_INSC_PANDARIA")
+	recipe:AddDiscovery("DISCOVERY_INSC_NORTHREND", "DISCOVERY_INSC_PANDARIA")
 
 	-- Glyph of the Stag -- 56950
 	recipe = AddRecipe(56950, V.WOTLK, Q.COMMON)
@@ -362,8 +358,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItem(40900, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("INSCRIPTION_MINOR_GLYPH")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DRUID)
-	recipe:AddDiscovery("DISCOVERY_INSC_NORTHREND")
-	recipe:AddDiscovery("DISCOVERY_INSC_PANDARIA")
+	recipe:AddDiscovery("DISCOVERY_INSC_NORTHREND", "DISCOVERY_INSC_PANDARIA")
 
 	-- Glyph of Savagery -- 56951
 	recipe = AddRecipe(56951, V.WOTLK, Q.COMMON)
@@ -395,8 +390,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItem(40912, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("INSCRIPTION_MAJOR_GLYPH")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.HEALER, F.DRUID)
-	recipe:AddDiscovery("DISCOVERY_INSC_NORTHREND")
-	recipe:AddDiscovery("DISCOVERY_INSC_PANDARIA")
+	recipe:AddDiscovery("DISCOVERY_INSC_NORTHREND", "DISCOVERY_INSC_PANDARIA")
 
 	-- Glyph of Rejuvenation -- 56955
 	recipe = AddRecipe(56955, V.WOTLK, Q.COMMON)
@@ -428,8 +422,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItem(40921, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("INSCRIPTION_MAJOR_GLYPH")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.CASTER, F.DRUID)
-	recipe:AddDiscovery("DISCOVERY_INSC_NORTHREND")
-	recipe:AddDiscovery("DISCOVERY_INSC_PANDARIA")
+	recipe:AddDiscovery("DISCOVERY_INSC_NORTHREND", "DISCOVERY_INSC_PANDARIA")
 
 	-- Glyph of The Moonbeast -- 56959
 	recipe = AddRecipe(56959, V.WOTLK, Q.COMMON)
@@ -445,8 +438,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItem(40906, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("INSCRIPTION_MINOR_GLYPH")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.HEALER, F.DRUID)
-	recipe:AddDiscovery("DISCOVERY_INSC_NORTHREND")
-	recipe:AddDiscovery("DISCOVERY_INSC_PANDARIA")
+	recipe:AddDiscovery("DISCOVERY_INSC_NORTHREND", "DISCOVERY_INSC_PANDARIA")
 
 	-- Glyph of Maul -- 56961
 	recipe = AddRecipe(56961, V.WOTLK, Q.COMMON)
@@ -510,8 +502,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItem(42739, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("INSCRIPTION_MAJOR_GLYPH")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.CASTER, F.MAGE)
-	recipe:AddDiscovery("DISCOVERY_INSC_NORTHREND")
-	recipe:AddDiscovery("DISCOVERY_INSC_PANDARIA")
+	recipe:AddDiscovery("DISCOVERY_INSC_NORTHREND", "DISCOVERY_INSC_PANDARIA")
 
 	-- Glyph of Frost Nova -- 56976
 	recipe = AddRecipe(56976, V.WOTLK, Q.COMMON)
@@ -559,8 +550,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItem(42748, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("INSCRIPTION_MAJOR_GLYPH")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.CASTER, F.MAGE)
-	recipe:AddDiscovery("DISCOVERY_INSC_NORTHREND")
-	recipe:AddDiscovery("DISCOVERY_INSC_PANDARIA")
+	recipe:AddDiscovery("DISCOVERY_INSC_NORTHREND", "DISCOVERY_INSC_PANDARIA")
 
 	-- Glyph of Mana Gem -- 56984
 	recipe = AddRecipe(56984, V.WOTLK, Q.COMMON)
@@ -576,8 +566,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItem(42751, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("INSCRIPTION_MINOR_GLYPH")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.CASTER, F.MAGE)
-	recipe:AddDiscovery("DISCOVERY_INSC_NORTHREND")
-	recipe:AddDiscovery("DISCOVERY_INSC_PANDARIA")
+	recipe:AddDiscovery("DISCOVERY_INSC_NORTHREND", "DISCOVERY_INSC_PANDARIA")
 
 	-- Glyph of Polymorph -- 56987
 	recipe = AddRecipe(56987, V.WOTLK, Q.COMMON)
@@ -593,8 +582,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItem(42753, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("INSCRIPTION_MAJOR_GLYPH")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.CASTER, F.MAGE)
-	recipe:AddDiscovery("DISCOVERY_INSC_NORTHREND")
-	recipe:AddDiscovery("DISCOVERY_INSC_PANDARIA")
+	recipe:AddDiscovery("DISCOVERY_INSC_NORTHREND", "DISCOVERY_INSC_PANDARIA")
 
 	-- Glyph of Spellsteal -- 56989
 	recipe = AddRecipe(56989, V.WOTLK, Q.COMMON)
@@ -602,8 +590,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItem(42754, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("INSCRIPTION_MAJOR_GLYPH")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.CASTER, F.MAGE)
-	recipe:AddDiscovery("DISCOVERY_INSC_NORTHREND")
-	recipe:AddDiscovery("DISCOVERY_INSC_PANDARIA")
+	recipe:AddDiscovery("DISCOVERY_INSC_NORTHREND", "DISCOVERY_INSC_PANDARIA")
 
 	-- Glyph of Remove Curse -- 56990
 	recipe = AddRecipe(56990, V.WOTLK, Q.COMMON)
@@ -637,14 +624,13 @@ function addon:InitInscription()
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS, F.HUNTER)
 	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30709, 30710, 30711, 30713, 30715, 30716, 30717, 30721, 30722, 33603, 33615, 33638, 33679, 46716, 56065, 62327, 64691)
 
-	-- Glyph of Marked For Death -- 56996
+	-- Glyph of Liberation -- 56996
 	recipe = AddRecipe(56996, V.WOTLK, Q.COMMON)
 	recipe:SetSkillLevels(385, 385, 390, 397, 405)
 	recipe:SetCraftedItem(42899, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("INSCRIPTION_MAJOR_GLYPH")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS, F.HUNTER)
-	recipe:AddDiscovery("DISCOVERY_INSC_NORTHREND")
-	recipe:AddDiscovery("DISCOVERY_INSC_PANDARIA")
+	recipe:AddDiscovery("DISCOVERY_INSC_NORTHREND", "DISCOVERY_INSC_PANDARIA")
 
 	-- Glyph of Mending -- 56997
 	recipe = AddRecipe(56997, V.WOTLK, Q.COMMON)
@@ -660,8 +646,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItem(42901, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("INSCRIPTION_MAJOR_GLYPH")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS, F.HUNTER)
-	recipe:AddDiscovery("DISCOVERY_INSC_NORTHREND")
-	recipe:AddDiscovery("DISCOVERY_INSC_PANDARIA")
+	recipe:AddDiscovery("DISCOVERY_INSC_NORTHREND", "DISCOVERY_INSC_PANDARIA")
 
 	-- Glyph of Endless Wrath -- 56999
 	recipe = AddRecipe(56999, V.WOTLK, Q.COMMON)
@@ -669,8 +654,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItem(42902, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("INSCRIPTION_MAJOR_GLYPH")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS, F.HUNTER)
-	recipe:AddDiscovery("DISCOVERY_INSC_NORTHREND")
-	recipe:AddDiscovery("DISCOVERY_INSC_PANDARIA")
+	recipe:AddDiscovery("DISCOVERY_INSC_NORTHREND", "DISCOVERY_INSC_PANDARIA")
 
 	-- Glyph of Deterrence -- 57000
 	recipe = AddRecipe(57000, V.WOTLK, Q.COMMON)
@@ -758,17 +742,15 @@ function addon:InitInscription()
 	recipe:SetCraftedItem(42913, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("INSCRIPTION_MAJOR_GLYPH")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS, F.HUNTER)
-	recipe:AddDiscovery("DISCOVERY_INSC_NORTHREND")
-	recipe:AddDiscovery("DISCOVERY_INSC_PANDARIA")
+	recipe:AddDiscovery("DISCOVERY_INSC_NORTHREND", "DISCOVERY_INSC_PANDARIA")
 
-	-- Glyph of Scattering -- 57011
+	-- Glyph of Aimed Shot -- 57011
 	recipe = AddRecipe(57011, V.WOTLK, Q.COMMON)
 	recipe:SetSkillLevels(385, 385, 390, 397, 405)
 	recipe:SetCraftedItem(42914, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("INSCRIPTION_MAJOR_GLYPH")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS, F.HUNTER)
-	recipe:AddDiscovery("DISCOVERY_INSC_NORTHREND")
-	recipe:AddDiscovery("DISCOVERY_INSC_PANDARIA")
+	recipe:AddDiscovery("DISCOVERY_INSC_NORTHREND", "DISCOVERY_INSC_PANDARIA")
 
 	-- Glyph of Mend Pet -- 57012
 	recipe = AddRecipe(57012, V.WOTLK, Q.COMMON)
@@ -776,17 +758,15 @@ function addon:InitInscription()
 	recipe:SetCraftedItem(42915, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("INSCRIPTION_MAJOR_GLYPH")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS, F.HUNTER)
-	recipe:AddDiscovery("DISCOVERY_INSC_NORTHREND")
-	recipe:AddDiscovery("DISCOVERY_INSC_PANDARIA")
+	recipe:AddDiscovery("DISCOVERY_INSC_NORTHREND", "DISCOVERY_INSC_PANDARIA")
 
-	-- Glyph of Icy Solace -- 57014
+	-- Glyph of Solace -- 57014
 	recipe = AddRecipe(57014, V.WOTLK, Q.COMMON)
 	recipe:SetSkillLevels(385, 385, 390, 397, 405)
 	recipe:SetCraftedItem(42917, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("INSCRIPTION_MAJOR_GLYPH")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS, F.HUNTER)
-	recipe:AddDiscovery("DISCOVERY_INSC_NORTHREND")
-	recipe:AddDiscovery("DISCOVERY_INSC_PANDARIA")
+	recipe:AddDiscovery("DISCOVERY_INSC_NORTHREND", "DISCOVERY_INSC_PANDARIA")
 
 	-- Glyph of Focused Shield -- 57019
 	recipe = AddRecipe(57019, V.WOTLK, Q.COMMON)
@@ -794,8 +774,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItem(41101, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("INSCRIPTION_MAJOR_GLYPH")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.PALADIN)
-	recipe:AddDiscovery("DISCOVERY_INSC_NORTHREND")
-	recipe:AddDiscovery("DISCOVERY_INSC_PANDARIA")
+	recipe:AddDiscovery("DISCOVERY_INSC_NORTHREND", "DISCOVERY_INSC_PANDARIA")
 
 	-- Glyph of Final Wrath -- 57020
 	recipe = AddRecipe(57020, V.WOTLK, Q.COMMON)
@@ -811,8 +790,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItem(41107, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("INSCRIPTION_MAJOR_GLYPH")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.PALADIN)
-	recipe:AddDiscovery("DISCOVERY_INSC_NORTHREND")
-	recipe:AddDiscovery("DISCOVERY_INSC_PANDARIA")
+	recipe:AddDiscovery("DISCOVERY_INSC_NORTHREND", "DISCOVERY_INSC_PANDARIA")
 
 	-- Glyph of Divine Protection -- 57022
 	recipe = AddRecipe(57022, V.WOTLK, Q.COMMON)
@@ -868,8 +846,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItem(41097, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("INSCRIPTION_MAJOR_GLYPH")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.PALADIN)
-	recipe:AddDiscovery("DISCOVERY_INSC_NORTHREND")
-	recipe:AddDiscovery("DISCOVERY_INSC_PANDARIA")
+	recipe:AddDiscovery("DISCOVERY_INSC_NORTHREND", "DISCOVERY_INSC_PANDARIA")
 
 	-- Glyph of Illumination -- 57029
 	recipe = AddRecipe(57029, V.WOTLK, Q.COMMON)
@@ -917,8 +894,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItem(41110, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("INSCRIPTION_MAJOR_GLYPH")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.PALADIN)
-	recipe:AddDiscovery("DISCOVERY_INSC_NORTHREND")
-	recipe:AddDiscovery("DISCOVERY_INSC_PANDARIA")
+	recipe:AddDiscovery("DISCOVERY_INSC_NORTHREND", "DISCOVERY_INSC_PANDARIA")
 
 	-- Glyph of Light of Dawn -- 57035
 	recipe = AddRecipe(57035, V.WOTLK, Q.COMMON)
@@ -926,8 +902,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItem(41109, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("INSCRIPTION_MAJOR_GLYPH")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.PALADIN)
-	recipe:AddDiscovery("DISCOVERY_INSC_NORTHREND")
-	recipe:AddDiscovery("DISCOVERY_INSC_PANDARIA")
+	recipe:AddDiscovery("DISCOVERY_INSC_NORTHREND", "DISCOVERY_INSC_PANDARIA")
 
 	-- Glyph of Turn Evil -- 57036
 	recipe = AddRecipe(57036, V.WOTLK, Q.COMMON)
@@ -937,22 +912,13 @@ function addon:InitInscription()
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.PALADIN)
 	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30709, 30713, 30715, 30716, 30717, 30721, 33603, 33615, 33638, 46716, 56065, 62327, 64691)
 
-	-- Glyph of Focused Wrath -- 57037
-	recipe = AddRecipe(57037, V.MOP, Q.COMMON)
-	recipe:SetSkillLevels(525, 525, 595, 600, 605)
-	recipe:SetCraftedItem(80581, "BIND_ON_EQUIP")
-	recipe:SetItemFilterType("INSCRIPTION_MINOR_GLYPH")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.PALADIN)
-	recipe:AddDiscovery("DISCOVERY_INSC_PANDARIA")
-
 	-- Glyph of Shadow Walk -- 57112
 	recipe = AddRecipe(57112, V.WOTLK, Q.COMMON)
 	recipe:SetSkillLevels(385, 385, 390, 397, 405)
 	recipe:SetCraftedItem(42954, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("INSCRIPTION_MAJOR_GLYPH")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS, F.ROGUE)
-	recipe:AddDiscovery("DISCOVERY_INSC_NORTHREND")
-	recipe:AddDiscovery("DISCOVERY_INSC_PANDARIA")
+	recipe:AddDiscovery("DISCOVERY_INSC_NORTHREND", "DISCOVERY_INSC_PANDARIA")
 
 	-- Glyph of Ambush -- 57113
 	recipe = AddRecipe(57113, V.WOTLK, Q.COMMON)
@@ -976,8 +942,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItem(42957, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("INSCRIPTION_MAJOR_GLYPH")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS, F.ROGUE)
-	recipe:AddDiscovery("DISCOVERY_INSC_NORTHREND")
-	recipe:AddDiscovery("DISCOVERY_INSC_PANDARIA")
+	recipe:AddDiscovery("DISCOVERY_INSC_NORTHREND", "DISCOVERY_INSC_PANDARIA")
 
 	-- Glyph of Crippling Poison -- 57116
 	recipe = AddRecipe(57116, V.WOTLK, Q.COMMON)
@@ -985,8 +950,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItem(42958, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("INSCRIPTION_MAJOR_GLYPH")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS, F.ROGUE)
-	recipe:AddDiscovery("DISCOVERY_INSC_NORTHREND")
-	recipe:AddDiscovery("DISCOVERY_INSC_PANDARIA")
+	recipe:AddDiscovery("DISCOVERY_INSC_NORTHREND", "DISCOVERY_INSC_PANDARIA")
 
 	-- Glyph of Recuperate -- 57117
 	recipe = AddRecipe(57117, V.WOTLK, Q.COMMON)
@@ -994,8 +958,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItem(42959, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("INSCRIPTION_MAJOR_GLYPH")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS, F.ROGUE)
-	recipe:AddDiscovery("DISCOVERY_INSC_NORTHREND")
-	recipe:AddDiscovery("DISCOVERY_INSC_PANDARIA")
+	recipe:AddDiscovery("DISCOVERY_INSC_NORTHREND", "DISCOVERY_INSC_PANDARIA")
 
 	-- Glyph of Evasion -- 57119
 	recipe = AddRecipe(57119, V.WOTLK, Q.COMMON)
@@ -1043,8 +1006,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItem(42965, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("INSCRIPTION_MINOR_GLYPH")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS, F.ROGUE)
-	recipe:AddDiscovery("DISCOVERY_INSC_NORTHREND")
-	recipe:AddDiscovery("DISCOVERY_INSC_PANDARIA")
+	recipe:AddDiscovery("DISCOVERY_INSC_NORTHREND", "DISCOVERY_INSC_PANDARIA")
 
 	-- Glyph of Gouge -- 57125
 	recipe = AddRecipe(57125, V.WOTLK, Q.COMMON)
@@ -1060,8 +1022,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItem(42967, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("INSCRIPTION_MINOR_GLYPH")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS, F.ROGUE)
-	recipe:AddDiscovery("DISCOVERY_INSC_NORTHREND")
-	recipe:AddDiscovery("DISCOVERY_INSC_PANDARIA")
+	recipe:AddDiscovery("DISCOVERY_INSC_NORTHREND", "DISCOVERY_INSC_PANDARIA")
 
 	-- Glyph of Smoke Bomb -- 57127
 	recipe = AddRecipe(57127, V.WOTLK, Q.COMMON)
@@ -1069,8 +1030,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItem(42968, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("INSCRIPTION_MAJOR_GLYPH")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS, F.ROGUE)
-	recipe:AddDiscovery("DISCOVERY_INSC_NORTHREND")
-	recipe:AddDiscovery("DISCOVERY_INSC_PANDARIA")
+	recipe:AddDiscovery("DISCOVERY_INSC_NORTHREND", "DISCOVERY_INSC_PANDARIA")
 
 	-- Glyph of Cheap Shot -- 57128
 	recipe = AddRecipe(57128, V.WOTLK, Q.COMMON)
@@ -1078,8 +1038,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItem(42969, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("INSCRIPTION_MAJOR_GLYPH")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS, F.ROGUE)
-	recipe:AddDiscovery("DISCOVERY_INSC_NORTHREND")
-	recipe:AddDiscovery("DISCOVERY_INSC_PANDARIA")
+	recipe:AddDiscovery("DISCOVERY_INSC_NORTHREND", "DISCOVERY_INSC_PANDARIA")
 
 	-- Glyph of Sap -- 57129
 	recipe = AddRecipe(57129, V.WOTLK, Q.COMMON)
@@ -1095,8 +1054,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItem(42971, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("INSCRIPTION_MAJOR_GLYPH")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS, F.ROGUE)
-	recipe:AddDiscovery("DISCOVERY_INSC_NORTHREND")
-	recipe:AddDiscovery("DISCOVERY_INSC_PANDARIA")
+	recipe:AddDiscovery("DISCOVERY_INSC_NORTHREND", "DISCOVERY_INSC_PANDARIA")
 
 	-- Glyph of Adrenaline Rush -- 57131
 	recipe = AddRecipe(57131, V.WOTLK, Q.COMMON)
@@ -1128,8 +1086,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItem(43425, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("INSCRIPTION_MAJOR_GLYPH")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TANK, F.WARRIOR)
-	recipe:AddDiscovery("DISCOVERY_INSC_NORTHREND")
-	recipe:AddDiscovery("DISCOVERY_INSC_PANDARIA")
+	recipe:AddDiscovery("DISCOVERY_INSC_NORTHREND", "DISCOVERY_INSC_PANDARIA")
 
 	-- Glyph of Bloody Healing -- 57153
 	recipe = AddRecipe(57153, V.WOTLK, Q.COMMON)
@@ -1153,8 +1110,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItem(43415, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("INSCRIPTION_MAJOR_GLYPH")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WARRIOR)
-	recipe:AddDiscovery("DISCOVERY_INSC_NORTHREND")
-	recipe:AddDiscovery("DISCOVERY_INSC_PANDARIA")
+	recipe:AddDiscovery("DISCOVERY_INSC_NORTHREND", "DISCOVERY_INSC_PANDARIA")
 
 	-- Glyph of Bloodthirst -- 57156
 	recipe = AddRecipe(57156, V.WOTLK, Q.COMMON)
@@ -1186,8 +1142,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItem(43419, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("INSCRIPTION_MAJOR_GLYPH")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WARRIOR)
-	recipe:AddDiscovery("DISCOVERY_INSC_NORTHREND")
-	recipe:AddDiscovery("DISCOVERY_INSC_PANDARIA")
+	recipe:AddDiscovery("DISCOVERY_INSC_NORTHREND", "DISCOVERY_INSC_PANDARIA")
 
 	-- Glyph of Mortal Strike -- 57160
 	recipe = AddRecipe(57160, V.WOTLK, Q.COMMON)
@@ -1195,10 +1150,9 @@ function addon:InitInscription()
 	recipe:SetCraftedItem(43421, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("INSCRIPTION_MAJOR_GLYPH")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WARRIOR)
-	recipe:AddDiscovery("DISCOVERY_INSC_NORTHREND")
-	recipe:AddDiscovery("DISCOVERY_INSC_PANDARIA")
+	recipe:AddDiscovery("DISCOVERY_INSC_NORTHREND", "DISCOVERY_INSC_PANDARIA")
 
-	-- Glyph of Overpower -- 57161
+	-- Glyph of Die by the Sword -- 57161
 	recipe = AddRecipe(57161, V.WOTLK, Q.COMMON)
 	recipe:SetSkillLevels(170, 170, 175, 180, 185)
 	recipe:SetCraftedItem(43422, "BIND_ON_EQUIP")
@@ -1228,8 +1182,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItem(43430, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("INSCRIPTION_MAJOR_GLYPH")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WARRIOR)
-	recipe:AddDiscovery("DISCOVERY_INSC_NORTHREND")
-	recipe:AddDiscovery("DISCOVERY_INSC_PANDARIA")
+	recipe:AddDiscovery("DISCOVERY_INSC_NORTHREND", "DISCOVERY_INSC_PANDARIA")
 
 	-- Glyph of Hold the Line -- 57165
 	recipe = AddRecipe(57165, V.WOTLK, Q.COMMON)
@@ -1261,8 +1214,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItem(43431, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("INSCRIPTION_MAJOR_GLYPH")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WARRIOR)
-	recipe:AddDiscovery("DISCOVERY_INSC_NORTHREND")
-	recipe:AddDiscovery("DISCOVERY_INSC_PANDARIA")
+	recipe:AddDiscovery("DISCOVERY_INSC_NORTHREND", "DISCOVERY_INSC_PANDARIA")
 
 	-- Glyph of Raging Wind -- 57172
 	recipe = AddRecipe(57172, V.WOTLK, Q.COMMON)
@@ -1278,8 +1230,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItem(42396, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("INSCRIPTION_MAJOR_GLYPH")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.HEALER, F.PRIEST)
-	recipe:AddDiscovery("DISCOVERY_INSC_NORTHREND")
-	recipe:AddDiscovery("DISCOVERY_INSC_PANDARIA")
+	recipe:AddDiscovery("DISCOVERY_INSC_NORTHREND", "DISCOVERY_INSC_PANDARIA")
 
 	-- Glyph of Purify -- 57183
 	recipe = AddRecipe(57183, V.WOTLK, Q.COMMON)
@@ -1335,8 +1286,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItem(42403, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("INSCRIPTION_MAJOR_GLYPH")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.HEALER, F.PRIEST)
-	recipe:AddDiscovery("DISCOVERY_INSC_NORTHREND")
-	recipe:AddDiscovery("DISCOVERY_INSC_PANDARIA")
+	recipe:AddDiscovery("DISCOVERY_INSC_NORTHREND", "DISCOVERY_INSC_PANDARIA")
 
 	-- Glyph of Mass Dispel -- 57190
 	recipe = AddRecipe(57190, V.WOTLK, Q.COMMON)
@@ -1344,8 +1294,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItem(42404, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("INSCRIPTION_MAJOR_GLYPH")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.HEALER, F.CASTER, F.PRIEST)
-	recipe:AddDiscovery("DISCOVERY_INSC_NORTHREND")
-	recipe:AddDiscovery("DISCOVERY_INSC_PANDARIA")
+	recipe:AddDiscovery("DISCOVERY_INSC_NORTHREND", "DISCOVERY_INSC_PANDARIA")
 
 	-- Glyph of Psychic Horror -- 57191
 	recipe = AddRecipe(57191, V.WOTLK, Q.COMMON)
@@ -1353,8 +1302,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItem(42405, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("INSCRIPTION_MAJOR_GLYPH")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.HEALER, F.CASTER, F.PRIEST)
-	recipe:AddDiscovery("DISCOVERY_INSC_NORTHREND")
-	recipe:AddDiscovery("DISCOVERY_INSC_PANDARIA")
+	recipe:AddDiscovery("DISCOVERY_INSC_NORTHREND", "DISCOVERY_INSC_PANDARIA")
 
 	-- Glyph of Holy Fire -- 57192
 	recipe = AddRecipe(57192, V.WOTLK, Q.COMMON)
@@ -1364,14 +1312,13 @@ function addon:InitInscription()
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.CASTER, F.PRIEST)
 	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30709, 30713, 30715, 30716, 30717, 30721, 30722, 33603, 33615, 33638, 33679, 46716, 56065, 62327, 64691)
 
-	-- Glyph of Inner Focus -- 57193
+	-- Glyph of Weakened Soul -- 57193
 	recipe = AddRecipe(57193, V.WOTLK, Q.COMMON)
 	recipe:SetSkillLevels(385, 385, 390, 397, 405)
 	recipe:SetCraftedItem(42407, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("INSCRIPTION_MAJOR_GLYPH")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.HEALER, F.CASTER, F.PRIEST)
-	recipe:AddDiscovery("DISCOVERY_INSC_NORTHREND")
-	recipe:AddDiscovery("DISCOVERY_INSC_PANDARIA")
+	recipe:AddDiscovery("DISCOVERY_INSC_NORTHREND", "DISCOVERY_INSC_PANDARIA")
 
 	-- Glyph of Power Word: Shield -- 57194
 	recipe = AddRecipe(57194, V.WOTLK, Q.COMMON)
@@ -1387,8 +1334,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItem(42409, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("INSCRIPTION_MAJOR_GLYPH")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.HEALER, F.PRIEST)
-	recipe:AddDiscovery("DISCOVERY_INSC_NORTHREND")
-	recipe:AddDiscovery("DISCOVERY_INSC_PANDARIA")
+	recipe:AddDiscovery("DISCOVERY_INSC_NORTHREND", "DISCOVERY_INSC_PANDARIA")
 
 	-- Glyph of Psychic Scream -- 57196
 	recipe = AddRecipe(57196, V.WOTLK, Q.COMMON)
@@ -1420,8 +1366,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItem(42414, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("INSCRIPTION_MAJOR_GLYPH")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.CASTER, F.PRIEST)
-	recipe:AddDiscovery("DISCOVERY_INSC_NORTHREND")
-	recipe:AddDiscovery("DISCOVERY_INSC_PANDARIA")
+	recipe:AddDiscovery("DISCOVERY_INSC_NORTHREND", "DISCOVERY_INSC_PANDARIA")
 
 	-- Glyph of Dispel Magic -- 57200
 	recipe = AddRecipe(57200, V.WOTLK, Q.COMMON)
@@ -1445,8 +1390,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItem(42417, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("INSCRIPTION_MAJOR_GLYPH")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.HEALER, F.PRIEST)
-	recipe:AddDiscovery("DISCOVERY_INSC_NORTHREND")
-	recipe:AddDiscovery("DISCOVERY_INSC_PANDARIA")
+	recipe:AddDiscovery("DISCOVERY_INSC_NORTHREND", "DISCOVERY_INSC_PANDARIA")
 
 	-- Glyph of Anti-Magic Shell -- 57207
 	recipe = AddRecipe(57207, V.WOTLK, Q.COMMON)
@@ -1454,8 +1398,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItem(43533, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("INSCRIPTION_MAJOR_GLYPH")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DK)
-	recipe:AddDiscovery("DISCOVERY_INSC_NORTHREND")
-	recipe:AddDiscovery("DISCOVERY_INSC_PANDARIA")
+	recipe:AddDiscovery("DISCOVERY_INSC_NORTHREND", "DISCOVERY_INSC_PANDARIA")
 
 	-- Glyph of Unholy Frenzy -- 57208
 	recipe = AddRecipe(57208, V.WOTLK, Q.COMMON)
@@ -1463,8 +1406,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItem(43534, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("INSCRIPTION_MAJOR_GLYPH")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DK)
-	recipe:AddDiscovery("DISCOVERY_INSC_NORTHREND")
-	recipe:AddDiscovery("DISCOVERY_INSC_PANDARIA")
+	recipe:AddDiscovery("DISCOVERY_INSC_NORTHREND", "DISCOVERY_INSC_PANDARIA")
 
 	-- Glyph of the Geist -- 57209
 	recipe = AddRecipe(57209, V.WOTLK, Q.COMMON)
@@ -1488,8 +1430,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItem(43537, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("INSCRIPTION_MAJOR_GLYPH")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DK)
-	recipe:AddDiscovery("DISCOVERY_INSC_NORTHREND")
-	recipe:AddDiscovery("DISCOVERY_INSC_PANDARIA")
+	recipe:AddDiscovery("DISCOVERY_INSC_NORTHREND", "DISCOVERY_INSC_PANDARIA")
 
 	-- Glyph of Death Grip -- 57213
 	recipe = AddRecipe(57213, V.WOTLK, Q.COMMON)
@@ -1505,8 +1446,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItem(43542, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("INSCRIPTION_MAJOR_GLYPH")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DK)
-	recipe:AddDiscovery("DISCOVERY_INSC_NORTHREND")
-	recipe:AddDiscovery("DISCOVERY_INSC_PANDARIA")
+	recipe:AddDiscovery("DISCOVERY_INSC_NORTHREND", "DISCOVERY_INSC_PANDARIA")
 
 	-- Glyph of Death's Embrace -- 57215
 	recipe = AddRecipe(57215, V.WOTLK, Q.COMMON)
@@ -1546,8 +1486,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItem(43547, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("INSCRIPTION_MAJOR_GLYPH")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DK)
-	recipe:AddDiscovery("DISCOVERY_INSC_NORTHREND")
-	recipe:AddDiscovery("DISCOVERY_INSC_PANDARIA")
+	recipe:AddDiscovery("DISCOVERY_INSC_NORTHREND", "DISCOVERY_INSC_PANDARIA")
 
 	-- Glyph of Pestilence -- 57221
 	recipe = AddRecipe(57221, V.WOTLK, Q.COMMON)
@@ -1571,8 +1510,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItem(43550, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("INSCRIPTION_MINOR_GLYPH")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DK)
-	recipe:AddDiscovery("DISCOVERY_INSC_NORTHREND")
-	recipe:AddDiscovery("DISCOVERY_INSC_PANDARIA")
+	recipe:AddDiscovery("DISCOVERY_INSC_NORTHREND", "DISCOVERY_INSC_PANDARIA")
 
 	-- Glyph of Foul Menagerie -- 57224
 	recipe = AddRecipe(57224, V.WOTLK, Q.COMMON)
@@ -1636,8 +1574,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItem(41517, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("INSCRIPTION_MAJOR_GLYPH")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.HEALER, F.SHAMAN)
-	recipe:AddDiscovery("DISCOVERY_INSC_NORTHREND")
-	recipe:AddDiscovery("DISCOVERY_INSC_PANDARIA")
+	recipe:AddDiscovery("DISCOVERY_INSC_NORTHREND", "DISCOVERY_INSC_PANDARIA")
 
 	-- Glyph of Chain Lightning -- 57233
 	recipe = AddRecipe(57233, V.WOTLK, Q.COMMON)
@@ -1645,8 +1582,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItem(41518, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("INSCRIPTION_MAJOR_GLYPH")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.CASTER, F.SHAMAN)
-	recipe:AddDiscovery("DISCOVERY_INSC_NORTHREND")
-	recipe:AddDiscovery("DISCOVERY_INSC_PANDARIA")
+	recipe:AddDiscovery("DISCOVERY_INSC_NORTHREND", "DISCOVERY_INSC_PANDARIA")
 
 	-- Glyph of Spirit Walk -- 57234
 	recipe = AddRecipe(57234, V.WOTLK, Q.COMMON)
@@ -1654,8 +1590,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItem(41524, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("INSCRIPTION_MAJOR_GLYPH")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.SHAMAN)
-	recipe:AddDiscovery("DISCOVERY_INSC_NORTHREND")
-	recipe:AddDiscovery("DISCOVERY_INSC_PANDARIA")
+	recipe:AddDiscovery("DISCOVERY_INSC_NORTHREND", "DISCOVERY_INSC_PANDARIA")
 
 	-- Glyph of Capacitor Totem -- 57235
 	recipe = AddRecipe(57235, V.WOTLK, Q.COMMON)
@@ -1663,8 +1598,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItem(41526, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("INSCRIPTION_MAJOR_GLYPH")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.SHAMAN)
-	recipe:AddDiscovery("DISCOVERY_INSC_NORTHREND")
-	recipe:AddDiscovery("DISCOVERY_INSC_PANDARIA")
+	recipe:AddDiscovery("DISCOVERY_INSC_NORTHREND", "DISCOVERY_INSC_PANDARIA")
 
 	-- Glyph of Purge -- 57236
 	recipe = AddRecipe(57236, V.WOTLK, Q.COMMON)
@@ -1680,8 +1614,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItem(41529, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("INSCRIPTION_MAJOR_GLYPH")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.SHAMAN)
-	recipe:AddDiscovery("DISCOVERY_INSC_NORTHREND")
-	recipe:AddDiscovery("DISCOVERY_INSC_PANDARIA")
+	recipe:AddDiscovery("DISCOVERY_INSC_NORTHREND", "DISCOVERY_INSC_PANDARIA")
 
 	-- Glyph of Fire Nova -- 57238
 	recipe = AddRecipe(57238, V.WOTLK, Q.COMMON)
@@ -1729,8 +1662,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItem(41534, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("INSCRIPTION_MAJOR_GLYPH")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.HEALER, F.SHAMAN)
-	recipe:AddDiscovery("DISCOVERY_INSC_NORTHREND")
-	recipe:AddDiscovery("DISCOVERY_INSC_PANDARIA")
+	recipe:AddDiscovery("DISCOVERY_INSC_NORTHREND", "DISCOVERY_INSC_PANDARIA")
 
 	-- Glyph of Totemic Recall -- 57244
 	recipe = AddRecipe(57244, V.WOTLK, Q.COMMON)
@@ -1762,8 +1694,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItem(41538, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("INSCRIPTION_MAJOR_GLYPH")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.SHAMAN)
-	recipe:AddDiscovery("DISCOVERY_INSC_NORTHREND")
-	recipe:AddDiscovery("DISCOVERY_INSC_PANDARIA")
+	recipe:AddDiscovery("DISCOVERY_INSC_NORTHREND", "DISCOVERY_INSC_PANDARIA")
 
 	-- Glyph of Spiritwalker's Grace -- 57248
 	recipe = AddRecipe(57248, V.WOTLK, Q.COMMON)
@@ -1787,8 +1718,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItem(41552, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("INSCRIPTION_MAJOR_GLYPH")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.SHAMAN)
-	recipe:AddDiscovery("DISCOVERY_INSC_NORTHREND")
-	recipe:AddDiscovery("DISCOVERY_INSC_PANDARIA")
+	recipe:AddDiscovery("DISCOVERY_INSC_NORTHREND", "DISCOVERY_INSC_PANDARIA")
 
 	-- Glyph of Water Shield -- 57251
 	recipe = AddRecipe(57251, V.WOTLK, Q.COMMON)
@@ -1828,8 +1758,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItem(42454, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("INSCRIPTION_MAJOR_GLYPH")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.CASTER, F.WARLOCK)
-	recipe:AddDiscovery("DISCOVERY_INSC_NORTHREND")
-	recipe:AddDiscovery("DISCOVERY_INSC_PANDARIA")
+	recipe:AddDiscovery("DISCOVERY_INSC_NORTHREND", "DISCOVERY_INSC_PANDARIA")
 
 	-- Glyph of Siphon Life -- 57259
 	recipe = AddRecipe(57259, V.WOTLK, Q.COMMON)
@@ -1845,8 +1774,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItem(42456, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("INSCRIPTION_MINOR_GLYPH")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.CASTER, F.WARLOCK)
-	recipe:AddDiscovery("DISCOVERY_INSC_NORTHREND")
-	recipe:AddDiscovery("DISCOVERY_INSC_PANDARIA")
+	recipe:AddDiscovery("DISCOVERY_INSC_NORTHREND", "DISCOVERY_INSC_PANDARIA")
 
 	-- Glyph of Nightmares -- 57261
 	recipe = AddRecipe(57261, V.WOTLK, Q.COMMON)
@@ -1854,8 +1782,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItem(42457, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("INSCRIPTION_MINOR_GLYPH")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.CASTER, F.WARLOCK)
-	recipe:AddDiscovery("DISCOVERY_INSC_NORTHREND")
-	recipe:AddDiscovery("DISCOVERY_INSC_PANDARIA")
+	recipe:AddDiscovery("DISCOVERY_INSC_NORTHREND", "DISCOVERY_INSC_PANDARIA")
 
 	-- Glyph of Fear -- 57262
 	recipe = AddRecipe(57262, V.WOTLK, Q.COMMON)
@@ -1871,8 +1798,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItem(42459, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("INSCRIPTION_MINOR_GLYPH")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.CASTER, F.WARLOCK)
-	recipe:AddDiscovery("DISCOVERY_INSC_NORTHREND")
-	recipe:AddDiscovery("DISCOVERY_INSC_PANDARIA")
+	recipe:AddDiscovery("DISCOVERY_INSC_NORTHREND", "DISCOVERY_INSC_PANDARIA")
 
 	-- Glyph of Demon Training -- 57264
 	recipe = AddRecipe(57264, V.WOTLK, Q.COMMON)
@@ -1880,8 +1806,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItem(42460, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("INSCRIPTION_MAJOR_GLYPH")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.CASTER, F.WARLOCK)
-	recipe:AddDiscovery("DISCOVERY_INSC_NORTHREND")
-	recipe:AddDiscovery("DISCOVERY_INSC_PANDARIA")
+	recipe:AddDiscovery("DISCOVERY_INSC_NORTHREND", "DISCOVERY_INSC_PANDARIA")
 
 	-- Glyph of Health Funnel -- 57265
 	recipe = AddRecipe(57265, V.WOTLK, Q.COMMON)
@@ -1905,8 +1830,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItem(42463, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("INSCRIPTION_MINOR_GLYPH")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.CASTER, F.WARLOCK)
-	recipe:AddDiscovery("DISCOVERY_INSC_NORTHREND")
-	recipe:AddDiscovery("DISCOVERY_INSC_PANDARIA")
+	recipe:AddDiscovery("DISCOVERY_INSC_NORTHREND", "DISCOVERY_INSC_PANDARIA")
 
 	-- Glyph of Dark Soul -- 57268
 	recipe = AddRecipe(57268, V.WOTLK, Q.COMMON)
@@ -1914,8 +1838,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItem(42464, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("INSCRIPTION_MAJOR_GLYPH")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.CASTER, F.WARLOCK)
-	recipe:AddDiscovery("DISCOVERY_INSC_NORTHREND")
-	recipe:AddDiscovery("DISCOVERY_INSC_PANDARIA")
+	recipe:AddDiscovery("DISCOVERY_INSC_NORTHREND", "DISCOVERY_INSC_PANDARIA")
 
 	-- Glyph of Imp Swarm -- 57269
 	recipe = AddRecipe(57269, V.WOTLK, Q.COMMON)
@@ -1963,8 +1886,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItem(42472, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("INSCRIPTION_MAJOR_GLYPH")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.CASTER, F.WARLOCK)
-	recipe:AddDiscovery("DISCOVERY_INSC_NORTHREND")
-	recipe:AddDiscovery("DISCOVERY_INSC_PANDARIA")
+	recipe:AddDiscovery("DISCOVERY_INSC_NORTHREND", "DISCOVERY_INSC_PANDARIA")
 
 	-- Glyph of Falling Meteor -- 57277
 	recipe = AddRecipe(57277, V.WOTLK, Q.COMMON)
@@ -2191,7 +2113,7 @@ function addon:InitInscription()
 	recipe:AddDiscovery("DISCOVERY_INSC_MINOR")
 
 	-- Glyph of the Bear Cub -- 58309
-	recipe = AddRecipe(58309, V.MOP, Q.COMMON)
+	recipe = AddRecipe(58309, V.WOTLK, Q.COMMON)
 	recipe:SetSkillLevels(75, 75, 85, 90, 95)
 	recipe:SetCraftedItem(43362, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("INSCRIPTION_MINOR_GLYPH")
@@ -2229,8 +2151,7 @@ function addon:InitInscription()
 	recipe:SetItemFilterType("INSCRIPTION_MAJOR_GLYPH")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.PALADIN)
 	recipe:AddTrainer(26916, 26977, 26995, 28702, 30706, 30713, 30715, 30716, 30717, 30721, 33615, 33638, 46716, 56065, 62327, 64691)
-	recipe:AddDiscovery("DISCOVERY_INSC_NORTHREND")
-	recipe:AddDiscovery("DISCOVERY_INSC_PANDARIA")
+	recipe:AddDiscovery("DISCOVERY_INSC_NORTHREND", "DISCOVERY_INSC_PANDARIA")
 
 	-- Glyph of the Mounted King -- 58314
 	recipe = AddRecipe(58314, V.WOTLK, Q.COMMON)
@@ -2400,7 +2321,7 @@ function addon:InitInscription()
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WARLOCK)
 	recipe:AddDiscovery("DISCOVERY_INSC_MINOR")
 
-	-- Glyph of Drain Soul -- 58337
+	-- Glyph of Soul Consumption -- 58337
 	recipe = AddRecipe(58337, V.WOTLK, Q.COMMON)
 	recipe:SetSkillLevels(75, 75, 80, 85, 90)
 	recipe:SetCraftedItem(43390, "BIND_ON_EQUIP")
@@ -2825,8 +2746,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItem(43867, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("INSCRIPTION_MAJOR_GLYPH")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.PALADIN)
-	recipe:AddDiscovery("DISCOVERY_INSC_NORTHREND")
-	recipe:AddDiscovery("DISCOVERY_INSC_PANDARIA")
+	recipe:AddDiscovery("DISCOVERY_INSC_NORTHREND", "DISCOVERY_INSC_PANDARIA")
 
 	-- Glyph of Dazing Shield -- 59560
 	recipe = AddRecipe(59560, V.WOTLK, Q.COMMON)
@@ -2834,8 +2754,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItem(43868, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("INSCRIPTION_MAJOR_GLYPH")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.PALADIN)
-	recipe:AddDiscovery("DISCOVERY_INSC_NORTHREND")
-	recipe:AddDiscovery("DISCOVERY_INSC_PANDARIA")
+	recipe:AddDiscovery("DISCOVERY_INSC_NORTHREND", "DISCOVERY_INSC_PANDARIA")
 
 	-- Glyph of Immediate Truth -- 59561
 	recipe = AddRecipe(59561, V.WOTLK, Q.COMMON)
@@ -2843,8 +2762,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItem(43869, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("INSCRIPTION_MAJOR_GLYPH")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS, F.PALADIN)
-	recipe:AddDiscovery("DISCOVERY_INSC_NORTHREND")
-	recipe:AddDiscovery("DISCOVERY_INSC_PANDARIA")
+	recipe:AddDiscovery("DISCOVERY_INSC_NORTHREND", "DISCOVERY_INSC_PANDARIA")
 
 	-- Scroll of Recall II -- 60336
 	recipe = AddRecipe(60336, V.WOTLK, Q.COMMON)
@@ -2910,8 +2828,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItem(44684, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("INSCRIPTION_MAJOR_GLYPH")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.MAGE)
-	recipe:AddDiscovery("DISCOVERY_INSC_NORTHREND")
-	recipe:AddDiscovery("DISCOVERY_INSC_PANDARIA")
+	recipe:AddDiscovery("DISCOVERY_INSC_NORTHREND", "DISCOVERY_INSC_PANDARIA")
 
 	-- Glyph of the Master Shapeshifter -- 62162
 	recipe = AddRecipe(62162, V.WOTLK, Q.COMMON)
@@ -2927,7 +2844,7 @@ function addon:InitInscription()
 	recipe:SetRecipeItem(46108, "BIND_ON_PICKUP")
 	recipe:SetCraftedItem(46108, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("INSCRIPTION_OFF_HAND")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS, F.HEALER, F.CASTER)
 	recipe:AddMobDrop(26679, 26708, 27546, 27676)
 
 	-- Twilight Tome -- 64053
@@ -2944,8 +2861,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItem(45735, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("INSCRIPTION_MAJOR_GLYPH")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.HUNTER)
-	recipe:AddDiscovery("DISCOVERY_INSC_BOOK")
-	recipe:AddDiscovery("DISCOVERY_INSC_PANDARIA")
+	recipe:AddDiscovery("DISCOVERY_INSC_BOOK", "DISCOVERY_INSC_PANDARIA")
 
 	-- Glyph of Totemic Vigor -- 64247
 	recipe = AddRecipe(64247, V.WOTLK, Q.COMMON)
@@ -2953,8 +2869,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItem(45778, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("INSCRIPTION_MAJOR_GLYPH")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.SHAMAN)
-	recipe:AddDiscovery("DISCOVERY_INSC_BOOK")
-	recipe:AddDiscovery("DISCOVERY_INSC_PANDARIA")
+	recipe:AddDiscovery("DISCOVERY_INSC_BOOK", "DISCOVERY_INSC_PANDARIA")
 
 	-- Glyph of Life Tap -- 64248
 	recipe = AddRecipe(64248, V.WOTLK, Q.COMMON)
@@ -2962,8 +2877,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItem(45785, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("INSCRIPTION_MAJOR_GLYPH")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.CASTER, F.WARLOCK)
-	recipe:AddDiscovery("DISCOVERY_INSC_BOOK")
-	recipe:AddDiscovery("DISCOVERY_INSC_PANDARIA")
+	recipe:AddDiscovery("DISCOVERY_INSC_BOOK", "DISCOVERY_INSC_PANDARIA")
 
 	-- Glyph of Scatter Shot -- 64249
 	recipe = AddRecipe(64249, V.WOTLK, Q.COMMON)
@@ -2971,8 +2885,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItem(45734, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("INSCRIPTION_MAJOR_GLYPH")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.HUNTER)
-	recipe:AddDiscovery("DISCOVERY_INSC_BOOK")
-	recipe:AddDiscovery("DISCOVERY_INSC_PANDARIA")
+	recipe:AddDiscovery("DISCOVERY_INSC_BOOK", "DISCOVERY_INSC_PANDARIA")
 
 	-- Glyph of Crimson Banish -- 64250
 	recipe = AddRecipe(64250, V.WOTLK, Q.COMMON)
@@ -2980,8 +2893,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItem(45789, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("INSCRIPTION_MINOR_GLYPH")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WARLOCK)
-	recipe:AddDiscovery("DISCOVERY_INSC_BOOK")
-	recipe:AddDiscovery("DISCOVERY_INSC_PANDARIA")
+	recipe:AddDiscovery("DISCOVERY_INSC_BOOK", "DISCOVERY_INSC_PANDARIA")
 
 	-- Glyph of Inquisition -- 64251
 	recipe = AddRecipe(64251, V.WOTLK, Q.COMMON)
@@ -2989,8 +2901,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItem(45747, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("INSCRIPTION_MAJOR_GLYPH")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.PALADIN)
-	recipe:AddDiscovery("DISCOVERY_INSC_BOOK")
-	recipe:AddDiscovery("DISCOVERY_INSC_PANDARIA")
+	recipe:AddDiscovery("DISCOVERY_INSC_BOOK", "DISCOVERY_INSC_PANDARIA")
 
 	-- Glyph of Shield Wall -- 64252
 	recipe = AddRecipe(64252, V.WOTLK, Q.COMMON)
@@ -2998,8 +2909,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItem(45797, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("INSCRIPTION_MAJOR_GLYPH")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WARRIOR)
-	recipe:AddDiscovery("DISCOVERY_INSC_BOOK")
-	recipe:AddDiscovery("DISCOVERY_INSC_PANDARIA")
+	recipe:AddDiscovery("DISCOVERY_INSC_BOOK", "DISCOVERY_INSC_PANDARIA")
 
 	-- Glyph of Master's Call -- 64253
 	recipe = AddRecipe(64253, V.WOTLK, Q.COMMON)
@@ -3007,8 +2917,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItem(45733, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("INSCRIPTION_MAJOR_GLYPH")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.HUNTER)
-	recipe:AddDiscovery("DISCOVERY_INSC_BOOK")
-	recipe:AddDiscovery("DISCOVERY_INSC_PANDARIA")
+	recipe:AddDiscovery("DISCOVERY_INSC_BOOK", "DISCOVERY_INSC_PANDARIA")
 
 	-- Glyph of Holy Shock -- 64254
 	recipe = AddRecipe(64254, V.WOTLK, Q.COMMON)
@@ -3016,8 +2925,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItem(45746, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("INSCRIPTION_MAJOR_GLYPH")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.PALADIN)
-	recipe:AddDiscovery("DISCOVERY_INSC_BOOK")
-	recipe:AddDiscovery("DISCOVERY_INSC_PANDARIA")
+	recipe:AddDiscovery("DISCOVERY_INSC_BOOK", "DISCOVERY_INSC_PANDARIA")
 
 	-- Glyph of Furious Sundering -- 64255
 	recipe = AddRecipe(64255, V.WOTLK, Q.COMMON)
@@ -3033,8 +2941,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItem(45623, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("INSCRIPTION_MAJOR_GLYPH")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DRUID)
-	recipe:AddDiscovery("DISCOVERY_INSC_BOOK", "DISCOVERY_INSC_NORTHREND")
-	recipe:AddDiscovery("DISCOVERY_INSC_PANDARIA")
+	recipe:AddDiscovery("DISCOVERY_INSC_BOOK", "DISCOVERY_INSC_NORTHREND", "DISCOVERY_INSC_PANDARIA")
 
 	-- Glyph of Deep Freeze -- 64257
 	recipe = AddRecipe(64257, V.WOTLK, Q.COMMON)
@@ -3042,8 +2949,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItem(45740, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("INSCRIPTION_MAJOR_GLYPH")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.MAGE)
-	recipe:AddDiscovery("DISCOVERY_INSC_BOOK")
-	recipe:AddDiscovery("DISCOVERY_INSC_PANDARIA")
+	recipe:AddDiscovery("DISCOVERY_INSC_BOOK", "DISCOVERY_INSC_PANDARIA")
 
 	-- Glyph of Cyclone -- 64258
 	recipe = AddRecipe(64258, V.WOTLK, Q.COMMON)
@@ -3053,7 +2959,7 @@ function addon:InitInscription()
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DRUID)
 	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30709, 30710, 30711, 30713, 30715, 30716, 30717, 30721, 30722, 33603, 33615, 33638, 33679, 46716, 56065, 62327, 64691)
 
-	-- Glyph of Desperation -- 64259
+	-- Glyph of Binding Heal -- 64259
 	recipe = AddRecipe(64259, V.WOTLK, Q.COMMON)
 	recipe:SetSkillLevels(255, 255, 255, 262, 270)
 	recipe:SetCraftedItem(45760, "BIND_ON_EQUIP")
@@ -3099,8 +3005,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItem(45601, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("INSCRIPTION_MAJOR_GLYPH")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DRUID)
-	recipe:AddDiscovery("DISCOVERY_INSC_BOOK")
-	recipe:AddDiscovery("DISCOVERY_INSC_PANDARIA")
+	recipe:AddDiscovery("DISCOVERY_INSC_BOOK", "DISCOVERY_INSC_PANDARIA")
 
 	-- Glyph of Wild Growth -- 64270
 	recipe = AddRecipe(64270, V.WOTLK, Q.COMMON)
@@ -3108,8 +3013,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItem(45602, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("INSCRIPTION_MAJOR_GLYPH")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DRUID)
-	recipe:AddDiscovery("DISCOVERY_INSC_BOOK")
-	recipe:AddDiscovery("DISCOVERY_INSC_PANDARIA")
+	recipe:AddDiscovery("DISCOVERY_INSC_BOOK", "DISCOVERY_INSC_PANDARIA")
 
 	-- Glyph of Chimera Shot -- 64271
 	recipe = AddRecipe(64271, V.WOTLK, Q.COMMON)
@@ -3117,8 +3021,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItem(45625, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("INSCRIPTION_MAJOR_GLYPH")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.HUNTER)
-	recipe:AddDiscovery("DISCOVERY_INSC_BOOK")
-	recipe:AddDiscovery("DISCOVERY_INSC_PANDARIA")
+	recipe:AddDiscovery("DISCOVERY_INSC_BOOK", "DISCOVERY_INSC_PANDARIA")
 
 	-- Glyph of Tranquilizing Shot -- 64273
 	recipe = AddRecipe(64273, V.WOTLK, Q.COMMON)
@@ -3126,8 +3029,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItem(45731, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("INSCRIPTION_MAJOR_GLYPH")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.HUNTER)
-	recipe:AddDiscovery("DISCOVERY_INSC_BOOK")
-	recipe:AddDiscovery("DISCOVERY_INSC_PANDARIA")
+	recipe:AddDiscovery("DISCOVERY_INSC_BOOK", "DISCOVERY_INSC_PANDARIA")
 
 	-- Glyph of Water Elemental -- 64274
 	recipe = AddRecipe(64274, V.WOTLK, Q.COMMON)
@@ -3135,8 +3037,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItem(45736, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("INSCRIPTION_MAJOR_GLYPH")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.MAGE)
-	recipe:AddDiscovery("DISCOVERY_INSC_BOOK")
-	recipe:AddDiscovery("DISCOVERY_INSC_PANDARIA")
+	recipe:AddDiscovery("DISCOVERY_INSC_BOOK", "DISCOVERY_INSC_PANDARIA")
 
 	-- Glyph of Slow -- 64275
 	recipe = AddRecipe(64275, V.WOTLK, Q.COMMON)
@@ -3144,8 +3045,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItem(45737, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("INSCRIPTION_MAJOR_GLYPH")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.MAGE)
-	recipe:AddDiscovery("DISCOVERY_INSC_BOOK")
-	recipe:AddDiscovery("DISCOVERY_INSC_PANDARIA")
+	recipe:AddDiscovery("DISCOVERY_INSC_BOOK", "DISCOVERY_INSC_PANDARIA")
 
 	-- Glyph of Illusion -- 64276
 	recipe = AddRecipe(64276, V.WOTLK, Q.COMMON)
@@ -3153,8 +3053,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItem(45738, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("INSCRIPTION_MINOR_GLYPH")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.MAGE)
-	recipe:AddDiscovery("DISCOVERY_INSC_BOOK")
-	recipe:AddDiscovery("DISCOVERY_INSC_PANDARIA")
+	recipe:AddDiscovery("DISCOVERY_INSC_BOOK", "DISCOVERY_INSC_PANDARIA")
 
 	-- Glyph of Beacon of Light -- 64277
 	recipe = AddRecipe(64277, V.WOTLK, Q.COMMON)
@@ -3162,8 +3061,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItem(45741, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("INSCRIPTION_MAJOR_GLYPH")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.PALADIN)
-	recipe:AddDiscovery("DISCOVERY_INSC_BOOK")
-	recipe:AddDiscovery("DISCOVERY_INSC_PANDARIA")
+	recipe:AddDiscovery("DISCOVERY_INSC_BOOK", "DISCOVERY_INSC_PANDARIA")
 
 	-- Glyph of Hammer of the Righteous -- 64278
 	recipe = AddRecipe(64278, V.WOTLK, Q.COMMON)
@@ -3171,8 +3069,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItem(45742, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("INSCRIPTION_MAJOR_GLYPH")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.PALADIN)
-	recipe:AddDiscovery("DISCOVERY_INSC_BOOK")
-	recipe:AddDiscovery("DISCOVERY_INSC_PANDARIA")
+	recipe:AddDiscovery("DISCOVERY_INSC_BOOK", "DISCOVERY_INSC_PANDARIA")
 
 	-- Glyph of Divine Storm -- 64279
 	recipe = AddRecipe(64279, V.WOTLK, Q.COMMON)
@@ -3180,8 +3077,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItem(45743, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("INSCRIPTION_MAJOR_GLYPH")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.PALADIN)
-	recipe:AddDiscovery("DISCOVERY_INSC_BOOK")
-	recipe:AddDiscovery("DISCOVERY_INSC_PANDARIA")
+	recipe:AddDiscovery("DISCOVERY_INSC_BOOK", "DISCOVERY_INSC_PANDARIA")
 
 	-- Glyph of Dispersion -- 64280
 	recipe = AddRecipe(64280, V.WOTLK, Q.COMMON)
@@ -3189,8 +3085,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItem(45753, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("INSCRIPTION_MAJOR_GLYPH")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.PRIEST)
-	recipe:AddDiscovery("DISCOVERY_INSC_BOOK")
-	recipe:AddDiscovery("DISCOVERY_INSC_PANDARIA")
+	recipe:AddDiscovery("DISCOVERY_INSC_BOOK", "DISCOVERY_INSC_PANDARIA")
 
 	-- Glyph of Leap of Faith -- 64281
 	recipe = AddRecipe(64281, V.WOTLK, Q.COMMON)
@@ -3198,8 +3093,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItem(45755, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("INSCRIPTION_MAJOR_GLYPH")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.HEALER, F.CASTER, F.PRIEST)
-	recipe:AddDiscovery("DISCOVERY_INSC_BOOK")
-	recipe:AddDiscovery("DISCOVERY_INSC_PANDARIA")
+	recipe:AddDiscovery("DISCOVERY_INSC_BOOK", "DISCOVERY_INSC_PANDARIA")
 
 	-- Glyph of Penance -- 64282
 	recipe = AddRecipe(64282, V.WOTLK, Q.COMMON)
@@ -3207,8 +3101,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItem(45756, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("INSCRIPTION_MAJOR_GLYPH")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.PRIEST)
-	recipe:AddDiscovery("DISCOVERY_INSC_BOOK")
-	recipe:AddDiscovery("DISCOVERY_INSC_PANDARIA")
+	recipe:AddDiscovery("DISCOVERY_INSC_BOOK", "DISCOVERY_INSC_PANDARIA")
 
 	-- Glyph of Mind Spike -- 64283
 	recipe = AddRecipe(64283, V.WOTLK, Q.COMMON)
@@ -3216,8 +3109,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItem(45758, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("INSCRIPTION_MAJOR_GLYPH")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.PRIEST)
-	recipe:AddDiscovery("DISCOVERY_INSC_BOOK")
-	recipe:AddDiscovery("DISCOVERY_INSC_PANDARIA")
+	recipe:AddDiscovery("DISCOVERY_INSC_BOOK", "DISCOVERY_INSC_PANDARIA")
 
 	-- Glyph of Vendetta -- 64284
 	recipe = AddRecipe(64284, V.WOTLK, Q.COMMON)
@@ -3225,8 +3117,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItem(45761, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("INSCRIPTION_MAJOR_GLYPH")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.ROGUE)
-	recipe:AddDiscovery("DISCOVERY_INSC_BOOK")
-	recipe:AddDiscovery("DISCOVERY_INSC_PANDARIA")
+	recipe:AddDiscovery("DISCOVERY_INSC_BOOK", "DISCOVERY_INSC_PANDARIA")
 
 	-- Glyph of Killing Spree -- 64285
 	recipe = AddRecipe(64285, V.WOTLK, Q.COMMON)
@@ -3234,8 +3125,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItem(45762, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("INSCRIPTION_MINOR_GLYPH")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.ROGUE)
-	recipe:AddDiscovery("DISCOVERY_INSC_BOOK")
-	recipe:AddDiscovery("DISCOVERY_INSC_PANDARIA")
+	recipe:AddDiscovery("DISCOVERY_INSC_BOOK", "DISCOVERY_INSC_PANDARIA")
 
 	-- Glyph of Stealth -- 64286
 	recipe = AddRecipe(64286, V.WOTLK, Q.COMMON)
@@ -3243,8 +3133,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItem(45764, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("INSCRIPTION_MAJOR_GLYPH")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.ROGUE)
-	recipe:AddDiscovery("DISCOVERY_INSC_BOOK")
-	recipe:AddDiscovery("DISCOVERY_INSC_PANDARIA")
+	recipe:AddDiscovery("DISCOVERY_INSC_BOOK", "DISCOVERY_INSC_PANDARIA")
 
 	-- Glyph of Thunder -- 64287
 	recipe = AddRecipe(64287, V.WOTLK, Q.COMMON)
@@ -3252,8 +3141,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItem(45770, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("INSCRIPTION_MAJOR_GLYPH")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.SHAMAN)
-	recipe:AddDiscovery("DISCOVERY_INSC_BOOK")
-	recipe:AddDiscovery("DISCOVERY_INSC_PANDARIA")
+	recipe:AddDiscovery("DISCOVERY_INSC_BOOK", "DISCOVERY_INSC_PANDARIA")
 
 	-- Glyph of Feral Spirit -- 64288
 	recipe = AddRecipe(64288, V.WOTLK, Q.COMMON)
@@ -3261,8 +3149,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItem(45771, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("INSCRIPTION_MAJOR_GLYPH")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.HEALER, F.CASTER, F.SHAMAN)
-	recipe:AddDiscovery("DISCOVERY_INSC_BOOK")
-	recipe:AddDiscovery("DISCOVERY_INSC_PANDARIA")
+	recipe:AddDiscovery("DISCOVERY_INSC_BOOK", "DISCOVERY_INSC_PANDARIA")
 
 	-- Glyph of Riptide -- 64289
 	recipe = AddRecipe(64289, V.WOTLK, Q.COMMON)
@@ -3270,26 +3157,23 @@ function addon:InitInscription()
 	recipe:SetCraftedItem(45772, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("INSCRIPTION_MAJOR_GLYPH")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.SHAMAN)
-	recipe:AddDiscovery("DISCOVERY_INSC_BOOK")
-	recipe:AddDiscovery("DISCOVERY_INSC_PANDARIA")
+	recipe:AddDiscovery("DISCOVERY_INSC_BOOK", "DISCOVERY_INSC_PANDARIA")
 
-	-- Glyph of Soul Shards -- 64291
+	-- Glyph of Drain Life -- 64291
 	recipe = AddRecipe(64291, V.WOTLK, Q.COMMON)
 	recipe:SetSkillLevels(425, 425, 430, 435, 440)
 	recipe:SetCraftedItem(45779, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("INSCRIPTION_MAJOR_GLYPH")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WARLOCK)
-	recipe:AddDiscovery("DISCOVERY_INSC_BOOK")
-	recipe:AddDiscovery("DISCOVERY_INSC_PANDARIA")
+	recipe:AddDiscovery("DISCOVERY_INSC_BOOK", "DISCOVERY_INSC_PANDARIA")
 
-	-- Glyph of Burning Embers -- 64294
+	-- Glyph of Ember Tap -- 64294
 	recipe = AddRecipe(64294, V.WOTLK, Q.COMMON)
 	recipe:SetSkillLevels(425, 425, 430, 435, 440)
 	recipe:SetCraftedItem(45781, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("INSCRIPTION_MAJOR_GLYPH")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WARLOCK)
-	recipe:AddDiscovery("DISCOVERY_INSC_BOOK")
-	recipe:AddDiscovery("DISCOVERY_INSC_PANDARIA")
+	recipe:AddDiscovery("DISCOVERY_INSC_BOOK", "DISCOVERY_INSC_PANDARIA")
 
 	-- Glyph of Whirlwind -- 64295
 	recipe = AddRecipe(64295, V.WOTLK, Q.COMMON)
@@ -3297,8 +3181,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItem(45790, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("INSCRIPTION_MAJOR_GLYPH")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WARRIOR)
-	recipe:AddDiscovery("DISCOVERY_INSC_BOOK")
-	recipe:AddDiscovery("DISCOVERY_INSC_PANDARIA")
+	recipe:AddDiscovery("DISCOVERY_INSC_BOOK", "DISCOVERY_INSC_PANDARIA")
 
 	-- Glyph of Death From Above -- 64296
 	recipe = AddRecipe(64296, V.WOTLK, Q.COMMON)
@@ -3306,8 +3189,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItem(45792, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("INSCRIPTION_MAJOR_GLYPH")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WARRIOR)
-	recipe:AddDiscovery("DISCOVERY_INSC_BOOK")
-	recipe:AddDiscovery("DISCOVERY_INSC_PANDARIA")
+	recipe:AddDiscovery("DISCOVERY_INSC_BOOK", "DISCOVERY_INSC_PANDARIA")
 
 	-- Glyph of Dancing Rune Weapon -- 64297
 	recipe = AddRecipe(64297, V.WOTLK, Q.COMMON)
@@ -3315,8 +3197,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItem(45799, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("INSCRIPTION_MAJOR_GLYPH")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DK)
-	recipe:AddDiscovery("DISCOVERY_INSC_BOOK")
-	recipe:AddDiscovery("DISCOVERY_INSC_PANDARIA")
+	recipe:AddDiscovery("DISCOVERY_INSC_BOOK", "DISCOVERY_INSC_PANDARIA")
 
 	-- Glyph of Dark Simulacrum -- 64298
 	recipe = AddRecipe(64298, V.WOTLK, Q.COMMON)
@@ -3324,8 +3205,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItem(45800, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("INSCRIPTION_MAJOR_GLYPH")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DK)
-	recipe:AddDiscovery("DISCOVERY_INSC_BOOK")
-	recipe:AddDiscovery("DISCOVERY_INSC_PANDARIA")
+	recipe:AddDiscovery("DISCOVERY_INSC_BOOK", "DISCOVERY_INSC_PANDARIA")
 
 	-- Glyph of Tranquil Grip -- 64300
 	recipe = AddRecipe(64300, V.WOTLK, Q.COMMON)
@@ -3333,8 +3213,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItem(45806, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("INSCRIPTION_MINOR_GLYPH")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DK)
-	recipe:AddDiscovery("DISCOVERY_INSC_BOOK")
-	recipe:AddDiscovery("DISCOVERY_INSC_PANDARIA")
+	recipe:AddDiscovery("DISCOVERY_INSC_BOOK", "DISCOVERY_INSC_PANDARIA")
 
 	-- Glyph of Spell Reflection -- 64302
 	recipe = AddRecipe(64302, V.WOTLK, Q.COMMON)
@@ -3342,8 +3221,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItem(45795, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("INSCRIPTION_MAJOR_GLYPH")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WARRIOR)
-	recipe:AddDiscovery("DISCOVERY_INSC_BOOK")
-	recipe:AddDiscovery("DISCOVERY_INSC_PANDARIA")
+	recipe:AddDiscovery("DISCOVERY_INSC_BOOK", "DISCOVERY_INSC_PANDARIA")
 
 	-- Glyph of Cloak of Shadows -- 64303
 	recipe = AddRecipe(64303, V.WOTLK, Q.COMMON)
@@ -3351,8 +3229,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItem(45769, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("INSCRIPTION_MAJOR_GLYPH")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.ROGUE)
-	recipe:AddDiscovery("DISCOVERY_INSC_BOOK")
-	recipe:AddDiscovery("DISCOVERY_INSC_PANDARIA")
+	recipe:AddDiscovery("DISCOVERY_INSC_BOOK", "DISCOVERY_INSC_PANDARIA")
 
 	-- Glyph of Aspect of the Cheetah -- 64304
 	recipe = AddRecipe(64304, V.WOTLK, Q.COMMON)
@@ -3360,8 +3237,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItem(45732, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("INSCRIPTION_MINOR_GLYPH")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.HUNTER)
-	recipe:AddDiscovery("DISCOVERY_INSC_BOOK")
-	recipe:AddDiscovery("DISCOVERY_INSC_PANDARIA")
+	recipe:AddDiscovery("DISCOVERY_INSC_BOOK", "DISCOVERY_INSC_PANDARIA")
 
 	-- Glyph of Divine Plea -- 64305
 	recipe = AddRecipe(64305, V.WOTLK, Q.COMMON)
@@ -3369,8 +3245,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItem(45745, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("INSCRIPTION_MAJOR_GLYPH")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.PALADIN)
-	recipe:AddDiscovery("DISCOVERY_INSC_BOOK")
-	recipe:AddDiscovery("DISCOVERY_INSC_PANDARIA")
+	recipe:AddDiscovery("DISCOVERY_INSC_BOOK", "DISCOVERY_INSC_PANDARIA")
 
 	-- Glyph of Stampeding Roar -- 64307
 	recipe = AddRecipe(64307, V.WOTLK, Q.COMMON)
@@ -3378,8 +3253,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItem(45604, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("INSCRIPTION_MAJOR_GLYPH")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DRUID)
-	recipe:AddDiscovery("DISCOVERY_INSC_BOOK")
-	recipe:AddDiscovery("DISCOVERY_INSC_PANDARIA")
+	recipe:AddDiscovery("DISCOVERY_INSC_BOOK", "DISCOVERY_INSC_PANDARIA")
 
 	-- Glyph of the Alabaster Shield -- 64308
 	recipe = AddRecipe(64308, V.WOTLK, Q.COMMON)
@@ -3387,8 +3261,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItem(45744, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("INSCRIPTION_MAJOR_GLYPH")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.PALADIN)
-	recipe:AddDiscovery("DISCOVERY_INSC_BOOK")
-	recipe:AddDiscovery("DISCOVERY_INSC_PANDARIA")
+	recipe:AddDiscovery("DISCOVERY_INSC_BOOK", "DISCOVERY_INSC_PANDARIA")
 
 	-- Glyph of Dark Binding -- 64309
 	recipe = AddRecipe(64309, V.WOTLK, Q.COMMON)
@@ -3396,8 +3269,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItem(45757, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("INSCRIPTION_MAJOR_GLYPH")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.PRIEST)
-	recipe:AddDiscovery("DISCOVERY_INSC_BOOK")
-	recipe:AddDiscovery("DISCOVERY_INSC_PANDARIA")
+	recipe:AddDiscovery("DISCOVERY_INSC_BOOK", "DISCOVERY_INSC_PANDARIA")
 
 	-- Glyph of Tricks of the Trade -- 64310
 	recipe = AddRecipe(64310, V.WOTLK, Q.COMMON)
@@ -3405,8 +3277,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItem(45767, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("INSCRIPTION_MINOR_GLYPH")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.ROGUE)
-	recipe:AddDiscovery("DISCOVERY_INSC_BOOK")
-	recipe:AddDiscovery("DISCOVERY_INSC_PANDARIA")
+	recipe:AddDiscovery("DISCOVERY_INSC_BOOK", "DISCOVERY_INSC_PANDARIA")
 
 	-- Glyph of Shadowflame -- 64311
 	recipe = AddRecipe(64311, V.WOTLK, Q.COMMON)
@@ -3414,8 +3285,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItem(45783, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("INSCRIPTION_MAJOR_GLYPH")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WARLOCK)
-	recipe:AddDiscovery("DISCOVERY_INSC_BOOK")
-	recipe:AddDiscovery("DISCOVERY_INSC_PANDARIA")
+	recipe:AddDiscovery("DISCOVERY_INSC_BOOK", "DISCOVERY_INSC_PANDARIA")
 
 	-- Glyph of Intimidating Shout -- 64312
 	recipe = AddRecipe(64312, V.WOTLK, Q.COMMON)
@@ -3431,8 +3301,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItem(45603, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("INSCRIPTION_MAJOR_GLYPH")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DRUID)
-	recipe:AddDiscovery("DISCOVERY_INSC_BOOK")
-	recipe:AddDiscovery("DISCOVERY_INSC_PANDARIA")
+	recipe:AddDiscovery("DISCOVERY_INSC_BOOK", "DISCOVERY_INSC_PANDARIA")
 
 	-- Glyph of Mirror Image -- 64314
 	recipe = AddRecipe(64314, V.WOTLK, Q.COMMON)
@@ -3440,8 +3309,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItem(45739, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("INSCRIPTION_MINOR_GLYPH")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.MAGE)
-	recipe:AddDiscovery("DISCOVERY_INSC_BOOK")
-	recipe:AddDiscovery("DISCOVERY_INSC_PANDARIA")
+	recipe:AddDiscovery("DISCOVERY_INSC_BOOK", "DISCOVERY_INSC_PANDARIA")
 
 	-- Glyph of Deadly Momentum -- 64315
 	recipe = AddRecipe(64315, V.WOTLK, Q.COMMON)
@@ -3449,8 +3317,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItem(45766, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("INSCRIPTION_MAJOR_GLYPH")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.ROGUE)
-	recipe:AddDiscovery("DISCOVERY_INSC_BOOK")
-	recipe:AddDiscovery("DISCOVERY_INSC_PANDARIA")
+	recipe:AddDiscovery("DISCOVERY_INSC_BOOK", "DISCOVERY_INSC_PANDARIA")
 
 	-- Glyph of Hex -- 64316
 	recipe = AddRecipe(64316, V.WOTLK, Q.COMMON)
@@ -3458,8 +3325,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItem(45777, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("INSCRIPTION_MAJOR_GLYPH")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.SHAMAN)
-	recipe:AddDiscovery("DISCOVERY_INSC_BOOK")
-	recipe:AddDiscovery("DISCOVERY_INSC_PANDARIA")
+	recipe:AddDiscovery("DISCOVERY_INSC_BOOK", "DISCOVERY_INSC_PANDARIA")
 
 	-- Glyph of Demonic Circle -- 64317
 	recipe = AddRecipe(64317, V.WOTLK, Q.COMMON)
@@ -3467,8 +3333,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItem(45782, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("INSCRIPTION_MAJOR_GLYPH")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WARLOCK)
-	recipe:AddDiscovery("DISCOVERY_INSC_BOOK")
-	recipe:AddDiscovery("DISCOVERY_INSC_PANDARIA")
+	recipe:AddDiscovery("DISCOVERY_INSC_BOOK", "DISCOVERY_INSC_PANDARIA")
 
 	-- Glyph of Demon Hunting -- 64318
 	recipe = AddRecipe(64318, V.WOTLK, Q.COMMON)
@@ -3476,8 +3341,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItem(45780, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("INSCRIPTION_MAJOR_GLYPH")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WARLOCK)
-	recipe:AddDiscovery("DISCOVERY_INSC_BOOK")
-	recipe:AddDiscovery("DISCOVERY_INSC_PANDARIA")
+	recipe:AddDiscovery("DISCOVERY_INSC_BOOK", "DISCOVERY_INSC_PANDARIA")
 
 	-- Glyph of Ferocious Bite -- 67600
 	recipe = AddRecipe(67600, V.WOTLK, Q.COMMON)
@@ -3523,6 +3387,14 @@ function addon:InitInscription()
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WARLOCK)
 	recipe:AddTrainer(26916, 26977, 26995, 28702, 30706, 30713, 30715, 30716, 30717, 30721, 33615, 33638, 46716, 56065, 62327, 64691)
 	recipe:AddVendor(28723)
+
+	-- Glyph of Inferno Blast -- 94000
+	recipe = AddRecipe(94000, V.WOTLK, Q.COMMON)
+	recipe:SetSkillLevels(390, 390, 390, 397, 405)
+	recipe:SetCraftedItem(63539, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("INSCRIPTION_MAJOR_GLYPH")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.CASTER, F.MAGE)
+	recipe:AddDiscovery("DISCOVERY_INSC_NORTHREND", "DISCOVERY_INSC_PANDARIA")
 
 	-- Runescroll of Fortitude II -- 85785
 	recipe = AddRecipe(85785, V.CATA, Q.COMMON)
@@ -3789,15 +3661,6 @@ function addon:InitInscription()
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.ROGUE)
 	recipe:AddTrainer(26916, 26977, 26995, 28702, 30706, 30709, 30713, 30715, 30716, 30717, 30721, 33603, 33615, 33638, 46716, 56065, 62327, 64691)
 
-	-- Glyph of Fire Blast -- 94000
-	recipe = AddRecipe(94000, V.WOTLK, Q.COMMON)
-	recipe:SetSkillLevels(390, 390, 390, 397, 405)
-	recipe:SetCraftedItem(63539, "BIND_ON_EQUIP")
-	recipe:SetItemFilterType("INSCRIPTION_MAJOR_GLYPH")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.CASTER, F.MAGE)
-	recipe:AddDiscovery("DISCOVERY_INSC_NORTHREND")
-	recipe:AddDiscovery("DISCOVERY_INSC_PANDARIA")
-
 	-- Glyph of Cat Form -- 94401
 	recipe = AddRecipe(94401, V.CATA, Q.COMMON)
 	recipe:SetSkillLevels(120, 120, 125, 130, 135)
@@ -3852,8 +3715,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItem(63420, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("INSCRIPTION_MAJOR_GLYPH")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.ROGUE)
-	recipe:AddDiscovery("DISCOVERY_INSC_BOOK")
-	recipe:AddDiscovery("DISCOVERY_INSC_PANDARIA")
+	recipe:AddDiscovery("DISCOVERY_INSC_BOOK", "DISCOVERY_INSC_PANDARIA")
 
 	-- Glyph of the Treant -- 95215
 	recipe = AddRecipe(95215, V.CATA, Q.COMMON)
@@ -3877,8 +3739,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItem(66918, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("INSCRIPTION_MAJOR_GLYPH")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.PALADIN)
-	recipe:AddDiscovery("DISCOVERY_INSC_NORTHREND")
-	recipe:AddDiscovery("DISCOVERY_INSC_PANDARIA")
+	recipe:AddDiscovery("DISCOVERY_INSC_NORTHREND", "DISCOVERY_INSC_PANDARIA")
 
 	-- Glyph of Dark Succor -- 96284
 	recipe = AddRecipe(96284, V.CATA, Q.COMMON)
@@ -3894,17 +3755,15 @@ function addon:InitInscription()
 	recipe:SetCraftedItem(69773, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("INSCRIPTION_MAJOR_GLYPH")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.MAGE)
-	recipe:AddDiscovery("DISCOVERY_INSC_NORTHREND")
-	recipe:AddDiscovery("DISCOVERY_INSC_PANDARIA")
+	recipe:AddDiscovery("DISCOVERY_INSC_NORTHREND", "DISCOVERY_INSC_PANDARIA")
 
-	-- Glyph of Unleashed Lightning -- 101057
+	-- Glyph of Lightning Shield -- 101057
 	recipe = AddRecipe(101057, V.CATA, Q.COMMON)
 	recipe:SetSkillLevels(430, 430, 430, 435, 440)
 	recipe:SetCraftedItem(71155, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("INSCRIPTION_MAJOR_GLYPH")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.SHAMAN)
-	recipe:AddDiscovery("DISCOVERY_INSC_NORTHREND")
-	recipe:AddDiscovery("DISCOVERY_INSC_PANDARIA")
+	recipe:AddDiscovery("DISCOVERY_INSC_NORTHREND", "DISCOVERY_INSC_PANDARIA")
 
 	-- Glyph of Shadow -- 107907
 	recipe = AddRecipe(107907, V.CATA, Q.COMMON)
@@ -3913,6 +3772,14 @@ function addon:InitInscription()
 	recipe:SetItemFilterType("INSCRIPTION_MINOR_GLYPH")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.PRIEST)
 	recipe:AddDiscovery("DISCOVERY_INSC_MINOR")
+
+	-- Glyph of Focused Wrath -- 57037
+	recipe = AddRecipe(57037, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(525, 525, 595, 600, 605)
+	recipe:SetCraftedItem(80581, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("INSCRIPTION_MINOR_GLYPH")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.PALADIN)
+	recipe:AddDiscovery("DISCOVERY_INSC_PANDARIA")
 
 	-- Ink of Dreams -- 111645
 	recipe = AddRecipe(111645, V.MOP, Q.COMMON)
@@ -4056,7 +3923,7 @@ function addon:InitInscription()
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.MONK)
 	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30709, 30710, 30711, 30713, 30715, 30716, 30717, 30721, 30722, 33603, 33615, 33638, 33679, 46716, 56065, 62327, 64691)
 
-	-- Glyph of Path of Blossoms -- 112440
+	-- Glyph of Paralysis -- 112440
 	recipe = AddRecipe(112440, V.MOP, Q.COMMON)
 	recipe:SetSkillLevels(355, 355, 365, 370, 375)
 	recipe:SetCraftedItem(87897, "BIND_ON_EQUIP")
@@ -4635,10 +4502,10 @@ function addon:InitInscription()
 	-- Glyph of Gateway Attunement -- 135561
 	recipe = AddRecipe(135561, V.MOP, Q.COMMON)
 	recipe:SetSkillLevels(595, 595, 595, 600, 605)
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WARLOCK)
 	recipe:SetCraftedItem(93202, "BIND_ON_EQUIP")
-	recipe:AddDiscovery("DISCOVERY_INSC_PANDARIA")
 	recipe:SetItemFilterType("INSCRIPTION_MINOR_GLYPH")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WARLOCK)
+	recipe:AddDiscovery("DISCOVERY_INSC_PANDARIA")
 
 	self.InitInscription = nil
 end
