@@ -407,7 +407,7 @@ do
 
 	local function ProgressBar()
 		if not progress_bar then
-			progress_bar = _G.CreateFrame("Frame", nil, _G.UIParent)
+			progress_bar = _G.CreateFrame("Frame", "ARL_DatamineProgressBar", _G.UIParent)
 			progress_bar:SetSize(450, 30)
 			progress_bar:SetPoint("CENTER", 0, -250)
 			progress_bar:SetFrameStrata("DIALOG")
