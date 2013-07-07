@@ -575,9 +575,16 @@ function addon:CreateScanButton()
 			addon:Scan(true)
 		elseif alt_pressed and not shift_pressed and not ctrl_pressed then
 			addon:ClearWaypoints()
-		elseif ctrl_pressed and not shift_pressed and not alt_pressed then
+			--@debug@
+		elseif ctrl_pressed then
 			local current_prof = _G.GetTradeSkillLine()
-			addon:DumpProfession(current_prof)
+
+			if shift_pressed and not alt_pressed then
+				addon:ScanProfession(current_prof)
+			elseif not shift_pressed and not alt_pressed then
+				addon:DumpProfession(current_prof)
+			end
+			--@end-debug@
 		elseif not shift_pressed and not alt_pressed and not ctrl_pressed then
 			if main_panel and main_panel:IsVisible() and prev_profession == _G.GetTradeSkillLine() then
 				main_panel:Hide()
@@ -593,6 +600,10 @@ function addon:CreateScanButton()
 
 		_G.GameTooltip_SetDefaultAnchor(tooltip, self)
 		tooltip:SetText(L["SCAN_RECIPES_DESC"])
+		--@debug@
+		tooltip:AddLine("Control-click to generate a Lua code dump.")
+		tooltip:AddLine("Control-Shift-click to scan for issues.")
+		--@end-debug@
 		tooltip:Show()
 	end)
 	scan_button:SetScript("OnLeave", function() _G.GameTooltip:Hide() end)
