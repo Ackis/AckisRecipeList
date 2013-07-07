@@ -1007,8 +1007,7 @@ do
 		-- Everything is ready - display the GUI or dump the list to text.
 		-------------------------------------------------------------------------------
 		if textdump then
-			private.TextDump:AddLine(self:GetTextDump(profession_name))
-			private.TextDump:Display()
+			self:GetTextDump(profession_name)
 		else
 			if private.InitializeFrame then
 				private.InitializeFrame()
@@ -1022,7 +1021,6 @@ do
 	-------------------------------------------------------------------------------
 	-- Dumps recipe output in the format requested by the user
 	-------------------------------------------------------------------------------
-	local text_table = {}
 	local acquire_list = {}
 
 	local GetFilterFlagNames
@@ -1059,6 +1057,7 @@ do
 				HEALER = _G.HEALER,
 				CASTER = _G.DAMAGER,
 				ACHIEVEMENT = _G.ACHIEVEMENTS,
+				REPUTATION = _G.REPUTATION,
 				-------------------------------------------------------------------------------
 				-- Class flags.
 				-------------------------------------------------------------------------------
@@ -1147,17 +1146,18 @@ do
 
 	--- Dumps the recipe database in a format that is readable to humans (or machines)
 	function addon:GetTextDump(profession_name)
-		local output = addon.db.profile.textdumpformat or "Comma"
-		table.wipe(text_table)
+		local output_format = addon.db.profile.textdumpformat or "Comma"
+		local output = private.TextDump
+		output:Clear()
 
-		if output == "Comma" then
-			table.insert(text_table, ("Ackis Recipe List Text Dump for %s's %s, in the form of Comma Separated Values.\n  "):format(private.PLAYER_NAME, profession_name))
-			table.insert(text_table, "Spell ID,Recipe Name,Skill Level,ARL Filter Flags,Acquire Methods,Known\n")
-		elseif output == "BBCode" then
-			table.insert(text_table, ("Ackis Recipe List Text Dump for %s's %s, in the form of BBCode.\n"):format(private.PLAYER_NAME, profession_name))
-		elseif output == "XML" then
-			table.insert(text_table, "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>")
-			table.insert(text_table, "\n<profession>")
+		if output_format == "Comma" then
+			output:AddLine(("Ackis Recipe List Text Dump for %s's %s, in the form of Comma Separated Values.\n  "):format(private.PLAYER_NAME, profession_name))
+			output:AddLine("Spell ID,Recipe Name,Skill Level,ARL Filter Flags,Acquire Methods,Known\n")
+		elseif output_format == "BBCode" then
+			output:AddLine(("Ackis Recipe List Text Dump for %s's %s, in the form of BBCode.\n"):format(private.PLAYER_NAME, profession_name))
+		elseif output_format == "XML" then
+			output:AddLine("<?xml version=\"1.0\" encoding=\"UTF-8\" ?>")
+			output:AddLine("\n<profession>")
 		end
 
 		local profession_recipes = private.profession_recipe_list[profession_name]
@@ -1166,28 +1166,28 @@ do
 			local recipe = profession_recipes[recipe_id]
 			local is_known = recipe:HasState("KNOWN")
 
-			if output == "Comma" then
+			if output_format == "Comma" then
 				-- Add Spell ID, Name and Skill Level to the list
-				table.insert(text_table, recipe_id)
-				table.insert(text_table, ",")
-				table.insert(text_table, recipe.name)
-				table.insert(text_table, ",")
-				table.insert(text_table, recipe.skill_level)
-				table.insert(text_table, ",\"")
-			elseif output == "BBCode" then
+				output:AddLine(recipe_id)
+				output:AddLine(",")
+				output:AddLine(recipe.name)
+				output:AddLine(",")
+				output:AddLine(recipe.skill_level)
+				output:AddLine(",\"")
+			elseif output_format == "BBCode" then
 				-- Make the entry red
-				table.insert(text_table, ("\n%s[b]%d[/b] - %s (%d)%s\n"):format(is_known and "" or "[color=red]", recipe_id, recipe.name, recipe.skill_level, is_known and "" or "[/color]"))
+				output:AddLine(("\n%s[b]%d[/b] - %s (%d)%s\n"):format(is_known and "" or "[color=red]", recipe_id, recipe.name, recipe.skill_level, is_known and "" or "[/color]"))
 
-				table.insert(text_table, "\nRecipe Flags:\n[list]\n")
-			elseif output == "XML" then
-				table.insert(text_table, "\n<recipe>\n")
-				table.insert(text_table, "  <id>" .. recipe_id .. "</id>\n")
-				table.insert(text_table, "  <name>" .. recipe.name .. "</name>\n")
-				table.insert(text_table, "  <skilllevel>" .. recipe.skill_level .. "</skilllevel>\n")
-				table.insert(text_table, "  <known>" .. tostring(is_known) .. "</known>\n")
-				table.insert(text_table, "  <flags>\n")
-			elseif output == "Name" then
-				table.insert(text_table, recipe.name)
+				output:AddLine("\nRecipe Flags:\n[list]\n")
+			elseif output_format == "XML" then
+				output:AddLine("\n<recipe>\n")
+				output:AddLine("  <id>" .. recipe_id .. "</id>\n")
+				output:AddLine("  <name>" .. recipe.name .. "</name>\n")
+				output:AddLine("  <skilllevel>" .. recipe.skill_level .. "</skilllevel>\n")
+				output:AddLine("  <known>" .. tostring(is_known) .. "</known>\n")
+				output:AddLine("  <flags>\n")
+			elseif output_format == "Name" then
+				output:AddLine(recipe.name)
 			end
 
 			-- Add in all the filter flags
@@ -1200,28 +1200,34 @@ do
 					local bitfield = recipe.flags[private.FLAG_MEMBERS[table_index]]
 
 					if bitfield and bit.band(bitfield, flag) == flag then
-						if output == "Comma" then
+						local filter_name = filter_names[flag_name] or _G.UNKNOWN
+
+						if filter_name == _G.UNKNOWN then
+							addon:Debug("%s is unknown", flag_name)
+						end
+
+						if output_format == "Comma" then
 							if prev then
-								table.insert(text_table, ",")
+								output:AddLine(",")
 							end
-							table.insert(text_table, filter_names[flag_name])
+							output:AddLine(filter_name)
 							prev = true
-						elseif output == "BBCode" then
-							table.insert(text_table, "[*]" .. filter_names[flag_name] .. "\n")
-						elseif output == "XML" then
-							table.insert(text_table, "    <flag>" .. filter_names[flag_name] .. "</flag>")
+						elseif output_format == "BBCode" then
+							output:AddLine("[*]" .. filter_name .. "\n")
+						elseif output_format == "XML" then
+							output:AddLine("    <flag>" .. filter_name .. "</flag>")
 						end
 					end
 				end
 			end
 
-			if output == "Comma" then
-				table.insert(text_table, "\",\"")
-			elseif output == "BBCode" then
-				table.insert(text_table, "[/list]\nAcquire Methods:\n[list]\n")
-			elseif output == "XML" then
-				table.insert(text_table, "  </flags>")
-				table.insert(text_table, "  <acquire>")
+			if output_format == "Comma" then
+				output:AddLine("\",\"")
+			elseif output_format == "BBCode" then
+				output:AddLine("[/list]\nAcquire Methods:\n[list]\n")
+			elseif output_format == "XML" then
+				output:AddLine("  </flags>")
+				output:AddLine("  <acquire>")
 			end
 
 			-- Find out which unique acquire methods we have
@@ -1235,38 +1241,33 @@ do
 			-- Add all the acquire methods in
 			prev = false
 
-			for i in pairs(acquire_list) do
-				if output == "Comma" then
+			for acquire_name in pairs(acquire_list) do
+				if output_format == "Comma" then
 					if prev then
-						table.insert(text_table, ",")
+						output:AddLine(",")
 					end
-					table.insert(text_table, i)
+					output:AddLine(acquire_name)
 					prev = true
-				elseif output == "BBCode" then
-					table.insert(text_table, "[*] " .. i)
-				elseif output == "XML" then
-					table.insert(text_table, "<acquiremethod>" .. i .. "</acquiremethod>")
+				elseif output_format == "BBCode" then
+					output:AddLine("[*] " .. acquire_name)
+				elseif output_format == "XML" then
+					output:AddLine("<acquiremethod>" .. acquire_name .. "</acquiremethod>")
 				end
 			end
 
-			if output == "Comma" then
-				table.insert(text_table, "\"," .. tostring(is_known) .. "\n")
-				--if is_known then
-				--	table.insert(text_table, "\",true\n")
-				--else
-				--	table.insert(text_table, "\",false\n")
-				--end
-			elseif output == "BBCode" then
-				table.insert(text_table, "\n[/list]\n")
-			elseif output == "XML" then
-				table.insert(text_table, "  </acquire>")
-				table.insert(text_table, "</recipe>")
+			if output_format == "Comma" then
+				output:AddLine("\"," .. tostring(is_known) .. "\n")
+			elseif output_format == "BBCode" then
+				output:AddLine("\n[/list]\n")
+			elseif output_format == "XML" then
+				output:AddLine("  </acquire>")
+				output:AddLine("</recipe>")
 			end
 		end -- for
 
-		if output == "XML" then
-			table.insert(text_table, "\n</profession>")
+		if output_format == "XML" then
+			output:AddLine("\n</profession>")
 		end
-		return table.concat(text_table, "")
+		output:Display("")
 	end
 end

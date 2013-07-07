@@ -83,7 +83,6 @@ function private.MobGUIDToIDNum(guid)
 	return tonumber(guid:sub(6, 10), 16)
 end
 
---@debug@
 -------------------------------------------------------------------------------
 -- Text dumping functions
 -------------------------------------------------------------------------------
@@ -269,6 +268,7 @@ do
 	end
 end -- do
 
+--@debug@
 do
 	local L = LibStub("AceLocale-3.0"):GetLocale(private.addon_name)
 	local output = private.TextDump
