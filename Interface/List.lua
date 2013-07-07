@@ -251,23 +251,6 @@ function private.InitializeListFrame()
 		spell_tip:Hide()
 	end
 
-	local function Bar_OnClick(self)
-		local old_selected = ListFrame.selected_entry
-		ListFrame.selected_entry = nil
-
-		if old_selected and old_selected.button then
-			old_selected.button.selected_texture:Hide()
-			Bar_OnLeave(old_selected.button)
-		end
-		Bar_OnEnter(self)
-
-		local entry = ListFrame.entries[self.string_index]
-		if old_selected ~= entry then
-			self.selected_texture:Show()
-			ListFrame.selected_entry = entry
-		end
-	end
-
 	local function ListItem_OnClick(self, _, _)
 		local clicked_index = self.string_index
 
@@ -379,6 +362,28 @@ function private.InitializeListFrame()
 			end
 		end
 		ListFrame:Update(nil, true)
+	end
+
+	local function Bar_OnClick(self)
+		local old_selected = ListFrame.selected_entry
+		ListFrame.selected_entry = nil
+
+		if old_selected and old_selected.button then
+			old_selected.button.selected_texture:Hide()
+			Bar_OnLeave(old_selected.button)
+		end
+		Bar_OnEnter(self)
+
+		local entry = ListFrame.entries[self.string_index]
+		if old_selected ~= entry then
+			self.selected_texture:Show()
+			ListFrame.selected_entry = entry
+		end
+
+		if _G.IsModifierKeyDown() then
+			ListItem_OnClick(self)
+		end
+
 	end
 
 	-------------------------------------------------------------------------------
