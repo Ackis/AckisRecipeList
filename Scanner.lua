@@ -31,6 +31,8 @@ local type = _G.type
 
 -- Libraries
 local bit = _G.bit
+local coroutine = _G.coroutine
+local math = _G.math
 local string = _G.string
 local table = _G.table
 
@@ -396,10 +398,301 @@ function addon:GenerateLinks()
 
 end
 
+-------------------------------------------------------------------------------
+-- Datamining copy frame.
+-------------------------------------------------------------------------------
+local CopyFrame
 do
-	local coroutine = _G.coroutine
-	local math = _G.math
+	local EXPANSION_LOGOS = {
+		"Glues-WoW-Logo",
+		"GLUES-WOW-BCLOGO",
+		"Glues-WOW-WotlkLogo",
+		"Glues-WOW-CCLogo",
+		"Glues-WOW-MPLogo",
+	}
 
+	local copy_frame = _G.CreateFrame("Frame", "ARL_DatamineCopyFrame", _G.UIParent)
+	copy_frame:SetSize(750, 600)
+	copy_frame:SetPoint("CENTER", _G.UIParent, "CENTER")
+	copy_frame:SetFrameStrata("DIALOG")
+	copy_frame:EnableMouse(true)
+	copy_frame:SetMovable(true)
+
+	table.insert(_G.UISpecialFrames, "ARL_DatamineCopyFrame")
+
+	copy_frame:SetScript("OnShow", function(self)
+		for index = 1, #self.buttons do
+			if self.buttons[index]:GetChecked() then
+				self.scroll_areas[index]:Show()
+			else
+				self.scroll_areas[index]:Hide()
+			end
+		end
+	end)
+
+	local function CreateBorder(width, height, left, right, top, bottom)
+		local border = copy_frame:CreateTexture(nil, "BORDER")
+		border:SetTexture([[Interface\PaperDollInfoFrame\UI-GearManager-Border]])
+		border:SetWidth(width)
+		border:SetHeight(height)
+		border:SetTexCoord(left, right, top, bottom)
+
+		return border
+	end
+
+	local function ExpansionButton_OnClick(self, mouse_button, down)
+		copy_frame.current_scroll_area:Hide()
+		self.scroll_area:Show()
+		copy_frame.current_scroll_area = self.scroll_area
+		copy_frame.current_edit_box = self.edit_box
+
+		for index = 1, #copy_frame.buttons do
+			copy_frame.buttons[index]:SetChecked(false)
+		end
+
+		self:SetChecked(true)
+	end
+
+	local title_bg = copy_frame:CreateTexture(nil, "BACKGROUND")
+	title_bg:SetTexture([[Interface\PaperDollInfoFrame\UI-GearManager-Title-Background]])
+	title_bg:SetPoint("TOPLEFT", 9, -6)
+	title_bg:SetPoint("BOTTOMRIGHT", copy_frame, "TOPRIGHT", -28, -24)
+
+	local dialog_bg = copy_frame:CreateTexture(nil, "BACKGROUND")
+	dialog_bg:SetTexture([[Interface\Tooltips\UI-Tooltip-Background]])
+	dialog_bg:SetVertexColor(0, 0, 0, 0.75)
+	dialog_bg:SetPoint("TOPLEFT", 8, -24)
+	dialog_bg:SetPoint("BOTTOMRIGHT", -6, 8)
+
+
+	local top_left = CreateBorder(64, 64, 0.501953125, 0.625, 0, 1)
+	top_left:SetPoint("TOPLEFT")
+
+	local top_right = CreateBorder(64, 64, 0.625, 0.75, 0, 1)
+	top_right:SetPoint("TOPRIGHT")
+
+	local top = CreateBorder(0, 64, 0.25, 0.369140625, 0, 1)
+	top:SetPoint("TOPLEFT", top_left, "TOPRIGHT", 0, 0)
+	top:SetPoint("TOPRIGHT", top_right, "TOPLEFT", 0, 0)
+
+	local bottom_left = CreateBorder(64, 64, 0.751953125, 0.875, 0, 1)
+	bottom_left:SetPoint("BOTTOMLEFT")
+
+	local bottom_right = CreateBorder(64, 64, 0.875, 1, 0, 1)
+	bottom_right:SetPoint("BOTTOMRIGHT")
+
+	local bottom = CreateBorder(0, 64, 0.37695312, 0.498046875, 0, 1)
+	bottom:SetPoint("BOTTOMLEFT", bottom_left, "BOTTOMRIGHT", 0, 0)
+	bottom:SetPoint("BOTTOMRIGHT", bottom_right, "BOTTOMLEFT", 0, 0)
+
+	local left = CreateBorder(64, 0, 0.001953125, 0.125, 0, 1)
+	left:SetPoint("TOPLEFT", top_left, "BOTTOMLEFT", 0, 0)
+	left:SetPoint("BOTTOMLEFT", bottom_left, "TOPLEFT", 0, 0)
+
+	local right = CreateBorder(64, 0, 0.1171875, 0.2421875, 0, 1)
+	right:SetPoint("TOPRIGHT", top_right, "BOTTOMRIGHT", 0, 0)
+	right:SetPoint("BOTTOMRIGHT", bottom_right, "TOPRIGHT", 0, 0)
+
+	local title = copy_frame:CreateFontString(nil, "OVERLAY", "GameFontNormal")
+	title:SetPoint("TOPLEFT", 12, -8)
+	title:SetPoint("TOPRIGHT", -32, -8)
+	title:SetText(private.addon_name)
+
+	copy_frame.title = title
+
+	local drag_frame = _G.CreateFrame("Frame", nil, copy_frame)
+	drag_frame:SetPoint("TOPLEFT", title)
+	drag_frame:SetPoint("BOTTOMRIGHT", title)
+	drag_frame:EnableMouse(true)
+
+	drag_frame:SetScript("OnMouseDown", function(self, button)
+		copy_frame:StartMoving()
+	end)
+
+	drag_frame:SetScript("OnMouseUp", function(self, button)
+		copy_frame:StopMovingOrSizing()
+	end)
+
+	local close_button = _G.CreateFrame("Button", nil, copy_frame, "UIPanelCloseButton")
+	close_button:SetSize(32, 32)
+	close_button:SetPoint("TOPRIGHT", 2, 1)
+
+	local footer_frame = _G.CreateFrame("Frame", "MUFASA", copy_frame, "InsetFrameTemplate")
+	footer_frame:SetHeight(23)
+	footer_frame:SetPoint("BOTTOMLEFT", copy_frame, "BOTTOMLEFT", 8, 8)
+	footer_frame:SetPoint("BOTTOMRIGHT", copy_frame, "BOTTOMRIGHT", -5, 8)
+
+	local footer = footer_frame:CreateFontString(nil, "ARTWORK", "GameFontNormalSmall")
+	footer:SetPoint("CENTER", footer_frame, "CENTER", 0, 0)
+
+	copy_frame.edit_boxes = {}
+	copy_frame.scroll_areas = {}
+	copy_frame.buttons = {}
+	copy_frame.output = {}
+
+	for index = 1, #private.GAME_VERSION_NAMES do
+		local scroll_area = _G.CreateFrame("ScrollFrame", "ARL_DatamineCopyScroll", copy_frame, "UIPanelScrollFrameTemplate")
+		scroll_area:SetPoint("TOPLEFT", copy_frame, "TOPLEFT", 10, -28)
+		scroll_area:SetPoint("BOTTOMRIGHT", copy_frame, "BOTTOMRIGHT", -28, 31)
+
+		copy_frame.scroll_areas[index] = scroll_area
+
+		local edit_box = _G.CreateFrame("EditBox", nil, copy_frame)
+		edit_box:SetMultiLine(true)
+		edit_box:SetMaxLetters(0)
+		edit_box:EnableMouse(true)
+		edit_box:SetAutoFocus(false)
+		edit_box:SetFontObject("ChatFontNormal")
+		edit_box:SetSize(650, 270)
+
+		edit_box:SetScript("OnEscapePressed", function()
+			copy_frame:Hide()
+		end)
+
+		edit_box.copy_frame = copy_frame
+		scroll_area:SetScrollChild(edit_box)
+		copy_frame.edit_boxes[index] = edit_box
+
+		local button_width = 121
+		local button_height = 55
+		local button = _G.CreateFrame("CheckButton", "ARL_DatamineCopyExpansionButton" .. index, footer_frame)
+		button:SetSize(button_width, button_height)
+		button:SetMotionScriptsWhileDisabled(true)
+
+		button.index = index
+		button.edit_box = edit_box
+		button.scroll_area = scroll_area
+
+		copy_frame.buttons[index] = button
+
+		-- The button must be unchecked for ToggleFilterMenu() to work correctly.
+		button:SetScript("OnClick", ExpansionButton_OnClick)
+
+		local bg_texture = button:CreateTexture(nil, "BACKGROUND")
+		button.bg_texture = bg_texture
+		bg_texture:SetTexture("Interface/SpellBook/UI-Spellbook-SpellBackground")
+		bg_texture:SetWidth(button_width + 4)
+		bg_texture:SetHeight(button_height + 6)
+		bg_texture:SetTexCoord(0, (43/64), 0, (43/64))
+		bg_texture:SetPoint("CENTER", button, "CENTER", 0, 0)
+
+		local icon_texture = button:CreateTexture(nil, "BORDER")
+		button.icon_texture = icon_texture
+		icon_texture:SetTexture(([[Interface\Glues\Common\%s]]):format(EXPANSION_LOGOS[index]))
+		icon_texture:SetAllPoints(button)
+
+		local pushed_texture = button:CreateTexture(nil, "ARTWORK")
+		pushed_texture:SetTexture("Interface/Buttons/UI-Quickslot-Depress")
+		pushed_texture:SetAllPoints(button)
+		button:SetPushedTexture(pushed_texture)
+
+		local highlight_texture = button:CreateTexture()
+		highlight_texture:SetTexture("Interface/Buttons/ButtonHilight-Square")
+		highlight_texture:SetAllPoints(button)
+		highlight_texture:SetBlendMode("ADD")
+		button:SetHighlightTexture(highlight_texture)
+
+		local checked_texture = button:CreateTexture()
+		checked_texture:SetTexture("Interface/Buttons/CheckButtonHilight")
+		checked_texture:SetAllPoints(button)
+		checked_texture:SetBlendMode("ADD")
+		button:SetCheckedTexture(checked_texture)
+
+		if index == 1 then
+			button:SetPoint("TOPRIGHT", copy_frame, "TOPLEFT", 5, -7)
+			button:SetChecked(true)
+			copy_frame.current_edit_box = edit_box
+			copy_frame.current_scroll_area = scroll_area
+		else
+			button:SetPoint("TOP", copy_frame.buttons[index - 1], "BOTTOM", 0, -7)
+		end
+	end
+
+	local highlight_button = _G.CreateFrame("Button", nil, copy_frame)
+	highlight_button:SetSize(16, 16)
+	highlight_button:SetPoint("BOTTOMRIGHT", -10, 10)
+
+	highlight_button:SetScript("OnMouseUp", function(self, button)
+		self.texture:ClearAllPoints()
+		self.texture:SetAllPoints(self)
+
+		copy_frame.current_edit_box:HighlightText(0)
+		copy_frame.current_edit_box:SetFocus()
+	end)
+
+	highlight_button:SetScript("OnMouseDown", function(self, button)
+		self.texture:ClearAllPoints()
+		self.texture:SetPoint("RIGHT", self, "RIGHT", 1, -1)
+	end)
+
+	highlight_button:SetScript("OnEnter", function(self)
+		self.texture:SetVertexColor(0.75, 0.75, 0.75)
+	end)
+
+	highlight_button:SetScript("OnLeave", function(self)
+		self.texture:SetVertexColor(1, 1, 1)
+	end)
+
+	local highlight_icon = highlight_button:CreateTexture()
+	highlight_icon:SetAllPoints()
+	highlight_icon:SetTexture([[Interface\BUTTONS\UI-GuildButton-PublicNote-Up]])
+	highlight_button.texture = highlight_icon
+
+	copy_frame:Hide()
+
+	CopyFrame = {
+		output = {}
+	}
+
+	for index = 1, #private.GAME_VERSION_NAMES do
+		CopyFrame.output[index] = {}
+	end
+
+	function CopyFrame:AddLine(text, index)
+		self:InsertLine(index, #self.output[index] + 1, text)
+	end
+
+	function CopyFrame:Clear()
+		for index = 1, #self.output do
+			table.wipe(self.output[index])
+		end
+	end
+
+	function CopyFrame:Display(separator)
+		for index = 1, #self.output do
+			local display_text = table.concat(self.output[index], separator or "\n")
+
+			copy_frame.edit_boxes[index]:SetText(display_text)
+			copy_frame.edit_boxes[index]:SetCursorPosition(0)
+			coroutine.yield()
+		end
+		copy_frame:Show()
+	end
+
+	function CopyFrame:InsertLine(index, position, text)
+		if _G.type(text) ~= "string" or text == "" then
+			return
+		end
+		table.insert(self.output[index], position, text)
+	end
+
+	function CopyFrame:Lines(index)
+		return #self.output[index]
+	end
+
+	function CopyFrame:String(separator, index)
+		return table.concat(self.output[index], separator or "\n")
+	end
+
+	function addon:CF()
+		copy_frame[copy_frame:IsShown() and "Hide" or "Show"](copy_frame)
+	end
+end -- do-block
+
+-------------------------------------------------------------------------------
+-- Recipe/Profession scanning and dumping routines.
+-------------------------------------------------------------------------------
+do
 	local ORDERED_PROFESSIONS = private.ORDERED_PROFESSIONS
 
 	local intermediary_recipe_list = {}
@@ -582,14 +875,14 @@ do
 		self:Debug(L["DATAMINER_NODB_ERROR"])
 	end
 
-	local function RecipeDump(id, output)
+	local function RecipeDump(id, output, use_genesis)
 		local recipe = private.recipe_list[id or 1]
 
 		if not recipe then
 			addon:Debug("Invalid recipe ID: %s", id or "nil")
 			return
 		end
-		recipe:Dump(output)
+		recipe:Dump(output, use_genesis)
 	end
 
 	-------------------------------------------------------------------------------
@@ -604,7 +897,7 @@ do
 		for spell_id in pairs(profession_recipe_list) do
 			intermediary_recipe_list[spell_id] = profession_recipe_list[spell_id]
 		end
-		local output = private.TextDump
+		local output = CopyFrame
 		output:Clear()
 
 		SortRecipesByID()
@@ -615,7 +908,7 @@ do
 
 		for index, spell_id in ipairs(addon.sorted_recipes) do
 			progress_bar:Update(index, num_recipes, spell_id)
-			RecipeDump(spell_id, output)
+			RecipeDump(spell_id, output, true)
 			coroutine.yield()
 		end
 		progress_bar:Hide()
@@ -639,7 +932,7 @@ do
 	function addon:DumpRecipe(id_num)
 		local output = private.TextDump
 		output:Clear()
-		RecipeDump(id_num, output)
+		RecipeDump(id_num, output, false)
 		output:Display()
 	end
 
