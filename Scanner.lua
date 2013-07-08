@@ -706,6 +706,17 @@ do
 	local intermediary_recipe_list = {}
 	local progress_bar
 
+	local PROGRESSBAR_TEXTURES = {
+		[[Interface\BlackMarket\BlackMarketBackground-BottomShadow]],
+		[[Interface\BUTTONS\GreyScaleRamp64]],
+		[[Interface\OPTIONSFRAME\21STEPGRAYSCALE]],
+		[[Interface\RAIDFRAME\Raid-Bar-Hp-Fill]],
+		[[Interface\Scenarios\Objective-Sheen]],
+		[[Interface\TARGETINGFRAME\BarFill2]],
+		[[Interface\UnitPowerBarAlt\Generic1_Horizontal_Fill]],
+		[[Interface\UnitPowerBarAlt\Generic1_Pill_Fill]],
+	}
+
 	local function ProgressBar()
 		if not progress_bar then
 			progress_bar = _G.CreateFrame("Frame", "ARL_DatamineProgressBar", _G.UIParent)
@@ -732,7 +743,6 @@ do
 			progress_bar:SetBackdropColor(0, 0, 0, 1);
 
 			progress_bar.fg = progress_bar:CreateTexture()
-			progress_bar.fg:SetTexture(0, 0.7, 0.2, 0.5)
 			progress_bar.fg:SetPoint("LEFT", progress_bar, "LEFT", 5, 0)
 			progress_bar.fg:SetSize(300, 20)
 
@@ -745,13 +755,35 @@ do
 			progress_bar:SetScript("OnMouseDown", progress_bar.StartMoving)
 			progress_bar:SetScript("OnMouseUp", progress_bar.StopMovingOrSizing)
 
+			local function PercentColorGradient(min, max)
+				local red_low, green_low, blue_low = 1, 0.10, 0.10
+				local red_mid, green_mid, blue_mid = 1, 1, 0
+				local red_high, green_high, blue_high = 0.25, 0.75, 0.25
+				local percentage = min / max
+
+				if percentage >= 1 then
+					return red_high, green_high, blue_high
+				elseif percentage <= 0 then
+					return red_low, green_low, blue_low
+				end
+				local integral, fractional = math.modf(percentage * 2)
+
+				if integral == 1 then
+					red_low, green_low, blue_low, red_mid, green_mid, blue_mid = red_mid, green_mid, blue_mid, red_high, green_high, blue_high
+				end
+				return red_low + (red_mid - red_low) * fractional, green_low + (green_mid - green_low) * fractional, blue_low + (blue_mid - blue_low) * fractional
+			end
+
 			function progress_bar:Update(current, max, spell_id)
 				local percentage = math.floor(current / max * 100)
+
+				progress_bar.fg:SetVertexColor(PercentColorGradient(current, max), 0.5)
 				progress_bar.fg:SetWidth(4.4 * percentage)
 				progress_bar.left_text:SetFormattedText("%s (%d)", private.recipe_list[spell_id].name, spell_id)
 				progress_bar.right_text:SetFormattedText("%d/%d (%d%%)", current, max, percentage)
 			end
 		end
+		progress_bar.fg:SetTexture(PROGRESSBAR_TEXTURES[math.random(1, #PROGRESSBAR_TEXTURES)])
 		progress_bar.fg:SetWidth(0)
 		return progress_bar
 	end
