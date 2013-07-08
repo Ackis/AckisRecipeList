@@ -183,6 +183,14 @@ do
 	scroll_area:SetPoint("TOPLEFT", copy_frame, "TOPLEFT", 10, -28)
 	scroll_area:SetPoint("BOTTOMRIGHT", copy_frame, "BOTTOMRIGHT", -28, 31)
 
+	scroll_area:SetScript("OnMouseWheel", function(self, delta)
+		_G.ScrollFrameTemplate_OnMouseWheel(self, delta, self.ScrollBar)
+	end)
+
+	scroll_area.ScrollBar:SetScript("OnMouseWheel", function(self, delta)
+		_G.ScrollFrameTemplate_OnMouseWheel(self, delta, self)
+	end)
+
 	local edit_box = _G.CreateFrame("EditBox", nil, copy_frame)
 	edit_box:SetMultiLine(true)
 	edit_box:SetMaxLetters(0)

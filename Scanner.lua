@@ -531,9 +531,17 @@ do
 	copy_frame.output = {}
 
 	for index = 1, #private.GAME_VERSION_NAMES do
-		local scroll_area = _G.CreateFrame("ScrollFrame", "ARL_DatamineCopyScroll", copy_frame, "UIPanelScrollFrameTemplate")
+		local scroll_area = _G.CreateFrame("ScrollFrame", "ARL_DatamineCopyScroll" .. index, copy_frame, "UIPanelScrollFrameTemplate")
 		scroll_area:SetPoint("TOPLEFT", copy_frame, "TOPLEFT", 10, -28)
 		scroll_area:SetPoint("BOTTOMRIGHT", copy_frame, "BOTTOMRIGHT", -28, 31)
+
+		scroll_area:SetScript("OnMouseWheel", function(self, delta)
+			_G.ScrollFrameTemplate_OnMouseWheel(self, delta, self.ScrollBar)
+		end)
+
+		scroll_area.ScrollBar:SetScript("OnMouseWheel", function(self, delta)
+			_G.ScrollFrameTemplate_OnMouseWheel(self, delta, self)
+		end)
 
 		copy_frame.scroll_areas[index] = scroll_area
 
