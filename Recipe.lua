@@ -540,6 +540,12 @@ local IMPLICIT_FLAGS = {
 function recipe_prototype:Dump(output, use_genesis)
 	local genesis_val = (use_genesis and tonumber(private.GAME_VERSIONS[self.genesis]) or nil)
 
+	if genesis_val and output:Lines(genesis_val) == 0 then
+		output:AddLine("-------------------------------------------------------------------------------", genesis_val)
+		output:AddLine(("-- %s."):format(_G["EXPANSION_NAME" .. genesis_val - 1]), genesis_val)
+		output:AddLine("-------------------------------------------------------------------------------", genesis_val)
+	end
+
 	output:AddLine(("-- %s -- %d"):format(self.name, self.spell_id), genesis_val)
 	output:AddLine(("recipe = AddRecipe(%d, V.%s, Q.%s)"):format(self.spell_id, self.genesis, private.ITEM_QUALITY_NAMES[self.quality]), genesis_val)
 	output:AddLine(("recipe:SetSkillLevels(%d, %d, %d, %d, %d)"):format(self.skill_level, self.optimal_level, self.medium_level, self.easy_level, self.trivial_level), genesis_val)
