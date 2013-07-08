@@ -842,7 +842,7 @@ do
 
 		if addon:InitializeProfession(profession_name) then
 			addon:ScheduleTimer(ProfessionScan, 2, profession_name)
-			addon:Printf("%s had to be loaded - starting scan in 2 seconds to ensure everything is in the cache.", profession_name)
+			addon:Debug("%s had to be loaded - starting scan in 2 seconds to ensure everything is in the cache.", profession_name)
 		else
 			ProfessionScan(profession_name)
 		end
