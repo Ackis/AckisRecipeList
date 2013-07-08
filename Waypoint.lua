@@ -391,11 +391,8 @@ local function AddRecipeWaypoints(recipe_id, acquire_id, location_id, npc_id)
 		if waypoint_func and (not acquire_id or acquire_type == acquire_id) then
 			for id_num, id_info in pairs(acquire_info) do
 				if acquire_type == A.REPUTATION then
-					addon:Debug("REPUTATION")
 					for rep_level, level_info in pairs(id_info) do
-						addon:Debug("level_info")
 						for vendor_id in pairs(level_info) do
-							addon:Debug("vendor_id")
 							local waypoint = waypoint_func(vendor_id, recipe)
 
 							-- TODO: Figure out why this changes on-click when there are two different locations for the same recipe
