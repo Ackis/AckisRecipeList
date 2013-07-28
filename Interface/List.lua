@@ -541,6 +541,7 @@ function private.InitializeListFrame()
 			trainer		= { flag = COMMON1.TRAINER,	field = "common1",	sv_root = obtain_filters },
 			vendor		= { flag = COMMON1.VENDOR,	field = "common1",	sv_root = obtain_filters },
 			worlddrop	= { flag = COMMON1.WORLD_DROP,	field = "common1",	sv_root = obtain_filters },
+			misc1		= { flag = COMMON1.MISC1,	field = "common1",	sv_root = obtain_filters },
 		}
 
 		local REP1 = private.REP_FLAGS_WORD1

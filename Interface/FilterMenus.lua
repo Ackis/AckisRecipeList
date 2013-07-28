@@ -499,6 +499,7 @@ function private.InitializeFilterPanel()
 			trainer		= { tt = L["TRAINER_DESC"],		text = L["Trainer"],				row = 5, col = 2 },
 			vendor		= { tt = L["VENDOR_DESC"],		text = L["Vendor"],				row = 6, col = 1 },
 			worlddrop	= { tt = L["WORLD_DROP_DESC"],		text = L["World Drop"],				row = 6, col = 2 },
+			misc1		= { tt = L["MISC_DESC"],		text = _G.MISCELLANEOUS,			row = 7, col = 1 },
 		}
 
 		local acquire_panel = _G.CreateFrame("Frame", nil, obtain_frame)
@@ -1444,6 +1445,7 @@ function private.InitializeFilterPanel()
 		["trainer"]			= { cb = FilterPanel.obtain.trainer,			svroot = filterdb.obtain },
 		["vendor"]			= { cb = FilterPanel.obtain.vendor,			svroot = filterdb.obtain },
 		["worlddrop"]			= { cb = FilterPanel.obtain.worlddrop,			svroot = filterdb.obtain },
+		["misc1"]			= { cb = FilterPanel.obtain.misc1,			svroot = filterdb.obtain },
 		------------------------------------------------------------------------------------------------
 		-- Binding Options
 		------------------------------------------------------------------------------------------------
