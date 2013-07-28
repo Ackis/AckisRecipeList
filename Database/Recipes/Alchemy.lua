@@ -56,7 +56,7 @@ function addon:InitAlchemy()
 	recipe:SetSkillLevels(1, 1, 55, 75, 95)
 	recipe:SetCraftedItem(2454, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("ALCHEMY_ELIXIR")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS, F.MISC1)
 	recipe:AddCustom("DEFAULT_RECIPE")
 
 	-- Minor Healing Potion -- 2330
@@ -64,7 +64,7 @@ function addon:InitAlchemy()
 	recipe:SetSkillLevels(1, 1, 55, 75, 95)
 	recipe:SetCraftedItem(118, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("ALCHEMY_POTION")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.MISC1)
 	recipe:AddCustom("DEFAULT_RECIPE")
 
 	-- Minor Mana Potion -- 2331
@@ -330,7 +330,7 @@ function addon:InitAlchemy()
 	recipe:SetSkillLevels(1, 1, 55, 75, 95)
 	recipe:SetCraftedItem(5997, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("ALCHEMY_ELIXIR")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TANK)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TANK, F.MISC1)
 	recipe:AddCustom("DEFAULT_RECIPE")
 
 	-- Holy Protection Potion -- 7255
@@ -465,7 +465,7 @@ function addon:InitAlchemy()
 	recipe:SetRecipeItem(10644, "BIND_ON_PICKUP")
 	recipe:SetCraftedItem(9061, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("ALCHEMY_MISC")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.MISC1)
 	recipe:AddCustom("CRAFTED_ENGINEERS")
 
 	-- Superior Healing Potion -- 11457
@@ -890,7 +890,7 @@ function addon:InitAlchemy()
 	recipe:SetCraftedItem(18253, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("ALCHEMY_POTION")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID)
-	recipe:AddCustom("MC_RANDOM")
+	recipe:AddWorldDrop(Z.MOLTEN_CORE)
 
 	-- Elixir of Greater Water Breathing -- 22808
 	recipe = AddRecipe(22808, V.ORIG, Q.COMMON)
@@ -2456,8 +2456,8 @@ function addon:InitAlchemy()
 	recipe:SetSkillLevels(525, 525, 525, 530, 535)
 	recipe:SetRecipeItem(67538, "BIND_ON_PICKUP")
 	recipe:SetCraftedItem(65891, "BIND_ON_EQUIP")
-	recipe:SetItemFilterType("ALCHEMY_MISC")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:SetItemFilterType("ALCHEMY_MOUNT")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.MISC1)
 	recipe:AddCustom("ARCH_DROP_ULD")
 
 	-- Draught of War -- 93935

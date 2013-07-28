@@ -1,6 +1,18 @@
 ==ARL Change Log
 NOTE: Always remove the folder for old versions and install a fresh copy when upgrading.
 
+== 2.4.9
+
+=== Recipe Database:
+* Ticket 1576 fixed
+** On fixing Ticket 1576, discovered other circumstances craftables would not show in list, fixed
+
+=== Interface
+* Added "Miscellaneous" option for Obtain filter for fixing Ticket 1576 & related
+* Major changes in the interface for the Developer copy
+** Better usability
+** No more disconnecting on a profession dump
+
 == 2.4.8
 
 === Recipe Database:

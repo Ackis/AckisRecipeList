@@ -54,7 +54,7 @@ function addon:InitEnchanting()
 	recipe = AddRecipe(7418, V.ORIG, Q.COMMON)
 	recipe:SetSkillLevels(1, 1, 70, 90, 110)
 	recipe:SetItemFilterType("ENCHANTING_BRACER")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.MISC1)
 	recipe:AddCustom("DEFAULT_RECIPE")
 
 	-- Enchant Chest - Minor Health -- 7420
@@ -69,7 +69,7 @@ function addon:InitEnchanting()
 	recipe:SetSkillLevels(1, 1, 5, 7, 10)
 	recipe:SetCraftedItem(6218, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("ENCHANTING_ROD")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.MISC1)
 	recipe:AddCustom("DEFAULT_RECIPE")
 
 	-- Enchant Chest - Minor Absorption -- 7426
@@ -83,7 +83,7 @@ function addon:InitEnchanting()
 	recipe = AddRecipe(7428, V.ORIG, Q.COMMON)
 	recipe:SetSkillLevels(1, 1, 80, 100, 120)
 	recipe:SetItemFilterType("ENCHANTING_BRACER")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TANK)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TANK, F.MISC1)
 	recipe:AddCustom("DEFAULT_RECIPE")
 
 	-- Enchant Chest - Minor Mana -- 7443
@@ -914,7 +914,7 @@ function addon:InitEnchanting()
 	recipe:SetRecipeItem(18259, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("ENCHANTING_WEAPON")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.HEALER, F.CASTER)
-	recipe:AddCustom("MC_RANDOM")
+	recipe:AddWorldDrop(Z.MOLTEN_CORE)
 
 	-- Enchant Weapon - Healing Power -- 22750
 	recipe = AddRecipe(22750, V.ORIG, Q.RARE)
@@ -922,7 +922,7 @@ function addon:InitEnchanting()
 	recipe:SetRecipeItem(18260, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("ENCHANTING_WEAPON")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.HEALER, F.CASTER)
-	recipe:AddCustom("MC_RANDOM")
+	recipe:AddWorldDrop(Z.MOLTEN_CORE)
 
 	-- Enchant Weapon - Strength -- 23799
 	recipe = AddRecipe(23799, V.ORIG, Q.COMMON)
@@ -988,7 +988,7 @@ function addon:InitEnchanting()
 	recipe:SetRecipeItem(20727, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("ENCHANTING_GLOVES")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.HEALER, F.CASTER)
-	recipe:AddCustom("AQ40_RANDOM_BOP")
+	recipe:AddWorldDrop(Z.AHNQIRAJ)
 
 	-- Enchant Gloves - Frost Power -- 25074
 	recipe = AddRecipe(25074, V.ORIG, Q.RARE)
@@ -996,7 +996,7 @@ function addon:InitEnchanting()
 	recipe:SetRecipeItem(20728, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("ENCHANTING_GLOVES")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.HEALER, F.CASTER)
-	recipe:AddCustom("AQ40_RANDOM_BOP")
+	recipe:AddWorldDrop(Z.AHNQIRAJ)
 
 	-- Enchant Gloves - Fire Power -- 25078
 	recipe = AddRecipe(25078, V.ORIG, Q.RARE)
@@ -1004,7 +1004,7 @@ function addon:InitEnchanting()
 	recipe:SetRecipeItem(20729, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("ENCHANTING_GLOVES")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.HEALER, F.CASTER)
-	recipe:AddCustom("AQ40_RANDOM_BOP")
+	recipe:AddWorldDrop(Z.AHNQIRAJ)
 
 	-- Enchant Gloves - Healing Power -- 25079
 	recipe = AddRecipe(25079, V.ORIG, Q.RARE)
@@ -1012,7 +1012,7 @@ function addon:InitEnchanting()
 	recipe:SetRecipeItem(20730, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("ENCHANTING_GLOVES")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.HEALER, F.CASTER)
-	recipe:AddCustom("AQ40_RANDOM_BOP")
+	recipe:AddWorldDrop(Z.AHNQIRAJ)
 
 	-- Minor Wizard Oil -- 25124
 	recipe = AddRecipe(25124, V.ORIG, Q.COMMON)
@@ -1092,7 +1092,7 @@ function addon:InitEnchanting()
 	recipe:SetItemFilterType("ENCHANTING_GLOVES")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.DPS, F.KOT)
 	recipe:AddRepVendor(FAC.KEEPERS_OF_TIME, REP.EXALTED, 21643)
-	recipe:AddCustom("AQ40_RANDOM_BOP")
+	recipe:AddWorldDrop(Z.AHNQIRAJ)
 
 	-- Enchant Cloak - Stealth -- 25083
 	recipe = AddRecipe(25083, V.ORIG, Q.RARE)
@@ -1101,7 +1101,7 @@ function addon:InitEnchanting()
 	recipe:SetItemFilterType("ENCHANTING_CLOAK")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.TANK, F.CENARION_EXPEDITION)
 	recipe:AddRepVendor(FAC.CENARION_EXPEDITION, REP.EXALTED, 17904)
-	recipe:AddCustom("AQ40_RANDOM_BOP")
+	recipe:AddWorldDrop(Z.AHNQIRAJ)
 
 	-- Enchant Cloak - Subtlety -- 25084
 	recipe = AddRecipe(25084, V.TBC, Q.RARE)
@@ -1120,7 +1120,7 @@ function addon:InitEnchanting()
 	recipe:SetItemFilterType("ENCHANTING_CLOAK")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.TANK, F.LOWERCITY)
 	recipe:AddRepVendor(FAC.LOWERCITY, REP.EXALTED, 21655)
-	recipe:AddCustom("AQ40_RANDOM_BOP")
+	recipe:AddWorldDrop(Z.AHNQIRAJ)
 
 	-- Enchant Bracer - Brawn -- 27899
 	recipe = AddRecipe(27899, V.TBC, Q.COMMON)
@@ -2100,7 +2100,7 @@ function addon:InitEnchanting()
 	recipe:SetRecipeItem(46027, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("ENCHANTING_WEAPON")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.TANK)
-	recipe:AddCustom("ULDUAR_RANDOM")
+	recipe:AddWorldDrop(Z.ULDUAR)
 
 	-- Enchant Weapon - Blood Draining -- 64579
 	recipe = AddRecipe(64579, V.WOTLK, Q.EPIC)
@@ -2108,7 +2108,7 @@ function addon:InitEnchanting()
 	recipe:SetRecipeItem(46348, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("ENCHANTING_WEAPON")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID)
-	recipe:AddCustom("ULDUAR_RANDOM")
+	recipe:AddWorldDrop(Z.ULDUAR)
 
 	-- Abyssal Shatter -- 69412
 	recipe = AddRecipe(69412, V.WOTLK, Q.COMMON)

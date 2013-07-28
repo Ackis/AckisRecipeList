@@ -23,6 +23,7 @@ function private:InitializeCookingTrainers()
 	self:AddTrainer(5482, "Stephen Ryback", Z.STORMWIND_CITY, 77.2, 53.2, "Alliance") -- COMPLETELY UPDATED
 	self:AddTrainer(6286, "Zarrin", Z.TELDRASSIL, 56.6, 53.6, "Alliance") -- COMPLETELY UPDATED
 	self:AddTrainer(8306, "Duhng", Z.NORTHERN_BARRENS, 55.4, 61.3, "Horde")
+	self:AddTrainer(8696, "Henry Stern", Z.RAZORFEN_DOWNS, 80.6, 17.0, "Neutral")
 	self:AddTrainer(16253, "Master Chef Mouldier", Z.GHOSTLANDS, 48.3, 30.9, "Horde") -- COMPLETELY UPDATED
 	self:AddTrainer(16277, "Quarelestra", Z.EVERSONG_WOODS, 48.6, 47.1, "Horde")
 	self:AddTrainer(16676, "Sylann", Z.SILVERMOON_CITY, 69.5, 71.5, "Horde")

@@ -56,7 +56,7 @@ function addon:InitEngineering()
 	recipe:SetSkillLevels(1, 1, 20, 30, 40)
 	recipe:SetCraftedItem(4357, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("ENGINEERING_MATERIALS")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.MISC1)
 	recipe:AddCustom("DEFAULT_RECIPE")
 
 	-- Rough Dynamite -- 3919
@@ -64,7 +64,7 @@ function addon:InitEngineering()
 	recipe:SetSkillLevels(1, 1, 30, 45, 60)
 	recipe:SetCraftedItem(4358, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("ENGINEERING_CREATED_ITEM")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.MISC1)
 	recipe:AddCustom("DEFAULT_RECIPE")
 
 	-- Handful of Copper Bolts -- 3922
@@ -634,7 +634,6 @@ function addon:InitEngineering()
 	-- Spellpower Goggles Xtreme -- 12615
 	recipe = AddRecipe(12615, V.ORIG, Q.COMMON)
 	recipe:SetSkillLevels(225, 225, 245, 255, 265)
-	recipe:SetRecipeItem(10605, "BIND_ON_EQUIP")
 	recipe:SetCraftedItem(10502, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("ENGINEERING_HEAD")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.HEALER, F.CASTER)
@@ -652,7 +651,6 @@ function addon:InitEngineering()
 	-- Deepdive Helmet -- 12617
 	recipe = AddRecipe(12617, V.ORIG, Q.COMMON)
 	recipe:SetSkillLevels(230, 230, 250, 260, 270)
-	recipe:SetRecipeItem(10607, "BIND_ON_EQUIP")
 	recipe:SetCraftedItem(10506, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("ENGINEERING_HEAD")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
@@ -1045,6 +1043,7 @@ function addon:InitEngineering()
 	recipe:SetCraftedItem(16007, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("ENGINEERING_GUN")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.DPS, F.HEALER, F.CASTER)
+	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Snowmaster 9000 -- 21940
 	recipe = AddRecipe(21940, V.ORIG, Q.UNCOMMON)
@@ -1070,7 +1069,7 @@ function addon:InitEngineering()
 	recipe:SetCraftedItem(18283, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("ENGINEERING_ITEM_ENHANCEMENT")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.DPS, F.CASTER)
-	recipe:AddCustom("MC_RANDOM")
+	recipe:AddWorldDrop(Z.MOLTEN_CORE)
 
 	-- Core Marksman Rifle -- 22795
 	recipe = AddRecipe(22795, V.ORIG, Q.RARE)
@@ -1079,7 +1078,7 @@ function addon:InitEngineering()
 	recipe:SetCraftedItem(18282, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("ENGINEERING_GUN")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.DPS)
-	recipe:AddCustom("MC_RANDOM")
+	recipe:AddWorldDrop(Z.MOLTEN_CORE)
 
 	-- Force Reactive Disk -- 22797
 	recipe = AddRecipe(22797, V.ORIG, Q.RARE)
@@ -1088,7 +1087,7 @@ function addon:InitEngineering()
 	recipe:SetCraftedItem(18168, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("ENGINEERING_SHIELD")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID)
-	recipe:AddCustom("MC_RANDOM")
+	recipe:AddWorldDrop(Z.MOLTEN_CORE)
 
 	-- Red Firework -- 23066
 	recipe = AddRecipe(23066, V.ORIG, Q.COMMON)
@@ -1105,6 +1104,7 @@ function addon:InitEngineering()
 	recipe:SetRecipeItem(18649, "BIND_ON_EQUIP")
 	recipe:SetCraftedItem(9312, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("ENGINEERING_CREATED_ITEM")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE)
 	recipe:AddLimitedVendor(1304, 1, 5175, 1, 49918, 1)
 
 	-- Green Firework -- 23068
@@ -1268,9 +1268,10 @@ function addon:InitEngineering()
 	recipe:SetSkillLevels(250, 250, 320, 330, 340)
 	recipe:SetCraftedItem(21277, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("ENGINEERING_PET")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddCustom("PREREQ")
-	recipe:AddQuest(8798)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED)
+--	recipe:AddCustom("PREREQ")
+--	recipe:AddQuest(8798)
+	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Small Blue Rocket -- 26416
 	recipe = AddRecipe(26416, V.ORIG, Q.UNCOMMON)
@@ -1918,7 +1919,7 @@ function addon:InitEngineering()
 	recipe:SetCraftedItem(20475, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("ENGINEERING_CREATED_ITEM")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED)
-	recipe:AddCustom("BUGGED", "REMOVED_FROM_GAME")
+	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Flying Machine -- 44155
 	recipe = AddRecipe(44155, V.TBC, Q.COMMON)
@@ -1952,7 +1953,7 @@ function addon:InitEngineering()
 	recipe:SetCraftedItem(35183, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("ENGINEERING_HEAD")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.DRUID)
-	recipe:AddCustom("SUNWELL_RANDOM")
+	recipe:AddWorldDrop(Z.SUNWELL_PLATEAU)
 
 	-- Justicebringer 3000 Specs -- 46107
 	recipe = AddRecipe(46107, V.TBC, Q.EPIC)
@@ -1961,7 +1962,7 @@ function addon:InitEngineering()
 	recipe:SetCraftedItem(35185, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("ENGINEERING_HEAD")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.DPS, F.HEALER, F.CASTER, F.PALADIN)
-	recipe:AddCustom("SUNWELL_RANDOM")
+	recipe:AddWorldDrop(Z.SUNWELL_PLATEAU)
 
 	-- Powerheal 9000 Lens -- 46108
 	recipe = AddRecipe(46108, V.TBC, Q.EPIC)
@@ -1970,7 +1971,7 @@ function addon:InitEngineering()
 	recipe:SetCraftedItem(35181, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("ENGINEERING_HEAD")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.HEALER, F.CASTER, F.PRIEST)
-	recipe:AddCustom("SUNWELL_RANDOM")
+	recipe:AddWorldDrop(Z.SUNWELL_PLATEAU)
 
 	-- Hyper-Magnified Moon Specs -- 46109
 	recipe = AddRecipe(46109, V.TBC, Q.EPIC)
@@ -1979,7 +1980,7 @@ function addon:InitEngineering()
 	recipe:SetCraftedItem(35182, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("ENGINEERING_HEAD")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.DRUID)
-	recipe:AddCustom("SUNWELL_RANDOM")
+	recipe:AddWorldDrop(Z.SUNWELL_PLATEAU)
 
 	-- Primal-Attuned Goggles -- 46110
 	recipe = AddRecipe(46110, V.TBC, Q.EPIC)
@@ -1988,7 +1989,7 @@ function addon:InitEngineering()
 	recipe:SetCraftedItem(35184, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("ENGINEERING_HEAD")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.SHAMAN)
-	recipe:AddCustom("SUNWELL_RANDOM")
+	recipe:AddWorldDrop(Z.SUNWELL_PLATEAU)
 
 	-- Annihilator Holo-Gogs -- 46111
 	recipe = AddRecipe(46111, V.TBC, Q.EPIC)
@@ -1997,7 +1998,7 @@ function addon:InitEngineering()
 	recipe:SetCraftedItem(34847, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("ENGINEERING_HEAD")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.MAGE, F.PRIEST, F.WARLOCK)
-	recipe:AddCustom("SUNWELL_RANDOM")
+	recipe:AddWorldDrop(Z.SUNWELL_PLATEAU)
 
 	-- Lightning Etched Specs -- 46112
 	recipe = AddRecipe(46112, V.TBC, Q.EPIC)
@@ -2006,7 +2007,7 @@ function addon:InitEngineering()
 	recipe:SetCraftedItem(34355, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("ENGINEERING_HEAD")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.SHAMAN)
-	recipe:AddCustom("SUNWELL_RANDOM")
+	recipe:AddWorldDrop(Z.SUNWELL_PLATEAU)
 
 	-- Surestrike Goggles v3.0 -- 46113
 	recipe = AddRecipe(46113, V.TBC, Q.EPIC)
@@ -2015,7 +2016,7 @@ function addon:InitEngineering()
 	recipe:SetCraftedItem(34356, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("ENGINEERING_HEAD")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.HUNTER, F.SHAMAN)
-	recipe:AddCustom("SUNWELL_RANDOM")
+	recipe:AddWorldDrop(Z.SUNWELL_PLATEAU)
 
 	-- Mayhem Projection Goggles -- 46114
 	recipe = AddRecipe(46114, V.TBC, Q.EPIC)
@@ -2024,7 +2025,7 @@ function addon:InitEngineering()
 	recipe:SetCraftedItem(34354, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("ENGINEERING_HEAD")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.DPS, F.HEALER, F.CASTER, F.DK, F.PALADIN, F.WARRIOR)
-	recipe:AddCustom("SUNWELL_RANDOM")
+	recipe:AddWorldDrop(Z.SUNWELL_PLATEAU)
 
 	-- Hard Khorium Goggles -- 46115
 	recipe = AddRecipe(46115, V.TBC, Q.EPIC)
@@ -2033,7 +2034,7 @@ function addon:InitEngineering()
 	recipe:SetCraftedItem(34357, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("ENGINEERING_HEAD")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.TANK, F.PALADIN, F.WARRIOR)
-	recipe:AddCustom("SUNWELL_RANDOM")
+	recipe:AddWorldDrop(Z.SUNWELL_PLATEAU)
 
 	-- Quad Deathblow X44 Goggles -- 46116
 	recipe = AddRecipe(46116, V.TBC, Q.EPIC)
@@ -2042,7 +2043,7 @@ function addon:InitEngineering()
 	recipe:SetCraftedItem(34353, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("ENGINEERING_HEAD")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.DRUID, F.ROGUE)
-	recipe:AddCustom("SUNWELL_RANDOM")
+	recipe:AddWorldDrop(Z.SUNWELL_PLATEAU)
 
 	-- Rocket Boots Xtreme Lite -- 46697
 	recipe = AddRecipe(46697, V.TBC, Q.RARE)
@@ -3012,7 +3013,6 @@ function addon:InitEngineering()
 	-- Celestial Firework -- 128260
 	recipe = AddRecipe(128260, V.MOP, Q.COMMON)
 	recipe:SetSkillLevels(500, 500, 525, 537, 550)
-	recipe:SetRecipeItem(89994, "BIND_ON_PICKUP")
 	recipe:SetCraftedItem(89493, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("ENGINEERING_CREATED_ITEM")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
@@ -3021,7 +3021,6 @@ function addon:InitEngineering()
 	-- Grand Celebration Firework -- 128261
 	recipe = AddRecipe(128261, V.MOP, Q.COMMON)
 	recipe:SetSkillLevels(500, 500, 525, 537, 550)
-	recipe:SetRecipeItem(89993, "BIND_ON_PICKUP")
 	recipe:SetCraftedItem(89491, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("ENGINEERING_CREATED_ITEM")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
@@ -3030,7 +3029,6 @@ function addon:InitEngineering()
 	-- Serpent's Heart Firework -- 128262
 	recipe = AddRecipe(128262, V.MOP, Q.COMMON)
 	recipe:SetSkillLevels(500, 500, 525, 537, 550)
-	recipe:SetRecipeItem(89992, "BIND_ON_PICKUP")
 	recipe:SetCraftedItem(87764, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("ENGINEERING_CREATED_ITEM")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
@@ -3103,7 +3101,6 @@ function addon:InitEngineering()
 	-- Autumn Flower Firework -- 131256
 	recipe = AddRecipe(131256, V.MOP, Q.COMMON)
 	recipe:SetSkillLevels(500, 500, 525, 537, 550)
-	recipe:SetRecipeItem(89896, "BIND_ON_PICKUP")
 	recipe:SetCraftedItem(89893, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("ENGINEERING_CREATED_ITEM")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
@@ -3112,7 +3109,6 @@ function addon:InitEngineering()
 	-- Jade Blossom Firework -- 131258
 	recipe = AddRecipe(131258, V.MOP, Q.COMMON)
 	recipe:SetSkillLevels(500, 500, 525, 537, 550)
-	recipe:SetRecipeItem(89997, "BIND_ON_PICKUP")
 	recipe:SetCraftedItem(89888, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("ENGINEERING_CREATED_ITEM")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)

@@ -53,7 +53,7 @@ function addon:InitInscription()
 	recipe:SetSkillLevels(1, 1, 35, 40, 45)
 	recipe:SetCraftedItem(1180, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("INSCRIPTION_SCROLL")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.MISC1)
 	recipe:AddCustom("DEFAULT_RECIPE")
 
 	-- Scroll of Intellect -- 48114
@@ -61,7 +61,7 @@ function addon:InitInscription()
 	recipe:SetSkillLevels(1, 1, 35, 40, 45)
 	recipe:SetCraftedItem(955, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("INSCRIPTION_SCROLL")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.MISC1)
 	recipe:AddCustom("DEFAULT_RECIPE")
 
 	-- Scroll of Spirit -- 48116
@@ -69,7 +69,7 @@ function addon:InitInscription()
 	recipe:SetSkillLevels(1, 1, 35, 40, 45)
 	recipe:SetCraftedItem(1181, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("INSCRIPTION_SCROLL")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.HEALER, F.CASTER)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.HEALER, F.CASTER, F.MISC1)
 	recipe:AddCustom("DEFAULT_RECIPE")
 
 	-- Glyph of Entangling Roots -- 48121
@@ -269,7 +269,7 @@ function addon:InitInscription()
 	recipe:SetSkillLevels(1, 1, 15, 22, 30)
 	recipe:SetCraftedItem(37101, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("INSCRIPTION_MATERIALS")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.MISC1)
 	recipe:AddCustom("DEFAULT_RECIPE")
 
 	-- Enchanting Vellum -- 52739
@@ -3570,6 +3570,7 @@ function addon:InitInscription()
 	recipe:SetRequiredFaction("Horde")
 	recipe:SetItemFilterType("INSCRIPTION_CREATED_ITEM")
 	recipe:AddFilters(F.HORDE, F.RETIRED)
+	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Forged Documents -- 89244
 	recipe = AddRecipe(89244, V.CATA, Q.COMMON)
@@ -3578,6 +3579,7 @@ function addon:InitInscription()
 	recipe:SetRequiredFaction("Alliance")
 	recipe:SetItemFilterType("INSCRIPTION_CREATED_ITEM")
 	recipe:AddFilters(F.ALLIANCE, F.RETIRED)
+	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Scroll of Intellect IX -- 89368
 	recipe = AddRecipe(89368, V.CATA, Q.COMMON)

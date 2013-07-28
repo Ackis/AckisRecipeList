@@ -65,7 +65,7 @@ function addon:InitTailoring()
 	recipe:SetSkillLevels(1, 1, 35, 47, 60)
 	recipe:SetCraftedItem(2570, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("TAILORING_BACK")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.MISC1)
 	recipe:AddCustom("DEFAULT_RECIPE")
 
 	-- Red Linen Robe -- 2389
@@ -171,7 +171,7 @@ function addon:InitTailoring()
 	recipe:SetSkillLevels(1, 1, 25, 37, 50)
 	recipe:SetCraftedItem(2996, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("TAILORING_MATERIALS")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.MISC1)
 	recipe:AddCustom("DEFAULT_RECIPE")
 
 	-- Bolt of Woolen Cloth -- 2964
@@ -501,7 +501,7 @@ function addon:InitTailoring()
 	recipe:SetSkillLevels(1, 1, 35, 47, 60)
 	recipe:SetCraftedItem(4344, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("TAILORING_SHIRT")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.MISC1)
 	recipe:AddCustom("DEFAULT_RECIPE")
 
 	-- Pearl-clasped Cloak -- 6521
@@ -861,7 +861,7 @@ function addon:InitTailoring()
 	recipe:SetSkillLevels(1, 1, 35, 47, 60)
 	recipe:SetCraftedItem(10045, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("TAILORING_LEGS")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.MISC1)
 	recipe:AddCustom("DEFAULT_RECIPE")
 
 	-- Simple Linen Boots -- 12045
@@ -1645,7 +1645,7 @@ function addon:InitTailoring()
 	recipe:SetCraftedItem(18263, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("TAILORING_WRIST")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.HEALER, F.CASTER)
-	recipe:AddCustom("MC_RANDOM")
+	recipe:AddWorldDrop(Z.MOLTEN_CORE)
 
 	-- Gordok Ogre Suit -- 22813
 	recipe = AddRecipe(22813, V.ORIG, Q.COMMON)
@@ -1832,7 +1832,7 @@ function addon:InitTailoring()
 	recipe:SetCraftedItem(21341, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("TAILORING_BAG")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.WARLOCK)
-	recipe:AddCustom("REMOVED_FROM_GAME", "SCHOLO_BOOK_SPAWN")
+	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Core Felcloth Bag -- 26087
 	recipe = AddRecipe(26087, V.ORIG, Q.RARE)
@@ -1841,7 +1841,7 @@ function addon:InitTailoring()
 	recipe:SetCraftedItem(21342, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("TAILORING_BAG")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.WARLOCK)
-	recipe:AddCustom("MC_RANDOM")
+	recipe:AddWorldDrop(Z.MOLTEN_CORE)
 
 	-- Festival Dress -- 26403
 	recipe = AddRecipe(26403, V.ORIG, Q.UNCOMMON)
@@ -2517,7 +2517,7 @@ function addon:InitTailoring()
 	recipe:SetCraftedItem(30038, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("TAILORING_WAIST")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.HEALER, F.CASTER)
-	recipe:AddCustom("SSC_RANDOM", "TK_RANDOM")
+	recipe:AddWorldDrop(Z.SERPENTSHRINE_CAVERN, Z.TEMPEST_KEEP)
 
 	-- Belt of the Long Road -- 36316
 	recipe = AddRecipe(36316, V.TBC, Q.EPIC)
@@ -2526,7 +2526,7 @@ function addon:InitTailoring()
 	recipe:SetCraftedItem(30036, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("TAILORING_WAIST")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.HEALER, F.CASTER)
-	recipe:AddCustom("SSC_RANDOM", "TK_RANDOM")
+	recipe:AddWorldDrop(Z.SERPENTSHRINE_CAVERN, Z.TEMPEST_KEEP)
 
 	-- Boots of Blasting -- 36317
 	recipe = AddRecipe(36317, V.TBC, Q.EPIC)
@@ -2535,7 +2535,7 @@ function addon:InitTailoring()
 	recipe:SetCraftedItem(30037, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("TAILORING_FEET")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.DPS, F.HEALER, F.CASTER)
-	recipe:AddCustom("SSC_RANDOM", "TK_RANDOM")
+	recipe:AddWorldDrop(Z.SERPENTSHRINE_CAVERN, Z.TEMPEST_KEEP)
 
 	-- Boots of the Long Road -- 36318
 	recipe = AddRecipe(36318, V.TBC, Q.EPIC)
@@ -2544,7 +2544,7 @@ function addon:InitTailoring()
 	recipe:SetCraftedItem(30035, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("TAILORING_FEET")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.HEALER, F.CASTER)
-	recipe:AddCustom("SSC_RANDOM", "TK_RANDOM")
+	recipe:AddWorldDrop(Z.SERPENTSHRINE_CAVERN, Z.TEMPEST_KEEP)
 
 	-- Shadowcloth -- 36686
 	recipe = AddRecipe(36686, V.TBC, Q.COMMON)
@@ -2643,7 +2643,7 @@ function addon:InitTailoring()
 	recipe:SetCraftedItem(32586, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("TAILORING_WRIST")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.DPS, F.HEALER, F.CASTER)
-	recipe:AddCustom("BT_RANDOM")
+	recipe:AddWorldDrop(Z.BLACK_TEMPLE)
 
 	-- Mantle of Nimble Thought -- 41206
 	recipe = AddRecipe(41206, V.TBC, Q.EPIC)
@@ -2652,7 +2652,7 @@ function addon:InitTailoring()
 	recipe:SetCraftedItem(32587, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("TAILORING_SHOULDER")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.DPS, F.HEALER, F.CASTER)
-	recipe:AddCustom("BT_RANDOM", "HYJAL_RANDOM")
+	recipe:AddWorldDrop(Z.BLACK_TEMPLE, Z.MOUNT_HYJAL)
 
 	-- Swiftheal Wraps -- 41207
 	recipe = AddRecipe(41207, V.TBC, Q.EPIC)
@@ -2661,7 +2661,7 @@ function addon:InitTailoring()
 	recipe:SetCraftedItem(32584, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("TAILORING_WRIST")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.DPS, F.HEALER, F.CASTER)
-	recipe:AddCustom("BT_RANDOM", "HYJAL_RANDOM")
+	recipe:AddWorldDrop(Z.BLACK_TEMPLE, Z.MOUNT_HYJAL)
 
 	-- Swiftheal Mantle -- 41208
 	recipe = AddRecipe(41208, V.TBC, Q.EPIC)
@@ -2670,7 +2670,7 @@ function addon:InitTailoring()
 	recipe:SetCraftedItem(32585, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("TAILORING_SHOULDER")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.DPS, F.HEALER, F.CASTER)
-	recipe:AddCustom("BT_RANDOM")
+	recipe:AddWorldDrop(Z.BLACK_TEMPLE)
 
 	-- Green Winter Clothes -- 44950
 	recipe = AddRecipe(44950, V.TBC, Q.UNCOMMON)
@@ -2699,7 +2699,7 @@ function addon:InitTailoring()
 	recipe:SetCraftedItem(34366, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("TAILORING_HANDS")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.HEALER, F.CASTER)
-	recipe:AddCustom("SUNWELL_RANDOM")
+	recipe:AddWorldDrop(Z.SUNWELL_PLATEAU)
 
 	-- Hands of Eternal Light -- 46129
 	recipe = AddRecipe(46129, V.TBC, Q.EPIC)
@@ -2708,7 +2708,7 @@ function addon:InitTailoring()
 	recipe:SetCraftedItem(34367, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("TAILORING_HANDS")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.HEALER, F.CASTER)
-	recipe:AddCustom("SUNWELL_RANDOM")
+	recipe:AddWorldDrop(Z.SUNWELL_PLATEAU)
 
 	-- Sunfire Robe -- 46130
 	recipe = AddRecipe(46130, V.TBC, Q.EPIC)
@@ -2717,7 +2717,7 @@ function addon:InitTailoring()
 	recipe:SetCraftedItem(34364, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("TAILORING_CHEST")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.HEALER, F.CASTER)
-	recipe:AddCustom("SUNWELL_RANDOM")
+	recipe:AddWorldDrop(Z.SUNWELL_PLATEAU)
 
 	-- Robe of Eternal Light -- 46131
 	recipe = AddRecipe(46131, V.TBC, Q.EPIC)
@@ -2726,7 +2726,7 @@ function addon:InitTailoring()
 	recipe:SetCraftedItem(34365, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("TAILORING_CHEST")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.DPS, F.HEALER, F.CASTER)
-	recipe:AddCustom("SUNWELL_RANDOM")
+	recipe:AddWorldDrop(Z.SUNWELL_PLATEAU)
 
 	-- Dress Shoes -- 49677
 	recipe = AddRecipe(49677, V.TBC, Q.COMMON)
@@ -3155,7 +3155,7 @@ function addon:InitTailoring()
 	recipe:SetItemFilterType("TAILORING_BACK")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.HEALER, F.CASTER)
 	recipe:AddTrainer(28699)
-	recipe:AddCustom("NORTH_DUNG")
+	recipe:AddAchievement(1288)
 
 	-- Deathchill Cloak -- 56017
 	recipe = AddRecipe(56017, V.WOTLK, Q.COMMON)
@@ -3164,7 +3164,7 @@ function addon:InitTailoring()
 	recipe:SetItemFilterType("TAILORING_BACK")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.HEALER, F.CASTER)
 	recipe:AddTrainer(28699)
-	recipe:AddCustom("LORE_NORTH")
+	recipe:AddAchievement(41)
 
 	-- Hat of Wintry Doom -- 56018
 	recipe = AddRecipe(56018, V.WOTLK, Q.COMMON)
@@ -3403,7 +3403,7 @@ function addon:InitTailoring()
 	recipe:SetCraftedItem(45102, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("TAILORING_WAIST")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.DPS, F.HEALER, F.CASTER)
-	recipe:AddCustom("ULDUAR_RANDOM")
+	recipe:AddWorldDrop(Z.ULDUAR)
 
 	-- Spellslinger's Slippers -- 63204
 	recipe = AddRecipe(63204, V.WOTLK, Q.EPIC)
@@ -3412,7 +3412,7 @@ function addon:InitTailoring()
 	recipe:SetCraftedItem(45566, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("TAILORING_FEET")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.DPS, F.HEALER, F.CASTER)
-	recipe:AddCustom("ULDUAR_RANDOM")
+	recipe:AddWorldDrop(Z.ULDUAR)
 
 	-- Cord of the White Dawn -- 63205
 	recipe = AddRecipe(63205, V.WOTLK, Q.EPIC)
@@ -3421,7 +3421,7 @@ function addon:InitTailoring()
 	recipe:SetCraftedItem(45104, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("TAILORING_WAIST")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.DPS, F.HEALER, F.CASTER)
-	recipe:AddCustom("ULDUAR_RANDOM")
+	recipe:AddWorldDrop(Z.ULDUAR)
 
 	-- Savior's Slippers -- 63206
 	recipe = AddRecipe(63206, V.WOTLK, Q.EPIC)
@@ -3430,7 +3430,7 @@ function addon:InitTailoring()
 	recipe:SetCraftedItem(45567, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("TAILORING_FEET")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.DPS, F.HEALER, F.CASTER)
-	recipe:AddCustom("ULDUAR_RANDOM")
+	recipe:AddWorldDrop(Z.ULDUAR)
 
 	-- Spidersilk Drape -- 63742
 	recipe = AddRecipe(63742, V.WOTLK, Q.COMMON)
@@ -3473,7 +3473,8 @@ function addon:InitTailoring()
 	recipe:SetRequiredFaction("Alliance")
 	recipe:SetItemFilterType("TAILORING_CHEST")
 	recipe:AddFilters(F.ALLIANCE, F.RAID, F.DPS, F.HEALER, F.CASTER)
-	recipe:AddCustom("TOC25_RANDOM")
+	recipe:AddWorldDrop(Z.TRIAL_OF_THE_CRUSADER)
+	recipe:AddCustom("NORMAL")
 
 	-- Royal Moonshroud Bracers -- 67065
 	recipe = AddRecipe(67065, V.WOTLK, Q.EPIC)
@@ -3483,7 +3484,8 @@ function addon:InitTailoring()
 	recipe:SetRequiredFaction("Alliance")
 	recipe:SetItemFilterType("TAILORING_WRIST")
 	recipe:AddFilters(F.ALLIANCE, F.RAID, F.DPS, F.HEALER, F.CASTER)
-	recipe:AddCustom("TOC25_RANDOM")
+	recipe:AddWorldDrop(Z.TRIAL_OF_THE_CRUSADER)
+	recipe:AddCustom("NORMAL")
 
 	-- Merlin's Robe -- 67066
 	recipe = AddRecipe(67066, V.WOTLK, Q.EPIC)
@@ -3493,7 +3495,8 @@ function addon:InitTailoring()
 	recipe:SetRequiredFaction("Alliance")
 	recipe:SetItemFilterType("TAILORING_CHEST")
 	recipe:AddFilters(F.ALLIANCE, F.RAID, F.DPS, F.HEALER, F.CASTER)
-	recipe:AddCustom("TOC25_RANDOM")
+	recipe:AddWorldDrop(Z.TRIAL_OF_THE_CRUSADER)
+	recipe:AddCustom("NORMAL")
 
 	-- Bejeweled Wizard's Bracers -- 67079
 	recipe = AddRecipe(67079, V.WOTLK, Q.EPIC)
@@ -3503,7 +3506,8 @@ function addon:InitTailoring()
 	recipe:SetRequiredFaction("Alliance")
 	recipe:SetItemFilterType("TAILORING_WRIST")
 	recipe:AddFilters(F.ALLIANCE, F.RAID, F.DPS, F.HEALER, F.CASTER)
-	recipe:AddCustom("TOC25_RANDOM")
+	recipe:AddWorldDrop(Z.TRIAL_OF_THE_CRUSADER)
+	recipe:AddCustom("NORMAL")
 
 	-- Royal Moonshroud Robe -- 67144
 	recipe = AddRecipe(67144, V.WOTLK, Q.EPIC)
@@ -3513,7 +3517,8 @@ function addon:InitTailoring()
 	recipe:SetRequiredFaction("Horde")
 	recipe:SetItemFilterType("TAILORING_CHEST")
 	recipe:AddFilters(F.HORDE, F.RAID, F.HEALER, F.CASTER)
-	recipe:AddCustom("TOC25_RANDOM")
+	recipe:AddWorldDrop(Z.TRIAL_OF_THE_CRUSADER)
+	recipe:AddCustom("NORMAL")
 
 	-- Bejeweled Wizard's Bracers -- 67145
 	recipe = AddRecipe(67145, V.WOTLK, Q.EPIC)
@@ -3523,7 +3528,8 @@ function addon:InitTailoring()
 	recipe:SetRequiredFaction("Horde")
 	recipe:SetItemFilterType("TAILORING_WRIST")
 	recipe:AddFilters(F.HORDE, F.RAID, F.DPS, F.HEALER, F.CASTER)
-	recipe:AddCustom("TOC25_RANDOM")
+	recipe:AddWorldDrop(Z.TRIAL_OF_THE_CRUSADER)
+	recipe:AddCustom("NORMAL")
 
 	-- Merlin's Robe -- 67146
 	recipe = AddRecipe(67146, V.WOTLK, Q.EPIC)
@@ -3533,7 +3539,8 @@ function addon:InitTailoring()
 	recipe:SetRequiredFaction("Horde")
 	recipe:SetItemFilterType("TAILORING_CHEST")
 	recipe:AddFilters(F.HORDE, F.RAID, F.DPS, F.HEALER, F.CASTER)
-	recipe:AddCustom("TOC25_RANDOM")
+	recipe:AddWorldDrop(Z.TRIAL_OF_THE_CRUSADER)
+	recipe:AddCustom("NORMAL")
 
 	-- Royal Moonshroud Bracers -- 67147
 	recipe = AddRecipe(67147, V.WOTLK, Q.EPIC)
@@ -3543,7 +3550,8 @@ function addon:InitTailoring()
 	recipe:SetRequiredFaction("Horde")
 	recipe:SetItemFilterType("TAILORING_WRIST")
 	recipe:AddFilters(F.HORDE, F.RAID, F.DPS, F.HEALER, F.CASTER)
-	recipe:AddCustom("TOC25_RANDOM")
+	recipe:AddWorldDrop(Z.TRIAL_OF_THE_CRUSADER)
+	recipe:AddCustom("NORMAL")
 
 	-- Leggings of Woven Death -- 70550
 	recipe = AddRecipe(70550, V.WOTLK, Q.EPIC)
@@ -4075,7 +4083,7 @@ function addon:InitTailoring()
 	recipe:SetCraftedItem(69944, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("TAILORING_HANDS")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.DPS, F.HEALER, F.CASTER)
-	recipe:AddCustom("FIRELANDS_RANDOM")
+	recipe:AddWorldDrop(Z.FIRELANDS)
 
 	-- Don Tayo's Inferno Mittens -- 99449
 	recipe = AddRecipe(99449, V.CATA, Q.EPIC)
@@ -4084,7 +4092,7 @@ function addon:InitTailoring()
 	recipe:SetCraftedItem(69945, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("TAILORING_HANDS")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.DPS, F.HEALER, F.CASTER)
-	recipe:AddCustom("FIRELANDS_RANDOM")
+	recipe:AddWorldDrop(Z.FIRELANDS)
 
 	-- Endless Dream Walkers -- 99459
 	recipe = AddRecipe(99459, V.CATA, Q.EPIC)
@@ -4093,7 +4101,7 @@ function addon:InitTailoring()
 	recipe:SetCraftedItem(69953, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("TAILORING_FEET")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.DPS, F.HEALER, F.CASTER)
-	recipe:AddCustom("FIRELANDS_RANDOM")
+	recipe:AddWorldDrop(Z.FIRELANDS)
 
 	-- Boots of the Black Flame -- 99460
 	recipe = AddRecipe(99460, V.CATA, Q.EPIC)
@@ -4102,7 +4110,7 @@ function addon:InitTailoring()
 	recipe:SetCraftedItem(69954, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("TAILORING_FEET")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.DPS, F.HEALER, F.CASTER)
-	recipe:AddCustom("FIRELANDS_RANDOM")
+	recipe:AddWorldDrop(Z.FIRELANDS)
 
 	-- Vicious Embersilk Cape -- 99537
 	recipe = AddRecipe(99537, V.CATA, Q.COMMON)
@@ -4128,7 +4136,7 @@ function addon:InitTailoring()
 	recipe:SetCraftedItem(71981, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("TAILORING_LEGS")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.HEALER, F.CASTER)
-	recipe:AddCustom("DRAGONSOUL_RANDOM")
+	recipe:AddWorldDrop(Z.DRAGON_SOUL)
 
 	-- Lavaquake Legwraps -- 101921
 	recipe = AddRecipe(101921, V.CATA, Q.EPIC)
@@ -4137,7 +4145,7 @@ function addon:InitTailoring()
 	recipe:SetCraftedItem(71980, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("TAILORING_LEGS")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.DPS, F.HEALER, F.CASTER)
-	recipe:AddCustom("DRAGONSOUL_RANDOM")
+	recipe:AddWorldDrop(Z.DRAGON_SOUL)
 
 	-- Dreamwraps of the Light -- 101922
 	recipe = AddRecipe(101922, V.CATA, Q.EPIC)
@@ -4146,7 +4154,7 @@ function addon:InitTailoring()
 	recipe:SetCraftedItem(71990, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("TAILORING_WRIST")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.DPS, F.HEALER, F.CASTER)
-	recipe:AddCustom("DRAGONSOUL_RANDOM")
+	recipe:AddWorldDrop(Z.DRAGON_SOUL)
 
 	-- Bracers of Unconquered Power -- 101923
 	recipe = AddRecipe(101923, V.CATA, Q.EPIC)
@@ -4155,7 +4163,7 @@ function addon:InitTailoring()
 	recipe:SetCraftedItem(71989, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("TAILORING_WRIST")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.DPS, F.HEALER, F.CASTER)
-	recipe:AddCustom("DRAGONSOUL_RANDOM")
+	recipe:AddWorldDrop(Z.DRAGON_SOUL)
 
 	-- Lightweave Embroidery -- 125481
 	recipe = AddRecipe(125481, V.MOP, Q.COMMON)
@@ -4504,7 +4512,7 @@ function addon:InitTailoring()
 	recipe:SetCraftedItem(86311, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("TAILORING_CHEST")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.DPS, F.HEALER, F.CASTER)
-	recipe:AddCustom("MOP_RAIDS_RANDOM")
+	recipe:AddWorldDrop(Z.TERRACE_OF_ENDLESS_SPRING, Z.HEART_OF_FEAR, Z.MOGUSHAN_VAULTS)
 
 	-- Imperial Silk Gloves -- 125559
 	recipe = AddRecipe(125559, V.MOP, Q.EPIC)
@@ -4513,7 +4521,7 @@ function addon:InitTailoring()
 	recipe:SetCraftedItem(86313, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("TAILORING_CHEST")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.DPS, F.HEALER, F.CASTER)
-	recipe:AddCustom("MOP_RAIDS_RANDOM")
+	recipe:AddWorldDrop(Z.TERRACE_OF_ENDLESS_SPRING, Z.HEART_OF_FEAR, Z.MOGUSHAN_VAULTS)
 
 	-- Legacy of the Emperor -- 125560
 	recipe = AddRecipe(125560, V.MOP, Q.EPIC)
@@ -4522,7 +4530,7 @@ function addon:InitTailoring()
 	recipe:SetCraftedItem(86312, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("TAILORING_CHEST")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.DPS, F.HEALER, F.CASTER)
-	recipe:AddCustom("MOP_RAIDS_RANDOM")
+	recipe:AddWorldDrop(Z.TERRACE_OF_ENDLESS_SPRING, Z.HEART_OF_FEAR, Z.MOGUSHAN_VAULTS)
 
 	-- Touch of the Light -- 125561
 	recipe = AddRecipe(125561, V.MOP, Q.EPIC)
@@ -4531,7 +4539,7 @@ function addon:InitTailoring()
 	recipe:SetCraftedItem(86314, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("TAILORING_HANDS")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.DPS, F.HEALER, F.CASTER)
-	recipe:AddCustom("MOP_RAIDS_RANDOM")
+	recipe:AddWorldDrop(Z.TERRACE_OF_ENDLESS_SPRING, Z.HEART_OF_FEAR, Z.MOGUSHAN_VAULTS)
 
 	-- Song of Harmony -- 130325
 	recipe = AddRecipe(130325, V.MOP, Q.COMMON)

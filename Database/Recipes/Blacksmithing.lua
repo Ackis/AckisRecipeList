@@ -55,7 +55,7 @@ function addon:InitBlacksmithing()
 	recipe:SetSkillLevels(1, 1, 15, 35, 55)
 	recipe:SetCraftedItem(2862, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("BLACKSMITHING_ITEM_ENHANCEMENT")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS, F.MISC1)
 	recipe:AddCustom("DEFAULT_RECIPE")
 
 	-- Copper Chain Belt -- 2661
@@ -79,7 +79,7 @@ function addon:InitBlacksmithing()
 	recipe:SetSkillLevels(1, 1, 20, 40, 60)
 	recipe:SetCraftedItem(2853, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("BLACKSMITHING_WRIST")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.MISC1)
 	recipe:AddCustom("DEFAULT_RECIPE")
 
 	-- Runed Copper Bracers -- 2664
@@ -218,6 +218,7 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItem(3239, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("BLACKSMITHING_ITEM_ENHANCEMENT")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddTrainer(514, 1241, 2836, 2998, 3136, 3174, 3355, 3478, 3557, 4258, 4596, 5511, 6299, 7230, 7231, 11177, 11178, 15400, 16583, 16669, 16724, 16823, 17245, 19341, 20124, 20125, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29505, 29506, 29924, 33591, 33609, 33631, 33675, 37072, 44781, 45548, 47384, 47396, 47418, 47420, 47431, 52640, 65114, 65129)
 	recipe:AddCustom("DEFAULT_RECIPE")
 
 	-- Coarse Weightstone -- 3116
@@ -1066,7 +1067,7 @@ function addon:InitBlacksmithing()
 	recipe:SetRecipeItem(10713, "BIND_ON_EQUIP")
 	recipe:SetCraftedItem(9060, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("BLACKSMITHING_MATERIALS")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.MISC1)
 	recipe:AddCustom("CRAFTED_ENGINEERS")
 
 	-- Golden Scale Gauntlets -- 11643
@@ -1092,7 +1093,7 @@ function addon:InitBlacksmithing()
 	recipe:SetSkillLevels(1, 1, 15, 35, 55)
 	recipe:SetCraftedItem(10421, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("BLACKSMITHING_CHEST")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.MISC1)
 	recipe:AddCustom("DEFAULT_RECIPE")
 
 	-- Dark Iron Pulverizer -- 15292
@@ -1111,6 +1112,7 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItem(11606, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("BLACKSMITHING_CHEST")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.INSTANCE, F.DPS, F.HEALER, F.CASTER)
+	recipe:AddWorldDrop(Z.BLACKROCK_DEPTHS)
 	recipe:AddCustom("BRD_MAIL")
 
 	-- Dark Iron Sunderer -- 15294
@@ -1129,6 +1131,7 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItem(11605, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("BLACKSMITHING_SHOULDER")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.INSTANCE, F.DPS, F.TANK)
+	recipe:AddWorldDrop(Z.BLACKROCK_DEPTHS)
 	recipe:AddCustom("BRD_SHOULDERS")
 
 	-- Dark Iron Plate -- 15296
@@ -1572,6 +1575,7 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItem(12781, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("BLACKSMITHING_ONE_HAND_MACE")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.INSTANCE)
+	recipe:AddWorldDrop(Z.STRATHOLME)
 	recipe:AddCustom("STRATH_BS_PLANS")
 
 	-- Volcanic Hammer -- 16984
@@ -1590,6 +1594,7 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItem(12782, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("BLACKSMITHING_TWO_HAND_SWORD")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.INSTANCE, F.DPS)
+	recipe:AddWorldDrop(Z.STRATHOLME)
 	recipe:AddCustom("STRATH_BS_PLANS")
 
 	-- Hammer of the Titans -- 16988
@@ -1767,7 +1772,7 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItem(18262, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("BLACKSMITHING_ITEM_ENHANCEMENT")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.DPS, F.HEALER, F.CASTER)
-	recipe:AddCustom("MC_RANDOM")
+	recipe:AddWorldDrop(Z.MOLTEN_CORE)
 
 	-- Heavy Timbermaw Belt -- 23628
 	recipe = AddRecipe(23628, V.ORIG, Q.COMMON)
@@ -2964,7 +2969,7 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItem(30034, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("BLACKSMITHING_WAIST")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.DPS, F.TANK)
-	recipe:AddCustom("SSC_RANDOM", "TK_RANDOM")
+	recipe:AddWorldDrop(Z.SERPENTSHRINE_CAVERN, Z.TEMPEST_KEEP)
 
 	-- Red Belt of Battle -- 36390
 	recipe = AddRecipe(36390, V.TBC, Q.EPIC)
@@ -2973,7 +2978,7 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItem(30032, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("BLACKSMITHING_WAIST")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.DPS, F.HEALER, F.CASTER)
-	recipe:AddCustom("SSC_RANDOM", "TK_RANDOM")
+	recipe:AddWorldDrop(Z.SERPENTSHRINE_CAVERN, Z.TEMPEST_KEEP)
 
 	-- Boots of the Protector -- 36391
 	recipe = AddRecipe(36391, V.TBC, Q.EPIC)
@@ -2982,7 +2987,7 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItem(30033, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("BLACKSMITHING_FEET")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.DPS, F.TANK)
-	recipe:AddCustom("SSC_RANDOM", "TK_RANDOM")
+	recipe:AddWorldDrop(Z.SERPENTSHRINE_CAVERN, Z.TEMPEST_KEEP)
 
 	-- Red Havoc Boots -- 36392
 	recipe = AddRecipe(36392, V.TBC, Q.EPIC)
@@ -2991,7 +2996,7 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItem(30031, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("BLACKSMITHING_FEET")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.TANK)
-	recipe:AddCustom("SSC_RANDOM", "TK_RANDOM")
+	recipe:AddWorldDrop(Z.SERPENTSHRINE_CAVERN, Z.TEMPEST_KEEP)
 
 	-- Wildguard Breastplate -- 38473
 	recipe = AddRecipe(38473, V.TBC, Q.EPIC)
@@ -3090,7 +3095,7 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItem(32568, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("BLACKSMITHING_WRIST")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.DPS, F.HEALER, F.CASTER)
-	recipe:AddCustom("BT_RANDOM", "HYJAL_RANDOM")
+	recipe:AddWorldDrop(Z.BLACK_TEMPLE, Z.MOUNT_HYJAL)
 
 	-- Swiftsteel Shoulders -- 41133
 	recipe = AddRecipe(41133, V.TBC, Q.EPIC)
@@ -3099,7 +3104,7 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItem(32570, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("BLACKSMITHING_SHOULDER")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.DPS, F.HEALER, F.CASTER)
-	recipe:AddCustom("BT_RANDOM")
+	recipe:AddWorldDrop(Z.BLACK_TEMPLE)
 
 	-- Dawnsteel Bracers -- 41134
 	recipe = AddRecipe(41134, V.TBC, Q.EPIC)
@@ -3108,7 +3113,7 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItem(32571, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("BLACKSMITHING_WRIST")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.DPS, F.HEALER, F.CASTER)
-	recipe:AddCustom("BT_RANDOM")
+	recipe:AddWorldDrop(Z.BLACK_TEMPLE)
 
 	-- Dawnsteel Shoulders -- 41135
 	recipe = AddRecipe(41135, V.TBC, Q.EPIC)
@@ -3117,7 +3122,7 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItem(32573, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("BLACKSMITHING_SHOULDER")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.DPS, F.HEALER, F.CASTER)
-	recipe:AddCustom("BT_RANDOM", "HYJAL_RANDOM")
+	recipe:AddWorldDrop(Z.BLACK_TEMPLE, Z.MOUNT_HYJAL)
 
 	-- Ragesteel Shoulders -- 42662
 	recipe = AddRecipe(42662, V.TBC, Q.RARE)
@@ -3162,7 +3167,7 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItem(34380, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("BLACKSMITHING_HANDS")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.HEALER, F.CASTER)
-	recipe:AddCustom("SUNWELL_RANDOM")
+	recipe:AddWorldDrop(Z.SUNWELL_PLATEAU)
 
 	-- Hard Khorium Battlefists -- 46141
 	recipe = AddRecipe(46141, V.TBC, Q.EPIC)
@@ -3171,7 +3176,7 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItem(34378, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("BLACKSMITHING_HANDS")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.DPS)
-	recipe:AddCustom("SUNWELL_RANDOM")
+	recipe:AddWorldDrop(Z.SUNWELL_PLATEAU)
 
 	-- Sunblessed Breastplate -- 46142
 	recipe = AddRecipe(46142, V.TBC, Q.EPIC)
@@ -3180,7 +3185,7 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItem(34379, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("BLACKSMITHING_CHEST")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.HEALER, F.CASTER)
-	recipe:AddCustom("SUNWELL_RANDOM")
+	recipe:AddWorldDrop(Z.SUNWELL_PLATEAU)
 
 	-- Hard Khorium Battleplate -- 46144
 	recipe = AddRecipe(46144, V.TBC, Q.EPIC)
@@ -3189,7 +3194,7 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItem(34377, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("BLACKSMITHING_CHEST")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.DPS)
-	recipe:AddCustom("SUNWELL_RANDOM")
+	recipe:AddWorldDrop(Z.SUNWELL_PLATEAU)
 
 	-- Cobalt Legplates -- 52567
 	recipe = AddRecipe(52567, V.WOTLK, Q.COMMON)
@@ -4026,7 +4031,7 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItem(45088, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("BLACKSMITHING_WAIST")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.DPS, F.TANK, F.HEALER, F.CASTER)
-	recipe:AddCustom("ULDUAR_RANDOM")
+	recipe:AddWorldDrop(Z.ULDUAR)
 
 	-- Battlelord's Plate Boots -- 63188
 	recipe = AddRecipe(63188, V.WOTLK, Q.EPIC)
@@ -4035,7 +4040,7 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItem(45089, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("BLACKSMITHING_FEET")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.DPS, F.HEALER, F.CASTER)
-	recipe:AddCustom("ULDUAR_RANDOM")
+	recipe:AddWorldDrop(Z.ULDUAR)
 
 	-- Plate Girdle of Righteousness -- 63189
 	recipe = AddRecipe(63189, V.WOTLK, Q.EPIC)
@@ -4044,7 +4049,7 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItem(45090, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("BLACKSMITHING_WAIST")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.DPS, F.HEALER, F.CASTER)
-	recipe:AddCustom("ULDUAR_RANDOM")
+	recipe:AddWorldDrop(Z.ULDUAR)
 
 	-- Treads of Destiny -- 63190
 	recipe = AddRecipe(63190, V.WOTLK, Q.EPIC)
@@ -4053,7 +4058,7 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItem(45091, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("BLACKSMITHING_FEET")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.DPS, F.HEALER, F.CASTER)
-	recipe:AddCustom("ULDUAR_RANDOM")
+	recipe:AddWorldDrop(Z.ULDUAR)
 
 	-- Indestructible Plate Girdle -- 63191
 	recipe = AddRecipe(63191, V.WOTLK, Q.EPIC)
@@ -4062,7 +4067,7 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItem(45092, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("BLACKSMITHING_WAIST")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.DPS, F.TANK)
-	recipe:AddCustom("ULDUAR_RANDOM")
+	recipe:AddWorldDrop(Z.ULDUAR)
 
 	-- Spiked Deathdealers -- 63192
 	recipe = AddRecipe(63192, V.WOTLK, Q.EPIC)
@@ -4071,7 +4076,7 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItem(45093, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("BLACKSMITHING_FEET")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.DPS, F.TANK)
-	recipe:AddCustom("ULDUAR_RANDOM")
+	recipe:AddWorldDrop(Z.ULDUAR)
 
 	-- Breastplate of the White Knight -- 67091
 	recipe = AddRecipe(67091, V.WOTLK, Q.EPIC)
@@ -4081,7 +4086,8 @@ function addon:InitBlacksmithing()
 	recipe:SetRequiredFaction("Alliance")
 	recipe:SetItemFilterType("BLACKSMITHING_CHEST")
 	recipe:AddFilters(F.ALLIANCE, F.RAID, F.DPS, F.TANK)
-	recipe:AddCustom("TOC25_RANDOM")
+	recipe:AddWorldDrop(Z.TRIAL_OF_THE_CRUSADER)
+	recipe:AddCustom("NORMAL")
 
 	-- Saronite Swordbreakers -- 67092
 	recipe = AddRecipe(67092, V.WOTLK, Q.EPIC)
@@ -4091,7 +4097,8 @@ function addon:InitBlacksmithing()
 	recipe:SetRequiredFaction("Alliance")
 	recipe:SetItemFilterType("BLACKSMITHING_WRIST")
 	recipe:AddFilters(F.ALLIANCE, F.RAID, F.DPS, F.TANK, F.CASTER)
-	recipe:AddCustom("TOC25_RANDOM")
+	recipe:AddWorldDrop(Z.TRIAL_OF_THE_CRUSADER)
+	recipe:AddCustom("NORMAL")
 
 	-- Titanium Razorplate -- 67093
 	recipe = AddRecipe(67093, V.WOTLK, Q.EPIC)
@@ -4101,7 +4108,8 @@ function addon:InitBlacksmithing()
 	recipe:SetRequiredFaction("Alliance")
 	recipe:SetItemFilterType("BLACKSMITHING_CHEST")
 	recipe:AddFilters(F.ALLIANCE, F.RAID, F.DPS, F.HEALER, F.CASTER)
-	recipe:AddCustom("TOC25_RANDOM")
+	recipe:AddWorldDrop(Z.TRIAL_OF_THE_CRUSADER)
+	recipe:AddCustom("NORMAL")
 
 	-- Titanium Spikeguards -- 67094
 	recipe = AddRecipe(67094, V.WOTLK, Q.EPIC)
@@ -4111,7 +4119,8 @@ function addon:InitBlacksmithing()
 	recipe:SetRequiredFaction("Alliance")
 	recipe:SetItemFilterType("BLACKSMITHING_WRIST")
 	recipe:AddFilters(F.ALLIANCE, F.RAID, F.DPS, F.HEALER, F.CASTER)
-	recipe:AddCustom("TOC25_RANDOM")
+	recipe:AddWorldDrop(Z.TRIAL_OF_THE_CRUSADER)
+	recipe:AddCustom("NORMAL")
 
 	-- Sunforged Breastplate -- 67095
 	recipe = AddRecipe(67095, V.WOTLK, Q.EPIC)
@@ -4121,7 +4130,8 @@ function addon:InitBlacksmithing()
 	recipe:SetRequiredFaction("Alliance")
 	recipe:SetItemFilterType("BLACKSMITHING_CHEST")
 	recipe:AddFilters(F.ALLIANCE, F.RAID, F.DPS, F.HEALER, F.CASTER)
-	recipe:AddCustom("TOC25_RANDOM")
+	recipe:AddWorldDrop(Z.TRIAL_OF_THE_CRUSADER)
+	recipe:AddCustom("NORMAL")
 
 	-- Sunforged Bracers -- 67096
 	recipe = AddRecipe(67096, V.WOTLK, Q.EPIC)
@@ -4131,7 +4141,8 @@ function addon:InitBlacksmithing()
 	recipe:SetRequiredFaction("Alliance")
 	recipe:SetItemFilterType("BLACKSMITHING_WRIST")
 	recipe:AddFilters(F.ALLIANCE, F.RAID, F.DPS, F.HEALER, F.CASTER)
-	recipe:AddCustom("TOC25_RANDOM")
+	recipe:AddWorldDrop(Z.TRIAL_OF_THE_CRUSADER)
+	recipe:AddCustom("NORMAL")
 
 	-- Breastplate of the White Knight -- 67130
 	recipe = AddRecipe(67130, V.WOTLK, Q.EPIC)
@@ -4141,7 +4152,8 @@ function addon:InitBlacksmithing()
 	recipe:SetRequiredFaction("Horde")
 	recipe:SetItemFilterType("BLACKSMITHING_CHEST")
 	recipe:AddFilters(F.HORDE, F.RAID, F.DPS, F.TANK)
-	recipe:AddCustom("TOC25_RANDOM")
+	recipe:AddWorldDrop(Z.TRIAL_OF_THE_CRUSADER)
+	recipe:AddCustom("NORMAL")
 
 	-- Saronite Swordbreakers -- 67131
 	recipe = AddRecipe(67131, V.WOTLK, Q.EPIC)
@@ -4151,7 +4163,8 @@ function addon:InitBlacksmithing()
 	recipe:SetRequiredFaction("Horde")
 	recipe:SetItemFilterType("BLACKSMITHING_WRIST")
 	recipe:AddFilters(F.HORDE, F.RAID, F.DPS, F.TANK, F.CASTER)
-	recipe:AddCustom("TOC25_RANDOM")
+	recipe:AddWorldDrop(Z.TRIAL_OF_THE_CRUSADER)
+	recipe:AddCustom("NORMAL")
 
 	-- Titanium Razorplate -- 67132
 	recipe = AddRecipe(67132, V.WOTLK, Q.EPIC)
@@ -4161,7 +4174,8 @@ function addon:InitBlacksmithing()
 	recipe:SetRequiredFaction("Horde")
 	recipe:SetItemFilterType("BLACKSMITHING_CHEST")
 	recipe:AddFilters(F.HORDE, F.RAID, F.DPS, F.HEALER, F.CASTER)
-	recipe:AddCustom("TOC25_RANDOM")
+	recipe:AddWorldDrop(Z.TRIAL_OF_THE_CRUSADER)
+	recipe:AddCustom("NORMAL")
 
 	-- Titanium Spikeguards -- 67133
 	recipe = AddRecipe(67133, V.WOTLK, Q.EPIC)
@@ -4171,7 +4185,8 @@ function addon:InitBlacksmithing()
 	recipe:SetRequiredFaction("Horde")
 	recipe:SetItemFilterType("BLACKSMITHING_WRIST")
 	recipe:AddFilters(F.HORDE, F.RAID, F.DPS, F.HEALER, F.CASTER)
-	recipe:AddCustom("TOC25_RANDOM")
+	recipe:AddWorldDrop(Z.TRIAL_OF_THE_CRUSADER)
+	recipe:AddCustom("NORMAL")
 
 	-- Sunforged Breastplate -- 67134
 	recipe = AddRecipe(67134, V.WOTLK, Q.EPIC)
@@ -4181,7 +4196,8 @@ function addon:InitBlacksmithing()
 	recipe:SetRequiredFaction("Horde")
 	recipe:SetItemFilterType("BLACKSMITHING_CHEST")
 	recipe:AddFilters(F.HORDE, F.RAID, F.DPS, F.HEALER, F.CASTER)
-	recipe:AddCustom("TOC25_RANDOM")
+	recipe:AddWorldDrop(Z.TRIAL_OF_THE_CRUSADER)
+	recipe:AddCustom("NORMAL")
 
 	-- Sunforged Bracers -- 67135
 	recipe = AddRecipe(67135, V.WOTLK, Q.EPIC)
@@ -4191,7 +4207,8 @@ function addon:InitBlacksmithing()
 	recipe:SetRequiredFaction("Horde")
 	recipe:SetItemFilterType("BLACKSMITHING_WRIST")
 	recipe:AddFilters(F.HORDE, F.RAID, F.DPS, F.HEALER, F.CASTER)
-	recipe:AddCustom("TOC25_RANDOM")
+	recipe:AddWorldDrop(Z.TRIAL_OF_THE_CRUSADER)
+	recipe:AddCustom("NORMAL")
 
 	-- Puresteel Legplates -- 70562
 	recipe = AddRecipe(70562, V.WOTLK, Q.EPIC)
@@ -4806,7 +4823,7 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItem(69936, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("BLACKSMITHING_HANDS")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.DPS, F.HEALER, F.CASTER)
-	recipe:AddCustom("FIRELANDS_RANDOM")
+	recipe:AddWorldDrop(Z.FIRELANDS)
 
 	-- Eternal Elementium Handguards -- 99440
 	recipe = AddRecipe(99440, V.CATA, Q.EPIC)
@@ -4815,7 +4832,7 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItem(69937, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("BLACKSMITHING_HANDS")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.DPS, F.TANK)
-	recipe:AddCustom("FIRELANDS_RANDOM")
+	recipe:AddWorldDrop(Z.FIRELANDS)
 
 	-- Holy Flame Gauntlets -- 99441
 	recipe = AddRecipe(99441, V.CATA, Q.EPIC)
@@ -4824,7 +4841,7 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItem(69938, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("BLACKSMITHING_HANDS")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.DPS, F.HEALER, F.CASTER)
-	recipe:AddCustom("FIRELANDS_RANDOM")
+	recipe:AddWorldDrop(Z.FIRELANDS)
 
 	-- Warboots of Mighty Lords -- 99452
 	recipe = AddRecipe(99452, V.CATA, Q.EPIC)
@@ -4833,7 +4850,7 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItem(69946, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("BLACKSMITHING_FEET")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.DPS, F.HEALER, F.CASTER)
-	recipe:AddCustom("FIRELANDS_RANDOM")
+	recipe:AddWorldDrop(Z.FIRELANDS)
 
 	-- Mirrored Boots -- 99453
 	recipe = AddRecipe(99453, V.CATA, Q.EPIC)
@@ -4842,7 +4859,7 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItem(69947, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("BLACKSMITHING_FEET")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.DPS, F.TANK)
-	recipe:AddCustom("FIRELANDS_RANDOM")
+	recipe:AddWorldDrop(Z.FIRELANDS)
 
 	-- Emberforged Elementium Boots -- 99454
 	recipe = AddRecipe(99454, V.CATA, Q.EPIC)
@@ -4851,7 +4868,7 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItem(69948, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("BLACKSMITHING_FEET")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.DPS, F.HEALER, F.CASTER)
-	recipe:AddCustom("FIRELANDS_RANDOM")
+	recipe:AddWorldDrop(Z.FIRELANDS)
 
 	-- Brainsplinter -- 99652
 	recipe = AddRecipe(99652, V.CATA, Q.RARE)
@@ -4932,7 +4949,7 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItem(71982, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("BLACKSMITHING_LEGS")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.DPS, F.HEALER, F.CASTER)
-	recipe:AddCustom("DRAGONSOUL_RANDOM")
+	recipe:AddWorldDrop(Z.DRAGON_SOUL)
 
 	-- Unstoppable Destroyer's Legplates -- 101925
 	recipe = AddRecipe(101925, V.CATA, Q.EPIC)
@@ -4941,7 +4958,7 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItem(71983, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("BLACKSMITHING_LEGS")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.DPS, F.HEALER, F.CASTER)
-	recipe:AddCustom("DRAGONSOUL_RANDOM")
+	recipe:AddWorldDrop(Z.DRAGON_SOUL)
 
 	-- Foundations of Courage -- 101928
 	recipe = AddRecipe(101928, V.CATA, Q.EPIC)
@@ -4950,7 +4967,7 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItem(71984, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("BLACKSMITHING_LEGS")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.DPS, F.TANK)
-	recipe:AddCustom("DRAGONSOUL_RANDOM")
+	recipe:AddWorldDrop(Z.DRAGON_SOUL)
 
 	-- Soul Redeemer Bracers -- 101929
 	recipe = AddRecipe(101929, V.CATA, Q.EPIC)
@@ -4959,7 +4976,7 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItem(71991, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("BLACKSMITHING_WRIST")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.DPS, F.HEALER, F.CASTER)
-	recipe:AddCustom("DRAGONSOUL_RANDOM")
+	recipe:AddWorldDrop(Z.DRAGON_SOUL)
 
 	-- Bracers of Destructive Strength -- 101931
 	recipe = AddRecipe(101931, V.CATA, Q.EPIC)
@@ -4968,7 +4985,7 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItem(71992, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("BLACKSMITHING_WRIST")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.DPS, F.TANK, F.HEALER, F.CASTER)
-	recipe:AddCustom("DRAGONSOUL_RANDOM")
+	recipe:AddWorldDrop(Z.DRAGON_SOUL)
 
 	-- Titanguard Wristplates -- 101932
 	recipe = AddRecipe(101932, V.CATA, Q.EPIC)
@@ -4977,7 +4994,7 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItem(71993, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("BLACKSMITHING_WRIST")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.DPS, F.TANK)
-	recipe:AddCustom("DRAGONSOUL_RANDOM")
+	recipe:AddWorldDrop(Z.DRAGON_SOUL)
 
 	-- Socket Bracer -- 113263
 	recipe = AddRecipe(113263, V.MOP, Q.COMMON)
@@ -5446,7 +5463,8 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItem(87405, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("BLACKSMITHING_HANDS")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.TANK)
-	recipe:AddCustom("MOP_RAIDS_RANDOM")
+	recipe:AddCustom("HEROIC")
+	recipe:AddWorldDrop(Z.HEART_OF_FEAR, Z.TERRACE_OF_ENDLESS_SPRING, Z.MOGUSHAN_VAULTS)
 
 	-- Gauntlets of Battle Command -- 126851
 	recipe = AddRecipe(126851, V.MOP, Q.EPIC)
@@ -5455,7 +5473,8 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItem(87406, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("BLACKSMITHING_HANDS")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.DPS, F.TANK)
-	recipe:AddCustom("MOP_RAIDS_RANDOM")
+	recipe:AddCustom("HEROIC")
+	recipe:AddWorldDrop(Z.HEART_OF_FEAR, Z.TERRACE_OF_ENDLESS_SPRING, Z.MOGUSHAN_VAULTS)
 
 	-- Ornate Battleplate of the Master -- 126852
 	recipe = AddRecipe(126852, V.MOP, Q.EPIC)
@@ -5464,7 +5483,8 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItem(87402, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("BLACKSMITHING_CHEST")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.DPS, F.TANK)
-	recipe:AddCustom("MOP_RAIDS_RANDOM")
+	recipe:AddCustom("HEROIC")
+	recipe:AddWorldDrop(Z.HEART_OF_FEAR, Z.TERRACE_OF_ENDLESS_SPRING, Z.MOGUSHAN_VAULTS)
 
 	-- Bloodforged Warfists -- 126853
 	recipe = AddRecipe(126853, V.MOP, Q.EPIC)
@@ -5473,7 +5493,8 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItem(87407, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("BLACKSMITHING_HANDS")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.DPS, F.HEALER, F.CASTER)
-	recipe:AddCustom("MOP_RAIDS_RANDOM")
+	recipe:AddCustom("HEROIC")
+	recipe:AddWorldDrop(Z.HEART_OF_FEAR, Z.TERRACE_OF_ENDLESS_SPRING, Z.MOGUSHAN_VAULTS)
 
 	-- Chestplate of Limitless Faith -- 126854
 	recipe = AddRecipe(126854, V.MOP, Q.EPIC)
@@ -5482,7 +5503,8 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItem(87403, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("BLACKSMITHING_CHEST")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.DPS, F.HEALER, F.CASTER)
-	recipe:AddCustom("MOP_RAIDS_RANDOM")
+	recipe:AddCustom("HEROIC")
+	recipe:AddWorldDrop(Z.HEART_OF_FEAR, Z.TERRACE_OF_ENDLESS_SPRING, Z.MOGUSHAN_VAULTS)
 
 	-- Gauntlets of Unbound Devotion -- 126855
 	recipe = AddRecipe(126855, V.MOP, Q.EPIC)
@@ -5491,7 +5513,8 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItem(87403, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("BLACKSMITHING_HANDS")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.DPS, F.HEALER, F.CASTER)
-	recipe:AddCustom("MOP_RAIDS_RANDOM")
+	recipe:AddCustom("HEROIC")
+	recipe:AddWorldDrop(Z.HEART_OF_FEAR, Z.TERRACE_OF_ENDLESS_SPRING, Z.MOGUSHAN_VAULTS)
 
 	-- Ghost Iron Shield Spike -- 131928
 	recipe = AddRecipe(131928, V.MOP, Q.COMMON)
