@@ -1,6 +1,10 @@
 ==ARL Change Log
 NOTE: Always remove the folder for old versions and install a fresh copy when upgrading.
 
+== 2.5.0
+* Remove unnecessary Localization
+* Import Localizations.. Whoops
+
 == 2.4.9
 
 === Recipe Database:
