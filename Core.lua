@@ -537,13 +537,16 @@ local TRADESKILL_ADDON_INITS = {
 		scan_button:SetWidth(80)
 		_G.Skillet:AddButtonToTradeskillWindow(scan_button)
 	end,
+	TSMCraftingTradeSkillFrame = function(scan_button)
+		local anchor = _G.TSMCraftingTradeSkillFrame
+		scan_button:SetParent(anchor)
+		scan_button:SetPoint("TOPRIGHT", anchor, "TOPRIGHT", -30, -3)
+		scan_button:Show()
+	end,
 }
 
-function addon:CreateScanButton()
-	local scan_button = _G.CreateFrame("Button", nil, _G.TradeSkillFrame, "UIPanelButtonTemplate")
-	scan_button:SetHeight(20)
-	scan_button:RegisterForClicks("LeftButtonUp")
-	scan_button:SetText(L["Scan"])
+function addon:InitializeScanButton()
+	local scan_button = self.scan_button
 
 	-------------------------------------------------------------------------------
 	-- Grab the first lucky Trade Skill AddOn that exists and hand the scan button to it.
@@ -559,57 +562,6 @@ function addon:CreateScanButton()
 	scan_button:SetFrameLevel(scan_parent:GetFrameLevel() + 1)
 	scan_button:SetFrameStrata(scan_parent:GetFrameStrata())
 	scan_button:Enable()
-
-	scan_button:SetScript("OnClick", function(self, _, _)
-		local main_panel = addon.Frame
-		local prev_profession
-
-		if main_panel then
-			prev_profession = private.ORDERED_PROFESSIONS[main_panel.current_profession]
-		end
-		local shift_pressed = _G.IsShiftKeyDown()
-		local alt_pressed = _G.IsAltKeyDown()
-		local ctrl_pressed = _G.IsControlKeyDown()
-
-		if shift_pressed and not alt_pressed and not ctrl_pressed then
-			addon:Scan(true)
-		elseif alt_pressed and not shift_pressed and not ctrl_pressed then
-			addon:ClearWaypoints()
-			--@debug@
-		elseif ctrl_pressed then
-			local current_prof = _G.GetTradeSkillLine()
-
-			if shift_pressed and not alt_pressed then
-				addon:ScanProfession(current_prof)
-			elseif not shift_pressed and not alt_pressed then
-				addon:DumpProfession(current_prof)
-			end
-			--@end-debug@
-		elseif not shift_pressed and not alt_pressed and not ctrl_pressed then
-			if main_panel and main_panel:IsVisible() and prev_profession == _G.GetTradeSkillLine() then
-				main_panel:Hide()
-			else
-				addon:Scan(false)
-				addon:AddWaypoint()
-			end
-		end
-	end)
-
-	scan_button:SetScript("OnEnter", function(self)
-		local tooltip = _G.GameTooltip
-
-		_G.GameTooltip_SetDefaultAnchor(tooltip, self)
-		tooltip:SetText(L["SCAN_RECIPES_DESC"])
-		--@debug@
-		tooltip:AddLine("Control-click to generate a Lua code dump.")
-		tooltip:AddLine("Control-Shift-click to scan for issues.")
-		--@end-debug@
-		tooltip:Show()
-	end)
-	scan_button:SetScript("OnLeave", function() _G.GameTooltip:Hide() end)
-
-	self.scan_button = scan_button
-	return scan_button
 end
 
 function addon:TRADE_SKILL_SHOW()
@@ -624,9 +576,62 @@ function addon:TRADE_SKILL_SHOW()
 	local scan_button = self.scan_button
 
 	if not scan_button then
-		scan_button = self:CreateScanButton()
-		self.CreateScanButton = nil
+		scan_button = _G.CreateFrame("Button", nil, _G.TradeSkillFrame, "UIPanelButtonTemplate")
+		scan_button:SetHeight(20)
+		scan_button:RegisterForClicks("LeftButtonUp")
+		scan_button:SetText(L["Scan"])
+
+		scan_button:SetScript("OnClick", function(self, _, _)
+			local main_panel = addon.Frame
+			local prev_profession
+
+			if main_panel then
+				prev_profession = private.ORDERED_PROFESSIONS[main_panel.current_profession]
+			end
+			local shift_pressed = _G.IsShiftKeyDown()
+			local alt_pressed = _G.IsAltKeyDown()
+			local ctrl_pressed = _G.IsControlKeyDown()
+
+			if shift_pressed and not alt_pressed and not ctrl_pressed then
+				addon:Scan(true)
+			elseif alt_pressed and not shift_pressed and not ctrl_pressed then
+				addon:ClearWaypoints()
+				--@debug@
+			elseif ctrl_pressed then
+				local current_prof = _G.GetTradeSkillLine()
+
+				if shift_pressed and not alt_pressed then
+					addon:ScanProfession(current_prof)
+				elseif not shift_pressed and not alt_pressed then
+					addon:DumpProfession(current_prof)
+				end
+				--@end-debug@
+			elseif not shift_pressed and not alt_pressed and not ctrl_pressed then
+				if main_panel and main_panel:IsVisible() and prev_profession == _G.GetTradeSkillLine() then
+					main_panel:Hide()
+				else
+					addon:Scan(false)
+					addon:AddWaypoint()
+				end
+			end
+		end)
+
+		scan_button:SetScript("OnEnter", function(self)
+			local tooltip = _G.GameTooltip
+
+			_G.GameTooltip_SetDefaultAnchor(tooltip, self)
+			tooltip:SetText(L["SCAN_RECIPES_DESC"])
+			--@debug@
+			tooltip:AddLine("Control-click to generate a Lua code dump.")
+			tooltip:AddLine("Control-Shift-click to scan for issues.")
+			--@end-debug@
+			tooltip:Show()
+		end)
+		scan_button:SetScript("OnLeave", function() _G.GameTooltip:Hide() end)
+
+		self.scan_button = scan_button
 	end
+	self:InitializeScanButton()
 
 	if scan_button:GetParent() == _G.TradeSkillFrame then
 		scan_button:ClearAllPoints()
