@@ -442,6 +442,7 @@ function addon:InitVendor()
 	AddVendor(64595,	L["Rushi the Fox"],			Z.TOWNLONG_STEPPES,		48.8,	70.6,	"Neutral")
 	AddVendor(64599,	L["Ambersmith Zikk"],			Z.DREAD_WASTES,			55.0,	35.6,	"Neutral")
 	AddVendor(67976,	L["Tinkmaster Overspark"],		Z.KRASARANG_WILDS,		16.5,	79.3,	"Alliance")
+	AddVendor(73293,	L["Whizzig"],				Z.TIMELESS_ISLE,		42.8,	59.2,	"Neutral") -- COMPLETELY UPDATED
 
 	self.InitVendor = nil
 end

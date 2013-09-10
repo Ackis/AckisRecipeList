@@ -51,6 +51,9 @@ function addon:InitEngineering()
 
 	local recipe
 
+	-------------------------------------------------------------------------------
+	-- Classic.
+	-------------------------------------------------------------------------------
 	-- Rough Blasting Powder -- 3918
 	recipe = AddRecipe(3918, V.ORIG, Q.COMMON)
 	recipe:SetSkillLevels(1, 1, 20, 30, 40)
@@ -1269,8 +1272,6 @@ function addon:InitEngineering()
 	recipe:SetCraftedItem(21277, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("ENGINEERING_PET")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED)
---	recipe:AddCustom("PREREQ")
---	recipe:AddQuest(8798)
 	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Small Blue Rocket -- 26416
@@ -1422,6 +1423,9 @@ function addon:InitEngineering()
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
 	recipe:AddLimitedVendor(3413, 1, 5175, 1, 45546, 1, 52655, 1)
 
+	-------------------------------------------------------------------------------
+	-- The Burning Crusade.
+	-------------------------------------------------------------------------------
 	-- Elemental Blasting Powder -- 30303
 	recipe = AddRecipe(30303, V.TBC, Q.COMMON)
 	recipe:SetSkillLevels(300, 300, 300, 310, 320)
@@ -2086,6 +2090,9 @@ function addon:InitEngineering()
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
 	recipe:AddTrainer(1702, 3494, 5174, 5518, 8736, 11017, 11025, 16726, 17222, 17634, 17637, 25277, 26907, 26955, 26991, 28697, 33586, 33611, 33634, 45545, 52636, 55143)
 
+	-------------------------------------------------------------------------------
+	-- Wrath of the Lich King.
+	-------------------------------------------------------------------------------
 	-- Titanium Toolbox -- 30349
 	recipe = AddRecipe(30349, V.WOTLK, Q.COMMON)
 	recipe:SetSkillLevels(405, 405, 425, 432, 440)
@@ -2471,6 +2478,9 @@ function addon:InitEngineering()
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
 	recipe:AddWorldDrop(Z.NORTHREND)
 
+	-------------------------------------------------------------------------------
+	-- Cataclysm.
+	-------------------------------------------------------------------------------
 	-- Reinforced Bio-Optic Killshades -- 81714
 	recipe = AddRecipe(81714, V.CATA, Q.COMMON)
 	recipe:SetSkillLevels(525, 525, 525, 530, 535)
@@ -2783,6 +2793,9 @@ function addon:InitEngineering()
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS, F.HEALER, F.CASTER)
 	recipe:AddVendor(53214)
 
+	-------------------------------------------------------------------------------
+	-- Mists of Pandaria.
+	-------------------------------------------------------------------------------
 	-- Phase Fingers -- 108789
 	recipe = AddRecipe(108789, V.MOP, Q.COMMON)
 	recipe:SetSkillLevels(550, 550, 560, 565, 570)
@@ -3130,17 +3143,49 @@ function addon:InitEngineering()
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
 	recipe:AddTrainer(5518, 11017, 55143)
 
-	self.InitEngineering = nil
-end
+	-- Jard's Peculiar Energy Source -- 139176
+	recipe = AddRecipe(139176, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(500, 500, 605, 610, 615)
+	recipe:SetRecipeItem(100910, "BIND_ON_PICKUP")
+	recipe:SetCraftedItem(94113, "BIND_ON_PICKUP")
+	recipe:SetItemFilterType("ENGINEERING_MATERIALS")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddWorldDrop(Z.PANDARIA)
 
---[[ Didn't make 5.3
-
-	-- Sky Claw -- 139192
+	-- Sky Golem -- 139192
 	recipe = AddRecipe(139192, V.MOP, Q.RARE)
 	recipe:SetSkillLevels(500, 500, 605, 610, 615)
-	recipe:SetRecipeItem(94880, "BIND_ON_PICKUP")
+	recipe:SetRecipeItem(100910, "BIND_ON_PICKUP")
 	recipe:SetCraftedItem(95416, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("ENGINEERING_MOUNT")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
 	recipe:AddWorldDrop(Z.PANDARIA)
-]] --
+
+	-- Pierre -- 139196
+	recipe = AddRecipe(139196, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(500, 500, 605, 610, 615)
+	recipe:SetRecipeItem(100910, "BIND_ON_PICKUP")
+	recipe:SetCraftedItem(94903, "BIND_ON_PICKUP")
+	recipe:SetItemFilterType("ENGINEERING_PET")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddWorldDrop(Z.PANDARIA)
+
+	-- Advanced Refrigeration Unit -- 139197
+	recipe = AddRecipe(139197, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(500, 500, 600, 602, 605)
+	recipe:SetRecipeItem(100910, "BIND_ON_PICKUP")
+	recipe:SetCraftedItem(92747, "BIND_ON_EQUIP")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddWorldDrop(Z.PANDARIA)
+
+	-- Rascal-Bot -- 143714
+	recipe = AddRecipe(143714, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(500, 500, 605, 610, 615)
+	recipe:SetRecipeItem(100910, "BIND_ON_PICKUP")
+	recipe:SetCraftedItem(100905, "BIND_ON_PICKUP")
+	recipe:SetItemFilterType("ENGINEERING_PET")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddWorldDrop(Z.PANDARIA)
+
+	self.InitEngineering = nil
+end

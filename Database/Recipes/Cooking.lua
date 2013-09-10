@@ -2105,5 +2105,104 @@ function addon:InitCooking()
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.MISC1)
 	recipe:AddCustom("BANANA_INFUSED_RUM")
 
+	-- Noodle Cart Kit -- 145038
+	recipe = AddRecipe(145038, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(600, 600, 600, 600, 600)
+	recipe:SetRecipeItem(101631, "BIND_ON_PICKUP")
+	recipe:SetCraftedItem(101630, "BIND_ON_EQUIP")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.QUEST)
+	recipe:AddQuest(33022)
+	recipe:AddCustom("TIMELESS_ISLE_COOKING")
+
+	-- Deluxe Noodle Cart Kit -- 145061
+	recipe = AddRecipe(145061, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(600, 600, 600, 600, 600)
+	recipe:SetRecipeItem(101664, "BIND_ON_PICKUP")
+	recipe:SetCraftedItem(101661, "BIND_ON_EQUIP")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.QUEST)
+	recipe:AddQuest(33024)
+	recipe:AddCustom("TIMELESS_ISLE_COOKING")
+
+	-- Pandaren Treasure Noodle Cart Kit -- 145062
+	recipe = AddRecipe(145062, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(600, 600, 600, 600, 611)
+	recipe:SetRecipeItem(101663, "BIND_ON_PICKUP")
+	recipe:SetCraftedItem(101662, "BIND_ON_EQUIP")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddQuest(33027)
+	recipe:AddCustom("TIMELESS_ISLE_COOKING")
+
+	-- Grand Noodle Cart Kit -- 145167
+	recipe = AddRecipe(145167, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(600, 600, 600, 600, 600)
+	recipe:SetRecipeItem(101728, "BIND_ON_PICKUP")
+	recipe:SetCraftedItem(101727, "BIND_ON_EQUIP")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.QUEST)
+	recipe:AddWorldDrop(Z.VALE_OF_ETERNAL_BLOSSOMS)
+
+	-- Grand Deluxe Noodle Cart Kit -- 145170
+	recipe = AddRecipe(145170, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(600, 600, 600, 600, 610)
+	recipe:SetRecipeItem(101739, "BIND_ON_PICKUP")
+	recipe:SetCraftedItem(101729, "BIND_ON_EQUIP")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.QUEST)
+	recipe:AddWorldDrop(Z.VALE_OF_ETERNAL_BLOSSOMS)
+
+	-- Grand Pandaren Treasure Noodle Cart Kit -- 145197
+	recipe = AddRecipe(145197, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(600, 600, 600, 600, 612)
+	recipe:SetRecipeItem(101741, "BIND_ON_PICKUP")
+	recipe:SetCraftedItem(101740, "BIND_ON_EQUIP")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddWorldDrop(Z.VALE_OF_ETERNAL_BLOSSOMS)
+
+	-- Seasoned Pomfruit Slices -- 145305
+	recipe = AddRecipe(145305, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(600, 600, 600, 600, 600)
+	recipe:SetRecipeItem(101765, "BIND_ON_PICKUP")
+	recipe:SetCraftedItem(101746, "BIND_ON_EQUIP")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddWorldDrop(Z.VALE_OF_ETERNAL_BLOSSOMS)
+
+	-- Spiced Blossom Soup -- 145307
+	recipe = AddRecipe(145307, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(600, 600, 600, 600, 600)
+	recipe:SetRecipeItem(101766, "BIND_ON_PICKUP")
+	recipe:SetCraftedItem(101748, "BIND_ON_EQUIP")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddWorldDrop(Z.VALE_OF_ETERNAL_BLOSSOMS)
+
+	-- Mango Ice -- 145308
+	recipe = AddRecipe(145308, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(600, 600, 600, 600, 600)
+	recipe:SetRecipeItem(101767, "BIND_ON_PICKUP")
+	recipe:SetCraftedItem(101745, "BIND_ON_EQUIP")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddWorldDrop(Z.VALE_OF_ETERNAL_BLOSSOMS)
+
+	-- Farmer's Delight -- 145309
+	recipe = AddRecipe(145309, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(600, 600, 600, 600, 600)
+	recipe:SetRecipeItem(101768, "BIND_ON_PICKUP")
+	recipe:SetCraftedItem(101747, "BIND_ON_EQUIP")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddWorldDrop(Z.VALE_OF_ETERNAL_BLOSSOMS)
+
+	-- Stuffed Lushrooms -- 145310
+	recipe = AddRecipe(145310, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(600, 600, 600, 600, 600)
+	recipe:SetRecipeItem(101769, "BIND_ON_PICKUP")
+	recipe:SetCraftedItem(101749, "BIND_ON_EQUIP")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddWorldDrop(Z.VALE_OF_ETERNAL_BLOSSOMS)
+
+	-- Fluffy Silkfeather Omelet -- 145311
+	recipe = AddRecipe(145311, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(600, 600, 600, 600, 600)
+	recipe:SetRecipeItem(101770, "BIND_ON_PICKUP")
+	recipe:SetCraftedItem(101750, "BIND_ON_EQUIP")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddWorldDrop(Z.VALE_OF_ETERNAL_BLOSSOMS)
+
 	self.InitCooking = nil
 end

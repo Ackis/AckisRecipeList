@@ -61,6 +61,7 @@ function addon:InitCustom()
 	AddCustom("BANANA_INFUSED_RUM", Z.KRASARANG_WILDS, 52.3, 88.7)
 	AddCustom("FOUR_SENSES_BREW", Z.KUN_LAI_SUMMIT, 44.7, 52.3)
 	AddCustom("LEARNT_BY_ACCEPTING_QUEST")
+	AddCustom("TIMELESS_ISLE_COOKING", Z.TIMELESS_ISLE, 52.1, 46.1)
 
 	self.InitCustom = nil
 end

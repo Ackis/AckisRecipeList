@@ -50,12 +50,15 @@ function addon:InitBlacksmithing()
 
 	local recipe
 
+	-------------------------------------------------------------------------------
+	-- Classic.
+	-------------------------------------------------------------------------------
 	-- Rough Sharpening Stone -- 2660
 	recipe = AddRecipe(2660, V.ORIG, Q.COMMON)
 	recipe:SetSkillLevels(1, 1, 15, 35, 55)
 	recipe:SetCraftedItem(2862, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("BLACKSMITHING_ITEM_ENHANCEMENT")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS, F.MISC1)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.MISC1, F.DPS)
 	recipe:AddCustom("DEFAULT_RECIPE")
 
 	-- Copper Chain Belt -- 2661
@@ -2095,6 +2098,9 @@ function addon:InitBlacksmithing()
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TANK, F.CENARION_CIRCLE)
 	recipe:AddRepVendor(FAC.CENARION_CIRCLE, REP.FRIENDLY, 15176)
 
+	-------------------------------------------------------------------------------
+	-- The Burning Crusade.
+	-------------------------------------------------------------------------------
 	-- Fel Iron Plate Gloves -- 29545
 	recipe = AddRecipe(29545, V.TBC, Q.COMMON)
 	recipe:SetSkillLevels(300, 300, 310, 320, 330)
@@ -3196,6 +3202,9 @@ function addon:InitBlacksmithing()
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.DPS)
 	recipe:AddWorldDrop(Z.SUNWELL_PLATEAU)
 
+	-------------------------------------------------------------------------------
+	-- Wrath of the Lich King.
+	-------------------------------------------------------------------------------
 	-- Cobalt Legplates -- 52567
 	recipe = AddRecipe(52567, V.WOTLK, Q.COMMON)
 	recipe:SetSkillLevels(370, 370, 375, 380, 385)
@@ -4039,7 +4048,7 @@ function addon:InitBlacksmithing()
 	recipe:SetRecipeItem(45089, "BIND_ON_EQUIP")
 	recipe:SetCraftedItem(45089, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("BLACKSMITHING_FEET")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.DPS, F.HEALER, F.CASTER)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID)
 	recipe:AddWorldDrop(Z.ULDUAR)
 
 	-- Plate Girdle of Righteousness -- 63189
@@ -4048,7 +4057,7 @@ function addon:InitBlacksmithing()
 	recipe:SetRecipeItem(45090, "BIND_ON_EQUIP")
 	recipe:SetCraftedItem(45090, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("BLACKSMITHING_WAIST")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.DPS, F.HEALER, F.CASTER)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID)
 	recipe:AddWorldDrop(Z.ULDUAR)
 
 	-- Treads of Destiny -- 63190
@@ -4057,7 +4066,7 @@ function addon:InitBlacksmithing()
 	recipe:SetRecipeItem(45091, "BIND_ON_EQUIP")
 	recipe:SetCraftedItem(45091, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("BLACKSMITHING_FEET")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.DPS, F.HEALER, F.CASTER)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID)
 	recipe:AddWorldDrop(Z.ULDUAR)
 
 	-- Indestructible Plate Girdle -- 63191
@@ -4066,7 +4075,7 @@ function addon:InitBlacksmithing()
 	recipe:SetRecipeItem(45092, "BIND_ON_EQUIP")
 	recipe:SetCraftedItem(45092, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("BLACKSMITHING_WAIST")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.DPS, F.TANK)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID)
 	recipe:AddWorldDrop(Z.ULDUAR)
 
 	-- Spiked Deathdealers -- 63192
@@ -4264,6 +4273,9 @@ function addon:InitBlacksmithing()
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS, F.TANK, F.CASTER, F.ASHEN_VERDICT)
 	recipe:AddRepVendor(FAC.ASHEN_VERDICT, REP.HONORED, 37687)
 
+	-------------------------------------------------------------------------------
+	-- Cataclysm.
+	-------------------------------------------------------------------------------
 	-- Folded Obsidium -- 76178
 	recipe = AddRecipe(76178, V.CATA, Q.COMMON)
 	recipe:SetSkillLevels(425, 425, 450, 452, 455)
@@ -4613,7 +4625,7 @@ function addon:InitBlacksmithing()
 	recipe:SetSkillLevels(520, 520, 520, 520, 525)
 	recipe:SetRecipeItem(66110, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("BLACKSMITHING_DAGGER")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS, F.HEALER, F.CASTER)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE)
 	recipe:AddVendor(2999, 3356, 4597, 5512, 16670, 16713, 45549, 46359, 50375, 50382, 52641)
 
 	-- Elementium Hammer -- 76450
@@ -4629,7 +4641,7 @@ function addon:InitBlacksmithing()
 	recipe:SetSkillLevels(520, 520, 520, 520, 525)
 	recipe:SetRecipeItem(66112, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("BLACKSMITHING_POLEARM")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS, F.HEALER, F.CASTER)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE)
 	recipe:AddVendor(2999, 3356, 4597, 5512, 16670, 16713, 45549, 46359, 50375, 50382, 52641)
 
 	-- Elementium Bonesplitter -- 76452
@@ -4645,7 +4657,7 @@ function addon:InitBlacksmithing()
 	recipe:SetSkillLevels(520, 520, 520, 520, 525)
 	recipe:SetRecipeItem(66114, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("BLACKSMITHING_DAGGER")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS, F.HEALER, F.CASTER)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE)
 	recipe:AddVendor(2999, 3356, 4597, 5512, 16670, 16713, 45549, 46359, 50375, 50382, 52641)
 
 	-- Elementium Earthguard -- 76454
@@ -4733,7 +4745,7 @@ function addon:InitBlacksmithing()
 	recipe:SetSkillLevels(500, 500, 510, 512, 515)
 	recipe:SetRecipeItem(66125, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("BLACKSMITHING_WRIST")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS, F.HEALER, F.CASTER)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE)
 	recipe:AddVendor(2999, 3356, 4597, 5512, 16670, 16713, 45549, 46359, 50375, 50382, 52641)
 
 	-- Vicious Ornate Pyrium Gauntlets -- 76466
@@ -4741,7 +4753,7 @@ function addon:InitBlacksmithing()
 	recipe:SetSkillLevels(505, 505, 515, 517, 520)
 	recipe:SetRecipeItem(66126, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("BLACKSMITHING_HANDS")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS, F.HEALER, F.CASTER)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE)
 	recipe:AddVendor(2999, 3356, 4597, 5512, 16670, 16713, 45549, 46359, 50375, 50382, 52641)
 
 	-- Vicious Ornate Pyrium Belt -- 76467
@@ -4765,7 +4777,7 @@ function addon:InitBlacksmithing()
 	recipe:SetSkillLevels(520, 520, 530, 532, 535)
 	recipe:SetRecipeItem(66129, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("BLACKSMITHING_SHOULDER")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS, F.HEALER, F.CASTER)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE)
 	recipe:AddVendor(2999, 3356, 4597, 5512, 16670, 16713, 45549, 46359, 50375, 50382, 52641)
 
 	-- Vicious Ornate Pyrium Legguards -- 76470
@@ -4805,7 +4817,7 @@ function addon:InitBlacksmithing()
 	recipe:SetSkillLevels(515, 515, 515, 515, 525)
 	recipe:SetRecipeItem(67603, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("BLACKSMITHING_ONE_HAND_AXE")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS, F.CASTER)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE)
 	recipe:AddVendor(2999, 3356, 4597, 5512, 16670, 16713, 45549, 46359, 50375, 50382, 52641)
 
 	-- Forged Elementium Mindcrusher -- 94732
@@ -4996,6 +5008,9 @@ function addon:InitBlacksmithing()
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.DPS, F.TANK)
 	recipe:AddWorldDrop(Z.DRAGON_SOUL)
 
+	-------------------------------------------------------------------------------
+	-- Mists of Pandaria.
+	-------------------------------------------------------------------------------
 	-- Socket Bracer -- 113263
 	recipe = AddRecipe(113263, V.MOP, Q.COMMON)
 	recipe:SetSkillLevels(400, 400, 410, 415, 420)
@@ -5464,7 +5479,7 @@ function addon:InitBlacksmithing()
 	recipe:SetItemFilterType("BLACKSMITHING_HANDS")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.TANK)
 	recipe:AddCustom("HEROIC")
-	recipe:AddWorldDrop(Z.HEART_OF_FEAR, Z.TERRACE_OF_ENDLESS_SPRING, Z.MOGUSHAN_VAULTS)
+	recipe:AddWorldDrop(Z.HEART_OF_FEAR, Z.MOGUSHAN_VAULTS, Z.TERRACE_OF_ENDLESS_SPRING)
 
 	-- Gauntlets of Battle Command -- 126851
 	recipe = AddRecipe(126851, V.MOP, Q.EPIC)
@@ -5474,7 +5489,7 @@ function addon:InitBlacksmithing()
 	recipe:SetItemFilterType("BLACKSMITHING_HANDS")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.DPS, F.TANK)
 	recipe:AddCustom("HEROIC")
-	recipe:AddWorldDrop(Z.HEART_OF_FEAR, Z.TERRACE_OF_ENDLESS_SPRING, Z.MOGUSHAN_VAULTS)
+	recipe:AddWorldDrop(Z.HEART_OF_FEAR, Z.MOGUSHAN_VAULTS, Z.TERRACE_OF_ENDLESS_SPRING)
 
 	-- Ornate Battleplate of the Master -- 126852
 	recipe = AddRecipe(126852, V.MOP, Q.EPIC)
@@ -5484,7 +5499,7 @@ function addon:InitBlacksmithing()
 	recipe:SetItemFilterType("BLACKSMITHING_CHEST")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.DPS, F.TANK)
 	recipe:AddCustom("HEROIC")
-	recipe:AddWorldDrop(Z.HEART_OF_FEAR, Z.TERRACE_OF_ENDLESS_SPRING, Z.MOGUSHAN_VAULTS)
+	recipe:AddWorldDrop(Z.HEART_OF_FEAR, Z.MOGUSHAN_VAULTS, Z.TERRACE_OF_ENDLESS_SPRING)
 
 	-- Bloodforged Warfists -- 126853
 	recipe = AddRecipe(126853, V.MOP, Q.EPIC)
@@ -5494,7 +5509,7 @@ function addon:InitBlacksmithing()
 	recipe:SetItemFilterType("BLACKSMITHING_HANDS")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.DPS, F.HEALER, F.CASTER)
 	recipe:AddCustom("HEROIC")
-	recipe:AddWorldDrop(Z.HEART_OF_FEAR, Z.TERRACE_OF_ENDLESS_SPRING, Z.MOGUSHAN_VAULTS)
+	recipe:AddWorldDrop(Z.HEART_OF_FEAR, Z.MOGUSHAN_VAULTS, Z.TERRACE_OF_ENDLESS_SPRING)
 
 	-- Chestplate of Limitless Faith -- 126854
 	recipe = AddRecipe(126854, V.MOP, Q.EPIC)
@@ -5504,7 +5519,7 @@ function addon:InitBlacksmithing()
 	recipe:SetItemFilterType("BLACKSMITHING_CHEST")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.DPS, F.HEALER, F.CASTER)
 	recipe:AddCustom("HEROIC")
-	recipe:AddWorldDrop(Z.HEART_OF_FEAR, Z.TERRACE_OF_ENDLESS_SPRING, Z.MOGUSHAN_VAULTS)
+	recipe:AddWorldDrop(Z.HEART_OF_FEAR, Z.MOGUSHAN_VAULTS, Z.TERRACE_OF_ENDLESS_SPRING)
 
 	-- Gauntlets of Unbound Devotion -- 126855
 	recipe = AddRecipe(126855, V.MOP, Q.EPIC)
@@ -5514,7 +5529,7 @@ function addon:InitBlacksmithing()
 	recipe:SetItemFilterType("BLACKSMITHING_HANDS")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.DPS, F.HEALER, F.CASTER)
 	recipe:AddCustom("HEROIC")
-	recipe:AddWorldDrop(Z.HEART_OF_FEAR, Z.TERRACE_OF_ENDLESS_SPRING, Z.MOGUSHAN_VAULTS)
+	recipe:AddWorldDrop(Z.HEART_OF_FEAR, Z.MOGUSHAN_VAULTS, Z.TERRACE_OF_ENDLESS_SPRING)
 
 	-- Ghost Iron Shield Spike -- 131928
 	recipe = AddRecipe(131928, V.MOP, Q.COMMON)
@@ -6128,6 +6143,358 @@ function addon:InitBlacksmithing()
 	recipe:SetItemFilterType("BLACKSMITHING_CHEST")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DK)
 	recipe:AddDiscovery("DISCOVERY_BS_PANDARIA")
+
+	-- Blessed Trillium Greaves -- 142954
+	recipe = AddRecipe(142954, V.MOP, Q.RARE)
+	recipe:SetSkillLevels(600, 600, 605, 611, 618)
+	recipe:SetRecipeItem(100865, "BIND_ON_PICKUP")
+	recipe:SetCraftedItem(98602, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("BLACKSMITHING_LEGS")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddDiscovery("DISCOVERY_BS_INGOT_PANDARIA")
+
+	-- Protector's Trillium Legguards -- 142958
+	recipe = AddRecipe(142958, V.MOP, Q.RARE)
+	recipe:SetSkillLevels(600, 600, 605, 611, 618)
+	recipe:SetRecipeItem(100865, "BIND_ON_PICKUP")
+	recipe:SetCraftedItem(98606, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("BLACKSMITHING_LEGS")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddDiscovery("DISCOVERY_BS_INGOT_PANDARIA")
+
+	-- Avenger's Trillium Legplates -- 142959
+	recipe = AddRecipe(142959, V.MOP, Q.RARE)
+	recipe:SetSkillLevels(600, 600, 605, 611, 618)
+	recipe:SetRecipeItem(100865, "BIND_ON_PICKUP")
+	recipe:SetCraftedItem(98607, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("BLACKSMITHING_LEGS")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddDiscovery("DISCOVERY_BS_INGOT_PANDARIA")
+
+	-- Blessed Trillium Belt -- 142963
+	recipe = AddRecipe(142963, V.MOP, Q.RARE)
+	recipe:SetSkillLevels(600, 600, 605, 611, 618)
+	recipe:SetRecipeItem(100865, "BIND_ON_PICKUP")
+	recipe:SetCraftedItem(98611, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("BLACKSMITHING_WAIST")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddDiscovery("DISCOVERY_BS_INGOT_PANDARIA")
+
+	-- Protector's Trillium Waistguard -- 142967
+	recipe = AddRecipe(142967, V.MOP, Q.RARE)
+	recipe:SetSkillLevels(600, 600, 605, 611, 618)
+	recipe:SetRecipeItem(100865, "BIND_ON_PICKUP")
+	recipe:SetCraftedItem(98615, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("BLACKSMITHING_WAIST")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddDiscovery("DISCOVERY_BS_INGOT_PANDARIA")
+
+	-- Avenger's Trillium Waistplate -- 142968
+	recipe = AddRecipe(142968, V.MOP, Q.RARE)
+	recipe:SetSkillLevels(600, 600, 605, 611, 618)
+	recipe:SetRecipeItem(100865, "BIND_ON_PICKUP")
+	recipe:SetCraftedItem(98616, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("BLACKSMITHING_WAIST")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddDiscovery("DISCOVERY_BS_INGOT_PANDARIA")
+
+	-- Crafted Malevolent Gladiator's Dreadplate Chestpiece -- 143163
+	recipe = AddRecipe(143163, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(600, 600, 600, 603, 606)
+	recipe:SetCraftedItem(98784, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("BLACKSMITHING_CHEST")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddDiscovery("DISCOVERY_BS_INGOT_PANDARIA")
+
+	-- Crafted Malevolent Gladiator's Dreadplate Gauntlets -- 143164
+	recipe = AddRecipe(143164, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(600, 600, 600, 603, 606)
+	recipe:SetCraftedItem(98785, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("BLACKSMITHING_HANDS")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddDiscovery("DISCOVERY_BS_INGOT_PANDARIA")
+
+	-- Crafted Malevolent Gladiator's Dreadplate Helm -- 143165
+	recipe = AddRecipe(143165, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(600, 600, 600, 603, 606)
+	recipe:SetCraftedItem(98786, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("BLACKSMITHING_HEAD")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddDiscovery("DISCOVERY_BS_INGOT_PANDARIA")
+
+	-- Crafted Malevolent Gladiator's Dreadplate Legguards -- 143166
+	recipe = AddRecipe(143166, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(600, 600, 600, 603, 606)
+	recipe:SetCraftedItem(98787, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("BLACKSMITHING_LEGS")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddDiscovery("DISCOVERY_BS_INGOT_PANDARIA")
+
+	-- Crafted Malevolent Gladiator's Dreadplate Shoulders -- 143167
+	recipe = AddRecipe(143167, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(600, 600, 600, 603, 606)
+	recipe:SetCraftedItem(98788, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("BLACKSMITHING_SHOULDER")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddDiscovery("DISCOVERY_BS_INGOT_PANDARIA")
+
+	-- Crafted Malevolent Gladiator's Scaled Chestpiece -- 143168
+	recipe = AddRecipe(143168, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(600, 600, 600, 603, 606)
+	recipe:SetCraftedItem(98843, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("BLACKSMITHING_CHEST")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddDiscovery("DISCOVERY_BS_INGOT_PANDARIA")
+
+	-- Crafted Malevolent Gladiator's Scaled Gauntlets -- 143169
+	recipe = AddRecipe(143169, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(600, 600, 600, 603, 606)
+	recipe:SetCraftedItem(98844, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("BLACKSMITHING_HANDS")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddDiscovery("DISCOVERY_BS_INGOT_PANDARIA")
+
+	-- Crafted Malevolent Gladiator's Scaled Helm -- 143170
+	recipe = AddRecipe(143170, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(600, 600, 600, 603, 606)
+	recipe:SetCraftedItem(98845, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("BLACKSMITHING_HEAD")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddDiscovery("DISCOVERY_BS_INGOT_PANDARIA")
+
+	-- Crafted Malevolent Gladiator's Scaled Chestpiece -- 143171
+	recipe = AddRecipe(143171, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(600, 600, 600, 603, 606)
+	recipe:SetCraftedItem(98846, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("BLACKSMITHING_LEGS")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddDiscovery("DISCOVERY_BS_INGOT_PANDARIA")
+
+	-- Crafted Malevolent Gladiator's Scaled Shoulders -- 143172
+	recipe = AddRecipe(143172, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(600, 600, 600, 603, 606)
+	recipe:SetCraftedItem(98847, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("BLACKSMITHING_SHOULDER")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddDiscovery("DISCOVERY_BS_INGOT_PANDARIA")
+
+	-- Crafted Malevolent Gladiator's Clasp of Cruelty -- 143173
+	recipe = AddRecipe(143173, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(600, 600, 600, 603, 606)
+	recipe:SetCraftedItem(98848, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("BLACKSMITHING_WAIST")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddDiscovery("DISCOVERY_BS_INGOT_PANDARIA")
+
+	-- Crafted Malevolent Gladiator's Clasp of Meditation -- 143174
+	recipe = AddRecipe(143174, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(600, 600, 600, 603, 606)
+	recipe:SetCraftedItem(98849, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("BLACKSMITHING_WAIST")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddDiscovery("DISCOVERY_BS_INGOT_PANDARIA")
+
+	-- Crafted Malevolent Gladiator's Greaves of Alacrity -- 143175
+	recipe = AddRecipe(143175, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(600, 600, 600, 603, 606)
+	recipe:SetCraftedItem(98850, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("BLACKSMITHING_FEET")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddDiscovery("DISCOVERY_BS_INGOT_PANDARIA")
+
+	-- Crafted Malevolent Gladiator's Greaves of Meditation -- 143176
+	recipe = AddRecipe(143176, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(600, 600, 600, 603, 606)
+	recipe:SetCraftedItem(98851, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("BLACKSMITHING_FEET")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddDiscovery("DISCOVERY_BS_INGOT_PANDARIA")
+
+	-- Crafted Malevolent Gladiator's Bracers of Prowess -- 143177
+	recipe = AddRecipe(143177, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(600, 600, 600, 603, 606)
+	recipe:SetCraftedItem(98852, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("BLACKSMITHING_WRIST")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddDiscovery("DISCOVERY_BS_INGOT_PANDARIA")
+
+	-- Crafted Malevolent Gladiator's Bracers of Meditation -- 143178
+	recipe = AddRecipe(143178, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(600, 600, 600, 603, 606)
+	recipe:SetCraftedItem(98853, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("BLACKSMITHING_WRIST")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddDiscovery("DISCOVERY_BS_INGOT_PANDARIA")
+
+	-- Crafted Malevolent Gladiator's Ornamented Chestguard -- 143179
+	recipe = AddRecipe(143179, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(600, 600, 600, 603, 606)
+	recipe:SetCraftedItem(98854, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("BLACKSMITHING_CHEST")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddDiscovery("DISCOVERY_BS_INGOT_PANDARIA")
+
+	-- Crafted Malevolent Gladiator's Ornamented Gloves -- 143180
+	recipe = AddRecipe(143180, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(600, 600, 600, 603, 606)
+	recipe:SetCraftedItem(98855, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("BLACKSMITHING_HANDS")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddDiscovery("DISCOVERY_BS_INGOT_PANDARIA")
+
+	-- Crafted Malevolent Gladiator's Ornamented Headcover -- 143181
+	recipe = AddRecipe(143181, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(600, 600, 600, 603, 606)
+	recipe:SetCraftedItem(98856, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("BLACKSMITHING_HEAD")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddDiscovery("DISCOVERY_BS_INGOT_PANDARIA")
+
+	-- Crafted Malevolent Gladiator's Ornamented Legplates -- 143182
+	recipe = AddRecipe(143182, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(600, 600, 600, 603, 606)
+	recipe:SetCraftedItem(98857, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("BLACKSMITHING_LEGS")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddDiscovery("DISCOVERY_BS_INGOT_PANDARIA")
+
+	-- Crafted Malevolent Gladiator's Ornamented Spaulders -- 143183
+	recipe = AddRecipe(143183, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(600, 600, 600, 603, 606)
+	recipe:SetCraftedItem(98858, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("BLACKSMITHING_SHOULDER")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddDiscovery("DISCOVERY_BS_INGOT_PANDARIA")
+
+	-- Crafted Malevolent Gladiator's Girdle of Accuracy -- 143184
+	recipe = AddRecipe(143184, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(600, 600, 600, 603, 606)
+	recipe:SetCraftedItem(98859, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("BLACKSMITHING_WAIST")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddDiscovery("DISCOVERY_BS_INGOT_PANDARIA")
+
+	-- Crafted Malevolent Gladiator's Girdle of Prowess -- 143185
+	recipe = AddRecipe(143185, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(600, 600, 600, 603, 606)
+	recipe:SetCraftedItem(98860, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("BLACKSMITHING_WAIST")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddDiscovery("DISCOVERY_BS_INGOT_PANDARIA")
+
+	-- Crafted Malevolent Gladiator's Warboots of Alacrity -- 143186
+	recipe = AddRecipe(143186, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(600, 600, 600, 603, 606)
+	recipe:SetCraftedItem(98861, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("BLACKSMITHING_FEET")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddDiscovery("DISCOVERY_BS_INGOT_PANDARIA")
+
+	-- Crafted Malevolent Gladiator's Warboots of Alacrity -- 143187
+	recipe = AddRecipe(143187, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(600, 600, 600, 603, 606)
+	recipe:SetCraftedItem(98862, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("BLACKSMITHING_FEET")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddDiscovery("DISCOVERY_BS_INGOT_PANDARIA")
+
+	-- Crafted Malevolent Gladiator's Armplates of Proficiency -- 143188
+	recipe = AddRecipe(143188, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(600, 600, 600, 603, 606)
+	recipe:SetCraftedItem(98863, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("BLACKSMITHING_WRIST")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddDiscovery("DISCOVERY_BS_INGOT_PANDARIA")
+
+	-- Crafted Malevolent Gladiator's Armplates of Alacrity -- 143189
+	recipe = AddRecipe(143189, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(600, 600, 600, 603, 606)
+	recipe:SetCraftedItem(98864, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("BLACKSMITHING_WRIST")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddDiscovery("DISCOVERY_BS_INGOT_PANDARIA")
+
+	-- Crafted Malevolent Gladiator's Plate Chestpiece -- 143190
+	recipe = AddRecipe(143190, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(600, 600, 600, 603, 606)
+	recipe:SetCraftedItem(98926, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("BLACKSMITHING_CHEST")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddDiscovery("DISCOVERY_BS_INGOT_PANDARIA")
+
+	-- Crafted Malevolent Gladiator's Plate Gauntlets -- 143191
+	recipe = AddRecipe(143191, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(600, 600, 600, 603, 606)
+	recipe:SetCraftedItem(98927, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("BLACKSMITHING_HANDS")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddDiscovery("DISCOVERY_BS_INGOT_PANDARIA")
+
+	-- Crafted Malevolent Gladiator's Plate Helm -- 143192
+	recipe = AddRecipe(143192, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(600, 600, 600, 603, 606)
+	recipe:SetCraftedItem(98928, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("BLACKSMITHING_HEAD")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddDiscovery("DISCOVERY_BS_INGOT_PANDARIA")
+
+	-- Crafted Malevolent Gladiator's Plate Gauntlets -- 143193
+	recipe = AddRecipe(143193, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(600, 600, 600, 603, 606)
+	recipe:SetCraftedItem(98929, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("BLACKSMITHING_LEGS")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddDiscovery("DISCOVERY_BS_INGOT_PANDARIA")
+
+	-- Crafted Malevolent Gladiator's Plate Gauntlets -- 143194
+	recipe = AddRecipe(143194, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(600, 600, 600, 603, 606)
+	recipe:SetCraftedItem(98930, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("BLACKSMITHING_SHOULDER")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddDiscovery("DISCOVERY_BS_INGOT_PANDARIA")
+
+	-- Crafted Malevolent Gladiator's Barrier -- 143195
+	recipe = AddRecipe(143195, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(600, 600, 600, 603, 606)
+	recipe:SetCraftedItem(98776, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("BLACKSMITHING_SHIELD")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddDiscovery("DISCOVERY_BS_INGOT_PANDARIA")
+
+	-- Crafted Malevolent Gladiator's Redoubt -- 143196
+	recipe = AddRecipe(143196, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(600, 600, 600, 603, 606)
+	recipe:SetCraftedItem(98810, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("BLACKSMITHING_SHIELD")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddDiscovery("DISCOVERY_BS_INGOT_PANDARIA")
+
+	-- Crafted Malevolent Gladiator's Shield Wall -- 143197
+	recipe = AddRecipe(143197, V.MOP, Q.COMMON)
+	recipe:SetSkillLevels(600, 600, 600, 603, 606)
+	recipe:SetCraftedItem(98920, "BIND_ON_EQUIP")
+	recipe:SetItemFilterType("BLACKSMITHING_SHIELD")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddDiscovery("DISCOVERY_BS_INGOT_PANDARIA")
+
+	-- Balanced Trillium Ingot -- 143255
+	recipe = AddRecipe(143255, V.MOP, Q.RARE)
+	recipe:SetSkillLevels(600, 600, 605, 610, 616)
+	recipe:SetRecipeItem(100865, "BIND_ON_PICKUP")
+	recipe:SetCraftedItem(98717, "BIND_ON_PICKUP")
+	recipe:SetItemFilterType("BLACKSMITHING_MATERIALS")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddWorldDrop(Z.PANDARIA)
+
+	-- Accelerated Balanced Trillium Ingot -- 146921
+	recipe = AddRecipe(146921, V.MOP, Q.RARE)
+	recipe:SetSkillLevels(600, 600, 605, 610, 616)
+	recipe:SetRecipeItem(100865, "BIND_ON_PICKUP")
+	recipe:SetCraftedItem(98717, "BIND_ON_PICKUP")
+	recipe:SetItemFilterType("BLACKSMITHING_MATERIALS")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddDiscovery("DISCOVERY_BS_INGOT_PANDARIA")
 
 	self.InitBlacksmithing = nil
 end

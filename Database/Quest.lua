@@ -108,6 +108,9 @@ function addon:InitQuest()
 	AddQuest(26623,	Z.DUSKWOOD,			73.8,	43.6,	"Alliance")
 	AddQuest(26860,	Z.LOCH_MODAN,			34.9,	49.1,	"Alliance")
 	AddQuest(31539,	Z.THE_JADE_FOREST,		54.8,	45.0,	"Neutral")
+	AddQuest(33022, Z.VALLEY_OF_THE_FOUR_WINDS,	53.6,	51.2,	"Neutral")
+	AddQuest(33024, Z.VALLEY_OF_THE_FOUR_WINDS,	53.6,	51.2,	"Neutral")
+	AddQuest(33027, Z.VALLEY_OF_THE_FOUR_WINDS,	53.6,	51.2,	"Neutral")
 
 	self.InitQuest = nil
 end

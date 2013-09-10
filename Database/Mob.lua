@@ -38,6 +38,10 @@ function addon:InitMob()
 		private:AddListEntry(private.mob_list, mob_id, mob_name, zone_name, coord_x, coord_y, nil)
 	end
 
+	-- Abyssal Depths
+	AddMob(50005,	L["Poseidus"],				Z.ABYSSAL_DEPTHS,		65.4, 41.4)
+	AddMob(50009,	L["Mobus"],				Z.ABYSSAL_DEPTHS,		73.8, 19.2)
+
 	-- Arathi Highlands
 	AddMob(2556,	L["Witherbark Headhunter"],		Z.ARATHI_HIGHLANDS,		70.5, 70.4)
 	AddMob(2557,	L["Witherbark Shadow Hunter"],		Z.ARATHI_HIGHLANDS,		70.3, 78.9)
@@ -62,11 +66,18 @@ function addon:InitMob()
 	-- Deadwind Pass
 	AddMob(7372,	L["Deadwind Warlock"],			Z.DEADWIND_PASS,		59.8, 74.4)
 
+	-- Deepholm
+	AddMob(50061,	L["Xariona"],				Z.DEEPHOLM,			44.6, 39.8)
+
 	-- Dragonblight
 	AddMob(26343,	L["Indu'le Fisherman"],			Z.DRAGONBLIGHT,			40.2, 65.5)
 	AddMob(26336,	L["Indu'le Mystic"],			Z.DRAGONBLIGHT,			40.2, 65.5)
 	AddMob(26344,	L["Indu'le Warrior"],			Z.DRAGONBLIGHT,			40.2, 65.5)
 	AddMob(27333,	L["Onslaught Mason"],			Z.DRAGONBLIGHT,			85.8, 36.0)
+
+	-- Dread Wastes
+	AddMob(66867,	L["Wild Seahorse"],			Z.DREAD_WASTES,			28.0, 96.8)
+	AddMob(66868,	L["Playful Seahorse"],			Z.DREAD_WASTES,			26.4, 95.6)
 
 	-- Dustwallow Marsh
 	AddMob(4834,	L["Theramore Infiltrator"],		Z.DUSTWALLOW_MARSH,		44.0, 27.3)
@@ -101,6 +112,9 @@ function addon:InitMob()
 	AddMob(32290,	L["Cult Alchemist"],			Z.ICECROWN,			49.5, 33.1)
 	AddMob(32297,	L["Cult Researcher"],			Z.ICECROWN,			50.7, 30.9)
 	AddMob(32349,	L["Cultist Shard Watcher"],		Z.ICECROWN,			48.1, 67.9)
+
+	-- Mount Hyjal
+	AddMob(50056,	BB["Garr"],				Z.MOUNT_HYJAL,			39.6, 80.4)
 
 	-- Nagrand
 	AddMob(17136,	L["Boulderfist Warrior"],		Z.NAGRAND,			51.0, 57.0)
@@ -195,6 +209,25 @@ function addon:InitMob()
 	AddMob(30222,	L["Stormforged Infiltrator"],		Z.THE_STORM_PEAKS,		58.5, 63.2)
 	AddMob(30260,	L["Stoic Mammoth"],			Z.THE_STORM_PEAKS,		54.8, 64.9)
 	AddMob(30448,	L["Plains Mammoth"],			Z.THE_STORM_PEAKS,		66.1, 45.6)
+
+	-- Timeless Isle
+	AddMob(72761,	L["Windfeather Nestkeeper"],		Z.TIMELESS_ISLE,		32.8, 69.0)
+	AddMob(72771,	L["Damp Shambler"],			Z.TIMELESS_ISLE,		43.2, 30.8)
+	AddMob(72777,	L["Gulp Frog"],				Z.TIMELESS_ISLE,		64.8, 75.6)
+	AddMob(72805,	L["Primal Stalker"],			Z.TIMELESS_ISLE,		53.0, 60.8)
+	AddMob(72807,	L["Crag Stalker"],			Z.TIMELESS_ISLE,		53.0, 60.8)
+	AddMob(72875,	L["Ordon Candlekeeper"],		Z.TIMELESS_ISLE,		46.8, 77.4)
+	AddMob(72877,	L["Ashleaf Sprite"],			Z.TIMELESS_ISLE,		66.6, 56.8)
+	AddMob(72892,	L["Ordon Oathguard"],			Z.TIMELESS_ISLE,		52.8, 80.2)
+	AddMob(72895,	L["Burning Berserker"],			Z.TIMELESS_ISLE,		68.8, 55.2)
+	AddMob(73162,	L["Foreboding Flame"],			Z.TIMELESS_ISLE,		45.0, 36.8)
+	AddMob(73703,	L["Southsea Plunderer"],		Z.TIMELESS_ISLE,		72.0, 81.0)
+
+	-- Twilight Highlands
+	AddMob(50089,	L["Julak-Doom"],			Z.TWILIGHT_HIGHLANDS,		52.6, 7.4)
+
+	-- Uldum
+	AddMob(50063,	L["Akma'hat"],				Z.ULDUM,			38.0, 60.2)
 
 	-- Un'Goro Crater
 	AddMob(6557,	L["Primal Ooze"],			Z.UNGORO_CRATER,		51.8, 34.9)

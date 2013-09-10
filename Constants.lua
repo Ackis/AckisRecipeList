@@ -412,6 +412,7 @@ private.ITEM_FILTER_TYPES = {
 	INSCRIPTION_STAFF = true,
 	INSCRIPTION_SCROLL = true,
 	INSCRIPTION_PET = true,
+	INSCRIPTION_TRINKET = true,
 	-------------------------------------------------------------------------------
 	-- Jewelcrafting
 	-------------------------------------------------------------------------------
@@ -867,6 +868,7 @@ private.ZONE_NAMES = {
 	MOUNT_HYJAL = _G.GetMapNameByID(606),
 	SOUTHERN_BARRENS = _G.GetMapNameByID(607),
 	VASHJIR = _G.GetMapNameByID(613),
+	ABYSSAL_DEPTHS = _G.GetMapNameByID(614),
 	DEEPHOLM = _G.GetMapNameByID(640),
 	THE_CAPE_OF_STRANGLETHORN = _G.GetMapNameByID(673),
 	THE_TEMPLE_OF_ATALHAKKAR = _G.GetMapNameByID(687),
@@ -925,6 +927,7 @@ private.ZONE_NAMES = {
 	SHRINE_OF_TWO_MOONS = _G.GetMapNameByID(903),
 	SHRINE_OF_SEVEN_STARS = _G.GetMapNameByID(905),
 	ISLE_OF_THUNDER = _G.GetMapNameByID(928),
+	TIMELESS_ISLE = _G.GetMapNameByID(951),
 }
 
 do

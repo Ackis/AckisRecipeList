@@ -1,6 +1,16 @@
 ==ARL Change Log
 NOTE: Always remove the folder for old versions and install a fresh copy when upgrading.
 
+== 2.5.2
+
+=== Recipe Database:
+* Added all 5.4 recipes
+* Added super-rare Tailoring pattern "High Society Top Hat"
+* Import Localizations - still missing some for all languages but English, Italian & Spanish.
+
+== 2.5.1
+* TradeSkillerMaster_Crafting released new version which broke ARL interaction - Working again
+
 == 2.5.0
 * Remove unnecessary Localization
 * Import Localizations.. Whoops
