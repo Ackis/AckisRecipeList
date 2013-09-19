@@ -69,6 +69,7 @@ locale.xml
 # Constants should be loaded first - many files use them in their main chunk.
 Constants.lua
 
+
 Core.lua
 Utilities.lua
 Recipe.lua
