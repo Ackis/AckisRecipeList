@@ -980,7 +980,7 @@ function private.InitializeListFrame()
 		self:ClearLines()
 
 		local button_index = 1
-		local string_index = button_index + offset
+		local string_index = math.floor(button_index + offset)
 
 		-- Populate the buttons with new values
 		while button_index <= NUM_RECIPE_LINES and string_index <= num_entries do
