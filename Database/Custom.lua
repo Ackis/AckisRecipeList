@@ -62,6 +62,7 @@ function addon:InitCustom()
 	AddCustom("FOUR_SENSES_BREW", Z.KUN_LAI_SUMMIT, 44.7, 52.3)
 	AddCustom("LEARNT_BY_ACCEPTING_QUEST")
 	AddCustom("TIMELESS_ISLE_COOKING", Z.TIMELESS_ISLE, 52.1, 46.1)
+	AddCustom("ANCIENT_GUO-LAI_CACHE", Z.VALE_OF_ETERNAL_BLOSSOMS)
 
 	self.InitCustom = nil
 end
