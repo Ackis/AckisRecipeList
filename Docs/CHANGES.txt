@@ -1,6 +1,17 @@
 ==ARL Change Log
 NOTE: Always remove the folder for old versions and install a fresh copy when upgrading.
 
+== 2.5.3
+=== Recipe Database:
+* Updated some 5.4 Cooking Recipes to show they are from Ancient Guo-Lai Caches
+* Commented out some Cooking Recipes which didn't make live
+* Updated 5.4 Blacksmithing items to include classes
+
+=== Interface
+* Fixed error that popped up during Pet Battles
+* Fixed error that popped up while using the mouse's scroll wheel in the ARL frame following Blizzard API change with 5.4
+
+
 == 2.5.2
 
 === Recipe Database:
