@@ -11,7 +11,6 @@ NOTE: Always remove the folder for old versions and install a fresh copy when up
 * Fixed error that popped up during Pet Battles
 * Fixed error that popped up while using the mouse's scroll wheel in the ARL frame following Blizzard API change with 5.4
 
-
 == 2.5.2
 
 === Recipe Database:
