@@ -2011,6 +2011,7 @@ function addon:InitInscription()
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DRUID)
 	recipe:AddDiscovery("DISCOVERY_INSC_MINOR")
 
+-- [[ Didn't make live
 	-- Glyph of the Chameleon -- 58287
 	recipe = AddRecipe(58287, V.WOTLK, Q.COMMON)
 	recipe:SetSkillLevels(150, 150, 155, 160, 165)
@@ -2018,7 +2019,7 @@ function addon:InitInscription()
 	recipe:SetItemFilterType("INSCRIPTION_MINOR_GLYPH")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DRUID)
 	recipe:AddDiscovery("DISCOVERY_INSC_MINOR")
-
+]] --
 	-- Glyph of Blooming -- 58288
 	recipe = AddRecipe(58288, V.WOTLK, Q.COMMON)
 	recipe:SetSkillLevels(95, 95, 105, 110, 115)
