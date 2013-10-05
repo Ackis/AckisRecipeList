@@ -4599,15 +4599,6 @@ function addon:InitInscription()
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.SHAMAN)
 	recipe:AddMobDrop(73703)
 
-	-- Glyph of Havoc -- 148263
-	recipe = AddRecipe(148263, V.MOP, Q.COMMON)
-	recipe:SetSkillLevels(500, 500, 595, 600, 605)
-	recipe:SetRecipeItem(104216, "BIND_ON_EQUIP")
-	recipe:SetCraftedItem(104054, "BIND_ON_EQUIP")
-	recipe:SetItemFilterType("INSCRIPTION_MAJOR_GLYPH")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WARLOCK)
-	recipe:AddWorldDrop(Z.PANDARIA)
-
 	-- Glyph of Impaling Throws -- 148264
 	recipe = AddRecipe(148264, V.MOP, Q.UNCOMMON)
 	recipe:SetSkillLevels(500, 500, 595, 600, 605)
@@ -4886,16 +4877,7 @@ function addon:InitInscription()
 	recipe:SetItemFilterType("INSCRIPTION_MAJOR_GLYPH")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.HUNTER)
 	recipe:AddWorldDrop(Z.PANDARIA)
---[[
-	-- Glyph of Chameleon -- 148490
-	recipe = AddRecipe(148490, V.MOP, Q.UNCOMMON)
-	recipe:SetSkillLevels(500, 500, 595, 600, 605)
-	recipe:SetRecipeItem(104282, "BIND_ON_PICKUP")
-	recipe:SetCraftedItem(104278, "BIND_ON_EQUIP")
-	recipe:SetItemFilterType("INSCRIPTION_MINOR_GLYPH")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.HUNTER)
-	recipe:AddWorldDrop(Z.PANDARIA)
-]] --
+
 
 	self.InitInscription = nil
 end
