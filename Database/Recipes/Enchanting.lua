@@ -50,6 +50,9 @@ function addon:InitEnchanting()
 
 	local recipe
 
+	-------------------------------------------------------------------------------
+	-- Classic.
+	-------------------------------------------------------------------------------
 	-- Enchant Bracer - Minor Health -- 7418
 	recipe = AddRecipe(7418, V.ORIG, Q.COMMON)
 	recipe:SetSkillLevels(1, 1, 70, 90, 110)
@@ -62,7 +65,7 @@ function addon:InitEnchanting()
 	recipe:SetSkillLevels(15, 15, 70, 90, 110)
 	recipe:SetItemFilterType("ENCHANTING_CHEST")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 5695, 7949, 11072, 11073, 11074, 16160, 16633, 16725, 18753, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 33676, 47384, 47418, 47420, 47431, 65127)
+	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 5695, 7949, 11072, 11073, 11074, 16160, 16633, 16725, 18753, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 33676, 47384, 47396, 47400, 47418, 47420, 47431, 57620, 65043, 65127)
 
 	-- Runed Copper Rod -- 7421
 	recipe = AddRecipe(7421, V.ORIG, Q.COMMON)
@@ -77,13 +80,13 @@ function addon:InitEnchanting()
 	recipe:SetSkillLevels(40, 40, 90, 110, 130)
 	recipe:SetItemFilterType("ENCHANTING_CHEST")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 5695, 7949, 11072, 11073, 11074, 16160, 16633, 16725, 18753, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 33676, 47384, 47418, 47420, 47431, 65127)
+	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 5695, 7949, 11072, 11073, 11074, 16160, 16633, 16725, 18753, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 33676, 47384, 47396, 47400, 47418, 47420, 47431, 57620, 65043, 65127)
 
 	-- Enchant Bracer - Minor Dodge -- 7428
 	recipe = AddRecipe(7428, V.ORIG, Q.COMMON)
 	recipe:SetSkillLevels(1, 1, 80, 100, 120)
 	recipe:SetItemFilterType("ENCHANTING_BRACER")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TANK, F.MISC1)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.MISC1, F.TANK)
 	recipe:AddCustom("DEFAULT_RECIPE")
 
 	-- Enchant Chest - Minor Mana -- 7443
@@ -99,7 +102,7 @@ function addon:InitEnchanting()
 	recipe:SetSkillLevels(50, 50, 100, 120, 140)
 	recipe:SetItemFilterType("ENCHANTING_BRACER")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 5695, 7949, 11072, 11073, 11074, 16160, 16633, 16725, 18753, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 33676, 47384, 47418, 47420, 47431, 65127)
+	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 5695, 7949, 11072, 11073, 11074, 16160, 16633, 16725, 18753, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 33676, 47384, 47396, 47400, 47418, 47420, 47431, 57620, 65043, 65127)
 
 	-- Enchant 2H Weapon - Minor Impact -- 7745
 	recipe = AddRecipe(7745, V.ORIG, Q.COMMON)
@@ -113,7 +116,7 @@ function addon:InitEnchanting()
 	recipe:SetSkillLevels(60, 60, 105, 125, 145)
 	recipe:SetItemFilterType("ENCHANTING_CHEST")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 5695, 7949, 11072, 11073, 11074, 16160, 16633, 16725, 18753, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 33676, 47384, 47418, 47420, 47431, 65127)
+	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 5695, 7949, 11072, 11073, 11074, 16160, 16633, 16725, 18753, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 33676, 47384, 47396, 47400, 47418, 47420, 47431, 57620, 65043, 65127)
 
 	-- Enchant Bracer - Minor Spirit -- 7766
 	recipe = AddRecipe(7766, V.ORIG, Q.UNCOMMON)
@@ -128,7 +131,7 @@ function addon:InitEnchanting()
 	recipe:SetSkillLevels(70, 70, 110, 130, 150)
 	recipe:SetItemFilterType("ENCHANTING_CLOAK")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 5695, 7949, 11072, 11073, 11074, 16160, 16633, 16725, 18753, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 33676, 47384, 47418, 47420, 47431, 65127)
+	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 5695, 7949, 11072, 11073, 11074, 16160, 16633, 16725, 18753, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 33676, 47384, 47396, 47400, 47418, 47420, 47431, 57620, 65043, 65127)
 
 	-- Enchant Chest - Lesser Mana -- 7776
 	recipe = AddRecipe(7776, V.ORIG, Q.UNCOMMON)
@@ -384,7 +387,7 @@ function addon:InitEnchanting()
 	recipe:SetRequiredFaction("Horde")
 	recipe:SetItemFilterType("ENCHANTING_BRACER")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TANK)
-	recipe:AddTrainer(3011, 3345, 3606, 4213, 5157, 16725, 18773, 26906, 26990, 28693, 33610, 65127)
+	recipe:AddTrainer(3011, 3345, 3606, 4213, 5157, 5695, 16725, 18773, 26906, 26990, 28693, 33610, 65127)
 
 	-- Enchant Bracer - Stamina -- 13648
 	recipe = AddRecipe(13648, V.ORIG, Q.COMMON)
@@ -666,7 +669,7 @@ function addon:InitEnchanting()
 	recipe:SetCraftedItem(11287, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("ENCHANTING_WAND")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 5695, 7949, 11072, 11073, 11074, 16160, 16633, 16725, 18753, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 33676, 47384, 47418, 47420, 47431, 65127)
+	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 5695, 7949, 11072, 11073, 11074, 16160, 16633, 16725, 18753, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 33676, 47384, 47396, 47400, 47418, 47420, 47431, 57620, 65043, 65127)
 
 	-- Greater Magic Wand -- 14807
 	recipe = AddRecipe(14807, V.ORIG, Q.COMMON)
@@ -674,7 +677,7 @@ function addon:InitEnchanting()
 	recipe:SetCraftedItem(11288, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("ENCHANTING_WAND")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 5695, 7949, 11072, 11073, 11074, 16160, 16633, 16725, 18753, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 33676, 47384, 47418, 47420, 47431, 65127)
+	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 5695, 7949, 11072, 11073, 11074, 16160, 16633, 16725, 18753, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 33676, 47384, 47396, 47400, 47418, 47420, 47431, 57620, 65043, 65127)
 
 	-- Lesser Mystic Wand -- 14809
 	recipe = AddRecipe(14809, V.ORIG, Q.COMMON)
@@ -698,7 +701,7 @@ function addon:InitEnchanting()
 	recipe:SetRecipeItem(45050, "BIND_ON_PICKUP")
 	recipe:SetCraftedItem(45050, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("ENCHANTING_MISC")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.INSTANCE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.INSTANCE, F.DPS, F.HEALER, F.CASTER)
 	recipe:AddMobDrop(9025)
 
 	-- Enchanted Thorium Bar -- 17180
@@ -1014,6 +1017,33 @@ function addon:InitEnchanting()
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.HEALER, F.CASTER)
 	recipe:AddWorldDrop(Z.AHNQIRAJ)
 
+	-- Enchant Gloves - Superior Agility -- 25080
+	recipe = AddRecipe(25080, V.ORIG, Q.RARE)
+	recipe:SetSkillLevels(300, 300, 310, 325, 340)
+	recipe:SetRecipeItem(20731, "BIND_ON_PICKUP")
+	recipe:SetItemFilterType("ENCHANTING_GLOVES")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.DPS, F.KOT)
+	recipe:AddRepVendor(FAC.KEEPERS_OF_TIME, REP.EXALTED, 21643)
+	recipe:AddWorldDrop(Z.AHNQIRAJ)
+
+	-- Enchant Cloak - Stealth -- 25083
+	recipe = AddRecipe(25083, V.ORIG, Q.RARE)
+	recipe:SetSkillLevels(300, 300, 310, 325, 340)
+	recipe:SetRecipeItem(33149, "BIND_ON_PICKUP")
+	recipe:SetItemFilterType("ENCHANTING_CLOAK")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.TANK, F.CENARION_EXPEDITION)
+	recipe:AddRepVendor(FAC.CENARION_EXPEDITION, REP.EXALTED, 17904)
+	recipe:AddWorldDrop(Z.AHNQIRAJ)
+
+	-- Enchant Cloak - Dodge -- 25086
+	recipe = AddRecipe(25086, V.ORIG, Q.RARE)
+	recipe:SetSkillLevels(300, 300, 310, 325, 340)
+	recipe:SetRecipeItem(33148, "BIND_ON_PICKUP")
+	recipe:SetItemFilterType("ENCHANTING_CLOAK")
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.TANK, F.LOWERCITY)
+	recipe:AddRepVendor(FAC.LOWERCITY, REP.EXALTED, 21655)
+	recipe:AddWorldDrop(Z.AHNQIRAJ)
+
 	-- Minor Wizard Oil -- 25124
 	recipe = AddRecipe(25124, V.ORIG, Q.COMMON)
 	recipe:SetSkillLevels(45, 45, 55, 65, 75)
@@ -1085,24 +1115,9 @@ function addon:InitEnchanting()
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS, F.TIMBERMAW_HOLD)
 	recipe:AddRepVendor(FAC.TIMBERMAW_HOLD, REP.FRIENDLY, 11557)
 
-	-- Enchant Gloves - Superior Agility -- 25080
-	recipe = AddRecipe(25080, V.ORIG, Q.RARE)
-	recipe:SetSkillLevels(300, 300, 310, 325, 340)
-	recipe:SetRecipeItem(20731, "BIND_ON_PICKUP")
-	recipe:SetItemFilterType("ENCHANTING_GLOVES")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.DPS, F.KOT)
-	recipe:AddRepVendor(FAC.KEEPERS_OF_TIME, REP.EXALTED, 21643)
-	recipe:AddWorldDrop(Z.AHNQIRAJ)
-
-	-- Enchant Cloak - Stealth -- 25083
-	recipe = AddRecipe(25083, V.ORIG, Q.RARE)
-	recipe:SetSkillLevels(300, 300, 310, 325, 340)
-	recipe:SetRecipeItem(33149, "BIND_ON_PICKUP")
-	recipe:SetItemFilterType("ENCHANTING_CLOAK")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.TANK, F.CENARION_EXPEDITION)
-	recipe:AddRepVendor(FAC.CENARION_EXPEDITION, REP.EXALTED, 17904)
-	recipe:AddWorldDrop(Z.AHNQIRAJ)
-
+	-------------------------------------------------------------------------------
+	-- The Burning Crusade.
+	-------------------------------------------------------------------------------
 	-- Enchant Cloak - Subtlety -- 25084
 	recipe = AddRecipe(25084, V.TBC, Q.RARE)
 	recipe:SetSkillLevels(300, 300, 310, 325, 340)
@@ -1113,28 +1128,19 @@ function addon:InitEnchanting()
 	recipe:AddRepVendor(FAC.HONOR_HOLD, REP.EXALTED, 17657)
 	recipe:AddRepVendor(FAC.THRALLMAR, REP.EXALTED, 17585)
 
-	-- Enchant Cloak - Dodge -- 25086
-	recipe = AddRecipe(25086, V.ORIG, Q.RARE)
-	recipe:SetSkillLevels(300, 300, 310, 325, 340)
-	recipe:SetRecipeItem(33148, "BIND_ON_PICKUP")
-	recipe:SetItemFilterType("ENCHANTING_CLOAK")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.TANK, F.LOWERCITY)
-	recipe:AddRepVendor(FAC.LOWERCITY, REP.EXALTED, 21655)
-	recipe:AddWorldDrop(Z.AHNQIRAJ)
-
 	-- Enchant Bracer - Brawn -- 27899
 	recipe = AddRecipe(27899, V.TBC, Q.COMMON)
 	recipe:SetSkillLevels(305, 305, 315, 330, 345)
 	recipe:SetItemFilterType("ENCHANTING_BRACER")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 5157, 16725, 18753, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 33676, 65127)
+	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 5157, 5695, 16725, 18753, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 33676, 65127)
 
 	-- Enchant Bracer - Stats -- 27905
 	recipe = AddRecipe(27905, V.TBC, Q.COMMON)
 	recipe:SetSkillLevels(315, 315, 325, 340, 355)
 	recipe:SetItemFilterType("ENCHANTING_BRACER")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 5157, 16725, 18753, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 33676, 65127)
+	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 5157, 5695, 16725, 18753, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 33676, 65127)
 
 	-- Enchant Bracer - Greater Dodge -- 27906
 	recipe = AddRecipe(27906, V.TBC, Q.UNCOMMON)
@@ -1206,7 +1212,7 @@ function addon:InitEnchanting()
 	recipe:SetSkillLevels(310, 310, 320, 335, 350)
 	recipe:SetItemFilterType("ENCHANTING_SHIELD")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TANK)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 5157, 16725, 18753, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 33676, 65127)
+	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 5157, 5695, 16725, 18753, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 33676, 65127)
 
 	-- Enchant Shield - Intellect -- 27945
 	recipe = AddRecipe(27945, V.TBC, Q.COMMON)
@@ -1261,7 +1267,7 @@ function addon:InitEnchanting()
 	recipe:SetSkillLevels(315, 315, 325, 340, 355)
 	recipe:SetItemFilterType("ENCHANTING_CHEST")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 5157, 16725, 18753, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 33676, 65127)
+	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 5157, 5695, 16725, 18753, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 33676, 65127)
 
 	-- Enchant Chest - Exceptional Stats -- 27960
 	recipe = AddRecipe(27960, V.TBC, Q.COMMON)
@@ -1277,7 +1283,7 @@ function addon:InitEnchanting()
 	recipe:SetSkillLevels(310, 310, 320, 335, 350)
 	recipe:SetItemFilterType("ENCHANTING_CLOAK")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 5157, 16725, 18753, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 33676, 65127)
+	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 5157, 5695, 16725, 18753, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 33676, 65127)
 
 	-- Enchant Weapon - Major Striking -- 27967
 	recipe = AddRecipe(27967, V.TBC, Q.COMMON)
@@ -1400,7 +1406,7 @@ function addon:InitEnchanting()
 	recipe:SetCraftedItem(22460, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("ENCHANTING_MISC")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 5157, 16725, 18753, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 33676, 65127)
+	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 5157, 5695, 16725, 18753, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 33676, 65127)
 
 	-- Void Sphere -- 28028
 	recipe = AddRecipe(28028, V.TBC, Q.COMMON)
@@ -1408,21 +1414,21 @@ function addon:InitEnchanting()
 	recipe:SetCraftedItem(22459, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("ENCHANTING_MISC")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 5157, 16725, 18753, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 33676, 65127)
+	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 5157, 5695, 16725, 18753, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 33676, 65127)
 
 	-- Enchant Chest - Major Spirit -- 33990
 	recipe = AddRecipe(33990, V.TBC, Q.COMMON)
 	recipe:SetSkillLevels(320, 320, 330, 345, 360)
 	recipe:SetItemFilterType("ENCHANTING_CHEST")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.HEALER, F.CASTER)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 5157, 16725, 18753, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 33676, 65127)
+	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 5157, 5695, 16725, 18753, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 33676, 65127)
 
 	-- Enchant Chest - Restore Mana Prime -- 33991
 	recipe = AddRecipe(33991, V.TBC, Q.COMMON)
 	recipe:SetSkillLevels(300, 300, 310, 325, 340)
 	recipe:SetItemFilterType("ENCHANTING_CHEST")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.HEALER, F.CASTER)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 5157, 16725, 18753, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 33676, 65127)
+	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 5157, 5695, 16725, 18753, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 33676, 65127)
 
 	-- Enchant Chest - Major Resilience -- 33992
 	recipe = AddRecipe(33992, V.TBC, Q.UNCOMMON)
@@ -1437,7 +1443,7 @@ function addon:InitEnchanting()
 	recipe:SetSkillLevels(305, 305, 315, 330, 345)
 	recipe:SetItemFilterType("ENCHANTING_GLOVES")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 5157, 16725, 18753, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 33676, 65127)
+	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 5157, 5695, 16725, 18753, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 33676, 65127)
 
 	-- Enchant Gloves - Precise Strikes -- 33994
 	recipe = AddRecipe(33994, V.TBC, Q.UNCOMMON)
@@ -1452,14 +1458,14 @@ function addon:InitEnchanting()
 	recipe:SetSkillLevels(340, 340, 350, 365, 380)
 	recipe:SetItemFilterType("ENCHANTING_GLOVES")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 5157, 16725, 18753, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 33676, 65127)
+	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 5157, 5695, 16725, 18753, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 33676, 65127)
 
 	-- Enchant Gloves - Assault -- 33996
 	recipe = AddRecipe(33996, V.TBC, Q.COMMON)
 	recipe:SetSkillLevels(310, 310, 320, 335, 350)
 	recipe:SetItemFilterType("ENCHANTING_GLOVES")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 5157, 16725, 18753, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 33676, 65127)
+	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 5157, 5695, 16725, 18753, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 33676, 65127)
 
 	-- Enchant Gloves - Major Spellpower -- 33997
 	recipe = AddRecipe(33997, V.TBC, Q.UNCOMMON)
@@ -1482,14 +1488,14 @@ function addon:InitEnchanting()
 	recipe:SetSkillLevels(305, 305, 315, 330, 345)
 	recipe:SetItemFilterType("ENCHANTING_BRACER")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 5157, 16725, 18753, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 33676, 65127)
+	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 5157, 5695, 16725, 18753, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 33676, 65127)
 
 	-- Enchant Bracer - Lesser Assault -- 34002
 	recipe = AddRecipe(34002, V.TBC, Q.COMMON)
 	recipe:SetSkillLevels(300, 300, 310, 325, 340)
 	recipe:SetItemFilterType("ENCHANTING_BRACER")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 5157, 16725, 18753, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 33676, 65127)
+	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 5157, 5695, 16725, 18753, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 33676, 65127)
 
 	-- Enchant Cloak - PvP Power -- 34003
 	recipe = AddRecipe(34003, V.TBC, Q.UNCOMMON)
@@ -1504,7 +1510,7 @@ function addon:InitEnchanting()
 	recipe:SetSkillLevels(310, 310, 320, 335, 350)
 	recipe:SetItemFilterType("ENCHANTING_CLOAK")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 5157, 16725, 18753, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 33676, 65127)
+	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 5157, 5695, 16725, 18753, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 33676, 65127)
 
 	-- Enchant Boots - Cat's Swiftness -- 34007
 	recipe = AddRecipe(34007, V.TBC, Q.RARE)
@@ -1540,11 +1546,11 @@ function addon:InitEnchanting()
 
 	-- Nexus Transformation -- 42613
 	recipe = AddRecipe(42613, V.TBC, Q.COMMON)
-	recipe:SetSkillLevels(300, 300, 310, 315, 320)
+	recipe:SetSkillLevels(335, 335, 345, 350, 355)
 	recipe:SetCraftedItem(22448, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("ENCHANTING_MISC")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 5157, 16725, 18753, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 33676, 65127)
+	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 5157, 5695, 16725, 18753, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 33676, 65127)
 
 	-- Small Prismatic Shard -- 42615
 	recipe = AddRecipe(42615, V.TBC, Q.COMMON)
@@ -1552,7 +1558,7 @@ function addon:InitEnchanting()
 	recipe:SetCraftedItem(22448, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("ENCHANTING_MISC")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 5157, 16725, 18753, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 33676, 65127)
+	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 5157, 5695, 16725, 18753, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 33676, 65127)
 
 	-- Enchant Weapon - Greater Agility -- 42620
 	recipe = AddRecipe(42620, V.TBC, Q.COMMON)
@@ -1576,7 +1582,7 @@ function addon:InitEnchanting()
 	recipe:SetSkillLevels(330, 330, 340, 355, 370)
 	recipe:SetItemFilterType("ENCHANTING_SHIELD")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 5157, 16725, 18753, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 33676, 65127)
+	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 5157, 5695, 16725, 18753, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 33676, 65127)
 
 	-- Void Shatter -- 45765
 	recipe = AddRecipe(45765, V.TBC, Q.COMMON)
@@ -1604,82 +1610,85 @@ function addon:InitEnchanting()
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.INSTANCE, F.TANK)
 	recipe:AddMobDrop(24560)
 
+	-------------------------------------------------------------------------------
+	-- Wrath of the Lich King.
+	-------------------------------------------------------------------------------
 	-- Enchant Chest - Exceptional Mana -- 27958
 	recipe = AddRecipe(27958, V.WOTLK, Q.COMMON)
 	recipe:SetSkillLevels(350, 350, 360, 370, 380)
 	recipe:SetItemFilterType("ENCHANTING_CHEST")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 5157, 16725, 18773, 19251, 19252, 19540, 26906, 26954, 26980, 26990, 28693, 33583, 33610, 33633, 65127)
+	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 5157, 5695, 16725, 18773, 19251, 19252, 19540, 26906, 26954, 26980, 26990, 28693, 33583, 33610, 33633, 65127)
 
 	-- Enchant Gloves - Expertise -- 44484
 	recipe = AddRecipe(44484, V.WOTLK, Q.COMMON)
 	recipe:SetSkillLevels(405, 405, 415, 425, 435)
 	recipe:SetItemFilterType("ENCHANTING_GLOVES")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS, F.TANK)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 5157, 16725, 18773, 19251, 19252, 19540, 26906, 26954, 26980, 26990, 28693, 33583, 33610, 33633, 65127)
+	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 5157, 5695, 16725, 18773, 19251, 19252, 19540, 26906, 26954, 26980, 26990, 28693, 33583, 33610, 33633, 65127)
 
 	-- Enchant Gloves - Precision -- 44488
 	recipe = AddRecipe(44488, V.WOTLK, Q.COMMON)
 	recipe:SetSkillLevels(410, 410, 420, 430, 440)
 	recipe:SetItemFilterType("ENCHANTING_GLOVES")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 5157, 16725, 18773, 19251, 19252, 19540, 26906, 26954, 26980, 26990, 28693, 33583, 33610, 33633, 65127)
+	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 5157, 5695, 16725, 18773, 19251, 19252, 19540, 26906, 26954, 26980, 26990, 28693, 33583, 33610, 33633, 65127)
 
 	-- Enchant Shield - Dodge -- 44489
 	recipe = AddRecipe(44489, V.WOTLK, Q.COMMON)
 	recipe:SetSkillLevels(420, 420, 430, 440, 450)
 	recipe:SetItemFilterType("ENCHANTING_SHIELD")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TANK)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 5157, 16725, 18773, 19251, 19252, 19540, 26906, 26954, 26980, 26990, 28693, 33583, 33610, 33633, 65127)
+	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 5157, 5695, 16725, 18773, 19251, 19252, 19540, 26906, 26954, 26980, 26990, 28693, 33583, 33610, 33633, 65127)
 
 	-- Enchant Chest - Mighty Health -- 44492
 	recipe = AddRecipe(44492, V.WOTLK, Q.COMMON)
 	recipe:SetSkillLevels(395, 395, 405, 415, 425)
 	recipe:SetItemFilterType("ENCHANTING_CHEST")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 5157, 16725, 18773, 19251, 19252, 19540, 26906, 26954, 26980, 26990, 28693, 33583, 33610, 33633, 65127)
+	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 5157, 5695, 16725, 18773, 19251, 19252, 19540, 26906, 26954, 26980, 26990, 28693, 33583, 33610, 33633, 65127)
 
 	-- Enchant Cloak - Superior Agility -- 44500
 	recipe = AddRecipe(44500, V.WOTLK, Q.COMMON)
 	recipe:SetSkillLevels(395, 395, 405, 415, 425)
 	recipe:SetItemFilterType("ENCHANTING_CLOAK")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 5157, 16725, 18773, 19251, 19252, 19540, 26906, 26954, 26980, 26990, 28693, 33583, 33610, 33633, 65127)
+	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 5157, 5695, 16725, 18773, 19251, 19252, 19540, 26906, 26954, 26980, 26990, 28693, 33583, 33610, 33633, 65127)
 
 	-- Enchant Gloves - Gatherer -- 44506
 	recipe = AddRecipe(44506, V.WOTLK, Q.COMMON)
 	recipe:SetSkillLevels(375, 375, 375, 380, 390)
 	recipe:SetItemFilterType("ENCHANTING_GLOVES")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 5157, 16725, 18773, 19251, 19252, 19540, 26906, 26954, 26980, 26990, 28693, 33583, 33610, 33633, 65127)
+	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 5157, 5695, 16725, 18773, 19251, 19252, 19540, 26906, 26954, 26980, 26990, 28693, 33583, 33610, 33633, 65127)
 
 	-- Enchant Boots - Greater Spirit -- 44508
 	recipe = AddRecipe(44508, V.WOTLK, Q.COMMON)
 	recipe:SetSkillLevels(410, 410, 420, 430, 440)
 	recipe:SetItemFilterType("ENCHANTING_BOOTS")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.HEALER, F.CASTER)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 5157, 16725, 18773, 19251, 19252, 19540, 26906, 26954, 26980, 26990, 28693, 33583, 33610, 33633, 65127)
+	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 5157, 5695, 16725, 18773, 19251, 19252, 19540, 26906, 26954, 26980, 26990, 28693, 33583, 33610, 33633, 65127)
 
 	-- Enchant Chest - Greater Mana Restoration -- 44509
 	recipe = AddRecipe(44509, V.WOTLK, Q.COMMON)
 	recipe:SetSkillLevels(420, 420, 430, 440, 450)
 	recipe:SetItemFilterType("ENCHANTING_CHEST")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.HEALER, F.CASTER)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 5157, 16725, 18773, 19251, 19252, 19540, 26906, 26954, 26980, 26990, 28693, 33583, 33610, 33633, 65127)
+	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 5157, 5695, 16725, 18773, 19251, 19252, 19540, 26906, 26954, 26980, 26990, 28693, 33583, 33610, 33633, 65127)
 
 	-- Enchant Weapon - Exceptional Spirit -- 44510
 	recipe = AddRecipe(44510, V.WOTLK, Q.COMMON)
 	recipe:SetSkillLevels(410, 410, 420, 430, 440)
 	recipe:SetItemFilterType("ENCHANTING_WEAPON")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.HEALER, F.CASTER)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 5157, 16725, 18773, 19251, 19252, 19540, 26906, 26954, 26980, 26990, 28693, 33583, 33610, 33633, 65127)
+	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 5157, 5695, 16725, 18773, 19251, 19252, 19540, 26906, 26954, 26980, 26990, 28693, 33583, 33610, 33633, 65127)
 
 	-- Enchant Gloves - Greater Assault -- 44513
 	recipe = AddRecipe(44513, V.WOTLK, Q.COMMON)
 	recipe:SetSkillLevels(395, 395, 405, 415, 425)
 	recipe:SetItemFilterType("ENCHANTING_GLOVES")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 5157, 16725, 18773, 19251, 19252, 19540, 26906, 26954, 26980, 26990, 28693, 33583, 33610, 33633, 65127)
+	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 5157, 5695, 16725, 18773, 19251, 19252, 19540, 26906, 26954, 26980, 26990, 28693, 33583, 33610, 33633, 65127)
 
 	-- Enchant Weapon - Icebreaker -- 44524
 	recipe = AddRecipe(44524, V.WOTLK, Q.RARE)
@@ -1694,21 +1703,21 @@ function addon:InitEnchanting()
 	recipe:SetSkillLevels(385, 385, 385, 390, 400)
 	recipe:SetItemFilterType("ENCHANTING_BOOTS")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 5157, 16725, 18773, 19251, 19252, 19540, 26906, 26954, 26980, 26990, 28693, 33583, 33610, 33633, 65127)
+	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 5157, 5695, 16725, 18773, 19251, 19252, 19540, 26906, 26954, 26980, 26990, 28693, 33583, 33610, 33633, 65127)
 
 	-- Enchant Gloves - Major Agility -- 44529
 	recipe = AddRecipe(44529, V.WOTLK, Q.COMMON)
 	recipe:SetSkillLevels(415, 415, 425, 435, 445)
 	recipe:SetItemFilterType("ENCHANTING_GLOVES")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 5157, 16725, 18773, 19251, 19252, 19540, 26906, 26954, 26980, 26990, 28693, 33583, 33610, 33633, 65127)
+	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 5157, 5695, 16725, 18773, 19251, 19252, 19540, 26906, 26954, 26980, 26990, 28693, 33583, 33610, 33633, 65127)
 
 	-- Enchant Bracer - Exceptional Intellect -- 44555
 	recipe = AddRecipe(44555, V.WOTLK, Q.COMMON)
 	recipe:SetSkillLevels(375, 375, 385, 392, 400)
 	recipe:SetItemFilterType("ENCHANTING_BRACER")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 5157, 16725, 18773, 19251, 19252, 19540, 26906, 26954, 26980, 26990, 28693, 33583, 33610, 33633, 65127)
+	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 5157, 5695, 16725, 18773, 19251, 19252, 19540, 26906, 26954, 26980, 26990, 28693, 33583, 33610, 33633, 65127)
 
 	-- Enchant Bracer - Greater Assault -- 44575
 	recipe = AddRecipe(44575, V.WOTLK, Q.UNCOMMON)
@@ -1731,14 +1740,14 @@ function addon:InitEnchanting()
 	recipe:SetSkillLevels(395, 395, 395, 402, 410)
 	recipe:SetItemFilterType("ENCHANTING_CLOAK")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.CASTER)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 5157, 16725, 18773, 19251, 19252, 19540, 26906, 26954, 26980, 26990, 28693, 33583, 33610, 33633, 65127)
+	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 5157, 5695, 16725, 18773, 19251, 19252, 19540, 26906, 26954, 26980, 26990, 28693, 33583, 33610, 33633, 65127)
 
 	-- Enchant Boots - Greater Vitality -- 44584
 	recipe = AddRecipe(44584, V.WOTLK, Q.COMMON)
 	recipe:SetSkillLevels(405, 405, 415, 425, 435)
 	recipe:SetItemFilterType("ENCHANTING_BOOTS")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 5157, 16725, 18773, 19251, 19252, 19540, 26906, 26954, 26980, 26990, 28693, 33583, 33610, 33633, 65127)
+	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 5157, 5695, 16725, 18773, 19251, 19252, 19540, 26906, 26954, 26980, 26990, 28693, 33583, 33610, 33633, 65127)
 
 	-- Enchant Chest - Exceptional Resilience -- 44588
 	recipe = AddRecipe(44588, V.WOTLK, Q.UNCOMMON)
@@ -1753,7 +1762,7 @@ function addon:InitEnchanting()
 	recipe:SetSkillLevels(415, 415, 425, 435, 445)
 	recipe:SetItemFilterType("ENCHANTING_BOOTS")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 5157, 16725, 18773, 19251, 19252, 19540, 26906, 26954, 26980, 26990, 28693, 33583, 33610, 33633, 65127)
+	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 5157, 5695, 16725, 18773, 19251, 19252, 19540, 26906, 26954, 26980, 26990, 28693, 33583, 33610, 33633, 65127)
 
 	-- Enchant Cloak - Superior Dodge -- 44591
 	recipe = AddRecipe(44591, V.WOTLK, Q.UNCOMMON)
@@ -1768,14 +1777,14 @@ function addon:InitEnchanting()
 	recipe:SetSkillLevels(360, 360, 370, 380, 390)
 	recipe:SetItemFilterType("ENCHANTING_GLOVES")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.HEALER, F.CASTER)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 5157, 16725, 18773, 19251, 19252, 19540, 26906, 26954, 26980, 26990, 28693, 33583, 33610, 33633, 65127)
+	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 5157, 5695, 16725, 18773, 19251, 19252, 19540, 26906, 26954, 26980, 26990, 28693, 33583, 33610, 33633, 65127)
 
 	-- Enchant Bracer - Major Spirit -- 44593
 	recipe = AddRecipe(44593, V.WOTLK, Q.COMMON)
 	recipe:SetSkillLevels(420, 420, 430, 440, 450)
 	recipe:SetItemFilterType("ENCHANTING_BRACER")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.HEALER, F.CASTER)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 5157, 16725, 18773, 19251, 19252, 19540, 26906, 26954, 26980, 26990, 28693, 33583, 33610, 33633, 65127)
+	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 5157, 5695, 16725, 18773, 19251, 19252, 19540, 26906, 26954, 26980, 26990, 28693, 33583, 33610, 33633, 65127)
 
 	-- Enchant 2H Weapon - Scourgebane -- 44595
 	recipe = AddRecipe(44595, V.WOTLK, Q.RARE)
@@ -1791,14 +1800,14 @@ function addon:InitEnchanting()
 	recipe:SetSkillLevels(415, 415, 425, 435, 445)
 	recipe:SetItemFilterType("ENCHANTING_BRACER")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS, F.TANK)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 5157, 16725, 18773, 19251, 19252, 19540, 26906, 26954, 26980, 26990, 28693, 33583, 33610, 33633, 65127)
+	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 5157, 5695, 16725, 18773, 19251, 19252, 19540, 26906, 26954, 26980, 26990, 28693, 33583, 33610, 33633, 65127)
 
 	-- Enchant Bracer - Greater Stats -- 44616
 	recipe = AddRecipe(44616, V.WOTLK, Q.COMMON)
 	recipe:SetSkillLevels(400, 400, 410, 420, 430)
 	recipe:SetItemFilterType("ENCHANTING_BRACER")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 5157, 16725, 18773, 19251, 19252, 19540, 26906, 26954, 26980, 26990, 28693, 33583, 33610, 33633, 65127)
+	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 5157, 5695, 16725, 18773, 19251, 19252, 19540, 26906, 26954, 26980, 26990, 28693, 33583, 33610, 33633, 65127)
 
 	-- Enchant Weapon - Giant Slayer -- 44621
 	recipe = AddRecipe(44621, V.WOTLK, Q.RARE)
@@ -1813,7 +1822,7 @@ function addon:InitEnchanting()
 	recipe:SetSkillLevels(370, 370, 380, 390, 400)
 	recipe:SetItemFilterType("ENCHANTING_CHEST")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 5157, 16725, 18773, 19251, 19252, 19540, 26906, 26954, 26980, 26990, 28693, 33583, 33610, 33633, 65127)
+	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 5157, 5695, 16725, 18773, 19251, 19252, 19540, 26906, 26954, 26980, 26990, 28693, 33583, 33610, 33633, 65127)
 
 	-- Enchant Gloves - Armsman -- 44625
 	recipe = AddRecipe(44625, V.WOTLK, Q.UNCOMMON)
@@ -1828,14 +1837,14 @@ function addon:InitEnchanting()
 	recipe:SetSkillLevels(395, 395, 405, 415, 425)
 	recipe:SetItemFilterType("ENCHANTING_WEAPON")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.HEALER, F.CASTER)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 5157, 16725, 18773, 19251, 19252, 19540, 26906, 26954, 26980, 26990, 28693, 33583, 33610, 33633, 65127)
+	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 5157, 5695, 16725, 18773, 19251, 19252, 19540, 26906, 26954, 26980, 26990, 28693, 33583, 33610, 33633, 65127)
 
 	-- Enchant 2H Weapon - Greater Savagery -- 44630
 	recipe = AddRecipe(44630, V.WOTLK, Q.COMMON)
 	recipe:SetSkillLevels(390, 390, 400, 410, 420)
 	recipe:SetItemFilterType("ENCHANTING_2H_WEAPON")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 5157, 16725, 18773, 19251, 19252, 19540, 26906, 26954, 26980, 26990, 28693, 33583, 33610, 33633, 65127)
+	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 5157, 5695, 16725, 18773, 19251, 19252, 19540, 26906, 26954, 26980, 26990, 28693, 33583, 33610, 33633, 65127)
 
 	-- Enchant Cloak - Shadow Armor -- 44631
 	recipe = AddRecipe(44631, V.WOTLK, Q.UNCOMMON)
@@ -1850,28 +1859,28 @@ function addon:InitEnchanting()
 	recipe:SetSkillLevels(410, 410, 420, 430, 440)
 	recipe:SetItemFilterType("ENCHANTING_WEAPON")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 5157, 16725, 18773, 19251, 19252, 19540, 26906, 26954, 26980, 26990, 28693, 33583, 33610, 33633, 65127)
+	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 5157, 5695, 16725, 18773, 19251, 19252, 19540, 26906, 26954, 26980, 26990, 28693, 33583, 33610, 33633, 65127)
 
 	-- Enchant Bracer - Greater Spellpower -- 44635
 	recipe = AddRecipe(44635, V.WOTLK, Q.COMMON)
 	recipe:SetSkillLevels(395, 395, 405, 415, 425)
 	recipe:SetItemFilterType("ENCHANTING_BRACER")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.HEALER, F.CASTER)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 5157, 16725, 18773, 19251, 19252, 19540, 26906, 26954, 26980, 26990, 28693, 33583, 33610, 33633, 65127)
+	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 5157, 5695, 16725, 18773, 19251, 19252, 19540, 26906, 26954, 26980, 26990, 28693, 33583, 33610, 33633, 65127)
 
 	-- Enchant Ring - Lesser Intellect -- 44636
 	recipe = AddRecipe(44636, V.WOTLK, Q.COMMON)
 	recipe:SetSkillLevels(400, 400, 400, 407, 415)
 	recipe:SetItemFilterType("ENCHANTING_RING")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.HEALER, F.CASTER)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 5157, 16725, 18773, 19251, 19252, 19540, 26906, 26954, 26980, 26990, 28693, 33583, 33610, 33633, 65127)
+	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 5157, 5695, 16725, 18773, 19251, 19252, 19540, 26906, 26954, 26980, 26990, 28693, 33583, 33610, 33633, 65127)
 
 	-- Enchant Ring - Assault -- 44645
 	recipe = AddRecipe(44645, V.WOTLK, Q.COMMON)
 	recipe:SetSkillLevels(400, 400, 400, 407, 415)
 	recipe:SetItemFilterType("ENCHANTING_RING")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 5157, 16725, 18773, 19251, 19252, 19540, 26906, 26954, 26980, 26990, 28693, 33583, 33610, 33633, 65127)
+	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 5157, 5695, 16725, 18773, 19251, 19252, 19540, 26906, 26954, 26980, 26990, 28693, 33583, 33610, 33633, 65127)
 
 	-- Enchant Chest - Dodge -- 46594
 	recipe = AddRecipe(46594, V.WOTLK, Q.COMMON)
@@ -1894,7 +1903,7 @@ function addon:InitEnchanting()
 	recipe:SetSkillLevels(400, 400, 410, 420, 430)
 	recipe:SetItemFilterType("ENCHANTING_CHEST")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TANK)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 5157, 16725, 18773, 19251, 19252, 19540, 26906, 26954, 26980, 26990, 28693, 33583, 33610, 33633, 65127)
+	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 5157, 5695, 16725, 18773, 19251, 19252, 19540, 26906, 26954, 26980, 26990, 28693, 33583, 33610, 33633, 65127)
 
 	-- Enchant Cloak - Greater Speed -- 47898
 	recipe = AddRecipe(47898, V.WOTLK, Q.UNCOMMON)
@@ -1917,7 +1926,7 @@ function addon:InitEnchanting()
 	recipe:SetSkillLevels(425, 425, 435, 445, 455)
 	recipe:SetItemFilterType("ENCHANTING_CHEST")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 5157, 16725, 18773, 19251, 19252, 19540, 26906, 26954, 26980, 26990, 28693, 33583, 33610, 33633, 65127)
+	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 5157, 5695, 16725, 18773, 19251, 19252, 19540, 26906, 26954, 26980, 26990, 28693, 33583, 33610, 33633, 65127)
 
 	-- Enchant Boots - Tuskarr's Vitality -- 47901
 	recipe = AddRecipe(47901, V.WOTLK, Q.UNCOMMON)
@@ -1956,63 +1965,63 @@ function addon:InitEnchanting()
 	recipe:SetSkillLevels(400, 400, 400, 407, 415)
 	recipe:SetItemFilterType("ENCHANTING_RING")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 5157, 16725, 18773, 19251, 19252, 19540, 26906, 26954, 26980, 26990, 28693, 33583, 33610, 33633, 65127)
+	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 5157, 5695, 16725, 18773, 19251, 19252, 19540, 26906, 26954, 26980, 26990, 28693, 33583, 33610, 33633, 65127)
 
 	-- Enchant Boots - Assault -- 60606
 	recipe = AddRecipe(60606, V.WOTLK, Q.COMMON)
 	recipe:SetSkillLevels(375, 375, 385, 395, 405)
 	recipe:SetItemFilterType("ENCHANTING_BOOTS")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 5157, 16725, 18773, 19251, 19252, 19540, 26906, 26954, 26980, 26990, 28693, 33583, 33610, 33633, 65127)
+	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 5157, 5695, 16725, 18773, 19251, 19252, 19540, 26906, 26954, 26980, 26990, 28693, 33583, 33610, 33633, 65127)
 
 	-- Enchant Cloak - Speed -- 60609
 	recipe = AddRecipe(60609, V.WOTLK, Q.COMMON)
 	recipe:SetSkillLevels(350, 350, 360, 370, 380)
 	recipe:SetItemFilterType("ENCHANTING_CLOAK")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 5157, 16725, 18773, 19251, 19252, 19540, 26906, 26954, 26980, 26990, 28693, 33583, 33610, 33633, 65127)
+	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 5157, 5695, 16725, 18773, 19251, 19252, 19540, 26906, 26954, 26980, 26990, 28693, 33583, 33610, 33633, 65127)
 
 	-- Enchant Bracer - Assault -- 60616
 	recipe = AddRecipe(60616, V.WOTLK, Q.COMMON)
 	recipe:SetSkillLevels(360, 360, 370, 380, 390)
 	recipe:SetItemFilterType("ENCHANTING_BRACER")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 5157, 16725, 18773, 19251, 19252, 19540, 26906, 26954, 26980, 26990, 28693, 33583, 33610, 33633, 65127)
+	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 5157, 5695, 16725, 18773, 19251, 19252, 19540, 26906, 26954, 26980, 26990, 28693, 33583, 33610, 33633, 65127)
 
 	-- Enchant Weapon - Greater Potency -- 60621
 	recipe = AddRecipe(60621, V.WOTLK, Q.COMMON)
 	recipe:SetSkillLevels(380, 380, 390, 400, 410)
 	recipe:SetItemFilterType("ENCHANTING_WEAPON")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 5157, 16725, 18773, 19251, 19252, 19540, 26906, 26954, 26980, 26990, 28693, 33583, 33610, 33633, 65127)
+	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 5157, 5695, 16725, 18773, 19251, 19252, 19540, 26906, 26954, 26980, 26990, 28693, 33583, 33610, 33633, 65127)
 
 	-- Enchant Boots - Icewalker -- 60623
 	recipe = AddRecipe(60623, V.WOTLK, Q.COMMON)
 	recipe:SetSkillLevels(385, 385, 395, 405, 415)
 	recipe:SetItemFilterType("ENCHANTING_BOOTS")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 5157, 16725, 18773, 19251, 19252, 19540, 26906, 26954, 26980, 26990, 28693, 33583, 33610, 33633, 65127)
+	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 5157, 5695, 16725, 18773, 19251, 19252, 19540, 26906, 26954, 26980, 26990, 28693, 33583, 33610, 33633, 65127)
 
 	-- Enchant Shield - Greater Intellect -- 60653
 	recipe = AddRecipe(60653, V.WOTLK, Q.COMMON)
 	recipe:SetSkillLevels(395, 395, 405, 415, 425)
 	recipe:SetItemFilterType("ENCHANTING_SHIELD")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 5157, 16725, 18773, 19251, 19252, 19540, 26906, 26954, 26980, 26990, 28693, 33583, 33610, 33633, 65127)
+	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 5157, 5695, 16725, 18773, 19251, 19252, 19540, 26906, 26954, 26980, 26990, 28693, 33583, 33610, 33633, 65127)
 
 	-- Enchant Cloak - Major Agility -- 60663
 	recipe = AddRecipe(60663, V.WOTLK, Q.COMMON)
 	recipe:SetSkillLevels(420, 420, 430, 440, 450)
 	recipe:SetItemFilterType("ENCHANTING_CLOAK")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 5157, 16725, 18773, 19251, 19252, 19540, 26906, 26954, 26980, 26990, 28693, 33583, 33610, 33633, 65127)
+	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 5157, 5695, 16725, 18773, 19251, 19252, 19540, 26906, 26954, 26980, 26990, 28693, 33583, 33610, 33633, 65127)
 
 	-- Enchant Gloves - Crusher -- 60668
 	recipe = AddRecipe(60668, V.WOTLK, Q.COMMON)
 	recipe:SetSkillLevels(425, 425, 435, 445, 455)
 	recipe:SetItemFilterType("ENCHANTING_GLOVES")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 5157, 16725, 18773, 19251, 19252, 19540, 26906, 26954, 26980, 26990, 28693, 33583, 33610, 33633, 65127)
+	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 5157, 5695, 16725, 18773, 19251, 19252, 19540, 26906, 26954, 26980, 26990, 28693, 33583, 33610, 33633, 65127)
 
 	-- Enchant 2H Weapon - Massacre -- 60691
 	recipe = AddRecipe(60691, V.WOTLK, Q.RARE)
@@ -2085,7 +2094,7 @@ function addon:InitEnchanting()
 	recipe:SetSkillLevels(385, 385, 395, 405, 415)
 	recipe:SetItemFilterType("ENCHANTING_STAFF")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.HEALER, F.CASTER)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 5157, 16725, 18773, 19251, 19252, 19540, 26906, 26954, 26980, 26990, 28693, 33583, 33610, 33633, 65127)
+	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 5157, 5695, 16725, 18773, 19251, 19252, 19540, 26906, 26954, 26980, 26990, 28693, 33583, 33610, 33633, 65127)
 
 	-- Enchant Boots - Lesser Accuracy -- 63746
 	recipe = AddRecipe(63746, V.WOTLK, Q.COMMON)
@@ -2116,7 +2125,7 @@ function addon:InitEnchanting()
 	recipe:SetCraftedItem(89738, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("ENCHANTING_MISC")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddTrainer(3011, 3345, 16725, 18773, 26906, 26954, 26980, 28693, 33610, 33633, 65127)
+	recipe:AddTrainer(3011, 3345, 5695, 16725, 18773, 26906, 26954, 26980, 28693, 33610, 33633, 65127)
 
 	-- Enchant Gloves - Angler -- 71692
 	recipe = AddRecipe(71692, V.WOTLK, Q.UNCOMMON)
@@ -2125,257 +2134,260 @@ function addon:InitEnchanting()
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
 	recipe:AddMobDrop(26336, 26343, 26344)
 
+	-------------------------------------------------------------------------------
+	-- Cataclysm.
+	-------------------------------------------------------------------------------
 	-- Enchant Gloves - Mastery -- 74132
 	recipe = AddRecipe(74132, V.CATA, Q.COMMON)
 	recipe:SetSkillLevels(425, 425, 440, 450, 460)
 	recipe:SetItemFilterType("ENCHANTING_GLOVES")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 16633, 16725, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 65127)
+	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 5695, 16633, 16725, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 65127)
 
 	-- Enchant Boots - Earthen Vitality -- 74189
 	recipe = AddRecipe(74189, V.CATA, Q.COMMON)
 	recipe:SetSkillLevels(425, 425, 440, 450, 460)
 	recipe:SetItemFilterType("ENCHANTING_BOOTS")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 16633, 16725, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 65127)
+	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 5695, 16633, 16725, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 65127)
 
 	-- Enchant Chest - Mighty Stats -- 74191
 	recipe = AddRecipe(74191, V.CATA, Q.COMMON)
 	recipe:SetSkillLevels(425, 425, 440, 450, 460)
 	recipe:SetItemFilterType("ENCHANTING_CHEST")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 16633, 16725, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 65127)
+	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 5695, 16633, 16725, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 65127)
 
 	-- Enchant Cloak - Lesser Power -- 74192
 	recipe = AddRecipe(74192, V.CATA, Q.COMMON)
 	recipe:SetSkillLevels(435, 435, 450, 460, 470)
 	recipe:SetItemFilterType("ENCHANTING_CLOAK")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 16633, 16725, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 65127)
+	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 5695, 16633, 16725, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 65127)
 
 	-- Enchant Bracer - Speed -- 74193
 	recipe = AddRecipe(74193, V.CATA, Q.COMMON)
 	recipe:SetSkillLevels(435, 435, 450, 460, 470)
 	recipe:SetItemFilterType("ENCHANTING_BRACER")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 16633, 16725, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 65127)
+	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 5695, 16633, 16725, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 65127)
 
 	-- Enchant Weapon - Mending -- 74195
 	recipe = AddRecipe(74195, V.CATA, Q.COMMON)
 	recipe:SetSkillLevels(450, 450, 460, 462, 465)
 	recipe:SetItemFilterType("ENCHANTING_WEAPON")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 16633, 16725, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 65127)
+	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 5695, 16633, 16725, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 65127)
 
 	-- Enchant Weapon - Avalanche -- 74197
 	recipe = AddRecipe(74197, V.CATA, Q.COMMON)
 	recipe:SetSkillLevels(450, 450, 460, 462, 465)
 	recipe:SetItemFilterType("ENCHANTING_WEAPON")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 16633, 16725, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 65127)
+	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 5695, 16633, 16725, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 65127)
 
 	-- Enchant Gloves - Haste -- 74198
 	recipe = AddRecipe(74198, V.CATA, Q.COMMON)
 	recipe:SetSkillLevels(455, 455, 465, 475, 485)
 	recipe:SetItemFilterType("ENCHANTING_GLOVES")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 16633, 16725, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 65127)
+	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 5695, 16633, 16725, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 65127)
 
 	-- Enchant Boots - Haste -- 74199
 	recipe = AddRecipe(74199, V.CATA, Q.COMMON)
 	recipe:SetSkillLevels(455, 455, 465, 475, 485)
 	recipe:SetItemFilterType("ENCHANTING_BOOTS")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 16633, 16725, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 65127)
+	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 5695, 16633, 16725, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 65127)
 
 	-- Enchant Chest - Stamina -- 74200
 	recipe = AddRecipe(74200, V.CATA, Q.COMMON)
 	recipe:SetSkillLevels(460, 460, 470, 480, 490)
 	recipe:SetItemFilterType("ENCHANTING_CHEST")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 16633, 16725, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 65127)
+	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 5695, 16633, 16725, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 65127)
 
 	-- Enchant Bracer - Critical Strike -- 74201
 	recipe = AddRecipe(74201, V.CATA, Q.COMMON)
 	recipe:SetSkillLevels(460, 460, 470, 480, 490)
 	recipe:SetItemFilterType("ENCHANTING_BRACER")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 16633, 16725, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 65127)
+	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 5695, 16633, 16725, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 65127)
 
 	-- Enchant Cloak - Intellect -- 74202
 	recipe = AddRecipe(74202, V.CATA, Q.COMMON)
 	recipe:SetSkillLevels(465, 465, 475, 485, 495)
 	recipe:SetItemFilterType("ENCHANTING_CLOAK")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 16633, 16725, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 65127)
+	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 5695, 16633, 16725, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 65127)
 
 	-- Enchant Shield - Protection -- 74207
 	recipe = AddRecipe(74207, V.CATA, Q.COMMON)
 	recipe:SetSkillLevels(465, 465, 475, 485, 495)
 	recipe:SetItemFilterType("ENCHANTING_SHIELD")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 16633, 16725, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 65127)
+	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 5695, 16633, 16725, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 65127)
 
 	-- Enchant Weapon - Elemental Slayer -- 74211
 	recipe = AddRecipe(74211, V.CATA, Q.COMMON)
 	recipe:SetSkillLevels(470, 470, 480, 490, 500)
 	recipe:SetItemFilterType("ENCHANTING_WEAPON")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 16633, 16725, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 65127)
+	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 5695, 16633, 16725, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 65127)
 
 	-- Enchant Gloves - Exceptional Strength -- 74212
 	recipe = AddRecipe(74212, V.CATA, Q.COMMON)
 	recipe:SetSkillLevels(470, 470, 480, 490, 500)
 	recipe:SetItemFilterType("ENCHANTING_GLOVES")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 16633, 16725, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 65127)
+	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 5695, 16633, 16725, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 65127)
 
 	-- Enchant Boots - Major Agility -- 74213
 	recipe = AddRecipe(74213, V.CATA, Q.COMMON)
 	recipe:SetSkillLevels(475, 475, 485, 495, 505)
 	recipe:SetItemFilterType("ENCHANTING_BOOTS")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 16633, 16725, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 65127)
+	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 5695, 16633, 16725, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 65127)
 
 	-- Enchant Chest - Mighty Resilience -- 74214
 	recipe = AddRecipe(74214, V.CATA, Q.COMMON)
 	recipe:SetSkillLevels(475, 475, 485, 495, 505)
 	recipe:SetItemFilterType("ENCHANTING_CHEST")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 16633, 16725, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 65127)
+	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 5695, 16633, 16725, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 65127)
 
 	-- Enchant Ring - Strength -- 74215
 	recipe = AddRecipe(74215, V.CATA, Q.COMMON)
 	recipe:SetSkillLevels(475, 475, 475, 475, 495)
 	recipe:SetItemFilterType("ENCHANTING_RING")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 16633, 16725, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 65127)
+	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 5695, 16633, 16725, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 65127)
 
 	-- Enchant Ring - Agility -- 74216
 	recipe = AddRecipe(74216, V.CATA, Q.COMMON)
 	recipe:SetSkillLevels(475, 475, 475, 475, 495)
 	recipe:SetItemFilterType("ENCHANTING_RING")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 16633, 16725, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 65127)
+	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 5695, 16633, 16725, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 65127)
 
 	-- Enchant Ring - Intellect -- 74217
 	recipe = AddRecipe(74217, V.CATA, Q.COMMON)
 	recipe:SetSkillLevels(475, 475, 475, 475, 495)
 	recipe:SetItemFilterType("ENCHANTING_RING")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 16633, 16725, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 65127)
+	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 5695, 16633, 16725, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 65127)
 
 	-- Enchant Ring - Stamina -- 74218
 	recipe = AddRecipe(74218, V.CATA, Q.COMMON)
 	recipe:SetSkillLevels(475, 475, 475, 475, 495)
 	recipe:SetItemFilterType("ENCHANTING_RING")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 16633, 16725, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 65127)
+	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 5695, 16633, 16725, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 65127)
 
 	-- Enchant Gloves - Greater Expertise -- 74220
 	recipe = AddRecipe(74220, V.CATA, Q.COMMON)
 	recipe:SetSkillLevels(480, 480, 490, 500, 510)
 	recipe:SetItemFilterType("ENCHANTING_GLOVES")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 16633, 16725, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 65127)
+	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 5695, 16633, 16725, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 65127)
 
 	-- Enchant Weapon - Hurricane -- 74223
 	recipe = AddRecipe(74223, V.CATA, Q.COMMON)
 	recipe:SetSkillLevels(480, 480, 490, 500, 510)
 	recipe:SetItemFilterType("ENCHANTING_WEAPON")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 16633, 16725, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 65127)
+	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 5695, 16633, 16725, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 65127)
 
 	-- Enchant Weapon - Heartsong -- 74225
 	recipe = AddRecipe(74225, V.CATA, Q.COMMON)
 	recipe:SetSkillLevels(485, 485, 495, 505, 515)
 	recipe:SetItemFilterType("ENCHANTING_WEAPON")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 16633, 16725, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 65127)
+	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 5695, 16633, 16725, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 65127)
 
 	-- Enchant Shield - Mastery -- 74226
 	recipe = AddRecipe(74226, V.CATA, Q.COMMON)
 	recipe:SetSkillLevels(485, 485, 495, 505, 515)
 	recipe:SetItemFilterType("ENCHANTING_SHIELD")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 16633, 16725, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 65127)
+	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 5695, 16633, 16725, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 65127)
 
 	-- Enchant Bracer - Superior Dodge -- 74229
 	recipe = AddRecipe(74229, V.CATA, Q.COMMON)
 	recipe:SetSkillLevels(490, 490, 500, 510, 520)
 	recipe:SetItemFilterType("ENCHANTING_BRACER")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 16633, 16725, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 65127)
+	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 5695, 16633, 16725, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 65127)
 
 	-- Enchant Cloak - Critical Strike -- 74230
 	recipe = AddRecipe(74230, V.CATA, Q.COMMON)
 	recipe:SetSkillLevels(490, 490, 500, 510, 520)
 	recipe:SetItemFilterType("ENCHANTING_CLOAK")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 16633, 16725, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 65127)
+	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 5695, 16633, 16725, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 65127)
 
 	-- Enchant Chest - Exceptional Spirit -- 74231
 	recipe = AddRecipe(74231, V.CATA, Q.COMMON)
 	recipe:SetSkillLevels(495, 495, 505, 515, 525)
 	recipe:SetItemFilterType("ENCHANTING_CHEST")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 16633, 16725, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 65127)
+	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 5695, 16633, 16725, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 65127)
 
 	-- Enchant Bracer - Precision -- 74232
 	recipe = AddRecipe(74232, V.CATA, Q.COMMON)
 	recipe:SetSkillLevels(495, 495, 505, 515, 525)
 	recipe:SetItemFilterType("ENCHANTING_BRACER")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 16633, 16725, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 65127)
+	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 5695, 16633, 16725, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 65127)
 
 	-- Enchant Cloak - Protection -- 74234
 	recipe = AddRecipe(74234, V.CATA, Q.COMMON)
 	recipe:SetSkillLevels(500, 500, 510, 520, 530)
 	recipe:SetItemFilterType("ENCHANTING_CLOAK")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 16633, 16725, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 65127)
+	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 5695, 16633, 16725, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 65127)
 
 	-- Enchant Off-Hand - Superior Intellect -- 74235
 	recipe = AddRecipe(74235, V.CATA, Q.COMMON)
 	recipe:SetSkillLevels(500, 500, 510, 520, 530)
 	recipe:SetItemFilterType("ENCHANTING_MISC")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 16633, 16725, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 65127)
+	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 5695, 16633, 16725, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 65127)
 
 	-- Enchant Boots - Precision -- 74236
 	recipe = AddRecipe(74236, V.CATA, Q.COMMON)
 	recipe:SetSkillLevels(505, 505, 510, 512, 515)
 	recipe:SetItemFilterType("ENCHANTING_BOOTS")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 16633, 16725, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 65127)
+	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 5695, 16633, 16725, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 65127)
 
 	-- Enchant Bracer - Exceptional Spirit -- 74237
 	recipe = AddRecipe(74237, V.CATA, Q.COMMON)
 	recipe:SetSkillLevels(505, 505, 515, 525, 535)
 	recipe:SetItemFilterType("ENCHANTING_BRACER")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 16633, 16725, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 65127)
+	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 5695, 16633, 16725, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 65127)
 
 	-- Enchant Boots - Mastery -- 74238
 	recipe = AddRecipe(74238, V.CATA, Q.COMMON)
 	recipe:SetSkillLevels(510, 510, 520, 530, 540)
 	recipe:SetItemFilterType("ENCHANTING_BOOTS")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 16633, 16725, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 65127)
+	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 5695, 16633, 16725, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 65127)
 
 	-- Enchant Bracer - Greater Expertise -- 74239
 	recipe = AddRecipe(74239, V.CATA, Q.COMMON)
 	recipe:SetSkillLevels(510, 510, 520, 530, 540)
 	recipe:SetItemFilterType("ENCHANTING_BRACER")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 16633, 16725, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 65127)
+	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 5695, 16633, 16725, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 65127)
 
 	-- Enchant Cloak - Greater Intellect -- 74240
 	recipe = AddRecipe(74240, V.CATA, Q.COMMON)
 	recipe:SetSkillLevels(510, 510, 520, 530, 540)
 	recipe:SetItemFilterType("ENCHANTING_CLOAK")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 16633, 16725, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 65127)
+	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 5695, 16633, 16725, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 65127)
 
 	-- Enchant Weapon - Power Torrent -- 74242
 	recipe = AddRecipe(74242, V.CATA, Q.RARE)
@@ -2499,7 +2511,7 @@ function addon:InitEnchanting()
 	recipe:SetSkillLevels(470, 470, 480, 490, 500)
 	recipe:SetItemFilterType("ENCHANTING_2H_WEAPON")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 16633, 16725, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 65127)
+	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 5695, 16633, 16725, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 65127)
 
 	-- Enchant Bracer - Major Strength -- 96261
 	recipe = AddRecipe(96261, V.CATA, Q.RARE)
@@ -2530,15 +2542,18 @@ function addon:InitEnchanting()
 	recipe:SetSkillLevels(515, 515, 525, 530, 535)
 	recipe:SetItemFilterType("ENCHANTING_MISC")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddTrainer(1317, 3011, 3345, 65127)
+	recipe:AddTrainer(1317, 3011, 3345, 5695, 65127)
 
+	-------------------------------------------------------------------------------
+	-- Mists of Pandaria.
+	-------------------------------------------------------------------------------
 	-- Enchant Ring - Greater Agility -- 103461
 	recipe = AddRecipe(103461, V.MOP, Q.COMMON)
 	recipe:SetSkillLevels(550, 550, 560, 565, 570)
 	recipe:SetPreviousRankID(74216)
 	recipe:SetItemFilterType("ENCHANTING_RING")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 16633, 16725, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 65127)
+	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 5695, 16633, 16725, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 65127)
 
 	-- Enchant Ring - Greater Intellect -- 103462
 	recipe = AddRecipe(103462, V.MOP, Q.COMMON)
@@ -2546,7 +2561,7 @@ function addon:InitEnchanting()
 	recipe:SetPreviousRankID(74217)
 	recipe:SetItemFilterType("ENCHANTING_RING")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 16633, 16725, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 65127)
+	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 5695, 16633, 16725, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 65127)
 
 	-- Enchant Ring - Greater Stamina -- 103463
 	recipe = AddRecipe(103463, V.MOP, Q.COMMON)
@@ -2554,7 +2569,7 @@ function addon:InitEnchanting()
 	recipe:SetPreviousRankID(74218)
 	recipe:SetItemFilterType("ENCHANTING_RING")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 16633, 16725, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 65127)
+	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 5695, 16633, 16725, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 65127)
 
 	-- Enchant Ring - Greater Strength -- 103465
 	recipe = AddRecipe(103465, V.MOP, Q.COMMON)
@@ -2562,21 +2577,21 @@ function addon:InitEnchanting()
 	recipe:SetPreviousRankID(74215)
 	recipe:SetItemFilterType("ENCHANTING_RING")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 16633, 16725, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 65127)
+	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 5695, 16633, 16725, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 65127)
 
 	-- Enchant Bracer - Mastery -- 104338
 	recipe = AddRecipe(104338, V.MOP, Q.COMMON)
 	recipe:SetSkillLevels(500, 500, 510, 515, 520)
 	recipe:SetItemFilterType("ENCHANTING_BRACER")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 16633, 16725, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 65127)
+	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 5695, 16633, 16725, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 65127)
 
 	-- Enchant Bracer - Major Dodge -- 104385
 	recipe = AddRecipe(104385, V.MOP, Q.COMMON)
 	recipe:SetSkillLevels(525, 525, 535, 540, 545)
 	recipe:SetItemFilterType("ENCHANTING_BRACER")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 16633, 16725, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 65127)
+	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 5695, 16633, 16725, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 65127)
 
 	-- Enchant Bracer - Super Intellect -- 104389
 	recipe = AddRecipe(104389, V.MOP, Q.RARE)
@@ -2607,119 +2622,119 @@ function addon:InitEnchanting()
 	recipe:SetSkillLevels(525, 525, 535, 540, 545)
 	recipe:SetItemFilterType("ENCHANTING_CHEST")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 16633, 16725, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 65127)
+	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 5695, 16633, 16725, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 65127)
 
 	-- Enchant Chest - Mighty Spirit -- 104393
 	recipe = AddRecipe(104393, V.MOP, Q.COMMON)
 	recipe:SetSkillLevels(525, 525, 535, 540, 545)
 	recipe:SetItemFilterType("ENCHANTING_CHEST")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 16633, 16725, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 65127)
+	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 5695, 16633, 16725, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 65127)
 
 	-- Enchant Chest - Glorious Stats -- 104395
 	recipe = AddRecipe(104395, V.MOP, Q.COMMON)
 	recipe:SetSkillLevels(575, 575, 585, 590, 595)
 	recipe:SetItemFilterType("ENCHANTING_CHEST")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 16633, 16725, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 65127)
+	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 5695, 16633, 16725, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 65127)
 
 	-- Enchant Chest - Superior Stamina -- 104397
 	recipe = AddRecipe(104397, V.MOP, Q.COMMON)
 	recipe:SetSkillLevels(550, 550, 560, 565, 570)
 	recipe:SetItemFilterType("ENCHANTING_CHEST")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 16633, 16725, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 65127)
+	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 5695, 16633, 16725, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 65127)
 
 	-- Enchant Cloak - Accuracy -- 104398
 	recipe = AddRecipe(104398, V.MOP, Q.COMMON)
 	recipe:SetSkillLevels(550, 550, 560, 565, 570)
 	recipe:SetItemFilterType("ENCHANTING_CLOAK")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 16633, 16725, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 65127)
+	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 5695, 16633, 16725, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 65127)
 
 	-- Enchant Cloak - Greater Protection -- 104401
 	recipe = AddRecipe(104401, V.MOP, Q.COMMON)
 	recipe:SetSkillLevels(575, 575, 585, 590, 595)
 	recipe:SetItemFilterType("ENCHANTING_CLOAK")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 16633, 16725, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 65127)
+	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 5695, 16633, 16725, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 65127)
 
 	-- Enchant Cloak - Superior Intellect -- 104403
 	recipe = AddRecipe(104403, V.MOP, Q.COMMON)
 	recipe:SetSkillLevels(525, 525, 535, 540, 545)
 	recipe:SetItemFilterType("ENCHANTING_CLOAK")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 16633, 16725, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 65127)
+	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 5695, 16633, 16725, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 65127)
 
 	-- Enchant Cloak - Superior Critical Strike -- 104404
 	recipe = AddRecipe(104404, V.MOP, Q.COMMON)
 	recipe:SetSkillLevels(500, 500, 510, 515, 520)
 	recipe:SetItemFilterType("ENCHANTING_CLOAK")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 16633, 16725, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 65127)
+	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 5695, 16633, 16725, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 65127)
 
 	-- Enchant Boots - Greater Haste -- 104407
 	recipe = AddRecipe(104407, V.MOP, Q.COMMON)
 	recipe:SetSkillLevels(550, 550, 560, 565, 570)
 	recipe:SetItemFilterType("ENCHANTING_BOOTS")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 16633, 16725, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 65127)
+	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 5695, 16633, 16725, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 65127)
 
 	-- Enchant Boots - Greater Precision -- 104408
 	recipe = AddRecipe(104408, V.MOP, Q.COMMON)
 	recipe:SetSkillLevels(525, 525, 535, 540, 545)
 	recipe:SetItemFilterType("ENCHANTING_BOOTS")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 16633, 16725, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 65127)
+	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 5695, 16633, 16725, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 65127)
 
 	-- Enchant Boots - Blurred Speed -- 104409
 	recipe = AddRecipe(104409, V.MOP, Q.COMMON)
 	recipe:SetSkillLevels(550, 550, 560, 565, 570)
 	recipe:SetItemFilterType("ENCHANTING_BOOTS")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 16633, 16725, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 65127)
+	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 5695, 16633, 16725, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 65127)
 
 	-- Enchant Boots - Pandaren's Step -- 104414
 	recipe = AddRecipe(104414, V.MOP, Q.COMMON)
 	recipe:SetSkillLevels(575, 575, 585, 590, 595)
 	recipe:SetItemFilterType("ENCHANTING_BOOTS")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 16633, 16725, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 65127)
+	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 5695, 16633, 16725, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 65127)
 
 	-- Enchant Gloves - Greater Haste -- 104416
 	recipe = AddRecipe(104416, V.MOP, Q.COMMON)
 	recipe:SetSkillLevels(525, 525, 535, 540, 545)
 	recipe:SetItemFilterType("ENCHANTING_GLOVES")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 16633, 16725, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 65127)
+	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 5695, 16633, 16725, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 65127)
 
 	-- Enchant Gloves - Superior Expertise -- 104417
 	recipe = AddRecipe(104417, V.MOP, Q.COMMON)
 	recipe:SetSkillLevels(550, 550, 560, 565, 570)
 	recipe:SetItemFilterType("ENCHANTING_GLOVES")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 16633, 16725, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 65127)
+	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 5695, 16633, 16725, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 65127)
 
 	-- Enchant Gloves - Super Strength -- 104419
 	recipe = AddRecipe(104419, V.MOP, Q.COMMON)
 	recipe:SetSkillLevels(575, 575, 585, 590, 595)
 	recipe:SetItemFilterType("ENCHANTING_GLOVES")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 16633, 16725, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 65127)
+	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 5695, 16633, 16725, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 65127)
 
 	-- Enchant Gloves - Superior Mastery -- 104420
 	recipe = AddRecipe(104420, V.MOP, Q.COMMON)
 	recipe:SetSkillLevels(575, 575, 585, 590, 595)
 	recipe:SetItemFilterType("ENCHANTING_GLOVES")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 16633, 16725, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 65127)
+	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 5695, 16633, 16725, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 65127)
 
 	-- Enchant Weapon - Windsong -- 104425
 	recipe = AddRecipe(104425, V.MOP, Q.COMMON)
 	recipe:SetSkillLevels(550, 550, 560, 565, 570)
 	recipe:SetItemFilterType("ENCHANTING_WEAPON")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 16633, 16725, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 65127)
+	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 5695, 16633, 16725, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 65127)
 
 	-- Enchant Weapon - Jade Spirit -- 104427
 	recipe = AddRecipe(104427, V.MOP, Q.RARE)
@@ -2734,7 +2749,7 @@ function addon:InitEnchanting()
 	recipe:SetSkillLevels(525, 525, 535, 540, 545)
 	recipe:SetItemFilterType("ENCHANTING_WEAPON")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 16633, 16725, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 65127)
+	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 5695, 16633, 16725, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 65127)
 
 	-- Enchant Weapon - Dancing Steel -- 104434
 	recipe = AddRecipe(104434, V.MOP, Q.RARE)
@@ -2749,7 +2764,7 @@ function addon:InitEnchanting()
 	recipe:SetSkillLevels(575, 575, 585, 590, 595)
 	recipe:SetItemFilterType("ENCHANTING_WEAPON")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 16633, 16725, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 65127)
+	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 5695, 16633, 16725, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 65127)
 
 	-- Enchant Weapon - River's Song -- 104442
 	recipe = AddRecipe(104442, V.MOP, Q.RARE)
@@ -2764,56 +2779,56 @@ function addon:InitEnchanting()
 	recipe:SetSkillLevels(575, 575, 585, 590, 595)
 	recipe:SetItemFilterType("ENCHANTING_MISC")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 16633, 16725, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 65127)
+	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 5695, 16633, 16725, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 65127)
 
 	-- Mysterious Essence -- 116497
 	recipe = AddRecipe(116497, V.MOP, Q.COMMON)
 	recipe:SetSkillLevels(500, 500, 510, 515, 520)
 	recipe:SetItemFilterType("ENCHANTING_MISC")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 16633, 16725, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 65127)
+	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 5695, 16633, 16725, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 65127)
 
 	-- Ethereal Shard -- 116498
 	recipe = AddRecipe(116498, V.MOP, Q.COMMON)
 	recipe:SetSkillLevels(550, 550, 560, 565, 570)
 	recipe:SetItemFilterType("ENCHANTING_MISC")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 16633, 16725, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 65127)
+	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 5695, 16633, 16725, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 65127)
 
 	-- Sha Crystal -- 116499
 	recipe = AddRecipe(116499, V.MOP, Q.COMMON)
 	recipe:SetSkillLevels(600, 600, 610, 615, 620)
 	recipe:SetItemFilterType("ENCHANTING_MISC")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 16633, 16725, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 65127)
+	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 5695, 16633, 16725, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 65127)
 
 	-- Mysterious Diffusion -- 118237
 	recipe = AddRecipe(118237, V.MOP, Q.COMMON)
 	recipe:SetSkillLevels(535, 535, 545, 550, 555)
 	recipe:SetItemFilterType("ENCHANTING_MISC")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 16633, 16725, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 65127)
+	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 5695, 16633, 16725, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 65127)
 
 	-- Ethereal Shatter -- 118238
 	recipe = AddRecipe(118238, V.MOP, Q.COMMON)
 	recipe:SetSkillLevels(585, 585, 595, 600, 605)
 	recipe:SetItemFilterType("ENCHANTING_MISC")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 16633, 16725, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 65127)
+	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 5695, 16633, 16725, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 65127)
 
 	-- Sha Shatter -- 118239
 	recipe = AddRecipe(118239, V.MOP, Q.COMMON)
 	recipe:SetSkillLevels(600, 600, 610, 615, 620)
 	recipe:SetItemFilterType("ENCHANTING_MISC")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 16633, 16725, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 65127)
+	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 5695, 16633, 16725, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 65127)
 
 	-- Enchant Shield - Greater Parry -- 130758
 	recipe = AddRecipe(130758, V.MOP, Q.COMMON)
 	recipe:SetSkillLevels(575, 575, 585, 590, 595)
 	recipe:SetItemFilterType("ENCHANTING_SHIELD")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 16633, 16725, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 65127)
+	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 5695, 16633, 16725, 18773, 19251, 19252, 19540, 26906, 26990, 28693, 33583, 33610, 33633, 65127)
 
 	self.InitEnchanting = nil
 end

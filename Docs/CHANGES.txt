@@ -1,6 +1,12 @@
 ==ARL Change Log
 NOTE: Always remove the folder for old versions and install a fresh copy when upgrading.
 
+== 2.5.4
+=== Recipe Database:
+* 5.4 Inscription fixes
+* Dun Morogh Trainers/Vendors moved
+* Add 'All-in-one' horde profession trainers, update alliance ones, add neutral ones
+
 == 2.5.3
 === Recipe Database:
 * Updated some 5.4 Cooking Recipes to show they are from Ancient Guo-Lai Caches

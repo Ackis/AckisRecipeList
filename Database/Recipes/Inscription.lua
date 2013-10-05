@@ -24,7 +24,6 @@ local FOLDER_NAME, private = ...
 local addon = LibStub("AceAddon-3.0"):GetAddon(private.addon_name)
 local L = LibStub("AceLocale-3.0"):GetLocale(private.addon_name)
 
-
 -------------------------------------------------------------------------------
 -- Filter flags. Acquire types, and Reputation levels.
 -------------------------------------------------------------------------------
@@ -97,7 +96,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItem(37118, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("INSCRIPTION_SCROLL")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30709, 30710, 30711, 30713, 30715, 30716, 30717, 30721, 30722, 33603, 33615, 33638, 33679, 46716, 47384, 47396, 47418, 47420, 47431, 56065, 62327, 64691)
+	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30709, 30710, 30711, 30713, 30715, 30716, 30717, 30721, 30722, 33603, 33615, 33638, 33679, 46716, 47384, 47396, 47400, 47418, 47420, 47431, 56065, 57620, 62327, 64691, 65043)
 
 	-- Scroll of Intellect II -- 50598
 	recipe = AddRecipe(50598, V.WOTLK, Q.COMMON)
@@ -105,7 +104,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItem(2290, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("INSCRIPTION_SCROLL")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30709, 30710, 30711, 30713, 30715, 30716, 30717, 30721, 30722, 33603, 33615, 33638, 33679, 46716, 47384, 47396, 47418, 47420, 47431, 56065, 62327, 64691)
+	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30709, 30710, 30711, 30713, 30715, 30716, 30717, 30721, 30722, 33603, 33615, 33638, 33679, 46716, 47384, 47396, 47400, 47418, 47420, 47431, 56065, 57620, 62327, 64691, 65043)
 
 	-- Scroll of Intellect III -- 50599
 	recipe = AddRecipe(50599, V.WOTLK, Q.COMMON)
@@ -161,7 +160,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItem(1712, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("INSCRIPTION_SCROLL")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.HEALER, F.CASTER)
-	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30709, 30710, 30711, 30713, 30715, 30716, 30717, 30721, 30722, 33603, 33615, 33638, 33679, 46716, 47384, 47396, 47418, 47420, 47431, 56065, 62327, 64691)
+	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30709, 30710, 30711, 30713, 30715, 30716, 30717, 30721, 30722, 33603, 33615, 33638, 33679, 46716, 47384, 47396, 47400, 47418, 47420, 47431, 56065, 57620, 62327, 64691, 65043)
 
 	-- Scroll of Spirit III -- 50606
 	recipe = AddRecipe(50606, V.WOTLK, Q.COMMON)
@@ -217,7 +216,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItem(1711, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("INSCRIPTION_SCROLL")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30709, 30710, 30711, 30713, 30715, 30716, 30717, 30721, 30722, 33603, 33615, 33638, 33679, 46716, 47384, 47396, 47418, 47420, 47431, 56065, 62327, 64691)
+	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30709, 30710, 30711, 30713, 30715, 30716, 30717, 30721, 30722, 33603, 33615, 33638, 33679, 46716, 47384, 47396, 47400, 47418, 47420, 47431, 56065, 57620, 62327, 64691, 65043)
 
 	-- Scroll of Stamina III -- 50614
 	recipe = AddRecipe(50614, V.WOTLK, Q.COMMON)
@@ -281,7 +280,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItem(38682, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("INSCRIPTION_MATERIALS")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30709, 30710, 30711, 30713, 30715, 30716, 30717, 30721, 30722, 33603, 33615, 33638, 33679, 46716, 47384, 47396, 47418, 47420, 47431, 56065, 62327, 64691)
+	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30709, 30710, 30711, 30713, 30715, 30716, 30717, 30721, 30722, 33603, 33615, 33638, 33679, 46716, 47384, 47396, 47400, 47418, 47420, 47431, 56065, 57620, 62327, 64691, 65043)
 
 	-- Moonglow Ink -- 52843
 	recipe = AddRecipe(52843, V.WOTLK, Q.COMMON)
@@ -289,7 +288,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItem(39469, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("INSCRIPTION_MATERIALS")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30709, 30710, 30711, 30713, 30715, 30716, 30717, 30721, 30722, 33603, 33615, 33638, 33679, 46716, 47384, 47396, 47418, 47420, 47431, 56065, 62327, 64691)
+	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30709, 30710, 30711, 30713, 30715, 30716, 30717, 30721, 30722, 33603, 33615, 33638, 33679, 46716, 47384, 47396, 47400, 47418, 47420, 47431, 56065, 57620, 62327, 64691, 65043)
 
 	-- Midnight Ink -- 53462
 	recipe = AddRecipe(53462, V.WOTLK, Q.COMMON)
@@ -297,7 +296,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItem(39774, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("INSCRIPTION_MATERIALS")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30709, 30710, 30711, 30713, 30715, 30716, 30717, 30721, 30722, 33603, 33615, 33638, 33679, 46716, 47384, 47396, 47418, 47420, 47431, 56065, 62327, 64691)
+	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30709, 30710, 30711, 30713, 30715, 30716, 30717, 30721, 30722, 33603, 33615, 33638, 33679, 46716, 47384, 47396, 47400, 47418, 47420, 47431, 56065, 57620, 62327, 64691, 65043)
 
 	-- Glyph of Frenzied Regeneration -- 56943
 	recipe = AddRecipe(56943, V.WOTLK, Q.COMMON)
@@ -2121,7 +2120,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItem(43362, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("INSCRIPTION_MINOR_GLYPH")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.MAGE)
-	recipe:AddTrainer(46716, 56065, 62327, 64691)
+	recipe:AddTrainer(30717, 46716, 56065, 62327, 64691)
 
 	-- Glyph of the Penguin -- 58310
 	recipe = AddRecipe(58310, V.WOTLK, Q.COMMON)
@@ -2420,7 +2419,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItem(3012, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("INSCRIPTION_SCROLL")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS, F.TANK)
-	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30709, 30710, 30711, 30713, 30715, 30716, 30717, 30721, 30722, 33603, 33615, 33638, 33679, 46716, 47384, 47396, 47418, 47420, 47431, 56065, 62327, 64691)
+	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30709, 30710, 30711, 30713, 30715, 30716, 30717, 30721, 30722, 33603, 33615, 33638, 33679, 46716, 47384, 47396, 47400, 47418, 47420, 47431, 56065, 57620, 62327, 64691, 65043)
 
 	-- Scroll of Agility II -- 58473
 	recipe = AddRecipe(58473, V.WOTLK, Q.COMMON)
@@ -2484,7 +2483,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItem(954, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("INSCRIPTION_SCROLL")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS, F.TANK)
-	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30709, 30710, 30711, 30713, 30715, 30716, 30717, 30721, 30722, 33603, 33615, 33638, 33679, 46716, 47384, 47396, 47418, 47420, 47431, 56065, 62327, 64691)
+	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30709, 30710, 30711, 30713, 30715, 30716, 30717, 30721, 30722, 33603, 33615, 33638, 33679, 46716, 47384, 47396, 47400, 47418, 47420, 47431, 56065, 57620, 62327, 64691, 65043)
 
 	-- Scroll of Strength II -- 58485
 	recipe = AddRecipe(58485, V.WOTLK, Q.COMMON)
@@ -2823,7 +2822,7 @@ function addon:InitInscription()
 	recipe:SetSkillLevels(75, 75, 125, 137, 150)
 	recipe:SetItemFilterType("INSCRIPTION_CREATED_ITEM")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30709, 30710, 30711, 30713, 30715, 30716, 30717, 30721, 30722, 33603, 33615, 33638, 33679, 46716, 47384, 47396, 47418, 47420, 47431, 56065, 62327, 64691)
+	recipe:AddTrainer(26916, 26959, 26977, 26995, 28702, 30706, 30709, 30710, 30711, 30713, 30715, 30716, 30717, 30721, 30722, 33603, 33615, 33638, 33679, 46716, 47384, 47396, 47400, 47418, 47420, 47431, 56065, 57620, 62327, 64691, 65043)
 
 	-- Glyph of Frostfire Bolt -- 61677
 	recipe = AddRecipe(61677, V.WOTLK, Q.COMMON)
@@ -3576,6 +3575,7 @@ function addon:InitInscription()
 	recipe:SetRequiredFaction("Horde")
 	recipe:SetItemFilterType("INSCRIPTION_CREATED_ITEM")
 	recipe:AddFilters(F.HORDE, F.RETIRED)
+	recipe:AddTrainer(30717)
 	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Forged Documents -- 89244
@@ -3585,6 +3585,7 @@ function addon:InitInscription()
 	recipe:SetRequiredFaction("Alliance")
 	recipe:SetItemFilterType("INSCRIPTION_CREATED_ITEM")
 	recipe:AddFilters(F.ALLIANCE, F.RETIRED)
+	recipe:AddTrainer(30717)
 	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Scroll of Intellect IX -- 89368
@@ -4447,7 +4448,7 @@ function addon:InitInscription()
 
 	-- Secret Tiger Fang Inscription -- 127020
 	recipe = AddRecipe(127020, V.MOP, Q.COMMON)
-	recipe:SetSkillLevels(575, 575, 585, 590, 595)
+	recipe:SetSkillLevels(540, 540, 550, 555, 560)
 	recipe:SetCraftedItem(87580, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("INSCRIPTION_ITEM_ENHANCEMENT")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
@@ -4455,7 +4456,7 @@ function addon:InitInscription()
 
 	-- Secret Tiger Claw Inscription -- 127021
 	recipe = AddRecipe(127021, V.MOP, Q.COMMON)
-	recipe:SetSkillLevels(575, 575, 585, 590, 595)
+	recipe:SetSkillLevels(540, 540, 550, 555, 560)
 	recipe:SetCraftedItem(87580, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("INSCRIPTION_ITEM_ENHANCEMENT")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
@@ -4877,7 +4878,6 @@ function addon:InitInscription()
 	recipe:SetItemFilterType("INSCRIPTION_MAJOR_GLYPH")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.HUNTER)
 	recipe:AddWorldDrop(Z.PANDARIA)
-
 
 	self.InitInscription = nil
 end

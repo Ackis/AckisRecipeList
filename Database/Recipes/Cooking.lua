@@ -48,6 +48,9 @@ function addon:InitCooking()
 
 	local recipe
 
+	-------------------------------------------------------------------------------
+	-- Classic.
+	-------------------------------------------------------------------------------
 	-- Charred Wolf Meat -- 2538
 	recipe = AddRecipe(2538, V.ORIG, Q.COMMON)
 	recipe:SetSkillLevels(1, 1, 45, 65, 85)
@@ -403,7 +406,7 @@ function addon:InitCooking()
 	recipe = AddRecipe(8604, V.ORIG, Q.COMMON)
 	recipe:SetSkillLevels(1, 1, 45, 65, 85)
 	recipe:SetCraftedItem(6888, "BIND_ON_EQUIP")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.HEALER, F.CASTER, F.MISC1)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.MISC1, F.HEALER, F.CASTER)
 	recipe:AddCustom("DEFAULT_RECIPE")
 
 	-- Smoked Bear Meat -- 8607
@@ -693,6 +696,9 @@ function addon:InitCooking()
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.HEALER, F.CASTER)
 	recipe:AddVendor(2397, 2664, 3027, 3085, 3400, 4223, 4265, 4553, 5160, 5483, 8307, 12033, 14738, 16253, 16677, 16718, 17246, 19195, 26868, 48060, 54232, 64084, 64465)
 
+	-------------------------------------------------------------------------------
+	-- The Burning Crusade.
+	-------------------------------------------------------------------------------
 	-- Crunchy Spider Surprise -- 28267
 	recipe = AddRecipe(28267, V.TBC, Q.COMMON)
 	recipe:SetSkillLevels(60, 60, 100, 120, 140)
@@ -940,6 +946,9 @@ function addon:InitCooking()
 	recipe:AddQuest(11377, 11379, 11380, 11381, 13100, 13101, 13102, 13103, 13107, 13112, 13113, 13114, 13115, 13116)
 	recipe:AddCustom("DAILY_COOKING_DAL", "DAILY_COOKING_FISH", "DAILY_COOKING_MEAT")
 
+	-------------------------------------------------------------------------------
+	-- Wrath of the Lich King.
+	-------------------------------------------------------------------------------
 	-- Hot Apple Cider -- 45022
 	recipe = AddRecipe(45022, V.WOTLK, Q.COMMON)
 	recipe:SetSkillLevels(325, 325, 325, 325, 325)
@@ -1421,6 +1430,9 @@ function addon:InitCooking()
 	recipe:AddFilters(F.HORDE)
 	recipe:AddSeason("PILGRIMS_BOUNTY")
 
+	-------------------------------------------------------------------------------
+	-- Cataclysm.
+	-------------------------------------------------------------------------------
 	-- Baked Rockfish -- 88003
 	recipe = AddRecipe(88003, V.CATA, Q.UNCOMMON)
 	recipe:SetSkillLevels(500, 500, 515, 520, 525)
@@ -1691,19 +1703,22 @@ function addon:InitCooking()
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
 	recipe:AddVendor(3027, 4223, 4553, 5160, 49701, 49737)
 
+	-------------------------------------------------------------------------------
+	-- Mists of Pandaria.
+	-------------------------------------------------------------------------------
 	-- Golden Carp Consomme -- 104237
 	recipe = AddRecipe(104237, V.MOP, Q.COMMON)
 	recipe:SetSkillLevels(500, 500, 510, 515, 520)
 	recipe:SetCraftedItem(74636, "BIND_ON_EQUIP")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddTrainer(3399, 42288, 45550, 46709, 56707, 64231)
+	recipe:AddTrainer(1355, 1699, 3399, 5159, 42288, 45550, 46709, 47405, 56707, 64231)
 
 	-- Fish Cake -- 104297
 	recipe = AddRecipe(104297, V.MOP, Q.COMMON)
 	recipe:SetSkillLevels(500, 500, 510, 515, 520)
 	recipe:SetCraftedItem(74641, "BIND_ON_EQUIP")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddTrainer(3399, 42288, 45550, 46709, 56707, 64231)
+	recipe:AddTrainer(1355, 1699, 3399, 5159, 42288, 45550, 46709, 47405, 56707, 64231)
 
 	-- Charbroiled Tiger Steak -- 104298
 	recipe = AddRecipe(104298, V.MOP, Q.COMMON)
@@ -2106,57 +2121,31 @@ function addon:InitCooking()
 	recipe:AddCustom("BANANA_INFUSED_RUM")
 
 	-- Noodle Cart Kit -- 145038
-	recipe = AddRecipe(145038, V.MOP, Q.COMMON)
+	recipe = AddRecipe(145038, V.MOP, Q.UNCOMMON)
 	recipe:SetSkillLevels(600, 600, 600, 600, 600)
 	recipe:SetRecipeItem(101631, "BIND_ON_PICKUP")
 	recipe:SetCraftedItem(101630, "BIND_ON_EQUIP")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.QUEST)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE)
 	recipe:AddQuest(33022)
 	recipe:AddCustom("TIMELESS_ISLE_COOKING")
 
 	-- Deluxe Noodle Cart Kit -- 145061
-	recipe = AddRecipe(145061, V.MOP, Q.COMMON)
+	recipe = AddRecipe(145061, V.MOP, Q.UNCOMMON)
 	recipe:SetSkillLevels(600, 600, 600, 600, 600)
 	recipe:SetRecipeItem(101664, "BIND_ON_PICKUP")
 	recipe:SetCraftedItem(101661, "BIND_ON_EQUIP")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.QUEST)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE)
 	recipe:AddQuest(33024)
 	recipe:AddCustom("TIMELESS_ISLE_COOKING")
 
 	-- Pandaren Treasure Noodle Cart Kit -- 145062
-	recipe = AddRecipe(145062, V.MOP, Q.COMMON)
+	recipe = AddRecipe(145062, V.MOP, Q.UNCOMMON)
 	recipe:SetSkillLevels(600, 600, 600, 600, 611)
 	recipe:SetRecipeItem(101663, "BIND_ON_PICKUP")
 	recipe:SetCraftedItem(101662, "BIND_ON_EQUIP")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
 	recipe:AddQuest(33027)
 	recipe:AddCustom("TIMELESS_ISLE_COOKING")
-
---[[ Didn't make live
-	-- Grand Noodle Cart Kit -- 145167
-	recipe = AddRecipe(145167, V.MOP, Q.COMMON)
-	recipe:SetSkillLevels(600, 600, 600, 600, 600)
-	recipe:SetRecipeItem(101728, "BIND_ON_PICKUP")
-	recipe:SetCraftedItem(101727, "BIND_ON_EQUIP")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.QUEST)
-	recipe:AddWorldDrop(Z.VALE_OF_ETERNAL_BLOSSOMS)
-
-	-- Grand Deluxe Noodle Cart Kit -- 145170
-	recipe = AddRecipe(145170, V.MOP, Q.COMMON)
-	recipe:SetSkillLevels(600, 600, 600, 600, 610)
-	recipe:SetRecipeItem(101739, "BIND_ON_PICKUP")
-	recipe:SetCraftedItem(101729, "BIND_ON_EQUIP")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.QUEST)
-	recipe:AddWorldDrop(Z.VALE_OF_ETERNAL_BLOSSOMS)
-
-	-- Grand Pandaren Treasure Noodle Cart Kit -- 145197
-	recipe = AddRecipe(145197, V.MOP, Q.COMMON)
-	recipe:SetSkillLevels(600, 600, 600, 600, 612)
-	recipe:SetRecipeItem(101741, "BIND_ON_PICKUP")
-	recipe:SetCraftedItem(101740, "BIND_ON_EQUIP")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddWorldDrop(Z.VALE_OF_ETERNAL_BLOSSOMS)
-]] --
 
 	-- Seasoned Pomfruit Slices -- 145305
 	recipe = AddRecipe(145305, V.MOP, Q.COMMON)
@@ -2175,7 +2164,7 @@ function addon:InitCooking()
 	recipe:AddCustom("ANCIENT_GUO-LAI_CACHE")
 
 	-- Mango Ice -- 145308
-	recipe = AddRecipe(145308, V.MOP, Q.COMMON)
+	recipe = AddRecipe(145308, V.MOP, Q.UNCOMMON)
 	recipe:SetSkillLevels(600, 600, 600, 600, 600)
 	recipe:SetRecipeItem(101767, "BIND_ON_PICKUP")
 	recipe:SetCraftedItem(101745, "BIND_ON_EQUIP")
