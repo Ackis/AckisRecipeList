@@ -10,7 +10,7 @@ local Z = private.ZONE_NAMES
 function private:InitializeSmeltingTrainers()
 	self:AddTrainer(1443, "Stonebreaker Ruian", Z.THE_JADE_FOREST, 27.82, 14.85, "Horde")
 	self:AddTrainer(1681, "Brock Stoneseeker", Z.LOCH_MODAN, 37.1, 47.8, "Alliance")
-	self:AddTrainer(1701, "Dank Drizzlecut", Z.DUN_MOROGH, 69.3, 55.5, "Alliance")
+	self:AddTrainer(1701, "Dank Drizzlecut", Z.DUN_MOROGH, 76.6, 53.8, "Alliance")
 	self:AddTrainer(3001, "Brek Stonehoof", Z.THUNDER_BLUFF, 34.4, 57.9, "Horde")
 	self:AddTrainer(3137, "Matt Johnson", Z.DUSKWOOD, 74, 49.7, "Alliance")
 	self:AddTrainer(3175, "Krunn", Z.DUROTAR, 51.9, 40.9, "Horde")

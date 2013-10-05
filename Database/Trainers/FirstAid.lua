@@ -10,7 +10,7 @@ local Z = private.ZONE_NAMES
 function private:InitializeFirstAidTrainers()
 	self:AddTrainer(447, "Soraka", Z.THE_JADE_FOREST, 45.4, 85.8, "Alliance")
 	self:AddTrainer(686, "Elder Muur", Z.THE_JADE_FOREST, 28.34, 15.35, "Horde")
-	self:AddTrainer(2326, "Thamner Pol", Z.DUN_MOROGH, 47.2, 52.6, "Alliance")
+	self:AddTrainer(2326, "Thamner Pol", Z.DUN_MOROGH, 54.3, 50.9, "Alliance")
 	self:AddTrainer(2327, "Shaina Fuller", Z.STORMWIND_CITY, 52.2, 45.4, "Alliance")
 	self:AddTrainer(2329, "Michelle Belle", Z.ELWYNN_FOREST, 43.4, 65.6, "Alliance")
 	self:AddTrainer(2798, "Pand Stonebinder", Z.THUNDER_BLUFF, 29.7, 21.2, "Horde")
