@@ -910,6 +910,7 @@ L["Nixx Sprocketspring"] = true
 L["NoItemLink"] = "This item does not have an item link or it was not in your cache."
 L["Noodles"] = true
 L["Nula the Butcher"] = true
+L["Nuri"] = true
 L["Nurse Applewood"] = true
 L["Nurse Neela"] = true
 L["Nus"] = true
