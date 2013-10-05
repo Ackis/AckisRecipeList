@@ -46,6 +46,7 @@ function addon:InitTrainer()
 	private:AddTrainer(47396, "Wembil Taskwidget", Z.DUN_MOROGH, 53.8, 52.0, "Alliance") -- COMPLETELY UPDATED
 	private:AddTrainer(47400, "Nedric Sallow", Z.TIRISFAL_GLADES, 61.1, 51.1, "Horde") -- COMPLETELY UPDATED
 	private:AddTrainer(47418, "Runda", Z.DUROTAR, 52.8, 42.0, "Horde") -- COMPLETELY UPDATED
+	private:AddTrainer(47419, "Lalum Darkmane", Z.MULGORE, 46.4, 57.6, "Horde") -- COMPLETELY UPDATED
 	private:AddTrainer(47420, "Iranis Shadebloom", Z.TELDRASSIL, 56.0, 52.2, "Alliance") -- COMPLETELY UPDATED
 	private:AddTrainer(47431, "Valn", Z.AZUREMYST_ISLE, 48.7, 52.4, "Alliance") -- COMPLETELY UPDATED
 	private:AddTrainer(57620, "Whittler Dewei", Z.THE_WANDERING_ISLE, 63., 41.4, "Neutral") -- COMPLETELY UPDATED
