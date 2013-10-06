@@ -1224,6 +1224,7 @@ L["Theramore Infiltrator"] = true
 L["Theramore Marine"] = true
 L["Theramore Preserver"] = true
 L["Theresa Denman"] = true
+L["Therisa Sallow"] = true
 L["Therum Deepforge"] = true
 L["Thomas Kolichio"] = true
 L["Thomas Yance"] = true

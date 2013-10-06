@@ -49,6 +49,7 @@ function addon:InitTrainer()
 	private:AddTrainer(47419, "Lalum Darkmane", Z.MULGORE, 46.4, 57.6, "Horde") -- COMPLETELY UPDATED
 	private:AddTrainer(47420, "Iranis Shadebloom", Z.TELDRASSIL, 56.0, 52.2, "Alliance") -- COMPLETELY UPDATED
 	private:AddTrainer(47431, "Valn", Z.AZUREMYST_ISLE, 48.7, 52.4, "Alliance") -- COMPLETELY UPDATED
+	private:AddTrainer(48619, "Therisa Sallow", Z.TELDRASSIL, 44.6, 53.1, "Horde") -- COMPLETELY UPDATED
 	private:AddTrainer(57620, "Whittler Dewei", Z.THE_WANDERING_ISLE, 63., 41.4, "Neutral") -- COMPLETELY UPDATED
 	private:AddTrainer(65043, "Elder Oakpaw", Z.THE_WANDERING_ISLE, 50.6, 58.6, "Neutral") -- COMPLETELY UPDATED
 	
