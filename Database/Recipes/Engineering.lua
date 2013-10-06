@@ -1827,7 +1827,7 @@ function addon:InitEngineering()
 	recipe:SetCraftedItem(32461, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("ENGINEERING_HEAD")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS, F.PALADIN, F.WARRIOR)
-	recipe:AddTrainer(1702, 5174, 5518, 17634, 17637, 18752, 18775, 19576, 25277, 26955, 28697, 33586, 45545, 52651)
+	recipe:AddTrainer(1702, 5174, 5518, 11017, 17634, 17637, 18752, 18775, 19576, 25277, 26955, 28697, 33586, 45545, 52651)
 
 	-- Gyro-balanced Khorium Destroyer -- 41307
 	recipe = AddRecipe(41307, V.TBC, Q.COMMON)
@@ -1843,7 +1843,7 @@ function addon:InitEngineering()
 	recipe:SetCraftedItem(32472, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("ENGINEERING_HEAD")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.PALADIN)
-	recipe:AddTrainer(1702, 5174, 5518, 17634, 17637, 18752, 18775, 19576, 25277, 26907, 26955, 26991, 28697, 33586, 52651)
+	recipe:AddTrainer(1702, 5174, 5518, 11017, 17634, 17637, 18752, 18775, 19576, 25277, 26907, 26955, 26991, 28697, 33586, 52651)
 
 	-- Tankatronic Goggles -- 41312
 	recipe = AddRecipe(41312, V.TBC, Q.COMMON)
@@ -1851,7 +1851,7 @@ function addon:InitEngineering()
 	recipe:SetCraftedItem(32473, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("ENGINEERING_HEAD")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TANK, F.PALADIN, F.WARRIOR)
-	recipe:AddTrainer(1702, 5174, 5518, 17634, 17637, 18752, 18775, 19576, 25277, 26907, 26955, 26991, 28697, 33586, 45545, 52651)
+	recipe:AddTrainer(1702, 5174, 5518, 11017, 17634, 17637, 18752, 18775, 19576, 25277, 26907, 26955, 26991, 28697, 33586, 45545, 52651)
 
 	-- Surestrike Goggles v2.0 -- 41314
 	recipe = AddRecipe(41314, V.TBC, Q.COMMON)
@@ -2303,7 +2303,7 @@ function addon:InitEngineering()
 	recipe:SetCraftedItem(42549, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("ENGINEERING_HEAD")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS, F.TANK, F.DK, F.PALADIN, F.WARRIOR)
-	recipe:AddTrainer(1702, 5174, 5518, 25277, 26907, 26955, 26991, 28697, 33586, 45545, 52651)
+	recipe:AddTrainer(1702, 5174, 5518, 11017, 25277, 26907, 26955, 26991, 28697, 33586, 45545, 52651)
 
 	-- Weakness Spectralizers -- 56481
 	recipe = AddRecipe(56481, V.WOTLK, Q.COMMON)
@@ -2319,7 +2319,7 @@ function addon:InitEngineering()
 	recipe:SetCraftedItem(42552, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("ENGINEERING_HEAD")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS, F.DK, F.PALADIN, F.WARRIOR)
-	recipe:AddTrainer(1702, 5174, 5518, 25277, 26907, 26955, 26991, 28697, 33586, 45545, 52651)
+	recipe:AddTrainer(1702, 5174, 5518, 11017, 25277, 26907, 26955, 26991, 28697, 33586, 45545, 52651)
 
 	-- Visage Liquification Goggles -- 56484
 	recipe = AddRecipe(56484, V.WOTLK, Q.COMMON)
@@ -2428,7 +2428,7 @@ function addon:InitEngineering()
 	recipe:SetCraftedItem(44949, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("ENGINEERING_HEAD")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.HEALER, F.PALADIN)
-	recipe:AddTrainer(1702, 5174, 5518, 25277, 26907, 26955, 52651)
+	recipe:AddTrainer(1702, 5174, 5518, 11017, 25277, 26907, 26955, 52651)
 
 	-- High-powered Flashlight -- 63750
 	recipe = AddRecipe(63750, V.WOTLK, Q.COMMON)
@@ -2908,7 +2908,7 @@ function addon:InitEngineering()
 	recipe:SetCraftedItem(77538, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("ENGINEERING_HEAD")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.HEALER, F.PALADIN)
-	recipe:AddTrainer(52651, 55143)
+	recipe:AddTrainer(11017, 52651, 55143)
 
 	-- Reinforced Retinal Armor -- 127123
 	recipe = AddRecipe(127123, V.MOP, Q.COMMON)
@@ -2916,7 +2916,7 @@ function addon:InitEngineering()
 	recipe:SetCraftedItem(77539, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("ENGINEERING_HEAD")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS, F.TANK, F.DK, F.PALADIN, F.WARRIOR)
-	recipe:AddTrainer(52651, 55143)
+	recipe:AddTrainer(11017, 52651, 55143)
 
 	-- Locksmith's Powderkeg -- 127124
 	recipe = AddRecipe(127124, V.MOP, Q.COMMON)

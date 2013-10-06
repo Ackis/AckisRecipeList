@@ -125,7 +125,7 @@ function addon:InitJewelcrafting()
 	recipe:SetRecipeItem(20856, "BIND_ON_EQUIP")
 	recipe:SetCraftedItem(20856, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("JEWELCRAFTING_NECK")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS)
 	recipe:AddLimitedVendor(1286, 1, 3367, 1, 16624, 1, 17512, 1)
 
 	-- Moonsoul Crown -- 25321
@@ -5222,7 +5222,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(520, 520, 525, 530, 535)
 	recipe:SetRecipeItem(71821, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_BLUE")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS, F.CASTER)
 	recipe:AddVendor(56925, 57922)
 
 	-- Stormy Deepholm Iolite -- 101740
@@ -5238,7 +5238,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(520, 520, 525, 530, 535)
 	recipe:SetRecipeItem(71885, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_BLUE")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.HEALER, F.CASTER)
 	recipe:AddVendor(56925, 57922)
 
 	-- Solid Deepholm Iolite -- 101742
@@ -5254,7 +5254,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(520, 520, 525, 530, 535)
 	recipe:SetRecipeItem(71887, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_GREEN")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS, F.HEALER, F.CASTER)
 	recipe:AddVendor(56925, 57922)
 
 	-- Piercing Elven Peridot -- 101744
@@ -5262,7 +5262,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(520, 520, 525, 530, 535)
 	recipe:SetRecipeItem(71888, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_GREEN")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS, F.HEALER, F.CASTER)
 	recipe:AddVendor(56925, 57922)
 
 	-- Lightning Elven Peridot -- 101745
@@ -5270,7 +5270,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(520, 520, 525, 530, 535)
 	recipe:SetRecipeItem(71889, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_GREEN")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS, F.HEALER, F.CASTER)
 	recipe:AddVendor(56925, 57922)
 
 	-- Sensei's Elven Peridot -- 101746
@@ -5278,7 +5278,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(520, 520, 525, 530, 535)
 	recipe:SetRecipeItem(71890, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_GREEN")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS, F.CASTER)
 	recipe:AddVendor(56925, 57922)
 
 	-- Infused Elven Peridot -- 101747
@@ -5294,7 +5294,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(520, 520, 525, 530, 535)
 	recipe:SetRecipeItem(71892, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_GREEN")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.HEALER, F.CASTER)
 	recipe:AddVendor(56925, 57922)
 
 	-- Balanced Elven Peridot -- 101749
@@ -5302,7 +5302,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(520, 520, 525, 530, 535)
 	recipe:SetRecipeItem(71893, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_GREEN")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS, F.CASTER)
 	recipe:AddVendor(56925, 57922)
 
 	-- Vivid Elven Peridot -- 101750
@@ -5318,7 +5318,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(520, 520, 525, 530, 535)
 	recipe:SetRecipeItem(71895, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_GREEN")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.HEALER, F.CASTER)
 	recipe:AddVendor(56925, 57922)
 
 	-- Radiant Elven Peridot -- 101752
@@ -5326,7 +5326,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(520, 520, 525, 530, 535)
 	recipe:SetRecipeItem(71896, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_GREEN")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS, F.HEALER, F.CASTER)
 	recipe:AddVendor(56925, 57922)
 
 	-- Shattered Elven Peridot -- 101753
@@ -5334,7 +5334,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(520, 520, 525, 530, 535)
 	recipe:SetRecipeItem(71897, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_GREEN")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS, F.HEALER, F.CASTER)
 	recipe:AddVendor(56925, 57922)
 
 	-- Energized Elven Peridot -- 101754
@@ -5342,7 +5342,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(520, 520, 525, 530, 535)
 	recipe:SetRecipeItem(71898, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_GREEN")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS, F.HEALER, F.CASTER)
 	recipe:AddVendor(56925, 57922)
 
 	-- Jagged Elven Peridot -- 101755
@@ -5350,7 +5350,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(520, 520, 525, 530, 535)
 	recipe:SetRecipeItem(71899, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_GREEN")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS, F.HEALER, F.CASTER)
 	recipe:AddVendor(56925, 57922)
 
 	-- Regal Elven Peridot -- 101756
@@ -5358,7 +5358,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(520, 520, 525, 530, 535)
 	recipe:SetRecipeItem(71900, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_GREEN")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TANK)
 	recipe:AddVendor(56925, 57922)
 
 	-- Forceful Elven Peridot -- 101757
@@ -5366,7 +5366,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(520, 520, 525, 530, 535)
 	recipe:SetRecipeItem(71901, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_GREEN")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS, F.HEALER, F.CASTER)
 	recipe:AddVendor(56925, 57922)
 
 	-- Nimble Elven Peridot -- 101758
@@ -5374,7 +5374,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(520, 520, 525, 530, 535)
 	recipe:SetRecipeItem(71902, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_GREEN")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS, F.TANK, F.CASTER)
 	recipe:AddVendor(56925, 57922)
 
 	-- Puissant Elven Peridot -- 101759
@@ -5398,7 +5398,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(520, 520, 525, 530, 535)
 	recipe:SetRecipeItem(71905, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_ORANGE")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS, F.HEALER, F.CASTER)
 	recipe:AddVendor(56925, 57922)
 
 	-- Crafty Lava Coral -- 101762
@@ -5406,7 +5406,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(520, 520, 525, 530, 535)
 	recipe:SetRecipeItem(71906, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_ORANGE")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS, F.TANK, F.HEALER, F.CASTER)
 	recipe:AddVendor(56925, 57922)
 
 	-- Potent Lava Coral -- 101763
@@ -5414,7 +5414,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(520, 520, 525, 530, 535)
 	recipe:SetRecipeItem(71907, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_ORANGE")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS, F.HEALER, F.CASTER)
 	recipe:AddVendor(56925, 57922)
 
 	-- Inscribed Lava Coral -- 101764
@@ -5422,7 +5422,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(520, 520, 525, 530, 535)
 	recipe:SetRecipeItem(71908, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_ORANGE")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS, F.HEALER, F.CASTER)
 	recipe:AddVendor(56925, 57922)
 
 	-- Polished Lava Coral -- 101765
@@ -5430,7 +5430,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(520, 520, 525, 530, 535)
 	recipe:SetRecipeItem(71909, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_ORANGE")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS, F.TANK)
 	recipe:AddVendor(56925, 57922)
 
 	-- Resolute Lava Coral -- 101766
@@ -5438,7 +5438,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(520, 520, 525, 530, 535)
 	recipe:SetRecipeItem(71910, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_ORANGE")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS, F.TANK)
 	recipe:AddVendor(56925, 57922)
 
 	-- Stalwart Lava Coral -- 101767
@@ -5446,7 +5446,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(520, 520, 525, 530, 535)
 	recipe:SetRecipeItem(71911, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_ORANGE")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TANK)
 	recipe:AddVendor(56925, 57922)
 
 	-- Champion's Lava Coral -- 101768
@@ -5454,7 +5454,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(520, 520, 525, 530, 535)
 	recipe:SetRecipeItem(71912, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_ORANGE")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS, F.TANK)
 	recipe:AddVendor(56925, 57922)
 
 	-- Deft Lava Coral -- 101769
@@ -5462,7 +5462,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(520, 520, 525, 530, 535)
 	recipe:SetRecipeItem(71913, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_ORANGE")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS, F.HEALER, F.CASTER)
 	recipe:AddVendor(56925, 57922)
 
 	-- Wicked Lava Coral -- 101770
@@ -5470,7 +5470,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(520, 520, 525, 530, 535)
 	recipe:SetRecipeItem(71914, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_ORANGE")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS, F.TANK, F.HEALER, F.CASTER)
 	recipe:AddVendor(56925, 57922)
 
 	-- Reckless Lava Coral -- 101771
@@ -5478,7 +5478,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(520, 520, 525, 530, 535)
 	recipe:SetRecipeItem(71915, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_ORANGE")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS, F.HEALER, F.CASTER)
 	recipe:AddVendor(56925, 57922)
 
 	-- Fierce Lava Coral -- 101772
@@ -5486,7 +5486,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(520, 520, 525, 530, 535)
 	recipe:SetRecipeItem(71916, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_ORANGE")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS, F.HEALER, F.CASTER)
 	recipe:AddVendor(56925, 57922)
 
 	-- Adept Lava Coral -- 101773
@@ -5494,7 +5494,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(520, 520, 525, 530, 535)
 	recipe:SetRecipeItem(71917, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_ORANGE")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS)
 	recipe:AddVendor(56925, 57922)
 
 	-- Keen Lava Coral -- 101774
@@ -5502,7 +5502,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(520, 520, 525, 530, 535)
 	recipe:SetRecipeItem(71918, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_ORANGE")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS, F.TANK)
 	recipe:AddVendor(56925, 57922)
 
 	-- Artful Lava Coral -- 101775
@@ -5510,7 +5510,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(520, 520, 525, 530, 535)
 	recipe:SetRecipeItem(71919, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_ORANGE")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.HEALER, F.CASTER)
 	recipe:AddVendor(56925, 57922)
 
 	-- Fine Lava Coral -- 101776
@@ -5518,7 +5518,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(520, 520, 525, 530, 535)
 	recipe:SetRecipeItem(71920, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_ORANGE")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TANK)
 	recipe:AddVendor(56925, 57922)
 
 	-- Skillful Lava Coral -- 101777
@@ -5526,7 +5526,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(520, 520, 525, 530, 535)
 	recipe:SetRecipeItem(71921, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_ORANGE")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS)
 	recipe:AddVendor(56925, 57922)
 
 	-- Lucent Lava Coral -- 101778
@@ -5534,7 +5534,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(520, 520, 525, 530, 535)
 	recipe:SetRecipeItem(71922, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_ORANGE")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS)
 	recipe:AddVendor(56925, 57922)
 
 	-- Tenuous Lava Coral -- 101779
@@ -5542,7 +5542,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(520, 520, 525, 530, 535)
 	recipe:SetRecipeItem(71923, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_ORANGE")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS, F.TANK)
 	recipe:AddVendor(56925, 57922)
 
 	-- Willful Lava Coral -- 101780
@@ -5550,7 +5550,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(520, 520, 525, 530, 535)
 	recipe:SetRecipeItem(71924, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_ORANGE")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.HEALER, F.CASTER)
 	recipe:AddVendor(56925, 57922)
 
 	-- Splendid Lava Coral -- 101781
@@ -5558,7 +5558,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(520, 520, 525, 530, 535)
 	recipe:SetRecipeItem(71925, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_ORANGE")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TANK)
 	recipe:AddVendor(56925, 57922)
 
 	-- Resplendent Lava Coral -- 101782
@@ -5566,7 +5566,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(520, 520, 525, 530, 535)
 	recipe:SetRecipeItem(71926, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_ORANGE")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS)
 	recipe:AddVendor(56925, 57922)
 
 	-- Glinting Shadow Spinel -- 101783
@@ -5574,7 +5574,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(520, 520, 525, 530, 535)
 	recipe:SetRecipeItem(71927, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_PURPLE")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS, F.CASTER)
 	recipe:AddVendor(56925, 57922)
 
 	-- Accurate Shadow Spinel -- 101784
@@ -5591,7 +5591,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(520, 520, 525, 530, 535)
 	recipe:SetRecipeItem(71929, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_PURPLE")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS, F.HEALER, F.CASTER)
 	recipe:AddVendor(56925, 57922)
 
 	-- Retaliating Shadow Spinel -- 101786
@@ -5599,7 +5599,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(520, 520, 525, 530, 535)
 	recipe:SetRecipeItem(71930, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_PURPLE")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS, F.TANK, F.CASTER)
 	recipe:AddVendor(56925, 57922)
 
 	-- Etched Shadow Spinel -- 101787
@@ -5607,7 +5607,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(520, 520, 525, 530, 535)
 	recipe:SetRecipeItem(71931, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_PURPLE")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS, F.CASTER)
 	recipe:AddVendor(56925, 57922)
 
 	-- Mysterious Shadow Spinel -- 101788
@@ -5615,7 +5615,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(520, 520, 525, 530, 535)
 	recipe:SetRecipeItem(71932, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_PURPLE")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.HEALER, F.CASTER)
 	recipe:AddVendor(56925, 57922)
 
 	-- Purified Shadow Spinel -- 101789
@@ -5623,7 +5623,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(520, 520, 525, 530, 535)
 	recipe:SetRecipeItem(71933, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_PURPLE")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.HEALER, F.CASTER)
 	recipe:AddVendor(56925, 57922)
 
 	-- Shifting Shadow Spinel -- 101790
@@ -5631,7 +5631,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(520, 520, 525, 530, 535)
 	recipe:SetRecipeItem(71934, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_PURPLE")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS)
 	recipe:AddVendor(56925, 57922)
 
 	-- Guardian's Shadow Spinel -- 101791
@@ -5639,7 +5639,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(520, 520, 525, 530, 535)
 	recipe:SetRecipeItem(71935, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_PURPLE")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS, F.TANK)
 	recipe:AddVendor(56925, 57922)
 
 	-- Timeless Shadow Spinel -- 101792
@@ -5647,7 +5647,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(520, 520, 525, 530, 535)
 	recipe:SetRecipeItem(71936, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_PURPLE")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.HEALER, F.CASTER)
 	recipe:AddVendor(56925, 57922)
 
 	-- Defender's Shadow Spinel -- 101793
@@ -5655,7 +5655,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(520, 520, 525, 530, 535)
 	recipe:SetRecipeItem(71937, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_PURPLE")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TANK)
 	recipe:AddVendor(56925, 57922)
 
 	-- Sovereign Shadow Spinel -- 101794
@@ -5663,7 +5663,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(520, 520, 525, 530, 535)
 	recipe:SetRecipeItem(71938, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_PURPLE")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS)
 	recipe:AddVendor(56925, 57922)
 
 	-- Delicate Queen's Garnet -- 101795
@@ -5671,7 +5671,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(520, 520, 525, 530, 535)
 	recipe:SetRecipeItem(71939, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_RED")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS)
 	recipe:AddVendor(56925, 57922)
 
 	-- Precise Queen's Garnet -- 101796
@@ -5679,7 +5679,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(520, 520, 525, 530, 535)
 	recipe:SetRecipeItem(71940, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_RED")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS, F.TANK)
 	recipe:AddVendor(56925, 57922)
 
 	-- Brilliant Queen's Garnet -- 101797
@@ -5687,7 +5687,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(520, 520, 525, 530, 535)
 	recipe:SetRecipeItem(71941, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_RED")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.HEALER, F.CASTER)
 	recipe:AddVendor(56925, 57922)
 
 	-- Flashing Queen's Garnet -- 101798
@@ -5695,7 +5695,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(520, 520, 525, 530, 535)
 	recipe:SetRecipeItem(71942, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_RED")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TANK)
 	recipe:AddVendor(56925, 57922)
 
 	-- Bold Queen's Garnet -- 101799
@@ -5703,7 +5703,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(520, 520, 525, 530, 535)
 	recipe:SetRecipeItem(71943, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_RED")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS)
 	recipe:AddVendor(56925, 57922)
 
 	-- Smooth Lightstone -- 101800
@@ -5711,7 +5711,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(520, 520, 525, 530, 535)
 	recipe:SetRecipeItem(71944, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_YELLOW")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS, F.HEALER, F.CASTER)
 	recipe:AddVendor(56925, 57922)
 
 	-- Subtle Lightstone -- 101801
@@ -5719,7 +5719,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(520, 520, 525, 530, 535)
 	recipe:SetRecipeItem(71945, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_YELLOW")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TANK)
 	recipe:AddVendor(56925, 57922)
 
 	-- Quick Lightstone -- 101802
@@ -5727,7 +5727,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(520, 520, 525, 530, 535)
 	recipe:SetRecipeItem(71946, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_YELLOW")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS, F.HEALER, F.CASTER)
 	recipe:AddVendor(56925, 57922)
 
 	-- Fractured Lightstone -- 101803
@@ -6678,7 +6678,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(575, 575, 600, 602, 605)
 	recipe:SetRecipeItem(83811, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_META")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS)
 	recipe:AddWorldDrop(Z.PANDARIA)
 
 	-- Austere Primal Diamond -- 107754
@@ -6694,7 +6694,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(575, 575, 600, 602, 605)
 	recipe:SetRecipeItem(83825, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_META")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.HEALER, F.CASTER)
 	recipe:AddWorldDrop(Z.PANDARIA)
 
 	-- Destructive Primal Diamond -- 107757
@@ -6702,7 +6702,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(575, 575, 600, 602, 605)
 	recipe:SetRecipeItem(83840, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_META")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS, F.HEALER, F.CASTER)
 	recipe:AddWorldDrop(Z.PANDARIA)
 
 	-- Effulgent Primal Diamond -- 107758
@@ -6718,7 +6718,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(575, 575, 600, 602, 605)
 	recipe:SetRecipeItem(83844, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_META")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.HEALER, F.CASTER)
 	recipe:AddWorldDrop(Z.PANDARIA)
 
 	-- Enigmatic Primal Diamond -- 107760
@@ -6726,7 +6726,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(575, 575, 600, 602, 605)
 	recipe:SetRecipeItem(83848, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_META")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS, F.HEALER, F.CASTER)
 	recipe:AddWorldDrop(Z.PANDARIA)
 
 	-- Eternal Primal Diamond -- 107762
@@ -6734,7 +6734,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(575, 575, 600, 602, 605)
 	recipe:SetRecipeItem(83851, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_META")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TANK)
 	recipe:AddWorldDrop(Z.PANDARIA)
 
 	-- Fleet Primal Diamond -- 107763
@@ -6750,7 +6750,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(575, 575, 600, 602, 605)
 	recipe:SetRecipeItem(83862, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_META")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.HEALER, F.CASTER)
 	recipe:AddWorldDrop(Z.PANDARIA)
 
 	-- Impassive Primal Diamond -- 107765
@@ -6758,7 +6758,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(575, 575, 600, 602, 605)
 	recipe:SetRecipeItem(83872, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_META")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS, F.HEALER, F.CASTER)
 	recipe:AddWorldDrop(Z.PANDARIA)
 
 	-- Powerful Primal Diamond -- 107766
@@ -6774,7 +6774,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(575, 575, 600, 602, 605)
 	recipe:SetRecipeItem(83925, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_META")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS)
 	recipe:AddWorldDrop(Z.PANDARIA)
 
 	-- Revitalizing Primal Diamond -- 107768
@@ -6782,7 +6782,7 @@ function addon:InitJewelcrafting()
 	recipe:SetSkillLevels(575, 575, 600, 602, 605)
 	recipe:SetRecipeItem(83926, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("JEWELCRAFTING_GEM_META")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.HEALER, F.CASTER)
 	recipe:AddWorldDrop(Z.PANDARIA)
 
 	-- Jeweled Onyx Panther -- 120045
@@ -6818,7 +6818,7 @@ function addon:InitJewelcrafting()
 	recipe:SetRecipeItem(83930, "BIND_ON_EQUIP")
 	recipe:SetCraftedItem(83089, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("JEWELCRAFTING_MOUNT")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.CLOUDSERPENT)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS, F.HEALER, F.CASTER, F.CLOUDSERPENT)
 	recipe:AddRepVendor(FAC.CLOUDSERPENT, REP.HONORED, 58414)
 
 	-- Jade Panther -- 121844

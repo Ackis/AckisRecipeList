@@ -3620,7 +3620,7 @@ function addon:InitTailoring()
 
 	-- Dream of Skywall -- 75141
 	recipe = AddRecipe(75141, V.CATA, Q.COMMON)
-	recipe:SetSkillLevels(525, 525, 535, 540, 545)
+	recipe:SetSkillLevels(515, 515, 525, 530, 535)
 	recipe:SetCraftedItem(54440, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("TAILORING_MATERIALS")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
@@ -3628,7 +3628,7 @@ function addon:InitTailoring()
 
 	-- Dream of Deepholm -- 75142
 	recipe = AddRecipe(75142, V.CATA, Q.COMMON)
-	recipe:SetSkillLevels(525, 525, 535, 540, 545)
+	recipe:SetSkillLevels(505, 505, 515, 520, 525)
 	recipe:SetCraftedItem(54440, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("TAILORING_MATERIALS")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
@@ -3636,7 +3636,7 @@ function addon:InitTailoring()
 
 	-- Dream of Hyjal -- 75144
 	recipe = AddRecipe(75144, V.CATA, Q.COMMON)
-	recipe:SetSkillLevels(525, 525, 535, 540, 545)
+	recipe:SetSkillLevels(500, 500, 510, 515, 520)
 	recipe:SetCraftedItem(54440, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("TAILORING_MATERIALS")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
@@ -3644,7 +3644,7 @@ function addon:InitTailoring()
 
 	-- Dream of Ragnaros -- 75145
 	recipe = AddRecipe(75145, V.CATA, Q.COMMON)
-	recipe:SetSkillLevels(525, 525, 535, 540, 545)
+	recipe:SetSkillLevels(510, 510, 520, 525, 530)
 	recipe:SetCraftedItem(54440, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("TAILORING_MATERIALS")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
@@ -3652,7 +3652,7 @@ function addon:InitTailoring()
 
 	-- Dream of Azshara -- 75146
 	recipe = AddRecipe(75146, V.CATA, Q.COMMON)
-	recipe:SetSkillLevels(525, 525, 535, 540, 545)
+	recipe:SetSkillLevels(500, 500, 510, 515, 520)
 	recipe:SetCraftedItem(54440, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("TAILORING_MATERIALS")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)

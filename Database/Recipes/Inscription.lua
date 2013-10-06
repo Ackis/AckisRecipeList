@@ -2846,7 +2846,7 @@ function addon:InitInscription()
 	recipe:SetRecipeItem(46108, "BIND_ON_PICKUP")
 	recipe:SetCraftedItem(46108, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("INSCRIPTION_OFF_HAND")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS, F.HEALER, F.CASTER)
 	recipe:AddMobDrop(26679, 26708, 27546, 27676)
 
 	-- Twilight Tome -- 64053

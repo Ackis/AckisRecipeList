@@ -4208,7 +4208,7 @@ function addon:InitLeatherworking()
 	recipe:SetRecipeItem(45095, "BIND_ON_EQUIP")
 	recipe:SetCraftedItem(45095, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("LEATHERWORKING_FEET")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.DPS, F.HEALER, F.CASTER)
 	recipe:AddWorldDrop(Z.ULDUAR)
 
 	-- Blue Belt of Chaos -- 63196
@@ -4217,7 +4217,7 @@ function addon:InitLeatherworking()
 	recipe:SetRecipeItem(45096, "BIND_ON_EQUIP")
 	recipe:SetCraftedItem(45096, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("LEATHERWORKING_WAIST")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.DPS, F.HEALER, F.CASTER)
 	recipe:AddWorldDrop(Z.ULDUAR)
 
 	-- Lightning Grounded Boots -- 63197
@@ -4226,7 +4226,7 @@ function addon:InitLeatherworking()
 	recipe:SetRecipeItem(45097, "BIND_ON_EQUIP")
 	recipe:SetCraftedItem(45097, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("LEATHERWORKING_FEET")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.DPS, F.HEALER, F.CASTER)
 	recipe:AddWorldDrop(Z.ULDUAR)
 
 	-- Death-warmed Belt -- 63198
@@ -4235,7 +4235,7 @@ function addon:InitLeatherworking()
 	recipe:SetRecipeItem(45098, "BIND_ON_EQUIP")
 	recipe:SetCraftedItem(45098, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("LEATHERWORKING_WAIST")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.DPS, F.HEALER, F.CASTER)
 	recipe:AddWorldDrop(Z.ULDUAR)
 
 	-- Footpads of Silence -- 63199
@@ -4244,7 +4244,7 @@ function addon:InitLeatherworking()
 	recipe:SetRecipeItem(45099, "BIND_ON_EQUIP")
 	recipe:SetCraftedItem(45099, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("LEATHERWORKING_FEET")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.DPS, F.HEALER, F.CASTER)
 	recipe:AddWorldDrop(Z.ULDUAR)
 
 	-- Belt of Arctic Life -- 63200
@@ -4253,7 +4253,7 @@ function addon:InitLeatherworking()
 	recipe:SetRecipeItem(45100, "BIND_ON_EQUIP")
 	recipe:SetCraftedItem(45100, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("LEATHERWORKING_WAIST")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.DPS, F.HEALER, F.CASTER)
 	recipe:AddWorldDrop(Z.ULDUAR)
 
 	-- Boots of Wintry Endurance -- 63201
@@ -4262,7 +4262,7 @@ function addon:InitLeatherworking()
 	recipe:SetRecipeItem(45101, "BIND_ON_EQUIP")
 	recipe:SetCraftedItem(45101, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("LEATHERWORKING_FEET")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.DPS, F.HEALER, F.CASTER)
 	recipe:AddWorldDrop(Z.ULDUAR)
 
 	-- Borean Leather -- 64661
@@ -6749,7 +6749,7 @@ function addon:InitLeatherworking()
 	recipe:SetCraftedItem(72163, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("LEATHERWORKING_MATERIALS")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddTrainer(3007, 3069, 5127)
+	recipe:AddTrainer(3007, 3069, 3365, 5127)
 	recipe:AddWorldDrop(Z.PANDARIA)
 
 	-- Magnificence of Scales -- 140041
@@ -6759,7 +6759,7 @@ function addon:InitLeatherworking()
 	recipe:SetCraftedItem(72163, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("LEATHERWORKING_MATERIALS")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddTrainer(3007, 3069, 5127)
+	recipe:AddTrainer(3007, 3069, 3365, 5127)
 	recipe:AddWorldDrop(Z.PANDARIA)
 
 	-- Magnificent Hide Pack -- 140185

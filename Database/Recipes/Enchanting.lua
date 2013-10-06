@@ -701,7 +701,7 @@ function addon:InitEnchanting()
 	recipe:SetRecipeItem(45050, "BIND_ON_PICKUP")
 	recipe:SetCraftedItem(45050, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("ENCHANTING_MISC")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.INSTANCE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.INSTANCE, F.DPS, F.HEALER, F.CASTER)
 	recipe:AddMobDrop(9025)
 
 	-- Enchanted Thorium Bar -- 17180
@@ -1546,7 +1546,7 @@ function addon:InitEnchanting()
 
 	-- Nexus Transformation -- 42613
 	recipe = AddRecipe(42613, V.TBC, Q.COMMON)
-	recipe:SetSkillLevels(300, 300, 310, 315, 320)
+	recipe:SetSkillLevels(335, 335, 345, 350, 355)
 	recipe:SetCraftedItem(22448, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("ENCHANTING_MISC")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)

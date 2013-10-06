@@ -394,6 +394,7 @@ function addon:InitVendor()
 	AddVendor(46359,	L["Punra"],				Z.ORGRIMMAR,			45.0,	76.8,	"Horde") -- COMPLETELY UPDATED
 	AddVendor(46572,	L["Goram"],				Z.ORGRIMMAR,			48.2,	75.6,	"Horde")
 	AddVendor(46602,	L["Shay Pressler"],			Z.STORMWIND_CITY,		64.6,	76.8,	"Alliance") --COMPLETELY UPDATED
+	AddVendor(46708,	L["Suja"],				Z.ORGRIMMAR,			56.5,	61.2,	"Horde") --COMPLETELY UPDATED
 	AddVendor(48060,	L["\"Chef\" Overheat"],			Z.BADLANDS,			65.1,	39.1,	"Neutral") -- COMPLETELY UPDATED
 	AddVendor(49701,	L["Bario Matalli"],			Z.STORMWIND_CITY, 		50.4,	71.9,	"Alliance") -- COMPLETELY UPDATED
 	AddVendor(49703,	L["Casandra Downs"],			Z.TWILIGHT_HIGHLANDS,		78.6,	76.2,	"Alliance")
