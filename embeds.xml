@@ -17,7 +17,6 @@
     <Include file="libs\AceTimer-3.0\AceTimer-3.0.xml"/>
 
     <!--Libraries-->
-    <Include file="libs\LibBabble-Faction-3.0\lib.xml"/>
     <Include file="libs\LibBabble-Boss-3.0\lib.xml"/>
     <Include file="libs\LibAboutPanel\lib.xml"/>
     <Include file="libs\LibSharedMedia-3.0\lib.xml"/>
