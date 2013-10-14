@@ -42,6 +42,7 @@ end
 
 function addon:InitTrainer()
 
+	private:AddTrainer(45286, "KTC Train-a-Tron Deluxe", Z.THE_LOST_ISLES, 53.0, 35.6, "Horde") -- NOT TOUCHED
 	private:AddTrainer(47384, "Lien Farner", Z.ELWYNN_FOREST, 41.95, 67.16, "Alliance") -- COMPLETELY UPDATED
 	private:AddTrainer(47396, "Wembil Taskwidget", Z.DUN_MOROGH, 53.8, 52.0, "Alliance") -- COMPLETELY UPDATED
 	private:AddTrainer(47400, "Nedric Sallow", Z.TIRISFAL_GLADES, 61.1, 51.1, "Horde") -- COMPLETELY UPDATED
@@ -50,6 +51,8 @@ function addon:InitTrainer()
 	private:AddTrainer(47420, "Iranis Shadebloom", Z.TELDRASSIL, 56.0, 52.2, "Alliance") -- COMPLETELY UPDATED
 	private:AddTrainer(47431, "Valn", Z.AZUREMYST_ISLE, 48.7, 52.4, "Alliance") -- COMPLETELY UPDATED
 	private:AddTrainer(48619, "Therisa Sallow", Z.TELDRASSIL, 44.6, 53.1, "Horde") -- COMPLETELY UPDATED
+	private:AddTrainer(49885, "KTC Train-a-Tron Deluxe", Z.AZSHARA, 57.0, 50.6, "Horde") -- NOT TOUCHED
+	private:AddTrainer(50247, "Jack \"All-Trades\" Derrington", Z.GILNEAS, 41.6, 37.6, "Alliance") -- NOT TOUCHED
 	private:AddTrainer(57620, "Whittler Dewei", Z.THE_WANDERING_ISLE, 63., 41.4, "Neutral") -- COMPLETELY UPDATED
 	private:AddTrainer(65043, "Elder Oakpaw", Z.THE_WANDERING_ISLE, 50.6, 58.6, "Neutral") -- COMPLETELY UPDATED
 	
