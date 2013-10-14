@@ -2908,7 +2908,7 @@ function addon:InitEngineering()
 	recipe:SetCraftedItem(77538, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("ENGINEERING_HEAD")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.HEALER, F.PALADIN)
-	recipe:AddTrainer(11017, 52651, 55143)
+	recipe:AddTrainer(5518, 11017, 52651, 55143)
 
 	-- Reinforced Retinal Armor -- 127123
 	recipe = AddRecipe(127123, V.MOP, Q.COMMON)
@@ -2916,7 +2916,7 @@ function addon:InitEngineering()
 	recipe:SetCraftedItem(77539, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("ENGINEERING_HEAD")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS, F.TANK, F.DK, F.PALADIN, F.WARRIOR)
-	recipe:AddTrainer(11017, 52651, 55143)
+	recipe:AddTrainer(5518, 11017, 52651, 55143)
 
 	-- Locksmith's Powderkeg -- 127124
 	recipe = AddRecipe(127124, V.MOP, Q.COMMON)

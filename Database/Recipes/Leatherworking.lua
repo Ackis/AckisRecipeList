@@ -5210,7 +5210,7 @@ function addon:InitLeatherworking()
 	recipe:SetCraftedItem(75077, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("LEATHERWORKING_BACK")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddTrainer(3007, 3069, 3365, 4212, 5127, 26911, 26998, 28700, 29507, 29508, 29509, 33612, 33635, 65121)
+	recipe:AddTrainer(3007, 3069, 3365, 4212, 5127, 5564, 26911, 26998, 28700, 29507, 29508, 29509, 33612, 33635, 65121)
 
 	-- Vicious Fur Cloak -- 99536
 	recipe = AddRecipe(99536, V.CATA, Q.COMMON)
@@ -5218,7 +5218,7 @@ function addon:InitLeatherworking()
 	recipe:SetCraftedItem(75076, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("LEATHERWORKING_BACK")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddTrainer(3007, 3069, 3365, 4212, 5127, 26911, 26998, 28700, 29507, 29508, 29509, 33612, 33635, 65121)
+	recipe:AddTrainer(3007, 3069, 3365, 4212, 5127, 5564, 26911, 26998, 28700, 29507, 29508, 29509, 33612, 33635, 65121)
 
 	-- Royal Scribe's Satchel -- 100583
 	recipe = AddRecipe(100583, V.CATA, Q.RARE)
@@ -6749,7 +6749,7 @@ function addon:InitLeatherworking()
 	recipe:SetCraftedItem(72163, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("LEATHERWORKING_MATERIALS")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddTrainer(3007, 3069, 3365, 4212, 5127)
+	recipe:AddTrainer(3007, 3069, 3365, 4212, 5127, 5564)
 	recipe:AddWorldDrop(Z.PANDARIA)
 
 	-- Magnificence of Scales -- 140041
@@ -6759,7 +6759,7 @@ function addon:InitLeatherworking()
 	recipe:SetCraftedItem(72163, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("LEATHERWORKING_MATERIALS")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddTrainer(3007, 3069, 3365, 4212, 5127)
+	recipe:AddTrainer(3007, 3069, 3365, 4212, 5127, 5564)
 	recipe:AddWorldDrop(Z.PANDARIA)
 
 	-- Magnificent Hide Pack -- 140185
