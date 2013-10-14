@@ -21,7 +21,7 @@ function private:InitializeAlchemyTrainers()
 	self:AddTrainer(3347, "Yelmak", Z.ORGRIMMAR, 55.68, 44.77, "Horde")
 	self:AddTrainer(3603, "Cyndra Kindwhisper", Z.TELDRASSIL, 57.6, 60.7, "Alliance")
 	self:AddTrainer(3964, "Kylanna", Z.ASHENVALE, 50.8, 67.1, "Alliance")
-	self:AddTrainer(4160, "Ainethil", Z.DARNASSUS, 53.9, 48.5, "Alliance") -- COMPLETELY UPDATED
+	self:AddTrainer(4160, "Ainethil", Z.DARNASSUS, 53.9, 38.5, "Alliance") -- COMPLETELY UPDATED
 	self:AddTrainer(4611, "Doctor Herbert Halsey", Z.UNDERCITY, 47.7, 73, "Horde")
 	self:AddTrainer(4900, "Alchemist Narett", Z.DUSTWALLOW_MARSH, 64, 47.7, "Alliance")
 	self:AddTrainer(5177, "Tally Berryfizz", Z.IRONFORGE, 66.6, 55.2, "Alliance")

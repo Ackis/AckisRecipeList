@@ -701,7 +701,7 @@ function addon:InitEnchanting()
 	recipe:SetRecipeItem(45050, "BIND_ON_PICKUP")
 	recipe:SetCraftedItem(45050, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("ENCHANTING_MISC")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.INSTANCE, F.DPS, F.HEALER, F.CASTER)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.INSTANCE)
 	recipe:AddMobDrop(9025)
 
 	-- Enchanted Thorium Bar -- 17180
@@ -1546,7 +1546,7 @@ function addon:InitEnchanting()
 
 	-- Nexus Transformation -- 42613
 	recipe = AddRecipe(42613, V.TBC, Q.COMMON)
-	recipe:SetSkillLevels(335, 335, 345, 350, 355)
+	recipe:SetSkillLevels(300, 300, 310, 315, 320)
 	recipe:SetCraftedItem(22448, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("ENCHANTING_MISC")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
@@ -2125,7 +2125,7 @@ function addon:InitEnchanting()
 	recipe:SetCraftedItem(89738, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("ENCHANTING_MISC")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddTrainer(3011, 3345, 5695, 16725, 18773, 26906, 26954, 26980, 28693, 33610, 33633, 65127)
+	recipe:AddTrainer(3011, 3345, 4213, 5695, 16725, 18773, 26906, 26954, 26980, 28693, 33610, 33633, 65127)
 
 	-- Enchant Gloves - Angler -- 71692
 	recipe = AddRecipe(71692, V.WOTLK, Q.UNCOMMON)
@@ -2542,7 +2542,7 @@ function addon:InitEnchanting()
 	recipe:SetSkillLevels(515, 515, 525, 530, 535)
 	recipe:SetItemFilterType("ENCHANTING_MISC")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddTrainer(1317, 3011, 3345, 5695, 65127)
+	recipe:AddTrainer(1317, 3011, 3345, 4213, 5695, 65127)
 
 	-------------------------------------------------------------------------------
 	-- Mists of Pandaria.

@@ -1668,7 +1668,7 @@ function addon:InitEngineering()
 	recipe:SetRecipeItem(35311, "BIND_ON_PICKUP")
 	recipe:SetCraftedItem(33093, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("ENGINEERING_CREATED_ITEM")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.HEALER, F.CASTER)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE)
 	recipe:AddMobDrop(24664)
 
 	-- Rocket Boots Xtreme -- 30556
@@ -2222,7 +2222,7 @@ function addon:InitEngineering()
 	recipe:SetCraftedItem(41119, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("ENGINEERING_CREATED_ITEM")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddTrainer(5174, 5518, 11017, 16726, 17222, 25277, 26907, 26955, 26991, 28697, 33586, 52651, 55143)
+	recipe:AddTrainer(5174, 5518, 11017, 16726, 17222, 25277, 26907, 26955, 26991, 28697, 33586, 52636, 52651, 55143)
 
 	-- Gnomish Lightning Generator -- 56469
 	recipe = AddRecipe(56469, V.WOTLK, Q.COMMON)
@@ -2404,7 +2404,7 @@ function addon:InitEngineering()
 	recipe:SetCraftedItem(44742, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("ENGINEERING_HEAD")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DRUID, F.ROGUE)
-	recipe:AddTrainer(1702, 5174, 5518, 11017, 16726, 17222, 25277, 26907, 26955, 26991, 28697, 33586, 45545, 52651, 55143)
+	recipe:AddTrainer(1702, 5174, 5518, 11017, 16726, 17222, 25277, 26907, 26955, 26991, 28697, 33586, 45545, 52636, 52651, 55143)
 
 	-- Mechanized Snow Goggles -- 61482
 	recipe = AddRecipe(61482, V.WOTLK, Q.COMMON)
@@ -2412,7 +2412,7 @@ function addon:InitEngineering()
 	recipe:SetCraftedItem(44742, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("ENGINEERING_HEAD")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.HUNTER, F.SHAMAN)
-	recipe:AddTrainer(1702, 5174, 5518, 11017, 16726, 17222, 25277, 26907, 26955, 26991, 28697, 33586, 45545, 52651, 55143)
+	recipe:AddTrainer(1702, 5174, 5518, 11017, 16726, 17222, 25277, 26907, 26955, 26991, 28697, 33586, 45545, 52636, 52651, 55143)
 
 	-- Mechanized Snow Goggles -- 61483
 	recipe = AddRecipe(61483, V.WOTLK, Q.COMMON)
@@ -2420,7 +2420,7 @@ function addon:InitEngineering()
 	recipe:SetCraftedItem(44742, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("ENGINEERING_HEAD")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DK, F.PALADIN, F.WARRIOR)
-	recipe:AddTrainer(1702, 5174, 5518, 11017, 16726, 17222, 25277, 26907, 26955, 26991, 28697, 33586, 45545, 52651, 55143)
+	recipe:AddTrainer(1702, 5174, 5518, 11017, 16726, 17222, 25277, 26907, 26955, 26991, 28697, 33586, 45545, 52636, 52651, 55143)
 
 	-- Unbreakable Healing Amplifiers -- 62271
 	recipe = AddRecipe(62271, V.WOTLK, Q.COMMON)
@@ -2542,7 +2542,7 @@ function addon:InitEngineering()
 	recipe:SetSkillLevels(550, 550, 560, 565, 570)
 	recipe:SetItemFilterType("ENGINEERING_ITEM_ENHANCEMENT")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddTrainer(5174, 5518, 11017, 16726, 17222, 52651, 55143)
+	recipe:AddTrainer(5174, 5518, 11017, 16726, 17222, 52636, 52651, 55143)
 	recipe:AddDiscovery("ENG_DISC")
 
 	-- Quickflip Deflection Plates -- 82177
@@ -2801,28 +2801,28 @@ function addon:InitEngineering()
 	recipe:SetSkillLevels(550, 550, 560, 565, 570)
 	recipe:SetItemFilterType("ENGINEERING_ITEM_ENHANCEMENT")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TANK)
-	recipe:AddTrainer(5174, 5518, 11017, 16726, 17222, 52651, 55143)
+	recipe:AddTrainer(5174, 5518, 11017, 16726, 17222, 52636, 52651, 55143)
 
 	-- Incendiary Fireworks Launcher -- 109077
 	recipe = AddRecipe(109077, V.MOP, Q.COMMON)
 	recipe:SetSkillLevels(550, 550, 560, 565, 570)
 	recipe:SetItemFilterType("ENGINEERING_ITEM_ENHANCEMENT")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddTrainer(5174, 5518, 11017, 16726, 17222, 52651, 55143)
+	recipe:AddTrainer(5174, 5518, 11017, 16726, 17222, 52636, 52651, 55143)
 
 	-- Watergliding Jets -- 109099
 	recipe = AddRecipe(109099, V.MOP, Q.COMMON)
 	recipe:SetSkillLevels(550, 550, 560, 565, 570)
 	recipe:SetItemFilterType("ENGINEERING_ITEM_ENHANCEMENT")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddTrainer(5174, 5518, 11017, 16726, 17222, 52651, 55143)
+	recipe:AddTrainer(5174, 5518, 11017, 16726, 17222, 52636, 52651, 55143)
 
 	-- Goblin Glider -- 126392
 	recipe = AddRecipe(126392, V.MOP, Q.COMMON)
 	recipe:SetSkillLevels(550, 550, 560, 565, 570)
 	recipe:SetItemFilterType("ENGINEERING_ITEM_ENHANCEMENT")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddTrainer(5174, 5518, 11017, 16726, 17222, 52651, 55143)
+	recipe:AddTrainer(5174, 5518, 11017, 16726, 17222, 52636, 52651, 55143)
 
 	-- Synapse Springs -- 126731
 	recipe = AddRecipe(126731, V.MOP, Q.COMMON)
@@ -2830,7 +2830,7 @@ function addon:InitEngineering()
 	recipe:SetPreviousRankID(82175)
 	recipe:SetItemFilterType("ENGINEERING_ITEM_ENHANCEMENT")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddTrainer(5174, 5518, 11017, 16726, 17222, 52651, 55143)
+	recipe:AddTrainer(5174, 5518, 11017, 16726, 17222, 52636, 52651, 55143)
 	recipe:AddDiscovery("ENG_DISC")
 
 	-- Ghost Iron Bolts -- 127113
@@ -2838,14 +2838,14 @@ function addon:InitEngineering()
 	recipe:SetSkillLevels(500, 500, 510, 515, 520)
 	recipe:SetItemFilterType("ENGINEERING_MATERIALS")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddTrainer(5174, 5518, 11017, 16726, 17222, 52651, 55143)
+	recipe:AddTrainer(5174, 5518, 11017, 16726, 17222, 52636, 52651, 55143)
 
 	-- High-Explosive Gunpowder -- 127114
 	recipe = AddRecipe(127114, V.MOP, Q.COMMON)
 	recipe:SetSkillLevels(500, 500, 510, 515, 520)
 	recipe:SetItemFilterType("ENGINEERING_MATERIALS")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddTrainer(5174, 5518, 11017, 16726, 17222, 52651, 55143)
+	recipe:AddTrainer(5174, 5518, 11017, 16726, 17222, 52636, 52651, 55143)
 
 	-- Lord Blastington's Scope of Doom -- 127115
 	recipe = AddRecipe(127115, V.MOP, Q.COMMON)
@@ -2853,14 +2853,14 @@ function addon:InitEngineering()
 	recipe:SetCraftedItem(77529, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("ENGINEERING_ITEM_ENHANCEMENT")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS)
-	recipe:AddTrainer(5174, 5518, 11017, 16726, 17222, 52651, 55143)
+	recipe:AddTrainer(5174, 5518, 11017, 16726, 17222, 52636, 52651, 55143)
 
 	-- Mirror Scope -- 127116
 	recipe = AddRecipe(127116, V.MOP, Q.COMMON)
 	recipe:SetSkillLevels(525, 525, 535, 540, 545)
 	recipe:SetItemFilterType("ENGINEERING_ITEM_ENHANCEMENT")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddTrainer(5174, 5518, 11017, 16726, 17222, 52651, 55143)
+	recipe:AddTrainer(5174, 5518, 11017, 16726, 17222, 52636, 52651, 55143)
 
 	-- Lightweight Retinal Armor -- 127117
 	recipe = AddRecipe(127117, V.MOP, Q.COMMON)
@@ -2868,7 +2868,7 @@ function addon:InitEngineering()
 	recipe:SetCraftedItem(77533, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("ENGINEERING_HEAD")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS, F.HEALER, F.MAGE, F.PRIEST, F.WARLOCK)
-	recipe:AddTrainer(5174, 5518, 11017, 16726, 17222, 55143)
+	recipe:AddTrainer(5174, 5518, 11017, 16726, 17222, 52636, 55143)
 
 	-- Agile Retinal Armor -- 127118
 	recipe = AddRecipe(127118, V.MOP, Q.COMMON)
@@ -2923,7 +2923,7 @@ function addon:InitEngineering()
 	recipe:SetSkillLevels(500, 500, 510, 515, 520)
 	recipe:SetItemFilterType("ENGINEERING_CREATED_ITEM")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddTrainer(5174, 5518, 11017, 16726, 17222, 52651, 55143)
+	recipe:AddTrainer(5174, 5518, 11017, 16726, 17222, 52636, 52651, 55143)
 
 	-- G91 Landshark -- 127127
 	recipe = AddRecipe(127127, V.MOP, Q.COMMON)
@@ -2931,7 +2931,7 @@ function addon:InitEngineering()
 	recipe:SetCraftedItem(77589, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("ENGINEERING_CREATED_ITEM")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddTrainer(5174, 5518, 11017, 16726, 17222, 52651, 55143)
+	recipe:AddTrainer(5174, 5518, 11017, 16726, 17222, 52636, 52651, 55143)
 
 	-- Goblin Dragon Gun, Mark II -- 127128
 	recipe = AddRecipe(127128, V.MOP, Q.COMMON)
@@ -2939,7 +2939,7 @@ function addon:InitEngineering()
 	recipe:SetCraftedItem(86607, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("ENGINEERING_CREATED_ITEM")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddTrainer(5174, 5518, 11017, 16726, 17222, 52651, 55143)
+	recipe:AddTrainer(5174, 5518, 11017, 16726, 17222, 52636, 52651, 55143)
 
 	-- Blingtron 4000 -- 127129
 	recipe = AddRecipe(127129, V.MOP, Q.COMMON)
@@ -2947,7 +2947,7 @@ function addon:InitEngineering()
 	recipe:SetCraftedItem(87214, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("ENGINEERING_CREATED_ITEM")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddTrainer(5174, 5518, 11017, 16726, 17222, 52651, 55143)
+	recipe:AddTrainer(5174, 5518, 11017, 16726, 17222, 52636, 52651, 55143)
 
 	-- Mist-Piercing Goggles -- 127130
 	recipe = AddRecipe(127130, V.MOP, Q.COMMON)
@@ -2955,7 +2955,7 @@ function addon:InitEngineering()
 	recipe:SetCraftedItem(87213, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("ENGINEERING_HEAD")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddTrainer(5174, 5518, 11017, 16726, 17222, 52651, 55143)
+	recipe:AddTrainer(5174, 5518, 11017, 16726, 17222, 52636, 52651, 55143)
 
 	-- Thermal Anvil -- 127131
 	recipe = AddRecipe(127131, V.MOP, Q.COMMON)
@@ -2963,7 +2963,7 @@ function addon:InitEngineering()
 	recipe:SetCraftedItem(87216, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("ENGINEERING_CREATED_ITEM")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddTrainer(5174, 5518, 11017, 16726, 17222, 52651, 55143)
+	recipe:AddTrainer(5174, 5518, 11017, 16726, 17222, 52636, 52651, 55143)
 
 	-- Wormhole Generator: Pandaria -- 127132
 	recipe = AddRecipe(127132, V.MOP, Q.COMMON)
@@ -2971,7 +2971,7 @@ function addon:InitEngineering()
 	recipe:SetCraftedItem(87215, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("ENGINEERING_CREATED_ITEM")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddTrainer(5174, 5518, 11017, 16726, 17222, 52651, 55143)
+	recipe:AddTrainer(5174, 5518, 11017, 16726, 17222, 52636, 52651, 55143)
 
 	-- Ghost Iron Dragonling -- 127134
 	recipe = AddRecipe(127134, V.MOP, Q.COMMON)
@@ -2979,7 +2979,7 @@ function addon:InitEngineering()
 	recipe:SetCraftedItem(77530, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("ENGINEERING_TRINKET")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddTrainer(5174, 5518, 11017, 16726, 17222, 52651, 55143)
+	recipe:AddTrainer(5174, 5518, 11017, 16726, 17222, 52636, 52651, 55143)
 
 	-- Mechanical Pandaren Dragonling -- 127135
 	recipe = AddRecipe(127135, V.MOP, Q.COMMON)
@@ -2987,7 +2987,7 @@ function addon:InitEngineering()
 	recipe:SetCraftedItem(87526, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("ENGINEERING_PET")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddTrainer(5174, 5518, 11017, 16726, 17222, 52651, 55143)
+	recipe:AddTrainer(5174, 5518, 11017, 16726, 17222, 52636, 52651, 55143)
 
 	-- Big Game Hunter -- 127136
 	recipe = AddRecipe(127136, V.MOP, Q.COMMON)
@@ -2995,7 +2995,7 @@ function addon:InitEngineering()
 	recipe:SetCraftedItem(77527, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("ENGINEERING_GUN")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS)
-	recipe:AddTrainer(5174, 5518, 11017, 16726, 17222, 52651, 55143)
+	recipe:AddTrainer(5174, 5518, 11017, 16726, 17222, 52636, 52651, 55143)
 
 	-- Long-Range Trillium Sniper -- 127137
 	recipe = AddRecipe(127137, V.MOP, Q.COMMON)
@@ -3003,7 +3003,7 @@ function addon:InitEngineering()
 	recipe:SetCraftedItem(77528, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("ENGINEERING_GUN")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS)
-	recipe:AddTrainer(5174, 5518, 11017, 16726, 17222, 52651, 55143)
+	recipe:AddTrainer(5174, 5518, 11017, 16726, 17222, 52636, 52651, 55143)
 
 	-- Depleted-Kyparium Rocket -- 127138
 	recipe = AddRecipe(127138, V.MOP, Q.COMMON)
@@ -3012,7 +3012,7 @@ function addon:InitEngineering()
 	recipe:SetSpecialty(20222)
 	recipe:SetItemFilterType("ENGINEERING_MOUNT")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddTrainer(5174, 5518, 11017, 16726, 17222, 52651, 55143)
+	recipe:AddTrainer(5174, 5518, 11017, 16726, 17222, 52636, 52651, 55143)
 
 	-- Geosynchronous World Spinner -- 127139
 	recipe = AddRecipe(127139, V.MOP, Q.COMMON)
@@ -3021,7 +3021,7 @@ function addon:InitEngineering()
 	recipe:SetSpecialty(20219)
 	recipe:SetItemFilterType("ENGINEERING_MOUNT")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddTrainer(5174, 5518, 11017, 16726, 17222, 52651, 55143)
+	recipe:AddTrainer(5174, 5518, 11017, 16726, 17222, 52636, 52651, 55143)
 
 	-- Celestial Firework -- 128260
 	recipe = AddRecipe(128260, V.MOP, Q.COMMON)
@@ -3053,7 +3053,7 @@ function addon:InitEngineering()
 	recipe:SetCraftedItem(77544, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("ENGINEERING_CREATED_ITEM")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddTrainer(5174, 5518, 11017, 16726, 17222, 52651, 55143)
+	recipe:AddTrainer(5174, 5518, 11017, 16726, 17222, 52636, 52651, 55143)
 
 	-- Fractured Tinker's Gear -- 131212
 	recipe = AddRecipe(131212, V.MOP, Q.COMMON)
@@ -3061,7 +3061,7 @@ function addon:InitEngineering()
 	recipe:SetCraftedItem(77547, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("ENGINEERING_CREATED_ITEM")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddTrainer(5174, 5518, 11017, 16726, 17222, 52651, 55143)
+	recipe:AddTrainer(5174, 5518, 11017, 16726, 17222, 52636, 52651, 55143)
 
 	-- Precise Tinker's Gear -- 131213
 	recipe = AddRecipe(131213, V.MOP, Q.COMMON)
@@ -3069,7 +3069,7 @@ function addon:InitEngineering()
 	recipe:SetCraftedItem(77543, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("ENGINEERING_CREATED_ITEM")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddTrainer(5174, 5518, 11017, 16726, 17222, 52651, 55143)
+	recipe:AddTrainer(5174, 5518, 11017, 16726, 17222, 52636, 52651, 55143)
 
 	-- Quick Tinker's Gear -- 131214
 	recipe = AddRecipe(131214, V.MOP, Q.COMMON)
@@ -3077,7 +3077,7 @@ function addon:InitEngineering()
 	recipe:SetCraftedItem(77542, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("ENGINEERING_CREATED_ITEM")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddTrainer(5174, 5518, 11017, 16726, 17222, 52651, 55143)
+	recipe:AddTrainer(5174, 5518, 11017, 16726, 17222, 52636, 52651, 55143)
 
 	-- Rigid Tinker's Gear -- 131215
 	recipe = AddRecipe(131215, V.MOP, Q.COMMON)
@@ -3085,7 +3085,7 @@ function addon:InitEngineering()
 	recipe:SetCraftedItem(77545, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("ENGINEERING_CREATED_ITEM")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddTrainer(5174, 5518, 11017, 16726, 17222, 52651, 55143)
+	recipe:AddTrainer(5174, 5518, 11017, 16726, 17222, 52636, 52651, 55143)
 
 	-- Smooth Tinker's Gear -- 131216
 	recipe = AddRecipe(131216, V.MOP, Q.COMMON)
@@ -3093,7 +3093,7 @@ function addon:InitEngineering()
 	recipe:SetCraftedItem(77541, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("ENGINEERING_CREATED_ITEM")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddTrainer(5174, 5518, 11017, 16726, 17222, 52651, 55143)
+	recipe:AddTrainer(5174, 5518, 11017, 16726, 17222, 52636, 52651, 55143)
 
 	-- Sparkling Tinker's Gear -- 131217
 	recipe = AddRecipe(131217, V.MOP, Q.COMMON)
@@ -3101,7 +3101,7 @@ function addon:InitEngineering()
 	recipe:SetCraftedItem(77546, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("ENGINEERING_CREATED_ITEM")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddTrainer(5174, 5518, 11017, 16726, 17222, 52651, 55143)
+	recipe:AddTrainer(5174, 5518, 11017, 16726, 17222, 52636, 52651, 55143)
 
 	-- Subtle Tinker's Gear -- 131218
 	recipe = AddRecipe(131218, V.MOP, Q.COMMON)
@@ -3109,7 +3109,7 @@ function addon:InitEngineering()
 	recipe:SetCraftedItem(77540, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("ENGINEERING_CREATED_ITEM")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddTrainer(5174, 5518, 11017, 16726, 17222, 52651, 55143)
+	recipe:AddTrainer(5174, 5518, 11017, 16726, 17222, 52636, 52651, 55143)
 
 	-- Autumn Flower Firework -- 131256
 	recipe = AddRecipe(131256, V.MOP, Q.COMMON)
@@ -3133,7 +3133,7 @@ function addon:InitEngineering()
 	recipe:SetCraftedItem(89991, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("ENGINEERING_CREATED_ITEM")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddTrainer(5174, 5518, 11017, 16726, 17222, 52651, 55143)
+	recipe:AddTrainer(5174, 5518, 11017, 16726, 17222, 52636, 52651, 55143)
 
 	-- Tinker's Kit -- 131563
 	recipe = AddRecipe(131563, V.MOP, Q.COMMON)
@@ -3141,7 +3141,7 @@ function addon:InitEngineering()
 	recipe:SetCraftedItem(90146, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("ENGINEERING_CREATED_ITEM")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddTrainer(5174, 5518, 11017, 16726, 17222, 52651, 55143)
+	recipe:AddTrainer(5174, 5518, 11017, 16726, 17222, 52636, 52651, 55143)
 
 	-- Jard's Peculiar Energy Source -- 139176
 	recipe = AddRecipe(139176, V.MOP, Q.RARE)

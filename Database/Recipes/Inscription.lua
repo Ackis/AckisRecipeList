@@ -2120,7 +2120,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItem(43362, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("INSCRIPTION_MINOR_GLYPH")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.MAGE)
-	recipe:AddTrainer(30709, 30717, 46716, 56065, 62327, 64691)
+	recipe:AddTrainer(30709, 30715, 30717, 46716, 56065, 62327, 64691)
 
 	-- Glyph of the Penguin -- 58310
 	recipe = AddRecipe(58310, V.WOTLK, Q.COMMON)
@@ -2846,7 +2846,7 @@ function addon:InitInscription()
 	recipe:SetRecipeItem(46108, "BIND_ON_PICKUP")
 	recipe:SetCraftedItem(46108, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("INSCRIPTION_OFF_HAND")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS, F.HEALER, F.CASTER)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE)
 	recipe:AddMobDrop(26679, 26708, 27546, 27676)
 
 	-- Twilight Tome -- 64053
@@ -3575,7 +3575,7 @@ function addon:InitInscription()
 	recipe:SetRequiredFaction("Horde")
 	recipe:SetItemFilterType("INSCRIPTION_CREATED_ITEM")
 	recipe:AddFilters(F.HORDE, F.RETIRED)
-	recipe:AddTrainer(30709, 30717)
+	recipe:AddTrainer(30709, 30715, 30717)
 	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Forged Documents -- 89244
@@ -3585,7 +3585,7 @@ function addon:InitInscription()
 	recipe:SetRequiredFaction("Alliance")
 	recipe:SetItemFilterType("INSCRIPTION_CREATED_ITEM")
 	recipe:AddFilters(F.ALLIANCE, F.RETIRED)
-	recipe:AddTrainer(30709, 30717)
+	recipe:AddTrainer(30709, 30715, 30717)
 	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Scroll of Intellect IX -- 89368
@@ -4448,7 +4448,7 @@ function addon:InitInscription()
 
 	-- Secret Tiger Fang Inscription -- 127020
 	recipe = AddRecipe(127020, V.MOP, Q.COMMON)
-	recipe:SetSkillLevels(575, 575, 585, 590, 595)
+	recipe:SetSkillLevels(540, 540, 550, 555, 560)
 	recipe:SetCraftedItem(87580, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("INSCRIPTION_ITEM_ENHANCEMENT")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
@@ -4456,7 +4456,7 @@ function addon:InitInscription()
 
 	-- Secret Tiger Claw Inscription -- 127021
 	recipe = AddRecipe(127021, V.MOP, Q.COMMON)
-	recipe:SetSkillLevels(575, 575, 585, 590, 595)
+	recipe:SetSkillLevels(540, 540, 550, 555, 560)
 	recipe:SetCraftedItem(87580, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("INSCRIPTION_ITEM_ENHANCEMENT")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)

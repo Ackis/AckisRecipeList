@@ -1661,7 +1661,7 @@ function addon:InitCooking()
 	recipe:SetSkillLevels(525, 525, 525, 525, 525)
 	recipe:SetRecipeItem(65433, "BIND_ON_PICKUP")
 	recipe:SetCraftedItem(62672, "BIND_ON_EQUIP")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.HEALER, F.CASTER)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE)
 	recipe:AddVendor(3027, 4223, 4553, 5160, 49701, 49737)
 
 	-- Starfire Espresso -- 88045
@@ -1669,7 +1669,7 @@ function addon:InitCooking()
 	recipe:SetSkillLevels(450, 450, 455, 460, 465)
 	recipe:SetRecipeItem(65414, "BIND_ON_PICKUP")
 	recipe:SetCraftedItem(62675, "BIND_ON_EQUIP")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.HEALER, F.CASTER)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE)
 	recipe:AddVendor(3027, 4223, 4553, 5160, 49701, 49737)
 
 	-- Tender Baked Turtle -- 88046
@@ -1711,14 +1711,14 @@ function addon:InitCooking()
 	recipe:SetSkillLevels(500, 500, 510, 515, 520)
 	recipe:SetCraftedItem(74636, "BIND_ON_EQUIP")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddTrainer(1355, 1699, 3026, 3067, 3399, 5159, 6286, 16719, 42288, 45550, 46709, 47405, 56707, 64231)
+	recipe:AddTrainer(1355, 1699, 3026, 3067, 3399, 4210, 5159, 6286, 16719, 42288, 45550, 46709, 47405, 56707, 64231)
 
 	-- Fish Cake -- 104297
 	recipe = AddRecipe(104297, V.MOP, Q.COMMON)
 	recipe:SetSkillLevels(500, 500, 510, 515, 520)
 	recipe:SetCraftedItem(74641, "BIND_ON_EQUIP")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddTrainer(1355, 1699, 3026, 3067, 3399, 5159, 6286, 16719, 42288, 45550, 46709, 47405, 56707, 64231)
+	recipe:AddTrainer(1355, 1699, 3026, 3067, 3399, 4210, 5159, 6286, 16719, 42288, 45550, 46709, 47405, 56707, 64231)
 
 	-- Charbroiled Tiger Steak -- 104298
 	recipe = AddRecipe(104298, V.MOP, Q.COMMON)
@@ -1846,7 +1846,7 @@ function addon:InitCooking()
 	recipe:SetSkillLevels(525, 525, 525, 525, 530)
 	recipe:SetRecipeItem(85502, "BIND_ON_PICKUP")
 	recipe:SetCraftedItem(85501, "BIND_ON_EQUIP")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.HEALER, F.CASTER)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE)
 	recipe:AddRepVendor(FAC.ANGLERS, REP.FRIENDLY, 63721)
 
 	-- Krasarang Fritters -- 124032

@@ -3411,7 +3411,7 @@ function addon:InitTailoring()
 	recipe:SetRecipeItem(45102, "BIND_ON_EQUIP")
 	recipe:SetCraftedItem(45102, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("TAILORING_WAIST")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.DPS, F.HEALER, F.CASTER)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID)
 	recipe:AddWorldDrop(Z.ULDUAR)
 
 	-- Spellslinger's Slippers -- 63204
@@ -3429,7 +3429,7 @@ function addon:InitTailoring()
 	recipe:SetRecipeItem(45104, "BIND_ON_EQUIP")
 	recipe:SetCraftedItem(45104, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("TAILORING_WAIST")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.DPS, F.HEALER, F.CASTER)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID)
 	recipe:AddWorldDrop(Z.ULDUAR)
 
 	-- Savior's Slippers -- 63206
@@ -3620,7 +3620,7 @@ function addon:InitTailoring()
 
 	-- Dream of Skywall -- 75141
 	recipe = AddRecipe(75141, V.CATA, Q.COMMON)
-	recipe:SetSkillLevels(515, 515, 525, 530, 535)
+	recipe:SetSkillLevels(525, 525, 535, 540, 545)
 	recipe:SetCraftedItem(54440, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("TAILORING_MATERIALS")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
@@ -3628,7 +3628,7 @@ function addon:InitTailoring()
 
 	-- Dream of Deepholm -- 75142
 	recipe = AddRecipe(75142, V.CATA, Q.COMMON)
-	recipe:SetSkillLevels(505, 505, 515, 520, 525)
+	recipe:SetSkillLevels(525, 525, 535, 540, 545)
 	recipe:SetCraftedItem(54440, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("TAILORING_MATERIALS")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
@@ -3636,7 +3636,7 @@ function addon:InitTailoring()
 
 	-- Dream of Hyjal -- 75144
 	recipe = AddRecipe(75144, V.CATA, Q.COMMON)
-	recipe:SetSkillLevels(500, 500, 510, 515, 520)
+	recipe:SetSkillLevels(525, 525, 535, 540, 545)
 	recipe:SetCraftedItem(54440, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("TAILORING_MATERIALS")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
@@ -3644,7 +3644,7 @@ function addon:InitTailoring()
 
 	-- Dream of Ragnaros -- 75145
 	recipe = AddRecipe(75145, V.CATA, Q.COMMON)
-	recipe:SetSkillLevels(510, 510, 520, 525, 530)
+	recipe:SetSkillLevels(525, 525, 535, 540, 545)
 	recipe:SetCraftedItem(54440, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("TAILORING_MATERIALS")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
@@ -3652,7 +3652,7 @@ function addon:InitTailoring()
 
 	-- Dream of Azshara -- 75146
 	recipe = AddRecipe(75146, V.CATA, Q.COMMON)
-	recipe:SetSkillLevels(500, 500, 510, 515, 520)
+	recipe:SetSkillLevels(525, 525, 535, 540, 545)
 	recipe:SetCraftedItem(54440, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("TAILORING_MATERIALS")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
@@ -4139,7 +4139,7 @@ function addon:InitTailoring()
 	recipe:SetCraftedItem(70070, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("TAILORING_BACK")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddTrainer(1346, 3004, 3363, 3523, 4576, 5153, 45559, 57405)
+	recipe:AddTrainer(1346, 3004, 3363, 3523, 4159, 4576, 5153, 45559, 57405)
 
 	-- Luxurious Silk Gem Bag -- 100585
 	recipe = AddRecipe(100585, V.CATA, Q.RARE)
@@ -4578,7 +4578,7 @@ function addon:InitTailoring()
 	recipe:SetCraftedItem(92726, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("TAILORING_HANDS")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.HEALER, F.CASTER)
-	recipe:AddTrainer(1346, 3004, 3363, 3523, 5153, 57405)
+	recipe:AddTrainer(1346, 3004, 3363, 3523, 4159, 5153, 57405)
 
 	-- Crafted Dreadful Gladiator's Cape of Cruelty -- 137907
 	recipe = AddRecipe(137907, V.MOP, Q.COMMON)
