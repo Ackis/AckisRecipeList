@@ -6370,7 +6370,7 @@ function addon:InitBlacksmithing()
 	recipe:SetSkillLevels(600, 600, 600, 603, 606)
 	recipe:SetCraftedItem(98859, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("BLACKSMITHING_WAIST")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WARRIOR, F.PALADIN, F.DK)
 	recipe:AddDiscovery("DISCOVERY_BS_INGOT_PANDARIA")
 
 	-- Crafted Malevolent Gladiator's Girdle of Prowess -- 143185
