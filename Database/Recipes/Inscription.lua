@@ -2120,7 +2120,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItem(43362, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("INSCRIPTION_MINOR_GLYPH")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.MAGE)
-	recipe:AddTrainer(30709, 30715, 30717, 46716, 56065, 62327, 64691)
+	recipe:AddTrainer(30709, 30713, 30715, 30717, 46716, 56065, 62327, 64691)
 
 	-- Glyph of the Penguin -- 58310
 	recipe = AddRecipe(58310, V.WOTLK, Q.COMMON)
@@ -3574,9 +3574,8 @@ function addon:InitInscription()
 	recipe:SetCraftedItem(63276, "BIND_ON_EQUIP")
 	recipe:SetRequiredFaction("Horde")
 	recipe:SetItemFilterType("INSCRIPTION_CREATED_ITEM")
-	recipe:AddFilters(F.HORDE, F.RETIRED)
+	recipe:AddFilters(F.HORDE)
 	recipe:AddTrainer(30709, 30715, 30717)
-	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Forged Documents -- 89244
 	recipe = AddRecipe(89244, V.CATA, Q.COMMON)
@@ -3584,9 +3583,8 @@ function addon:InitInscription()
 	recipe:SetCraftedItem(62056, "BIND_ON_EQUIP")
 	recipe:SetRequiredFaction("Alliance")
 	recipe:SetItemFilterType("INSCRIPTION_CREATED_ITEM")
-	recipe:AddFilters(F.ALLIANCE, F.RETIRED)
-	recipe:AddTrainer(30709, 30715, 30717)
-	recipe:AddCustom("REMOVED_FROM_GAME")
+	recipe:AddFilters(F.ALLIANCE)
+	recipe:AddTrainer(30709, 30713, 30715, 30717)
 
 	-- Scroll of Intellect IX -- 89368
 	recipe = AddRecipe(89368, V.CATA, Q.COMMON)
