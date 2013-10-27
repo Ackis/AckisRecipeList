@@ -7088,7 +7088,7 @@ function addon:InitJewelcrafting()
 	recipe:SetCraftedItem(82774, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("JEWELCRAFTING_PET")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddWorldDrop(Z.PANDARIA)
+	recipe:AddCustom("ANCIENT_GUO-LAI_CACHE")
 
 	-- Sapphire Cub -- 131898
 	recipe = AddRecipe(131898, V.MOP, Q.RARE)
@@ -7096,7 +7096,7 @@ function addon:InitJewelcrafting()
 	recipe:SetRecipeItem(90471, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("JEWELCRAFTING_PET")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddWorldDrop(Z.PANDARIA)
+	recipe:AddCustom("ANCIENT_GUO-LAI_CACHE")
 
 	-- Resplendent Serpent's Eye -- 136269
 	recipe = AddRecipe(136269, V.MOP, Q.COMMON)
