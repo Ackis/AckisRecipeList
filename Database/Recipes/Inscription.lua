@@ -4551,7 +4551,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItem(104048, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("INSCRIPTION_MAJOR_GLYPH")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DK)
-	recipe:AddMobDrop(72771)
+	recipe:AddMobDrop(72771, 73157)
 
 	-- Glyph of Festering Blood -- 148258
 	recipe = AddRecipe(148258, V.MOP, Q.UNCOMMON)
@@ -4578,7 +4578,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItem(104051, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("INSCRIPTION_MAJOR_GLYPH")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.PALADIN)
-	recipe:AddWorldDrop(Z.TIMELESS_ISLE)
+	recipe:AddWorldDrop(Z.PANDARIA)
 
 	-- Glyph of Purging -- 148261
 	recipe = AddRecipe(148261, V.MOP, Q.UNCOMMON)
@@ -4605,7 +4605,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItem(104055, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("INSCRIPTION_MAJOR_GLYPH")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WARRIOR)
-	recipe:AddWorldDrop(Z.PANDARIA)
+	recipe:AddMobDrop(72896)
 
 	-- Glyph of the Executor -- 148265
 	recipe = AddRecipe(148265, V.MOP, Q.UNCOMMON)
@@ -4623,7 +4623,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItem(104099, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("INSCRIPTION_MINOR_GLYPH")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DK)
-	recipe:AddWorldDrop(Z.PANDARIA)
+	recipe:AddMobDrop(72048)
 
 	-- Glyph of the Long Winter -- 148267
 	recipe = AddRecipe(148267, V.MOP, Q.UNCOMMON)
@@ -4641,7 +4641,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItem(104102, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("INSCRIPTION_MINOR_GLYPH")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DRUID)
-	recipe:AddWorldDrop(Z.TIMELESS_ISLE)
+	recipe:AddWorldDrop(Z.PANDARIA)
 
 	-- Glyph of One with Nature -- 148269
 	recipe = AddRecipe(148269, V.MOP, Q.UNCOMMON)
@@ -4650,7 +4650,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItem(104103, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("INSCRIPTION_MINOR_GLYPH")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DRUID)
-	recipe:AddMobDrop(72877)
+	recipe:AddMobDrop(72877, 73277)
 
 	-- Glyph of the Unbound Elemental -- 148270
 	recipe = AddRecipe(148270, V.MOP, Q.UNCOMMON)
@@ -4668,7 +4668,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItem(104105, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("INSCRIPTION_MINOR_GLYPH")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.MAGE)
-	recipe:AddWorldDrop(Z.PANDARIA)
+	recipe:AddMobDrop(72767)
 
 	-- Glyph of Condensation -- 148272
 	recipe = AddRecipe(148272, V.MOP, Q.UNCOMMON)
@@ -4677,7 +4677,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItem(104106, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("INSCRIPTION_MINOR_GLYPH")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.MAGE)
-	recipe:AddWorldDrop(Z.PANDARIA)
+	recipe:AddMobDrop(72245)
 
 	-- Glyph of the Exorcist -- 148273
 	recipe = AddRecipe(148273, V.MOP, Q.UNCOMMON)
@@ -4695,7 +4695,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItem(104108, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("INSCRIPTION_MINOR_GLYPH")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.PALADIN)
-	recipe:AddWorldDrop(Z.PANDARIA)
+	recipe:AddMobDrop(73162, 72769)
 
 	-- Glyph of Angels -- 148275
 	recipe = AddRecipe(148275, V.MOP, Q.UNCOMMON)
@@ -4731,7 +4731,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItem(104122, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("INSCRIPTION_MINOR_GLYPH")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.PRIEST)
-	recipe:AddWorldDrop(Z.PANDARIA)
+	recipe:AddMobDrop(72761)
 
 	-- Glyph of Headhunting -- 148279
 	recipe = AddRecipe(148279, V.MOP, Q.UNCOMMON)
@@ -4767,7 +4767,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItem(104127, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("INSCRIPTION_MINOR_GLYPH")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.SHAMAN)
-	recipe:AddWorldDrop(Z.PANDARIA)
+	recipe:AddMobDrop(73025, 73018, 73021)
 
 	-- Glyph of Spirit Wolf -- 148283
 	recipe = AddRecipe(148283, V.MOP, Q.UNCOMMON)
@@ -4821,7 +4821,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItem(104134, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("INSCRIPTION_MINOR_GLYPH")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.SHAMAN)
-	recipe:AddMobDrop(72777)
+	recipe:AddMobDrop(72777, 72775)
 
 	-- Glyph of the Raging Whirlwind -- 148289
 	recipe = AddRecipe(148289, V.MOP, Q.COMMON)
@@ -4830,7 +4830,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItem(104135, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("INSCRIPTION_MINOR_GLYPH")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WARRIOR)
-	recipe:AddWorldDrop(Z.TIMELESS_ISLE)
+	recipe:AddWorldDrop(Z.PANDARIA)
 
 	-- Glyph of the Subtle Defender -- 148290
 	recipe = AddRecipe(148290, V.MOP, Q.COMMON)
@@ -4839,7 +4839,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItem(104136, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("INSCRIPTION_MINOR_GLYPH")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WARRIOR)
-	recipe:AddMobDrop(72761)
+	recipe:AddWorldDrop(Z.PANDARIA)
 
 	-- Glyph of the Watchful Eye -- 148291
 	recipe = AddRecipe(148291, V.MOP, Q.UNCOMMON)
@@ -4857,7 +4857,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItem(104138, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("INSCRIPTION_MINOR_GLYPH")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WARRIOR)
-	recipe:AddWorldDrop(Z.PANDARIA)
+	recipe:AddMobDrop(73169)
 
 	-- Glyph of the Lean Pack -- 148487
 	recipe = AddRecipe(148487, V.MOP, Q.UNCOMMON)
