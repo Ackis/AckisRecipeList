@@ -55,6 +55,7 @@ local Toast = LibStub("LibToast-1.0")
 local debugger = _G.tekDebug and _G.tekDebug:GetFrame(private.addon_name)
 
 private.build_num = select(2, _G.GetBuildInfo())
+private.TextDump = LibStub("LibTextDump-1.0"):New(private.addon_name)
 
 ------------------------------------------------------------------------------
 -- Constants.
