@@ -52,7 +52,7 @@ _G.ARL = addon
 local L = LibStub("AceLocale-3.0"):GetLocale(private.addon_name)
 local Toast = LibStub("LibToast-1.0")
 
-local debugger = _G.tekDebug and _G.tekDebug:GetFrame(private.addon_name)
+local debugger -- Only defined if needed.
 
 private.build_num = select(2, _G.GetBuildInfo())
 private.TextDump = LibStub("LibTextDump-1.0"):New(private.addon_name)
@@ -74,19 +74,23 @@ addon.optionsFrame = {}
 -------------------------------------------------------------------------------
 -- Debugger.
 -------------------------------------------------------------------------------
-function addon:Debug(...)
+local function CreateDebugFrame()
 	if debugger then
-		local text = string.format(...)
-		debugger:AddMessage(text)
-
-		--@debug@
-		Toast:Spawn("ARL_DebugToast", text)
-		--@end-debug@
-	else
-		--@debug@
-		self:Printf(...)
-		--@end-debug@
+		return
 	end
+	debugger = LibStub("LibTextDump-1.0"):New(("%s Debug Output"):format(private.addon_name), 640, 480)
+end
+
+function addon:Debug(...)
+	if not debugger then
+		CreateDebugFrame()
+	end
+	local text = string.format(...)
+	debugger:AddLine(text)
+
+	--@debug@
+	Toast:Spawn("ARL_DebugToast", text)
+	--@end-debug@
 end
 
 Toast:Register("ARL_DebugToast", function(toast, ...)
@@ -787,6 +791,18 @@ do
 			self:ScanProfession("all")
 		elseif arg1 == "tradelinks" then
 			self:GenerateLinks()
+		elseif arg1 == "debug" then
+			if not debugger then
+				CreateDebugFrame()
+			end
+
+			if debugger:Lines() == 0 then
+				debugger:AddLine("Nothing to report.")
+				debugger:Display()
+				debugger:Clear()
+				return
+			end
+			debugger:Display()
 		else
 			-- What happens when we get here?
 			LibStub("AceConfigCmd-3.0"):HandleCommand("arl", "Ackis Recipe List", arg1)
