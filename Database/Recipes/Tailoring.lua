@@ -2528,7 +2528,7 @@ function addon:InitTailoring()
 	-- Belt of the Long Road -- 36316
 	recipe = AddRecipe(36316, V.TBC, Q.EPIC)
 	recipe:SetSkillLevels(375, 375, 385, 390, 395)
-	recipe:SetRecipeItem(30281, "BIND_ON_EQUIP")
+	recipe:SetRecipeItem(30281, "BIND_ON_PICKUP")
 	recipe:SetCraftedItem(30036, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("TAILORING_WAIST")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.HEALER, F.CASTER)
