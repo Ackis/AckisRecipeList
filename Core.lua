@@ -732,32 +732,8 @@ do
 end -- do-block
 
 do
-	-- Code snippet stolen from GearGuage by Torhal and butchered by Ackis
-	local function StrSplit(input)
-		if not input then
-			return nil, nil
-		end
-		local arg1, arg2, var1
-
-		arg1, var1 = input:match("^([^%s]+)%s*(.*)$")
-		arg1 = (arg1 and arg1:lower() or input:lower())
-
-		if var1 then
-			-- Small hack to get code to work with first aid.
-			if var1:lower() == private.LOCALIZED_PROFESSION_NAMES.FIRSTAID:lower() then
-				arg2 = var1
-			else
-				local var2
-				arg2, var2 = var1:match("^([^%s]+)%s*(.*)$")
-				arg2 = (arg2 and arg2:lower() or var1:lower())
-			end
-		end
-		return arg1, arg2
-	end
-
-	-- Determines what to do when the slash command is called.
 	function addon:ChatCommand(input)
-		local arg1, arg2 = StrSplit(input)
+		local arg1, arg2 = self:GetArgs(input, 3)
 
 		-- Open About panel if there's no parameters or if we do /arl about
 		if not arg1 or (arg1 and arg1:trim() == "") or arg1 == L["Sorting"]:lower() or arg1 == L["Sort"]:lower() or arg1 == _G.DISPLAY:lower() then
