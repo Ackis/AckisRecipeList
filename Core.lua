@@ -751,6 +751,20 @@ function addon:ChatCommand(input)
 		if not arg2 or arg2 == "" then
 			self:Print(L["COMMAND_LINE_SCAN"])
 		else
+			local found
+			local low_arg2 = arg2:lower()
+
+			for profession_name in pairs(private.PROFESSION_NAME_MAP) do
+				if low_arg2 == profession_name:lower() then
+					found = true
+					break
+				end
+			end
+
+			if not found then
+				self:Print(L["COMMAND_LINE_SCAN"])
+				return
+			end
 			_G.CastSpellByName(arg2)
 
 			if self.Frame and self.Frame:IsVisible() then
