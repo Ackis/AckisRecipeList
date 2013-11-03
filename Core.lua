@@ -739,11 +739,11 @@ local SUBCOMMAND_FUNCS = {
 			_G.InterfaceOptionsFrame_OpenToCategory(addon.optionsFrame)
 		end
 	end,
-	[L["Profile"]:lower()] = function()
-		_G.InterfaceOptionsFrame_OpenToCategory(addon.optionsFrame["Profiles"])
-	end,
 	[L["Documentation"]:lower()] = function()
 		_G.InterfaceOptionsFrame_OpenToCategory(addon.optionsFrame["Documentation"])
+	end,
+	[L["Profile"]:lower()] = function()
+		_G.InterfaceOptionsFrame_OpenToCategory(addon.optionsFrame["Profiles"])
 	end,
 	[L["Scan"]:lower()] = function(input)
 		if not input or input == "" then
@@ -775,12 +775,6 @@ local SUBCOMMAND_FUNCS = {
 			addon:Scan(false, false)
 		end
 	end,
-	scanprofs = function()
-		addon:ScanProfession("all")
-	end,
-	tradelinks = function()
-		addon:GenerateLinks()
-	end,
 	debug = function()
 		if not debugger then
 			CreateDebugFrame()
@@ -794,10 +788,31 @@ local SUBCOMMAND_FUNCS = {
 		end
 		debugger:Display()
 	end,
+	--@debug@
+	dump = function(arg1, arg2)
+		local func = private.DUMP_COMMANDS[arg1]
+
+		if func then
+			func(arg2)
+		else
+			addon:Print("Unknown dump command:")
+
+			for command in pairs(private.DUMP_COMMANDS) do
+				addon:Print(command)
+			end
+		end
+	end,
+	scanprofs = function()
+		addon:ScanProfession("all")
+	end,
+	--@end-debug@
+	tradelinks = function()
+		addon:GenerateLinks()
+	end,
 }
 
 function addon:ChatCommand(input)
-	local arg1, arg2 = self:GetArgs(input, 2)
+	local arg1, arg2, arg3  = self:GetArgs(input, 3)
 	arg1 = arg1:trim():lower()
 
 	-- Open About panel if there's no parameters or if we do /arl about
@@ -806,7 +821,7 @@ function addon:ChatCommand(input)
 	else
 		local func = SUBCOMMAND_FUNCS[arg1]
 		if func then
-			func(arg2)
+			func(arg2, arg3)
 		else
 			LibStub("AceConfigCmd-3.0"):HandleCommand("arl", "Ackis Recipe List", arg1)
 		end

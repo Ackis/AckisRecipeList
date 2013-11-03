@@ -85,6 +85,49 @@ end
 
 --@debug@
 do
+	local function PrintProfessions()
+		addon:Print("Must supply a valid profession name, or \"all\":")
+
+		for index = 1, #private.ORDERED_PROFESSIONS do
+			addon:Print(private.ORDERED_PROFESSIONS[index])
+		end
+
+		for profession_name in pairs(private.PROFESSION_NAME_MAP) do
+		end
+	end
+
+	private.DUMP_COMMANDS = {
+		bossids = function(input)
+			addon:DumpBossIDs(input)
+		end,
+		phrases = function()
+			addon:DumpPhrases()
+		end,
+		profession = function(input)
+			if not input then
+				PrintProfessions()
+			end
+			local found
+			input = input:lower():trim()
+
+			for index = 1, #private.ORDERED_PROFESSIONS do
+				if input == private.ORDERED_PROFESSIONS[index]:lower() then
+					found = true
+					break
+				end
+			end
+
+			if not found then
+				PrintProfessions()
+				return
+			end
+			addon:DumpProfession(input)
+		end,
+		zones = function(input)
+			addon:DumpZones(input)
+		end
+	}
+
 	local L = LibStub("AceLocale-3.0"):GetLocale(private.addon_name)
 	local output = private.TextDump
 
