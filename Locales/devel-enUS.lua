@@ -135,7 +135,6 @@ L["Awilo Lon'gomba"] = true
 L["Ayla Shadowstorm"] = true
 L["BANANA_INFUSED_RUM"] = "Found in the \"Barrel of Banana Infused Rum\" in Krasarang Wilds."
 L["BBCode"] = true
-L["BLACK_MARKET_AUCTION_HOUSE"] = "Sold only by Madam Goya in the Black Market Auction House. Not guaranteed to be selling at any point."
 L["BOAFilter"] = "Item Bind to Account"
 L["BOA_DESC"] = "Recipes that make Bind to Account items should be included in the scan."
 L["BOEFilter"] = "Item Bind on Equip"
