@@ -731,80 +731,83 @@ do
 	end
 end -- do-block
 
-do
-	-- Code snippet stolen from GearGuage by Torhal and butchered by Ackis
-	local function StrSplit(input)
-		if not input then
-			return nil, nil
-		end
-		local arg1, arg2, var1
-
-		arg1, var1 = input:match("^([^%s]+)%s*(.*)$")
-		arg1 = (arg1 and arg1:lower() or input:lower())
-
-		if var1 then
-			-- Small hack to get code to work with first aid.
-			if var1:lower() == private.LOCALIZED_PROFESSION_NAMES.FIRSTAID:lower() then
-				arg2 = var1
-			else
-				local var2
-				arg2, var2 = var1:match("^([^%s]+)%s*(.*)$")
-				arg2 = (arg2 and arg2:lower() or var1:lower())
-			end
-		end
-		return arg1, arg2
-	end
-
-	-- Determines what to do when the slash command is called.
-	function addon:ChatCommand(input)
-		local arg1, arg2 = StrSplit(input)
-
-		-- Open About panel if there's no parameters or if we do /arl about
-		if not arg1 or (arg1 and arg1:trim() == "") or arg1 == L["Sorting"]:lower() or arg1 == L["Sort"]:lower() or arg1 == _G.DISPLAY:lower() then
-			_G.InterfaceOptionsFrame_OpenToCategory(self.optionsFrame)
-		elseif arg1 == L["About"]:lower() then
-			if self.optionsFrame["About"] then
-				_G.InterfaceOptionsFrame_OpenToCategory(self.optionsFrame["About"])
-			else
-				_G.InterfaceOptionsFrame_OpenToCategory(self.optionsFrame)
-			end
-		elseif arg1 == L["Profile"]:lower() then
-			_G.InterfaceOptionsFrame_OpenToCategory(self.optionsFrame["Profiles"])
-		elseif arg1 == L["Documentation"]:lower() then
-			_G.InterfaceOptionsFrame_OpenToCategory(self.optionsFrame["Documentation"])
-		elseif arg1 == L["Scan"]:lower() then
-			if not arg2 or arg2 == "" then
-				self:Print(L["COMMAND_LINE_SCAN"])
-			else
-				_G.CastSpellByName(arg2)
-
-				if self.Frame and self.Frame:IsVisible() then
-					self.Frame:Hide()
-				else
-					if private.InitializeFrame then
-						private.InitializeFrame()
-					end
-					self:Scan(false, false)
-				end
-			end
-		elseif arg1 == "scanprof" then
-			self:ScanProfession("all")
-		elseif arg1 == "tradelinks" then
-			self:GenerateLinks()
-		elseif arg1 == "debug" then
-			if not debugger then
-				CreateDebugFrame()
-			end
-
-			if debugger:Lines() == 0 then
-				debugger:AddLine("Nothing to report.")
-				debugger:Display()
-				debugger:Clear()
-				return
-			end
-			debugger:Display()
+local SUBCOMMAND_FUNCS = {
+	[L["About"]:lower()] = function()
+		if addon.optionsFrame["About"] then
+			_G.InterfaceOptionsFrame_OpenToCategory(addon.optionsFrame["About"])
 		else
-			-- What happens when we get here?
+			_G.InterfaceOptionsFrame_OpenToCategory(addon.optionsFrame)
+		end
+	end,
+	[L["Profile"]:lower()] = function()
+		_G.InterfaceOptionsFrame_OpenToCategory(addon.optionsFrame["Profiles"])
+	end,
+	[L["Documentation"]:lower()] = function()
+		_G.InterfaceOptionsFrame_OpenToCategory(addon.optionsFrame["Documentation"])
+	end,
+	[L["Scan"]:lower()] = function(input)
+		if not input or input == "" then
+			addon:Print(L["COMMAND_LINE_SCAN"])
+			return
+		end
+		local found
+		input = input:lower()
+
+		for profession_name in pairs(private.PROFESSION_NAME_MAP) do
+			if input == profession_name:lower() then
+				found = true
+				break
+			end
+		end
+
+		if not found then
+			addon:Print(L["COMMAND_LINE_SCAN"])
+			return
+		end
+		_G.CastSpellByName(input)
+
+		if addon.Frame and addon.Frame:IsVisible() then
+			addon.Frame:Hide()
+		else
+			if private.InitializeFrame then
+				private.InitializeFrame()
+			end
+			addon:Scan(false, false)
+		end
+	end,
+	scanprofs = function()
+		addon:ScanProfession("all")
+	end,
+	tradelinks = function()
+		addon:GenerateLinks()
+	end,
+	debug = function()
+		if not debugger then
+			CreateDebugFrame()
+		end
+
+		if debugger:Lines() == 0 then
+			debugger:AddLine("Nothing to report.")
+			debugger:Display()
+			debugger:Clear()
+			return
+		end
+		debugger:Display()
+	end,
+}
+
+function addon:ChatCommand(input)
+	local arg1, arg2 = self:GetArgs(input, 2)
+	arg1 = arg1:trim():lower()
+
+	-- Open About panel if there's no parameters or if we do /arl about
+	if not arg1 or arg1 == L["Sorting"]:lower() or arg1 == L["Sort"]:lower() or arg1 == _G.DISPLAY:lower() then
+		_G.InterfaceOptionsFrame_OpenToCategory(self.optionsFrame)
+	else
+		local func = SUBCOMMAND_FUNCS[arg1]
+		if func then
+			func(arg2)
+		else
 			LibStub("AceConfigCmd-3.0"):HandleCommand("arl", "Ackis Recipe List", arg1)
 		end
 	end
