@@ -104,6 +104,9 @@ do
 			end
 			addon:DumpBossIDs(input)
 		end,
+		empties = function()
+			addon:ShowEmptySources()
+		end,
 		phrases = function()
 			addon:DumpPhrases()
 		end,
@@ -292,13 +295,14 @@ do
 			end
 
 			if count == 0 then
-				addon:Debug("%s %s (%s) has no recipes.", description, unit.name or _G.UNKNOWN, unit_id)
+				output:AddLine(("* %s %s (%s) has no recipes."):format(description, unit.name or _G.UNKNOWN, unit_id))
 			end
 		end
 	end
 
 	function addon:ShowEmptySources()
 		private.LoadAllRecipes()
+		output:Clear()
 
 		find_empties(private.trainer_list, "Trainer")
 		find_empties(private.vendor_list, "Vendor")
@@ -307,6 +311,8 @@ do
 		find_empties(private.custom_list, "Custom Entry")
 		find_empties(private.discovery_list, "Discovery")
 		find_empties(private.seasonal_list, "World Event")
+
+		output:Display()
 	end
 end -- do
 --@end-debug@
