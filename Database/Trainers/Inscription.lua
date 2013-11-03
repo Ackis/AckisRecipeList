@@ -32,6 +32,7 @@ function private:InitializeInscriptionTrainers()
 	self:AddTrainer(62327, "Scribe Rinji", Z.THE_JADE_FOREST, 47.6, 35, "Neutral")
 	self:AddTrainer(56065, "Inkmaster Wei", Z.THE_JADE_FOREST, 54.8, 45.0, "Neutral")
 	self:AddTrainer(64691, "Lorewalker Huynh", Z.VALE_OF_ETERNAL_BLOSSOMS, 81.9, 29.3, "Neutral")
+	self:AddTrainer(66355, "Master Marshall", Z.KUN_LAI_SUMMIT, 50.6, 42.2, "Neutral")
 
 	self.InitializeInscriptionTrainers = nil
 end
