@@ -84,7 +84,6 @@ function addon:InitMob()
 
 	-- Eastern Plaguelands
 	AddMob(1844,	L["Foreman Marcrid"],			Z.EASTERN_PLAGUELANDS,		54.0, 68.0)
-	AddMob(8561,	L["Mossflayer Shadowhunter"],		Z.EASTERN_PLAGUELANDS,		60.9, 21.5)
 	AddMob(9451,	L["Scarlet Archmage"],			Z.EASTERN_PLAGUELANDS,		81.5, 75.4)
 
 	-- Felwood
@@ -348,8 +347,6 @@ function addon:InitMob()
 	AddMob(1853,	BN.DARKMASTER_GANDLING,			Z.SCHOLOMANCE,			0, 0)
 	AddMob(10469,	L["Scholomance Adept"],			Z.SCHOLOMANCE,			0, 0)
 	AddMob(10499,	L["Spectral Researcher"],		Z.SCHOLOMANCE,			0, 0)
-	AddMob(10503,	BN.JANDICE_BAROV,			Z.SCHOLOMANCE,			0, 0)
-	AddMob(10508,	BB["Ras Frostwhisper"],			Z.SCHOLOMANCE,			0, 0)
 
 	-- Sethekk Halls
 	AddMob(18322,	L["Sethekk Ravenguard"],		Z.SETHEKK_HALLS,		0, 0)
