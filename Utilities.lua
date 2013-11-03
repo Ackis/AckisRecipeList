@@ -98,6 +98,10 @@ do
 
 	private.DUMP_COMMANDS = {
 		bossids = function(input)
+			if not input then
+				addon:Print("Type the name or partial name of a boss.")
+				return
+			end
 			addon:DumpBossIDs(input)
 		end,
 		phrases = function()
@@ -106,6 +110,7 @@ do
 		profession = function(input)
 			if not input then
 				PrintProfessions()
+				return
 			end
 			local found
 			input = input:lower():trim()
@@ -124,6 +129,10 @@ do
 			addon:DumpProfession(input)
 		end,
 		zones = function(input)
+			if not input then
+				addon:Print("Type the name or partial name of a zone.")
+				return
+			end
 			addon:DumpZones(input)
 		end
 	}
