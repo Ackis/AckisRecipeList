@@ -813,8 +813,10 @@ local SUBCOMMAND_FUNCS = {
 
 function addon:ChatCommand(input)
 	local arg1, arg2, arg3  = self:GetArgs(input, 3)
-	arg1 = arg1:trim():lower()
 
+	if arg1 then
+		arg1 = arg1:trim():lower()
+	end
 	-- Open About panel if there's no parameters or if we do /arl about
 	if not arg1 or arg1 == L["Sorting"]:lower() or arg1 == L["Sort"]:lower() or arg1 == _G.DISPLAY:lower() then
 		_G.InterfaceOptionsFrame_OpenToCategory(self.optionsFrame)
