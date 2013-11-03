@@ -48,6 +48,7 @@ function private:InitializeLeatherworkingTrainers()
 	self:AddTrainer(33635, "Daenril", Z.SHATTRATH_CITY, 41.9, 63.4, "Neutral")
 	self:AddTrainer(33681, "Korim", Z.SHATTRATH_CITY, 37.6, 28, "Neutral")
 	self:AddTrainer(65121, "Clean Pelt", Z.KUN_LAI_SUMMIT, 64.6, 60.9, "Neutral")
+	self:AddTrainer(66354, "Master Cannon", Z.KUN_LAI_SUMMIT, 50.6, 42.0, "Neutral")
 
 	self.InitializeLeatherworkingTrainers = nil
 end
