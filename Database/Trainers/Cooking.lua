@@ -58,6 +58,7 @@ function private:InitializeCookingTrainers()
 	self:AddTrainer(58716, "Jian Ironpaw", Z.VALLEY_OF_THE_FOUR_WINDS, 53.3, 51.6, "Neutral")
 	self:AddTrainer(58717, "Bobo Ironpaw", Z.VALLEY_OF_THE_FOUR_WINDS, 53.2, 52.2, "Neutral")
 	self:AddTrainer(64231, "Sungshin Ironpaw", Z.VALLEY_OF_THE_FOUR_WINDS, 53.6, 51.2, "Neutral")
+	self:AddTrainer(66353, "Master Chang", Z.KUN_LAI_SUMMIT, 50.6, 41.8, "Neutral")
 
 	self.InitializeCookingTrainers = nil
 end
