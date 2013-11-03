@@ -2120,7 +2120,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItem(43362, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("INSCRIPTION_MINOR_GLYPH")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.MAGE)
-	recipe:AddTrainer(30709, 30713, 30715, 30717, 46716, 56065, 62327, 64691)
+	recipe:AddTrainer(30709, 30713, 30715, 30717, 33603, 46716, 56065, 62327, 64691)
 
 	-- Glyph of the Penguin -- 58310
 	recipe = AddRecipe(58310, V.WOTLK, Q.COMMON)
@@ -2152,7 +2152,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItem(43367, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("INSCRIPTION_MAJOR_GLYPH")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.PALADIN)
-	recipe:AddTrainer(26916, 26977, 26995, 28702, 30706, 30709, 30713, 30715, 30716, 30717, 30721, 33615, 33638, 46716, 56065, 62327, 64691)
+	recipe:AddTrainer(26916, 26977, 26995, 28702, 30706, 30709, 30713, 30715, 30716, 30717, 30721, 33603, 33615, 33638, 46716, 56065, 62327, 64691)
 	recipe:AddDiscovery("DISCOVERY_INSC_NORTHREND", "DISCOVERY_INSC_PANDARIA")
 
 	-- Glyph of the Mounted King -- 58314
@@ -3376,7 +3376,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItem(50045, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("INSCRIPTION_MAJOR_GLYPH")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.MAGE)
-	recipe:AddTrainer(26916, 26977, 26995, 28702, 30706, 30709, 30713, 30715, 30716, 30717, 30721, 33615, 33638, 46716, 56065, 62327, 64691)
+	recipe:AddTrainer(26916, 26977, 26995, 28702, 30706, 30709, 30713, 30715, 30716, 30717, 30721, 33603, 33615, 33638, 46716, 56065, 62327, 64691)
 	recipe:AddVendor(28723, 30735)
 	recipe:AddLimitedVendor(30734, 2)
 
@@ -3387,7 +3387,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItem(50077, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("INSCRIPTION_MAJOR_GLYPH")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WARLOCK)
-	recipe:AddTrainer(26916, 26977, 26995, 28702, 30706, 30709, 30713, 30715, 30716, 30717, 30721, 33615, 33638, 46716, 56065, 62327, 64691)
+	recipe:AddTrainer(26916, 26977, 26995, 28702, 30706, 30709, 30713, 30715, 30716, 30717, 30721, 33603, 33615, 33638, 46716, 56065, 62327, 64691)
 	recipe:AddVendor(28723)
 
 	-- Glyph of Inferno Blast -- 94000
@@ -3575,7 +3575,7 @@ function addon:InitInscription()
 	recipe:SetRequiredFaction("Horde")
 	recipe:SetItemFilterType("INSCRIPTION_CREATED_ITEM")
 	recipe:AddFilters(F.HORDE)
-	recipe:AddTrainer(30709, 30715, 30717)
+	recipe:AddTrainer(30709, 30715, 30717, 33603)
 
 	-- Forged Documents -- 89244
 	recipe = AddRecipe(89244, V.CATA, Q.COMMON)
@@ -3584,7 +3584,7 @@ function addon:InitInscription()
 	recipe:SetRequiredFaction("Alliance")
 	recipe:SetItemFilterType("INSCRIPTION_CREATED_ITEM")
 	recipe:AddFilters(F.ALLIANCE)
-	recipe:AddTrainer(30709, 30713, 30715, 30717)
+	recipe:AddTrainer(30709, 30713, 30715, 30717, 33603)
 
 	-- Scroll of Intellect IX -- 89368
 	recipe = AddRecipe(89368, V.CATA, Q.COMMON)
@@ -3641,7 +3641,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItem(63481, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("INSCRIPTION_MAJOR_GLYPH")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WARRIOR)
-	recipe:AddTrainer(26916, 26977, 26995, 28702, 30706, 30709, 30713, 30715, 30716, 30717, 30721, 33615, 33638, 46716, 56065, 62327, 64691)
+	recipe:AddTrainer(26916, 26977, 26995, 28702, 30706, 30709, 30713, 30715, 30716, 30717, 30721, 33603, 33615, 33638, 46716, 56065, 62327, 64691)
 	recipe:AddVendor(49703, 50248)
 
 	-- Vanishing Powder -- 92026
@@ -4446,7 +4446,7 @@ function addon:InitInscription()
 
 	-- Secret Tiger Fang Inscription -- 127020
 	recipe = AddRecipe(127020, V.MOP, Q.COMMON)
-	recipe:SetSkillLevels(540, 540, 550, 555, 560)
+	recipe:SetSkillLevels(575, 575, 585, 590, 595)
 	recipe:SetCraftedItem(87580, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("INSCRIPTION_ITEM_ENHANCEMENT")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
@@ -4454,7 +4454,7 @@ function addon:InitInscription()
 
 	-- Secret Tiger Claw Inscription -- 127021
 	recipe = AddRecipe(127021, V.MOP, Q.COMMON)
-	recipe:SetSkillLevels(540, 540, 550, 555, 560)
+	recipe:SetSkillLevels(575, 575, 585, 590, 595)
 	recipe:SetCraftedItem(87580, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("INSCRIPTION_ITEM_ENHANCEMENT")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
@@ -4695,7 +4695,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItem(104108, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("INSCRIPTION_MINOR_GLYPH")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.PALADIN)
-	recipe:AddMobDrop(73162, 72769)
+	recipe:AddMobDrop(72769, 73162)
 
 	-- Glyph of Angels -- 148275
 	recipe = AddRecipe(148275, V.MOP, Q.UNCOMMON)
@@ -4767,7 +4767,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItem(104127, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("INSCRIPTION_MINOR_GLYPH")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.SHAMAN)
-	recipe:AddMobDrop(73025, 73018, 73021)
+	recipe:AddMobDrop(73018, 73021, 73025)
 
 	-- Glyph of Spirit Wolf -- 148283
 	recipe = AddRecipe(148283, V.MOP, Q.UNCOMMON)
@@ -4821,7 +4821,7 @@ function addon:InitInscription()
 	recipe:SetCraftedItem(104134, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("INSCRIPTION_MINOR_GLYPH")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.SHAMAN)
-	recipe:AddMobDrop(72777, 72775)
+	recipe:AddMobDrop(72775, 72777)
 
 	-- Glyph of the Raging Whirlwind -- 148289
 	recipe = AddRecipe(148289, V.MOP, Q.COMMON)
