@@ -238,6 +238,7 @@ function addon:OnInitialize()
 					trainer = true,
 					vendor = true,
 					worlddrop = true,
+					misc1 = true,
 				},
 				-------------------------------------------------------------------------------
 				-- Profession Item Filters
@@ -345,7 +346,6 @@ function addon:OnInitialize()
 					shaman = true,
 					warlock = true,
 					warrior = true,
-					monk = true,
 				},
 			}
 		}
