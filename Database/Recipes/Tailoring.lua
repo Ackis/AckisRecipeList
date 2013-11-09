@@ -601,8 +601,7 @@ function addon:InitTailoring()
 	recipe:SetCraftedItem(6240, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("TAILORING_CHEST")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.HEALER, F.CASTER)
-	recipe:AddVendor(66)
-	recipe:AddLimitedVendor(3364, 1, 3485, 1, 3522, 1)
+	recipe:AddLimitedVendor(66, 1, 3364, 1, 3485, 1, 3522, 1)
 
 	-- Blue Linen Robe -- 7633
 	recipe = AddRecipe(7633, V.ORIG, Q.COMMON)
