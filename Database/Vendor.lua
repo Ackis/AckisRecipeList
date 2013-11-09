@@ -423,6 +423,7 @@ function addon:InitVendor()
 	AddVendor(53214,	L["Damek Bloombeard"],			Z.MOLTEN_FRONT,			47.0,	90.6,	"Neutral")
 	AddVendor(53881,	L["Ayla Shadowstorm"],			Z.MOLTEN_FRONT,			44.8,	86.6,	"Neutral")
 	AddVendor(54232,	L["Mrs. Gant"],				Z.THE_CAPE_OF_STRANGLETHORN,	42.6,	72.8,	"Neutral") -- COMPLETLY UPDATED
+	AddVendor(56069,	L["Tatia Brine"],			Z.DARKMOON_ISLAND,		52.5,	88.6,	"Neutral")
 	AddVendor(56925,	L["Farrah Facet"],			Z.STORMWIND_CITY,		63.8,	61.6,	"Alliance") -- COMPLETLY UPDATED
 	AddVendor(57922,	L["Taryssa Lazuria"],			Z.ORGRIMMAR,			72.4,	34.6,	"Horde") -- COMPLETLY UPDATED
 	AddVendor(58414,	L["San Redscale"],			Z.THE_JADE_FOREST,		56.6,	44.4,	"Neutral")

@@ -345,7 +345,7 @@ function addon:InitCooking()
 	recipe:SetRecipeItem(6325, "BIND_ON_EQUIP")
 	recipe:SetCraftedItem(6290, "BIND_ON_EQUIP")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddVendor(66, 1684, 3029, 3550, 4265, 4574, 5494, 5940, 8508)
+	recipe:AddVendor(66, 1684, 3029, 3550, 4265, 4574, 5494, 5940, 8508, 56069)
 
 	-- Slitherskin Mackerel -- 7752
 	recipe = AddRecipe(7752, V.ORIG, Q.COMMON)
@@ -377,7 +377,7 @@ function addon:InitCooking()
 	recipe:SetRecipeItem(6330, "BIND_ON_EQUIP")
 	recipe:SetCraftedItem(4593, "BIND_ON_EQUIP")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddVendor(2397, 3027, 3029, 3497, 4553, 5494)
+	recipe:AddVendor(2397, 3027, 3029, 3497, 4553, 5494, 56069)
 
 	-- Rainbow Fin Albacore -- 7827
 	recipe = AddRecipe(7827, V.ORIG, Q.COMMON)
