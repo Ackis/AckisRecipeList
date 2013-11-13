@@ -209,8 +209,9 @@ function addon:InitCooking()
 	recipe:SetSkillLevels(110, 110, 150, 170, 190)
 	recipe:SetRecipeItem(3734, "BIND_ON_EQUIP")
 	recipe:SetCraftedItem(3726, "BIND_ON_EQUIP")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.HEALER, F.CASTER)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.HEALER, F.CASTER)
 	recipe:AddCustom("REMOVED_FROM_GAME")
+	recipe:Retire()
 
 	-- Hot Lion Chops -- 3398
 	recipe = AddRecipe(3398, V.ORIG, Q.COMMON)
@@ -306,8 +307,9 @@ function addon:InitCooking()
 	recipe:SetSkillLevels(110, 110, 150, 170, 190)
 	recipe:SetRecipeItem(5489, "BIND_ON_EQUIP")
 	recipe:SetCraftedItem(5480, "BIND_ON_EQUIP")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.HEALER, F.CASTER)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.HEALER, F.CASTER)
 	recipe:AddCustom("REMOVED_FROM_GAME")
+	recipe:Retire()
 
 	-- Boiled Clams -- 6499
 	recipe = AddRecipe(6499, V.ORIG, Q.COMMON)
@@ -438,8 +440,9 @@ function addon:InitCooking()
 	recipe:SetSkillLevels(125, 125, 165, 185, 205)
 	recipe:SetRecipeItem(12227, "BIND_ON_EQUIP")
 	recipe:SetCraftedItem(12209, "BIND_ON_EQUIP")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.HEALER, F.CASTER)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.HEALER, F.CASTER)
 	recipe:AddCustom("REMOVED_FROM_GAME")
+	recipe:Retire()
 
 	-- Roast Raptor -- 15855
 	recipe = AddRecipe(15855, V.ORIG, Q.COMMON)
@@ -678,8 +681,9 @@ function addon:InitCooking()
 	recipe:SetSkillLevels(300, 300, 325, 337, 350)
 	recipe:SetRecipeItem(21025, "BIND_ON_EQUIP")
 	recipe:SetCraftedItem(21023, "BIND_ON_EQUIP")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE)
 	recipe:AddCustom("REMOVED_FROM_GAME")
+	recipe:Retire()
 
 	-- Smoked Sagefish -- 25704
 	recipe = AddRecipe(25704, V.ORIG, Q.COMMON)
