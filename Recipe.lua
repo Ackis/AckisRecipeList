@@ -29,7 +29,17 @@ private.recipe_list = {}
 private.profession_recipe_list = {}
 private.num_profession_recipes = {}
 
-private.acquire_list	= {}
+do
+	local acquire_list = {}
+
+	for acquire_type = 1, #private.ACQUIRE_STRINGS do
+		local entry = {}
+		entry.name = private.ACQUIRE_NAMES[acquire_type]
+		entry.recipes = {}
+		acquire_list[acquire_type] = entry
+	end
+	private.acquire_list = acquire_list
+end
 private.location_list	= {}
 
 -----------------------------------------------------------------------
@@ -385,10 +395,6 @@ function recipe_prototype:AddAcquireData(acquire_type, type_string, unit_list, .
 				addon:Debug("WORLD_DROP with no location: %d %s", self.spell_id, self.name)
 			end
 		end
-		acquire_list[acquire_type] = acquire_list[acquire_type] or {}
-		acquire_list[acquire_type].recipes = acquire_list[acquire_type].recipes or {}
-
-		acquire_list[acquire_type].name = private.ACQUIRE_NAMES[acquire_type]
 		acquire_list[acquire_type].recipes[self.spell_id] = affiliation or true
 
 		if location_name then
