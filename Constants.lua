@@ -474,29 +474,32 @@ private.ITEM_FILTER_TYPES = {
 -- Acquire types.
 -------------------------------------------------------------------------------
 private.ACQUIRE_NAMES = {
-	[1]	= L["Trainer"],
-	[2]	= L["Vendor"],
-	[3]	= L["Mob Drop"],
-	[4]	= L["Quest"],
-	[5]	= _G.GetCategoryInfo(155),
-	[6]	= _G.REPUTATION,
-	[7]	= L["World Drop"],
-	[8]	= _G.ACHIEVEMENTS,
-	[9]	= L["Discovery"],
-	[10]	= _G.MISCELLANEOUS,
+	L["Trainer"],
+	L["Vendor"],
+	L["Mob Drop"],
+	L["Quest"],
+	_G.GetCategoryInfo(155),
+	_G.REPUTATION,
+	L["World Drop"],
+	_G.ACHIEVEMENTS,
+	L["Discovery"],
+	_G.MISCELLANEOUS,
+	L["Retired"],
+
 }
 
 private.ACQUIRE_STRINGS = {
-	[1]	= "TRAINER",
-	[2]	= "VENDOR",
-	[3]	= "MOB_DROP",
-	[4]	= "QUEST",
-	[5]	= "SEASONAL",
-	[6]	= "REPUTATION",
-	[7]	= "WORLD_DROP",
-	[8]	= "ACHIEVEMENT",
-	[9]	= "DISCOVERY",
-	[10]	= "CUSTOM",
+	"TRAINER",
+	"VENDOR",
+	"MOB_DROP",
+	"QUEST",
+	"SEASONAL",
+	"REPUTATION",
+	"WORLD_DROP",
+	"ACHIEVEMENT",
+	"DISCOVERY",
+	"CUSTOM",
+	"RETIRED",
 }
 
 private.ACQUIRE_TYPES = {}
@@ -1045,6 +1048,7 @@ private.CATEGORY_COLORS = {
 	mobdrop		= { hex = "962626",	r = 0.59,	g = 0.15,	b = 0.15 },
 	quest		= { hex = "dbdb2c",	r = 0.86,	g = 0.86,	b = 0.17 },
 	reputation	= { hex = "855a99",	r = 0.52,	g = 0.35,	b = 0.6 },
+	retired		= { hex = "bfb863",     r = 0.75,       g = 0.72,       b = 0.39 },
 	seasonal	= { hex = "80590e",	r = 0.50,	g = 0.35,	b = 0.05 },
 	trainer		= { hex = "c98e26",	r = 0.79,	g = 0.56,	b = 0.14 },
 	vendor		= { hex = "aad372",	r = 0.67,	g = 0.83,	b = 0.45 },

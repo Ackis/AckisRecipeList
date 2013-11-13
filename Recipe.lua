@@ -355,6 +355,8 @@ function recipe_prototype:AddAcquireData(acquire_type, type_string, unit_list, .
 		self.acquire_data[acquire_type] = {}
 		acquire = self.acquire_data[acquire_type]
 	end
+	acquire_list[acquire_type].recipes[self.spell_id] = true
+
 	local limited_vendor = type_string == "Limited Vendor"
 	local num_vars = select('#', ...)
 	local cur_var = 1
@@ -395,7 +397,10 @@ function recipe_prototype:AddAcquireData(acquire_type, type_string, unit_list, .
 				addon:Debug("WORLD_DROP with no location: %d %s", self.spell_id, self.name)
 			end
 		end
-		acquire_list[acquire_type].recipes[self.spell_id] = affiliation or true
+
+		if affiliation then
+			acquire_list[acquire_type].recipes[self.spell_id] = affiliation
+		end
 
 		if location_name then
 			location_list[location_name] = location_list[location_name] or {}
@@ -516,6 +521,11 @@ function recipe_prototype:AddRepVendor(reputation_id, rep_level, ...)
 	self:AddFilters(private.FILTER_IDS.REPUTATION)
 end
 
+function recipe_prototype:Retire()
+	self:AddAcquireData(private.ACQUIRE_TYPES.RETIRED)
+	self:AddFilters(private.FILTER_IDS.RETIRED)
+end
+
 local DUMP_FUNCTION_FORMATS = {
 	[A.ACHIEVEMENT] = "recipe:AddAchievement(%s)",
 	[A.CUSTOM] = "recipe:AddCustom(%s)",
@@ -525,6 +535,7 @@ local DUMP_FUNCTION_FORMATS = {
 	[A.MOB_DROP] = "recipe:AddMobDrop(%s)",
 	[A.WORLD_DROP] = "recipe:AddWorldDrop(%s)",
 	[A.QUEST] = "recipe:AddQuest(%s)",
+	[A.RETIRED] = "recipe:Retire()",
 }
 
 local sorted_data = {}
@@ -537,6 +548,7 @@ local IMPLICIT_FLAGS = {
 	MOB_DROP = true,
 	QUEST = true,
 	REPUTATION = true,
+	RETIRED = true,
 	SEASONAL = true,
 	TRAINER = true,
 	VENDOR = true,
