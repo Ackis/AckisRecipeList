@@ -6801,7 +6801,6 @@ function addon:InitLeatherworking()
 	recipe:SetCraftedItem(72163, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("LEATHERWORKING_MATERIALS")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddTrainer(3007, 3069, 3365, 4212, 5127, 5564, 33581, 65121, 66354)
 	recipe:AddWorldDrop(Z.PANDARIA)
 
 	-- Magnificence of Scales -- 140041
@@ -6811,7 +6810,6 @@ function addon:InitLeatherworking()
 	recipe:SetCraftedItem(72163, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("LEATHERWORKING_MATERIALS")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddTrainer(3007, 3069, 3365, 4212, 5127, 5564, 33581, 65121, 66354)
 	recipe:AddWorldDrop(Z.PANDARIA)
 
 	-- Magnificent Hide Pack -- 140185
