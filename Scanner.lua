@@ -102,6 +102,14 @@ do
 	local mismatched_item_levels, mismatched_recipe_levels = {}, {}
 	local itemless_spells = {}
 
+	-- Key is recipe ID, value is crafted item ID. Example: Magnificence of Leather and Magnificence of Scale transform materials to Magnificent Hide.
+	-- Both of these are DROPPED. Only the Magnificent Hide skill itself is trained.
+	local FALSE_POSITIVE_RECIPE_TO_ITEM_MAP = {
+		[140040] = 72163, -- Magnificence of Leather / Magnificent Hide
+		[140041] = 72163, -- Magnificence of Scales / Magnificent Hide
+	}
+
+
 	--- Function to compare which recipes are available from a trainer and compare with the internal ARL database.
 	-- @name AckisRecipeList:ScanTrainerData
 	-- @param autoscan True when autoscan is enabled in preferences, it will inform you when a scan has occured.
@@ -208,7 +216,13 @@ do
 
 			if matching_recipe or matching_item then
 				if not matching_trainer then
-					table.insert(missing_spell_ids, spell_id)
+
+					if matching_item and FALSE_POSITIVE_RECIPE_TO_ITEM_MAP[spell_id] ~= recipe:CraftedItem() then
+						table.insert(missing_spell_ids, spell_id)
+						output:AddLine(("Matched recipe with spell ID %d. (matching crafted item ID %d)"):format(spell_id, recipe:CraftedItem()))
+					elseif not matching_item then
+						table.insert(missing_spell_ids, spell_id)
+					end
 
 					if not L[trainer_name] then
 						L[trainer_name] = true
