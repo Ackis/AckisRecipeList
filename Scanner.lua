@@ -205,22 +205,14 @@ do
 		end
 
 		for spell_id, recipe in pairs(recipe_list) do
-			local train_data = recipe.acquire_data[A.TRAINER]
-			local matching_trainer = false
+			local trainer_acquire_data = recipe.acquire_data[A.TRAINER]
+			local matching_trainer = trainer_acquire_data and trainer_acquire_data[trainer_id]
+			local scanned_recipe_skill = scanned_recipes[recipe.name]
+			local scanned_item_skill = scanned_items[recipe:CraftedItem()]
 
-			if train_data and train_data[trainer_id] then
-				matching_trainer = true
-			end
-			local matching_recipe = scanned_recipes[recipe.name]
-			local matching_item = scanned_items[recipe:CraftedItem()]
-
-			if matching_recipe or matching_item then
+			if scanned_recipe_skill or scanned_item_skill then
 				if not matching_trainer then
-
-					if matching_item and FALSE_POSITIVE_RECIPE_TO_ITEM_MAP[spell_id] ~= recipe:CraftedItem() then
-						table.insert(missing_spell_ids, spell_id)
-						output:AddLine(("Matched recipe with spell ID %d. (matching crafted item ID %d)"):format(spell_id, recipe:CraftedItem()))
-					elseif not matching_item then
+					if not scanned_item_skill or FALSE_POSITIVE_RECIPE_TO_ITEM_MAP[spell_id] ~= recipe:CraftedItem() then
 						table.insert(missing_spell_ids, spell_id)
 					end
 
@@ -232,20 +224,20 @@ do
 					if not recipe:HasFilter("common1", "TRAINER") then
 						recipe:AddFilters(F.TRAINER)
 
-						if matching_item then
+						if scanned_item_skill then
 							output:AddLine(("Added trainer flag to recipe with spell ID %d. (matching crafted item ID %d)"):format(spell_id, recipe:CraftedItem()))
-						elseif matching_recipe then
+						elseif scanned_recipe_skill then
 							output:AddLine(("Added trainer flag to recipe with spell ID %d. (matching recipe name \"%s\")"):format(spell_id, recipe.name))
 						end
 					end
 				end
 				local recipe_skill = recipe:SkillLevels()
 
-				if matching_item and matching_item ~= recipe_skill then
+				if scanned_item_skill and scanned_item_skill ~= recipe_skill then
 					table.insert(mismatched_item_levels, spell_id)
 				end
 
-				if matching_recipe and matching_recipe ~= recipe_skill then
+				if scanned_recipe_skill and scanned_recipe_skill ~= recipe_skill then
 					table.insert(mismatched_recipe_levels, spell_id)
 				end
 			elseif matching_trainer then
