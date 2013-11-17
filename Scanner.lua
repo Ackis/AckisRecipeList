@@ -211,10 +211,8 @@ do
 			local scanned_item_skill = scanned_items[recipe:CraftedItem()]
 
 			if scanned_recipe_skill or scanned_item_skill then
-				if not matching_trainer then
-					if not scanned_item_skill or FALSE_POSITIVE_RECIPE_TO_ITEM_MAP[spell_id] ~= recipe:CraftedItem() then
-						table.insert(missing_spell_ids, spell_id)
-					end
+				if not matching_trainer and (not scanned_item_skill or FALSE_POSITIVE_RECIPE_TO_ITEM_MAP[spell_id] ~= recipe:CraftedItem()) then
+					table.insert(missing_spell_ids, spell_id)
 
 					if not L[trainer_name] then
 						L[trainer_name] = true
