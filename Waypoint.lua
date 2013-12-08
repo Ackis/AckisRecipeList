@@ -568,7 +568,11 @@ function addon:AddWaypoint(recipe_id, acquire_id, location_id, npc_id)
 				table.insert(icon_list, uid)
 
 				SetWaypointIcon(uid, _G.Minimap:GetChildren())
-				SetWaypointIcon(uid, _G.TomTomMapOverlay:GetChildren())
+
+				if _G.TomTomMapOverlay then
+					SetWaypointIcon(uid, _G.TomTomMapOverlay:GetChildren())
+				end
+
 			end
 		else
 			--@debug@
