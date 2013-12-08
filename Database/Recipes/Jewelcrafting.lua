@@ -125,7 +125,7 @@ function addon:InitJewelcrafting()
 	recipe:SetRecipeItem(20856, "BIND_ON_EQUIP")
 	recipe:SetCraftedItem(20856, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("JEWELCRAFTING_NECK")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS)
 	recipe:AddLimitedVendor(1286, 1, 3367, 1, 16624, 1, 17512, 1)
 
 	-- Moonsoul Crown -- 25321
@@ -6818,7 +6818,7 @@ function addon:InitJewelcrafting()
 	recipe:SetRecipeItem(83930, "BIND_ON_EQUIP")
 	recipe:SetCraftedItem(83089, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("JEWELCRAFTING_MOUNT")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.CLOUDSERPENT)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS, F.HEALER, F.CASTER, F.CLOUDSERPENT)
 	recipe:AddRepVendor(FAC.CLOUDSERPENT, REP.HONORED, 58414)
 
 	-- Jade Panther -- 121844
