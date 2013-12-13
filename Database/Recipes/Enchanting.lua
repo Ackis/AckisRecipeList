@@ -545,7 +545,8 @@ function addon:InitEnchanting()
 	recipe:SetRecipeItem(11205, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("ENCHANTING_GLOVES")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddMobDrop(14448)
+	recipe:AddCustom("REMOVED_FROM_GAME")
+	recipe:Retire()
 
 	-- Enchant Cloak - Lesser Agility -- 13882
 	recipe = AddRecipe(13882, V.ORIG, Q.UNCOMMON)
