@@ -3036,7 +3036,7 @@ function addon:InitLeatherworking()
 	recipe:SetCraftedItem(32580, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("LEATHERWORKING_WRIST")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.DPS)
-	recipe:AddWorldDrop(Z.BLACK_TEMPLE, Z.MOUNT_HYJAL)
+	recipe:AddWorldDrop(Z.MOUNT_HYJAL)
 
 	-- Swiftstrike Shoulders -- 41160
 	recipe = AddRecipe(41160, V.TBC, Q.EPIC)
