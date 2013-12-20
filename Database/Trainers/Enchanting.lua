@@ -37,6 +37,7 @@ function private:InitializeEnchantingTrainers()
 	self:AddTrainer(33610, 51313, Z.SHATTRATH_CITY, 43.6, 90.4, "Neutral")
 	self:AddTrainer(33633, "Enchantress Andiala", Z.SHATTRATH_CITY, 55.6, 74.6, "Neutral")
 	self:AddTrainer(33676, "Zurii", Z.SHATTRATH_CITY, 36.4, 44.6, "Neutral")
+	self:AddTrainer(53410, "Lissah Spellwick", Z.DUSTWALLOW_MARSH, 66.0, 49.7, "Alliance")
 	self:AddTrainer(65127, "Lai the Spellpaw", Z.THE_JADE_FOREST, 46.8, 42.9, "Neutral")
 
 	self.InitializeEnchantingTrainers = nil

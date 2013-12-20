@@ -146,6 +146,7 @@ function addon:InitVendor()
 	AddVendor(4775,		L["Felicia Doan"],			Z.UNDERCITY,			64.1,	50.6,	"Horde") -- COMPLETELY UPDATED
 	AddVendor(4782,		L["Truk Wildbeard"],			Z.THE_HINTERLANDS,		14.4,	42.5,	"Alliance")
 	AddVendor(4879,		L["Ogg'marr"],				Z.DUSTWALLOW_MARSH,		36.7,	31.0,	"Horde")
+	AddVendor(4894,		L["Craig Nollward"],			Z.DUSTWALLOW_MARSH,		66.9,	45.2,	"Alliance")
 	AddVendor(4897,		L["Helenia Olden"],			Z.DUSTWALLOW_MARSH,		66.4,	51.5,	"Alliance")
 	AddVendor(5128,		L["Bombus Finespindle"],		Z.IRONFORGE,			39.6,	34.5,	"Alliance") -- COMPLETELY UPDATED
 	AddVendor(5154,		L["Poranna Snowbraid"],			Z.IRONFORGE,			43.0,	28.3,	"Alliance") -- COMPLETELY UPDATED
@@ -421,6 +422,7 @@ function addon:InitVendor()
 	AddVendor(52655,	L["Palehoof's Big Bag of Parts"],	Z.THUNDER_BLUFF,		36.2,	60.2,	"Horde") -- COMPLETELY UPDATED
 	AddVendor(52658,	L["Paku Cloudchaser"],			Z.THUNDER_BLUFF,		34.7,	53.5,	"Horde") -- COMPLETELY UPDATED
 	AddVendor(53214,	L["Damek Bloombeard"],			Z.MOLTEN_FRONT,			47.0,	90.6,	"Neutral")
+	AddVendor(53410,	L["Lissah Spellwick"],			Z.DUSTWALLOW_MARSH,		66.0,	49.7,	"Alliance") -- COMPLETELY UPDATED
 	AddVendor(53881,	L["Ayla Shadowstorm"],			Z.MOLTEN_FRONT,			44.8,	86.6,	"Neutral")
 	AddVendor(54232,	L["Mrs. Gant"],				Z.THE_CAPE_OF_STRANGLETHORN,	42.6,	72.8,	"Neutral") -- COMPLETLY UPDATED
 	AddVendor(56069,	L["Tatia Brine"],			Z.DARKMOON_ISLAND,		52.5,	88.6,	"Neutral")

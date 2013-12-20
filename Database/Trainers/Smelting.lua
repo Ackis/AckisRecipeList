@@ -39,6 +39,7 @@ function private:InitializeSmeltingTrainers()
 	self:AddTrainer(46357, "Gonto", Z.ORGRIMMAR, 44.57, 78.61, "Horde")
 	self:AddTrainer(52170, "Gizzik Oregrab", Z.ORGRIMMAR, 36.05, 82.58, "Horde")
 	self:AddTrainer(52642, "Foreman Pernic", Z.DARNASSUS, 50.6, 33.8, "Alliance")
+	self:AddTrainer(53409, "\"Kobold\" Kerik", Z.DUSTWALLOW_MARSH, 64.6, 49.8, "Alliance")
 	self:AddTrainer(65092, "Smeltmaster Ashpaw", Z.THE_JADE_FOREST, 46.09, 29.44, "Alliance")
 
 	self.InitializeSmeltingTrainers = nil

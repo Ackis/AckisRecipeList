@@ -19,6 +19,7 @@ function private:InitializeBlacksmithingTrainers()
 	self:AddTrainer(3557, "Guillaume Sorouy", Z.SILVERPINE_FOREST, 43.2, 41, "Horde")
 	self:AddTrainer(4258, "Bengus Deepforge", Z.IRONFORGE, 51, 43, "Alliance")
 	self:AddTrainer(4596, "James Van Brunt", Z.UNDERCITY, 61.2, 29.9, "Horde")
+	self:AddTrainer(4888, "Marie Holdston", Z.DUSTWALLOW_MARSH, 64.6, 50.1, "Alliance")
 	self:AddTrainer(5164, "Grumnus Steelshaper", Z.IRONFORGE, 50.2, 42.8, "Alliance")
 	self:AddTrainer(5511, "Therum Deepforge", Z.STORMWIND_CITY, 63.7, 37, "Alliance") --COMPLETELY UPDATED
 	self:AddTrainer(7230, "Shayis Steelfury", Z.ORGRIMMAR, 75.91, 37.1, "Horde")

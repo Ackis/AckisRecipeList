@@ -8,6 +8,7 @@ local Z = private.ZONE_NAMES
 -- What we _really_ came here to see...
 -----------------------------------------------------------------------
 function private:InitializeJewelcraftingTrainers()
+	self:AddTrainer(5388,  "Ingo Woolybush", Z.DUSTWALLOW_MARSH, 66.3, 45.1, "Alliance")
 	self:AddTrainer(15501, "Aleinia", Z.EVERSONG_WOODS, 48.5, 47.5, "Horde")
 	self:AddTrainer(18751, "Kalaen", Z.HELLFIRE_PENINSULA, 56.8, 37.7, "Horde")
 	self:AddTrainer(18774, "Tatiana", Z.HELLFIRE_PENINSULA, 54.6, 63.6, "Alliance")

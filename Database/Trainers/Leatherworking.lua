@@ -47,6 +47,7 @@ function private:InitializeLeatherworkingTrainers()
 	self:AddTrainer(33612, 51302, Z.SHATTRATH_CITY, 43.8, 90.9, "Neutral")
 	self:AddTrainer(33635, "Daenril", Z.SHATTRATH_CITY, 41.9, 63.4, "Neutral")
 	self:AddTrainer(33681, "Korim", Z.SHATTRATH_CITY, 37.6, 28, "Neutral")
+	self:AddTrainer(53436, "Eustace Tanwell", Z.DUSTWALLOW_MARSH, 66.4, 45.1, "Alliance")
 	self:AddTrainer(65121, "Clean Pelt", Z.KUN_LAI_SUMMIT, 64.6, 60.9, "Neutral")
 	self:AddTrainer(66354, "Master Cannon", Z.KUN_LAI_SUMMIT, 50.6, 42.0, "Neutral")
 
