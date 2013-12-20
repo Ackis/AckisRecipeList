@@ -1,6 +1,69 @@
 ==ARL Change Log
 NOTE: Always remove the folder for old versions and install a fresh copy when upgrading.
 
+== 2.5.13
+=== Recipe Database:
+* Fix Swiftstrike Bracers location
+* Update Enchant Gloves - Advanced herbalism - mobs which dropped this have been removed from game
+* Update of Trainers and Vendors in Theramore
+
+== 2.5.12
+=== Recipe Database:
+* Fix error for TomTom users
+
+== 2.5.11
+=== Recipe Database:
+* Removed trainers removed from Darkshore with Cataclysm, update recipe list for removal of those trainers
+* Added Engineering trainer in Darkshore
+
+== 2.5.10
+=== Recipe Database:
+* Update many trainers
+* Fix Magnificence of Leather/Scales - not on trainers, but scanner thinks it is.
+
+=== Dev Tools
+* Added whitelist implementation so Magnificence of Leather/Scales stop dumping as being on trainers
+
+== 2.5.9
+=== Recipe Database:
+* Implemented new Retire feature
+
+=== Dev Tools
+* Add new way to properly filter Retired collectables
+* Fix dump for empty sources
+
+== 2.5.8
+=== Recipe Database:
+* Icecrown trainers updated
+* Add trainers in the area in the mountains in Kun Lai Summit
+* Update Tailoring vendor in Honor Hold
+* Add trainers
+* Add "Miscellaneous" filter to Default settings
+
+=== Dev Tools
+* Cleanup/overhaul
+
+== 2.5.7
+=== Recipe Database:
+* Fix some recipe items which were marked BoE instead of BoP.
+
+=== Dev Tools
+* Fix Dump commands
+
+== 2.5.6
+=== Recipe Database:
+* Fixed location of Sapphire Cub & Jade Owl
+* Update Inscription Technique sources for new 5.4 patterns
+
+=== Dev Tools
+* Modify Dump commands
+
+== 2.5.5
+=== Recipe Database:
+* Darnassus Trainer updates
+* Stormwind Trainer updates
+* Fix classes missing from items
+
 == 2.5.4
 === Recipe Database:
 * 5.4 Inscription fixes
