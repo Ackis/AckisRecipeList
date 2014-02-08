@@ -14,13 +14,13 @@ local pairs, ipairs = _G.pairs, _G.ipairs
 local FOLDER_NAME, private = ...
 
 local LibStub = _G.LibStub
-local addon	= LibStub("AceAddon-3.0"):GetAddon(private.addon_name)
-local L		= LibStub("AceLocale-3.0"):GetLocale(private.addon_name)
+local addon = LibStub("AceAddon-3.0"):GetAddon(private.addon_name)
+local L = LibStub("AceLocale-3.0"):GetLocale(private.addon_name)
 
 -------------------------------------------------------------------------------
 -- Constants
 -------------------------------------------------------------------------------
-local ORDERED_PROFESSIONS	= private.ORDERED_PROFESSIONS
+local ORDERED_PROFESSIONS = private.ORDERED_PROFESSIONS
 
 local A = private.ACQUIRE_TYPES
 
@@ -208,6 +208,7 @@ function private.InitializeTabs()
 
 				return acquire_a.name < acquire_b.name
 			end
+
 			sorted_acquires = {}
 
 			for acquire_name in pairs(private.acquire_list) do
@@ -218,7 +219,7 @@ function private.InitializeTabs()
 		local prof_name = ORDERED_PROFESSIONS[MainPanel.current_profession]
 		local profession_recipes = private.profession_recipe_list[prof_name]
 
-		self[prof_name.." expanded"] = self[prof_name.." expanded"] or {}
+		self[prof_name .. " expanded"] = self[prof_name .. " expanded"] or {}
 
 		for index = 1, #sorted_acquires do
 			local acquire_type = sorted_acquires[index]
@@ -236,24 +237,24 @@ function private.InitializeTabs()
 						recipe_count = recipe_count + 1
 					end
 				else
-					self[prof_name.." expanded"][spell_id] = nil
+					self[prof_name .. " expanded"][spell_id] = nil
 				end
 			end
 
 			if count > 0 then
 				local entry = AcquireTable()
 
-				local acquire_str = private.ACQUIRE_STRINGS[acquire_type]:lower():gsub("_","")
+				local acquire_str = private.ACQUIRE_STRINGS[acquire_type]:lower():gsub("_", "")
 				local color_table = private.CATEGORY_COLORS[acquire_str]
 				local color_code = color_table and color_table.hex or "ffffff"
-				local is_expanded = self[prof_name.." expanded"][private.ACQUIRE_NAMES[acquire_type]]
+				local is_expanded = self[prof_name .. " expanded"][private.ACQUIRE_NAMES[acquire_type]]
 
-				entry.text = ("%s (%d)"):format(SetTextColor(color_code, private.ACQUIRE_NAMES[acquire_type]),count)
+				entry.text = ("%s (%d)"):format(SetTextColor(color_code, private.ACQUIRE_NAMES[acquire_type]), count)
 				entry.acquire_id = acquire_type
 
 				insert_index = MainPanel.list_frame:InsertEntry(entry, nil, insert_index, "header", is_expanded or expand_mode, is_expanded or expand_mode)
 			else
-				self[prof_name.." expanded"][private.ACQUIRE_NAMES[acquire_type]] = nil
+				self[prof_name .. " expanded"][private.ACQUIRE_NAMES[acquire_type]] = nil
 			end
 		end
 		return recipe_count
@@ -276,6 +277,7 @@ function private.InitializeTabs()
 
 				return loc_a.name < loc_b.name
 			end
+
 			sorted_locations = {}
 
 			for loc_name in pairs(private.location_list) do
@@ -286,7 +288,7 @@ function private.InitializeTabs()
 		local prof_name = ORDERED_PROFESSIONS[MainPanel.current_profession]
 		local profession_recipes = private.profession_recipe_list[prof_name]
 
-		self[prof_name.." expanded"] = self[prof_name.." expanded"] or {}
+		self[prof_name .. " expanded"] = self[prof_name .. " expanded"] or {}
 
 		for index = 1, #sorted_locations do
 			local loc_name = sorted_locations[index]
@@ -344,12 +346,12 @@ function private.InitializeTabs()
 						end
 					end
 				else
-					self[prof_name.." expanded"][spell_id] = nil
+					self[prof_name .. " expanded"][spell_id] = nil
 				end
 			end
 
 			if count > 0 then
-				local is_expanded = self[prof_name.." expanded"][loc_name]
+				local is_expanded = self[prof_name .. " expanded"][loc_name]
 				local entry = AcquireTable()
 
 				if loc_name == _G.GetRealZoneText() then
@@ -363,7 +365,7 @@ function private.InitializeTabs()
 
 				insert_index = MainPanel.list_frame:InsertEntry(entry, nil, insert_index, "header", is_expanded or expand_mode, is_expanded or expand_mode)
 			else
-				self[prof_name.." expanded"][loc_name] = nil
+				self[prof_name .. " expanded"][loc_name] = nil
 			end
 		end
 		return recipe_count
@@ -373,7 +375,7 @@ function private.InitializeTabs()
 		local prof_name = ORDERED_PROFESSIONS[MainPanel.current_profession]
 		local profession_recipes = private.profession_recipe_list[prof_name]
 
-		self[prof_name.." expanded"] = self[prof_name.." expanded"] or {}
+		self[prof_name .. " expanded"] = self[prof_name .. " expanded"] or {}
 
 		private.SortRecipeList(profession_recipes)
 
@@ -385,7 +387,7 @@ function private.InitializeTabs()
 			local recipe = profession_recipes[sorted_recipes[i]]
 
 			if recipe and recipe:HasState("VISIBLE") and MainPanel.search_editbox:MatchesRecipe(recipe) then
-				local is_expanded = self[prof_name.." expanded"][recipe]
+				local is_expanded = self[prof_name .. " expanded"][recipe]
 				local entry = AcquireTable()
 				entry.text = recipe:GetDisplayName()
 				entry.recipe = recipe
@@ -394,7 +396,7 @@ function private.InitializeTabs()
 
 				insert_index = MainPanel.list_frame:InsertEntry(entry, nil, insert_index, "header", is_expanded or expand_mode, is_expanded or expand_mode)
 			else
-				self[prof_name.." expanded"][recipe] = nil
+				self[prof_name .. " expanded"][recipe] = nil
 			end
 		end
 		return recipe_count

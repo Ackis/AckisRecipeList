@@ -242,7 +242,7 @@ function private.InitializeFrame()
 			self.list_frame:Update(nil, false)
 		else
 			local current_tab = self.tabs[addon.db.profile.current_tab]
-			local on_click = current_tab:GetScript("OnClick")(current_tab)
+			current_tab:GetScript("OnClick")(current_tab)
 
 			self.current_tab = current_tab
 		end
