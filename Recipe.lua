@@ -33,10 +33,10 @@ do
 	local acquire_list = {}
 
 	for acquire_type = 1, #private.ACQUIRE_STRINGS do
-		local entry = {}
-		entry.name = private.ACQUIRE_NAMES[acquire_type]
-		entry.recipes = {}
-		acquire_list[acquire_type] = entry
+		acquire_list[acquire_type] = {
+            name = private.ACQUIRE_NAMES[acquire_type],
+            recipes = {}
+        }
 	end
 	private.acquire_list = acquire_list
 end
