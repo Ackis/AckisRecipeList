@@ -104,8 +104,8 @@ function private.InitializeTabs()
 			self[member][entry.location_id] = expanded or nil
 		end
 
-		if entry.recipe_id then
-			self[member][entry.recipe_id] = expanded or nil
+		if entry.recipe then
+			self[member][entry.recipe] = expanded or nil
 		end
 	end
 
@@ -378,20 +378,19 @@ function private.InitializeTabs()
 		local insert_index = 1
 
 		for i = 1, #sorted_recipes do
-			local recipe_index = sorted_recipes[i]
-			local recipe = profession_recipes[recipe_index]
+			local recipe = profession_recipes[sorted_recipes[i]]
 
 			if recipe and recipe:HasState("VISIBLE") and MainPanel.search_editbox:MatchesRecipe(recipe) then
-				local is_expanded = self[prof_name.." expanded"][recipe_index]
+				local is_expanded = self[prof_name.." expanded"][recipe]
 				local entry = AcquireTable()
 				entry.text = recipe:GetDisplayName()
-				entry.recipe_id = recipe_index
+				entry.recipe = recipe
 
 				recipe_count = recipe_count + 1
 
 				insert_index = ListFrame:InsertEntry(entry, nil, insert_index, "header", is_expanded or expand_mode, is_expanded or expand_mode)
 			else
-				self[prof_name.." expanded"][recipe_index] = nil
+				self[prof_name.." expanded"][recipe] = nil
 			end
 		end
 		return recipe_count
