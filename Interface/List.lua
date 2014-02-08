@@ -218,10 +218,6 @@ function private.InitializeListFrame()
 	-- sliding the thumb, or from clicking the up/down buttons.
 	ScrollBar:SetScript("OnValueChanged", function(self, value)
 		local min_val, max_val = self:GetMinMaxValues()
-		local current_tab = MainPanel.tabs[MainPanel.current_tab]
-		local member = "profession_" .. MainPanel.current_profession .. "_scroll_value"
-
-		current_tab[member] = value
 
 		if value == min_val then
 			ScrollUpButton:Disable()
@@ -233,6 +229,7 @@ function private.InitializeListFrame()
 			ScrollUpButton:Enable()
 			ScrollDownButton:Enable()
 		end
+		MainPanel.current_tab:SetScrollValue(MainPanel.current_profession, value)
 		ListFrame:Update(nil, true)
 	end)
 
@@ -308,7 +305,7 @@ function private.InitializeListFrame()
 				local check_type = clicked_line.type
 				local removal_index = clicked_index + 1
 				local entry = ListFrame.entries[removal_index]
-				local current_tab = MainPanel.tabs[MainPanel.current_tab]
+				local current_tab = MainPanel.current_tab
 
 				-- get rid of our expanded lines
 				while entry and entry.type ~= check_type do
@@ -316,11 +313,11 @@ function private.InitializeListFrame()
 					if entry.type == "header" then
 						break
 					end
-					current_tab:ModifyEntry(entry, false)
+					current_tab:SaveListEntryState(entry, false)
 					ReleaseTable(table.remove(ListFrame.entries, removal_index))
 					entry = ListFrame.entries[removal_index]
 				end
-				current_tab:ModifyEntry(clicked_line, false)
+				current_tab:SaveListEntryState(clicked_line, false)
 				clicked_line.is_expanded = false
 			else
 				ListFrame:ExpandEntry(clicked_index)
@@ -345,10 +342,10 @@ function private.InitializeListFrame()
 					addon:Debug("clicked_line (%s): parent wasn't found in ListFrame.entries", clicked_line.text)
 					return
 				end
-				local current_tab = MainPanel.tabs[MainPanel.current_tab]
+				local current_tab = MainPanel.current_tab
 
 				parent.is_expanded = false
-				current_tab:ModifyEntry(parent, false)
+				current_tab:SaveListEntryState(parent, false)
 
 				local child_index = parent_index + 1
 
@@ -478,7 +475,7 @@ function private.InitializeListFrame()
 			entry.is_expanded = true
 			table.insert(self.entries, insert_index, entry)
 
-			MainPanel.tabs[MainPanel.current_tab]:ModifyEntry(entry, entry_expanded)
+			MainPanel.current_tab:SaveListEntryState(entry, entry_expanded)
 
 			if entry_type == "header" or entry_type == "subheader" then
 				insert_index = self:ExpandEntry(insert_index, expand_mode)
@@ -965,10 +962,8 @@ function private.InitializeListFrame()
 			self.scroll_bar:Hide()
 		else
 			local max_val = num_entries - NUM_RECIPE_LINES
-			local current_tab = MainPanel.tabs[MainPanel.current_tab]
-			local scroll_value = current_tab["profession_"..MainPanel.current_profession.."_scroll_value"] or 0
-
-			scroll_value = math.max(0, math.min(scroll_value, max_val))
+			local current_tab = MainPanel.current_tab
+			local scroll_value = math.max(0, math.min(current_tab:ScrollValue(MainPanel.current_profession) or 0, max_val))
 			offset = scroll_value
 
 			self.scroll_bar:SetMinMaxValues(0, math.max(0, max_val))
@@ -1361,7 +1356,7 @@ function private.InitializeListFrame()
 		local orig_index = entry_index
 		local current_entry = self.entries[orig_index]
 		local expand_all = expand_mode == "deep"
-		local current_tab = MainPanel.tabs[MainPanel.current_tab]
+		local current_tab = MainPanel.current_tab
 		local prof_name = private.ORDERED_PROFESSIONS[MainPanel.current_profession]
 		local profession_recipes = private.profession_recipe_list[prof_name]
 
@@ -1369,7 +1364,7 @@ function private.InitializeListFrame()
 		-- value should be the index of the next button after the expansion occurs
 		entry_index = entry_index + 1
 
-		current_tab:ModifyEntry(current_entry, true)
+		current_tab:SaveListEntryState(current_entry, true)
 
 		-- This entry was generated using sorting based on Acquisition.
 		if current_entry.acquire_id then

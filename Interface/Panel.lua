@@ -242,11 +242,9 @@ function private.InitializeFrame()
 			self.list_frame:Update(nil, false)
 		else
 			local current_tab = self.tabs[addon.db.profile.current_tab]
-			local on_click = current_tab:GetScript("OnClick")
+			local on_click = current_tab:GetScript("OnClick")(current_tab)
 
-			on_click(current_tab)
-
-			self.current_tab = addon.db.profile.current_tab
+			self.current_tab = current_tab
 		end
 		self.sort_button:SetTextures()
 		self.filter_toggle:SetTextures()

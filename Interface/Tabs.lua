@@ -24,139 +24,143 @@ local ORDERED_PROFESSIONS	= private.ORDERED_PROFESSIONS
 
 local A = private.ACQUIRE_TYPES
 
+local frame_meta = { __index = _G.CreateFrame("Button") }
+local tab_prototype = _G.setmetatable({}, frame_meta)
+local tab_meta = { __index = tab_prototype }
+
 -------------------------------------------------------------------------------
 -- Upvalues
 -------------------------------------------------------------------------------
 local AcquireTable = private.AcquireTable
 local SetTextColor = private.SetTextColor
 
+-------------------------------------------------------------------------------
+-- Helpers
+-------------------------------------------------------------------------------
+local function Tab_OnClick(self, button, down)
+	local id_num = self:GetID()
+	local MainPanel = addon.Frame
+
+	for index in ipairs(MainPanel.tabs) do
+		local tab = MainPanel.tabs[index]
+
+		if index == id_num then
+			self:ToFront()
+		else
+			tab:ToBack()
+		end
+	end
+	addon.db.profile.current_tab = id_num
+	MainPanel.current_tab = MainPanel.tabs[id_num]
+
+	MainPanel.list_frame:Update(nil, false)
+	_G.PlaySound("igCharacterInfoTab")
+end
+
+local function CreateTab(id_num, text, ...)
+	local tab = _G.setmetatable(_G.CreateFrame("Button", nil, addon.Frame), tab_meta)
+
+	tab:SetID(id_num)
+	tab:SetHeight(32)
+	tab:SetPoint(...)
+	tab:SetFrameLevel(tab:GetFrameLevel() + 4)
+
+	tab.left = tab:CreateTexture(nil, "BORDER")
+	tab.left:SetSize(20, 32)
+
+	tab.right = tab:CreateTexture(nil, "BORDER")
+	tab.right:SetSize(20, 32)
+	tab.right:SetPoint("TOP", tab.left)
+	tab.right:SetPoint("RIGHT", tab)
+
+	tab.middle = tab:CreateTexture(nil, "BORDER")
+	tab.middle:SetHeight(32)
+	tab.middle:SetPoint("LEFT", tab.left, "RIGHT")
+	tab.middle:SetPoint("RIGHT", tab.right, "LEFT")
+
+	tab:SetHighlightTexture([[Interface\PaperDollInfoFrame\UI-Character-Tab-Highlight]], "ADD")
+
+	local tab_highlight = tab:GetHighlightTexture()
+	tab_highlight:ClearAllPoints()
+	tab_highlight:SetPoint("TOPLEFT", tab, "TOPLEFT", 8, 1)
+	tab_highlight:SetPoint("BOTTOMRIGHT", tab, "BOTTOMRIGHT", -8, 1)
+
+	tab:SetDisabledFontObject(_G.GameFontHighlightSmall)
+	tab:SetHighlightFontObject(_G.GameFontHighlightSmall)
+	tab:SetNormalFontObject(_G.GameFontNormalSmall)
+
+	tab:SetText(text)
+	tab:SetWidth(40 + tab:GetFontString():GetStringWidth())
+
+	tab:ToBack()
+
+	tab:SetScript("OnClick", Tab_OnClick)
+
+	return tab
+end
+
+-------------------------------------------------------------------------------
+-- Tab methods.
+-------------------------------------------------------------------------------
+function tab_prototype:ToFront()
+	self.left:ClearAllPoints()
+	self.left:SetPoint("BOTTOMLEFT")
+
+	self.left:SetTexture("Interface\\PaperDollInfoFrame\\UI-Character-ActiveTab")
+	self.left:SetTexCoord(0, 0.15625, 0, 0.546875)
+
+	self.middle:SetTexture("Interface\\PaperDollInfoFrame\\UI-Character-ActiveTab")
+	self.middle:SetTexCoord(0.15625, 0.84375, 0, 0.546875)
+
+	self.right:SetTexture("Interface\\PaperDollInfoFrame\\UI-Character-ActiveTab")
+	self.right:SetTexCoord(0.84375, 1, 0, 0.546875)
+
+	self:Disable()
+end
+
+function tab_prototype:ToBack()
+	self.left:ClearAllPoints()
+	self.left:SetPoint("TOPLEFT")
+
+	self.left:SetTexture("Interface\\PaperDollInfoFrame\\UI-Character-InactiveTab")
+	self.left:SetTexCoord(0, 0.15625, 0, 1)
+
+	self.middle:SetTexture("Interface\\PaperDollInfoFrame\\UI-Character-InactiveTab")
+	self.middle:SetTexCoord(0.15625, 0.84375, 0, 1)
+
+	self.right:SetTexture("Interface\\PaperDollInfoFrame\\UI-Character-InactiveTab")
+	self.right:SetTexCoord(0.84375, 1, 0, 1)
+
+	self:Enable()
+end
+
+function tab_prototype:SaveListEntryState(entry, expanded)
+	local field = ORDERED_PROFESSIONS[addon.Frame.current_profession] .. " expanded"
+
+	if entry.acquire_id then
+		self[field][private.ACQUIRE_NAMES[entry.acquire_id]] = expanded or nil
+	end
+
+	if entry.location_id then
+		self[field][entry.location_id] = expanded or nil
+	end
+
+	if entry.recipe then
+		self[field][entry.recipe] = expanded or nil
+	end
+end
+
+function tab_prototype:ScrollValue(profession_id)
+	return self["profession_" .. profession_id .. "_scroll_value"]
+end
+
+function tab_prototype:SetScrollValue(profession_id, value)
+	self["profession_" .. profession_id .. "_scroll_value"] = value
+end
+
 function private.InitializeTabs()
 	local MainPanel = addon.Frame
-	local ListFrame = MainPanel.list_frame
 
-	local function Tab_Enable(self)
-		self.left:ClearAllPoints()
-		self.left:SetPoint("BOTTOMLEFT")
-
-		self.left:SetTexture("Interface\\PaperDollInfoFrame\\UI-Character-ActiveTab")
-		self.left:SetTexCoord(0, 0.15625, 0, 0.546875)
-
-		self.middle:SetTexture("Interface\\PaperDollInfoFrame\\UI-Character-ActiveTab")
-		self.middle:SetTexCoord(0.15625, 0.84375, 0, 0.546875)
-
-		self.right:SetTexture("Interface\\PaperDollInfoFrame\\UI-Character-ActiveTab")
-		self.right:SetTexCoord(0.84375, 1, 0, 0.546875)
-
-		self:Disable()
-	end
-
-	local function Tab_Disable(self)
-		self.left:ClearAllPoints()
-		self.left:SetPoint("TOPLEFT")
-
-		self.left:SetTexture("Interface\\PaperDollInfoFrame\\UI-Character-InactiveTab")
-		self.left:SetTexCoord(0, 0.15625, 0, 1)
-
-		self.middle:SetTexture("Interface\\PaperDollInfoFrame\\UI-Character-InactiveTab")
-		self.middle:SetTexCoord(0.15625, 0.84375, 0, 1)
-
-		self.right:SetTexture("Interface\\PaperDollInfoFrame\\UI-Character-InactiveTab")
-		self.right:SetTexCoord(0.84375, 1, 0, 1)
-
-		self:Enable()
-	end
-
-	local function Tab_SetText(self, ...)
-		local text = self.Real_SetText(self, ...)
-		self:SetWidth(40 + self:GetFontString():GetStringWidth())
-
-		return ...
-	end
-
-	local function Tab_OnClick(self, button, down)
-		local id_num = self:GetID()
-
-		for index in ipairs(MainPanel.tabs) do
-			local tab = MainPanel.tabs[index]
-
-			if index == id_num then
-				self:ToFront()
-			else
-				tab:ToBack()
-			end
-		end
-		addon.db.profile.current_tab = id_num
-		MainPanel.current_tab = id_num
-
-		ListFrame:Update(nil, false)
-		_G.PlaySound("igCharacterInfoTab")
-	end
-
-	-- Expands or collapses a list entry in the current active tab.
-	local function Tab_ModifyEntry(self, entry, expanded)
-		local member = ORDERED_PROFESSIONS[MainPanel.current_profession] .. " expanded"
-
-		if entry.acquire_id then
-			self[member][private.ACQUIRE_NAMES[entry.acquire_id]] = expanded or nil
-		end
-
-		if entry.location_id then
-			self[member][entry.location_id] = expanded or nil
-		end
-
-		if entry.recipe then
-			self[member][entry.recipe] = expanded or nil
-		end
-	end
-
-	local function CreateTab(id_num, text, ...)
-		local tab = _G.CreateFrame("Button", nil, MainPanel)
-
-		tab:SetID(id_num)
-		tab:SetHeight(32)
-		tab:SetPoint(...)
-		tab:SetFrameLevel(tab:GetFrameLevel() + 4)
-
-		tab.left = tab:CreateTexture(nil, "BORDER")
-		tab.left:SetWidth(20)
-		tab.left:SetHeight(32)
-
-		tab.right = tab:CreateTexture(nil, "BORDER")
-		tab.right:SetWidth(20)
-		tab.right:SetHeight(32)
-		tab.right:SetPoint("TOP", tab.left)
-		tab.right:SetPoint("RIGHT", tab)
-
-		tab.middle = tab:CreateTexture(nil, "BORDER")
-		tab.middle:SetHeight(32)
-		tab.middle:SetPoint("LEFT", tab.left, "RIGHT")
-		tab.middle:SetPoint("RIGHT", tab.right, "LEFT")
-
-		tab:SetHighlightTexture("Interface\\PaperDollInfoFrame\\UI-Character-Tab-Highlight", "ADD")
-
-		local tab_highlight = tab:GetHighlightTexture()
-		tab_highlight:ClearAllPoints()
-		tab_highlight:SetPoint("TOPLEFT", tab, "TOPLEFT", 8, 1)
-		tab_highlight:SetPoint("BOTTOMRIGHT", tab, "BOTTOMRIGHT", -8, 1)
-
-		tab:SetDisabledFontObject(_G.GameFontHighlightSmall)
-		tab:SetHighlightFontObject(_G.GameFontHighlightSmall)
-		tab:SetNormalFontObject(_G.GameFontNormalSmall)
-		tab.Real_SetText = tab.SetText
-
-		tab.SetText = Tab_SetText
-		tab:SetText(text)
-
-		tab.ToFront = Tab_Enable
-		tab.ToBack = Tab_Disable
-		tab.ModifyEntry = Tab_ModifyEntry
-
-		tab:ToBack()
-
-		tab:SetScript("OnClick", Tab_OnClick)
-
-		return tab
-	end
 	local AcquisitionTab = CreateTab(1, L["Acquisition"], "TOPLEFT", MainPanel, "BOTTOMLEFT", 4, 81)
 	local LocationTab = CreateTab(2, L["Location"], "LEFT", AcquisitionTab, "RIGHT", -14, 0)
 	local RecipesTab = CreateTab(3, _G.TRADESKILL_SERVICE_LEARN, "LEFT", LocationTab, "RIGHT", -14, 0)
@@ -247,7 +251,7 @@ function private.InitializeTabs()
 				entry.text = ("%s (%d)"):format(SetTextColor(color_code, private.ACQUIRE_NAMES[acquire_type]),count)
 				entry.acquire_id = acquire_type
 
-				insert_index = ListFrame:InsertEntry(entry, nil, insert_index, "header", is_expanded or expand_mode, is_expanded or expand_mode)
+				insert_index = MainPanel.list_frame:InsertEntry(entry, nil, insert_index, "header", is_expanded or expand_mode, is_expanded or expand_mode)
 			else
 				self[prof_name.." expanded"][private.ACQUIRE_NAMES[acquire_type]] = nil
 			end
@@ -357,7 +361,7 @@ function private.InitializeTabs()
 				end
 				entry.location_id = loc_name
 
-				insert_index = ListFrame:InsertEntry(entry, nil, insert_index, "header", is_expanded or expand_mode, is_expanded or expand_mode)
+				insert_index = MainPanel.list_frame:InsertEntry(entry, nil, insert_index, "header", is_expanded or expand_mode, is_expanded or expand_mode)
 			else
 				self[prof_name.." expanded"][loc_name] = nil
 			end
@@ -388,7 +392,7 @@ function private.InitializeTabs()
 
 				recipe_count = recipe_count + 1
 
-				insert_index = ListFrame:InsertEntry(entry, nil, insert_index, "header", is_expanded or expand_mode, is_expanded or expand_mode)
+				insert_index = MainPanel.list_frame:InsertEntry(entry, nil, insert_index, "header", is_expanded or expand_mode, is_expanded or expand_mode)
 			else
 				self[prof_name.." expanded"][recipe] = nil
 			end
