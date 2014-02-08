@@ -669,7 +669,7 @@ function private.InitializeFrame()
 
 	-- Resets the SearchBox text and the state of all MainPanel.list_frame and recipe_list entries.
 	function SearchBox:Reset()
-		for index, recipe in pairs(private.recipe_list) do
+		for index, recipe in pairs(private.profession_recipe_list[private.ORDERED_PROFESSIONS[MainPanel.current_profession]]) do
 			recipe:RemoveState("RELEVANT")
 		end
 		self.prev_search = nil
