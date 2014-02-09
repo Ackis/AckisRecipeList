@@ -1001,7 +1001,7 @@ function private.InitializeListFrame()
 			line_button:SetScript("OnEnter", Bar_OnEnter)
 			line_button:SetScript("OnLeave", Bar_OnLeave)
 
-			if is_entry then
+			if is_entry or is_subentry then
 				line_button:SetScript("OnClick", ListItem_OnClick)
 			else
 				line_button:SetScript("OnClick", Bar_OnClick)
