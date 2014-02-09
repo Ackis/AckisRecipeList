@@ -41,7 +41,6 @@ local L		= LibStub("AceLocale-3.0"):GetLocale(private.addon_name)
 -------------------------------------------------------------------------------
 -- Upvalues
 -------------------------------------------------------------------------------
-local AcquireTable = private.AcquireTable
 local SetTextColor = private.SetTextColor
 local SetTooltipScripts = private.SetTooltipScripts
 
@@ -819,7 +818,7 @@ function private.InitializeFrame()
 	expand_button:SetPoint("LEFT", expand_button_frame.left, "RIGHT", -3, -3)
 
 	expand_button:SetScript("OnClick", function(self, mouse_button, down)
-		local current_tab = MainPanel.tabs[MainPanel.current_tab]
+		local current_tab = MainPanel.current_tab
 		local is_expanded = current_tab["expand_button_" .. MainPanel.current_profession]
 		local expand_mode
 
