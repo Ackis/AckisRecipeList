@@ -435,13 +435,12 @@ function private.InitializeListFrame()
 
 		if index == 1 then
 			cur_container:SetPoint("TOPLEFT", ListFrame, "TOPLEFT", 0, -3)
-			cur_state:SetPoint("LEFT", cur_container, "LEFT", 0, 0)
-			cur_entry:SetPoint("LEFT", cur_state, "RIGHT", -3, 0)
 		else
 			cur_container:SetPoint("TOPLEFT", ListFrame.button_containers[index - 1], "BOTTOMLEFT", 0, 3)
-			cur_state:SetPoint("LEFT", cur_container, "LEFT", 0, 0)
-			cur_entry:SetPoint("LEFT", cur_state, "RIGHT", -3, 0)
 		end
+		cur_state:SetPoint("LEFT", cur_container, "LEFT", 0, 0)
+		cur_entry:SetPoint("LEFT", cur_state, "RIGHT", -3, 0)
+
 		cur_state.container = cur_container
 
 		cur_state:SetScript("OnClick", ListItem_OnClick)
