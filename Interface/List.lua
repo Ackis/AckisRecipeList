@@ -335,7 +335,7 @@ function private.InitializeListFrame()
 				local parent_index = parent.entry_index
 
 				if not parent_index then
-					addon:Debug("clicked_line (%s): parent wasn't found in ListFrame.entries", clicked_line.text)
+					addon:Debug("clicked_line (%s): parent wasn't found in ListFrame.entries", clicked_line:Text())
 					return
 				end
 				local current_tab = MainPanel.current_tab
