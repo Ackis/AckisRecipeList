@@ -332,7 +332,7 @@ function private.InitializeListFrame()
 			local parent = clicked_line.parent
 
 			if parent then
-				local parent_index = parent.entry_index
+				local parent_index = parent.button.entry_index
 
 				if not parent_index then
 					addon:Debug("clicked_line (%s): parent wasn't found in ListFrame.entries", clicked_line:Text())
