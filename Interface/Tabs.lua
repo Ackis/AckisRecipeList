@@ -31,7 +31,7 @@ local tab_meta = { __index = tab_prototype }
 -------------------------------------------------------------------------------
 -- Upvalues
 -------------------------------------------------------------------------------
-local AcquireTable = private.AcquireTable
+local CreateListEntry = private.CreateListEntry
 local SetTextColor = private.SetTextColor
 
 -------------------------------------------------------------------------------
@@ -242,17 +242,18 @@ function private.InitializeTabs()
 			end
 
 			if count > 0 then
-				local entry = AcquireTable()
-
-				local acquire_str = private.ACQUIRE_STRINGS[acquire_type]:lower():gsub("_", "")
-				local color_table = private.CATEGORY_COLORS[acquire_str]
-				local color_code = color_table and color_table.hex or "ffffff"
+				local acquire_string = private.ACQUIRE_STRINGS[acquire_type]:lower():gsub("_", "")
+				local color_table = private.CATEGORY_COLORS[acquire_string]
 				local is_expanded = self[prof_name .. " expanded"][private.ACQUIRE_NAMES[acquire_type]]
 
-				entry.text = ("%s (%d)"):format(SetTextColor(color_code, private.ACQUIRE_NAMES[acquire_type]), count)
-				entry.acquire_id = acquire_type
+				local entry = CreateListEntry("header")
+				entry:SetAcquireID(acquire_type)
+				entry:SetText("%s (%d)",
+					SetTextColor(color_table and color_table.hex or "ffffff", private.ACQUIRE_NAMES[acquire_type]),
+					count
+				)
 
-				insert_index = MainPanel.list_frame:InsertEntry(entry, nil, insert_index, "header", is_expanded or expand_mode, is_expanded or expand_mode)
+				insert_index = MainPanel.list_frame:InsertEntry(entry, insert_index, is_expanded or expand_mode, is_expanded or expand_mode)
 			else
 				self[prof_name .. " expanded"][private.ACQUIRE_NAMES[acquire_type]] = nil
 			end
@@ -351,19 +352,25 @@ function private.InitializeTabs()
 			end
 
 			if count > 0 then
-				local is_expanded = self[prof_name .. " expanded"][loc_name]
-				local entry = AcquireTable()
+				local entry = CreateListEntry("header")
 
 				if loc_name == _G.GetRealZoneText() then
-					entry.text = ("%s (%d)"):format(SetTextColor(private.DIFFICULTY_COLORS.optimal.hex, loc_name), count)
-					entry.emphasized = true
+					entry:Emphasize(true)
+					entry:SetText("%s (%d)",
+						SetTextColor(private.DIFFICULTY_COLORS.optimal.hex, loc_name),
+						count
+					)
 				else
-					entry.text = ("%s (%d)"):format(SetTextColor(private.CATEGORY_COLORS.location.hex, loc_name), count)
-					entry.emphasized = nil
+					entry:Emphasize(false)
+					entry:SetText("%s (%d)",
+						SetTextColor(private.CATEGORY_COLORS.location.hex, loc_name),
+						count
+					)
 				end
-				entry.location_id = loc_name
+				entry:SetLocationID(loc_name)
 
-				insert_index = MainPanel.list_frame:InsertEntry(entry, nil, insert_index, "header", is_expanded or expand_mode, is_expanded or expand_mode)
+				local is_expanded = self[prof_name .. " expanded"][loc_name]
+				insert_index = MainPanel.list_frame:InsertEntry(entry, insert_index, is_expanded or expand_mode, is_expanded or expand_mode)
 			else
 				self[prof_name .. " expanded"][loc_name] = nil
 			end
@@ -387,14 +394,13 @@ function private.InitializeTabs()
 			local recipe = profession_recipes[sorted_recipes[i]]
 
 			if recipe and recipe:HasState("VISIBLE") and MainPanel.search_editbox:MatchesRecipe(recipe) then
-				local is_expanded = self[prof_name .. " expanded"][recipe]
-				local entry = AcquireTable()
-				entry.text = recipe:GetDisplayName()
-				entry.recipe = recipe
+				local entry = CreateListEntry("header", nil, recipe)
+				entry:SetText(recipe:GetDisplayName())
 
 				recipe_count = recipe_count + 1
 
-				insert_index = MainPanel.list_frame:InsertEntry(entry, nil, insert_index, "header", is_expanded or expand_mode, is_expanded or expand_mode)
+				local is_expanded = self[prof_name .. " expanded"][recipe]
+				insert_index = MainPanel.list_frame:InsertEntry(entry, insert_index, is_expanded or expand_mode, is_expanded or expand_mode)
 			else
 				self[prof_name .. " expanded"][recipe] = nil
 			end
