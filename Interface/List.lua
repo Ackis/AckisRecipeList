@@ -437,6 +437,7 @@ function private.InitializeListFrame()
 
 	function ListFrame:InsertEntry(entry, entry_index, entry_expanded, expand_mode)
 		local insert_index = entry_index
+		entry.index = entry_index
 
 		-- If we have acquire information for this entry, push the data table into the list
 		-- and start processing the acquires.
@@ -1360,7 +1361,7 @@ function private.InitializeListFrame()
 
 	-- This function is called when an un-expanded entry in the list has been clicked.
 	function ListFrame:ExpandEntry(entry, expand_mode)
-		local orig_index = entry.button.entry_index
+		local orig_index = entry.button and entry.button.entry_index or entry.index
 		local current_entry = self.entries[orig_index]
 		local expand_all = expand_mode == "deep"
 		local current_tab = MainPanel.current_tab
