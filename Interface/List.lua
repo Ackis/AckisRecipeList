@@ -328,19 +328,11 @@ function private.InitializeListFrame()
 				clicked_line.is_expanded = true
 			end
 		else
-			-- clicked_line is an expanded entry - find the index for its parent, and remove all of the parent's child entries.
+			-- clicked_line is an expanded entry - remove all of the parent's child entries.
 			local parent = clicked_line.parent
 
 			if parent then
-				local parent_index
-				local entries = ListFrame.entries
-
-				for index = 1, #entries do
-					if entries[index] == parent then
-						parent_index = index
-						break
-					end
-				end
+				local parent_index = parent.entry_index
 
 				if not parent_index then
 					addon:Debug("clicked_line (%s): parent wasn't found in ListFrame.entries", clicked_line.text)
@@ -352,6 +344,7 @@ function private.InitializeListFrame()
 				current_tab:SaveListEntryState(parent, false)
 
 				local child_index = parent_index + 1
+				local entries = ListFrame.entries
 
 				while entries[child_index] and entries[child_index].parent == parent do
 					private.ReleaseTable(table.remove(entries, child_index))
