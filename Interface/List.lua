@@ -253,25 +253,35 @@ function private.InitializeListFrame()
 		spell_tip:Hide()
 	end
 
-	local function ListItem_OnClick(self, _, _)
+	local function ListItem_OnClick(self, button, down)
 		local clicked_index = self.entry_index
 
-		-- Don't do anything if they've clicked on an empty button
 		if not clicked_index or clicked_index == 0 then
 			return
 		end
-		local clicked_line = ListFrame.entries[clicked_index]
+		local entry = ListFrame.entries[clicked_index]
+		local recipe = entry.recipe
 
-		if not clicked_line then
-			return
-		end
-		local recipe = clicked_line.recipe
+		if button == "RightButton" and recipe and (not entry.parent or entry.parent.recipe ~= entry.recipe) then
+			local old_selected = ListFrame.selected_entry
+			local entry_button = entry.button
 
-		-- First, check if this is a "modified" click, and react appropriately
-		if recipe and _G.IsModifierKeyDown() then
+			ListFrame.selected_entry = nil
+
+			if old_selected and old_selected.button then
+				old_selected.button.selected_texture:Hide()
+				Bar_OnLeave(old_selected.button)
+			end
+			Bar_OnEnter(entry_button)
+
+			if old_selected ~= entry then
+				entry_button.selected_texture:Show()
+				ListFrame.selected_entry = entry
+			end
+		elseif recipe and _G.IsModifierKeyDown() then
 			if _G.IsControlKeyDown() then
 				if _G.IsShiftKeyDown() then
-					addon:AddWaypoint(recipe, clicked_line:AcquireID(), clicked_line:LocationID(), clicked_line:NPCID())
+					addon:AddWaypoint(recipe, entry:AcquireID(), entry:LocationID(), entry:NPCID())
 				else
 					local edit_box = _G.ChatEdit_ChooseBoxForSend()
 
@@ -301,41 +311,40 @@ function private.InitializeListFrame()
 				exclusion_list[recipe.id] = (not exclusion_list[recipe.id] and true or nil)
 				ListFrame:Update(nil, false)
 			end
-		elseif clicked_line:IsHeader() or clicked_line:IsSubHeader() then
+		elseif entry:IsHeader() or entry:IsSubHeader() then
 			-- three possibilities here (all with no modifiers)
 			-- 1) We clicked on the recipe button on a closed recipe
 			-- 2) We clicked on the recipe button of an open recipe
 			-- 3) we clicked on the expanded text of an open recipe
-			if clicked_line.is_expanded then
+			if entry.is_expanded then
 				local removal_index = clicked_index + 1
-				local entry = ListFrame.entries[removal_index]
+				local target_entry = ListFrame.entries[removal_index]
 				local current_tab = MainPanel.current_tab
 
-				-- get rid of our expanded lines
-				while entry and entry:Type() ~= clicked_line:Type() do
+				while target_entry and target_entry:Type() ~= entry:Type() do
 					-- Headers are never removed.
-					if entry:IsHeader() then
+					if target_entry:IsHeader() then
 						break
 					end
-					current_tab:SaveListEntryState(entry, false)
+					current_tab:SaveListEntryState(target_entry, false)
 					private.ReleaseTable(table.remove(ListFrame.entries, removal_index))
-					entry = ListFrame.entries[removal_index]
+					target_entry = ListFrame.entries[removal_index]
 				end
-				current_tab:SaveListEntryState(clicked_line, false)
-				clicked_line.is_expanded = false
+				current_tab:SaveListEntryState(entry, false)
+				entry.is_expanded = false
 			else
-				ListFrame:ExpandEntry(clicked_line)
-				clicked_line.is_expanded = true
+				ListFrame:ExpandEntry(entry)
+				entry.is_expanded = true
 			end
 		else
 			-- clicked_line is an expanded entry - remove all of the parent's child entries.
-			local parent = clicked_line.parent
+			local parent = entry.parent
 
 			if parent then
 				local parent_index = parent.button.entry_index
 
 				if not parent_index then
-					addon:Debug("clicked_line (%s): parent wasn't found in ListFrame.entries", clicked_line:Text())
+					addon:Debug("clicked_line (%s): parent wasn't found in ListFrame.entries", entry:Text())
 					return
 				end
 				local current_tab = MainPanel.current_tab
@@ -350,32 +359,10 @@ function private.InitializeListFrame()
 					private.ReleaseTable(table.remove(entries, child_index))
 				end
 			else
-				addon:Debug("Error: clicked_line (%s) has no parent.", clicked_line:Type() or _G.UNKNOWN)
+				addon:Debug("Error: clicked_line (%s) has no parent.", entry:Type() or _G.UNKNOWN)
 			end
 		end
 		ListFrame:Update(nil, true)
-	end
-
-	local function Bar_OnClick(self)
-		local old_selected = ListFrame.selected_entry
-		ListFrame.selected_entry = nil
-
-		if old_selected and old_selected.button then
-			old_selected.button.selected_texture:Hide()
-			Bar_OnLeave(old_selected.button)
-		end
-		Bar_OnEnter(self)
-
-		local entry = ListFrame.entries[self.entry_index]
-		if old_selected ~= entry then
-			self.selected_texture:Show()
-			ListFrame.selected_entry = entry
-		end
-
-		if _G.IsModifierKeyDown() then
-			ListItem_OnClick(self)
-		end
-
 	end
 
 	-------------------------------------------------------------------------------
@@ -395,6 +382,7 @@ function private.InitializeListFrame()
 
 		local cur_entry = _G.CreateFrame("Button", ("%s_ListEntryButton%d"):format(FOLDER_NAME, index), cur_container)
 		cur_entry:SetSize(LIST_ENTRY_WIDTH, 16)
+		cur_entry:RegisterForClicks("AnyUp")
 
 		local highlight_texture = cur_entry:CreateTexture(nil, "BORDER")
 		highlight_texture:SetTexture([[Interface\ClassTrainerFrame\TrainerTextures]])
@@ -1001,11 +989,7 @@ function private.InitializeListFrame()
 			line_button:SetScript("OnEnter", Bar_OnEnter)
 			line_button:SetScript("OnLeave", Bar_OnLeave)
 
-			if is_entry or is_subentry then
-				line_button:SetScript("OnClick", ListItem_OnClick)
-			else
-				line_button:SetScript("OnClick", Bar_OnClick)
-			end
+			line_button:SetScript("OnClick", ListItem_OnClick)
 			line_button:Enable()
 
 			-- This function could possibly have been called from a mouse click or by scrolling. Since, in those cases, the list entries have
