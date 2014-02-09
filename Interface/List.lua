@@ -237,7 +237,7 @@ function private.InitializeListFrame()
 		if ListFrame.selected_entry then
 			return
 		end
-		ListItem_ShowTooltip(ListFrame.entries[self.string_index])
+		ListItem_ShowTooltip(ListFrame.entries[self.entry_index])
 	end
 
 	local function Bar_OnLeave()
@@ -249,7 +249,7 @@ function private.InitializeListFrame()
 	end
 
 	local function ListItem_OnClick(self, _, _)
-		local clicked_index = self.string_index
+		local clicked_index = self.entry_index
 
 		-- Don't do anything if they've clicked on an empty button
 		if not clicked_index or clicked_index == 0 then
@@ -369,7 +369,7 @@ function private.InitializeListFrame()
 		end
 		Bar_OnEnter(self)
 
-		local entry = ListFrame.entries[self.string_index]
+		local entry = ListFrame.entries[self.entry_index]
 		if old_selected ~= entry then
 			self.selected_texture:Show()
 			ListFrame.selected_entry = entry
@@ -866,7 +866,6 @@ function private.InitializeListFrame()
 			local entry = self.entry_buttons[i]
 			local state = self.state_buttons[i]
 
-			entry.string_index = 0
 			entry.text:SetFontObject(font_object)
 
 			entry:SetText("")
@@ -878,12 +877,11 @@ function private.InitializeListFrame()
 			entry.emphasis_texture:Hide()
 			entry.selected_texture:Hide()
 			entry.button = nil
+			entry.entry_index = 0
 
-			state.string_index = 0
-
+			state.entry_index = 0
 			state:Hide()
 			state:Disable()
-
 			state:ClearAllPoints()
 		end
 	end
@@ -973,12 +971,12 @@ function private.InitializeListFrame()
 		self:ClearLines()
 
 		local button_index = 1
-		local string_index = math.floor(button_index + offset)
+		local entry_index = math.floor(button_index + offset)
 
 		-- Populate the buttons with new values
-		while button_index <= NUM_RECIPE_LINES and string_index <= num_entries do
+		while button_index <= NUM_RECIPE_LINES and entry_index <= num_entries do
 			local cur_state = self.state_buttons[button_index]
-			local cur_entry = self.entries[string_index]
+			local cur_entry = self.entries[entry_index]
 
 			if cur_entry.type == "header" or cur_entry.type == "subheader" then
 				cur_state:Show()
@@ -992,7 +990,7 @@ function private.InitializeListFrame()
 					cur_state:SetPushedTexture([[Interface\MINIMAP\UI-Minimap-ZoomInButton-Down]])
 					cur_state:SetHighlightTexture([[Interface\MINIMAP\UI-Minimap-ZoomButton-Highlight]])
 				end
-				cur_state.string_index = string_index
+				cur_state.entry_index = entry_index
 				cur_state:Enable()
 			else
 				cur_state:Hide()
@@ -1016,7 +1014,7 @@ function private.InitializeListFrame()
 				cur_button:SetWidth(LIST_ENTRY_WIDTH - 15)
 			end
 			cur_entry.button = cur_button
-			cur_button.string_index = string_index
+			cur_button.entry_index = entry_index
 			cur_button:SetText(cur_entry.text)
 			cur_button:SetScript("OnEnter", Bar_OnEnter)
 			cur_button:SetScript("OnLeave", Bar_OnLeave)
@@ -1034,7 +1032,7 @@ function private.InitializeListFrame()
 				Bar_OnEnter(cur_button)
 			end
 			button_index = button_index + 1
-			string_index = string_index + 1
+			entry_index = entry_index + 1
 		end
 	end
 
