@@ -1778,6 +1778,7 @@ do
 		for acquire_type, acquire_data in pairs(recipe.acquire_data) do
 			if not acquire_id or acquire_type == acquire_id then
 				local populate_func = TOOLTIP_ACQUIRE_FUNCS[acquire_type]
+				local count = 0
 
 				for identifier, info in pairs(acquire_data) do
 					if populate_func then
@@ -1785,6 +1786,11 @@ do
 					else
 						addline_func(0, -1, 0, L["Unhandled Recipe"], BASIC_COLORS.normal)
 					end
+					count = count + 1
+				end
+
+				if count == 0 and populate_func then
+					populate_func(recipe, nil, location, nil, addline_func)
 				end
 			end
 		end
