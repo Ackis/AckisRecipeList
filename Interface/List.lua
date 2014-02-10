@@ -1305,6 +1305,13 @@ function private.InitializeListFrame()
 		return ListFrame:InsertEntry(entry, entry_index, true)
 	end
 
+	local function ExpandRetiredData(entry_index, entry_type, parent_entry, id_num, recipe, _, _)
+		local entry = CreateListEntry(entry_type, parent_entry, recipe)
+		entry:SetText(PADDING .. SetTextColor(CATEGORY_COLORS.custom.hex, L.REMOVED_FROM_GAME))
+
+		return ListFrame:InsertEntry(entry, entry_index, true)
+	end
+
 	local function ExpandAcquireData(entry_index, entry_type, parent_entry, acquire_type, acquire_data, recipe, hide_location, hide_type)
 		local obtain_filters = addon.db.profile.filters.obtain
 		local num_acquire_types = #private.ACQUIRE_STRINGS
@@ -1341,6 +1348,10 @@ function private.InitializeListFrame()
 					func = ExpandDiscoveryData
 				end
 				--@alpha@
+			elseif acquire_type == A.RETIRED then
+				if not hide_type then
+					func = ExpandRetiredData
+				end
 			elseif acquire_type == A.ACHIEVEMENT and obtain_filters.achievement then
 				func = ExpandAchievementData
 			elseif acquire_type > num_acquire_types then
@@ -1762,6 +1773,9 @@ do
 		end,
 		[A.CUSTOM] = function(_, identifier, _, _, addline_func)
 			addline_func(0, -1, false, private.custom_list[identifier].name, CATEGORY_COLORS.custom)
+		end,
+		[A.RETIRED] = function(_, identifier, _, _, addline_func)
+			addline_func(0, -1, false, L.REMOVED_FROM_GAME, CATEGORY_COLORS.custom)
 		end,
 	}
 
