@@ -170,6 +170,15 @@ local RecipesTab
 -- necessary to ensure each is counted only once.
 local recipe_registry = {}
 
+-- Recipes with these acquire types will never show as headers.
+local CHILDLESS_ACQUIRE_TYPES = {
+	[A.ACHIEVEMENT] = true,
+	[A.CUSTOM] = true,
+	[A.DISCOVERY] = true,
+	[A.RETIRED] = true,
+	[A.WORLD_DROP] = true,
+}
+
 local function InitializeAcquisitionTab()
 	local MainPanel = addon.Frame
 
@@ -244,6 +253,55 @@ local function InitializeAcquisitionTab()
 			end
 		end
 		return recipe_count
+	end
+
+	function AcquisitionTab:ExpandListEntry(entry, expand_mode)
+		local orig_index = entry.button and entry.button.entry_index or entry.index
+		local expand_all = expand_mode == "deep"
+		local prof_name = private.ORDERED_PROFESSIONS[MainPanel.current_profession]
+		local acquire_id = entry:AcquireID()
+
+		-- Entry_index is the position in self.entries that we want to expand. Since we are expanding the current entry, the return
+		-- value should be the index of the next button after the expansion occurs
+		local new_entry_index = orig_index + 1
+
+		self:SaveListEntryState(entry, true)
+
+		if entry:IsHeader() then
+			local recipe_list = private.acquire_list[acquire_id].recipes
+			local sorted_recipes = addon.sorted_recipes
+			local profession_recipes = private.profession_recipe_list[prof_name]
+
+			private.SortRecipeList(recipe_list)
+
+			for index = 1, #sorted_recipes do
+				local recipe = profession_recipes[sorted_recipes[index]]
+
+				if recipe and recipe:HasState("VISIBLE") and MainPanel.search_editbox:MatchesRecipe(recipe) then
+					local expand = false
+					local entry_type = "subheader"
+
+					if CHILDLESS_ACQUIRE_TYPES[acquire_id] then
+						expand = true
+						entry_type = "entry"
+					end
+					local is_expanded = (self[prof_name.." expanded"][recipe] and self[prof_name.." expanded"][private.ACQUIRE_NAMES[acquire_id]])
+
+					local new_entry = CreateListEntry(entry_type, entry, recipe)
+					new_entry:SetAcquireID(acquire_id)
+					new_entry:SetText(recipe:GetDisplayName())
+
+					new_entry_index = self:InsertEntry(new_entry, new_entry_index, expand or is_expanded, expand_all or is_expanded)
+				end
+			end
+		elseif entry:IsSubHeader() then
+			for acquire_type, acquire_data in pairs(entry.recipe.acquire_data) do
+				if acquire_type == acquire_id then
+					new_entry_index = private.ExpandAcquireData(new_entry_index, "subentry", entry, acquire_type, acquire_data, entry.recipe, false, true)
+				end
+			end
+		end
+		return new_entry_index
 	end
 end
 
@@ -388,6 +446,83 @@ local function InitializeLocationTab()
 		end
 		return recipe_count
 	end
+
+	function LocationTab:ExpandListEntry(entry, expand_mode)
+		local orig_index = entry.button and entry.button.entry_index or entry.index
+		local expand_all = expand_mode == "deep"
+		local location_id = entry:LocationID()
+
+		-- Entry_index is the position in self.entries that we want to expand. Since we are expanding the current entry, the return
+		-- value should be the index of the next button after the expansion occurs
+		local new_entry_index = orig_index + 1
+
+		self:SaveListEntryState(entry, true)
+
+		if entry:IsHeader() then
+			local recipe_list = private.location_list[location_id].recipes
+			local sorted_recipes = addon.sorted_recipes
+			local prof_name = private.ORDERED_PROFESSIONS[MainPanel.current_profession]
+			local profession_recipes = private.profession_recipe_list[prof_name]
+
+			private.SortRecipeList(recipe_list)
+
+			for index = 1, #sorted_recipes do
+				local recipe_id = sorted_recipes[index]
+				local recipe = profession_recipes[recipe_id]
+
+				if recipe and recipe:HasState("VISIBLE") and MainPanel.search_editbox:MatchesRecipe(recipe) then
+					local expand = false
+					local entry_type = "subheader"
+
+					-- Add World Drop entries as normal entries.
+					if recipe_list[recipe_id] == "world_drop" then
+						expand = true
+						entry_type = "entry"
+					end
+					local is_expanded = (self[prof_name.." expanded"][recipe] and self[prof_name.." expanded"][location_id])
+
+					local new_entry = CreateListEntry(entry_type, entry, recipe)
+					new_entry:SetText(recipe:GetDisplayName())
+					new_entry:SetLocationID(location_id)
+
+					new_entry_index = self:InsertEntry(new_entry, new_entry_index, expand or is_expanded, expand_all or is_expanded)
+				end
+			end
+		elseif entry:IsSubHeader() then
+			-- World Drops are not handled here because they are of type "entry".
+			for acquire_type, acquire_data in pairs(entry.recipe.acquire_data) do
+				-- Only expand an acquisition entry if it is from this location.
+				for id_num, info in pairs(acquire_data) do
+					if acquire_type == A.TRAINER and private.trainer_list[id_num].location == location_id then
+						new_entry_index = private.ExpandTrainerData(new_entry_index, "subentry", entry, id_num, entry.recipe, true)
+					elseif acquire_type == A.VENDOR and private.vendor_list[id_num].location == location_id then
+						new_entry_index = private.ExpandVendorData(new_entry_index, "subentry", entry, id_num, entry.recipe, true)
+					elseif acquire_type == A.MOB_DROP and private.mob_list[id_num].location == location_id then
+						new_entry_index = private.ExpandMobData(new_entry_index, "subentry", entry, id_num, entry.recipe, true)
+					elseif acquire_type == A.QUEST and private.quest_list[id_num].location == location_id then
+						new_entry_index = private.ExpandQuestData(new_entry_index, "subentry", entry, id_num, entry.recipe, true)
+					elseif acquire_type == A.SEASONAL and private.seasonal_list[id_num].location == location_id then
+						-- Hide the acquire type for this - it will already show up in the location list as
+						-- "World Events".
+						new_entry_index = private.ExpandWorldEventData(new_entry_index, "subentry", entry, id_num, entry.recipe, true, true)
+					elseif acquire_type == A.CUSTOM and private.custom_list[id_num].location == location_id then
+						new_entry_index = private.ExpandCustomData(new_entry_index, "subentry", entry, id_num, entry.recipe, true, true)
+					elseif acquire_type == A.DISCOVERY and private.discovery_list[id_num].location == location_id then
+						new_entry_index = private.ExpandDiscoveryData(new_entry_index, "subentry", entry, id_num, entry.recipe, true, true)
+					elseif acquire_type == A.REPUTATION then
+						for rep_level, level_info in pairs(info) do
+							for vendor_id in pairs(level_info) do
+								if private.vendor_list[vendor_id].location == location_id then
+									new_entry_index = private.ExpandReputationData(new_entry_index, "subentry", entry, vendor_id, id_num, rep_level, entry.recipe, true)
+								end
+							end
+						end
+					end
+				end
+			end
+		end
+		return new_entry_index
+	end
 end
 
 local function InitializeRecipesTab()
@@ -423,6 +558,22 @@ local function InitializeRecipesTab()
 			end
 		end
 		return recipe_count
+	end
+
+	function RecipesTab:ExpandListEntry(entry, expand_mode)
+		local orig_index = entry.button and entry.button.entry_index or entry.index
+
+		-- Entry_index is the position in self.entries that we want to expand. Since we are expanding the current entry, the return
+		-- value should be the index of the next button after the expansion occurs
+		local new_entry_index = orig_index + 1
+		local recipe = entry.recipe
+
+		self:SaveListEntryState(entry, true)
+
+		for acquire_type, acquire_data in pairs(recipe.acquire_data) do
+			new_entry_index = private.ExpandAcquireData(new_entry_index, "entry", entry, acquire_type, acquire_data, recipe)
+		end
+		return new_entry_index
 	end
 end
 
