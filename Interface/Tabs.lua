@@ -18,7 +18,7 @@ local addon = LibStub("AceAddon-3.0"):GetAddon(private.addon_name)
 local L = LibStub("AceLocale-3.0"):GetLocale(private.addon_name)
 
 -------------------------------------------------------------------------------
--- Constants
+-- Constants.
 -------------------------------------------------------------------------------
 local ORDERED_PROFESSIONS = private.ORDERED_PROFESSIONS
 
@@ -29,13 +29,14 @@ local tab_prototype = _G.setmetatable({}, frame_meta)
 local tab_meta = { __index = tab_prototype }
 
 -------------------------------------------------------------------------------
--- Upvalues
+-- Imports.
 -------------------------------------------------------------------------------
 local CreateListEntry = private.CreateListEntry
 local SetTextColor = private.SetTextColor
 
+
 -------------------------------------------------------------------------------
--- Helpers
+-- Helpers.
 -------------------------------------------------------------------------------
 local function Tab_OnClick(self, button, down)
 	local id_num = self:GetID()
@@ -158,40 +159,24 @@ function tab_prototype:SetScrollValue(profession_id, value)
 	self["profession_" .. profession_id .. "_scroll_value"] = value
 end
 
-function private.InitializeTabs()
+-------------------------------------------------------------------------------
+-- Tab initialization and methods.
+-------------------------------------------------------------------------------
+local AcquisitionTab
+local LocationTab
+local RecipesTab
+
+-- Used for Location and Acquisition sort - since many recipes have multiple locations/acquire types it is
+-- necessary to ensure each is counted only once.
+local recipe_registry = {}
+
+local function InitializeAcquisitionTab()
 	local MainPanel = addon.Frame
 
-	local AcquisitionTab = CreateTab(1, L["Acquisition"], "TOPLEFT", MainPanel, "BOTTOMLEFT", 4, 81)
-	local LocationTab = CreateTab(2, L["Location"], "LEFT", AcquisitionTab, "RIGHT", -14, 0)
-	local RecipesTab = CreateTab(3, _G.TRADESKILL_SERVICE_LEARN, "LEFT", LocationTab, "RIGHT", -14, 0)
-
-	-- Used for Location and Acquisition sort - since many recipes have multiple locations/acquire types it is
-	-- necessary to ensure each is counted only once.
-	local recipe_registry = {}
-
-	local function FactionTally(source_data, unit_list, location)
-		local good, bad = 0, 0
-
-		for id_num in pairs(source_data) do
-			local unit_faction = unit_list[id_num].faction
-
-			if not location or unit_list[id_num].location == location then
-				if not unit_faction or unit_faction == private.Player.faction or unit_faction == "Neutral" then
-					good = good + 1
-				else
-					bad = bad + 1
-				end
-			end
-		end
-		return good, bad
-	end
-
-	-------------------------------------------------------------------------------
-	-- Variables used to hold tables for sorting the various tabs:
-	-- The tables are only sorted once, upon creation.
-	-------------------------------------------------------------------------------
+	-- Used to hold tables for sorting the tab:The tables are only sorted once, upon creation.
 	local sorted_acquires
-	local sorted_locations
+
+	AcquisitionTab = CreateTab(1, L["Acquisition"], "TOPLEFT", addon.Frame, "BOTTOMLEFT", 4, 81)
 
 	function AcquisitionTab:Initialize(expand_mode)
 		local recipe_count = 0
@@ -260,6 +245,32 @@ function private.InitializeTabs()
 		end
 		return recipe_count
 	end
+end
+
+local function InitializeLocationTab()
+	local MainPanel = addon.Frame
+
+	-- Used to hold tables for sorting the tab: The tables are only sorted once upon creation.
+	local sorted_locations
+
+	local function FactionTally(source_data, unit_list, location)
+		local good, bad = 0, 0
+
+		for id_num in pairs(source_data) do
+			local unit_faction = unit_list[id_num].faction
+
+			if not location or unit_list[id_num].location == location then
+				if not unit_faction or unit_faction == private.Player.faction or unit_faction == "Neutral" then
+					good = good + 1
+				else
+					bad = bad + 1
+				end
+			end
+		end
+		return good, bad
+	end
+
+	LocationTab = CreateTab(2, L["Location"], "LEFT", AcquisitionTab, "RIGHT", -14, 0)
 
 	function LocationTab:Initialize(expand_mode)
 		local search_box = MainPanel.search_editbox
@@ -377,6 +388,12 @@ function private.InitializeTabs()
 		end
 		return recipe_count
 	end
+end
+
+local function InitializeRecipesTab()
+	local MainPanel = addon.Frame
+
+	RecipesTab = CreateTab(3, _G.TRADESKILL_SERVICE_LEARN, "LEFT", LocationTab, "RIGHT", -14, 0)
 
 	function RecipesTab:Initialize(expand_mode)
 		local prof_name = ORDERED_PROFESSIONS[MainPanel.current_profession]
@@ -407,12 +424,20 @@ function private.InitializeTabs()
 		end
 		return recipe_count
 	end
+end
 
-	MainPanel.tabs = {
-		AcquisitionTab,
-		LocationTab,
-		RecipesTab,
-	}
+function private.InitializeTabs()
+	local MainPanel = addon.Frame
+	MainPanel.tabs = {}
+
+	InitializeAcquisitionTab()
+	MainPanel.tabs[#MainPanel.tabs + 1] = AcquisitionTab
+
+	InitializeLocationTab()
+	MainPanel.tabs[#MainPanel.tabs + 1] = LocationTab
+
+	InitializeRecipesTab()
+	MainPanel.tabs[#MainPanel.tabs + 1] = RecipesTab
 
 	private.InitializeTabs = nil
 end
