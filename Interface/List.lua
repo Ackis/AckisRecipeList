@@ -1905,10 +1905,11 @@ do
 	}
 
 	local NON_COORD_ACQUIRES = {
-		[A.WORLD_DROP] = true,
-		[A.CUSTOM] = true,
 		[A.ACHIEVEMENT] = true,
+		[A.CUSTOM] = true,
 		[A.DISCOVERY] = true,
+		[A.RETIRED] = true,
+		[A.WORLD_DROP] = true,
 	}
 
 	function ListItem_ShowTooltip(list_entry)
