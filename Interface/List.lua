@@ -1836,7 +1836,7 @@ do
 			ttAdd(0, -1, true, RECIPE_BINDING_TYPES[recipe_item_binding], BASIC_COLORS.normal)
 		end
 
-		local _, crafted_item_binding = recipe:RecipeItem()
+		local _, crafted_item_binding = recipe:CraftedItem()
 
 		if crafted_item_binding then
 			ttAdd(0, -1, true, ITEM_BINDING_TYPES[crafted_item_binding], BASIC_COLORS.normal)
