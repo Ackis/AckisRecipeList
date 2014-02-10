@@ -1182,7 +1182,7 @@ function private.InitializeListFrame()
 		return ListFrame:InsertEntry(entry, entry_index, true)
 	end
 
-	local function ExpandSeasonalData(entry_index, entry_type, parent_entry, id_num, recipe, _, hide_type)
+	local function ExpandWorldEventData(entry_index, entry_type, parent_entry, id_num, recipe, _, hide_type)
 		local entry = CreateListEntry(entry_type, parent_entry, recipe)
 		entry:SetText("%s%s %s",
 			PADDING,
