@@ -291,7 +291,7 @@ local function InitializeAcquisitionTab()
 					new_entry:SetAcquireID(acquire_id)
 					new_entry:SetText(recipe:GetDisplayName())
 
-					new_entry_index = self:InsertEntry(new_entry, new_entry_index, expand or is_expanded, expand_all or is_expanded)
+					new_entry_index = MainPanel.list_frame:InsertEntry(new_entry, new_entry_index, expand or is_expanded, expand_all or is_expanded)
 				end
 			end
 		elseif entry:IsSubHeader() then
@@ -485,7 +485,7 @@ local function InitializeLocationTab()
 					new_entry:SetText(recipe:GetDisplayName())
 					new_entry:SetLocationID(location_id)
 
-					new_entry_index = self:InsertEntry(new_entry, new_entry_index, expand or is_expanded, expand_all or is_expanded)
+					new_entry_index = MainPanel.list_frame:InsertEntry(new_entry, new_entry_index, expand or is_expanded, expand_all or is_expanded)
 				end
 			end
 		elseif entry:IsSubHeader() then
