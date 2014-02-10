@@ -948,7 +948,6 @@ function private.InitializeListFrame()
 			local is_header = not is_subentry and list_entry:IsHeader()
 			local is_subheader = not is_header and list_entry:IsSubHeader()
 
-
 			if is_header or is_subheader then
 				state_button:Show()
 
@@ -1371,7 +1370,6 @@ function private.InitializeListFrame()
 	-- This function is called when an un-expanded entry in the list has been clicked.
 	function ListFrame:ExpandEntry(entry, expand_mode)
 		local orig_index = entry.button and entry.button.entry_index or entry.index
-		local current_entry = self.entries[orig_index]
 		local expand_all = expand_mode == "deep"
 		local current_tab = MainPanel.current_tab
 		local prof_name = private.ORDERED_PROFESSIONS[MainPanel.current_profession]
@@ -1381,13 +1379,13 @@ function private.InitializeListFrame()
 		-- value should be the index of the next button after the expansion occurs
 		local new_entry_index = orig_index + 1
 
-		current_tab:SaveListEntryState(current_entry, true)
+		current_tab:SaveListEntryState(entry, true)
 
-		local acquire_id = current_entry:AcquireID()
+		local acquire_id = entry:AcquireID()
 
 		-- This entry was generated using sorting based on Acquisition.
 		if acquire_id then
-			if current_entry:IsHeader() then
+			if entry:IsHeader() then
 				local recipe_list = private.acquire_list[acquire_id].recipes
 				local sorted_recipes = addon.sorted_recipes
 
@@ -1406,28 +1404,28 @@ function private.InitializeListFrame()
 						end
 						local is_expanded = (current_tab[prof_name.." expanded"][recipe] and current_tab[prof_name.." expanded"][private.ACQUIRE_NAMES[acquire_id]])
 
-						local new_entry = CreateListEntry(entry_type, current_entry, recipe)
+						local new_entry = CreateListEntry(entry_type, entry, recipe)
 						new_entry:SetAcquireID(acquire_id)
 						new_entry:SetText(recipe:GetDisplayName())
 
 						new_entry_index = self:InsertEntry(new_entry, new_entry_index, expand or is_expanded, expand_all or is_expanded)
 					end
 				end
-			elseif current_entry:IsSubHeader() then
-				for acquire_type, acquire_data in pairs(current_entry.recipe.acquire_data) do
+			elseif entry:IsSubHeader() then
+				for acquire_type, acquire_data in pairs(entry.recipe.acquire_data) do
 					if acquire_type == acquire_id then
-						new_entry_index = ExpandAcquireData(new_entry_index, "subentry", current_entry, acquire_type, acquire_data, current_entry.recipe, false, true)
+						new_entry_index = ExpandAcquireData(new_entry_index, "subentry", entry, acquire_type, acquire_data, entry.recipe, false, true)
 					end
 				end
 			end
 			return new_entry_index
 		end
 
-		local location_id = current_entry:LocationID()
+		local location_id = entry:LocationID()
 
 		-- This entry was generated using sorting based on Location.
 		if location_id then
-			if current_entry:IsHeader() then
+			if entry:IsHeader() then
 				local recipe_list = private.location_list[location_id].recipes
 				local sorted_recipes = addon.sorted_recipes
 
@@ -1448,39 +1446,39 @@ function private.InitializeListFrame()
 						end
 						local is_expanded = (current_tab[prof_name.." expanded"][recipe] and current_tab[prof_name.." expanded"][location_id])
 
-						local new_entry = CreateListEntry(entry_type, current_entry, recipe)
+						local new_entry = CreateListEntry(entry_type, entry, recipe)
 						new_entry:SetText(recipe:GetDisplayName())
 						new_entry:SetLocationID(location_id)
 
 						new_entry_index = self:InsertEntry(new_entry, new_entry_index, expand or is_expanded, expand_all or is_expanded)
 					end
 				end
-			elseif current_entry:IsSubHeader() then
+			elseif entry:IsSubHeader() then
 				-- World Drops are not handled here because they are of type "entry".
-				for acquire_type, acquire_data in pairs(current_entry.recipe.acquire_data) do
+				for acquire_type, acquire_data in pairs(entry.recipe.acquire_data) do
 					-- Only expand an acquisition entry if it is from this location.
 					for id_num, info in pairs(acquire_data) do
 						if acquire_type == A.TRAINER and private.trainer_list[id_num].location == location_id then
-							new_entry_index = ExpandTrainerData(new_entry_index, "subentry", current_entry, id_num, current_entry.recipe, true)
+							new_entry_index = ExpandTrainerData(new_entry_index, "subentry", entry, id_num, entry.recipe, true)
 						elseif acquire_type == A.VENDOR and private.vendor_list[id_num].location == location_id then
-							new_entry_index = ExpandVendorData(new_entry_index, "subentry", current_entry, id_num, current_entry.recipe, true)
+							new_entry_index = ExpandVendorData(new_entry_index, "subentry", entry, id_num, entry.recipe, true)
 						elseif acquire_type == A.MOB_DROP and private.mob_list[id_num].location == location_id then
-							new_entry_index = ExpandMobData(new_entry_index, "subentry", current_entry, id_num, current_entry.recipe, true)
+							new_entry_index = ExpandMobData(new_entry_index, "subentry", entry, id_num, entry.recipe, true)
 						elseif acquire_type == A.QUEST and private.quest_list[id_num].location == location_id then
-							new_entry_index = ExpandQuestData(new_entry_index, "subentry", current_entry, id_num, current_entry.recipe, true)
+							new_entry_index = ExpandQuestData(new_entry_index, "subentry", entry, id_num, entry.recipe, true)
 						elseif acquire_type == A.SEASONAL and private.seasonal_list[id_num].location == location_id then
 							-- Hide the acquire type for this - it will already show up in the location list as
 							-- "World Events".
-							new_entry_index = ExpandSeasonalData(new_entry_index, "subentry", current_entry, id_num, current_entry.recipe, true, true)
+							new_entry_index = ExpandSeasonalData(new_entry_index, "subentry", entry, id_num, entry.recipe, true, true)
 						elseif acquire_type == A.CUSTOM and private.custom_list[id_num].location == location_id then
-							new_entry_index = ExpandCustomData(new_entry_index, "subentry", current_entry, id_num, current_entry.recipe, true, true)
+							new_entry_index = ExpandCustomData(new_entry_index, "subentry", entry, id_num, entry.recipe, true, true)
 						elseif acquire_type == A.DISCOVERY and private.discovery_list[id_num].location == location_id then
-							new_entry_index = ExpandDiscoveryData(new_entry_index, "subentry", current_entry, id_num, current_entry.recipe, true, true)
+							new_entry_index = ExpandDiscoveryData(new_entry_index, "subentry", entry, id_num, entry.recipe, true, true)
 						elseif acquire_type == A.REPUTATION then
 							for rep_level, level_info in pairs(info) do
 								for vendor_id in pairs(level_info) do
 									if private.vendor_list[vendor_id].location == location_id then
-										new_entry_index =  ExpandReputationData(new_entry_index, "subentry", current_entry, vendor_id, id_num, rep_level, current_entry.recipe, true)
+										new_entry_index =  ExpandReputationData(new_entry_index, "subentry", entry, vendor_id, id_num, rep_level, entry.recipe, true)
 									end
 								end
 							end
@@ -1495,7 +1493,7 @@ function private.InitializeListFrame()
 		local recipe = self.entries[orig_index].recipe
 
 		for acquire_type, acquire_data in pairs(recipe.acquire_data) do
-			new_entry_index = ExpandAcquireData(new_entry_index, "entry", current_entry, acquire_type, acquire_data, recipe)
+			new_entry_index = ExpandAcquireData(new_entry_index, "entry", entry, acquire_type, acquire_data, recipe)
 		end
 		return new_entry_index
 	end
