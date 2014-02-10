@@ -1347,13 +1347,13 @@ function private.InitializeListFrame()
 				if not hide_type then
 					func = ExpandDiscoveryData
 				end
-				--@alpha@
 			elseif acquire_type == A.RETIRED then
 				if not hide_type then
 					func = ExpandRetiredData
 				end
 			elseif acquire_type == A.ACHIEVEMENT and obtain_filters.achievement then
 				func = ExpandAchievementData
+				--@alpha@
 			elseif acquire_type > num_acquire_types then
 				local entry = CreateListEntry(entry_type, parent_entry, recipe)
 				entry:SetText("Unhandled Acquire Case - Type: " .. acquire_type)
