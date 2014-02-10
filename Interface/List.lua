@@ -1359,6 +1359,15 @@ function private.InitializeListFrame()
 		return entry_index
 	end
 
+	-- Recipes with these acquire types will never show as headers.
+	local CHILDLESS_ACQUIRE_TYPES = {
+		[A.ACHIEVEMENT] = true,
+		[A.CUSTOM] = true,
+		[A.DISCOVERY] = true,
+		[A.RETIRED] = true,
+		[A.WORLD_DROP] = true,
+	}
+
 	-- This function is called when an un-expanded entry in the list has been clicked.
 	function ListFrame:ExpandEntry(entry, expand_mode)
 		local orig_index = entry.button and entry.button.entry_index or entry.index
@@ -1391,7 +1400,7 @@ function private.InitializeListFrame()
 						local expand = false
 						local entry_type = "subheader"
 
-						if acquire_id == A.WORLD_DROP or acquire_id == A.CUSTOM or acquire_id == A.ACHIEVEMENT or acquire_id == A.DISCOVERY then
+						if CHILDLESS_ACQUIRE_TYPES[acquire_id] then
 							expand = true
 							entry_type = "entry"
 						end
