@@ -559,7 +559,6 @@ function addon:InitLeatherworking()
 	recipe:SetCraftedItem(6466, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("LEATHERWORKING_BACK")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS)
-	recipe:AddCustom("REMOVED_FROM_GAME")
 	recipe:Retire()
 
 	-- Deviate Scale Gloves -- 7954
@@ -569,7 +568,6 @@ function addon:InitLeatherworking()
 	recipe:SetCraftedItem(6467, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("LEATHERWORKING_HANDS")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS)
-	recipe:AddCustom("REMOVED_FROM_GAME")
 	recipe:Retire()
 
 	-- Deviate Scale Belt -- 7955
@@ -579,7 +577,6 @@ function addon:InitLeatherworking()
 	recipe:SetCraftedItem(6468, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("LEATHERWORKING_WAIST")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS, F.CASTER)
-	recipe:AddCustom("REMOVED_FROM_GAME")
 	recipe:Retire()
 
 	-- Moonglow Vest -- 8322
@@ -882,7 +879,6 @@ function addon:InitLeatherworking()
 	recipe:SetCraftedItem(8210, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("LEATHERWORKING_SHOULDER")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddCustom("REMOVED_FROM_GAME")
 	recipe:Retire()
 
 	-- Big Voodoo Mask -- 10531
@@ -919,7 +915,6 @@ function addon:InitLeatherworking()
 	recipe:SetCraftedItem(8211, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("LEATHERWORKING_CHEST")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddCustom("REMOVED_FROM_GAME")
 	recipe:Retire()
 
 	-- Wild Leather Helmet -- 10546
@@ -929,7 +924,6 @@ function addon:InitLeatherworking()
 	recipe:SetCraftedItem(8214, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("LEATHERWORKING_HEAD")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddCustom("REMOVED_FROM_GAME")
 	recipe:Retire()
 
 	-- Nightscape Pants -- 10548
@@ -1007,7 +1001,6 @@ function addon:InitLeatherworking()
 	recipe:SetCraftedItem(8213, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("LEATHERWORKING_FEET")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddCustom("REMOVED_FROM_GAME")
 	recipe:Retire()
 
 	-- Tough Scorpid Leggings -- 10568
@@ -1035,7 +1028,6 @@ function addon:InitLeatherworking()
 	recipe:SetCraftedItem(8212, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("LEATHERWORKING_LEGS")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddCustom("REMOVED_FROM_GAME")
 	recipe:Retire()
 
 	-- Wild Leather Cloak -- 10574
@@ -1045,7 +1037,6 @@ function addon:InitLeatherworking()
 	recipe:SetCraftedItem(8215, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("LEATHERWORKING_BACK")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddCustom("REMOVED_FROM_GAME")
 	recipe:Retire()
 
 	-- Dragonscale Gauntlets -- 10619
@@ -1054,7 +1045,6 @@ function addon:InitLeatherworking()
 	recipe:SetCraftedItem(8347, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("LEATHERWORKING_HANDS")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddCustom("REMOVED_FROM_GAME")
 	recipe:Retire()
 
 	-- Wolfshead Helm -- 10621
@@ -1063,7 +1053,6 @@ function addon:InitLeatherworking()
 	recipe:SetCraftedItem(8345, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("LEATHERWORKING_HEAD")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS, F.DRUID)
-	recipe:AddCustom("REMOVED_FROM_GAME")
 	recipe:Retire()
 
 	-- Gauntlets of the Sea -- 10630
@@ -1140,7 +1129,6 @@ function addon:InitLeatherworking()
 	recipe:SetCraftedItem(15076, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("LEATHERWORKING_CHEST")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS)
-	recipe:AddCustom("REMOVED_FROM_GAME")
 	recipe:Retire()
 
 	-- Wicked Leather Bracers -- 19052
@@ -1158,7 +1146,6 @@ function addon:InitLeatherworking()
 	recipe:SetCraftedItem(15074, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("LEATHERWORKING_HANDS")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddCustom("REMOVED_FROM_GAME")
 	recipe:Retire()
 
 	-- Red Dragonscale Breastplate -- 19054
@@ -1239,7 +1226,6 @@ function addon:InitLeatherworking()
 	recipe:SetCraftedItem(15078, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("LEATHERWORKING_HANDS")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS)
-	recipe:AddCustom("REMOVED_FROM_GAME")
 	recipe:Retire()
 
 	-- Runic Leather Bracers -- 19065
@@ -1327,7 +1313,6 @@ function addon:InitLeatherworking()
 	recipe:SetCraftedItem(15079, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("LEATHERWORKING_LEGS")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS)
-	recipe:AddCustom("REMOVED_FROM_GAME")
 	recipe:Retire()
 
 	-- Volcanic Breastplate -- 19076
@@ -1346,7 +1331,6 @@ function addon:InitLeatherworking()
 	recipe:SetCraftedItem(15048, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("LEATHERWORKING_CHEST")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.HEALER, F.CASTER)
-	recipe:AddCustom("REMOVED_FROM_GAME")
 	recipe:Retire()
 
 	-- Living Leggings -- 19078
@@ -1365,7 +1349,6 @@ function addon:InitLeatherworking()
 	recipe:SetCraftedItem(15056, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("LEATHERWORKING_CHEST")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS, F.TANK, F.HEALER, F.CASTER)
-	recipe:AddCustom("REMOVED_FROM_GAME")
 	recipe:Retire()
 
 	-- Warbear Woolies -- 19080
@@ -1454,7 +1437,6 @@ function addon:InitLeatherworking()
 	recipe:SetCraftedItem(15049, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("LEATHERWORKING_SHOULDER")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.HEALER, F.CASTER)
-	recipe:AddCustom("REMOVED_FROM_GAME")
 	recipe:Retire()
 
 	-- Stormshroud Shoulders -- 19090
@@ -1464,7 +1446,6 @@ function addon:InitLeatherworking()
 	recipe:SetCraftedItem(15058, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("LEATHERWORKING_SHOULDER")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS, F.TANK, F.HEALER, F.CASTER)
-	recipe:AddCustom("REMOVED_FROM_GAME")
 	recipe:Retire()
 
 	-- Runic Leather Pants -- 19091
@@ -1509,7 +1490,6 @@ function addon:InitLeatherworking()
 	recipe:SetCraftedItem(15059, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("LEATHERWORKING_CHEST")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.HEALER, F.CASTER)
-	recipe:AddCustom("REMOVED_FROM_GAME")
 	recipe:Retire()
 
 	-- Devilsaur Leggings -- 19097
@@ -1674,7 +1654,6 @@ function addon:InitLeatherworking()
 	recipe:SetCraftedItem(18258, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("LEATHERWORKING_CREATED_ITEM")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddCustom("REMOVED_FROM_GAME")
 	recipe:Retire()
 
 	-- Girdle of Insight -- 22921
@@ -1684,7 +1663,6 @@ function addon:InitLeatherworking()
 	recipe:SetCraftedItem(18504, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("LEATHERWORKING_WAIST")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.HEALER, F.CASTER)
-	recipe:AddCustom("REMOVED_FROM_GAME")
 	recipe:Retire()
 
 	-- Mongoose Boots -- 22922
@@ -1694,7 +1672,6 @@ function addon:InitLeatherworking()
 	recipe:SetCraftedItem(18506, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("LEATHERWORKING_FEET")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS)
-	recipe:AddCustom("REMOVED_FROM_GAME")
 	recipe:Retire()
 
 	-- Swift Flight Bracers -- 22923
@@ -1704,7 +1681,6 @@ function addon:InitLeatherworking()
 	recipe:SetCraftedItem(18508, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("LEATHERWORKING_WRIST")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddCustom("REMOVED_FROM_GAME")
 	recipe:Retire()
 
 	-- Chromatic Cloak -- 22926
@@ -1714,7 +1690,6 @@ function addon:InitLeatherworking()
 	recipe:SetCraftedItem(18509, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("LEATHERWORKING_BACK")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS, F.HEALER, F.CASTER)
-	recipe:AddCustom("REMOVED_FROM_GAME")
 	recipe:Retire()
 
 	-- Hide of the Wild -- 22927
@@ -1724,7 +1699,6 @@ function addon:InitLeatherworking()
 	recipe:SetCraftedItem(18510, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("LEATHERWORKING_BACK")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.HEALER, F.CASTER)
-	recipe:AddCustom("REMOVED_FROM_GAME")
 	recipe:Retire()
 
 	-- Shifting Cloak -- 22928
@@ -1734,7 +1708,6 @@ function addon:InitLeatherworking()
 	recipe:SetCraftedItem(18511, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("LEATHERWORKING_BACK")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS, F.TANK)
-	recipe:AddCustom("REMOVED_FROM_GAME")
 	recipe:Retire()
 
 	-- Heavy Leather Ball -- 23190
@@ -1834,7 +1807,6 @@ function addon:InitLeatherworking()
 	recipe:SetCraftedItem(19685, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("LEATHERWORKING_CHEST")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS, F.CASTER)
-	recipe:AddCustom("REMOVED_FROM_GAME")
 	recipe:Retire()
 
 	-- Primal Batskin Gloves -- 24122
@@ -1844,7 +1816,6 @@ function addon:InitLeatherworking()
 	recipe:SetCraftedItem(19686, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("LEATHERWORKING_HANDS")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS, F.CASTER)
-	recipe:AddCustom("REMOVED_FROM_GAME")
 	recipe:Retire()
 
 	-- Primal Batskin Bracers -- 24123
@@ -1854,7 +1825,6 @@ function addon:InitLeatherworking()
 	recipe:SetCraftedItem(19687, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("LEATHERWORKING_WRIST")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS, F.CASTER)
-	recipe:AddCustom("REMOVED_FROM_GAME")
 	recipe:Retire()
 
 	-- Blood Tiger Breastplate -- 24124
@@ -1864,7 +1834,6 @@ function addon:InitLeatherworking()
 	recipe:SetCraftedItem(19688, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("LEATHERWORKING_CHEST")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS, F.HEALER, F.CASTER)
-	recipe:AddCustom("REMOVED_FROM_GAME")
 	recipe:Retire()
 
 	-- Blood Tiger Shoulders -- 24125
@@ -1874,7 +1843,6 @@ function addon:InitLeatherworking()
 	recipe:SetCraftedItem(19689, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("LEATHERWORKING_SHOULDER")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS, F.HEALER, F.CASTER)
-	recipe:AddCustom("REMOVED_FROM_GAME")
 	recipe:Retire()
 
 	-- Blue Dragonscale Leggings -- 24654
@@ -1972,7 +1940,6 @@ function addon:InitLeatherworking()
 	recipe:SetCraftedItem(21278, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("LEATHERWORKING_HANDS")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS, F.HEALER, F.CASTER)
-	recipe:AddCustom("REMOVED_FROM_GAME")
 	recipe:Retire()
 
 	-- Polar Tunic -- 28219
@@ -1981,7 +1948,6 @@ function addon:InitLeatherworking()
 	recipe:SetCraftedItem(22661, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("LEATHERWORKING_CHEST")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS)
-	recipe:AddCustom("REMOVED_FROM_GAME")
 	recipe:Retire()
 
 	-- Polar Gloves -- 28220
@@ -1990,7 +1956,6 @@ function addon:InitLeatherworking()
 	recipe:SetCraftedItem(22662, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("LEATHERWORKING_HANDS")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS)
-	recipe:AddCustom("REMOVED_FROM_GAME")
 	recipe:Retire()
 
 	-- Polar Bracers -- 28221
@@ -1999,7 +1964,6 @@ function addon:InitLeatherworking()
 	recipe:SetCraftedItem(22663, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("LEATHERWORKING_WRIST")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS)
-	recipe:AddCustom("REMOVED_FROM_GAME")
 	recipe:Retire()
 
 	-- Icy Scale Breastplate -- 28222
@@ -2008,7 +1972,6 @@ function addon:InitLeatherworking()
 	recipe:SetCraftedItem(22664, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("LEATHERWORKING_CHEST")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS)
-	recipe:AddCustom("REMOVED_FROM_GAME")
 	recipe:Retire()
 
 	-- Icy Scale Gauntlets -- 28223
@@ -2017,7 +1980,6 @@ function addon:InitLeatherworking()
 	recipe:SetCraftedItem(22666, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("LEATHERWORKING_HANDS")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS)
-	recipe:AddCustom("REMOVED_FROM_GAME")
 	recipe:Retire()
 
 	-- Icy Scale Bracers -- 28224
@@ -2026,7 +1988,6 @@ function addon:InitLeatherworking()
 	recipe:SetCraftedItem(22665, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("LEATHERWORKING_WRIST")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS)
-	recipe:AddCustom("REMOVED_FROM_GAME")
 	recipe:Retire()
 
 	-- Bramblewood Helm -- 28472
@@ -2714,7 +2675,6 @@ function addon:InitLeatherworking()
 	recipe:SetCraftedItem(29515, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("LEATHERWORKING_CHEST")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS)
-	recipe:AddCustom("REMOVED_FROM_GAME")
 	recipe:Retire()
 
 	-- Ebon Netherscale Belt -- 35576
@@ -2723,7 +2683,6 @@ function addon:InitLeatherworking()
 	recipe:SetCraftedItem(29516, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("LEATHERWORKING_WAIST")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS)
-	recipe:AddCustom("REMOVED_FROM_GAME")
 	recipe:Retire()
 
 	-- Ebon Netherscale Bracers -- 35577
@@ -2732,7 +2691,6 @@ function addon:InitLeatherworking()
 	recipe:SetCraftedItem(29517, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("LEATHERWORKING_WRIST")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS)
-	recipe:AddCustom("REMOVED_FROM_GAME")
 	recipe:Retire()
 
 	-- Netherstrike Breastplate -- 35580
@@ -2741,7 +2699,6 @@ function addon:InitLeatherworking()
 	recipe:SetCraftedItem(29519, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("LEATHERWORKING_CHEST")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.HEALER, F.CASTER)
-	recipe:AddCustom("REMOVED_FROM_GAME")
 	recipe:Retire()
 
 	-- Netherstrike Belt -- 35582
@@ -2750,7 +2707,6 @@ function addon:InitLeatherworking()
 	recipe:SetCraftedItem(29520, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("LEATHERWORKING_WAIST")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.HEALER, F.CASTER)
-	recipe:AddCustom("REMOVED_FROM_GAME")
 	recipe:Retire()
 
 	-- Netherstrike Bracers -- 35584
@@ -2759,7 +2715,6 @@ function addon:InitLeatherworking()
 	recipe:SetCraftedItem(29521, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("LEATHERWORKING_WRIST")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.HEALER, F.CASTER)
-	recipe:AddCustom("REMOVED_FROM_GAME")
 	recipe:Retire()
 
 	-- Windhawk Hauberk -- 35585
@@ -2768,7 +2723,6 @@ function addon:InitLeatherworking()
 	recipe:SetCraftedItem(29522, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("LEATHERWORKING_CHEST")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.HEALER, F.CASTER)
-	recipe:AddCustom("REMOVED_FROM_GAME")
 	recipe:Retire()
 
 	-- Windhawk Belt -- 35587
@@ -2777,7 +2731,6 @@ function addon:InitLeatherworking()
 	recipe:SetCraftedItem(29524, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("LEATHERWORKING_WAIST")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.HEALER, F.CASTER)
-	recipe:AddCustom("REMOVED_FROM_GAME")
 	recipe:Retire()
 
 	-- Windhawk Bracers -- 35588
@@ -2786,7 +2739,6 @@ function addon:InitLeatherworking()
 	recipe:SetCraftedItem(29523, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("LEATHERWORKING_WRIST")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.HEALER, F.CASTER)
-	recipe:AddCustom("REMOVED_FROM_GAME")
 	recipe:Retire()
 
 	-- Primalstrike Vest -- 35589
@@ -2795,7 +2747,6 @@ function addon:InitLeatherworking()
 	recipe:SetCraftedItem(29525, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("LEATHERWORKING_CHEST")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS)
-	recipe:AddCustom("REMOVED_FROM_GAME")
 	recipe:Retire()
 
 	-- Primalstrike Belt -- 35590
@@ -2804,7 +2755,6 @@ function addon:InitLeatherworking()
 	recipe:SetCraftedItem(29526, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("LEATHERWORKING_WAIST")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS)
-	recipe:AddCustom("REMOVED_FROM_GAME")
 	recipe:Retire()
 
 	-- Primalstrike Bracers -- 35591
@@ -2813,7 +2763,6 @@ function addon:InitLeatherworking()
 	recipe:SetCraftedItem(29527, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("LEATHERWORKING_WRIST")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS)
-	recipe:AddCustom("REMOVED_FROM_GAME")
 	recipe:Retire()
 
 	-- Blackstorm Leggings -- 36074
@@ -3096,7 +3045,6 @@ function addon:InitLeatherworking()
 	recipe:SetCraftedItem(34105, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("LEATHERWORKING_BAG")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddCustom("REMOVED_FROM_GAME")
 	recipe:Retire()
 
 	-- Glove Reinforcements -- 44770

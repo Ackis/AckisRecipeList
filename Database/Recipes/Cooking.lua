@@ -210,7 +210,6 @@ function addon:InitCooking()
 	recipe:SetRecipeItem(3734, "BIND_ON_EQUIP")
 	recipe:SetCraftedItem(3726, "BIND_ON_EQUIP")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.HEALER, F.CASTER)
-	recipe:AddCustom("REMOVED_FROM_GAME")
 	recipe:Retire()
 
 	-- Hot Lion Chops -- 3398
@@ -308,7 +307,6 @@ function addon:InitCooking()
 	recipe:SetRecipeItem(5489, "BIND_ON_EQUIP")
 	recipe:SetCraftedItem(5480, "BIND_ON_EQUIP")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.HEALER, F.CASTER)
-	recipe:AddCustom("REMOVED_FROM_GAME")
 	recipe:Retire()
 
 	-- Boiled Clams -- 6499
@@ -441,7 +439,6 @@ function addon:InitCooking()
 	recipe:SetRecipeItem(12227, "BIND_ON_EQUIP")
 	recipe:SetCraftedItem(12209, "BIND_ON_EQUIP")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.HEALER, F.CASTER)
-	recipe:AddCustom("REMOVED_FROM_GAME")
 	recipe:Retire()
 
 	-- Roast Raptor -- 15855
@@ -682,7 +679,6 @@ function addon:InitCooking()
 	recipe:SetRecipeItem(21025, "BIND_ON_EQUIP")
 	recipe:SetCraftedItem(21023, "BIND_ON_EQUIP")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddCustom("REMOVED_FROM_GAME")
 	recipe:Retire()
 
 	-- Smoked Sagefish -- 25704

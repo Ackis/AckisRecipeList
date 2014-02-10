@@ -549,7 +549,6 @@ function addon:InitTailoring()
 	recipe:SetCraftedItem(5770, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("TAILORING_CHEST")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.HEALER, F.CASTER)
-	recipe:AddCustom("REMOVED_FROM_GAME")
 	recipe:Retire()
 
 	-- Green Silk Pack -- 6693
@@ -1150,7 +1149,6 @@ function addon:InitTailoring()
 	recipe:SetCraftedItem(10025, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("TAILORING_HEAD")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.HEALER, F.CASTER)
-	recipe:AddCustom("REMOVED_FROM_GAME")
 	recipe:Retire()
 
 	-- Cindercloth Boots -- 12088
@@ -1415,7 +1413,6 @@ function addon:InitTailoring()
 	recipe:SetCraftedItem(14136, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("TAILORING_CHEST")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.HEALER, F.CASTER)
-	recipe:AddCustom("REMOVED_FROM_GAME")
 	recipe:Retire()
 
 	-- Felcloth Boots -- 18437
@@ -1658,7 +1655,6 @@ function addon:InitTailoring()
 	recipe:SetCraftedItem(18258, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("TAILORING_MISC")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddCustom("REMOVED_FROM_GAME")
 	recipe:Retire()
 
 	-- Belt of the Archmage -- 22866
@@ -1668,7 +1664,6 @@ function addon:InitTailoring()
 	recipe:SetCraftedItem(18405, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("TAILORING_WAIST")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS, F.HEALER, F.CASTER)
-	recipe:AddCustom("REMOVED_FROM_GAME")
 	recipe:Retire()
 
 	-- Felcloth Gloves -- 22867
@@ -1678,7 +1673,6 @@ function addon:InitTailoring()
 	recipe:SetCraftedItem(18407, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("TAILORING_HANDS")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.HEALER, F.CASTER)
-	recipe:AddCustom("REMOVED_FROM_GAME")
 	recipe:Retire()
 
 	-- Inferno Gloves -- 22868
@@ -1688,7 +1682,6 @@ function addon:InitTailoring()
 	recipe:SetCraftedItem(18408, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("TAILORING_HANDS")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.HEALER, F.CASTER)
-	recipe:AddCustom("REMOVED_FROM_GAME")
 	recipe:Retire()
 
 	-- Mooncloth Gloves -- 22869
@@ -1698,7 +1691,6 @@ function addon:InitTailoring()
 	recipe:SetCraftedItem(18409, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("TAILORING_HANDS")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.HEALER, F.CASTER)
-	recipe:AddCustom("REMOVED_FROM_GAME")
 	recipe:Retire()
 
 	-- Cloak of Warding -- 22870
@@ -1708,7 +1700,6 @@ function addon:InitTailoring()
 	recipe:SetCraftedItem(18413, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("TAILORING_BACK")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TANK)
-	recipe:AddCustom("REMOVED_FROM_GAME")
 	recipe:Retire()
 
 	-- Mooncloth Robe -- 22902
@@ -1781,7 +1772,6 @@ function addon:InitTailoring()
 	recipe:SetCraftedItem(19682, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("TAILORING_CHEST")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS, F.HEALER, F.CASTER)
-	recipe:AddCustom("REMOVED_FROM_GAME")
 	recipe:Retire()
 
 	-- Bloodvine Leggings -- 24092
@@ -1791,7 +1781,6 @@ function addon:InitTailoring()
 	recipe:SetCraftedItem(19683, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("TAILORING_LEGS")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS, F.HEALER, F.CASTER)
-	recipe:AddCustom("REMOVED_FROM_GAME")
 	recipe:Retire()
 
 	-- Bloodvine Boots -- 24093
@@ -1801,7 +1790,6 @@ function addon:InitTailoring()
 	recipe:SetCraftedItem(19684, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("TAILORING_FEET")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS, F.HEALER, F.CASTER)
-	recipe:AddCustom("REMOVED_FROM_GAME")
 	recipe:Retire()
 
 	-- Runed Stygian Leggings -- 24901
@@ -1846,7 +1834,6 @@ function addon:InitTailoring()
 	recipe:SetCraftedItem(21341, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("TAILORING_BAG")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WARLOCK)
-	recipe:AddCustom("REMOVED_FROM_GAME")
 	recipe:Retire()
 
 	-- Core Felcloth Bag -- 26087
@@ -1920,7 +1907,6 @@ function addon:InitTailoring()
 	recipe:SetCraftedItem(22654, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("TAILORING_HANDS")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.HEALER, F.CASTER)
-	recipe:AddCustom("REMOVED_FROM_GAME")
 	recipe:Retire()
 
 	-- Glacial Vest -- 28207
@@ -1929,7 +1915,6 @@ function addon:InitTailoring()
 	recipe:SetCraftedItem(22652, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("TAILORING_CHEST")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.HEALER, F.CASTER)
-	recipe:AddCustom("REMOVED_FROM_GAME")
 	recipe:Retire()
 
 	-- Glacial Cloak -- 28208
@@ -1938,7 +1923,6 @@ function addon:InitTailoring()
 	recipe:SetCraftedItem(22658, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("TAILORING_BACK")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddCustom("REMOVED_FROM_GAME")
 	recipe:Retire()
 
 	-- Glacial Wrists -- 28209
@@ -1947,7 +1931,6 @@ function addon:InitTailoring()
 	recipe:SetCraftedItem(22655, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("TAILORING_WRIST")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.HEALER, F.CASTER)
-	recipe:AddCustom("REMOVED_FROM_GAME")
 	recipe:Retire()
 
 	-- Gaea's Embrace -- 28210

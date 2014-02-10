@@ -291,7 +291,6 @@ function addon:InitEngineering()
 	recipe:SetCraftedItem(4386, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("ENGINEERING_CREATED_ITEM")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddCustom("REMOVED_FROM_GAME")
 	recipe:Retire()
 
 	-- Iron Strut -- 3958
@@ -868,7 +867,6 @@ function addon:InitEngineering()
 	recipe:SetSpecialty(20222)
 	recipe:SetItemFilterType("ENGINEERING_TRINKET")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddCustom("REMOVED_FROM_GAME")
 	recipe:Retire()
 
 	-- Mechanical Repair Kit -- 15255
@@ -1040,7 +1038,6 @@ function addon:InitEngineering()
 	recipe:SetCraftedItem(16007, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("ENGINEERING_GUN")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS, F.HEALER, F.CASTER)
-	recipe:AddCustom("REMOVED_FROM_GAME")
 	recipe:Retire()
 
 	-- Snowmaster 9000 -- 21940
@@ -1250,7 +1247,6 @@ function addon:InitEngineering()
 	recipe:SetCraftedItem(19999, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("ENGINEERING_HEAD")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS, F.HEALER, F.CASTER)
-	recipe:AddCustom("REMOVED_FROM_GAME")
 	recipe:Retire()
 
 	-- Bloodvine Lens -- 24357
@@ -1260,7 +1256,6 @@ function addon:InitEngineering()
 	recipe:SetCraftedItem(19998, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("ENGINEERING_HEAD")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS, F.HEALER, F.CASTER)
-	recipe:AddCustom("REMOVED_FROM_GAME")
 	recipe:Retire()
 
 	-- Tranquil Mechanical Yeti -- 26011
@@ -1269,7 +1264,6 @@ function addon:InitEngineering()
 	recipe:SetCraftedItem(21277, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("ENGINEERING_PET")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddCustom("REMOVED_FROM_GAME")
 	recipe:Retire()
 
 	-- Small Blue Rocket -- 26416
@@ -1921,7 +1915,6 @@ function addon:InitEngineering()
 	recipe:SetCraftedItem(20475, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("ENGINEERING_CREATED_ITEM")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddCustom("REMOVED_FROM_GAME")
 	recipe:Retire()
 
 	-- Flying Machine -- 44155

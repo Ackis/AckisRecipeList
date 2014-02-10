@@ -818,7 +818,6 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItem(7926, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("BLACKSMITHING_LEGS")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS, F.TANK)
-	recipe:AddCustom("REMOVED_FROM_GAME")
 	recipe:Retire()
 
 	-- Ornate Mithril Gloves -- 9950
@@ -828,7 +827,6 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItem(7927, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("BLACKSMITHING_HANDS")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS, F.HEALER, F.CASTER)
-	recipe:AddCustom("REMOVED_FROM_GAME")
 	recipe:Retire()
 
 	-- Ornate Mithril Shoulder -- 9952
@@ -838,7 +836,6 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItem(7928, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("BLACKSMITHING_SHOULDER")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS, F.TANK)
-	recipe:AddCustom("REMOVED_FROM_GAME")
 	recipe:Retire()
 
 	-- Truesilver Gauntlets -- 9954
@@ -847,7 +844,6 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItem(7938, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("BLACKSMITHING_HANDS")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS)
-	recipe:AddCustom("REMOVED_FROM_GAME")
 	recipe:Retire()
 
 	-- Orcish War Leggings -- 9957
@@ -856,7 +852,6 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItem(7929, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("BLACKSMITHING_LEGS")
 	recipe:AddFilters(F.HORDE, F.DPS)
-	recipe:AddCustom("REMOVED_FROM_GAME")
 	recipe:Retire()
 
 	-- Heavy Mithril Breastplate -- 9959
@@ -916,7 +911,6 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItem(7935, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("BLACKSMITHING_CHEST")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TANK)
-	recipe:AddCustom("REMOVED_FROM_GAME")
 	recipe:Retire()
 
 	-- Truesilver Breastplate -- 9974
@@ -925,7 +919,6 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItem(7939, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("BLACKSMITHING_CHEST")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddCustom("REMOVED_FROM_GAME")
 	recipe:Retire()
 
 	-- Ornate Mithril Boots -- 9979
@@ -934,7 +927,6 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItem(7936, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("BLACKSMITHING_FEET")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TANK)
-	recipe:AddCustom("REMOVED_FROM_GAME")
 	recipe:Retire()
 
 	-- Ornate Mithril Helm -- 9980
@@ -943,7 +935,6 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItem(7937, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("BLACKSMITHING_HEAD")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS)
-	recipe:AddCustom("REMOVED_FROM_GAME")
 	recipe:Retire()
 
 	-- Copper Claymore -- 9983
@@ -1018,7 +1009,6 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItem(7954, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("BLACKSMITHING_ONE_HAND_MACE")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddCustom("REMOVED_FROM_GAME")
 	recipe:Retire()
 
 	-- Dazzling Mithril Rapier -- 10005
@@ -1054,7 +1044,6 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItem(7959, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("BLACKSMITHING_POLEARM")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddCustom("REMOVED_FROM_GAME")
 	recipe:Retire()
 
 	-- Ebon Shiv -- 10013
@@ -1072,7 +1061,6 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItem(7960, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("BLACKSMITHING_TWO_HAND_SWORD")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddCustom("REMOVED_FROM_GAME")
 	recipe:Retire()
 
 	-- Inlaid Mithril Cylinder -- 11454
@@ -1091,7 +1079,6 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItem(9366, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("BLACKSMITHING_HANDS")
 	recipe:AddFilters(F.ALLIANCE, F.DPS)
-	recipe:AddCustom("REMOVED_FROM_GAME")
 	recipe:Retire()
 
 	-- Silvered Bronze Leggings -- 12259
@@ -1315,7 +1302,6 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItem(12631, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("BLACKSMITHING_HANDS")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddCustom("REMOVED_FROM_GAME")
 	recipe:Retire()
 
 	-- Radiant Boots -- 16656
@@ -1412,7 +1398,6 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItem(12628, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("BLACKSMITHING_CHEST")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddCustom("REMOVED_FROM_GAME")
 	recipe:Retire()
 
 	-- Whitesoul Helm -- 16724
@@ -1475,7 +1460,6 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItem(12613, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("BLACKSMITHING_CHEST")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddCustom("REMOVED_FROM_GAME")
 	recipe:Retire()
 
 	-- Runic Plate Leggings -- 16732
@@ -1503,7 +1487,6 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItem(12620, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("BLACKSMITHING_HEAD")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS, F.TANK)
-	recipe:AddCustom("REMOVED_FROM_GAME")
 	recipe:Retire()
 
 	-- Enchanted Thorium Leggings -- 16744
@@ -1513,7 +1496,6 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItem(12619, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("BLACKSMITHING_LEGS")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS, F.TANK)
-	recipe:AddCustom("REMOVED_FROM_GAME")
 	recipe:Retire()
 
 	-- Enchanted Thorium Breastplate -- 16745
@@ -1523,7 +1505,6 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItem(12618, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("BLACKSMITHING_CHEST")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS, F.TANK)
-	recipe:AddCustom("REMOVED_FROM_GAME")
 	recipe:Retire()
 
 	-- Invulnerable Mail -- 16746
@@ -1552,7 +1533,6 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItem(12774, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("BLACKSMITHING_ONE_HAND_AXE")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS, F.HEALER, F.CASTER)
-	recipe:AddCustom("REMOVED_FROM_GAME")
 	recipe:Retire()
 
 	-- Huge Thorium Battleaxe -- 16971
@@ -1572,7 +1552,6 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItem(12776, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("BLACKSMITHING_TWO_HAND_MACE")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS, F.TANK, F.CASTER)
-	recipe:AddCustom("REMOVED_FROM_GAME")
 	recipe:Retire()
 
 	-- Blazing Rapier -- 16978
@@ -1582,7 +1561,6 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItem(12777, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("BLACKSMITHING_ONE_HAND_SWORD")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddCustom("REMOVED_FROM_GAME")
 	recipe:Retire()
 
 	-- Serenity -- 16983
@@ -1897,7 +1875,6 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItem(19690, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("BLACKSMITHING_CHEST")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS, F.HEALER, F.CASTER)
-	recipe:AddCustom("REMOVED_FROM_GAME")
 	recipe:Retire()
 
 	-- Bloodsoul Shoulders -- 24137
@@ -1907,7 +1884,6 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItem(19691, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("BLACKSMITHING_SHOULDER")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS, F.HEALER, F.CASTER)
-	recipe:AddCustom("REMOVED_FROM_GAME")
 	recipe:Retire()
 
 	-- Bloodsoul Gauntlets -- 24138
@@ -1917,7 +1893,6 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItem(19692, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("BLACKSMITHING_HANDS")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS, F.HEALER, F.CASTER)
-	recipe:AddCustom("REMOVED_FROM_GAME")
 	recipe:Retire()
 
 	-- Darksoul Breastplate -- 24139
@@ -1927,7 +1902,6 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItem(19693, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("BLACKSMITHING_CHEST")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS, F.TANK, F.CASTER)
-	recipe:AddCustom("REMOVED_FROM_GAME")
 	recipe:Retire()
 
 	-- Darksoul Leggings -- 24140
@@ -1937,7 +1911,6 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItem(19694, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("BLACKSMITHING_LEGS")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS, F.TANK, F.CASTER)
-	recipe:AddCustom("REMOVED_FROM_GAME")
 	recipe:Retire()
 
 	-- Darksoul Shoulders -- 24141
@@ -1947,7 +1920,6 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItem(19695, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("BLACKSMITHING_SHOULDER")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS, F.TANK, F.CASTER)
-	recipe:AddCustom("REMOVED_FROM_GAME")
 	recipe:Retire()
 
 	-- Dark Iron Boots -- 24399
@@ -2073,7 +2045,6 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItem(22669, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("BLACKSMITHING_CHEST")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TANK)
-	recipe:AddCustom("REMOVED_FROM_GAME")
 	recipe:Retire()
 
 	-- Icebane Gauntlets -- 28243
@@ -2082,7 +2053,6 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItem(22670, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("BLACKSMITHING_HANDS")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TANK)
-	recipe:AddCustom("REMOVED_FROM_GAME")
 	recipe:Retire()
 
 	-- Icebane Bracers -- 28244
@@ -2091,7 +2061,6 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItem(22671, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("BLACKSMITHING_WRIST")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TANK)
-	recipe:AddCustom("REMOVED_FROM_GAME")
 	recipe:Retire()
 
 	-- Ironvine Breastplate -- 28461
@@ -2684,7 +2653,6 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItem(23563, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("BLACKSMITHING_CHEST")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS, F.HEALER, F.CASTER)
-	recipe:AddCustom("REMOVED_FROM_GAME")
 	recipe:Retire()
 
 	-- Twisting Nether Chain Shirt -- 34530
@@ -2693,7 +2661,6 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItem(23564, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("BLACKSMITHING_CHEST")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS)
-	recipe:AddCustom("REMOVED_FROM_GAME")
 	recipe:Retire()
 
 	-- Breastplate of Kings -- 34533
@@ -2702,7 +2669,6 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItem(28483, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("BLACKSMITHING_CHEST")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS)
-	recipe:AddCustom("REMOVED_FROM_GAME")
 	recipe:Retire()
 
 	-- Bulwark of Kings -- 34534
@@ -2711,7 +2677,6 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItem(28484, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("BLACKSMITHING_CHEST")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS)
-	recipe:AddCustom("REMOVED_FROM_GAME")
 	recipe:Retire()
 
 	-- Fireguard -- 34535
@@ -2720,7 +2685,6 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItem(28425, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("BLACKSMITHING_ONE_HAND_SWORD")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS)
-	recipe:AddCustom("REMOVED_FROM_GAME")
 	recipe:Retire()
 
 	-- Blazeguard -- 34537
@@ -2729,7 +2693,6 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItem(28426, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("BLACKSMITHING_ONE_HAND_SWORD")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS)
-	recipe:AddCustom("REMOVED_FROM_GAME")
 	recipe:Retire()
 
 	-- Lionheart Blade -- 34538
@@ -2738,7 +2701,6 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItem(28428, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("BLACKSMITHING_TWO_HAND_SWORD")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS)
-	recipe:AddCustom("REMOVED_FROM_GAME")
 	recipe:Retire()
 
 	-- Lionheart Champion -- 34540
@@ -2747,7 +2709,6 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItem(28429, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("BLACKSMITHING_TWO_HAND_SWORD")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS)
-	recipe:AddCustom("REMOVED_FROM_GAME")
 	recipe:Retire()
 
 	-- The Planar Edge -- 34541
@@ -2756,7 +2717,6 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItem(28431, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("BLACKSMITHING_ONE_HAND_AXE")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS)
-	recipe:AddCustom("REMOVED_FROM_GAME")
 	recipe:Retire()
 
 	-- Black Planar Edge -- 34542
@@ -2765,7 +2725,6 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItem(28432, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("BLACKSMITHING_ONE_HAND_AXE")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS)
-	recipe:AddCustom("REMOVED_FROM_GAME")
 	recipe:Retire()
 
 	-- Lunar Crescent -- 34543
@@ -2774,7 +2733,6 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItem(28434, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("BLACKSMITHING_TWO_HAND_AXE")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS)
-	recipe:AddCustom("REMOVED_FROM_GAME")
 	recipe:Retire()
 
 	-- Mooncleaver -- 34544
@@ -2783,7 +2741,6 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItem(28435, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("BLACKSMITHING_TWO_HAND_AXE")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS)
-	recipe:AddCustom("REMOVED_FROM_GAME")
 	recipe:Retire()
 
 	-- Drakefist Hammer -- 34545
@@ -2792,7 +2749,6 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItem(28437, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("BLACKSMITHING_ONE_HAND_MACE")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddCustom("REMOVED_FROM_GAME")
 	recipe:Retire()
 
 	-- Dragonmaw -- 34546
@@ -2801,7 +2757,6 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItem(28438, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("BLACKSMITHING_ONE_HAND_MACE")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddCustom("REMOVED_FROM_GAME")
 	recipe:Retire()
 
 	-- Thunder -- 34547
@@ -2810,7 +2765,6 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItem(28440, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("BLACKSMITHING_TWO_HAND_MACE")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS)
-	recipe:AddCustom("REMOVED_FROM_GAME")
 	recipe:Retire()
 
 	-- Deep Thunder -- 34548
@@ -2819,7 +2773,6 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItem(28441, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("BLACKSMITHING_TWO_HAND_MACE")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS)
-	recipe:AddCustom("REMOVED_FROM_GAME")
 	recipe:Retire()
 
 	-- Fel Weightstone -- 34607
@@ -2845,7 +2798,6 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItem(30069, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("BLACKSMITHING_LEGS")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS)
-	recipe:AddCustom("REMOVED_FROM_GAME")
 	recipe:Retire()
 
 	-- Windforged Leggings -- 36124
@@ -2854,7 +2806,6 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItem(30070, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("BLACKSMITHING_LEGS")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS)
-	recipe:AddCustom("REMOVED_FROM_GAME")
 	recipe:Retire()
 
 	-- Light Earthforged Blade -- 36125
@@ -2863,7 +2814,6 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItem(30071, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("BLACKSMITHING_ONE_HAND_SWORD")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddCustom("REMOVED_FROM_GAME")
 	recipe:Retire()
 
 	-- Light Skyforged Axe -- 36126
@@ -2872,7 +2822,6 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItem(30072, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("BLACKSMITHING_ONE_HAND_AXE")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddCustom("REMOVED_FROM_GAME")
 	recipe:Retire()
 
 	-- Light Emberforged Hammer -- 36128
@@ -2881,7 +2830,6 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItem(30073, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("BLACKSMITHING_ONE_HAND_MACE")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS)
-	recipe:AddCustom("REMOVED_FROM_GAME")
 	recipe:Retire()
 
 	-- Heavy Earthforged Breastplate -- 36129
@@ -2890,7 +2838,6 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItem(30074, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("BLACKSMITHING_CHEST")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TANK)
-	recipe:AddCustom("REMOVED_FROM_GAME")
 	recipe:Retire()
 
 	-- Stormforged Hauberk -- 36130
@@ -2899,7 +2846,6 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItem(30076, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("BLACKSMITHING_CHEST")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS)
-	recipe:AddCustom("REMOVED_FROM_GAME")
 	recipe:Retire()
 
 	-- Windforged Rapier -- 36131
@@ -2908,7 +2854,6 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItem(30077, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("BLACKSMITHING_ONE_HAND_SWORD")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddCustom("REMOVED_FROM_GAME")
 	recipe:Retire()
 
 	-- Stoneforged Claymore -- 36133
@@ -2917,7 +2862,6 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItem(30086, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("BLACKSMITHING_TWO_HAND_SWORD")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS)
-	recipe:AddCustom("REMOVED_FROM_GAME")
 	recipe:Retire()
 
 	-- Stormforged Axe -- 36134
@@ -2926,7 +2870,6 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItem(30087, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("BLACKSMITHING_ONE_HAND_AXE")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS)
-	recipe:AddCustom("REMOVED_FROM_GAME")
 	recipe:Retire()
 
 	-- Skyforged Great Axe -- 36135
@@ -2935,7 +2878,6 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItem(30088, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("BLACKSMITHING_TWO_HAND_AXE")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS)
-	recipe:AddCustom("REMOVED_FROM_GAME")
 	recipe:Retire()
 
 	-- Lavaforged Warhammer -- 36136
@@ -2944,7 +2886,6 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItem(30089, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("BLACKSMITHING_ONE_HAND_MACE")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS)
-	recipe:AddCustom("REMOVED_FROM_GAME")
 	recipe:Retire()
 
 	-- Great Earthforged Hammer -- 36137
@@ -2953,7 +2894,6 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItem(30093, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("BLACKSMITHING_TWO_HAND_MACE")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS)
-	recipe:AddCustom("REMOVED_FROM_GAME")
 	recipe:Retire()
 
 	-- Embrace of the Twisting Nether -- 36256
@@ -2962,7 +2902,6 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItem(23565, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("BLACKSMITHING_CHEST")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS)
-	recipe:AddCustom("REMOVED_FROM_GAME")
 	recipe:Retire()
 
 	-- Bulwark of the Ancient Kings -- 36257
@@ -2971,7 +2910,6 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItem(28485, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("BLACKSMITHING_CHEST")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS)
-	recipe:AddCustom("REMOVED_FROM_GAME")
 	recipe:Retire()
 
 	-- Blazefury -- 36258
@@ -2980,7 +2918,6 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItem(28427, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("BLACKSMITHING_ONE_HAND_SWORD")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS)
-	recipe:AddCustom("REMOVED_FROM_GAME")
 	recipe:Retire()
 
 	-- Lionheart Executioner -- 36259
@@ -2989,7 +2926,6 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItem(28430, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("BLACKSMITHING_TWO_HAND_SWORD")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS)
-	recipe:AddCustom("REMOVED_FROM_GAME")
 	recipe:Retire()
 
 	-- Wicked Edge of the Planes -- 36260
@@ -2998,7 +2934,6 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItem(28433, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("BLACKSMITHING_ONE_HAND_AXE")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS)
-	recipe:AddCustom("REMOVED_FROM_GAME")
 	recipe:Retire()
 
 	-- Bloodmoon -- 36261
@@ -3007,7 +2942,6 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItem(28436, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("BLACKSMITHING_TWO_HAND_AXE")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS)
-	recipe:AddCustom("REMOVED_FROM_GAME")
 	recipe:Retire()
 
 	-- Dragonstrike -- 36262
@@ -3016,7 +2950,6 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItem(28439, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("BLACKSMITHING_ONE_HAND_MACE")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddCustom("REMOVED_FROM_GAME")
 	recipe:Retire()
 
 	-- Stormherald -- 36263
@@ -3025,7 +2958,6 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItem(28442, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("BLACKSMITHING_TWO_HAND_MACE")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS)
-	recipe:AddCustom("REMOVED_FROM_GAME")
 	recipe:Retire()
 
 	-- Belt of the Guardian -- 36389
@@ -3595,7 +3527,6 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItem(41186, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("BLACKSMITHING_ONE_HAND_SWORD")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS)
-	recipe:AddCustom("REMOVED_FROM_GAME")
 	recipe:Retire()
 
 	-- Corroded Saronite Woundbringer -- 55184
@@ -3604,7 +3535,6 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItem(41187, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("BLACKSMITHING_ONE_HAND_SWORD")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS)
-	recipe:AddCustom("REMOVED_FROM_GAME")
 	recipe:Retire()
 
 	-- Saronite Mindcrusher -- 55185
@@ -3621,7 +3551,6 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItem(41189, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("BLACKSMITHING_CHEST")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS)
-	recipe:AddCustom("REMOVED_FROM_GAME")
 	recipe:Retire()
 
 	-- Legplates of Conquest -- 55187
@@ -3630,7 +3559,6 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItem(41190, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("BLACKSMITHING_LEGS")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS)
-	recipe:AddCustom("REMOVED_FROM_GAME")
 	recipe:Retire()
 
 	-- Sturdy Cobalt Quickblade -- 55200

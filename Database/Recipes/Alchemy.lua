@@ -272,7 +272,6 @@ function addon:InitAlchemy()
 	recipe:SetItemFilterType("ALCHEMY_POTION")
 	recipe:AddFilters(F.HORDE)
 	recipe:Retire()
-	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Lesser Stoneshield Potion -- 4942
 	recipe = AddRecipe(4942, V.ORIG, Q.COMMON)
@@ -282,7 +281,6 @@ function addon:InitAlchemy()
 	recipe:SetItemFilterType("ALCHEMY_POTION")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TANK)
 	recipe:Retire()
-	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Rage Potion -- 6617
 	recipe = AddRecipe(6617, V.ORIG, Q.COMMON)
@@ -461,7 +459,6 @@ function addon:InitAlchemy()
 	recipe:SetItemFilterType("ALCHEMY_POTION")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
 	recipe:Retire()
-	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Goblin Rocket Fuel -- 11456
 	recipe = AddRecipe(11456, V.ORIG, Q.COMMON)
@@ -539,7 +536,6 @@ function addon:InitAlchemy()
 	recipe:SetItemFilterType("ALCHEMY_ELIXIR")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
 	recipe:Retire()
-	recipe:AddCustom("REMOVED_FROM_GAME")
 
 	-- Elixir of Greater Agility -- 11467
 	recipe = AddRecipe(11467, V.ORIG, Q.COMMON)
@@ -790,7 +786,6 @@ function addon:InitAlchemy()
 	recipe:SetCraftedItem(13452, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("ALCHEMY_ELIXIR")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS, F.HEALER, F.CASTER)
-	recipe:AddCustom("REMOVED_FROM_GAME")
 	recipe:Retire()
 
 	-- Purification Potion -- 17572
@@ -825,7 +820,6 @@ function addon:InitAlchemy()
 	recipe:SetCraftedItem(13456, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("ALCHEMY_POTION")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddCustom("REMOVED_FROM_GAME")
 	recipe:Retire()
 
 	-- Greater Nature Protection Potion -- 17576
@@ -844,7 +838,6 @@ function addon:InitAlchemy()
 	recipe:SetCraftedItem(13461, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("ALCHEMY_POTION")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddCustom("REMOVED_FROM_GAME")
 	recipe:Retire()
 
 	-- Greater Shadow Protection Potion -- 17578
@@ -854,7 +847,6 @@ function addon:InitAlchemy()
 	recipe:SetCraftedItem(13459, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("ALCHEMY_POTION")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddCustom("REMOVED_FROM_GAME")
 	recipe:Retire()
 
 	-- Major Mana Potion -- 17580
@@ -945,7 +937,6 @@ function addon:InitAlchemy()
 	recipe:SetCraftedItem(19931, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("ALCHEMY_MISC")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddCustom("REMOVED_FROM_GAME")
 	recipe:Retire()
 
 	-- Mageblood Elixir -- 24365
@@ -955,7 +946,6 @@ function addon:InitAlchemy()
 	recipe:SetCraftedItem(20007, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("ALCHEMY_ELIXIR")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.HEALER, F.CASTER)
-	recipe:AddCustom("REMOVED_FROM_GAME")
 	recipe:Retire()
 
 	-- Greater Dreamless Sleep Potion -- 24366
@@ -965,7 +955,6 @@ function addon:InitAlchemy()
 	recipe:SetCraftedItem(20002, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("ALCHEMY_POTION")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddCustom("REMOVED_FROM_GAME")
 	recipe:Retire()
 
 	-- Living Action Potion -- 24367
@@ -984,7 +973,6 @@ function addon:InitAlchemy()
 	recipe:SetCraftedItem(20004, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("ALCHEMY_ELIXIR")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddCustom("REMOVED_FROM_GAME")
 	recipe:Retire()
 
 	-- Transmute: Elemental Fire -- 25146
@@ -1003,7 +991,6 @@ function addon:InitAlchemy()
 	recipe:SetCraftedItem(21546, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("ALCHEMY_ELIXIR")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.HEALER, F.CASTER)
-	recipe:AddCustom("REMOVED_FROM_GAME")
 	recipe:Retire()
 
 	-------------------------------------------------------------------------------

@@ -306,7 +306,6 @@ function addon:InitEnchanting()
 	recipe:SetRecipeItem(11150, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("ENCHANTING_GLOVES")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddCustom("REMOVED_FROM_GAME")
 	recipe:Retire()
 
 	-- Enchant Gloves - Herbalism -- 13617
@@ -519,7 +518,6 @@ function addon:InitEnchanting()
 	recipe:SetRecipeItem(11203, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("ENCHANTING_GLOVES")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddCustom("REMOVED_FROM_GAME")
 	recipe:Retire()
 
 	-- Enchant Bracer - Greater Spirit -- 13846
@@ -543,7 +541,6 @@ function addon:InitEnchanting()
 	recipe:SetRecipeItem(11205, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("ENCHANTING_GLOVES")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddCustom("REMOVED_FROM_GAME")
 	recipe:Retire()
 
 	-- Enchant Cloak - Lesser Agility -- 13882
@@ -842,7 +839,6 @@ function addon:InitEnchanting()
 	recipe:SetRecipeItem(16223, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("ENCHANTING_WEAPON")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddCustom("REMOVED_FROM_GAME")
 	recipe:Retire()
 
 	-- Enchant 2H Weapon - Superior Impact -- 20030
@@ -1094,7 +1090,6 @@ function addon:InitEnchanting()
 	recipe:SetCraftedItem(20749, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("ENCHANTING_OIL")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.DPS, F.HEALER, F.CASTER)
-	recipe:AddCustom("REMOVED_FROM_GAME")
 	recipe:Retire()
 
 	-- Brilliant Mana Oil -- 25130
@@ -1104,7 +1099,6 @@ function addon:InitEnchanting()
 	recipe:SetCraftedItem(20748, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("ENCHANTING_OIL")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.HEALER, F.CASTER)
-	recipe:AddCustom("REMOVED_FROM_GAME")
 	recipe:Retire()
 
 	-- Enchant 2H Weapon - Agility -- 27837
