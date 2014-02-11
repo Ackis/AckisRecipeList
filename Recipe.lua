@@ -32,11 +32,11 @@ private.num_profession_recipes = {}
 do
 	local acquire_list = {}
 
-	for acquire_type = 1, #private.ACQUIRE_STRINGS do
+	for acquire_type = 1, #private.ACQUIRE_TYPES do
 		acquire_list[acquire_type] = {
-            name = private.ACQUIRE_NAMES[acquire_type],
-            recipes = {}
-        }
+			name = private.ACQUIRE_TYPES[acquire_type]:Name(),
+			recipes = {}
+		}
 	end
 	private.acquire_list = acquire_list
 end
@@ -507,7 +507,7 @@ function recipe_prototype:AddRepVendor(reputation_id, rep_level, ...)
 		acquire_list[A.REPUTATION] = acquire_list[A.REPUTATION] or {}
 		acquire_list[A.REPUTATION].recipes = acquire_list[A.REPUTATION].recipes or {}
 
-		acquire_list[A.REPUTATION].name = private.ACQUIRE_NAMES[A.REPUTATION]
+		acquire_list[A.REPUTATION].name = private.ACQUIRE_TYPES[A.REPUTATION]:Name()
 		acquire_list[A.REPUTATION].recipes[self.spell_id] = affiliation or true
 
 		if location_name then
@@ -751,9 +751,9 @@ function recipe_prototype:Dump(output, use_genesis)
 				end
 
 				if flag_string then
-					flag_string = ("%s, A.%s, %s"):format(flag_string, private.ACQUIRE_STRINGS[acquire_type], saved_id)
+					flag_string = ("%s, A.%s, %s"):format(flag_string, private.ACQUIRE_TYPES[acquire_type]:Label(), saved_id)
 				else
-					flag_string = ("A.%s, %s"):format(private.ACQUIRE_STRINGS[acquire_type], saved_id)
+					flag_string = ("A.%s, %s"):format(private.ACQUIRE_TYPES[acquire_type]:Label(), saved_id)
 				end
 			end
 		end

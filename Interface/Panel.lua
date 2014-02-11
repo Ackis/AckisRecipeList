@@ -502,11 +502,11 @@ function private.InitializeFrame()
 		end
 
 		local function SearchByAcquireType(recipe, search_pattern)
-			local ACQUIRE_NAMES = private.ACQUIRE_NAMES
+			local ACQUIRE_TYPES = private.ACQUIRE_TYPES
 
-			for acquire_type in pairs(ACQUIRE_NAMES) do
+			for acquire_type in pairs(ACQUIRE_TYPES) do
 				if recipe.acquire_data[acquire_type] then
-					local acquire_name = ACQUIRE_NAMES[acquire_type]:lower()
+					local acquire_name = ACQUIRE_TYPES[acquire_type]:Name():lower()
 
 					if acquire_name:find(search_pattern) then
 						return true

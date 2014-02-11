@@ -360,6 +360,8 @@ function addon:OnInitialize()
 		self:Print("Error: Database not loaded correctly.  Please exit out of WoW and delete the ARL database file (AckisRecipeList.lua) found in: \\World of Warcraft\\WTF\\Account\\<Account Name>>\\SavedVariables\\")
 		return
 	end
+	private.db = self.db
+
 	local version = _G.GetAddOnMetadata("AckisRecipeList", "Version")
 	local debug_version = false
 	local alpha_version = false
@@ -1278,7 +1280,7 @@ do
 			table.wipe(acquire_list)
 
 			for acquire_type in pairs(acquire_data) do
-				acquire_list[private.ACQUIRE_NAMES[acquire_type]] = true
+				acquire_list[private.ACQUIRE_TYPES[acquire_type]:Name()] = true
 			end
 
 			-- Add all the acquire methods in

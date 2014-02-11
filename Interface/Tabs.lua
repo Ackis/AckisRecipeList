@@ -138,7 +138,7 @@ function tab_prototype:SaveListEntryState(entry, expanded)
 	local field = ORDERED_PROFESSIONS[addon.Frame.current_profession] .. " expanded"
 
 	if entry.acquire_id then
-		self[field][private.ACQUIRE_NAMES[entry.acquire_id]] = expanded or nil
+		self[field][private.ACQUIRE_TYPES[entry.acquire_id]:Name()] = expanded or nil
 	end
 
 	if entry.location_id then
@@ -242,20 +242,20 @@ function private.InitializeTabs()
 			end
 
 			if count > 0 then
-				local acquire_string = private.ACQUIRE_STRINGS[acquire_type]:lower():gsub("_", "")
-				local color_table = private.CATEGORY_COLORS[acquire_string]
-				local is_expanded = self[prof_name .. " expanded"][private.ACQUIRE_NAMES[acquire_type]]
+				local color_table = private.CATEGORY_COLORS[private.ACQUIRE_TYPES[acquire_type]:Label():lower():gsub("_", "")]
+				local acquire_type_name = private.ACQUIRE_TYPES[acquire_type]:Name()
+				local is_expanded = self[prof_name .. " expanded"][acquire_type_name]
 
 				local entry = CreateListEntry("header")
 				entry:SetAcquireID(acquire_type)
 				entry:SetText("%s (%d)",
-					SetTextColor(color_table and color_table.hex or "ffffff", private.ACQUIRE_NAMES[acquire_type]),
+					SetTextColor(color_table and color_table.hex or "ffffff", acquire_type_name),
 					count
 				)
 
 				insert_index = MainPanel.list_frame:InsertEntry(entry, insert_index, is_expanded or expand_mode, is_expanded or expand_mode)
 			else
-				self[prof_name .. " expanded"][private.ACQUIRE_NAMES[acquire_type]] = nil
+				self[prof_name .. " expanded"][private.ACQUIRE_TYPES[acquire_type]:Name()] = nil
 			end
 		end
 		return recipe_count
