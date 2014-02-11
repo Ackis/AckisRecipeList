@@ -624,7 +624,7 @@ function addon:InitCooking()
 	recipe:SetCraftedItem(17197, "BIND_ON_EQUIP")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
 	recipe:AddVendor(13420, 13429, 13432, 13433, 13435, 23010, 23012, 23064)
-	recipe:AddSeason("WINTER_VEIL")
+	recipe:AddWorldEvent("WINTER_VEIL")
 
 	-- Winter Veil Egg Nog -- 21144
 	recipe = AddRecipe(21144, V.ORIG, Q.COMMON)
@@ -633,7 +633,7 @@ function addon:InitCooking()
 	recipe:SetCraftedItem(17198, "BIND_ON_EQUIP")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
 	recipe:AddVendor(13420, 13429, 13432, 13433, 13435, 23010, 23012, 23064)
-	recipe:AddSeason("WINTER_VEIL")
+	recipe:AddWorldEvent("WINTER_VEIL")
 
 	-- Spider Sausage -- 21175
 	recipe = AddRecipe(21175, V.ORIG, Q.COMMON)
@@ -957,7 +957,7 @@ function addon:InitCooking()
 	recipe:SetCraftedItem(34411, "BIND_ON_EQUIP")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.HEALER, F.CASTER)
 	recipe:AddVendor(13420, 13433)
-	recipe:AddSeason("WINTER_VEIL")
+	recipe:AddWorldEvent("WINTER_VEIL")
 
 	-- Mammoth Meal -- 45549
 	recipe = AddRecipe(45549, V.WOTLK, Q.COMMON)
@@ -1327,7 +1327,7 @@ function addon:InitCooking()
 	recipe:SetCraftedItem(44836, "BIND_ON_EQUIP")
 	recipe:SetRequiredFaction("Alliance")
 	recipe:AddFilters(F.ALLIANCE, F.HEALER, F.CASTER)
-	recipe:AddSeason("PILGRIMS_BOUNTY")
+	recipe:AddWorldEvent("PILGRIMS_BOUNTY")
 
 	-- Slow-Roasted Turkey -- 62045
 	recipe = AddRecipe(62045, V.WOTLK, Q.COMMON)
@@ -1335,7 +1335,7 @@ function addon:InitCooking()
 	recipe:SetCraftedItem(44839, "BIND_ON_EQUIP")
 	recipe:SetRequiredFaction("Alliance")
 	recipe:AddFilters(F.ALLIANCE, F.DPS)
-	recipe:AddSeason("PILGRIMS_BOUNTY")
+	recipe:AddWorldEvent("PILGRIMS_BOUNTY")
 
 	-- Cranberry Chutney -- 62049
 	recipe = AddRecipe(62049, V.WOTLK, Q.COMMON)
@@ -1343,7 +1343,7 @@ function addon:InitCooking()
 	recipe:SetCraftedItem(44840, "BIND_ON_EQUIP")
 	recipe:SetRequiredFaction("Alliance")
 	recipe:AddFilters(F.ALLIANCE, F.HEALER, F.CASTER)
-	recipe:AddSeason("PILGRIMS_BOUNTY")
+	recipe:AddWorldEvent("PILGRIMS_BOUNTY")
 
 	-- Spice Bread Stuffing -- 62050
 	recipe = AddRecipe(62050, V.WOTLK, Q.COMMON)
@@ -1351,7 +1351,7 @@ function addon:InitCooking()
 	recipe:SetCraftedItem(44837, "BIND_ON_EQUIP")
 	recipe:SetRequiredFaction("Alliance")
 	recipe:AddFilters(F.ALLIANCE)
-	recipe:AddSeason("PILGRIMS_BOUNTY")
+	recipe:AddWorldEvent("PILGRIMS_BOUNTY")
 
 	-- Candied Sweet Potato -- 62051
 	recipe = AddRecipe(62051, V.WOTLK, Q.COMMON)
@@ -1359,7 +1359,7 @@ function addon:InitCooking()
 	recipe:SetCraftedItem(44839, "BIND_ON_EQUIP")
 	recipe:SetRequiredFaction("Alliance")
 	recipe:AddFilters(F.ALLIANCE)
-	recipe:AddSeason("PILGRIMS_BOUNTY")
+	recipe:AddWorldEvent("PILGRIMS_BOUNTY")
 
 	-- Worg Tartare -- 62350
 	recipe = AddRecipe(62350, V.WOTLK, Q.UNCOMMON)
@@ -1388,7 +1388,7 @@ function addon:InitCooking()
 	recipe:SetSkillLevels(45, 45, 55, 60, 65)
 	recipe:SetCraftedItem(46691, "BIND_ON_EQUIP")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.HEALER, F.CASTER)
-	recipe:AddSeason("DAY_OF_THE_DEAD")
+	recipe:AddWorldEvent("DAY_OF_THE_DEAD")
 	recipe:AddVendor(34382)
 
 	-- Candied Sweet Potato -- 66034
@@ -1397,7 +1397,7 @@ function addon:InitCooking()
 	recipe:SetCraftedItem(44839, "BIND_ON_EQUIP")
 	recipe:SetRequiredFaction("Horde")
 	recipe:AddFilters(F.HORDE)
-	recipe:AddSeason("PILGRIMS_BOUNTY")
+	recipe:AddWorldEvent("PILGRIMS_BOUNTY")
 
 	-- Cranberry Chutney -- 66035
 	recipe = AddRecipe(66035, V.WOTLK, Q.COMMON)
@@ -1405,7 +1405,7 @@ function addon:InitCooking()
 	recipe:SetCraftedItem(44840, "BIND_ON_EQUIP")
 	recipe:SetRequiredFaction("Horde")
 	recipe:AddFilters(F.HORDE, F.HEALER, F.CASTER)
-	recipe:AddSeason("PILGRIMS_BOUNTY")
+	recipe:AddWorldEvent("PILGRIMS_BOUNTY")
 
 	-- Pumpkin Pie -- 66036
 	recipe = AddRecipe(66036, V.WOTLK, Q.COMMON)
@@ -1413,7 +1413,7 @@ function addon:InitCooking()
 	recipe:SetCraftedItem(44836, "BIND_ON_EQUIP")
 	recipe:SetRequiredFaction("Horde")
 	recipe:AddFilters(F.HORDE, F.HEALER, F.CASTER)
-	recipe:AddSeason("PILGRIMS_BOUNTY")
+	recipe:AddWorldEvent("PILGRIMS_BOUNTY")
 
 	-- Slow-Roasted Turkey -- 66037
 	recipe = AddRecipe(66037, V.WOTLK, Q.COMMON)
@@ -1421,7 +1421,7 @@ function addon:InitCooking()
 	recipe:SetCraftedItem(44839, "BIND_ON_EQUIP")
 	recipe:SetRequiredFaction("Horde")
 	recipe:AddFilters(F.HORDE, F.DPS)
-	recipe:AddSeason("PILGRIMS_BOUNTY")
+	recipe:AddWorldEvent("PILGRIMS_BOUNTY")
 
 	-- Spice Bread Stuffing -- 66038
 	recipe = AddRecipe(66038, V.WOTLK, Q.COMMON)
@@ -1429,7 +1429,7 @@ function addon:InitCooking()
 	recipe:SetCraftedItem(44837, "BIND_ON_EQUIP")
 	recipe:SetRequiredFaction("Horde")
 	recipe:AddFilters(F.HORDE)
-	recipe:AddSeason("PILGRIMS_BOUNTY")
+	recipe:AddWorldEvent("PILGRIMS_BOUNTY")
 
 	-------------------------------------------------------------------------------
 	-- Cataclysm.

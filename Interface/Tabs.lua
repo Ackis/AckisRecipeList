@@ -237,14 +237,13 @@ local function InitializeAcquisitionTab()
 
 			if count > 0 then
 				local acquire_type = private.ACQUIRE_TYPES[acquire_type_id]
-				local color_table = private.CATEGORY_COLORS[acquire_type:Label():lower():gsub("_", "")]
 				local acquire_type_name = acquire_type:Name()
 				local is_expanded = self[prof_name .. " expanded"][acquire_type_name]
 
 				local entry = CreateListEntry("header")
 				entry:SetAcquireType(acquire_type)
 				entry:SetText("%s (%d)",
-					SetTextColor(color_table and color_table.hex or "ffffff", acquire_type_name),
+					SetTextColor(acquire_type:ColorData().hex, acquire_type_name),
 					count
 				)
 
@@ -503,7 +502,7 @@ local function InitializeLocationTab()
 						new_entry_index = private.ExpandMobData(new_entry_index, "subentry", entry, id_num, entry.recipe, true)
 					elseif acquire_type == A.QUEST and private.quest_list[id_num].location == location_id then
 						new_entry_index = private.ExpandQuestData(new_entry_index, "subentry", entry, id_num, entry.recipe, true)
-					elseif acquire_type == A.SEASONAL and private.seasonal_list[id_num].location == location_id then
+					elseif acquire_type == A.WORLD_EVENTS and private.world_events_list[id_num].location == location_id then
 						-- Hide the acquire type for this - it will already show up in the location list as
 						-- "World Events".
 						new_entry_index = private.ExpandWorldEventData(new_entry_index, "subentry", entry, id_num, entry.recipe, true, true)

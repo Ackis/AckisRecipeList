@@ -839,7 +839,7 @@ function addon:InitEnchanting()
 	recipe:SetRecipeItem(16223, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("ENCHANTING_WEAPON")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:Retire()
+	recipe:AddMobDrop(7524)
 
 	-- Enchant 2H Weapon - Superior Impact -- 20030
 	recipe = AddRecipe(20030, V.ORIG, Q.UNCOMMON)
@@ -903,7 +903,7 @@ function addon:InitEnchanting()
 	recipe:SetRecipeItem(17725, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("ENCHANTING_WEAPON")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.HEALER, F.CASTER)
-	recipe:AddSeason("WINTER_VEIL")
+	recipe:AddWorldEvent("WINTER_VEIL")
 
 	-- Enchant Weapon - Spellpower -- 22749
 	recipe = AddRecipe(22749, V.ORIG, Q.RARE)
@@ -1594,7 +1594,7 @@ function addon:InitEnchanting()
 	recipe:SetCraftedItem(35498, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("ENCHANTING_WEAPON")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddSeason("MIDSUMMER")
+	recipe:AddWorldEvent("MIDSUMMER")
 
 	-- Enchant Cloak - Greater Dodge -- 47051
 	recipe = AddRecipe(47051, V.TBC, Q.RARE)

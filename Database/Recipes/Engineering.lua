@@ -1047,7 +1047,7 @@ function addon:InitEngineering()
 	recipe:SetCraftedItem(17716, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("ENGINEERING_CREATED_ITEM")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddSeason("WINTER_VEIL")
+	recipe:AddWorldEvent("WINTER_VEIL")
 
 	-- Field Repair Bot 74A -- 22704
 	recipe = AddRecipe(22704, V.ORIG, Q.COMMON)
@@ -1274,7 +1274,7 @@ function addon:InitEngineering()
 	recipe:SetItemFilterType("ENGINEERING_CREATED_ITEM")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
 	recipe:AddVendor(15909)
-	recipe:AddSeason("LUNAR_FESTIVAL")
+	recipe:AddWorldEvent("LUNAR_FESTIVAL")
 
 	-- Small Green Rocket -- 26417
 	recipe = AddRecipe(26417, V.ORIG, Q.UNCOMMON)
@@ -1284,7 +1284,7 @@ function addon:InitEngineering()
 	recipe:SetItemFilterType("ENGINEERING_CREATED_ITEM")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
 	recipe:AddVendor(15909)
-	recipe:AddSeason("LUNAR_FESTIVAL")
+	recipe:AddWorldEvent("LUNAR_FESTIVAL")
 
 	-- Small Red Rocket -- 26418
 	recipe = AddRecipe(26418, V.ORIG, Q.UNCOMMON)
@@ -1294,7 +1294,7 @@ function addon:InitEngineering()
 	recipe:SetItemFilterType("ENGINEERING_CREATED_ITEM")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
 	recipe:AddVendor(15909)
-	recipe:AddSeason("LUNAR_FESTIVAL")
+	recipe:AddWorldEvent("LUNAR_FESTIVAL")
 
 	-- Large Blue Rocket -- 26420
 	recipe = AddRecipe(26420, V.ORIG, Q.UNCOMMON)
@@ -1304,7 +1304,7 @@ function addon:InitEngineering()
 	recipe:SetItemFilterType("ENGINEERING_CREATED_ITEM")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
 	recipe:AddVendor(15909)
-	recipe:AddSeason("LUNAR_FESTIVAL")
+	recipe:AddWorldEvent("LUNAR_FESTIVAL")
 
 	-- Large Green Rocket -- 26421
 	recipe = AddRecipe(26421, V.ORIG, Q.UNCOMMON)
@@ -1314,7 +1314,7 @@ function addon:InitEngineering()
 	recipe:SetItemFilterType("ENGINEERING_CREATED_ITEM")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
 	recipe:AddVendor(15909)
-	recipe:AddSeason("LUNAR_FESTIVAL")
+	recipe:AddWorldEvent("LUNAR_FESTIVAL")
 
 	-- Large Red Rocket -- 26422
 	recipe = AddRecipe(26422, V.ORIG, Q.UNCOMMON)
@@ -1324,7 +1324,7 @@ function addon:InitEngineering()
 	recipe:SetItemFilterType("ENGINEERING_CREATED_ITEM")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
 	recipe:AddVendor(15909)
-	recipe:AddSeason("LUNAR_FESTIVAL")
+	recipe:AddWorldEvent("LUNAR_FESTIVAL")
 
 	-- Blue Rocket Cluster -- 26423
 	recipe = AddRecipe(26423, V.ORIG, Q.UNCOMMON)
@@ -1334,7 +1334,7 @@ function addon:InitEngineering()
 	recipe:SetItemFilterType("ENGINEERING_CREATED_ITEM")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
 	recipe:AddVendor(15909)
-	recipe:AddSeason("LUNAR_FESTIVAL")
+	recipe:AddWorldEvent("LUNAR_FESTIVAL")
 
 	-- Green Rocket Cluster -- 26424
 	recipe = AddRecipe(26424, V.ORIG, Q.UNCOMMON)
@@ -1344,7 +1344,7 @@ function addon:InitEngineering()
 	recipe:SetItemFilterType("ENGINEERING_CREATED_ITEM")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
 	recipe:AddVendor(15909)
-	recipe:AddSeason("LUNAR_FESTIVAL")
+	recipe:AddWorldEvent("LUNAR_FESTIVAL")
 
 	-- Red Rocket Cluster -- 26425
 	recipe = AddRecipe(26425, V.ORIG, Q.UNCOMMON)
@@ -1354,7 +1354,7 @@ function addon:InitEngineering()
 	recipe:SetItemFilterType("ENGINEERING_CREATED_ITEM")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
 	recipe:AddVendor(15909)
-	recipe:AddSeason("LUNAR_FESTIVAL")
+	recipe:AddWorldEvent("LUNAR_FESTIVAL")
 
 	-- Large Blue Rocket Cluster -- 26426
 	recipe = AddRecipe(26426, V.ORIG, Q.UNCOMMON)
@@ -1364,7 +1364,7 @@ function addon:InitEngineering()
 	recipe:SetItemFilterType("ENGINEERING_CREATED_ITEM")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
 	recipe:AddVendor(15909)
-	recipe:AddSeason("LUNAR_FESTIVAL")
+	recipe:AddWorldEvent("LUNAR_FESTIVAL")
 
 	-- Large Green Rocket Cluster -- 26427
 	recipe = AddRecipe(26427, V.ORIG, Q.UNCOMMON)
@@ -1374,7 +1374,7 @@ function addon:InitEngineering()
 	recipe:SetItemFilterType("ENGINEERING_CREATED_ITEM")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
 	recipe:AddVendor(15909)
-	recipe:AddSeason("LUNAR_FESTIVAL")
+	recipe:AddWorldEvent("LUNAR_FESTIVAL")
 
 	-- Large Red Rocket Cluster -- 26428
 	recipe = AddRecipe(26428, V.ORIG, Q.UNCOMMON)
@@ -1384,7 +1384,7 @@ function addon:InitEngineering()
 	recipe:SetItemFilterType("ENGINEERING_CREATED_ITEM")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
 	recipe:AddVendor(15909)
-	recipe:AddSeason("LUNAR_FESTIVAL")
+	recipe:AddWorldEvent("LUNAR_FESTIVAL")
 
 	-- Firework Launcher -- 26442
 	recipe = AddRecipe(26442, V.ORIG, Q.UNCOMMON)
@@ -1394,7 +1394,7 @@ function addon:InitEngineering()
 	recipe:SetItemFilterType("ENGINEERING_CREATED_ITEM")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
 	recipe:AddVendor(15909)
-	recipe:AddSeason("LUNAR_FESTIVAL")
+	recipe:AddWorldEvent("LUNAR_FESTIVAL")
 
 	-- Cluster Launcher -- 26443
 	recipe = AddRecipe(26443, V.ORIG, Q.UNCOMMON)
@@ -1404,7 +1404,7 @@ function addon:InitEngineering()
 	recipe:SetItemFilterType("ENGINEERING_CREATED_ITEM")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
 	recipe:AddVendor(15909)
-	recipe:AddSeason("LUNAR_FESTIVAL")
+	recipe:AddWorldEvent("LUNAR_FESTIVAL")
 
 	-- Steam Tonk Controller -- 28327
 	recipe = AddRecipe(28327, V.ORIG, Q.COMMON)

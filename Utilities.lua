@@ -310,7 +310,7 @@ do
 		find_empties(private.quest_list, "Quest")
 		find_empties(private.custom_list, "Custom Entry")
 		find_empties(private.discovery_list, "Discovery")
-		find_empties(private.seasonal_list, "World Event")
+		find_empties(private.world_events_list, "World Event")
 
 		if output:Lines() == 0 then
 			output:AddLine("Nothing to display.")

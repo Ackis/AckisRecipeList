@@ -912,7 +912,7 @@ function addon:InitAlchemy()
 	recipe:SetCraftedItem(17708, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("ALCHEMY_ELIXIR")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.HEALER, F.CASTER)
-	recipe:AddSeason("WINTER_VEIL")
+	recipe:AddWorldEvent("WINTER_VEIL")
 
 	-- Major Rejuvenation Potion -- 22732
 	recipe = AddRecipe(22732, V.ORIG, Q.RARE)

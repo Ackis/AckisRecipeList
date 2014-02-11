@@ -1758,7 +1758,7 @@ function addon:InitBlacksmithing()
 	recipe:SetCraftedItem(17704, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("BLACKSMITHING_ONE_HAND_AXE")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddSeason("WINTER_VEIL")
+	recipe:AddWorldEvent("WINTER_VEIL")
 
 	-- Elemental Sharpening Stone -- 22757
 	recipe = AddRecipe(22757, V.ORIG, Q.RARE)

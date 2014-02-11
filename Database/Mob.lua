@@ -254,6 +254,7 @@ function addon:InitMob()
 	AddMob(7438,	L["Winterfall Ursa"],			Z.WINTERSPRING,			67.5, 36.3)
 	AddMob(7440,	L["Winterfall Den Watcher"],		Z.WINTERSPRING,			68.0, 35.5)
 	AddMob(7441,	L["Winterfall Totemic"],		Z.WINTERSPRING,			24.2, 50.4)
+	AddMob(7524,	L["Anguished Highborne"],		Z.WINTERSPRING,			50.6, 53.2)
 
 	-- Zul'drak
 	AddMob(28851,	L["Enraged Mammoth"],			Z.ZULDRAK,			72.0, 41.1)

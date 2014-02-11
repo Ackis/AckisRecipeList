@@ -102,9 +102,21 @@ local ACQUIRE_PROTOTYPES = {
 	-- Trainer.
 	-------------------------------------------------------------------------------
 	{
+		-------------------------------------------------------------------------------
+		-- Data.
+		-------------------------------------------------------------------------------
+		_color_data = {
+			hex = "c98e26",
+			r = 0.79,
+			g = 0.56,
+			b = 0.14
+		},
 		_has_coordinates = true,
 		_label = "TRAINER",
 		_name = L["Trainer"],
+		-------------------------------------------------------------------------------
+		-- Methods.
+		-------------------------------------------------------------------------------
 		_func_insert_tooltip_text = function(self, recipe, identifier, location, acquire_info, addline_func)
 			local trainer = private.trainer_list[identifier]
 
@@ -116,7 +128,7 @@ local ACQUIRE_PROTOTYPES = {
 			if not display_tip then
 				return
 			end
-			addline_func(0, -2, false, self:Name(), CATEGORY_COLORS.trainer, trainer.name, name_color)
+			addline_func(0, -2, false, self:Name(), self:ColorData(), trainer.name, name_color)
 
 			if trainer.coord_x ~= 0 and trainer.coord_y ~= 0 then
 				addline_func(1, -2, true, trainer.location, CATEGORY_COLORS.location, COORDINATES_FORMAT:format(trainer.coord_x, trainer.coord_y), CATEGORY_COLORS.coords)
@@ -142,9 +154,21 @@ local ACQUIRE_PROTOTYPES = {
 	-- Vendor.
 	-------------------------------------------------------------------------------
 	{
+		-------------------------------------------------------------------------------
+		-- Data.
+		-------------------------------------------------------------------------------
+		_color_data = {
+			hex = "aad372",
+			r = 0.67,
+			g = 0.83,
+			b = 0.45
+		},
 		_has_coordinates = true,
 		_label = "VENDOR",
 		_name = L["Vendor"],
+		-------------------------------------------------------------------------------
+		-- Methods.
+		-------------------------------------------------------------------------------
 		_func_insert_tooltip_text = function(self, recipe, identifier, location, acquire_info, addline_func)
 			local vendor = private.vendor_list[identifier]
 
@@ -156,7 +180,7 @@ local ACQUIRE_PROTOTYPES = {
 			if not display_tip then
 				return
 			end
-			addline_func(0, -1, false, L["Vendor"], CATEGORY_COLORS.vendor, vendor.name, name_color)
+			addline_func(0, -1, false, L["Vendor"], self:ColorData(), vendor.name, name_color)
 
 			if vendor.coord_x ~= 0 and vendor.coord_y ~= 0 then
 				addline_func(1, -2, true, vendor.location, CATEGORY_COLORS.location, COORDINATES_FORMAT:format(vendor.coord_x, vendor.coord_y), CATEGORY_COLORS.coords)
@@ -166,7 +190,7 @@ local ACQUIRE_PROTOTYPES = {
 			local quantity = vendor.item_list[recipe.id]
 
 			if type(quantity) == "number" then
-				addline_func(2, -2, true, L["LIMITED_SUPPLY"], CATEGORY_COLORS.vendor, ("(%d)"):format(quantity), BASIC_COLORS.white)
+				addline_func(2, -2, true, L["LIMITED_SUPPLY"], self:ColorData(), ("(%d)"):format(quantity), BASIC_COLORS.white)
 			end
 		end,
 		_func_waypoint_target = function(self, id_num, recipe)
@@ -186,16 +210,28 @@ local ACQUIRE_PROTOTYPES = {
 	-- Mob Drop.
 	-------------------------------------------------------------------------------
 	{
+		-------------------------------------------------------------------------------
+		-- Data.
+		-------------------------------------------------------------------------------
+		_color_data = {
+			hex = "962626",
+			r = 0.59,
+			g = 0.15,
+			b = 0.15
+		},
 		_has_coordinates = true,
 		_label = "MOB_DROP",
 		_name = L["Mob Drop"],
+		-------------------------------------------------------------------------------
+		-- Methods.
+		-------------------------------------------------------------------------------
 		_func_insert_tooltip_text = function(self, recipe, identifier, location, acquire_info, addline_func)
 			local mob = private.mob_list[identifier]
 
 			if not mob or (location and mob.location ~= location) then
 				return
 			end
-			addline_func(0, -1, false, L["Mob Drop"], CATEGORY_COLORS.mobdrop, mob.name, private.REPUTATION_COLORS.hostile)
+			addline_func(0, -1, false, L["Mob Drop"], self:ColorData(), mob.name, private.REPUTATION_COLORS.hostile)
 
 			if mob.coord_x ~= 0 and mob.coord_y ~= 0 then
 				addline_func(1, -2, true, mob.location, CATEGORY_COLORS.location, COORDINATES_FORMAT:format(mob.coord_x, mob.coord_y), CATEGORY_COLORS.coords)
@@ -212,9 +248,21 @@ local ACQUIRE_PROTOTYPES = {
 	-- Quest.
 	-------------------------------------------------------------------------------
 	{
+		-------------------------------------------------------------------------------
+		-- Data.
+		-------------------------------------------------------------------------------
+		_color_data = {
+			hex = "dbdb2c",
+			r = 0.86,
+			g = 0.86,
+			b = 0.17
+		},
 		_has_coordinates = true,
 		_label = "QUEST",
 		_name = L["Quest"],
+		-------------------------------------------------------------------------------
+		-- Methods.
+		-------------------------------------------------------------------------------
 		_func_insert_tooltip_text = function(self, recipe, identifier, location, acquire_info, addline_func)
 			local quest = private.quest_list[identifier]
 
@@ -226,7 +274,7 @@ local ACQUIRE_PROTOTYPES = {
 			if not display_tip then
 				return
 			end
-			addline_func(0, -1, false, L["Quest"], CATEGORY_COLORS.quest, private.quest_names[identifier], name_color)
+			addline_func(0, -1, false, self:Name(), self:ColorData(), private.quest_names[identifier], name_color)
 
 			if quest.coord_x ~= 0 and quest.coord_y ~= 0 then
 				addline_func(1, -2, true, quest.location, CATEGORY_COLORS.location, COORDINATES_FORMAT:format(quest.coord_x, quest.coord_y), CATEGORY_COLORS.coords)
@@ -251,12 +299,24 @@ local ACQUIRE_PROTOTYPES = {
 	-- World Events.
 	-------------------------------------------------------------------------------
 	{
+		-------------------------------------------------------------------------------
+		-- Data.
+		-------------------------------------------------------------------------------
+		_color_data = {
+			hex = "80590e",
+			r = 0.50,
+			g = 0.35,
+			b = 0.05
+		},
 		_has_coordinates = true,
-		_label = "SEASONAL",
+		_label = "WORLD_EVENTS",
 		_name = _G.GetCategoryInfo(155),
+		-------------------------------------------------------------------------------
+		-- Methods.
+		-------------------------------------------------------------------------------
 		_func_insert_tooltip_text = function(self, recipe, identifier, location, acquire_info, addline_func)
-			local hex_color = CATEGORY_COLORS.seasonal
-			addline_func(0, -1, 0, self:Name(), hex_color, private.seasonal_list[identifier].name, hex_color)
+			local color_data = self:ColorData()
+			addline_func(0, -1, 0, self:Name(), color_data, private.world_events_list[identifier].name, color_data)
 		end,
 		_func_waypoint_target = function(self, id_num, recipe)
 		-- Do nothing.
@@ -267,9 +327,21 @@ local ACQUIRE_PROTOTYPES = {
 	-- Reputation.
 	-------------------------------------------------------------------------------
 	{
+		-------------------------------------------------------------------------------
+		-- Data.
+		-------------------------------------------------------------------------------
+		_color_data = {
+			hex = "855a99",
+			r = 0.52,
+			g = 0.35,
+			b = 0.6
+		},
 		_has_coordinates = true,
 		_label = "REPUTATION",
 		_name = _G.REPUTATION,
+		-------------------------------------------------------------------------------
+		-- Methods.
+		-------------------------------------------------------------------------------
 		_func_insert_tooltip_text = function(self, recipe, identifier, location, acquire_info, addline_func)
 			for rep_level, level_info in pairs(acquire_info) do
 				for vendor_id in pairs(level_info) do
@@ -279,7 +351,7 @@ local ACQUIRE_PROTOTYPES = {
 						local display_tip, name_color = GetTipFactionInfo(rep_vendor.faction)
 
 						if display_tip then
-							addline_func(0, -1, false, _G.REPUTATION, CATEGORY_COLORS.reputation, private.reputation_list[identifier].name, CATEGORY_COLORS.repname)
+							addline_func(0, -1, false, _G.REPUTATION, self:ColorData(), private.reputation_list[identifier].name, CATEGORY_COLORS.repname)
 
 							if rep_level == 0 then
 								addline_func(1, -2, false, FAC["Neutral"], private.REPUTATION_COLORS.neutral, rep_vendor.name, name_color)
@@ -319,9 +391,21 @@ local ACQUIRE_PROTOTYPES = {
 	-- World Drop.
 	-------------------------------------------------------------------------------
 	{
+		-------------------------------------------------------------------------------
+		-- Data.
+		-------------------------------------------------------------------------------
+		_color_data = {
+			hex = "ffffff",
+			r = 1,
+			g = 1,
+			b = 1
+		},
 		_has_coordinates = false,
 		_label = "WORLD_DROP",
 		_name = L["World Drop"],
+		-------------------------------------------------------------------------------
+		-- Methods.
+		-------------------------------------------------------------------------------
 		_func_insert_tooltip_text = function(self, recipe, identifier, location, acquire_info, addline_func)
 			local drop_location = type(identifier) == "string" and identifier or _G.UNKNOWN
 
@@ -348,17 +432,29 @@ local ACQUIRE_PROTOTYPES = {
 	-- Achievement.
 	-------------------------------------------------------------------------------
 	{
+		-------------------------------------------------------------------------------
+		-- Data.
+		-------------------------------------------------------------------------------
+		_color_data = {
+			hex = "faeb98",
+			r = 0.98,
+			g = 0.92,
+			b = 0.59
+		},
 		_has_coordinates = false,
 		_label = "ACHIEVEMENT",
 		_name = _G.ACHIEVEMENTS,
+		-------------------------------------------------------------------------------
+		-- Methods.
+		-------------------------------------------------------------------------------
 		_func_insert_tooltip_text = function(self, recipe, identifier, location, acquire_info, addline_func)
 			local _, achievement_name, _, _, _, _, _, achievement_desc = _G.GetAchievementInfo(identifier)
 
 			-- The recipe is an actual reward from an achievement if flagged - else we're just using the text to describe how to get it.
 			if recipe:HasFilter("common1", "ACHIEVEMENT") then
-				addline_func(0, -1, false, _G.ACHIEVEMENTS, CATEGORY_COLORS.achievement, achievement_name, BASIC_COLORS.normal)
+				addline_func(0, -1, false, _G.ACHIEVEMENTS, self:ColorData(), achievement_name, BASIC_COLORS.normal)
 			end
-			addline_func(0, -1, false, achievement_desc, CATEGORY_COLORS.achievement)
+			addline_func(0, -1, false, achievement_desc, self:ColorData())
 		end,
 		_func_waypoint_target = function(self, id_num, recipe)
 		-- Do nothing.
@@ -369,11 +465,23 @@ local ACQUIRE_PROTOTYPES = {
 	-- Discovery.
 	-------------------------------------------------------------------------------
 	{
+		-------------------------------------------------------------------------------
+		-- Data.
+		-------------------------------------------------------------------------------
+		_color_data = {
+			hex = "ff9500",
+			r = 1,
+			g = 0.58,
+			b = 0
+		},
 		_has_coordinates = false,
 		_label = "DISCOVERY",
 		_name = L["Discovery"],
+		-------------------------------------------------------------------------------
+		-- Methods.
+		-------------------------------------------------------------------------------
 		_func_insert_tooltip_text = function(self, recipe, identifier, location, acquire_info, addline_func)
-			addline_func(0, -1, false, private.discovery_list[identifier].name, CATEGORY_COLORS.discovery)
+			addline_func(0, -1, false, private.discovery_list[identifier].name, self:ColorData())
 		end,
 		_func_waypoint_target = function(self, id_num, recipe)
 		-- Do nothing.
@@ -384,11 +492,34 @@ local ACQUIRE_PROTOTYPES = {
 	-- Custom.
 	-------------------------------------------------------------------------------
 	{
+		-------------------------------------------------------------------------------
+		-- Data.
+		-------------------------------------------------------------------------------
+		_color_data = {
+			hex = "73b7ff",
+			r = 0.45,
+			g = 0.71,
+			b = 1
+		},
 		_has_coordinates = false,
 		_label = "CUSTOM",
 		_name = _G.MISCELLANEOUS,
+		__waypoint_checks = {
+			maptrainer = "TRAINER",
+			mapvendor = "VENDOR",
+			mapquest = "QUEST",
+		},
+		__waypoint_filters = {
+			"INSTANCE",
+			"RAID",
+			"WORLD_DROP",
+			"MOB_DROP",
+		},
+		-------------------------------------------------------------------------------
+		-- Methods.
+		-------------------------------------------------------------------------------
 		_func_insert_tooltip_text = function(self, recipe, identifier, location, acquire_info, addline_func)
-			addline_func(0, -1, false, private.custom_list[identifier].name, CATEGORY_COLORS.custom)
+			addline_func(0, -1, false, private.custom_list[identifier].name, self:ColorData())
 		end,
 		_func_waypoint_target = function(self, id_num, recipe)
 			local profile = private.db.profile
@@ -405,28 +536,29 @@ local ACQUIRE_PROTOTYPES = {
 				end
 			end
 		end,
-		__waypoint_checks = {
-			maptrainer = "TRAINER",
-			mapvendor = "VENDOR",
-			mapquest = "QUEST",
-		},
-		__waypoint_filters = {
-			"INSTANCE",
-			"RAID",
-			"WORLD_DROP",
-			"MOB_DROP",
-		},
 	},
 
 	-------------------------------------------------------------------------------
 	-- Retired.
 	-------------------------------------------------------------------------------
 	{
+		-------------------------------------------------------------------------------
+		-- Data.
+		-------------------------------------------------------------------------------
+		_color_data = {
+			hex = "bfb863",
+			r = 0.75,
+			g = 0.72,
+			b = 0.39
+		},
 		_has_coordinates = false,
 		_label = "RETIRED",
 		_name = L["Retired"],
+		-------------------------------------------------------------------------------
+		-- Methods.
+		-------------------------------------------------------------------------------
 		_func_insert_tooltip_text = function(self, recipe, identifier, location, acquire_info, addline_func)
-			addline_func(0, -1, false, L.REMOVED_FROM_GAME, CATEGORY_COLORS.retired)
+			addline_func(0, -1, false, L.REMOVED_FROM_GAME, self:ColorData())
 		end,
 		_func_waypoint_target = function(self, id_num, recipe)
 		-- Do nothing.

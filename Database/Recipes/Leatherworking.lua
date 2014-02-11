@@ -1620,7 +1620,7 @@ function addon:InitLeatherworking()
 	recipe:SetCraftedItem(17721, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("LEATHERWORKING_HANDS")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.HEALER, F.CASTER)
-	recipe:AddSeason("WINTER_VEIL")
+	recipe:AddWorldEvent("WINTER_VEIL")
 
 	-- Rugged Leather -- 22331
 	recipe = AddRecipe(22331, V.ORIG, Q.COMMON)
@@ -3063,7 +3063,7 @@ function addon:InitLeatherworking()
 	recipe:SetItemFilterType("LEATHERWORKING_FEET")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
 	recipe:AddVendor(13420, 13433)
-	recipe:AddSeason("WINTER_VEIL")
+	recipe:AddWorldEvent("WINTER_VEIL")
 
 	-- Heavy Knothide Armor Kit -- 44970
 	recipe = AddRecipe(44970, V.TBC, Q.COMMON)
