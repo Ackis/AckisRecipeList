@@ -237,14 +237,13 @@ local function InitializeAcquisitionTab()
 
 			if count > 0 then
 				local acquire_type = private.ACQUIRE_TYPES[acquire_type_id]
-				local color_table = private.CATEGORY_COLORS[acquire_type:Label():lower():gsub("_", "")]
 				local acquire_type_name = acquire_type:Name()
 				local is_expanded = self[prof_name .. " expanded"][acquire_type_name]
 
 				local entry = CreateListEntry("header")
 				entry:SetAcquireType(acquire_type)
 				entry:SetText("%s (%d)",
-					SetTextColor(color_table and color_table.hex or "ffffff", acquire_type_name),
+					SetTextColor(acquire_type:ColorData().hex, acquire_type_name),
 					count
 				)
 

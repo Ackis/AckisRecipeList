@@ -1005,18 +1005,6 @@ private.BASIC_COLORS = {
 
 -- Colors used in tooltips and the recipe list.
 private.CATEGORY_COLORS = {
-	-- Acquire type colors
-	achievement	= { hex = "faeb98",	r = 0.98,	g = 0.92,	b = 0.59 },
-	custom		= { hex = "73b7ff",	r = 0.45,	g = 0.71,	b = 1 },
-	discovery	= { hex = "ff9500",	r = 1,		g = 0.58,	b = 0 },
-	mobdrop		= { hex = "962626",	r = 0.59,	g = 0.15,	b = 0.15 },
-	quest		= { hex = "dbdb2c",	r = 0.86,	g = 0.86,	b = 0.17 },
-	reputation	= { hex = "855a99",	r = 0.52,	g = 0.35,	b = 0.6 },
-	retired		= { hex = "bfb863",     r = 0.75,       g = 0.72,       b = 0.39 },
-	seasonal	= { hex = "80590e",	r = 0.50,	g = 0.35,	b = 0.05 },
-	trainer		= { hex = "c98e26",	r = 0.79,	g = 0.56,	b = 0.14 },
-	vendor		= { hex = "aad372",	r = 0.67,	g = 0.83,	b = 0.45 },
-
 	-- Miscellaneous
 	coords		= { hex = "d1ce6f",	r = 0.82,	g = 0.81,	b = 0.44 },
 	hint		= { hex = "c9c781",	r = 0.79,	g = 0.78,	b = 0.51 },

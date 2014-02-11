@@ -1036,11 +1036,12 @@ function private.InitializeListFrame()
 			return entry_index
 		end
 
+		local trainer_acquire = private.ACQUIRE_TYPES[A.TRAINER]
 		local entry = CreateListEntry(entry_type, parent_entry, recipe)
 		entry:SetNPCID(id_num)
 		entry:SetText("%s%s %s",
 			PADDING,
-			hide_type and "" or SetTextColor(CATEGORY_COLORS.trainer.hex, L["Trainer"]) .. ":",
+			hide_type and "" or SetTextColor(trainer_acquire:ColorData().hex, trainer_acquire:Name()) .. ":",
 			ColorNameByFaction(trainer.name, trainer.faction)
 		)
 
@@ -1080,11 +1081,12 @@ function private.InitializeListFrame()
 		end
 
 		local quantity = vendor.item_list[recipe.id]
+		local vendor_acquire = private.ACQUIRE_TYPES[A.VENDOR]
 		local entry = CreateListEntry(entry_type, parent_entry, recipe)
 		entry:SetNPCID(id_num)
 		entry:SetText("%s%s %s%s",
 			PADDING,
-			hide_type and "" or SetTextColor(CATEGORY_COLORS.vendor.hex, L["Vendor"]) .. ":",
+			hide_type and "" or SetTextColor(vendor_acquire:ColorData().hex, vendor_acquire:Name()) .. ":",
 			ColorNameByFaction(vendor.name, vendor.faction),
 			type(quantity) == "number" and SetTextColor(BASIC_COLORS.white.hex, (" (%d)"):format(quantity)) or ""
 		)
@@ -1117,11 +1119,12 @@ function private.InitializeListFrame()
 	-- Mobs can be in instances, raids, or specific mob related drops.
 	local function ExpandMobData(entry_index, entry_type, parent_entry, id_num, recipe, hide_location, hide_type)
 		local mob = private.mob_list[id_num]
+		local mob_acquire = private.ACQUIRE_TYPES[A.MOB_DROP]
 		local entry = CreateListEntry(entry_type, parent_entry, recipe)
 		entry:SetNPCID(id_num)
 		entry:SetText("%s%s %s",
 			PADDING,
-			hide_type and "" or SetTextColor(CATEGORY_COLORS.mobdrop.hex, L["Mob Drop"]) .. ":",
+			hide_type and "" or SetTextColor(mob_acquire:ColorData().hex, mob_acquire:Name()) .. ":",
 			SetTextColor(private.REPUTATION_COLORS.hostile.hex, mob.name)
 		)
 
@@ -1156,11 +1159,12 @@ function private.InitializeListFrame()
 		if not CanDisplayFaction(quest.faction) then
 			return entry_index
 		end
+		local quest_acquire = private.ACQUIRE_TYPES[A.QUEST]
 
 		local entry = CreateListEntry(entry_type, parent_entry, recipe)
 		entry:SetText("%s%s %s",
 			PADDING,
-			hide_type and "" or SetTextColor(CATEGORY_COLORS.quest.hex, L["Quest"]) .. ":",
+			hide_type and "" or SetTextColor(quest_acquire:ColorData().hex, quest_acquire:Name()) .. ":",
 			ColorNameByFaction(private.quest_names[id_num], quest.faction)
 		)
 
@@ -1189,11 +1193,13 @@ function private.InitializeListFrame()
 	private.ExpandQuestData = ExpandQuestData
 
 	local function ExpandWorldEventData(entry_index, entry_type, parent_entry, id_num, recipe, _, hide_type)
+		local event_acquire = private.ACQUIRE_TYPES[A.WORLD_EVENTS]
+		local event_color_hex = event_acquire:ColorData().hex
 		local entry = CreateListEntry(entry_type, parent_entry, recipe)
 		entry:SetText("%s%s %s",
 			PADDING,
-			hide_type and "" or SetTextColor(CATEGORY_COLORS.seasonal.hex, private.ACQUIRE_TYPES[A.WORLD_EVENTS]:Name()) .. ":",
-			SetTextColor(CATEGORY_COLORS.seasonal.hex, private.world_events_list[id_num].name)
+			hide_type and "" or SetTextColor(event_color_hex, event_acquire:Name()) .. ":",
+			SetTextColor(event_color_hex, private.world_events_list[id_num].name)
 		)
 
 		return ListFrame:InsertEntry(entry, entry_index, true)
@@ -1225,7 +1231,7 @@ function private.InitializeListFrame()
 		entry:SetNPCID(vendor_id)
 		entry:SetText("%s%s %s",
 			PADDING,
-			hide_type and "" or SetTextColor(CATEGORY_COLORS.reputation.hex, _G.REPUTATION) .. ":",
+			hide_type and "" or SetTextColor(private.ACQUIRE_TYPES[A.REPUTATION]:ColorData().hex, _G.REPUTATION) .. ":",
 			SetTextColor(CATEGORY_COLORS.repname.hex, private.reputation_list[rep_id].name)
 		)
 
@@ -1290,7 +1296,7 @@ function private.InitializeListFrame()
 
 	local function ExpandCustomData(entry_index, entry_type, parent_entry, id_num, recipe, _, _)
 		local entry = CreateListEntry(entry_type, parent_entry, recipe)
-		entry:SetText(PADDING .. SetTextColor(CATEGORY_COLORS.custom.hex, private.custom_list[id_num].name))
+		entry:SetText(PADDING .. SetTextColor(private.ACQUIRE_TYPES[A.CUSTOM]:ColorData().hex, private.custom_list[id_num].name))
 
 		return ListFrame:InsertEntry(entry, entry_index, true)
 	end
@@ -1298,7 +1304,7 @@ function private.InitializeListFrame()
 
 	local function ExpandDiscoveryData(entry_index, entry_type, parent_entry, id_num, recipe, _, _)
 		local entry = CreateListEntry(entry_type, parent_entry, recipe)
-		entry:SetText(PADDING .. SetTextColor(CATEGORY_COLORS.discovery.hex, private.discovery_list[id_num].name))
+		entry:SetText(PADDING .. SetTextColor(private.ACQUIRE_TYPES[A.DISCOVERY]:ColorData().hex, private.discovery_list[id_num].name))
 
 		return ListFrame:InsertEntry(entry, entry_index, true)
 	end
@@ -1308,7 +1314,7 @@ function private.InitializeListFrame()
 		local entry = CreateListEntry(entry_type, parent_entry, recipe)
 		entry:SetText("%s%s %s",
 			PADDING,
-			hide_type and "" or SetTextColor(CATEGORY_COLORS.achievement.hex, _G.ACHIEVEMENTS) .. ":",
+			hide_type and "" or SetTextColor(private.ACQUIRE_TYPES[A.ACHIEVEMENT]:ColorData().hex, _G.ACHIEVEMENTS) .. ":",
 			SetTextColor(BASIC_COLORS.normal.hex, select(2, _G.GetAchievementInfo(id_num)))
 		)
 
@@ -1317,7 +1323,7 @@ function private.InitializeListFrame()
 
 	local function ExpandRetiredData(entry_index, entry_type, parent_entry, id_num, recipe, _, _)
 		local entry = CreateListEntry(entry_type, parent_entry, recipe)
-		entry:SetText(PADDING .. SetTextColor(CATEGORY_COLORS.retired.hex, L.REMOVED_FROM_GAME))
+		entry:SetText(PADDING .. SetTextColor(private.ACQUIRE_TYPES[A.RETIRED]:ColorData().hex, L.REMOVED_FROM_GAME))
 
 		return ListFrame:InsertEntry(entry, entry_index, true)
 	end

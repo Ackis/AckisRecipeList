@@ -427,7 +427,7 @@ function addon:AddWaypoint(recipe, acquire_id, location_id, npc_id)
 		local location_name = waypoint.location or "nil"
 		local continent, zone
 		local _, _, _, quality_color = _G.GetItemQualityColor(recipe.quality)
-		local color_code = private.CATEGORY_COLORS[private.ACQUIRE_TYPES[waypoint.acquire_type]:Label():lower():gsub("_","")].hex or "ffffff"
+		local color_code = private.ACQUIRE_TYPES[waypoint.acquire_type]:ColorData().hex
 
 		if waypoint.acquire_type == A.QUEST then
 			name = ("Quest: |cff%s%s|r (|c%s%s|r)"):format(color_code, private.quest_names[waypoint.reference_id], quality_color, recipe.name)
