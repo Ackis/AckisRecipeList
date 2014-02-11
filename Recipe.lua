@@ -45,9 +45,9 @@ private.location_list	= {}
 -----------------------------------------------------------------------
 -- Local constants.
 -----------------------------------------------------------------------
-local recipe_prototype = {}
+local Recipe = {}
 local recipe_meta = {
-	__index = recipe_prototype
+	__index = Recipe
 }
 
 --- Adds a tradeskill recipe into the specified recipe database
@@ -94,7 +94,7 @@ end
 -------------------------------------------------------------------------------
 -- Recipe methods.
 -------------------------------------------------------------------------------
-function recipe_prototype:HasCoordinates()
+function Recipe:HasCoordinates()
 	for acquire_type_id in pairs(self.acquire_data) do
 		if private.ACQUIRE_TYPES[acquire_type_id]:HasCoordinates() then
 			return true
@@ -102,27 +102,27 @@ function recipe_prototype:HasCoordinates()
 	end
 end
 
-function recipe_prototype:SetRecipeItem(item_id, binding_type)
+function Recipe:SetRecipeItem(item_id, binding_type)
 	local item_name, item_link, item_quality = _G.GetItemInfo(item_id) -- Do this now to get the item into the cache.
 	self.recipe_item_id = item_id
 	self.recipe_item_binding = binding_type
 end
 
-function recipe_prototype:RecipeItem()
+function Recipe:RecipeItem()
 	return self.recipe_item_id, self.recipe_item_binding
 end
 
-function recipe_prototype:SetCraftedItem(item_id, binding_type)
+function Recipe:SetCraftedItem(item_id, binding_type)
 	local item_name, item_link, item_quality = _G.GetItemInfo(item_id) -- Do this now to get the item into the cache.
 	self.crafted_item_id = item_id
 	self.crafted_item_binding = binding_type
 end
 
-function recipe_prototype:CraftedItem()
+function Recipe:CraftedItem()
 	return self.crafted_item_id, self.crafted_item_binding
 end
 
-function recipe_prototype:SetSkillLevels(skill_level, optimal_level, medium_level, easy_level, trivial_level)
+function Recipe:SetSkillLevels(skill_level, optimal_level, medium_level, easy_level, trivial_level)
 	self.skill_level = skill_level
 	self.optimal_level = optimal_level or skill_level
 	self.medium_level = medium_level or skill_level + 10
@@ -130,21 +130,21 @@ function recipe_prototype:SetSkillLevels(skill_level, optimal_level, medium_leve
 	self.trivial_level = trivial_level or skill_level + 20
 end
 
-function recipe_prototype:SkillLevels()
+function Recipe:SkillLevels()
 	return self.skill_level, self.optimal_level, self.medium_level, self.easy_level, self.trivial_level
 end
 
-function recipe_prototype:SetSpecialty(spell_id)
+function Recipe:SetSpecialty(spell_id)
 	self.specialty = spell_id
 end
 
-function recipe_prototype:Specialty()
+function Recipe:Specialty()
 	return self.specialty
 end
 
 -- Used to set the faction for recipes which only can be learned by one faction (e.g. BoP recipes, etc.)
 -- These recipes will never be able to be learned so we do not want to load them.
-function recipe_prototype:SetRequiredFaction(faction_name)
+function Recipe:SetRequiredFaction(faction_name)
 	self.required_faction = faction_name
 
 	if faction_name and private.Player.faction ~= faction_name then
@@ -153,16 +153,16 @@ function recipe_prototype:SetRequiredFaction(faction_name)
 	end
 end
 
-function recipe_prototype:RequiredFaction()
+function Recipe:RequiredFaction()
 	return self.required_faction
 end
 
 -- Sets the spell ID for the recipe this recipe replaces
-function recipe_prototype:SetPreviousRankID(spell_id)
+function Recipe:SetPreviousRankID(spell_id)
 	self.old_rank_spell_id = spell_id
 end
 
-function recipe_prototype:PreviousRankID()
+function Recipe:PreviousRankID()
 	return self.old_rank_spell_id
 end
 
@@ -176,11 +176,11 @@ local RECIPE_STATE_FLAGS = {
 	LINKED		= 0x00000008,
 }
 
-function recipe_prototype:HasState(state_name)
+function Recipe:HasState(state_name)
 	return self.state and (bit.band(self.state, RECIPE_STATE_FLAGS[state_name]) == RECIPE_STATE_FLAGS[state_name]) or false
 end
 
-function recipe_prototype:AddState(state_name)
+function Recipe:AddState(state_name)
 	if not self.state then
 		self.state = 0
 	end
@@ -191,7 +191,7 @@ function recipe_prototype:AddState(state_name)
 	self.state = bit.bxor(self.state, RECIPE_STATE_FLAGS[state_name])
 end
 
-function recipe_prototype:RemoveState(state_name)
+function Recipe:RemoveState(state_name)
 	if not self.state then
 		return
 	end
@@ -206,7 +206,7 @@ function recipe_prototype:RemoveState(state_name)
 	end
 end
 
-function recipe_prototype:SetAsKnownOrLinked(is_linked)
+function Recipe:SetAsKnownOrLinked(is_linked)
 	if is_linked then
 		self:AddState("LINKED")
 	else
@@ -224,7 +224,7 @@ do
 		item1 = private.ITEM_FLAGS_WORD1,
 	}
 
-	function recipe_prototype:HasFilter(field_name, flag_name)
+	function Recipe:HasFilter(field_name, flag_name)
 		local bitfield = self.flags[field_name]
 		local bitset = BITFIELD_MAP[field_name]
 		local value = bitset[flag_name]
@@ -236,7 +236,7 @@ end -- do-block
 do
 	local SKILL_LEVEL_FORMAT = "[%d]"
 
-	function recipe_prototype:GetDisplayName()
+	function Recipe:GetDisplayName()
 		local _, _, _, quality_color = _G.GetItemQualityColor(self.quality)
 		local recipe_name = self.name
 
@@ -282,7 +282,7 @@ do
 	end
 end -- do-block
 
-function recipe_prototype:SetItemFilterType(filter_type)
+function Recipe:SetItemFilterType(filter_type)
 	if not private.ITEM_FILTER_TYPES[filter_type:upper()] then
 		addon:Debug("Attempting to set invalid item filter type '%s' for '%s' (%d)", filter_type, self.name, self.spell_id)
 		return
@@ -290,7 +290,7 @@ function recipe_prototype:SetItemFilterType(filter_type)
 	self.item_filter_type = filter_type:lower()
 end
 
-function recipe_prototype:ItemFilterType()
+function Recipe:ItemFilterType()
 	return self.item_filter_type
 end
 
@@ -346,15 +346,15 @@ local function SetFilterState(recipe, turn_on, ...)
 	end
 end
 
-function recipe_prototype:AddFilters(...)
+function Recipe:AddFilters(...)
 	SetFilterState(self, true, ...)
 end
 
-function recipe_prototype:RemoveFilters(...)
+function Recipe:RemoveFilters(...)
 	SetFilterState(self, false, ...)
 end
 
-function recipe_prototype:AddAcquireData(acquire_type, type_string, unit_list, ...)
+function Recipe:AddAcquireData(acquire_type, type_string, unit_list, ...)
 	local location_list = private.location_list
 	local acquire_list = private.acquire_list
 	local acquire = self.acquire_data[acquire_type]
@@ -420,56 +420,56 @@ function recipe_prototype:AddAcquireData(acquire_type, type_string, unit_list, .
 	end
 end
 
-function recipe_prototype:AddMobDrop(...)
+function Recipe:AddMobDrop(...)
 	self:AddAcquireData(A.MOB_DROP, "Mob", private.mob_list, ...)
 	self:AddFilters(private.FILTER_IDS.MOB_DROP)
 end
 
-function recipe_prototype:AddTrainer(...)
+function Recipe:AddTrainer(...)
 	self:AddAcquireData(A.TRAINER, "Trainer", private.trainer_list, ...)
 	self:AddFilters(private.FILTER_IDS.TRAINER)
 end
 
-function recipe_prototype:AddVendor(...)
+function Recipe:AddVendor(...)
 	self:AddAcquireData(A.VENDOR, "Vendor", private.vendor_list, ...)
 	self:AddFilters(private.FILTER_IDS.VENDOR)
 end
 
-function recipe_prototype:AddLimitedVendor(...)
+function Recipe:AddLimitedVendor(...)
 	self:AddAcquireData(A.VENDOR, "Limited Vendor", private.vendor_list, ...)
 	self:AddFilters(private.FILTER_IDS.VENDOR)
 end
 
-function recipe_prototype:AddWorldDrop(...)
+function Recipe:AddWorldDrop(...)
 	self:AddAcquireData(A.WORLD_DROP, nil, nil, ...)
 	self:AddFilters(private.FILTER_IDS.WORLD_DROP)
 end
 
-function recipe_prototype:AddQuest(...)
+function Recipe:AddQuest(...)
 	self:AddAcquireData(A.QUEST, "Quest", private.quest_list, ...)
 	self:AddFilters(private.FILTER_IDS.QUEST)
 end
 
-function recipe_prototype:AddAchievement(...)
+function Recipe:AddAchievement(...)
 	self:AddAcquireData(A.ACHIEVEMENT, "Achievement", nil, ...)
 	self:AddFilters(private.FILTER_IDS.ACHIEVEMENT)
 end
 
-function recipe_prototype:AddCustom(...)
+function Recipe:AddCustom(...)
 	self:AddAcquireData(A.CUSTOM, "Custom", private.custom_list, ...)
 end
 
-function recipe_prototype:AddDiscovery(...)
+function Recipe:AddDiscovery(...)
 	self:AddAcquireData(A.DISCOVERY, "Discovery", private.discovery_list, ...)
 	self:AddFilters(private.FILTER_IDS.DISC)
 end
 
-function recipe_prototype:AddSeason(...)
+function Recipe:AddSeason(...)
 	self:AddAcquireData(A.SEASONAL, "Seasonal", private.seasonal_list, ...)
 	self:AddFilters(private.FILTER_IDS.SEASONAL)
 end
 
-function recipe_prototype:AddRepVendor(reputation_id, rep_level, ...)
+function Recipe:AddRepVendor(reputation_id, rep_level, ...)
 	local location_list = private.location_list
 	local acquire_list = private.acquire_list
 	local vendor_list = private.vendor_list
@@ -529,7 +529,7 @@ function recipe_prototype:AddRepVendor(reputation_id, rep_level, ...)
 	self:AddFilters(private.FILTER_IDS.REPUTATION)
 end
 
-function recipe_prototype:Retire()
+function Recipe:Retire()
 	self:AddAcquireData(private.ACQUIRE_TYPE_IDS.RETIRED)
 	self:AddFilters(private.FILTER_IDS.RETIRED)
 end
@@ -563,7 +563,7 @@ local IMPLICIT_FLAGS = {
 	WORLD_DROP = true,
 }
 
-function recipe_prototype:Dump(output, use_genesis)
+function Recipe:Dump(output, use_genesis)
 	local genesis_val = (use_genesis and tonumber(private.GAME_VERSIONS[self.genesis]) or nil)
 
 	if genesis_val and output:Lines(genesis_val) == 0 then
@@ -773,7 +773,7 @@ function recipe_prototype:Dump(output, use_genesis)
 	output:AddLine(" ", genesis_val)
 end
 
-function recipe_prototype:DumpTrainers(registry)
+function Recipe:DumpTrainers(registry)
 	local trainer_data = self.acquire_data[A.TRAINER]
 
 	if not trainer_data then
