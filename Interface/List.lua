@@ -495,20 +495,20 @@ function private.InitializeListFrame()
 		}
 
 		local SOFT_FILTERS = {
-			achievement	= { flag = COMMON1.ACHIEVEMENT,	field = "common1",	sv_root = obtain_filters },
-			discovery	= { flag = COMMON1.DISC,	field = "common1",	sv_root = obtain_filters },
-			instance	= { flag = COMMON1.INSTANCE,	field = "common1",	sv_root = obtain_filters },
-			mobdrop		= { flag = COMMON1.MOB_DROP,	field = "common1",	sv_root = obtain_filters },
-			pvp		= { flag = COMMON1.PVP,		field = "common1",	sv_root = obtain_filters },
-			quest		= { flag = COMMON1.QUEST,	field = "common1",	sv_root = obtain_filters },
-			raid		= { flag = COMMON1.RAID,	field = "common1",	sv_root = obtain_filters },
-			retired		= { flag = COMMON1.RETIRED,	field = "common1",	sv_root = general_filters },
-			reputation	= { flag = COMMON1.REPUTATION,	field = "common1",	sv_root = obtain_filters },
-			seasonal	= { flag = COMMON1.SEASONAL,	field = "common1",	sv_root = obtain_filters },
-			trainer		= { flag = COMMON1.TRAINER,	field = "common1",	sv_root = obtain_filters },
-			vendor		= { flag = COMMON1.VENDOR,	field = "common1",	sv_root = obtain_filters },
-			worlddrop	= { flag = COMMON1.WORLD_DROP,	field = "common1",	sv_root = obtain_filters },
-			misc1		= { flag = COMMON1.MISC1,	field = "common1",	sv_root = obtain_filters },
+			achievement	= { flag = COMMON1.ACHIEVEMENT,		field = "common1",	sv_root = obtain_filters },
+			discovery	= { flag = COMMON1.DISC,		field = "common1",	sv_root = obtain_filters },
+			instance	= { flag = COMMON1.INSTANCE,		field = "common1",	sv_root = obtain_filters },
+			mobdrop		= { flag = COMMON1.MOB_DROP,		field = "common1",	sv_root = obtain_filters },
+			pvp		= { flag = COMMON1.PVP,			field = "common1",	sv_root = obtain_filters },
+			quest		= { flag = COMMON1.QUEST,		field = "common1",	sv_root = obtain_filters },
+			raid		= { flag = COMMON1.RAID,		field = "common1",	sv_root = obtain_filters },
+			retired		= { flag = COMMON1.RETIRED,		field = "common1",	sv_root = general_filters },
+			reputation	= { flag = COMMON1.REPUTATION,		field = "common1",	sv_root = obtain_filters },
+			seasonal	= { flag = COMMON1.WORLD_EVENTS,	field = "common1",	sv_root = obtain_filters },
+			trainer		= { flag = COMMON1.TRAINER,		field = "common1",	sv_root = obtain_filters },
+			vendor		= { flag = COMMON1.VENDOR,		field = "common1",	sv_root = obtain_filters },
+			worlddrop	= { flag = COMMON1.WORLD_DROP,		field = "common1",	sv_root = obtain_filters },
+			misc1		= { flag = COMMON1.MISC1,		field = "common1",	sv_root = obtain_filters },
 		}
 
 		local REP1 = private.REP_FLAGS_WORD1
@@ -1192,7 +1192,7 @@ function private.InitializeListFrame()
 		local entry = CreateListEntry(entry_type, parent_entry, recipe)
 		entry:SetText("%s%s %s",
 			PADDING,
-			hide_type and "" or SetTextColor(CATEGORY_COLORS.seasonal.hex, private.ACQUIRE_TYPES[A.SEASONAL]:Name()) .. ":",
+			hide_type and "" or SetTextColor(CATEGORY_COLORS.seasonal.hex, private.ACQUIRE_TYPES[A.WORLD_EVENTS]:Name()) .. ":",
 			SetTextColor(CATEGORY_COLORS.seasonal.hex, private.seasonal_list[id_num].name)
 		)
 
@@ -1337,7 +1337,7 @@ function private.InitializeListFrame()
 				func = ExpandMobData
 			elseif acquire_type == A.QUEST and obtain_filters.quest then
 				func = ExpandQuestData
-			elseif acquire_type == A.SEASONAL and obtain_filters.seasonal then
+			elseif acquire_type == A.WORLD_EVENTS and obtain_filters.seasonal then
 				func = ExpandWorldEventData
 			elseif acquire_type == A.REPUTATION then
 				for rep_level, level_info in pairs(info) do

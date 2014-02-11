@@ -457,8 +457,8 @@ function recipe_prototype:AddDiscovery(...)
 end
 
 function recipe_prototype:AddSeason(...)
-	self:AddAcquireData(A.SEASONAL, "Seasonal", private.seasonal_list, ...)
-	self:AddFilters(private.FILTER_IDS.SEASONAL)
+	self:AddAcquireData(A.WORLD_EVENTS, "World Events", private.seasonal_list, ...)
+	self:AddFilters(private.FILTER_IDS.WORLD_EVENTS)
 end
 
 function recipe_prototype:AddRepVendor(reputation_id, rep_level, ...)
@@ -530,7 +530,7 @@ local DUMP_FUNCTION_FORMATS = {
 	[A.ACHIEVEMENT] = "recipe:AddAchievement(%s)",
 	[A.CUSTOM] = "recipe:AddCustom(%s)",
 	[A.DISCOVERY] = "recipe:AddDiscovery(%s)",
-	[A.SEASONAL] = "recipe:AddSeason(%s)",
+	[A.WORLD_EVENTS] = "recipe:AddWorldEvent(%s)",
 	[A.TRAINER] = "recipe:AddTrainer(%s)",
 	[A.MOB_DROP] = "recipe:AddMobDrop(%s)",
 	[A.WORLD_DROP] = "recipe:AddWorldDrop(%s)",
@@ -549,7 +549,7 @@ local IMPLICIT_FLAGS = {
 	QUEST = true,
 	REPUTATION = true,
 	RETIRED = true,
-	SEASONAL = true,
+	WORLD_EVENTS = true,
 	TRAINER = true,
 	VENDOR = true,
 	WORLD_DROP = true,

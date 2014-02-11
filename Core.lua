@@ -1090,7 +1090,7 @@ do
 				VENDOR = L["Vendor"],
 				INSTANCE = _G.INSTANCE,
 				RAID = _G.RAID,
-				SEASONAL = _G.EVENTS_LABEL,
+				WORLD_EVENTS = _G.EVENTS_LABEL,
 				QUEST = L["Quest"],
 				PVP = _G.PVP,
 				WORLD_DROP = L["World Drop"],

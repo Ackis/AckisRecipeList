@@ -280,7 +280,7 @@ local ACQUIRE_PROTOTYPES = {
 		-- Data.
 		-------------------------------------------------------------------------------
 		_has_coordinates = true,
-		_label = "SEASONAL",
+		_label = "WORLD_EVENTS",
 		_name = _G.GetCategoryInfo(155),
 		-------------------------------------------------------------------------------
 		-- Methods.
