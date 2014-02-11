@@ -503,7 +503,7 @@ local function InitializeLocationTab()
 						new_entry_index = private.ExpandMobData(new_entry_index, "subentry", entry, id_num, entry.recipe, true)
 					elseif acquire_type == A.QUEST and private.quest_list[id_num].location == location_id then
 						new_entry_index = private.ExpandQuestData(new_entry_index, "subentry", entry, id_num, entry.recipe, true)
-					elseif acquire_type == A.WORLD_EVENTS and private.seasonal_list[id_num].location == location_id then
+					elseif acquire_type == A.WORLD_EVENTS and private.world_events_list[id_num].location == location_id then
 						-- Hide the acquire type for this - it will already show up in the location list as
 						-- "World Events".
 						new_entry_index = private.ExpandWorldEventData(new_entry_index, "subentry", entry, id_num, entry.recipe, true, true)

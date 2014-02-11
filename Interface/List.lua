@@ -1193,7 +1193,7 @@ function private.InitializeListFrame()
 		entry:SetText("%s%s %s",
 			PADDING,
 			hide_type and "" or SetTextColor(CATEGORY_COLORS.seasonal.hex, private.ACQUIRE_TYPES[A.WORLD_EVENTS]:Name()) .. ":",
-			SetTextColor(CATEGORY_COLORS.seasonal.hex, private.seasonal_list[id_num].name)
+			SetTextColor(CATEGORY_COLORS.seasonal.hex, private.world_events_list[id_num].name)
 		)
 
 		return ListFrame:InsertEntry(entry, entry_index, true)
