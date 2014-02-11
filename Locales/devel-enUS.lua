@@ -94,6 +94,7 @@ L["Andrion Darkspinner"] = true
 L["Androd Fadran"] = true
 L["Angela Leifeld"] = true
 L["Anger Guard"] = true
+L["Anguished Highborne"] = true
 L["Annora"] = true
 L["Anthea Ironpaw"] = true
 L["Anuur"] = true

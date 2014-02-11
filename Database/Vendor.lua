@@ -400,7 +400,7 @@ function addon:InitVendor()
 	AddVendor(49703,	L["Casandra Downs"],			Z.TWILIGHT_HIGHLANDS,		78.6,	76.2,	"Alliance")
 	AddVendor(49737,	L["Shazdar"],				Z.ORGRIMMAR,			56.8,	62.3,	"Horde") -- COMPLETELY UPDATED
 	AddVendor(49918,	L["Buckslappy"],			Z.BADLANDS,			90.9,	38.8,	"Neutral") -- COMPLETELY UPDATED
-	AddVendor(50129,	L["Daleohm"],				Z.WINTERSPRING,			58.0,	63.8,	"Horde") -- COMPLETELY UPDATED
+	AddVendor(50129,	L["Daleohm"],				Z.WINTERSPRING,			58.0,	63.8,	"Neutral") -- COMPLETELY UPDATED
 	AddVendor(50134,	L["Senthii"],				Z.TWILIGHT_HIGHLANDS,		78.7,	77.0,	"Alliance")
 	AddVendor(50146,	L["Agatian Fallanos"],			Z.TWILIGHT_HIGHLANDS,		76.7,	49.5,	"Horde") -- COMPLETELY UPDATED
 	AddVendor(50172,	L["Threm Blackscalp"],			Z.TWILIGHT_HIGHLANDS,		75.2,	50.1,	"Horde")
