@@ -124,6 +124,18 @@ local ACQUIRE_PROTOTYPES = {
 				addline_func(1, -2, true, trainer.location, CATEGORY_COLORS.location, "", CATEGORY_COLORS.coords)
 			end
 		end,
+		_func_waypoint_target = function(self, id_num, recipe)
+			if not private.db.profile.maptrainer then
+				return
+			end
+
+			local trainer = private.trainer_list[id_num]
+			local trainer_faction = trainer.faction
+
+			if trainer_faction == private.Player.faction or trainer_faction == "Neutral" then
+				return trainer
+			end
+		end
 	},
 
 	-------------------------------------------------------------------------------
@@ -157,6 +169,17 @@ local ACQUIRE_PROTOTYPES = {
 				addline_func(2, -2, true, L["LIMITED_SUPPLY"], CATEGORY_COLORS.vendor, ("(%d)"):format(quantity), BASIC_COLORS.white)
 			end
 		end,
+		_func_waypoint_target = function(self, id_num, recipe)
+			if not private.db.profile.mapvendor then
+				return
+			end
+			local vendor = private.vendor_list[id_num]
+			local vendor_faction = vendor.faction
+
+			if vendor_faction == private.Player.faction or vendor_faction == "Neutral" then
+				return vendor
+			end
+		end,
 	},
 
 	-------------------------------------------------------------------------------
@@ -179,6 +202,9 @@ local ACQUIRE_PROTOTYPES = {
 			else
 				addline_func(1, -2, true, mob.location, CATEGORY_COLORS.location, "", CATEGORY_COLORS.coords)
 			end
+		end,
+		_func_waypoint_target = function(self, id_num, recipe)
+			return private.db.profile.mapmob and private.mob_list[id_num]
 		end,
 	},
 
@@ -208,6 +234,17 @@ local ACQUIRE_PROTOTYPES = {
 				addline_func(1, -2, true, quest.location, CATEGORY_COLORS.location, "", CATEGORY_COLORS.coords)
 			end
 		end,
+		_func_waypoint_target = function(self, id_num, recipe)
+			if not private.db.profile.mapquest then
+				return
+			end
+			local quest = private.quest_list[id_num]
+			local quest_faction = quest.faction
+
+			if quest_faction == private.Player.faction or quest_faction == "Neutral" then
+				return quest
+			end
+		end,
 	},
 
 	-------------------------------------------------------------------------------
@@ -220,6 +257,9 @@ local ACQUIRE_PROTOTYPES = {
 		_func_insert_tooltip_text = function(self, recipe, identifier, location, acquire_info, addline_func)
 			local hex_color = CATEGORY_COLORS.seasonal
 			addline_func(0, -1, 0, self:Name(), hex_color, private.seasonal_list[identifier].name, hex_color)
+		end,
+		_func_waypoint_target = function(self, id_num, recipe)
+		-- Do nothing.
 		end,
 	},
 
@@ -263,6 +303,16 @@ local ACQUIRE_PROTOTYPES = {
 				end
 			end
 		end,
+		_func_waypoint_target = function(self, id_num, recipe)
+			if not private.db.profile.mapvendor then
+				return
+			end
+			local vendor = private.vendor_list[id_num]
+
+			if private.Player.reputation_levels[private.reputation_list[vendor.reputation_id].name] then
+				return vendor
+			end
+		end,
 	},
 
 	-------------------------------------------------------------------------------
@@ -289,6 +339,9 @@ local ACQUIRE_PROTOTYPES = {
 			end
 			addline_func(0, -1, false, self:Name(), RECIPE_QUALITY_COLORS[recipe.quality], location_text, CATEGORY_COLORS.location)
 		end,
+		_func_waypoint_target = function(self, id_num, recipe)
+		-- Do nothing.
+		end,
 	},
 
 	-------------------------------------------------------------------------------
@@ -307,6 +360,9 @@ local ACQUIRE_PROTOTYPES = {
 			end
 			addline_func(0, -1, false, achievement_desc, CATEGORY_COLORS.achievement)
 		end,
+		_func_waypoint_target = function(self, id_num, recipe)
+		-- Do nothing.
+		end,
 	},
 
 	-------------------------------------------------------------------------------
@@ -318,6 +374,9 @@ local ACQUIRE_PROTOTYPES = {
 		_name = L["Discovery"],
 		_func_insert_tooltip_text = function(self, recipe, identifier, location, acquire_info, addline_func)
 			addline_func(0, -1, false, private.discovery_list[identifier].name, CATEGORY_COLORS.discovery)
+		end,
+		_func_waypoint_target = function(self, id_num, recipe)
+		-- Do nothing.
 		end,
 	},
 
@@ -331,6 +390,32 @@ local ACQUIRE_PROTOTYPES = {
 		_func_insert_tooltip_text = function(self, recipe, identifier, location, acquire_info, addline_func)
 			addline_func(0, -1, false, private.custom_list[identifier].name, CATEGORY_COLORS.custom)
 		end,
+		_func_waypoint_target = function(self, id_num, recipe)
+			local profile = private.db.profile
+
+			for field, flag in pairs(self.__waypoint_checks) do
+				if profile[field] and recipe:HasFilter("common1", flag) then
+					return private.custom_list[id_num]
+				end
+			end
+
+			for index = 1, #self.__waypoint_filters do
+				if recipe:HasFilter("common1", self.__waypoint_filters[index]) then
+					return private.custom_list[id_num]
+				end
+			end
+		end,
+		__waypoint_checks = {
+			maptrainer = "TRAINER",
+			mapvendor = "VENDOR",
+			mapquest = "QUEST",
+		},
+		__waypoint_filters = {
+			"INSTANCE",
+			"RAID",
+			"WORLD_DROP",
+			"MOB_DROP",
+		},
 	},
 
 	-------------------------------------------------------------------------------
@@ -342,6 +427,9 @@ local ACQUIRE_PROTOTYPES = {
 		_name = L["Retired"],
 		_func_insert_tooltip_text = function(self, recipe, identifier, location, acquire_info, addline_func)
 			addline_func(0, -1, false, L.REMOVED_FROM_GAME, CATEGORY_COLORS.retired)
+		end,
+		_func_waypoint_target = function(self, id_num, recipe)
+		-- Do nothing.
 		end,
 	},
 }
@@ -387,4 +475,8 @@ end
 
 function AcquireType:Name()
 	return self._name
+end
+
+function AcquireType:WaypointTarget(id_num, recipe)
+	return self._func_waypoint_target(self, id_num, recipe)
 end
