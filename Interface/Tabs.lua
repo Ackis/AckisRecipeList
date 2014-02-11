@@ -22,7 +22,7 @@ local L = LibStub("AceLocale-3.0"):GetLocale(private.addon_name)
 -------------------------------------------------------------------------------
 local ORDERED_PROFESSIONS = private.ORDERED_PROFESSIONS
 
-local A = private.ACQUIRE_TYPES
+local A = private.ACQUIRE_TYPE_IDS
 
 local frame_meta = { __index = _G.CreateFrame("Button") }
 local tab_prototype = _G.setmetatable({}, frame_meta)

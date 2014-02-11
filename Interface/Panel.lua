@@ -44,7 +44,7 @@ local L		= LibStub("AceLocale-3.0"):GetLocale(private.addon_name)
 local SetTextColor = private.SetTextColor
 local SetTooltipScripts = private.SetTooltipScripts
 
-local A = private.ACQUIRE_TYPES
+local A = private.ACQUIRE_TYPE_IDS
 
 -------------------------------------------------------------------------------
 -- Constants

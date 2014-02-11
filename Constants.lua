@@ -502,10 +502,10 @@ private.ACQUIRE_STRINGS = {
 	"RETIRED",
 }
 
-private.ACQUIRE_TYPES = {}
+private.ACQUIRE_TYPE_IDS = {}
 
 for index = 1, #private.ACQUIRE_STRINGS do
-	private.ACQUIRE_TYPES[private.ACQUIRE_STRINGS[index]] = index
+	private.ACQUIRE_TYPE_IDS[private.ACQUIRE_STRINGS[index]] = index
 end
 
 -------------------------------------------------------------------------------

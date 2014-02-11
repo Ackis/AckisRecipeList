@@ -23,7 +23,7 @@ local LibStub = _G.LibStub
 local addon = LibStub("AceAddon-3.0"):GetAddon(private.addon_name)
 local L = LibStub("AceLocale-3.0"):GetLocale(private.addon_name)
 
-local A = private.ACQUIRE_TYPES
+local A = private.ACQUIRE_TYPE_IDS
 
 private.recipe_list = {}
 private.profession_recipe_list = {}
@@ -522,7 +522,7 @@ function recipe_prototype:AddRepVendor(reputation_id, rep_level, ...)
 end
 
 function recipe_prototype:Retire()
-	self:AddAcquireData(private.ACQUIRE_TYPES.RETIRED)
+	self:AddAcquireData(private.ACQUIRE_TYPE_IDS.RETIRED)
 	self:AddFilters(private.FILTER_IDS.RETIRED)
 end
 

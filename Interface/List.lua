@@ -36,7 +36,7 @@ local BASIC_COLORS = private.BASIC_COLORS
 
 local COMMON1 = private.COMMON_FLAGS_WORD1
 
-local A = private.ACQUIRE_TYPES
+local A = private.ACQUIRE_TYPE_IDS
 local FAC = private.LOCALIZED_FACTION_STRINGS
 
 -------------------------------------------------------------------------------
@@ -1370,7 +1370,7 @@ function private.InitializeListFrame()
 	end
 
 	-- Recipes with these acquire types will never show as headers.
-	local CHILDLESS_ACQUIRE_TYPES = {
+	local CHILDLESS_ACQUIRE_TYPE_IDS = {
 		[A.ACHIEVEMENT] = true,
 		[A.CUSTOM] = true,
 		[A.DISCOVERY] = true,
@@ -1409,7 +1409,7 @@ function private.InitializeListFrame()
 						local expand = false
 						local entry_type = "subheader"
 
-						if CHILDLESS_ACQUIRE_TYPES[acquire_id] then
+						if CHILDLESS_ACQUIRE_TYPE_IDS[acquire_id] then
 							expand = true
 							entry_type = "entry"
 						end

@@ -29,7 +29,7 @@ local FOLDER_NAME, private = ...
 -- Filter flags. Acquire types, and Reputation levels.
 -------------------------------------------------------------------------------
 local F = private.FILTER_IDS
-local A = private.ACQUIRE_TYPES
+local A = private.ACQUIRE_TYPE_IDS
 local Q = private.ITEM_QUALITIES
 local REP = private.REP_LEVELS
 local FAC = private.FACTION_IDS

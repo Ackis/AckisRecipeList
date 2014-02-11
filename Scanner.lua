@@ -50,7 +50,7 @@ local L = LibStub("AceLocale-3.0"):GetLocale(private.addon_name)
 -- Constants
 -------------------------------------------------------------------------------
 local F = private.FILTER_IDS
-local A = private.ACQUIRE_TYPES
+local A = private.ACQUIRE_TYPE_IDS
 
 local NO_ROLE_FLAG	-- Populated at the end of the file.
 
