@@ -102,9 +102,16 @@ local ACQUIRE_PROTOTYPES = {
 	-- Trainer.
 	-------------------------------------------------------------------------------
 	{
+
+		-------------------------------------------------------------------------------
+		-- Data.
+		-------------------------------------------------------------------------------
 		_has_coordinates = true,
 		_label = "TRAINER",
 		_name = L["Trainer"],
+		-------------------------------------------------------------------------------
+		-- Methods.
+		-------------------------------------------------------------------------------
 		_func_insert_tooltip_text = function(self, recipe, identifier, location, acquire_info, addline_func)
 			local trainer = private.trainer_list[identifier]
 
@@ -142,9 +149,15 @@ local ACQUIRE_PROTOTYPES = {
 	-- Vendor.
 	-------------------------------------------------------------------------------
 	{
+		-------------------------------------------------------------------------------
+		-- Data.
+		-------------------------------------------------------------------------------
 		_has_coordinates = true,
 		_label = "VENDOR",
 		_name = L["Vendor"],
+		-------------------------------------------------------------------------------
+		-- Methods.
+		-------------------------------------------------------------------------------
 		_func_insert_tooltip_text = function(self, recipe, identifier, location, acquire_info, addline_func)
 			local vendor = private.vendor_list[identifier]
 
@@ -186,9 +199,15 @@ local ACQUIRE_PROTOTYPES = {
 	-- Mob Drop.
 	-------------------------------------------------------------------------------
 	{
+		-------------------------------------------------------------------------------
+		-- Data.
+		-------------------------------------------------------------------------------
 		_has_coordinates = true,
 		_label = "MOB_DROP",
 		_name = L["Mob Drop"],
+		-------------------------------------------------------------------------------
+		-- Methods.
+		-------------------------------------------------------------------------------
 		_func_insert_tooltip_text = function(self, recipe, identifier, location, acquire_info, addline_func)
 			local mob = private.mob_list[identifier]
 
@@ -212,9 +231,15 @@ local ACQUIRE_PROTOTYPES = {
 	-- Quest.
 	-------------------------------------------------------------------------------
 	{
+		-------------------------------------------------------------------------------
+		-- Data.
+		-------------------------------------------------------------------------------
 		_has_coordinates = true,
 		_label = "QUEST",
 		_name = L["Quest"],
+		-------------------------------------------------------------------------------
+		-- Methods.
+		-------------------------------------------------------------------------------
 		_func_insert_tooltip_text = function(self, recipe, identifier, location, acquire_info, addline_func)
 			local quest = private.quest_list[identifier]
 
@@ -251,9 +276,15 @@ local ACQUIRE_PROTOTYPES = {
 	-- World Events.
 	-------------------------------------------------------------------------------
 	{
+		-------------------------------------------------------------------------------
+		-- Data.
+		-------------------------------------------------------------------------------
 		_has_coordinates = true,
 		_label = "SEASONAL",
 		_name = _G.GetCategoryInfo(155),
+		-------------------------------------------------------------------------------
+		-- Methods.
+		-------------------------------------------------------------------------------
 		_func_insert_tooltip_text = function(self, recipe, identifier, location, acquire_info, addline_func)
 			local hex_color = CATEGORY_COLORS.seasonal
 			addline_func(0, -1, 0, self:Name(), hex_color, private.seasonal_list[identifier].name, hex_color)
@@ -267,9 +298,15 @@ local ACQUIRE_PROTOTYPES = {
 	-- Reputation.
 	-------------------------------------------------------------------------------
 	{
+		-------------------------------------------------------------------------------
+		-- Data.
+		-------------------------------------------------------------------------------
 		_has_coordinates = true,
 		_label = "REPUTATION",
 		_name = _G.REPUTATION,
+		-------------------------------------------------------------------------------
+		-- Methods.
+		-------------------------------------------------------------------------------
 		_func_insert_tooltip_text = function(self, recipe, identifier, location, acquire_info, addline_func)
 			for rep_level, level_info in pairs(acquire_info) do
 				for vendor_id in pairs(level_info) do
@@ -319,9 +356,15 @@ local ACQUIRE_PROTOTYPES = {
 	-- World Drop.
 	-------------------------------------------------------------------------------
 	{
+		-------------------------------------------------------------------------------
+		-- Data.
+		-------------------------------------------------------------------------------
 		_has_coordinates = false,
 		_label = "WORLD_DROP",
 		_name = L["World Drop"],
+		-------------------------------------------------------------------------------
+		-- Methods.
+		-------------------------------------------------------------------------------
 		_func_insert_tooltip_text = function(self, recipe, identifier, location, acquire_info, addline_func)
 			local drop_location = type(identifier) == "string" and identifier or _G.UNKNOWN
 
@@ -348,9 +391,15 @@ local ACQUIRE_PROTOTYPES = {
 	-- Achievement.
 	-------------------------------------------------------------------------------
 	{
+		-------------------------------------------------------------------------------
+		-- Data.
+		-------------------------------------------------------------------------------
 		_has_coordinates = false,
 		_label = "ACHIEVEMENT",
 		_name = _G.ACHIEVEMENTS,
+		-------------------------------------------------------------------------------
+		-- Methods.
+		-------------------------------------------------------------------------------
 		_func_insert_tooltip_text = function(self, recipe, identifier, location, acquire_info, addline_func)
 			local _, achievement_name, _, _, _, _, _, achievement_desc = _G.GetAchievementInfo(identifier)
 
@@ -369,9 +418,15 @@ local ACQUIRE_PROTOTYPES = {
 	-- Discovery.
 	-------------------------------------------------------------------------------
 	{
+		-------------------------------------------------------------------------------
+		-- Data.
+		-------------------------------------------------------------------------------
 		_has_coordinates = false,
 		_label = "DISCOVERY",
 		_name = L["Discovery"],
+		-------------------------------------------------------------------------------
+		-- Methods.
+		-------------------------------------------------------------------------------
 		_func_insert_tooltip_text = function(self, recipe, identifier, location, acquire_info, addline_func)
 			addline_func(0, -1, false, private.discovery_list[identifier].name, CATEGORY_COLORS.discovery)
 		end,
@@ -384,9 +439,26 @@ local ACQUIRE_PROTOTYPES = {
 	-- Custom.
 	-------------------------------------------------------------------------------
 	{
+		-------------------------------------------------------------------------------
+		-- Data.
+		-------------------------------------------------------------------------------
 		_has_coordinates = false,
 		_label = "CUSTOM",
 		_name = _G.MISCELLANEOUS,
+		__waypoint_checks = {
+			maptrainer = "TRAINER",
+			mapvendor = "VENDOR",
+			mapquest = "QUEST",
+		},
+		__waypoint_filters = {
+			"INSTANCE",
+			"RAID",
+			"WORLD_DROP",
+			"MOB_DROP",
+		},
+		-------------------------------------------------------------------------------
+		-- Methods.
+		-------------------------------------------------------------------------------
 		_func_insert_tooltip_text = function(self, recipe, identifier, location, acquire_info, addline_func)
 			addline_func(0, -1, false, private.custom_list[identifier].name, CATEGORY_COLORS.custom)
 		end,
@@ -405,26 +477,21 @@ local ACQUIRE_PROTOTYPES = {
 				end
 			end
 		end,
-		__waypoint_checks = {
-			maptrainer = "TRAINER",
-			mapvendor = "VENDOR",
-			mapquest = "QUEST",
-		},
-		__waypoint_filters = {
-			"INSTANCE",
-			"RAID",
-			"WORLD_DROP",
-			"MOB_DROP",
-		},
 	},
 
 	-------------------------------------------------------------------------------
 	-- Retired.
 	-------------------------------------------------------------------------------
 	{
+		-------------------------------------------------------------------------------
+		-- Data.
+		-------------------------------------------------------------------------------
 		_has_coordinates = false,
 		_label = "RETIRED",
 		_name = L["Retired"],
+		-------------------------------------------------------------------------------
+		-- Methods.
+		-------------------------------------------------------------------------------
 		_func_insert_tooltip_text = function(self, recipe, identifier, location, acquire_info, addline_func)
 			addline_func(0, -1, false, L.REMOVED_FROM_GAME, CATEGORY_COLORS.retired)
 		end,
