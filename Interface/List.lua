@@ -1665,9 +1665,7 @@ do
 			ttAdd(0, -1, 0, L["CTRL_CLICK"], hint_color)
 			ttAdd(0, -1, 0, L["SHIFT_CLICK"], hint_color)
 
-			local list_entry_acquire_type = list_entry:AcquireType()
-
-			if (not list_entry_acquire_type or list_entry_acquire_type:HasCoordinates()) and _G.TomTom and (addon.db.profile.worldmap or addon.db.profile.minimap) then
+			if recipe:HasCoordinates() and _G.TomTom and (addon.db.profile.worldmap or addon.db.profile.minimap) then
 				ttAdd(0, -1, 0, L["CTRL_SHIFT_CLICK"], hint_color)
 			end
 		end
