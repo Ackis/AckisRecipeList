@@ -706,7 +706,7 @@ do
 		addon:InitQuest()
 		addon:InitReputation()
 		addon:InitTrainer()
-		addon:InitSeasons()
+		addon:InitWorldEvents()
 		addon:InitVendor()
 
 		InitializeLookups = nil

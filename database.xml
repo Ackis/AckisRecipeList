@@ -29,7 +29,7 @@
     <Include file="Database\Mob.lua"/>
     <Include file="Database\Quest.lua"/>
     <Include file="Database\Reputation.lua"/>
-    <Include file="Database\Seasonal.lua"/>
+    <Include file="Database\WorldEvents.lua"/>
     <Include file="Database\Trainer.lua"/>
     <Include file="Database\Vendor.lua"/>
 
