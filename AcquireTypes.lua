@@ -97,7 +97,7 @@ local RECIPE_QUALITY_COLORS = _G.setmetatable({}, {
 -------------------------------------------------------------------------------
 -- AcquireType Definitions.
 -------------------------------------------------------------------------------
-local ACQUIRE_TYPES = {
+local ACQUIRE_PROTOTYPES = {
 	-------------------------------------------------------------------------------
 	-- Trainer.
 	-------------------------------------------------------------------------------
@@ -349,8 +349,8 @@ local ACQUIRE_TYPES = {
 private.ACQUIRE_TYPES = {}
 private.ACQUIRE_TYPE_IDS = {}
 
-for index = 1, #ACQUIRE_TYPES do
-	local acquire_type = ACQUIRE_TYPES[index]
+for index = 1, #ACQUIRE_PROTOTYPES do
+	local acquire_type = ACQUIRE_PROTOTYPES[index]
 	acquire_type._id = index
 	_G.setmetatable(acquire_type, acquire_type_metatable)
 
