@@ -1638,7 +1638,7 @@ function addon:InitTailoring()
 	recipe:SetCraftedItem(17723, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("TAILORING_SHIRT")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:AddSeason("WINTER_VEIL")
+	recipe:AddWorldEvent("WINTER_VEIL")
 
 	-- Flarecore Wraps -- 22759
 	recipe = AddRecipe(22759, V.ORIG, Q.RARE)
@@ -1853,7 +1853,7 @@ function addon:InitTailoring()
 	recipe:SetItemFilterType("TAILORING_CHEST")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
 	recipe:AddVendor(15909)
-	recipe:AddSeason("LUNAR_FESTIVAL")
+	recipe:AddWorldEvent("LUNAR_FESTIVAL")
 
 	-- Festival Suit -- 26407
 	recipe = AddRecipe(26407, V.ORIG, Q.UNCOMMON)
@@ -1863,7 +1863,7 @@ function addon:InitTailoring()
 	recipe:SetItemFilterType("TAILORING_CHEST")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
 	recipe:AddVendor(15909)
-	recipe:AddSeason("LUNAR_FESTIVAL")
+	recipe:AddWorldEvent("LUNAR_FESTIVAL")
 
 	-- Enchanted Runecloth Bag -- 27659
 	recipe = AddRecipe(27659, V.ORIG, Q.COMMON)
@@ -2685,7 +2685,7 @@ function addon:InitTailoring()
 	recipe:SetItemFilterType("TAILORING_CHEST")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
 	recipe:AddVendor(13420)
-	recipe:AddSeason("WINTER_VEIL")
+	recipe:AddWorldEvent("WINTER_VEIL")
 
 	-- Red Winter Clothes -- 44958
 	recipe = AddRecipe(44958, V.TBC, Q.UNCOMMON)
@@ -2695,7 +2695,7 @@ function addon:InitTailoring()
 	recipe:SetItemFilterType("TAILORING_CHEST")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
 	recipe:AddVendor(13433)
-	recipe:AddSeason("WINTER_VEIL")
+	recipe:AddWorldEvent("WINTER_VEIL")
 
 	-- Sunfire Handwraps -- 46128
 	recipe = AddRecipe(46128, V.TBC, Q.EPIC)

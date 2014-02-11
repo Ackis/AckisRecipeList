@@ -456,7 +456,7 @@ function recipe_prototype:AddDiscovery(...)
 	self:AddFilters(private.FILTER_IDS.DISC)
 end
 
-function recipe_prototype:AddSeason(...)
+function recipe_prototype:AddWorldEvent(...)
 	self:AddAcquireData(A.WORLD_EVENTS, "World Events", private.seasonal_list, ...)
 	self:AddFilters(private.FILTER_IDS.WORLD_EVENTS)
 end
