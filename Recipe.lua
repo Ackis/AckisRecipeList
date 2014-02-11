@@ -32,9 +32,9 @@ private.num_profession_recipes = {}
 do
 	local acquire_list = {}
 
-	for acquire_type = 1, #private.ACQUIRE_TYPES do
-		acquire_list[acquire_type] = {
-			name = private.ACQUIRE_TYPES[acquire_type]:Name(),
+	for acquire_type_id = 1, #private.ACQUIRE_TYPES do
+		acquire_list[acquire_type_id] = {
+			name = private.ACQUIRE_TYPES[acquire_type_id]:Name(),
 			recipes = {}
 		}
 	end
