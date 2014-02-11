@@ -839,7 +839,7 @@ function addon:InitEnchanting()
 	recipe:SetRecipeItem(16223, "BIND_ON_EQUIP")
 	recipe:SetItemFilterType("ENCHANTING_WEAPON")
 	recipe:AddFilters(F.ALLIANCE, F.HORDE)
-	recipe:Retire()
+	recipe:AddMobDrop(7524)
 
 	-- Enchant 2H Weapon - Superior Impact -- 20030
 	recipe = AddRecipe(20030, V.ORIG, Q.UNCOMMON)
