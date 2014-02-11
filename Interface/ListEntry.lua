@@ -46,7 +46,7 @@ function private.CreateListEntry(entry_type, parent_entry, recipe)
 		if parent_entry ~= entry then
 			entry.recipe = entry.recipe or parent_entry.recipe
 			entry.parent = parent_entry
-			entry:SetAcquireID(entry:AcquireID() or parent_entry:AcquireID())
+			entry:SetAcquireType(entry:AcquireType() or parent_entry:AcquireType())
 			entry:SetLocationID(entry:LocationID() or parent_entry:LocationID())
 			entry:SetNPCID(entry:NPCID() or parent_entry:NPCID())
 		else
@@ -69,12 +69,12 @@ function list_entry_prototype:IsEmphasized()
 	return self._emphasized
 end
 
-function list_entry_prototype:SetAcquireID(acquire_id)
-	self._acquire_id = acquire_id
+function list_entry_prototype:SetAcquireType(acquire_type)
+	self._acquire_type = acquire_type
 end
 
-function list_entry_prototype:AcquireID()
-	return self._acquire_id
+function list_entry_prototype:AcquireType()
+	return self._acquire_type
 end
 
 function list_entry_prototype:SetLocationID(location_id)

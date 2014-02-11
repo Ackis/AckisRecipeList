@@ -279,7 +279,11 @@ function private.InitializeListFrame()
 		elseif recipe and _G.IsModifierKeyDown() then
 			if _G.IsControlKeyDown() then
 				if _G.IsShiftKeyDown() then
-					addon:AddWaypoint(recipe, entry:AcquireID(), entry:LocationID(), entry:NPCID())
+					local entry_acquire_type = entry:AcquireType()
+
+					if entry_acquire_type then
+						addon:AddWaypoint(recipe, entry_acquire_type:ID(), entry:LocationID(), entry:NPCID())
+					end
 				else
 					local edit_box = _G.ChatEdit_ChooseBoxForSend()
 
@@ -1461,22 +1465,22 @@ do
 	-- * The addline_func paramater must be a function which accepts the same
 	-- * arguments as ARL's ttAdd function.
 	-------------------------------------------------------------------------------
-	function addon:DisplayAcquireData(recipe, acquire_id, location, addline_func)
+	function addon:DisplayAcquireData(recipe, acquire_type, location, addline_func)
 		if not recipe then
 			return
 		end
 
-		for acquire_type, acquire_data in pairs(recipe.acquire_data) do
-			if not acquire_id or acquire_type == acquire_id then
+		for acquire_type_id, acquire_data in pairs(recipe.acquire_data) do
+			if not acquire_type or acquire_type_id == acquire_type:ID() then
 				local count = 0
 
 				for identifier, info in pairs(acquire_data) do
-					private.ACQUIRE_TYPES[acquire_type]:InsertTooltipText(recipe, identifier, location, info, addline_func)
+					private.ACQUIRE_TYPES[acquire_type_id]:InsertTooltipText(recipe, identifier, location, info, addline_func)
 					count = count + 1
 				end
 
 				if count == 0 then
-					private.ACQUIRE_TYPES[acquire_type]:InsertTooltipText(recipe, nil, location, nil, addline_func)
+					private.ACQUIRE_TYPES[acquire_type_id]:InsertTooltipText(recipe, nil, location, nil, addline_func)
 				end
 			end
 		end
@@ -1648,7 +1652,7 @@ do
 		end
 		ttAdd(0, -1, false, L["Obtained From"] .. " : ", BASIC_COLORS.normal)
 
-		addon:DisplayAcquireData(recipe, list_entry:AcquireID(), list_entry:LocationID(), ttAdd)
+		addon:DisplayAcquireData(recipe, list_entry:AcquireType(), list_entry:LocationID(), ttAdd)
 
 		if not addon.db.profile.hide_tooltip_hint then
 			local hint_color = private.CATEGORY_COLORS.hint
@@ -1661,7 +1665,7 @@ do
 			ttAdd(0, -1, 0, L["CTRL_CLICK"], hint_color)
 			ttAdd(0, -1, 0, L["SHIFT_CLICK"], hint_color)
 
-			local list_entry_acquire_type = private.ACQUIRE_TYPES[list_entry:AcquireID()]
+			local list_entry_acquire_type = list_entry:AcquireType()
 
 			if (not list_entry_acquire_type or list_entry_acquire_type:HasCoordinates()) and _G.TomTom and (addon.db.profile.worldmap or addon.db.profile.minimap) then
 				ttAdd(0, -1, 0, L["CTRL_SHIFT_CLICK"], hint_color)

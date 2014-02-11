@@ -216,11 +216,11 @@ local function InitializeAcquisitionTab()
 		self[prof_name .. " expanded"] = self[prof_name .. " expanded"] or {}
 
 		for index = 1, #sorted_acquires do
-			local acquire_type = sorted_acquires[index]
+			local acquire_type_id = sorted_acquires[index]
 			local count = 0
 
 			-- Check to see if any recipes for this acquire type will be shown - otherwise, don't show the type in the list.
-			for spell_id, affiliation in pairs(private.acquire_list[acquire_type].recipes) do
+			for spell_id, affiliation in pairs(private.acquire_list[acquire_type_id].recipes) do
 				local recipe = profession_recipes[spell_id]
 
 				if recipe and recipe:HasState("VISIBLE") and MainPanel.search_editbox:MatchesRecipe(recipe) then
@@ -236,12 +236,13 @@ local function InitializeAcquisitionTab()
 			end
 
 			if count > 0 then
-				local color_table = private.CATEGORY_COLORS[private.ACQUIRE_TYPES[acquire_type]:Label():lower():gsub("_", "")]
-				local acquire_type_name = private.ACQUIRE_TYPES[acquire_type]:Name()
+				local acquire_type = private.ACQUIRE_TYPES[acquire_type_id]
+				local color_table = private.CATEGORY_COLORS[acquire_type:Label():lower():gsub("_", "")]
+				local acquire_type_name = acquire_type:Name()
 				local is_expanded = self[prof_name .. " expanded"][acquire_type_name]
 
 				local entry = CreateListEntry("header")
-				entry:SetAcquireID(acquire_type)
+				entry:SetAcquireType(acquire_type)
 				entry:SetText("%s (%d)",
 					SetTextColor(color_table and color_table.hex or "ffffff", acquire_type_name),
 					count
@@ -249,7 +250,7 @@ local function InitializeAcquisitionTab()
 
 				insert_index = MainPanel.list_frame:InsertEntry(entry, insert_index, is_expanded or expand_mode, is_expanded or expand_mode)
 			else
-				self[prof_name .. " expanded"][private.ACQUIRE_TYPES[acquire_type]:Name()] = nil
+				self[prof_name .. " expanded"][private.ACQUIRE_TYPES[acquire_type_id]:Name()] = nil
 			end
 		end
 		return recipe_count
@@ -259,7 +260,8 @@ local function InitializeAcquisitionTab()
 		local orig_index = entry.button and entry.button.entry_index or entry.index
 		local expand_all = expand_mode == "deep"
 		local prof_name = private.ORDERED_PROFESSIONS[MainPanel.current_profession]
-		local acquire_id = entry:AcquireID()
+		local entry_acquire_type = entry:AcquireType()
+		local entry_acquire_id = entry_acquire_type:ID()
 
 		-- Entry_index is the position in self.entries that we want to expand. Since we are expanding the current entry, the return
 		-- value should be the index of the next button after the expansion occurs
@@ -268,7 +270,7 @@ local function InitializeAcquisitionTab()
 		self:SaveListEntryState(entry, true)
 
 		if entry:IsHeader() then
-			local recipe_list = private.acquire_list[acquire_id].recipes
+			local recipe_list = private.acquire_list[entry_acquire_id].recipes
 			local sorted_recipes = addon.sorted_recipes
 			local profession_recipes = private.profession_recipe_list[prof_name]
 
@@ -281,23 +283,23 @@ local function InitializeAcquisitionTab()
 					local expand = false
 					local entry_type = "subheader"
 
-					if CHILDLESS_ACQUIRE_TYPES[acquire_id] then
+					if CHILDLESS_ACQUIRE_TYPES[entry_acquire_id] then
 						expand = true
 						entry_type = "entry"
 					end
-					local is_expanded = (self[prof_name.." expanded"][recipe] and self[prof_name.." expanded"][private.ACQUIRE_TYPES[acquire_id]:Name()])
+					local is_expanded = (self[prof_name.." expanded"][recipe] and self[prof_name.." expanded"][private.ACQUIRE_TYPES[entry_acquire_id]:Name()])
 
 					local new_entry = CreateListEntry(entry_type, entry, recipe)
-					new_entry:SetAcquireID(acquire_id)
+					new_entry:SetAcquireType(entry_acquire_type)
 					new_entry:SetText(recipe:GetDisplayName())
 
 					new_entry_index = MainPanel.list_frame:InsertEntry(new_entry, new_entry_index, expand or is_expanded, expand_all or is_expanded)
 				end
 			end
 		elseif entry:IsSubHeader() then
-			for acquire_type, acquire_data in pairs(entry.recipe.acquire_data) do
-				if acquire_type == acquire_id then
-					new_entry_index = private.ExpandAcquireData(new_entry_index, "subentry", entry, acquire_type, acquire_data, entry.recipe, false, true)
+			for acquire_id, acquire_data in pairs(entry.recipe.acquire_data) do
+				if acquire_id == entry_acquire_id then
+					new_entry_index = private.ExpandAcquireData(new_entry_index, "subentry", entry, acquire_id, acquire_data, entry.recipe, false, true)
 				end
 			end
 		end
