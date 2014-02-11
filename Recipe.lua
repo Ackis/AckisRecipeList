@@ -94,6 +94,14 @@ end
 -------------------------------------------------------------------------------
 -- Recipe methods.
 -------------------------------------------------------------------------------
+function recipe_prototype:HasCoordinates()
+	for acquire_type_id in pairs(self.acquire_data) do
+		if private.ACQUIRE_TYPES[acquire_type_id]:HasCoordinates() then
+			return true
+		end
+	end
+end
+
 function recipe_prototype:SetRecipeItem(item_id, binding_type)
 	local item_name, item_link, item_quality = _G.GetItemInfo(item_id) -- Do this now to get the item into the cache.
 	self.recipe_item_id = item_id
