@@ -314,10 +314,11 @@ function private.InitializeListFrame()
 			-- 1) We clicked on the recipe button on a closed recipe
 			-- 2) We clicked on the recipe button of an open recipe
 			-- 3) we clicked on the expanded text of an open recipe
+			local current_tab = MainPanel.current_tab
+
 			if entry.is_expanded then
 				local removal_index = clicked_index + 1
 				local target_entry = ListFrame.entries[removal_index]
-				local current_tab = MainPanel.current_tab
 
 				while target_entry and target_entry:Type() ~= entry:Type() do
 					-- Headers are never removed.
@@ -331,7 +332,7 @@ function private.InitializeListFrame()
 				current_tab:SaveListEntryState(entry, false)
 				entry.is_expanded = false
 			else
-				ListFrame:ExpandEntry(entry)
+				current_tab:ExpandListEntry(entry)
 				entry.is_expanded = true
 			end
 		else
@@ -443,11 +444,10 @@ function private.InitializeListFrame()
 			entry.is_expanded = true
 			table.insert(self.entries, insert_index, entry)
 
-			MainPanel.current_tab:SaveListEntryState(entry, entry_expanded)
-
 			if entry:IsHeader() or entry:IsSubHeader() then
-				insert_index = self:ExpandEntry(entry, expand_mode)
+				insert_index = MainPanel.current_tab:ExpandListEntry(entry, expand_mode)
 			else
+				MainPanel.current_tab:SaveListEntryState(entry, entry_expanded)
 				insert_index = insert_index + 1
 			end
 		else
@@ -1063,6 +1063,7 @@ function private.InitializeListFrame()
 
 		return ListFrame:InsertEntry(entry, entry_index, true)
 	end
+	private.ExpandTrainerData = ExpandTrainerData
 
 	-- Right now PVP obtained items are located on vendors so they have the vendor and PVP flag.
 	-- We need to display the vendor in the drop down if we want to see vendors or if we want to see PVP
@@ -1107,6 +1108,7 @@ function private.InitializeListFrame()
 
 		return ListFrame:InsertEntry(entry, entry_index, true)
 	end
+	private.ExpandVendorData = ExpandVendorData
 
 	-- Mobs can be in instances, raids, or specific mob related drops.
 	local function ExpandMobData(entry_index, entry_type, parent_entry, id_num, recipe, hide_location, hide_type)
@@ -1142,6 +1144,7 @@ function private.InitializeListFrame()
 
 		return ListFrame:InsertEntry(entry, entry_index, true)
 	end
+	private.ExpandMobData = ExpandMobData
 
 	local function ExpandQuestData(entry_index, entry_type, parent_entry, id_num, recipe, hide_location, hide_type)
 		local quest = private.quest_list[id_num]
@@ -1179,8 +1182,9 @@ function private.InitializeListFrame()
 
 		return ListFrame:InsertEntry(entry, entry_index, true)
 	end
+	private.ExpandQuestData = ExpandQuestData
 
-	local function ExpandSeasonalData(entry_index, entry_type, parent_entry, id_num, recipe, _, hide_type)
+	local function ExpandWorldEventData(entry_index, entry_type, parent_entry, id_num, recipe, _, hide_type)
 		local entry = CreateListEntry(entry_type, parent_entry, recipe)
 		entry:SetText("%s%s %s",
 			PADDING,
@@ -1190,6 +1194,7 @@ function private.InitializeListFrame()
 
 		return ListFrame:InsertEntry(entry, entry_index, true)
 	end
+	private.ExpandWorldEventData = ExpandWorldEventData
 
 	local FACTION_LABELS
 
@@ -1250,6 +1255,7 @@ function private.InitializeListFrame()
 
 		return ListFrame:InsertEntry(entry, entry_index, true)
 	end
+	private.ExpandReputationData = ExpandReputationData
 
 	local function ExpandWorldDropData(entry_index, entry_type, parent_entry, identifier, recipe, _, _)
 		local drop_location = type(identifier) == "string" and SetTextColor(CATEGORY_COLORS.location.hex, identifier)
@@ -1284,6 +1290,7 @@ function private.InitializeListFrame()
 
 		return ListFrame:InsertEntry(entry, entry_index, true)
 	end
+	private.ExpandCustomData = ExpandCustomData
 
 	local function ExpandDiscoveryData(entry_index, entry_type, parent_entry, id_num, recipe, _, _)
 		local entry = CreateListEntry(entry_type, parent_entry, recipe)
@@ -1291,6 +1298,7 @@ function private.InitializeListFrame()
 
 		return ListFrame:InsertEntry(entry, entry_index, true)
 	end
+	private.ExpandDiscoveryData = ExpandDiscoveryData
 
 	local function ExpandAchievementData(entry_index, entry_type, parent_entry, id_num, recipe, _, hide_type)
 		local entry = CreateListEntry(entry_type, parent_entry, recipe)
@@ -1326,11 +1334,11 @@ function private.InitializeListFrame()
 			elseif acquire_type == A.QUEST and obtain_filters.quest then
 				func = ExpandQuestData
 			elseif acquire_type == A.SEASONAL and obtain_filters.seasonal then
-				func = ExpandSeasonalData
+				func = ExpandWorldEventData
 			elseif acquire_type == A.REPUTATION then
 				for rep_level, level_info in pairs(info) do
 					for vendor_id in pairs(level_info) do
-						entry_index =  ExpandReputationData(entry_index, entry_type, parent_entry, vendor_id, id_num, rep_level, recipe, hide_location, hide_type)
+						entry_index = ExpandReputationData(entry_index, entry_type, parent_entry, vendor_id, id_num, rep_level, recipe, hide_location, hide_type)
 					end
 				end
 			elseif acquire_type == A.WORLD_DROP and obtain_filters.worlddrop then
@@ -1366,146 +1374,7 @@ function private.InitializeListFrame()
 		end	-- for
 		return entry_index
 	end
-
-	-- Recipes with these acquire types will never show as headers.
-	local CHILDLESS_ACQUIRE_TYPE_IDS = {
-		[A.ACHIEVEMENT] = true,
-		[A.CUSTOM] = true,
-		[A.DISCOVERY] = true,
-		[A.RETIRED] = true,
-		[A.WORLD_DROP] = true,
-	}
-
-	-- This function is called when an un-expanded entry in the list has been clicked.
-	function ListFrame:ExpandEntry(entry, expand_mode)
-		local orig_index = entry.button and entry.button.entry_index or entry.index
-		local expand_all = expand_mode == "deep"
-		local current_tab = MainPanel.current_tab
-		local prof_name = private.ORDERED_PROFESSIONS[MainPanel.current_profession]
-		local profession_recipes = private.profession_recipe_list[prof_name]
-
-		-- Entry_index is the position in self.entries that we want to expand. Since we are expanding the current entry, the return
-		-- value should be the index of the next button after the expansion occurs
-		local new_entry_index = orig_index + 1
-
-		current_tab:SaveListEntryState(entry, true)
-
-		local acquire_id = entry:AcquireID()
-
-		-- This entry was generated using sorting based on Acquisition.
-		if acquire_id then
-			if entry:IsHeader() then
-				local recipe_list = private.acquire_list[acquire_id].recipes
-				local sorted_recipes = addon.sorted_recipes
-
-				private.SortRecipeList(recipe_list)
-
-				for index = 1, #sorted_recipes do
-					local recipe = profession_recipes[sorted_recipes[index]]
-
-					if recipe and recipe:HasState("VISIBLE") and MainPanel.search_editbox:MatchesRecipe(recipe) then
-						local expand = false
-						local entry_type = "subheader"
-
-						if CHILDLESS_ACQUIRE_TYPE_IDS[acquire_id] then
-							expand = true
-							entry_type = "entry"
-						end
-						local is_expanded = (current_tab[prof_name.." expanded"][recipe] and current_tab[prof_name.." expanded"][private.ACQUIRE_TYPES[acquire_id]:Name()])
-
-						local new_entry = CreateListEntry(entry_type, entry, recipe)
-						new_entry:SetAcquireID(acquire_id)
-						new_entry:SetText(recipe:GetDisplayName())
-
-						new_entry_index = self:InsertEntry(new_entry, new_entry_index, expand or is_expanded, expand_all or is_expanded)
-					end
-				end
-			elseif entry:IsSubHeader() then
-				for acquire_type, acquire_data in pairs(entry.recipe.acquire_data) do
-					if acquire_type == acquire_id then
-						new_entry_index = ExpandAcquireData(new_entry_index, "subentry", entry, acquire_type, acquire_data, entry.recipe, false, true)
-					end
-				end
-			end
-			return new_entry_index
-		end
-
-		local location_id = entry:LocationID()
-
-		-- This entry was generated using sorting based on Location.
-		if location_id then
-			if entry:IsHeader() then
-				local recipe_list = private.location_list[location_id].recipes
-				local sorted_recipes = addon.sorted_recipes
-
-				private.SortRecipeList(recipe_list)
-
-				for index = 1, #sorted_recipes do
-					local recipe_id = sorted_recipes[index]
-					local recipe = profession_recipes[recipe_id]
-
-					if recipe and recipe:HasState("VISIBLE") and MainPanel.search_editbox:MatchesRecipe(recipe) then
-						local expand = false
-						local entry_type = "subheader"
-
-						-- Add World Drop entries as normal entries.
-						if recipe_list[recipe_id] == "world_drop" then
-							expand = true
-							entry_type = "entry"
-						end
-						local is_expanded = (current_tab[prof_name.." expanded"][recipe] and current_tab[prof_name.." expanded"][location_id])
-
-						local new_entry = CreateListEntry(entry_type, entry, recipe)
-						new_entry:SetText(recipe:GetDisplayName())
-						new_entry:SetLocationID(location_id)
-
-						new_entry_index = self:InsertEntry(new_entry, new_entry_index, expand or is_expanded, expand_all or is_expanded)
-					end
-				end
-			elseif entry:IsSubHeader() then
-				-- World Drops are not handled here because they are of type "entry".
-				for acquire_type, acquire_data in pairs(entry.recipe.acquire_data) do
-					-- Only expand an acquisition entry if it is from this location.
-					for id_num, info in pairs(acquire_data) do
-						if acquire_type == A.TRAINER and private.trainer_list[id_num].location == location_id then
-							new_entry_index = ExpandTrainerData(new_entry_index, "subentry", entry, id_num, entry.recipe, true)
-						elseif acquire_type == A.VENDOR and private.vendor_list[id_num].location == location_id then
-							new_entry_index = ExpandVendorData(new_entry_index, "subentry", entry, id_num, entry.recipe, true)
-						elseif acquire_type == A.MOB_DROP and private.mob_list[id_num].location == location_id then
-							new_entry_index = ExpandMobData(new_entry_index, "subentry", entry, id_num, entry.recipe, true)
-						elseif acquire_type == A.QUEST and private.quest_list[id_num].location == location_id then
-							new_entry_index = ExpandQuestData(new_entry_index, "subentry", entry, id_num, entry.recipe, true)
-						elseif acquire_type == A.SEASONAL and private.seasonal_list[id_num].location == location_id then
-							-- Hide the acquire type for this - it will already show up in the location list as
-							-- "World Events".
-							new_entry_index = ExpandSeasonalData(new_entry_index, "subentry", entry, id_num, entry.recipe, true, true)
-						elseif acquire_type == A.CUSTOM and private.custom_list[id_num].location == location_id then
-							new_entry_index = ExpandCustomData(new_entry_index, "subentry", entry, id_num, entry.recipe, true, true)
-						elseif acquire_type == A.DISCOVERY and private.discovery_list[id_num].location == location_id then
-							new_entry_index = ExpandDiscoveryData(new_entry_index, "subentry", entry, id_num, entry.recipe, true, true)
-						elseif acquire_type == A.REPUTATION then
-							for rep_level, level_info in pairs(info) do
-								for vendor_id in pairs(level_info) do
-									if private.vendor_list[vendor_id].location == location_id then
-										new_entry_index =  ExpandReputationData(new_entry_index, "subentry", entry, vendor_id, id_num, rep_level, entry.recipe, true)
-									end
-								end
-							end
-						end
-					end
-				end
-			end
-			return new_entry_index
-		end
-
-		-- Normal entry - expand all acquire types.
-		local recipe = self.entries[orig_index].recipe
-
-		for acquire_type, acquire_data in pairs(recipe.acquire_data) do
-			new_entry_index = ExpandAcquireData(new_entry_index, "entry", entry, acquire_type, acquire_data, recipe)
-		end
-		return new_entry_index
-	end
+	private.ExpandAcquireData = ExpandAcquireData
 end	-- InitializeListFrame()
 
 -------------------------------------------------------------------------------
@@ -1708,10 +1577,11 @@ do
 	}
 
 	local NON_COORD_ACQUIRES = {
-		[A.WORLD_DROP] = true,
-		[A.CUSTOM] = true,
 		[A.ACHIEVEMENT] = true,
+		[A.CUSTOM] = true,
 		[A.DISCOVERY] = true,
+		[A.RETIRED] = true,
+		[A.WORLD_DROP] = true,
 	}
 
 	function ListItem_ShowTooltip(list_entry)
@@ -1769,7 +1639,7 @@ do
 			ttAdd(0, -1, true, RECIPE_BINDING_TYPES[recipe_item_binding], BASIC_COLORS.normal)
 		end
 
-		local _, crafted_item_binding = recipe:RecipeItem()
+		local _, crafted_item_binding = recipe:CraftedItem()
 
 		if crafted_item_binding then
 			ttAdd(0, -1, true, ITEM_BINDING_TYPES[crafted_item_binding], BASIC_COLORS.normal)
