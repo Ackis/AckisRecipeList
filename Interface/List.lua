@@ -1576,14 +1576,6 @@ do
 		BIND_ON_PICKUP = L["RecipeBOPFilter"],
 	}
 
-	local NON_COORD_ACQUIRES = {
-		[A.ACHIEVEMENT] = true,
-		[A.CUSTOM] = true,
-		[A.DISCOVERY] = true,
-		[A.RETIRED] = true,
-		[A.WORLD_DROP] = true,
-	}
-
 	function ListItem_ShowTooltip(list_entry)
 		if not list_entry then
 			return
@@ -1669,7 +1661,9 @@ do
 			ttAdd(0, -1, 0, L["CTRL_CLICK"], hint_color)
 			ttAdd(0, -1, 0, L["SHIFT_CLICK"], hint_color)
 
-			if not NON_COORD_ACQUIRES[list_entry:AcquireID()] and _G.TomTom and (addon.db.profile.worldmap or addon.db.profile.minimap) then
+			local list_entry_acquire_type = private.ACQUIRE_TYPES[list_entry:AcquireID()]
+
+			if (not list_entry_acquire_type or list_entry_acquire_type:HasCoordinates()) and _G.TomTom and (addon.db.profile.worldmap or addon.db.profile.minimap) then
 				ttAdd(0, -1, 0, L["CTRL_SHIFT_CLICK"], hint_color)
 			end
 		end

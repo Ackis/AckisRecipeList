@@ -102,6 +102,7 @@ local ACQUIRE_TYPES = {
 	-- Trainer.
 	-------------------------------------------------------------------------------
 	{
+		_has_coordinates = true,
 		_label = "TRAINER",
 		_name = L["Trainer"],
 		_func_insert_tooltip_text = function(self, recipe, identifier, location, acquire_info, addline_func)
@@ -129,6 +130,7 @@ local ACQUIRE_TYPES = {
 	-- Vendor.
 	-------------------------------------------------------------------------------
 	{
+		_has_coordinates = true,
 		_label = "VENDOR",
 		_name = L["Vendor"],
 		_func_insert_tooltip_text = function(self, recipe, identifier, location, acquire_info, addline_func)
@@ -161,6 +163,7 @@ local ACQUIRE_TYPES = {
 	-- Mob Drop.
 	-------------------------------------------------------------------------------
 	{
+		_has_coordinates = true,
 		_label = "MOB_DROP",
 		_name = L["Mob Drop"],
 		_func_insert_tooltip_text = function(self, recipe, identifier, location, acquire_info, addline_func)
@@ -183,6 +186,7 @@ local ACQUIRE_TYPES = {
 	-- Quest.
 	-------------------------------------------------------------------------------
 	{
+		_has_coordinates = true,
 		_label = "QUEST",
 		_name = L["Quest"],
 		_func_insert_tooltip_text = function(self, recipe, identifier, location, acquire_info, addline_func)
@@ -210,6 +214,7 @@ local ACQUIRE_TYPES = {
 	-- World Events.
 	-------------------------------------------------------------------------------
 	{
+		_has_coordinates = true,
 		_label = "SEASONAL",
 		_name = _G.GetCategoryInfo(155),
 		_func_insert_tooltip_text = function(self, recipe, identifier, location, acquire_info, addline_func)
@@ -222,6 +227,7 @@ local ACQUIRE_TYPES = {
 	-- Reputation.
 	-------------------------------------------------------------------------------
 	{
+		_has_coordinates = true,
 		_label = "REPUTATION",
 		_name = _G.REPUTATION,
 		_func_insert_tooltip_text = function(self, recipe, identifier, location, acquire_info, addline_func)
@@ -263,6 +269,7 @@ local ACQUIRE_TYPES = {
 	-- World Drop.
 	-------------------------------------------------------------------------------
 	{
+		_has_coordinates = false,
 		_label = "WORLD_DROP",
 		_name = L["World Drop"],
 		_func_insert_tooltip_text = function(self, recipe, identifier, location, acquire_info, addline_func)
@@ -288,6 +295,7 @@ local ACQUIRE_TYPES = {
 	-- Achievement.
 	-------------------------------------------------------------------------------
 	{
+		_has_coordinates = false,
 		_label = "ACHIEVEMENT",
 		_name = _G.ACHIEVEMENTS,
 		_func_insert_tooltip_text = function(self, recipe, identifier, location, acquire_info, addline_func)
@@ -305,6 +313,7 @@ local ACQUIRE_TYPES = {
 	-- Discovery.
 	-------------------------------------------------------------------------------
 	{
+		_has_coordinates = false,
 		_label = "DISCOVERY",
 		_name = L["Discovery"],
 		_func_insert_tooltip_text = function(self, recipe, identifier, location, acquire_info, addline_func)
@@ -316,6 +325,7 @@ local ACQUIRE_TYPES = {
 	-- Custom.
 	-------------------------------------------------------------------------------
 	{
+		_has_coordinates = false,
 		_label = "CUSTOM",
 		_name = _G.MISCELLANEOUS,
 		_func_insert_tooltip_text = function(self, recipe, identifier, location, acquire_info, addline_func)
@@ -327,6 +337,7 @@ local ACQUIRE_TYPES = {
 	-- Retired.
 	-------------------------------------------------------------------------------
 	{
+		_has_coordinates = false,
 		_label = "RETIRED",
 		_name = L["Retired"],
 		_func_insert_tooltip_text = function(self, recipe, identifier, location, acquire_info, addline_func)
@@ -356,6 +367,10 @@ end
 
 function AcquireType:ExpandListEntry(entry_index, entry_type, parent_entry, id_num, recipe, hide_location, hide_type)
 	return self._func_expand_list_entry(self, entry_index, entry_type, parent_entry, id_num, recipe, hide_location, hide_type)
+end
+
+function AcquireType:HasCoordinates()
+	return self._has_coordinates
 end
 
 function AcquireType:ID()
