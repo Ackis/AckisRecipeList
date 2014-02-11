@@ -32,9 +32,9 @@ local CreateListEntry = private.CreateListEntry
 local SetTextColor = private.SetTextColor
 
 local CATEGORY_COLORS = private.CATEGORY_COLORS
-local BASIC_COLORS = private.BASIC_COLORS
-
 local COMMON1 = private.COMMON_FLAGS_WORD1
+local COORDINATES_FORMAT = private.COORDINATES_FORMAT
+local BASIC_COLORS = private.BASIC_COLORS
 
 local A = private.ACQUIRE_TYPE_IDS
 local FAC = private.LOCALIZED_FACTION_STRINGS
@@ -46,8 +46,6 @@ local NUM_RECIPE_LINES	= 25
 local SCROLL_DEPTH	= 5
 local LISTFRAME_WIDTH	= 295
 local LIST_ENTRY_WIDTH	= 286
-
-local COORD_FORMAT	= "(%.2f, %.2f)"
 
 -------------------------------------------------------------------------------
 -- Upvalues
@@ -1047,7 +1045,7 @@ function private.InitializeListFrame()
 		local coord_text = ""
 
 		if trainer.coord_x ~= 0 and trainer.coord_y ~= 0 then
-			coord_text = SetTextColor(CATEGORY_COLORS.coords.hex, COORD_FORMAT:format(trainer.coord_x, trainer.coord_y))
+			coord_text = SetTextColor(CATEGORY_COLORS.coords.hex, COORDINATES_FORMAT:format(trainer.coord_x, trainer.coord_y))
 		end
 
 		if coord_text == "" and hide_location then
@@ -1091,7 +1089,7 @@ function private.InitializeListFrame()
 		local coord_text = ""
 
 		if vendor.coord_x ~= 0 and vendor.coord_y ~= 0 then
-			coord_text = SetTextColor(CATEGORY_COLORS.coords.hex, COORD_FORMAT:format(vendor.coord_x, vendor.coord_y))
+			coord_text = SetTextColor(CATEGORY_COLORS.coords.hex, COORDINATES_FORMAT:format(vendor.coord_x, vendor.coord_y))
 		end
 
 		if coord_text == "" and hide_location then
@@ -1126,7 +1124,7 @@ function private.InitializeListFrame()
 		local coord_text = ""
 
 		if mob.coord_x ~= 0 and mob.coord_y ~= 0 then
-			coord_text = SetTextColor(CATEGORY_COLORS.coords.hex, COORD_FORMAT:format(mob.coord_x, mob.coord_y))
+			coord_text = SetTextColor(CATEGORY_COLORS.coords.hex, COORDINATES_FORMAT:format(mob.coord_x, mob.coord_y))
 		end
 
 		if coord_text == "" and hide_location then
@@ -1164,7 +1162,7 @@ function private.InitializeListFrame()
 		local coord_text = ""
 
 		if quest.coord_x ~= 0 and quest.coord_y ~= 0 then
-			coord_text = SetTextColor(CATEGORY_COLORS.coords.hex, COORD_FORMAT:format(quest.coord_x, quest.coord_y))
+			coord_text = SetTextColor(CATEGORY_COLORS.coords.hex, COORDINATES_FORMAT:format(quest.coord_x, quest.coord_y))
 		end
 
 		if coord_text == "" and hide_location then
@@ -1233,7 +1231,7 @@ function private.InitializeListFrame()
 		local coord_text = ""
 
 		if rep_vendor.coord_x ~= 0 and rep_vendor.coord_y ~= 0 then
-			coord_text = SetTextColor(CATEGORY_COLORS.coords.hex, COORD_FORMAT:format(rep_vendor.coord_x, rep_vendor.coord_y))
+			coord_text = SetTextColor(CATEGORY_COLORS.coords.hex, COORDINATES_FORMAT:format(rep_vendor.coord_x, rep_vendor.coord_y))
 		end
 
 		if coord_text == "" and hide_location then
@@ -1642,7 +1640,7 @@ do
 			addline_func(0, -2, false, L["Trainer"], CATEGORY_COLORS.trainer, trainer.name, name_color)
 
 			if trainer.coord_x ~= 0 and trainer.coord_y ~= 0 then
-				addline_func(1, -2, true, trainer.location, CATEGORY_COLORS.location, COORD_FORMAT:format(trainer.coord_x, trainer.coord_y), CATEGORY_COLORS.coords)
+				addline_func(1, -2, true, trainer.location, CATEGORY_COLORS.location, COORDINATES_FORMAT:format(trainer.coord_x, trainer.coord_y), CATEGORY_COLORS.coords)
 			else
 				addline_func(1, -2, true, trainer.location, CATEGORY_COLORS.location, "", CATEGORY_COLORS.coords)
 			end
@@ -1661,7 +1659,7 @@ do
 			addline_func(0, -1, false, L["Vendor"], CATEGORY_COLORS.vendor, vendor.name, name_color)
 
 			if vendor.coord_x ~= 0 and vendor.coord_y ~= 0 then
-				addline_func(1, -2, true, vendor.location, CATEGORY_COLORS.location, COORD_FORMAT:format(vendor.coord_x, vendor.coord_y), CATEGORY_COLORS.coords)
+				addline_func(1, -2, true, vendor.location, CATEGORY_COLORS.location, COORDINATES_FORMAT:format(vendor.coord_x, vendor.coord_y), CATEGORY_COLORS.coords)
 			else
 				addline_func(1, -2, true, vendor.location, CATEGORY_COLORS.location, "", CATEGORY_COLORS.coords)
 			end
@@ -1680,7 +1678,7 @@ do
 			addline_func(0, -1, false, L["Mob Drop"], CATEGORY_COLORS.mobdrop, mob.name, private.REPUTATION_COLORS.hostile)
 
 			if mob.coord_x ~= 0 and mob.coord_y ~= 0 then
-				addline_func(1, -2, true, mob.location, CATEGORY_COLORS.location, COORD_FORMAT:format(mob.coord_x, mob.coord_y), CATEGORY_COLORS.coords)
+				addline_func(1, -2, true, mob.location, CATEGORY_COLORS.location, COORDINATES_FORMAT:format(mob.coord_x, mob.coord_y), CATEGORY_COLORS.coords)
 			else
 				addline_func(1, -2, true, mob.location, CATEGORY_COLORS.location, "", CATEGORY_COLORS.coords)
 
@@ -1700,7 +1698,7 @@ do
 			addline_func(0, -1, false, L["Quest"], CATEGORY_COLORS.quest, private.quest_names[identifier], name_color)
 
 			if quest.coord_x ~= 0 and quest.coord_y ~= 0 then
-				addline_func(1, -2, true, quest.location, CATEGORY_COLORS.location, COORD_FORMAT:format(quest.coord_x, quest.coord_y), CATEGORY_COLORS.coords)
+				addline_func(1, -2, true, quest.location, CATEGORY_COLORS.location, COORDINATES_FORMAT:format(quest.coord_x, quest.coord_y), CATEGORY_COLORS.coords)
 			else
 				addline_func(1, -2, true, quest.location, CATEGORY_COLORS.location, "", CATEGORY_COLORS.coords)
 			end
@@ -1733,7 +1731,7 @@ do
 							end
 
 							if rep_vendor.coord_x ~= 0 and rep_vendor.coord_y ~= 0 then
-								addline_func(2, -2, true, rep_vendor.location, CATEGORY_COLORS.location, COORD_FORMAT:format(rep_vendor.coord_x, rep_vendor.coord_y), CATEGORY_COLORS.coords)
+								addline_func(2, -2, true, rep_vendor.location, CATEGORY_COLORS.location, COORDINATES_FORMAT:format(rep_vendor.coord_x, rep_vendor.coord_y), CATEGORY_COLORS.coords)
 							else
 								addline_func(2, -2, true, rep_vendor.location, CATEGORY_COLORS.location, "", CATEGORY_COLORS.coords)
 							end
