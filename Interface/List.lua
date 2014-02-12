@@ -502,7 +502,7 @@ function private.InitializeListFrame()
 			pvp		= { flag = COMMON1.PVP,			field = "common1",	sv_root = obtain_filters },
 			quest		= { flag = COMMON1.QUEST,		field = "common1",	sv_root = obtain_filters },
 			raid		= { flag = COMMON1.RAID,		field = "common1",	sv_root = obtain_filters },
-			retired		= { flag = COMMON1.RETIRED,		field = "common1",	sv_root = general_filters },
+			retired		= { flag = COMMON1.RETIRED,		field = "common1",	sv_root = obtain_filters },
 			reputation	= { flag = COMMON1.REPUTATION,		field = "common1",	sv_root = obtain_filters },
 			seasonal	= { flag = COMMON1.WORLD_EVENTS,	field = "common1",	sv_root = obtain_filters },
 			trainer		= { flag = COMMON1.TRAINER,		field = "common1",	sv_root = obtain_filters },

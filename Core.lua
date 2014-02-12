@@ -215,7 +215,6 @@ function addon:OnInitialize()
 					skill = true,
 					known = false,
 					unknown = true,
-					retired = false,
 				},
 				-------------------------------------------------------------------------------
 				-- Obtain Filters
@@ -234,6 +233,7 @@ function addon:OnInitialize()
 					quest = true,
 					raid = true,
 					reputation = true,
+					retired = false,
 					seasonal = true,
 					trainer = true,
 					vendor = true,
