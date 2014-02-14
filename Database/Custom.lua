@@ -24,17 +24,19 @@ local _G = getfenv(0)
 local FOLDER_NAME, private	= ...
 
 local LibStub = _G.LibStub
-
 local addon		= LibStub("AceAddon-3.0"):GetAddon(private.addon_name)
 local L			= LibStub("AceLocale-3.0"):GetLocale(private.addon_name)
 
+-----------------------------------------------------------------------
+-- Imports.
+-----------------------------------------------------------------------
 local Z			= private.ZONE_NAMES
 
-private.custom_list	= {}
+local CustomAcquireType = private.ACQUIRE_TYPES[private.ACQUIRE_TYPE_IDS.CUSTOM]
 
 function addon:InitCustom()
 	local function AddCustom(identifier, zone_name, coord_x, coord_y, faction)
-		private:AddListEntry(private.custom_list, identifier, L[identifier], zone_name, coord_x, coord_y, nil)
+		CustomAcquireType:AddEntity(identifier, L[identifier], zone_name, coord_x, coord_y, faction)
 	end
 	AddCustom("DAILY_COOKING_MEAT", Z.SHATTRATH_CITY)
 	AddCustom("DAILY_COOKING_FISH", Z.SHATTRATH_CITY)

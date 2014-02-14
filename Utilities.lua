@@ -31,46 +31,6 @@ function private.ColorRGBtoHEX(r, g, b)
 	return ("%02x%02x%02x"):format(r * 255, g * 255, b * 255)
 end
 
-local NO_LOCATION_LISTS
-
-function private:AddListEntry(lookup_list, identifier, name, location, coord_x, coord_y, faction)
-	if lookup_list[identifier] then
-		addon:Debug("Duplicate lookup: %s - %s.", identifier, name)
-		return
-	end
-
-	local entry = {
-		name = name,
-		location = location,
-		faction = faction,
-	}
-
-	if coord_x and coord_y then
-		entry.coord_x = coord_x
-		entry.coord_y = coord_y
-	end
-
-	--@alpha@
-	if not NO_LOCATION_LISTS then
-		NO_LOCATION_LISTS = {
-			[self.custom_list] = true,
-			[self.discovery_list] = true,
-			[self.reputation_list] = true,
-		}
-	end
-
-	if not location and not NO_LOCATION_LISTS[lookup_list] then
-		addon:Debug("Lookup ID: %s (%s) has an unknown location.", identifier, entry.name or _G.UNKNOWN)
-	end
-
-	if faction and lookup_list == self.mob_list then
-		addon:Debug("Mob %d (%s) has been assigned to faction %s.", identifier, name, entry.faction)
-	end
-	--@end-alpha@
-	lookup_list[identifier] = entry
-	return entry
-end
-
 function private.ItemLinkToID(item_link)
 	if not item_link then
 		return
@@ -282,10 +242,11 @@ do
 	-------------------------------------------------------------------------------
 	-- Miscellaneous utilities
 	-------------------------------------------------------------------------------
-	local function find_empties(unit_list, description)
+	local function find_empties(acquire_type_id)
+		local acquire_type = private.ACQUIRE_TYPES[acquire_type_id]
 		local count
 
-		for unit_id, unit in pairs(unit_list) do
+		for unit_id, unit in pairs(acquire_type:Entities()) do
 			count = 0
 
 			if unit.item_list then
@@ -295,7 +256,7 @@ do
 			end
 
 			if count == 0 then
-				output:AddLine(("* %s %s (%s) has no recipes."):format(description, unit.name or _G.UNKNOWN, unit_id))
+				output:AddLine(("* %s %s (%s) has no recipes."):format(acquire_type:Name(), unit.name or _G.UNKNOWN, unit_id))
 			end
 		end
 	end
@@ -304,13 +265,13 @@ do
 		private.LoadAllRecipes()
 		output:Clear()
 
-		find_empties(private.trainer_list, "Trainer")
-		find_empties(private.vendor_list, "Vendor")
-		find_empties(private.mob_list, "Mob")
-		find_empties(private.quest_list, "Quest")
-		find_empties(private.custom_list, "Custom Entry")
-		find_empties(private.discovery_list, "Discovery")
-		find_empties(private.world_events_list, "World Event")
+		find_empties(private.ACQUIRE_TYPE_IDS.TRAINER)
+		find_empties(private.ACQUIRE_TYPE_IDS.VENDOR)
+		find_empties(private.ACQUIRE_TYPE_IDS.MOB_DROP)
+		find_empties(private.ACQUIRE_TYPE_IDS.QUEST)
+		find_empties(private.ACQUIRE_TYPE_IDS.CUSTOM)
+		find_empties(private.ACQUIRE_TYPE_IDS.DISCOVERY)
+		find_empties(private.ACQUIRE_TYPE_IDS.WORLD_EVENTS)
 
 		if output:Lines() == 0 then
 			output:AddLine("Nothing to display.")

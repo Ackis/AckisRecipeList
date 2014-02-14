@@ -13,11 +13,14 @@ local LibStub = _G.LibStub
 local addon = LibStub("AceAddon-3.0"):GetAddon(private.addon_name)
 local L = LibStub("AceLocale-3.0"):GetLocale(private.addon_name)
 
-private.world_events_list	= {}
+-----------------------------------------------------------------------
+-- Imports.
+-----------------------------------------------------------------------
+local WorldEventsAcquireType = private.ACQUIRE_TYPES[private.ACQUIRE_TYPE_IDS.WORLD_EVENTS]
 
 function addon:InitWorldEvents()
 	local function AddWorldEvent(identifier, name)
-		private:AddListEntry(private.world_events_list, identifier, name, _G.GetCategoryInfo(155))
+		WorldEventsAcquireType:AddEntity(identifier, name, _G.GetCategoryInfo(155))
 	end
 
 	AddWorldEvent("WINTER_VEIL", _G.GetCategoryInfo(156))

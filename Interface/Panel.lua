@@ -504,9 +504,9 @@ function private.InitializeFrame()
 		local function SearchByAcquireType(recipe, search_pattern)
 			local ACQUIRE_TYPES = private.ACQUIRE_TYPES
 
-			for acquire_type in pairs(ACQUIRE_TYPES) do
-				if recipe.acquire_data[acquire_type] then
-					local acquire_name = ACQUIRE_TYPES[acquire_type]:Name():lower()
+			for acquire_type_id in pairs(ACQUIRE_TYPES) do
+				if recipe.acquire_data[acquire_type_id] then
+					local acquire_name = ACQUIRE_TYPES[acquire_type_id]:Name():lower()
 
 					if acquire_name:find(search_pattern) then
 						return true
@@ -540,8 +540,8 @@ function private.InitializeFrame()
 			return false
 		end
 
-		local function SearchByList(recipe, search_pattern, list)
-			for id_num, unit in pairs(list) do
+		local function SearchByList(recipe, search_pattern, acquire_type_id)
+			for id_num, unit in pairs(private.ACQUIRE_TYPES[acquire_type_id]:Entities()) do
 				if unit.item_list and unit.item_list[recipe.spell_id] and unit.name:lower():find(search_pattern) then
 					return true
 				end
@@ -549,32 +549,32 @@ function private.InitializeFrame()
 		end
 
 		local function SearchByTrainer(recipe, search_pattern)
-			return SearchByList(recipe, search_pattern, private.trainer_list)
+			return SearchByList(recipe, search_pattern, A.TRAINER)
 		end
 
 		local function SearchByVendor(recipe, search_pattern)
-			return SearchByList(recipe, search_pattern, private.vendor_list)
+			return SearchByList(recipe, search_pattern, A.VENDOR)
 		end
 
 		local function SearchByMobDrop(recipe, search_pattern)
-			return SearchByList(recipe, search_pattern, private.mob_list)
+			return SearchByList(recipe, search_pattern, A.MOB_DROP)
 		end
 
 		local function SearchByCustom(recipe, search_pattern)
-			return SearchByList(recipe, search_pattern, private.custom_list)
+			return SearchByList(recipe, search_pattern, A.CUSTOM)
 		end
 
 		local function SearchByDiscovery(recipe, search_pattern)
-			return SearchByList(recipe, search_pattern, private.discovery_list)
+			return SearchByList(recipe, search_pattern, A.DISCOVERY)
 		end
 
 		local function SearchByReputation(recipe, search_pattern)
-			local reputation_list = private.reputation_list
+			local reputation_acquire_type = private.ACQUIRE_TYPES[A.REPUTATION]
 
 			for acquire_type, acquire_data in pairs(recipe.acquire_data) do
 				if acquire_type == A.REPUTATION then
 					for id_num, info in pairs(acquire_data) do
-						local str = reputation_list[id_num].name:lower()
+						local str = reputation_acquire_type:GetEntity(id_num).name:lower()
 
 						if str and str:find(search_pattern) then
 							return true

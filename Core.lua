@@ -92,6 +92,7 @@ function addon:Debug(...)
 	Toast:Spawn("ARL_DebugToast", text)
 	--@end-debug@
 end
+private.Debug = addon.Debug
 
 Toast:Register("ARL_DebugToast", function(toast, ...)
 	toast:SetTitle(("%s - Debug"):format(private.addon_name))
@@ -215,7 +216,6 @@ function addon:OnInitialize()
 					skill = true,
 					known = false,
 					unknown = true,
-					retired = false,
 				},
 				-------------------------------------------------------------------------------
 				-- Obtain Filters
@@ -234,6 +234,7 @@ function addon:OnInitialize()
 					quest = true,
 					raid = true,
 					reputation = true,
+					retired = false,
 					seasonal = true,
 					trainer = true,
 					vendor = true,
@@ -413,8 +414,9 @@ function addon:OnInitialize()
 		if not tooltip_unit or not _G.UnitGUID(tooltip_unit) then
 			return
 		end
+		local A = private.ACQUIRE_TYPE_IDS
 		local id_num = private.MobGUIDToIDNum(_G.UnitGUID(tooltip_unit))
-		local unit = private.mob_list[id_num] or private.vendor_list[id_num] or private.trainer_list[id_num]
+		local unit = private.ACQUIRE_TYPES[A.MOB_DROP]:GetEntity(id_num) or private.ACQUIRE_TYPES[A.VENDOR]:GetEntity(id_num) or private.ACQUIRE_TYPES[A.TRAINER]:GetEntity(id_num)
 
 		if not unit or not unit.item_list then
 			return
