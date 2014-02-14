@@ -908,8 +908,8 @@ function Recipe:Dump(output, use_genesis)
 
 	flag_string = nil
 
-	for acquire_type, acquire_info in pairs(self.acquire_data) do
-		if acquire_type == A.REPUTATION then
+	for acquire_type_id, acquire_info in pairs(self.acquire_data) do
+		if acquire_type_id == A.REPUTATION then
 			for rep_id, rep_info in pairs(acquire_info) do
 				local faction_string = private.FACTION_STRINGS[rep_id]
 
@@ -942,7 +942,7 @@ function Recipe:Dump(output, use_genesis)
 					output:AddLine(("recipe:AddRepVendor(%s, %s, %s)"):format(faction_string, rep_string, values), genesis_val)
 				end
 			end
-		elseif acquire_type == A.VENDOR then
+		elseif acquire_type_id == A.VENDOR then
 			local values
 			local limited_values
 
@@ -987,7 +987,7 @@ function Recipe:Dump(output, use_genesis)
 			if limited_values then
 				output:AddLine(("recipe:AddLimitedVendor(%s)"):format(limited_values), genesis_val)
 			end
-		elseif DUMP_FUNCTION_FORMATS[acquire_type] then
+		elseif DUMP_FUNCTION_FORMATS[acquire_type_id] then
 			local values
 
 			table.wipe(sorted_data)
@@ -1002,7 +1002,7 @@ function Recipe:Dump(output, use_genesis)
 				local saved_id
 
 				if type(identifier) == "string" then
-					if acquire_type == A.WORLD_DROP then
+					if acquire_type_id == A.WORLD_DROP then
 						saved_id = ("Z.%s"):format(ZL[identifier])
 					else
 						saved_id = ("\"%s\""):format(identifier)
@@ -1017,7 +1017,7 @@ function Recipe:Dump(output, use_genesis)
 					values = saved_id
 				end
 			end
-			output:AddLine((DUMP_FUNCTION_FORMATS[acquire_type]):format(values), genesis_val)
+			output:AddLine((DUMP_FUNCTION_FORMATS[acquire_type_id]):format(values), genesis_val)
 		else
 			for identifier in pairs(acquire_info) do
 				local saved_id
@@ -1029,9 +1029,9 @@ function Recipe:Dump(output, use_genesis)
 				end
 
 				if flag_string then
-					flag_string = ("%s, A.%s, %s"):format(flag_string, private.ACQUIRE_TYPES_BY_ID[acquire_type]:Label(), saved_id)
+					flag_string = ("%s, A.%s, %s"):format(flag_string, private.ACQUIRE_TYPES_BY_ID[acquire_type_id]:Label(), saved_id)
 				else
-					flag_string = ("A.%s, %s"):format(private.ACQUIRE_TYPES_BY_ID[acquire_type]:Label(), saved_id)
+					flag_string = ("A.%s, %s"):format(private.ACQUIRE_TYPES_BY_ID[acquire_type_id]:Label(), saved_id)
 				end
 			end
 		end
