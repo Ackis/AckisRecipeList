@@ -179,6 +179,52 @@ local CHILDLESS_ACQUIRE_TYPES = {
 	[A.WORLD_DROP] = true,
 }
 
+local function ExpandAcquireData(entry_index, entry_type, parent_entry, acquire_type_id, acquire_type_data, recipe, hide_location, hide_type)
+	local obtain_filters = addon.db.profile.filters.obtain
+	local num_acquire_types = #private.ACQUIRE_TYPES
+
+	for data_identifier, data_info in pairs(acquire_type_data) do
+		local execute
+
+		if acquire_type_id == A.TRAINER and obtain_filters.trainer then
+			execute = true
+		elseif acquire_type_id == A.VENDOR and (obtain_filters.vendor or obtain_filters.pvp) then
+			execute = true
+		elseif acquire_type_id == A.MOB_DROP and (obtain_filters.mobdrop or obtain_filters.instance or obtain_filters.raid) then
+			execute = true
+		elseif acquire_type_id == A.QUEST and obtain_filters.quest then
+			execute = true
+		elseif acquire_type_id == A.WORLD_EVENTS and obtain_filters.seasonal then
+			execute = true
+		elseif acquire_type_id == A.REPUTATION then
+			execute = true
+		elseif acquire_type_id == A.WORLD_DROP and obtain_filters.worlddrop then
+			if not hide_type then
+				execute = true
+			end
+		elseif acquire_type_id == A.CUSTOM then
+			if not hide_type then
+				execute = true
+			end
+		elseif acquire_type_id == A.DISCOVERY then
+			if not hide_type then
+				execute = true
+			end
+		elseif acquire_type_id == A.RETIRED then
+			if not hide_type then
+				execute = true
+			end
+		elseif acquire_type_id == A.ACHIEVEMENT and obtain_filters.achievement then
+			execute = true
+		end
+
+		if execute then
+			entry_index = private.ACQUIRE_TYPES[acquire_type_id]:ExpandListEntry(entry_index, entry_type, parent_entry, data_identifier, data_info, recipe, hide_location, hide_type)
+		end
+	end	-- for
+	return entry_index
+end
+
 local function InitializeAcquisitionTab()
 	local MainPanel = addon.Frame
 
@@ -296,9 +342,9 @@ local function InitializeAcquisitionTab()
 				end
 			end
 		elseif entry:IsSubHeader() then
-			for acquire_id, acquire_data in pairs(entry.recipe.acquire_data) do
-				if acquire_id == entry_acquire_id then
-					new_entry_index = private.ExpandAcquireData(new_entry_index, "subentry", entry, acquire_id, acquire_data, entry.recipe, false, true)
+			for acquire_type_id, acquire_type_data in pairs(entry.recipe.acquire_data) do
+				if acquire_type_id == entry_acquire_type_id then
+					new_entry_index = ExpandAcquireData(new_entry_index, "subentry", entry, acquire_type_id, acquire_type_data, entry.recipe, false, true)
 				end
 			end
 		end
@@ -479,31 +525,25 @@ local function InitializeLocationTab()
 			-- World Drops are not handled here because they are of type "entry".
 			for acquire_type_id, acquire_data in pairs(entry.recipe.acquire_data) do
 				-- Only expand an acquisition entry if it is from this location.
-				for identifier, info in pairs(acquire_data) do
+				for data_identifier, data_info in pairs(acquire_data) do
+					local acquire_type = private.ACQUIRE_TYPES[acquire_type_id]
 					local hide_acquire_type
 					local execute
 
 					if (acquire_type_id == A.TRAINER or acquire_type_id == A.VENDOR or acquire_type_id == A.MOB_DROP or acquire_type_id == A.QUEST)
-							and private.ACQUIRE_TYPES[acquire_type_id]:GetEntity(identifier).location == location_id then
+							and acquire_type:GetEntity(data_identifier).location == location_id then
 						execute = true
 					elseif (acquire_type_id == A.WORLD_EVENTS or acquire_type_id == A.CUSTOM or acquire_type_id == A.DISCOVERY)
-							and private.ACQUIRE_TYPES[acquire_type_id]:GetEntity(identifier).location == location_id then
+							and acquire_type:GetEntity(data_identifier).location == location_id then
 						hide_acquire_type = true
 						execute = true
 					elseif acquire_type_id == A.REPUTATION then
---						for rep_level, level_info in pairs(info) do
---							for vendor_id in pairs(level_info) do
---								if private.ACQUIRE_TYPES[A.VENDOR]:GetEntity(vendor_id).location == location_id then
---									new_entry_index = private.ExpandReputationData(new_entry_index, "subentry", entry, vendor_id, identifier, rep_level, entry.recipe, true)
---								end
---							end
---						end
 						execute = true
 						break
 					end
 
 					if execute then
-						new_entry_index = private.ACQUIRE_TYPES[acquire_type_id]:ExpandListEntry(new_entry_index, "subentry", entry, identifier, entry.recipe, true, hide_acquire_type)
+						new_entry_index = acquire_type:ExpandListEntry(new_entry_index, "subentry", entry, data_identifier, data_info, entry.recipe, true, hide_acquire_type)
 					end
 				end
 			end
@@ -557,8 +597,8 @@ local function InitializeRecipesTab()
 
 		self:SaveListEntryState(entry, true)
 
-		for acquire_type, acquire_data in pairs(recipe.acquire_data) do
-			new_entry_index = private.ExpandAcquireData(new_entry_index, "entry", entry, acquire_type, acquire_data, recipe)
+		for acquire_type_id, acquire_type_data in pairs(recipe.acquire_data) do
+			new_entry_index = ExpandAcquireData(new_entry_index, "entry", entry, acquire_type_id, acquire_type_data, recipe)
 		end
 		return new_entry_index
 	end

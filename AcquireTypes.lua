@@ -6,6 +6,7 @@ local _G = getfenv(0)
 local string = _G.string
 
 local pairs = _G.pairs
+local select = _G.select
 local tonumber = _G.tonumber
 local tostring = _G.tostring
 local type = _G.type
@@ -32,9 +33,6 @@ local COORDINATES_FORMAT = private.COORDINATES_FORMAT
 local FAC = private.LOCALIZED_FACTION_STRINGS
 local REPUTATION_COLORS = private.REPUTATION_COLORS
 
-local CreateListEntry = private.CreateListEntry
-local SetTextColor = private.SetTextColor
-
 -------------------------------------------------------------------------------
 -- Constants.
 -------------------------------------------------------------------------------
@@ -52,11 +50,11 @@ end
 
 local function ColorNameByFaction(name, faction)
 	if faction == "Neutral" then
-		name = SetTextColor(private.REPUTATION_COLORS.neutral.hex, name)
+		name = private.SetTextColor(private.REPUTATION_COLORS.neutral.hex, name)
 	elseif faction == private.Player.faction then
-		name = SetTextColor(private.REPUTATION_COLORS.exalted.hex, name)
+		name = private.SetTextColor(private.REPUTATION_COLORS.exalted.hex, name)
 	else
-		name = SetTextColor(private.REPUTATION_COLORS.hated.hex, name)
+		name = private.SetTextColor(private.REPUTATION_COLORS.hated.hex, name)
 	end
 	return name
 end
@@ -117,8 +115,44 @@ local ACQUIRE_PROTOTYPES = {
 		-------------------------------------------------------------------------------
 		-- Methods.
 		-------------------------------------------------------------------------------
+		_func_expand_list_entry = function(self, entry_index, entry_type, parent_entry, identifier, info, recipe, hide_location, hide_type)
+			local trainer = self:GetEntity(identifier)
+
+			if not trainer or not CanDisplayFaction(trainer.faction) then
+				return entry_index
+			end
+
+			local entry = private.CreateListEntry(entry_type, parent_entry, recipe)
+			entry:SetNPCID(identifier)
+			entry:SetText("%s%s %s",
+				PADDING,
+				hide_type and "" or private.SetTextColor(self:ColorData().hex, self:Name()) .. ":",
+				ColorNameByFaction(trainer.name, trainer.faction))
+
+			entry_index = private.list_frame:InsertEntry(entry, entry_index, true)
+
+			local coord_text = ""
+
+			if trainer.coord_x ~= 0 and trainer.coord_y ~= 0 then
+				coord_text = private.SetTextColor(CATEGORY_COLORS.coords.hex, COORDINATES_FORMAT:format(trainer.coord_x, trainer.coord_y))
+			end
+
+			if coord_text == "" and hide_location then
+				return entry_index
+			end
+
+			entry = private.CreateListEntry(entry_type, parent_entry, recipe)
+			entry:SetNPCID(identifier)
+			entry:SetText("%s%s%s %s",
+				PADDING,
+				PADDING,
+				hide_location and "" or private.SetTextColor(CATEGORY_COLORS.location.hex, trainer.location),
+				coord_text)
+
+			return private.list_frame:InsertEntry(entry, entry_index, true)
+		end,
 		_func_insert_tooltip_text = function(self, recipe, identifier, location, acquire_info, addline_func)
-			local trainer = private.trainer_list[identifier]
+			local trainer = self:GetEntity(identifier)
 
 			if not trainer or (location and trainer.location ~= location) then
 				return
@@ -141,10 +175,9 @@ local ACQUIRE_PROTOTYPES = {
 				return
 			end
 
-			local trainer = private.trainer_list[id_num]
-			local trainer_faction = trainer.faction
+			local trainer = self:GetEntity(id_num)
 
-			if trainer_faction == private.Player.faction or trainer_faction == "Neutral" then
+			if trainer.faction == private.Player.faction or trainer.faction == "Neutral" then
 				return trainer
 			end
 		end
@@ -169,8 +202,46 @@ local ACQUIRE_PROTOTYPES = {
 		-------------------------------------------------------------------------------
 		-- Methods.
 		-------------------------------------------------------------------------------
+		_func_expand_list_entry = function(self, entry_index, entry_type, parent_entry, identifier, info, recipe, hide_location, hide_type)
+			local vendor = self:GetEntity(identifier)
+
+			if not CanDisplayFaction(vendor.faction) then
+				return entry_index
+			end
+
+			local quantity = vendor.item_list[recipe.id]
+			local entry = private.CreateListEntry(entry_type, parent_entry, recipe)
+			entry:SetNPCID(identifier)
+			entry:SetText("%s%s %s%s",
+				PADDING,
+				hide_type and "" or private.SetTextColor(self:ColorData().hex, self:Name()) .. ":",
+				ColorNameByFaction(vendor.name, vendor.faction),
+				type(quantity) == "number" and private.SetTextColor(BASIC_COLORS.white.hex, (" (%d)"):format(quantity)) or "")
+
+			entry_index = private.list_frame:InsertEntry(entry, entry_index, true)
+
+			local coord_text = ""
+
+			if vendor.coord_x ~= 0 and vendor.coord_y ~= 0 then
+				coord_text = private.SetTextColor(CATEGORY_COLORS.coords.hex, COORDINATES_FORMAT:format(vendor.coord_x, vendor.coord_y))
+			end
+
+			if coord_text == "" and hide_location then
+				return entry_index
+			end
+
+			entry = private.CreateListEntry(entry_type, parent_entry, recipe)
+			entry:SetNPCID(identifier)
+			entry:SetText("%s%s%s %s",
+				PADDING,
+				PADDING,
+				hide_location and "" or private.SetTextColor(CATEGORY_COLORS.location.hex, vendor.location),
+				coord_text)
+
+			return private.list_frame:InsertEntry(entry, entry_index, true)
+		end,
 		_func_insert_tooltip_text = function(self, recipe, identifier, location, acquire_info, addline_func)
-			local vendor = private.vendor_list[identifier]
+			local vendor = self:GetEntity(identifier)
 
 			if not vendor or (location and vendor.location ~= location) then
 				return
@@ -197,7 +268,7 @@ local ACQUIRE_PROTOTYPES = {
 			if not private.db.profile.mapvendor then
 				return
 			end
-			local vendor = private.vendor_list[id_num]
+			local vendor = self:GetEntity(id_num)
 			local vendor_faction = vendor.faction
 
 			if vendor_faction == private.Player.faction or vendor_faction == "Neutral" then
@@ -225,8 +296,39 @@ local ACQUIRE_PROTOTYPES = {
 		-------------------------------------------------------------------------------
 		-- Methods.
 		-------------------------------------------------------------------------------
+		_func_expand_list_entry = function(self, entry_index, entry_type, parent_entry, identifier, info, recipe, hide_location, hide_type)
+			local mob = self:GetEntity(identifier)
+			local entry = private.CreateListEntry(entry_type, parent_entry, recipe)
+			entry:SetNPCID(identifier)
+			entry:SetText("%s%s %s",
+				PADDING,
+				hide_type and "" or private.SetTextColor(self:ColorData().hex, self:Name()) .. ":",
+				private.SetTextColor(private.REPUTATION_COLORS.hostile.hex, mob.name))
+
+			entry_index = private.list_frame:InsertEntry(entry, entry_index, true)
+
+			local coord_text = ""
+
+			if mob.coord_x ~= 0 and mob.coord_y ~= 0 then
+				coord_text = private.SetTextColor(CATEGORY_COLORS.coords.hex, COORDINATES_FORMAT:format(mob.coord_x, mob.coord_y))
+			end
+
+			if coord_text == "" and hide_location then
+				return entry_index
+			end
+
+			entry = private.CreateListEntry(entry_type, parent_entry, recipe)
+			entry:SetNPCID(identifier)
+			entry:SetText("%s%s%s %s",
+				PADDING,
+				PADDING,
+				hide_location and "" or private.SetTextColor(CATEGORY_COLORS.location.hex, mob.location),
+				coord_text)
+
+			return private.list_frame:InsertEntry(entry, entry_index, true)
+		end,
 		_func_insert_tooltip_text = function(self, recipe, identifier, location, acquire_info, addline_func)
-			local mob = private.mob_list[identifier]
+			local mob = self:GetEntity(identifier)
 
 			if not mob or (location and mob.location ~= location) then
 				return
@@ -240,7 +342,7 @@ local ACQUIRE_PROTOTYPES = {
 			end
 		end,
 		_func_waypoint_target = function(self, id_num, recipe)
-			return private.db.profile.mapmob and private.mob_list[id_num]
+			return private.db.profile.mapmob and self:GetEntity(id_num)
 		end,
 	},
 
@@ -263,8 +365,42 @@ local ACQUIRE_PROTOTYPES = {
 		-------------------------------------------------------------------------------
 		-- Methods.
 		-------------------------------------------------------------------------------
+		_func_expand_list_entry = function(self, entry_index, entry_type, parent_entry, identifier, info, recipe, hide_location, hide_type)
+			local quest = self:GetEntity(identifier)
+
+			if not CanDisplayFaction(quest.faction) then
+				return entry_index
+			end
+
+			local entry = private.CreateListEntry(entry_type, parent_entry, recipe)
+			entry:SetText("%s%s %s",
+				PADDING,
+				hide_type and "" or private.SetTextColor(self:ColorData().hex, self:Name()) .. ":",
+				ColorNameByFaction(private.quest_names[identifier], quest.faction))
+
+			entry_index = private.list_frame:InsertEntry(entry, entry_index, true)
+
+			local coord_text = ""
+
+			if quest.coord_x ~= 0 and quest.coord_y ~= 0 then
+				coord_text = private.SetTextColor(CATEGORY_COLORS.coords.hex, COORDINATES_FORMAT:format(quest.coord_x, quest.coord_y))
+			end
+
+			if coord_text == "" and hide_location then
+				return entry_index
+			end
+
+			local entry = private.CreateListEntry(entry_type, parent_entry, recipe)
+			entry:SetText("%s%s%s %s",
+				PADDING,
+				PADDING,
+				hide_location and "" or private.SetTextColor(CATEGORY_COLORS.location.hex, quest.location),
+				coord_text)
+
+			return private.list_frame:InsertEntry(entry, entry_index, true)
+		end,
 		_func_insert_tooltip_text = function(self, recipe, identifier, location, acquire_info, addline_func)
-			local quest = private.quest_list[identifier]
+			local quest = self:GetEntity(identifier)
 
 			if not quest or (location and quest.location ~= location) then
 				return
@@ -286,7 +422,7 @@ local ACQUIRE_PROTOTYPES = {
 			if not private.db.profile.mapquest then
 				return
 			end
-			local quest = private.quest_list[id_num]
+			local quest = self:GetEntity(id_num)
 			local quest_faction = quest.faction
 
 			if quest_faction == private.Player.faction or quest_faction == "Neutral" then
@@ -314,9 +450,19 @@ local ACQUIRE_PROTOTYPES = {
 		-------------------------------------------------------------------------------
 		-- Methods.
 		-------------------------------------------------------------------------------
+		_func_expand_list_entry = function(self, entry_index, entry_type, parent_entry, identifier, info, recipe, hide_location, hide_type)
+			local color_hex = self:ColorData().hex
+			local entry = private.CreateListEntry(entry_type, parent_entry, recipe)
+			entry:SetText("%s%s %s",
+				PADDING,
+				hide_type and "" or private.SetTextColor(color_hex, self:Name()) .. ":",
+				private.SetTextColor(color_hex, self:GetEntity(identifier).name))
+
+			return private.list_frame:InsertEntry(entry, entry_index, true)
+		end,
 		_func_insert_tooltip_text = function(self, recipe, identifier, location, acquire_info, addline_func)
 			local color_data = self:ColorData()
-			addline_func(0, -1, 0, self:Name(), color_data, private.world_events_list[identifier].name, color_data)
+			addline_func(0, -1, 0, self:Name(), color_data, self:GetEntity(identifier).name, color_data)
 		end,
 		_func_waypoint_target = function(self, id_num, recipe)
 		-- Do nothing.
@@ -342,16 +488,75 @@ local ACQUIRE_PROTOTYPES = {
 		-------------------------------------------------------------------------------
 		-- Methods.
 		-------------------------------------------------------------------------------
+		_func_expand_list_entry = function(self, entry_index, entry_type, parent_entry, identifier, info, recipe, hide_location, hide_type)
+			for reputation_level, reputation_level_info in pairs(info) do
+				for vendor_id in pairs(reputation_level_info) do
+					local rep_vendor = private.ACQUIRE_TYPES[private.ACQUIRE_TYPE_IDS.VENDOR]:GetEntity(vendor_id)
+
+					if not CanDisplayFaction(rep_vendor.faction) then
+						return entry_index
+					end
+
+					if not self.__faction_labels then
+						local rep_color = private.REPUTATION_COLORS
+
+						self.__faction_labels = {
+							[0] = private.SetTextColor(rep_color.neutral.hex, FAC["Neutral"] .. " : "),
+							[1] = private.SetTextColor(rep_color.friendly.hex, FAC["Friendly"] .. " : "),
+							[2] = private.SetTextColor(rep_color.honored.hex, FAC["Honored"] .. " : "),
+							[3] = private.SetTextColor(rep_color.revered.hex, FAC["Revered"] .. " : "),
+							[4] = private.SetTextColor(rep_color.exalted.hex, FAC["Exalted"] .. " : ")
+						}
+					end
+
+					local entry = private.CreateListEntry(entry_type, parent_entry, recipe)
+					entry:SetNPCID(vendor_id)
+					entry:SetText("%s%s %s",
+						PADDING,
+						hide_type and "" or private.SetTextColor(self:ColorData().hex, _G.REPUTATION) .. ":",
+						private.SetTextColor(CATEGORY_COLORS.repname.hex, self:GetEntity(identifier).name))
+
+					entry_index = private.list_frame:InsertEntry(entry, entry_index, true)
+
+					entry = private.CreateListEntry(entry_type, parent_entry, recipe)
+					entry:SetNPCID(vendor_id)
+					entry:SetText(PADDING .. PADDING .. self.__faction_labels[reputation_level] .. ColorNameByFaction(rep_vendor.name, rep_vendor.faction))
+
+					entry_index = private.list_frame:InsertEntry(entry, entry_index, true)
+
+					local coord_text = ""
+
+					if rep_vendor.coord_x ~= 0 and rep_vendor.coord_y ~= 0 then
+						coord_text = private.SetTextColor(CATEGORY_COLORS.coords.hex, COORDINATES_FORMAT:format(rep_vendor.coord_x, rep_vendor.coord_y))
+					end
+
+					if coord_text == "" and hide_location then
+						return entry_index
+					end
+
+					entry = private.CreateListEntry(entry_type, parent_entry, recipe)
+					entry:SetNPCID(vendor_id)
+					entry:SetText("%s%s%s%s %s",
+						PADDING,
+						PADDING,
+						PADDING,
+						hide_location and "" or private.SetTextColor(CATEGORY_COLORS.location.hex, rep_vendor.location),
+						coord_text)
+
+					return private.list_frame:InsertEntry(entry, entry_index, true)
+				end
+			end
+		end,
 		_func_insert_tooltip_text = function(self, recipe, identifier, location, acquire_info, addline_func)
 			for rep_level, level_info in pairs(acquire_info) do
 				for vendor_id in pairs(level_info) do
-					local rep_vendor = private.vendor_list[vendor_id]
+					local rep_vendor = private.ACQUIRE_TYPES[private.ACQUIRE_TYPE_IDS.VENDOR]:GetEntity(vendor_id)
 
 					if rep_vendor and (not location or rep_vendor.location == location) then
 						local display_tip, name_color = GetTipFactionInfo(rep_vendor.faction)
 
 						if display_tip then
-							addline_func(0, -1, false, _G.REPUTATION, self:ColorData(), private.reputation_list[identifier].name, CATEGORY_COLORS.repname)
+							addline_func(0, -1, false, _G.REPUTATION, self:ColorData(), self:GetEntity(identifier).name, CATEGORY_COLORS.repname)
 
 							if rep_level == 0 then
 								addline_func(1, -2, false, FAC["Neutral"], private.REPUTATION_COLORS.neutral, rep_vendor.name, name_color)
@@ -379,9 +584,9 @@ local ACQUIRE_PROTOTYPES = {
 			if not private.db.profile.mapvendor then
 				return
 			end
-			local vendor = private.vendor_list[id_num]
+			local vendor = private.ACQUIRE_TYPES[private.ACQUIRE_TYPE_IDS.VENDOR]:GetEntity(id_num)
 
-			if private.Player.reputation_levels[private.reputation_list[vendor.reputation_id].name] then
+			if private.Player.reputation_levels[self:GetEntity(vendor.reputation_id).name] then
 				return vendor
 			end
 		end,
@@ -406,6 +611,31 @@ local ACQUIRE_PROTOTYPES = {
 		-------------------------------------------------------------------------------
 		-- Methods.
 		-------------------------------------------------------------------------------
+		_func_expand_list_entry = function(self, entry_index, entry_type, parent_entry, identifier, info, recipe, hide_location, hide_type)
+			local drop_location = type(identifier) == "string" and private.SetTextColor(CATEGORY_COLORS.location.hex, identifier)
+
+			if drop_location then
+				local recipe_item_id = recipe:RecipeItem()
+				local recipe_item_level = recipe_item_id and select(4, _G.GetItemInfo(recipe_item_id))
+
+				if recipe_item_level then
+					drop_location = (": %s %s"):format(drop_location, private.SetTextColor(CATEGORY_COLORS.location.hex, "(%d - %d)"):format(recipe_item_level - 5, recipe_item_level + 5))
+				else
+					drop_location = (": %s"):format(drop_location)
+				end
+			else
+				drop_location = ""
+			end
+
+			local entry = private.CreateListEntry(entry_type, parent_entry, recipe)
+			entry:SetText("%s|c%s%s|r%s",
+				PADDING,
+				select(4, _G.GetItemQualityColor(recipe.quality)),
+				L["World Drop"],
+				drop_location)
+
+			return private.list_frame:InsertEntry(entry, entry_index, true)
+		end,
 		_func_insert_tooltip_text = function(self, recipe, identifier, location, acquire_info, addline_func)
 			local drop_location = type(identifier) == "string" and identifier or _G.UNKNOWN
 
@@ -447,6 +677,15 @@ local ACQUIRE_PROTOTYPES = {
 		-------------------------------------------------------------------------------
 		-- Methods.
 		-------------------------------------------------------------------------------
+		_func_expand_list_entry = function(self, entry_index, entry_type, parent_entry, identifier, info, recipe, hide_location, hide_type)
+			local entry = private.CreateListEntry(entry_type, parent_entry, recipe)
+			entry:SetText("%s%s %s",
+				PADDING,
+				hide_type and "" or private.SetTextColor(self:ColorData().hex, _G.ACHIEVEMENTS) .. ":",
+				private.SetTextColor(BASIC_COLORS.normal.hex, select(2, _G.GetAchievementInfo(identifier))))
+
+			return private.list_frame:InsertEntry(entry, entry_index, true)
+		end,
 		_func_insert_tooltip_text = function(self, recipe, identifier, location, acquire_info, addline_func)
 			local _, achievement_name, _, _, _, _, _, achievement_desc = _G.GetAchievementInfo(identifier)
 
@@ -480,8 +719,14 @@ local ACQUIRE_PROTOTYPES = {
 		-------------------------------------------------------------------------------
 		-- Methods.
 		-------------------------------------------------------------------------------
+		_func_expand_list_entry = function(self, entry_index, entry_type, parent_entry, identifier, info, recipe, hide_location, hide_type)
+			local entry = private.CreateListEntry(entry_type, parent_entry, recipe)
+			entry:SetText(PADDING .. private.SetTextColor(self:ColorData().hex, self:GetEntity(identifier).name))
+
+			return private.list_frame:InsertEntry(entry, entry_index, true)
+		end,
 		_func_insert_tooltip_text = function(self, recipe, identifier, location, acquire_info, addline_func)
-			addline_func(0, -1, false, private.discovery_list[identifier].name, self:ColorData())
+			addline_func(0, -1, false, self:GetEntity(identifier).name, self:ColorData())
 		end,
 		_func_waypoint_target = function(self, id_num, recipe)
 		-- Do nothing.
@@ -518,21 +763,27 @@ local ACQUIRE_PROTOTYPES = {
 		-------------------------------------------------------------------------------
 		-- Methods.
 		-------------------------------------------------------------------------------
+		_func_expand_list_entry = function(self, entry_index, entry_type, parent_entry, identifier, info, recipe, hide_location, hide_type)
+			local entry = private.CreateListEntry(entry_type, parent_entry, recipe)
+			entry:SetText(PADDING .. private.SetTextColor(self:ColorData().hex, self:GetEntity(identifier).name))
+
+			return private.list_frame:InsertEntry(entry, entry_index, true)
+		end,
 		_func_insert_tooltip_text = function(self, recipe, identifier, location, acquire_info, addline_func)
-			addline_func(0, -1, false, private.custom_list[identifier].name, self:ColorData())
+			addline_func(0, -1, false, self:GetEntity(identifier).name, self:ColorData())
 		end,
 		_func_waypoint_target = function(self, id_num, recipe)
 			local profile = private.db.profile
 
 			for field, flag in pairs(self.__waypoint_checks) do
 				if profile[field] and recipe:HasFilter("common1", flag) then
-					return private.custom_list[id_num]
+					return self:GetEntity(id_num)
 				end
 			end
 
 			for index = 1, #self.__waypoint_filters do
 				if recipe:HasFilter("common1", self.__waypoint_filters[index]) then
-					return private.custom_list[id_num]
+					return self:GetEntity(id_num)
 				end
 			end
 		end,
@@ -557,6 +808,12 @@ local ACQUIRE_PROTOTYPES = {
 		-------------------------------------------------------------------------------
 		-- Methods.
 		-------------------------------------------------------------------------------
+		_func_expand_list_entry = function(self, entry_index, entry_type, parent_entry, identifier, info, recipe, hide_location, hide_type)
+			local entry = private.CreateListEntry(entry_type, parent_entry, recipe)
+			entry:SetText(PADDING .. private.SetTextColor(self:ColorData().hex, L.REMOVED_FROM_GAME))
+
+			return private.list_frame:InsertEntry(entry, entry_index, true)
+		end,
 		_func_insert_tooltip_text = function(self, recipe, identifier, location, acquire_info, addline_func)
 			addline_func(0, -1, false, L.REMOVED_FROM_GAME, self:ColorData())
 		end,
@@ -620,8 +877,8 @@ function AcquireType:Entities()
 	return self._entities
 end
 
-function AcquireType:ExpandListEntry(entry_index, entry_type, parent_entry, id_num, recipe, hide_location, hide_type)
-	return self._func_expand_list_entry(self, entry_index, entry_type, parent_entry, id_num, recipe, hide_location, hide_type)
+function AcquireType:ExpandListEntry(entry_index, entry_type, parent_entry, identifier, info, recipe, hide_location, hide_type)
+	return self._func_expand_list_entry(self, entry_index, entry_type, parent_entry, identifier, info, recipe, hide_location, hide_type)
 end
 
 function AcquireType:GetEntity(identifier)
