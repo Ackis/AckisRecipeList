@@ -92,6 +92,7 @@ function addon:Debug(...)
 	Toast:Spawn("ARL_DebugToast", text)
 	--@end-debug@
 end
+private.Debug = addon.Debug
 
 Toast:Register("ARL_DebugToast", function(toast, ...)
 	toast:SetTitle(("%s - Debug"):format(private.addon_name))
