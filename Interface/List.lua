@@ -144,6 +144,7 @@ function private.InitializeListFrame()
 		self.selected_entry = nil
 	end)
 	MainPanel.list_frame = ListFrame
+	private.list_frame = ListFrame
 
 	-------------------------------------------------------------------------------
 	-- Scroll bar.
