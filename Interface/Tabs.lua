@@ -312,14 +312,16 @@ local function InitializeLocationTab()
 	-- Used to hold tables for sorting the tab: The tables are only sorted once upon creation.
 	local sorted_locations
 
-	local function FactionTally(source_data, unit_list, location)
+	local function FactionTally(acquire_data, acquire_type_id, location)
+		local acquire_type = private.ACQUIRE_TYPES[acquire_type_id]
 		local good, bad = 0, 0
 
-		for id_num in pairs(source_data) do
-			local unit_faction = unit_list[id_num].faction
+		for id_num in pairs(acquire_data) do
+			local entity = acquire_type:GetEntity(id_num)
+			local entity_faction = entity.faction
 
-			if not location or unit_list[id_num].location == location then
-				if not unit_faction or unit_faction == private.Player.faction or unit_faction == "Neutral" then
+			if not location or entity.location == location then
+				if not entity_faction or entity_faction == private.Player.faction or entity_faction == "Neutral" then
 					good = good + 1
 				else
 					bad = bad + 1
@@ -370,42 +372,26 @@ local function InitializeLocationTab()
 				local recipe = profession_recipes[spell_id]
 
 				if recipe and recipe:HasState("VISIBLE") and search_box:MatchesRecipe(recipe) then
-					local trainer_data = recipe.acquire_data[A.TRAINER]
 					local good_count, bad_count = 0, 0
 					local fac_toggle = addon.db.profile.filters.general.faction
 
 					if not fac_toggle then
-						if trainer_data then
-							local good, bad = FactionTally(trainer_data, private.trainer_list, loc_name)
+						local ACQUIRE_TYPES = private.ACQUIRE_TYPES
 
-							if good == 0 and bad > 0 then
-								bad_count = bad_count + 1
-							else
-								good_count = good_count + 1
+						for acquire_type_id = 1, #ACQUIRE_TYPES do
+							local acquire_data = recipe.acquire_data[acquire_type_id]
+
+							if acquire_data and ACQUIRE_TYPES[acquire_type_id]:HasCoordinates() then
+								local good, bad = FactionTally(acquire_data, acquire_type_id, loc_name)
+
+								if good == 0 and bad > 0 then
+									bad_count = bad_count + 1
+								else
+									good_count = good_count + 1
+								end
 							end
 						end
-						local vendor_data = recipe.acquire_data[A.VENDOR]
 
-						if vendor_data then
-							local good, bad = FactionTally(vendor_data, private.vendor_list, loc_name)
-
-							if good == 0 and bad > 0 then
-								bad_count = bad_count + 1
-							else
-								good_count = good_count + 1
-							end
-						end
-						local quest_data = recipe.acquire_data[A.QUEST]
-
-						if quest_data then
-							local good, bad = FactionTally(quest_data, private.quest_list, loc_name)
-
-							if good == 0 and bad > 0 then
-								bad_count = bad_count + 1
-							else
-								good_count = good_count + 1
-							end
-						end
 					end
 
 					if fac_toggle or not (good_count == 0 and bad_count > 0) then
