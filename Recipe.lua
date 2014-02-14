@@ -478,6 +478,9 @@ function recipe_prototype:AddRepVendor(reputation_id, rep_level, ...)
 		faction = acquire_data[reputation_id]
 		faction[rep_level] = {}
 	end
+	local reputation_acquire_type = private.ACQUIRE_TYPES[A.REPUTATION]
+	local vendor_acquire_type = private.ACQUIRE_TYPES[A.VENDOR]
+
 	local num_vars = select('#', ...)
 	local cur_var = 1
 
@@ -486,9 +489,9 @@ function recipe_prototype:AddRepVendor(reputation_id, rep_level, ...)
 		local vendor_id = select(cur_var, ...)
 		cur_var = cur_var + 1
 
-		if private.reputation_list[reputation_id] then
+		if reputation_acquire_type:GetEntity(reputation_id) then
 			if vendor_id then
-				local rep_vendor = private.ACQUIRE_TYPES[A.VENDOR]:GetEntity(vendor_id)
+				local rep_vendor = vendor_acquire_type:GetEntity(vendor_id)
 
 				if rep_vendor then
 					faction[rep_level][vendor_id] = true
@@ -500,13 +503,18 @@ function recipe_prototype:AddRepVendor(reputation_id, rep_level, ...)
 					rep_vendor.item_list = rep_vendor.item_list or {}
 					rep_vendor.item_list[self.spell_id] = true
 				else
-					addon:Debug("Spell ID %d (%s): Reputation Vendor ID %s does not exist in the database.", self.spell_id, tostring(self.name), tostring(vendor_id))
+					addon:Debug("Spell ID %d (%s): Reputation Vendor ID %s does not exist in the %s AcquireType Entity table.",
+						self.spell_id,
+						tostring(self.name),
+						tostring(vendor_id),
+						vendor_acquire_type:Label()
+					)
 				end
 			else
 				addon:Debug("Spell ID %d (%s): Nil Reputation Vendor ID passed.", self.spell_id, tostring(self.name))
 			end
 		else
-			addon:Debug("Spell ID %d: Faction ID %d does not exist in the database.", self.spell_id, reputation_id)
+			addon:Debug("Spell ID %d: Faction ID %d does not exist in the %s AcquireType Entity table.", self.spell_id, reputation_id, reputation_acquire_type:Label())
 		end
 		acquire_list[A.REPUTATION] = acquire_list[A.REPUTATION] or {}
 		acquire_list[A.REPUTATION].recipes = acquire_list[A.REPUTATION].recipes or {}

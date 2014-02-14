@@ -24,15 +24,17 @@ local _G = getfenv(0)
 local FOLDER_NAME, private = ...
 
 local LibStub = _G.LibStub
-
 local addon	= LibStub("AceAddon-3.0"):GetAddon(private.addon_name)
 local L		= LibStub("AceLocale-3.0"):GetLocale(private.addon_name)
 
-private.reputation_list	= {}
+-----------------------------------------------------------------------
+-- Imports.
+-----------------------------------------------------------------------
+local ReputationAcquireType = private.ACQUIRE_TYPES[private.ACQUIRE_TYPE_IDS.REPUTATION]
 
 function addon:InitReputation()
 	local function AddReputation(rep_id, name)
-		private:AddListEntry(private.reputation_list, rep_id, GetFactionInfoByID(rep_id))
+		ReputationAcquireType:AddEntity(rep_id, _G.GetFactionInfoByID(rep_id))
 	end
 	AddReputation(59)
 	AddReputation(270)

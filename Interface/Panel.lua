@@ -569,12 +569,12 @@ function private.InitializeFrame()
 		end
 
 		local function SearchByReputation(recipe, search_pattern)
-			local reputation_list = private.reputation_list
+			local reputation_acquire_type = private.ACQUIRE_TYPES[A.REPUTATION]
 
 			for acquire_type, acquire_data in pairs(recipe.acquire_data) do
 				if acquire_type == A.REPUTATION then
 					for id_num, info in pairs(acquire_data) do
-						local str = reputation_list[id_num].name:lower()
+						local str = reputation_acquire_type:GetEntity(id_num).name:lower()
 
 						if str and str:find(search_pattern) then
 							return true

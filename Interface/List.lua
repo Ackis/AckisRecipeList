@@ -1233,7 +1233,7 @@ function private.InitializeListFrame()
 		entry:SetText("%s%s %s",
 			PADDING,
 			hide_type and "" or SetTextColor(private.ACQUIRE_TYPES[A.REPUTATION]:ColorData().hex, _G.REPUTATION) .. ":",
-			SetTextColor(CATEGORY_COLORS.repname.hex, private.reputation_list[rep_id].name)
+			SetTextColor(CATEGORY_COLORS.repname.hex, private.ACQUIRE_TYPES[A.REPUTATION]:GetEntity(rep_id).name)
 		)
 
 		entry_index = ListFrame:InsertEntry(entry, entry_index, true)
