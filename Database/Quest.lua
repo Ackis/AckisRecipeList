@@ -31,8 +31,6 @@ local addon	= LibStub("AceAddon-3.0"):GetAddon(private.addon_name)
 -----------------------------------------------------------------------
 local Z = private.ZONE_NAMES
 
-local QuestAcquireType = private.ACQUIRE_TYPES[private.ACQUIRE_TYPE_IDS.QUEST]
-
 -----------------------------------------------------------------------
 -- Memoizing table for quest names.
 -----------------------------------------------------------------------
@@ -54,7 +52,7 @@ private.quest_names = _G.setmetatable({}, {
 
 function addon:InitQuest()
 	local function AddQuest(quest_id, zone_name, coord_x, coord_y, faction)
-		QuestAcquireType:AddEntity(quest_id, nil, zone_name, coord_x, coord_y, faction)
+		private.AcquireTypes.Quest:AddEntity(quest_id, nil, zone_name, coord_x, coord_y, faction)
 	end
 
 	AddQuest(384,	Z.DUN_MOROGH,			46.8,	52.5,	"Alliance")

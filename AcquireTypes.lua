@@ -491,7 +491,7 @@ local ACQUIRE_PROTOTYPES = {
 		_func_expand_list_entry = function(self, entry_index, entry_type, parent_entry, identifier, info, recipe, hide_location, hide_type)
 			for reputation_level, reputation_level_info in pairs(info) do
 				for vendor_id in pairs(reputation_level_info) do
-					local rep_vendor = private.ACQUIRE_TYPES[private.ACQUIRE_TYPE_IDS.VENDOR]:GetEntity(vendor_id)
+					local rep_vendor = private.AcquireTypes.Vendor:GetEntity(vendor_id)
 
 					if not CanDisplayFaction(rep_vendor.faction) then
 						return entry_index
@@ -550,7 +550,7 @@ local ACQUIRE_PROTOTYPES = {
 		_func_insert_tooltip_text = function(self, recipe, identifier, location, acquire_info, addline_func)
 			for rep_level, level_info in pairs(acquire_info) do
 				for vendor_id in pairs(level_info) do
-					local rep_vendor = private.ACQUIRE_TYPES[private.ACQUIRE_TYPE_IDS.VENDOR]:GetEntity(vendor_id)
+					local rep_vendor = private.AcquireTypes.Vendor:GetEntity(vendor_id)
 
 					if rep_vendor and (not location or rep_vendor.location == location) then
 						local display_tip, name_color = GetTipFactionInfo(rep_vendor.faction)
@@ -584,7 +584,7 @@ local ACQUIRE_PROTOTYPES = {
 			if not private.db.profile.mapvendor then
 				return
 			end
-			local vendor = private.ACQUIRE_TYPES[private.ACQUIRE_TYPE_IDS.VENDOR]:GetEntity(id_num)
+			local vendor = private.AcquireTypes.Vendor:GetEntity(id_num)
 
 			if private.Player.reputation_levels[self:GetEntity(vendor.reputation_id).name] then
 				return vendor
@@ -825,6 +825,7 @@ local ACQUIRE_PROTOTYPES = {
 
 private.ACQUIRE_TYPES = {}
 private.ACQUIRE_TYPE_IDS = {}
+private.AcquireTypes = {}
 
 for index = 1, #ACQUIRE_PROTOTYPES do
 	local acquire_type = ACQUIRE_PROTOTYPES[index]
@@ -834,6 +835,9 @@ for index = 1, #ACQUIRE_PROTOTYPES do
 
 	private.ACQUIRE_TYPES[index] = acquire_type
 	private.ACQUIRE_TYPE_IDS[acquire_type._label] = index
+
+	-- Make things easier by assigning the AcquireType by title case: WORLD_DROP becomes WorldDrop, for example
+	private.AcquireTypes[acquire_type._label:lower():gsub("^%l", _G.string.upper):gsub("_%l", _G.string.upper):gsub("_", "")] = acquire_type
 end
 
 -------------------------------------------------------------------------------

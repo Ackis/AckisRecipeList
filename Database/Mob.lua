@@ -34,11 +34,9 @@ local BB = LibStub("LibBabble-Boss-3.0"):GetLookupTable()
 local BN = private.BOSS_NAMES
 local Z = private.ZONE_NAMES
 
-local MobDropAcquireType = private.ACQUIRE_TYPES[private.ACQUIRE_TYPE_IDS.MOB_DROP]
-
 function addon:InitMob()
 	local function AddMob(mob_id, mob_name, zone_name, coord_x, coord_y)
-		MobDropAcquireType:AddEntity(mob_id, mob_name, zone_name, coord_x, coord_y, nil)
+		private.AcquireTypes.MobDrop:AddEntity(mob_id, mob_name, zone_name, coord_x, coord_y, nil)
 	end
 
 	-- Abyssal Depths

@@ -498,7 +498,7 @@ function private.InitializeFilterPanel()
 			trainer		= { tt = L["TRAINER_DESC"],		text = L["Trainer"],					row = 6, col = 1 },
 			vendor		= { tt = L["VENDOR_DESC"],		text = L["Vendor"],					row = 6, col = 2 },
 			worlddrop	= { tt = L["WORLD_DROP_DESC"],		text = L["World Drop"],					row = 7, col = 1 },
-			seasonal	= { tt = L["SEASONAL_DESC"],		text = private.ACQUIRE_TYPES[A.WORLD_EVENTS]:Name(),	row = 7, col = 2 },
+			seasonal	= { tt = L["SEASONAL_DESC"],		text = private.AcquireTypes.WorldEvents:Name(),		row = 7, col = 2 },
 		}
 
 		local acquire_panel = _G.CreateFrame("Frame", nil, obtain_frame)

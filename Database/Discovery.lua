@@ -29,14 +29,9 @@ local addon = LibStub("AceAddon-3.0"):GetAddon(private.addon_name)
 local L = LibStub("AceLocale-3.0"):GetLocale(private.addon_name)
 
 
------------------------------------------------------------------------
--- Imports.
------------------------------------------------------------------------
-local DiscoveryAcquireType = private.ACQUIRE_TYPES[private.ACQUIRE_TYPE_IDS.DISCOVERY]
-
 function addon:InitDiscovery()
 	local function AddDiscovery(identifier, location, coord_x, coord_y, faction)
-		DiscoveryAcquireType:AddEntity(identifier, L[identifier], location, coord_x, coord_y, faction)
+		private.AcquireTypes.Discovery:AddEntity(identifier, L[identifier], location, coord_x, coord_y, faction)
 	end
 
 	AddDiscovery("DISCOVERY_ALCH_ELIXIRFLASK")

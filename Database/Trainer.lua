@@ -30,14 +30,13 @@ local L = LibStub("AceLocale-3.0"):GetLocale(private.addon_name, true)
 -----------------------------------------------------------------------
 -- Imports.
 -----------------------------------------------------------------------
-local TrainerAcquireType = private.ACQUIRE_TYPES[private.ACQUIRE_TYPE_IDS.TRAINER]
 local Z = private.ZONE_NAMES
 
 function private:AddTrainer(id_num, trainer_name, zone_name, coord_x, coord_y, faction)
 	if _G.type(trainer_name) == "number" then
-		TrainerAcquireType:AddEntity(id_num, _G.GetSpellInfo(trainer_name), zone_name, coord_x, coord_y, faction).spell_id = trainer_name
+		private.AcquireTypes.Trainer:AddEntity(id_num, _G.GetSpellInfo(trainer_name), zone_name, coord_x, coord_y, faction).spell_id = trainer_name
 	else
-		TrainerAcquireType:AddEntity(id_num, L[trainer_name], zone_name, coord_x, coord_y, faction)
+		private.AcquireTypes.Trainer:AddEntity(id_num, L[trainer_name], zone_name, coord_x, coord_y, faction)
 	end
 end
 

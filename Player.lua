@@ -124,7 +124,7 @@ function Player:HasProperRepLevel(rep_data)
 			elseif rep_id == FAC.MAGHAR or rep_id == FAC.KURENAI then
 				rep_id = is_alliance and FAC.KURENAI or FAC.MAGHAR
 			end
-			local rep_name = private.ACQUIRE_TYPES[private.ACQUIRE_TYPE_IDS.REPUTATION]:GetEntity(rep_id).name
+			local rep_name = private.AcquireTypes.Reputation:GetEntity(rep_id).name
 
 			if not reputation_levels[rep_name] or reputation_levels[rep_name] < rep_level then
 				has_faction = false

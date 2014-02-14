@@ -27,15 +27,11 @@ local LibStub = _G.LibStub
 local addon	= LibStub("AceAddon-3.0"):GetAddon(private.addon_name)
 local L		= LibStub("AceLocale-3.0"):GetLocale(private.addon_name)
 
------------------------------------------------------------------------
--- Imports.
------------------------------------------------------------------------
-local ReputationAcquireType = private.ACQUIRE_TYPES[private.ACQUIRE_TYPE_IDS.REPUTATION]
-
 function addon:InitReputation()
 	local function AddReputation(rep_id, name)
-		ReputationAcquireType:AddEntity(rep_id, _G.GetFactionInfoByID(rep_id))
+		private.AcquireTypes.Reputation:AddEntity(rep_id, _G.GetFactionInfoByID(rep_id))
 	end
+
 	AddReputation(59)
 	AddReputation(270)
 	AddReputation(529)

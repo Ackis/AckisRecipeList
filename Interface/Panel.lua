@@ -569,7 +569,7 @@ function private.InitializeFrame()
 		end
 
 		local function SearchByReputation(recipe, search_pattern)
-			local reputation_acquire_type = private.ACQUIRE_TYPES[A.REPUTATION]
+			local reputation_acquire_type = private.AcquireTypes.Reputation
 
 			for acquire_type, acquire_data in pairs(recipe.acquire_data) do
 				if acquire_type == A.REPUTATION then

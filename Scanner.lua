@@ -182,7 +182,7 @@ do
 		-- Dump out trainer info
 		local trainer_id = private.MobGUIDToIDNum(_G.UnitGUID("target"))
 		local trainer_name = _G.UnitName("target")
-		local trainer_entry = private.ACQUIRE_TYPES[A.TRAINER]:GetEntity(trainer_id)
+		local trainer_entry = private.AcquireTypes.Trainer:GetEntity(trainer_id)
 		local trainer_x, trainer_y = _G.GetPlayerMapPosition("player")
 		trainer_x = ("%.2f"):format(trainer_x * 100)
 		trainer_y = ("%.2f"):format(trainer_y * 100)
@@ -1039,7 +1039,7 @@ do
 		table.sort(sorted_data)
 
 		for index, identifier in ipairs(sorted_data) do
-			local trainer = private.ACQUIRE_TYPES[A.TRAINER]:GetEntity(identifier)
+			local trainer = private.AcquireTypes.Trainer:GetEntity(identifier)
 
 			if trainer then
 				if trainer.spell_id then
@@ -1159,7 +1159,7 @@ do
 				end
 			end
 		end
-		local vendor_acquire_type = private.ACQUIRE_TYPES[A.VENDOR]
+		local vendor_acquire_type = private.AcquireTypes.Vendor
 		local vendor_entry = vendor_acquire_type:GetEntity(vendor_id)
 		local vendor_x, vendor_y = _G.GetPlayerMapPosition("player")
 		vendor_x = ("%.2f"):format(vendor_x * 100)

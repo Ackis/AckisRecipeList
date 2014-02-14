@@ -486,8 +486,8 @@ function Recipe:AddRepVendor(reputation_id, rep_level, ...)
 		faction = acquire_data[reputation_id]
 		faction[rep_level] = {}
 	end
-	local reputation_acquire_type = private.ACQUIRE_TYPES[A.REPUTATION]
-	local vendor_acquire_type = private.ACQUIRE_TYPES[A.VENDOR]
+	local reputation_acquire_type = private.AcquireTypes.Reputation
+	local vendor_acquire_type = private.AcquireTypes.Vendor
 
 	local num_vars = select('#', ...)
 	local cur_var = 1
@@ -527,7 +527,7 @@ function Recipe:AddRepVendor(reputation_id, rep_level, ...)
 		acquire_list[A.REPUTATION] = acquire_list[A.REPUTATION] or {}
 		acquire_list[A.REPUTATION].recipes = acquire_list[A.REPUTATION].recipes or {}
 
-		acquire_list[A.REPUTATION].name = private.ACQUIRE_TYPES[A.REPUTATION]:Name()
+		acquire_list[A.REPUTATION].name = private.AcquireTypes.Reputation:Name()
 		acquire_list[A.REPUTATION].recipes[self.spell_id] = affiliation or true
 
 		if location_name then
@@ -962,7 +962,7 @@ function Recipe:Dump(output, use_genesis)
 				else
 					saved_id = identifier
 				end
-				local vendor = private.ACQUIRE_TYPES[A.VENDOR]:GetEntity(identifier)
+				local vendor = private.private.AcquireTypes.Vendor:GetEntity(identifier)
 				local quantity = vendor.item_list[self.spell_id]
 
 				if type(quantity) == "number" then
