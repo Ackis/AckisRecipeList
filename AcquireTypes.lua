@@ -572,6 +572,7 @@ private.ACQUIRE_TYPE_IDS = {}
 for index = 1, #ACQUIRE_PROTOTYPES do
 	local acquire_type = ACQUIRE_PROTOTYPES[index]
 	acquire_type._id = index
+	acquire_type._entities = {}
 	_G.setmetatable(acquire_type, acquire_type_metatable)
 
 	private.ACQUIRE_TYPES[index] = acquire_type
@@ -581,12 +582,50 @@ end
 -------------------------------------------------------------------------------
 -- AcquireType Methods.
 -------------------------------------------------------------------------------
+function AcquireType:AddEntity(identifier, name, location, coord_x, coord_y, faction)
+	if self._entities[identifier] then
+		private:Debug("Duplicate lookup: %s - %s.", identifier, name)
+		return
+	end
+
+	local entity = {
+		name = name,
+		location = location,
+		faction = faction,
+	}
+
+	if coord_x and coord_y then
+		entity.coord_x = coord_x
+		entity.coord_y = coord_y
+	end
+
+	--@alpha@
+	if not location and self:HasCoordinates() then
+		private:Debug("%s %s (%s) has an unknown location.", self:Name(), name or _G.UNKNOWN, identifier)
+	end
+
+	if faction and self:ID() == private.ACQUIRE_TYPE_IDS.MOB_DROP then
+		private:Debug("Mob %d (%s) has been assigned to faction %s.", identifier, name, entity.faction)
+	end
+	--@end-alpha@
+	self._entities[identifier] = entity
+	return entity
+end
+
 function AcquireType:ColorData()
 	return self._color_data
 end
 
+function AcquireType:Entities()
+	return self._entities
+end
+
 function AcquireType:ExpandListEntry(entry_index, entry_type, parent_entry, id_num, recipe, hide_location, hide_type)
 	return self._func_expand_list_entry(self, entry_index, entry_type, parent_entry, id_num, recipe, hide_location, hide_type)
+end
+
+function AcquireType:GetEntity(identifier)
+	return self._entities[identifier]
 end
 
 function AcquireType:HasCoordinates()
