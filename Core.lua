@@ -414,8 +414,9 @@ function addon:OnInitialize()
 		if not tooltip_unit or not _G.UnitGUID(tooltip_unit) then
 			return
 		end
+		local A = private.ACQUIRE_TYPE_IDS
 		local id_num = private.MobGUIDToIDNum(_G.UnitGUID(tooltip_unit))
-		local unit = private.mob_list[id_num] or private.ACQUIRE_TYPES[private.ACQUIRE_TYPE_IDS.VENDOR]:GetEntity(id_num) or private.ACQUIRE_TYPES[private.ACQUIRE_TYPE_IDS.TRAINER]:GetEntity(id_num)
+		local unit = private.ACQUIRE_TYPES[A.MOB_DROP]:GetEntity(id_num) or private.ACQUIRE_TYPES[A.VENDOR]:GetEntity(id_num) or private.ACQUIRE_TYPES[A.TRAINER]:GetEntity(id_num)
 
 		if not unit or not unit.item_list then
 			return
