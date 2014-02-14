@@ -540,8 +540,8 @@ function private.InitializeFrame()
 			return false
 		end
 
-		local function SearchByList(recipe, search_pattern, list)
-			for id_num, unit in pairs(list) do
+		local function SearchByList(recipe, search_pattern, acquire_type_id)
+			for id_num, unit in pairs(private.ACQUIRE_TYPES[acquire_type_id]:Entities()) do
 				if unit.item_list and unit.item_list[recipe.spell_id] and unit.name:lower():find(search_pattern) then
 					return true
 				end
@@ -549,23 +549,23 @@ function private.InitializeFrame()
 		end
 
 		local function SearchByTrainer(recipe, search_pattern)
-			return SearchByList(recipe, search_pattern, private.ACQUIRE_TYPES[A.TRAINER]:Entities())
+			return SearchByList(recipe, search_pattern, A.TRAINER)
 		end
 
 		local function SearchByVendor(recipe, search_pattern)
-			return SearchByList(recipe, search_pattern, private.vendor_list)
+			return SearchByList(recipe, search_pattern, A.VENDOR)
 		end
 
 		local function SearchByMobDrop(recipe, search_pattern)
-			return SearchByList(recipe, search_pattern, private.mob_list)
+			return SearchByList(recipe, search_pattern, A.MOB_DROP)
 		end
 
 		local function SearchByCustom(recipe, search_pattern)
-			return SearchByList(recipe, search_pattern, private.custom_list)
+			return SearchByList(recipe, search_pattern, A.CUSTOM)
 		end
 
 		local function SearchByDiscovery(recipe, search_pattern)
-			return SearchByList(recipe, search_pattern, private.discovery_list)
+			return SearchByList(recipe, search_pattern, A.DISCOVERY)
 		end
 
 		local function SearchByReputation(recipe, search_pattern)
