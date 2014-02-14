@@ -32,9 +32,9 @@ private.num_profession_recipes = {}
 do
 	local acquire_list = {}
 
-	for acquire_type_id = 1, #private.ACQUIRE_TYPES do
+	for acquire_type_id = 1, #private.ACQUIRE_TYPES_BY_ID do
 		acquire_list[acquire_type_id] = {
-			name = private.ACQUIRE_TYPES[acquire_type_id]:Name(),
+			name = private.ACQUIRE_TYPES_BY_ID[acquire_type_id]:Name(),
 			recipes = {}
 		}
 	end
@@ -96,7 +96,7 @@ end
 -------------------------------------------------------------------------------
 function Recipe:HasCoordinates()
 	for acquire_type_id in pairs(self.acquire_data) do
-		if private.ACQUIRE_TYPES[acquire_type_id]:HasCoordinates() then
+		if private.ACQUIRE_TYPES_BY_ID[acquire_type_id]:HasCoordinates() then
 			return true
 		end
 	end
@@ -383,7 +383,7 @@ function Recipe:AddAcquireData(acquire_type_id, type_string, has_entity_list, ..
 		recipe_acquire_data[identifier] = true
 
 		if has_entity_list then
-			local acquire_type = private.ACQUIRE_TYPES[acquire_type_id]
+			local acquire_type = private.ACQUIRE_TYPES_BY_ID[acquire_type_id]
 			local entity = acquire_type:GetEntity(identifier)
 
 			if entity then
@@ -1029,9 +1029,9 @@ function Recipe:Dump(output, use_genesis)
 				end
 
 				if flag_string then
-					flag_string = ("%s, A.%s, %s"):format(flag_string, private.ACQUIRE_TYPES[acquire_type]:Label(), saved_id)
+					flag_string = ("%s, A.%s, %s"):format(flag_string, private.ACQUIRE_TYPES_BY_ID[acquire_type]:Label(), saved_id)
 				else
-					flag_string = ("A.%s, %s"):format(private.ACQUIRE_TYPES[acquire_type]:Label(), saved_id)
+					flag_string = ("A.%s, %s"):format(private.ACQUIRE_TYPES_BY_ID[acquire_type]:Label(), saved_id)
 				end
 			end
 		end

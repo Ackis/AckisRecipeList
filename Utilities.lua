@@ -243,7 +243,7 @@ do
 	-- Miscellaneous utilities
 	-------------------------------------------------------------------------------
 	local function find_empties(acquire_type_id)
-		local acquire_type = private.ACQUIRE_TYPES[acquire_type_id]
+		local acquire_type = private.ACQUIRE_TYPES_BY_ID[acquire_type_id]
 		local count
 
 		for unit_id, unit in pairs(acquire_type:Entities()) do

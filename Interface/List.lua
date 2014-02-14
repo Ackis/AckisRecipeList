@@ -854,12 +854,12 @@ do
 				local count = 0
 
 				for identifier, info in pairs(acquire_data) do
-					private.ACQUIRE_TYPES[acquire_type_id]:InsertTooltipText(recipe, identifier, location, info, addline_func)
+					private.ACQUIRE_TYPES_BY_ID[acquire_type_id]:InsertTooltipText(recipe, identifier, location, info, addline_func)
 					count = count + 1
 				end
 
 				if count == 0 then
-					private.ACQUIRE_TYPES[acquire_type_id]:InsertTooltipText(recipe, nil, location, nil, addline_func)
+					private.ACQUIRE_TYPES_BY_ID[acquire_type_id]:InsertTooltipText(recipe, nil, location, nil, addline_func)
 				end
 			end
 		end

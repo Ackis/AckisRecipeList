@@ -823,7 +823,7 @@ local ACQUIRE_PROTOTYPES = {
 	},
 }
 
-private.ACQUIRE_TYPES = {}
+private.ACQUIRE_TYPES_BY_ID = {}
 private.ACQUIRE_TYPE_IDS = {}
 private.AcquireTypes = {}
 
@@ -833,7 +833,7 @@ for index = 1, #ACQUIRE_PROTOTYPES do
 	acquire_type._entities = {}
 	_G.setmetatable(acquire_type, acquire_type_metatable)
 
-	private.ACQUIRE_TYPES[index] = acquire_type
+	private.ACQUIRE_TYPES_BY_ID[index] = acquire_type
 	private.ACQUIRE_TYPE_IDS[acquire_type._label] = index
 
 	-- Make things easier by assigning the AcquireType by title case: WORLD_DROP becomes WorldDrop, for example

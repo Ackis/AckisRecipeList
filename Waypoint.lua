@@ -307,12 +307,12 @@ local current_waypoints = {}
 
 local function AddRecipeWaypoints(recipe, acquire_id, location_id, npc_id)
 	for acquire_type_id, acquire_info in pairs(recipe.acquire_data) do
-		if (not acquire_id or acquire_type_id == acquire_id) then
+		if not acquire_id or acquire_type_id == acquire_id then
 			for id_num, id_info in pairs(acquire_info) do
 				if acquire_type_id == A.REPUTATION then
 					for rep_level, level_info in pairs(id_info) do
 						for vendor_id in pairs(level_info) do
-							local waypoint = private.ACQUIRE_TYPES[acquire_type_id]:WaypointTarget(vendor_id, recipe)
+							local waypoint = private.ACQUIRE_TYPES_BY_ID[acquire_type_id]:WaypointTarget(vendor_id, recipe)
 
 							-- TODO: Figure out why this changes on-click when there are two different locations for the same recipe
 							--							addon:Debug("location_id: %s waypoint.location: %s", tostring(location_id), waypoint and tostring(waypoint.location) or "nil")
@@ -323,7 +323,7 @@ local function AddRecipeWaypoints(recipe, acquire_id, location_id, npc_id)
 						end
 					end
 				elseif not npc_id or id_num == npc_id then
-					local waypoint = private.ACQUIRE_TYPES[acquire_type_id]:WaypointTarget(id_num, recipe)
+					local waypoint = private.ACQUIRE_TYPES_BY_ID[acquire_type_id]:WaypointTarget(id_num, recipe)
 
 					if waypoint and (not location_id or waypoint.location == location_id) then
 						waypoint.acquire_type = acquire_type_id
@@ -357,7 +357,7 @@ local function AddAllWaypoints(acquire_id, location_id, npc_id)
 					if acquire_type_id == A.REPUTATION then
 						for rep_level, level_info in pairs(id_info) do
 							for vendor_id in pairs(level_info) do
-								local waypoint = private.ACQUIRE_TYPES[acquire_type_id]:WaypointTarget(vendor_id, recipe)
+								local waypoint = private.ACQUIRE_TYPES_BY_ID[acquire_type_id]:WaypointTarget(vendor_id, recipe)
 
 								if waypoint then
 									waypoint.acquire_type = acquire_type_id
@@ -366,7 +366,7 @@ local function AddAllWaypoints(acquire_id, location_id, npc_id)
 							end
 						end
 					else
-						local waypoint = private.ACQUIRE_TYPES[acquire_type_id]:WaypointTarget(id_num, recipe)
+						local waypoint = private.ACQUIRE_TYPES_BY_ID[acquire_type_id]:WaypointTarget(id_num, recipe)
 
 						if waypoint then
 							waypoint.acquire_type = acquire_type_id
@@ -427,7 +427,7 @@ function addon:AddWaypoint(recipe, acquire_id, location_id, npc_id)
 		local location_name = waypoint.location or "nil"
 		local continent, zone
 		local _, _, _, quality_color = _G.GetItemQualityColor(recipe.quality)
-		local color_code = private.ACQUIRE_TYPES[waypoint.acquire_type]:ColorData().hex
+		local color_code = private.ACQUIRE_TYPES_BY_ID[waypoint.acquire_type]:ColorData().hex
 
 		if waypoint.acquire_type == A.QUEST then
 			name = ("Quest: |cff%s%s|r (|c%s%s|r)"):format(color_code, private.quest_names[waypoint.reference_id], quality_color, recipe.name)

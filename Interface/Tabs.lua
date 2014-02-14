@@ -139,7 +139,7 @@ function tab_prototype:SaveListEntryState(entry, expanded)
 	local field = ORDERED_PROFESSIONS[addon.Frame.current_profession] .. " expanded"
 
 	if entry.acquire_id then
-		self[field][private.ACQUIRE_TYPES[entry.acquire_id]:Name()] = expanded or nil
+		self[field][private.ACQUIRE_TYPES_BY_ID[entry.acquire_id]:Name()] = expanded or nil
 	end
 
 	if entry.location_id then
@@ -171,7 +171,7 @@ local RecipesTab
 local recipe_registry = {}
 
 -- Recipes with these acquire types will never show as headers.
-local CHILDLESS_ACQUIRE_TYPES = {
+local CHILDLESS_ACQUIRE_TYPES_BY_ID = {
 	[A.ACHIEVEMENT] = true,
 	[A.CUSTOM] = true,
 	[A.DISCOVERY] = true,
@@ -181,7 +181,7 @@ local CHILDLESS_ACQUIRE_TYPES = {
 
 local function ExpandAcquireData(entry_index, entry_type, parent_entry, acquire_type_id, acquire_type_data, recipe, hide_location, hide_type)
 	local obtain_filters = addon.db.profile.filters.obtain
-	local num_acquire_types = #private.ACQUIRE_TYPES
+	local num_acquire_types = #private.ACQUIRE_TYPES_BY_ID
 
 	for data_identifier, data_info in pairs(acquire_type_data) do
 		local execute
@@ -219,7 +219,7 @@ local function ExpandAcquireData(entry_index, entry_type, parent_entry, acquire_
 		end
 
 		if execute then
-			entry_index = private.ACQUIRE_TYPES[acquire_type_id]:ExpandListEntry(entry_index, entry_type, parent_entry, data_identifier, data_info, recipe, hide_location, hide_type)
+			entry_index = private.ACQUIRE_TYPES_BY_ID[acquire_type_id]:ExpandListEntry(entry_index, entry_type, parent_entry, data_identifier, data_info, recipe, hide_location, hide_type)
 		end
 	end	-- for
 	return entry_index
@@ -282,7 +282,7 @@ local function InitializeAcquisitionTab()
 			end
 
 			if count > 0 then
-				local acquire_type = private.ACQUIRE_TYPES[acquire_type_id]
+				local acquire_type = private.ACQUIRE_TYPES_BY_ID[acquire_type_id]
 				local acquire_type_name = acquire_type:Name()
 				local is_expanded = self[prof_name .. " expanded"][acquire_type_name]
 
@@ -295,7 +295,7 @@ local function InitializeAcquisitionTab()
 
 				insert_index = MainPanel.list_frame:InsertEntry(entry, insert_index, is_expanded or expand_mode, is_expanded or expand_mode)
 			else
-				self[prof_name .. " expanded"][private.ACQUIRE_TYPES[acquire_type_id]:Name()] = nil
+				self[prof_name .. " expanded"][private.ACQUIRE_TYPES_BY_ID[acquire_type_id]:Name()] = nil
 			end
 		end
 		return recipe_count
@@ -328,11 +328,11 @@ local function InitializeAcquisitionTab()
 					local expand = false
 					local entry_type = "subheader"
 
-					if CHILDLESS_ACQUIRE_TYPES[entry_acquire_type_id] then
+					if CHILDLESS_ACQUIRE_TYPES_BY_ID[entry_acquire_type_id] then
 						expand = true
 						entry_type = "entry"
 					end
-					local is_expanded = (self[prof_name.." expanded"][recipe] and self[prof_name.." expanded"][private.ACQUIRE_TYPES[entry_acquire_type_id]:Name()])
+					local is_expanded = (self[prof_name.." expanded"][recipe] and self[prof_name.." expanded"][private.ACQUIRE_TYPES_BY_ID[entry_acquire_type_id]:Name()])
 
 					local new_entry = CreateListEntry(entry_type, entry, recipe)
 					new_entry:SetAcquireType(entry_acquire_type)
@@ -359,7 +359,7 @@ local function InitializeLocationTab()
 	local sorted_locations
 
 	local function FactionTally(acquire_data, acquire_type_id, location)
-		local acquire_type = private.ACQUIRE_TYPES[acquire_type_id]
+		local acquire_type = private.ACQUIRE_TYPES_BY_ID[acquire_type_id]
 		local good, bad = 0, 0
 
 		for id_num in pairs(acquire_data) do
@@ -422,12 +422,12 @@ local function InitializeLocationTab()
 					local fac_toggle = addon.db.profile.filters.general.faction
 
 					if not fac_toggle then
-						local ACQUIRE_TYPES = private.ACQUIRE_TYPES
+						local ACQUIRE_TYPES_BY_ID = private.ACQUIRE_TYPES_BY_ID
 
-						for acquire_type_id = 1, #ACQUIRE_TYPES do
+						for acquire_type_id = 1, #ACQUIRE_TYPES_BY_ID do
 							local acquire_data = recipe.acquire_data[acquire_type_id]
 
-							if acquire_data and ACQUIRE_TYPES[acquire_type_id]:HasCoordinates() then
+							if acquire_data and ACQUIRE_TYPES_BY_ID[acquire_type_id]:HasCoordinates() then
 								local good, bad = FactionTally(acquire_data, acquire_type_id, loc_name)
 
 								if good == 0 and bad > 0 then
@@ -526,7 +526,7 @@ local function InitializeLocationTab()
 			for acquire_type_id, acquire_data in pairs(entry.recipe.acquire_data) do
 				-- Only expand an acquisition entry if it is from this location.
 				for data_identifier, data_info in pairs(acquire_data) do
-					local acquire_type = private.ACQUIRE_TYPES[acquire_type_id]
+					local acquire_type = private.ACQUIRE_TYPES_BY_ID[acquire_type_id]
 					local hide_acquire_type
 					local execute
 
