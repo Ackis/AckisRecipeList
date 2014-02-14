@@ -1159,7 +1159,8 @@ do
 				end
 			end
 		end
-		local vendor_entry = private.vendor_list[vendor_id]
+		local vendor_acquire_type = private.ACQUIRE_TYPES[A.VENDOR]
+		local vendor_entry = vendor_acquire_type:GetEntity(vendor_id)
 		local vendor_x, vendor_y = _G.GetPlayerMapPosition("player")
 		vendor_x = ("%.2f"):format(vendor_x * 100)
 		vendor_y = ("%.2f"):format(vendor_y * 100)
@@ -1177,7 +1178,7 @@ do
 				L[vendor_name] = true
 			end
 			_G.SetMapToCurrentZone() -- Make sure were are looking at the right zone
-			private:AddListEntry(private.vendor_list, vendor_id, L[vendor_name], _G.GetRealZoneText(), vendor_x, vendor_y, _G.UnitFactionGroup("target") or "Neutral")
+			vendor_acquire_type:AddEntity(vendor_id, L[vendor_name], _G.GetRealZoneText(), vendor_x, vendor_y, _G.UnitFactionGroup("target") or "Neutral")
 		end
 
 		if matching_vendor and vendor_entry and vendor_entry.item_list then

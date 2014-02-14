@@ -493,7 +493,7 @@ local function InitializeLocationTab()
 					elseif acquire_type_id == A.REPUTATION then
 						for rep_level, level_info in pairs(info) do
 							for vendor_id in pairs(level_info) do
-								if private.vendor_list[vendor_id].location == location_id then
+								if private.ACQUIRE_TYPES[A.VENDOR]:GetEntity(vendor_id).location == location_id then
 									new_entry_index = private.ExpandReputationData(new_entry_index, "subentry", entry, vendor_id, id_num, rep_level, entry.recipe, true)
 								end
 							end

@@ -1210,7 +1210,7 @@ function private.InitializeListFrame()
 	local FACTION_LABELS
 
 	local function ExpandReputationData(entry_index, entry_type, parent_entry, vendor_id, rep_id, rep_level, recipe, hide_location, hide_type)
-		local rep_vendor = private.vendor_list[vendor_id]
+		local rep_vendor = private.ACQUIRE_TYPES[A.VENDOR]:GetEntity(vendor_id)
 
 		if not CanDisplayFaction(rep_vendor.faction) then
 			return entry_index

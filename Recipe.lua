@@ -464,18 +464,17 @@ end
 function recipe_prototype:AddRepVendor(reputation_id, rep_level, ...)
 	local location_list = private.location_list
 	local acquire_list = private.acquire_list
-	local vendor_list = private.vendor_list
-	local acquire = self.acquire_data[A.REPUTATION]
+	local acquire_data = self.acquire_data[A.REPUTATION]
 
-	if not acquire then
+	if not acquire_data then
 		self.acquire_data[A.REPUTATION] = {}
-		acquire = self.acquire_data[A.REPUTATION]
+		acquire_data = self.acquire_data[A.REPUTATION]
 	end
-	local faction = acquire[reputation_id]
+	local faction = acquire_data[reputation_id]
 
 	if not faction then
-		acquire[reputation_id] = {}
-		faction = acquire[reputation_id]
+		acquire_data[reputation_id] = {}
+		faction = acquire_data[reputation_id]
 		faction[rep_level] = {}
 	end
 	local num_vars = select('#', ...)
@@ -487,19 +486,23 @@ function recipe_prototype:AddRepVendor(reputation_id, rep_level, ...)
 		cur_var = cur_var + 1
 
 		if private.reputation_list[reputation_id] then
-			if vendor_id and vendor_list[vendor_id] then
-				faction[rep_level][vendor_id] = true
+			if vendor_id then
+				local rep_vendor = private.ACQUIRE_TYPES[A.VENDOR]:GetEntity(vendor_id)
 
-				local rep_vendor = vendor_list[vendor_id]
+				if rep_vendor then
+					faction[rep_level][vendor_id] = true
 
-				affiliation = rep_vendor.faction
-				location_name = rep_vendor.location
+					affiliation = rep_vendor.faction
+					location_name = rep_vendor.location
 
-				rep_vendor.reputation_id = reputation_id
-				rep_vendor.item_list = rep_vendor.item_list or {}
-				rep_vendor.item_list[self.spell_id] = true
+					rep_vendor.reputation_id = reputation_id
+					rep_vendor.item_list = rep_vendor.item_list or {}
+					rep_vendor.item_list[self.spell_id] = true
+				else
+					addon:Debug("Spell ID %d (%s): Reputation Vendor ID %s does not exist in the database.", self.spell_id, tostring(self.name), tostring(vendor_id))
+				end
 			else
-				addon:Debug("Spell ID %d: Reputation Vendor ID %s does not exist in the database.", self.spell_id, tostring(vendor_id))
+				addon:Debug("Spell ID %d (%s): Nil Reputation Vendor ID passed.", self.spell_id, tostring(self.name))
 			end
 		else
 			addon:Debug("Spell ID %d: Faction ID %d does not exist in the database.", self.spell_id, reputation_id)
@@ -684,7 +687,7 @@ function recipe_prototype:Dump(output, use_genesis)
 				else
 					saved_id = identifier
 				end
-				local vendor = private.vendor_list[identifier]
+				local vendor = private.ACQUIRE_TYPES[A.VENDOR]:GetEntity(identifier)
 				local quantity = vendor.item_list[self.spell_id]
 
 				if type(quantity) == "number" then
