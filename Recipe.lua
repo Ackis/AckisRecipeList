@@ -346,16 +346,16 @@ function recipe_prototype:RemoveFilters(...)
 	SetFilterState(self, false, ...)
 end
 
-function recipe_prototype:AddAcquireData(acquire_type, type_string, unit_list, ...)
+function recipe_prototype:AddAcquireData(acquire_type_id, type_string, has_entity_list, ...)
 	local location_list = private.location_list
 	local acquire_list = private.acquire_list
-	local acquire = self.acquire_data[acquire_type]
+	local acquire = self.acquire_data[acquire_type_id]
 
 	if not acquire then
-		self.acquire_data[acquire_type] = {}
-		acquire = self.acquire_data[acquire_type]
+		self.acquire_data[acquire_type_id] = {}
+		acquire = self.acquire_data[acquire_type_id]
 	end
-	acquire_list[acquire_type].recipes[self.spell_id] = true
+	acquire_list[acquire_type_id].recipes[self.spell_id] = true
 
 	local limited_vendor = type_string == "Limited Vendor"
 	local num_vars = select('#', ...)
@@ -374,15 +374,15 @@ function recipe_prototype:AddAcquireData(acquire_type, type_string, unit_list, .
 		end
 		acquire[identifier] = true
 
-		if unit_list then
-			if unit_list[identifier] then
-				local unit = unit_list[identifier]
+		if has_entity_list then
+			local entity = private.ACQUIRE_TYPES[acquire_type_id]:GetEntity(identifier)
 
-				affiliation = unit.faction
-				location_name = unit.location
+			if entity then
+				affiliation = entity.faction
+				location_name = entity.location
 
-				unit.item_list = unit.item_list or {}
-				unit.item_list[self.spell_id] = quantity
+				entity.item_list = entity.item_list or {}
+				entity.item_list[self.spell_id] = quantity
 			else
 				addon:Debug("Spell ID %d: %s ID %s does not exist in the database.", self.spell_id, type_string, identifier)
 			end
@@ -394,12 +394,12 @@ function recipe_prototype:AddAcquireData(acquire_type, type_string, unit_list, .
 			if location_name then
 				affiliation = "world_drop"
 			elseif string_id then
-				addon:Debug("WORLD_DROP with no location: %d %s", self.spell_id, self.name)
+				addon:Debug("%s with no location: %d %s", type_string, self.spell_id, self.name)
 			end
 		end
 
 		if affiliation then
-			acquire_list[acquire_type].recipes[self.spell_id] = affiliation
+			acquire_list[acquire_type_id].recipes[self.spell_id] = affiliation
 		end
 
 		if location_name then
@@ -413,51 +413,51 @@ function recipe_prototype:AddAcquireData(acquire_type, type_string, unit_list, .
 end
 
 function recipe_prototype:AddMobDrop(...)
-	self:AddAcquireData(A.MOB_DROP, "Mob", private.mob_list, ...)
+	self:AddAcquireData(A.MOB_DROP, "Mob", true, ...)
 	self:AddFilters(private.FILTER_IDS.MOB_DROP)
 end
 
 function recipe_prototype:AddTrainer(...)
-	self:AddAcquireData(A.TRAINER, "Trainer", private.trainer_list, ...)
+	self:AddAcquireData(A.TRAINER, "Trainer", true, ...)
 	self:AddFilters(private.FILTER_IDS.TRAINER)
 end
 
 function recipe_prototype:AddVendor(...)
-	self:AddAcquireData(A.VENDOR, "Vendor", private.vendor_list, ...)
+	self:AddAcquireData(A.VENDOR, "Vendor", true, ...)
 	self:AddFilters(private.FILTER_IDS.VENDOR)
 end
 
 function recipe_prototype:AddLimitedVendor(...)
-	self:AddAcquireData(A.VENDOR, "Limited Vendor", private.vendor_list, ...)
+	self:AddAcquireData(A.VENDOR, "Limited Vendor", true, ...)
 	self:AddFilters(private.FILTER_IDS.VENDOR)
 end
 
 function recipe_prototype:AddWorldDrop(...)
-	self:AddAcquireData(A.WORLD_DROP, nil, nil, ...)
+	self:AddAcquireData(A.WORLD_DROP, "World Drop", false, ...)
 	self:AddFilters(private.FILTER_IDS.WORLD_DROP)
 end
 
 function recipe_prototype:AddQuest(...)
-	self:AddAcquireData(A.QUEST, "Quest", private.quest_list, ...)
+	self:AddAcquireData(A.QUEST, "Quest", true, ...)
 	self:AddFilters(private.FILTER_IDS.QUEST)
 end
 
 function recipe_prototype:AddAchievement(...)
-	self:AddAcquireData(A.ACHIEVEMENT, "Achievement", nil, ...)
+	self:AddAcquireData(A.ACHIEVEMENT, "Achievement", false, ...)
 	self:AddFilters(private.FILTER_IDS.ACHIEVEMENT)
 end
 
 function recipe_prototype:AddCustom(...)
-	self:AddAcquireData(A.CUSTOM, "Custom", private.custom_list, ...)
+	self:AddAcquireData(A.CUSTOM, "Custom", true, ...)
 end
 
 function recipe_prototype:AddDiscovery(...)
-	self:AddAcquireData(A.DISCOVERY, "Discovery", private.discovery_list, ...)
+	self:AddAcquireData(A.DISCOVERY, "Discovery", true, ...)
 	self:AddFilters(private.FILTER_IDS.DISC)
 end
 
 function recipe_prototype:AddWorldEvent(...)
-	self:AddAcquireData(A.WORLD_EVENTS, "World Events", private.world_events_list, ...)
+	self:AddAcquireData(A.WORLD_EVENTS, "World Events", true, ...)
 	self:AddFilters(private.FILTER_IDS.WORLD_EVENTS)
 end
 
@@ -522,7 +522,7 @@ function recipe_prototype:AddRepVendor(reputation_id, rep_level, ...)
 end
 
 function recipe_prototype:Retire()
-	self:AddAcquireData(private.ACQUIRE_TYPE_IDS.RETIRED)
+	self:AddAcquireData(A.RETIRED, "Retired")
 	self:AddFilters(private.FILTER_IDS.RETIRED)
 end
 
