@@ -282,10 +282,11 @@ do
 	-------------------------------------------------------------------------------
 	-- Miscellaneous utilities
 	-------------------------------------------------------------------------------
-	local function find_empties(unit_list, description)
+	local function find_empties(acquire_type_id)
+		local acquire_type = private.ACQUIRE_TYPES[acquire_type_id]
 		local count
 
-		for unit_id, unit in pairs(unit_list) do
+		for unit_id, unit in pairs(acquire_type:Entities()) do
 			count = 0
 
 			if unit.item_list then
@@ -295,7 +296,7 @@ do
 			end
 
 			if count == 0 then
-				output:AddLine(("* %s %s (%s) has no recipes."):format(description, unit.name or _G.UNKNOWN, unit_id))
+				output:AddLine(("* %s %s (%s) has no recipes."):format(acquire_type:Name(), unit.name or _G.UNKNOWN, unit_id))
 			end
 		end
 	end
@@ -304,13 +305,13 @@ do
 		private.LoadAllRecipes()
 		output:Clear()
 
-		find_empties(private.trainer_list, "Trainer")
-		find_empties(private.vendor_list, "Vendor")
-		find_empties(private.mob_list, "Mob")
-		find_empties(private.quest_list, "Quest")
-		find_empties(private.custom_list, "Custom Entry")
-		find_empties(private.discovery_list, "Discovery")
-		find_empties(private.world_events_list, "World Event")
+		find_empties(private.ACQUIRE_TYPE_IDS.TRAINER)
+		find_empties(private.ACQUIRE_TYPE_IDS.VENDOR)
+		find_empties(private.ACQUIRE_TYPE_IDS.MOB_DROP)
+		find_empties(private.ACQUIRE_TYPE_IDS.QUEST)
+		find_empties(private.ACQUIRE_TYPE_IDS.CUSTOM)
+		find_empties(private.ACQUIRE_TYPE_IDS.DISCOVERY)
+		find_empties(private.ACQUIRE_TYPE_IDS.WORLD_EVENTS)
 
 		if output:Lines() == 0 then
 			output:AddLine("Nothing to display.")
