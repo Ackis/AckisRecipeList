@@ -349,11 +349,11 @@ end
 function recipe_prototype:AddAcquireData(acquire_type_id, type_string, has_entity_list, ...)
 	local location_list = private.location_list
 	local acquire_list = private.acquire_list
-	local acquire = self.acquire_data[acquire_type_id]
+	local recipe_acquire_data = self.acquire_data[acquire_type_id]
 
-	if not acquire then
+	if not recipe_acquire_data then
 		self.acquire_data[acquire_type_id] = {}
-		acquire = self.acquire_data[acquire_type_id]
+		recipe_acquire_data = self.acquire_data[acquire_type_id]
 	end
 	acquire_list[acquire_type_id].recipes[self.spell_id] = true
 
@@ -372,10 +372,11 @@ function recipe_prototype:AddAcquireData(acquire_type_id, type_string, has_entit
 			quantity = select(cur_var, ...)
 			cur_var = cur_var + 1
 		end
-		acquire[identifier] = true
+		recipe_acquire_data[identifier] = true
 
 		if has_entity_list then
-			local entity = private.ACQUIRE_TYPES[acquire_type_id]:GetEntity(identifier)
+			local acquire_type = private.ACQUIRE_TYPES[acquire_type_id]
+			local entity = acquire_type:GetEntity(identifier)
 
 			if entity then
 				affiliation = entity.faction
@@ -384,7 +385,7 @@ function recipe_prototype:AddAcquireData(acquire_type_id, type_string, has_entit
 				entity.item_list = entity.item_list or {}
 				entity.item_list[self.spell_id] = quantity
 			else
-				addon:Debug("Spell ID %d: %s ID %s does not exist in the database.", self.spell_id, type_string, identifier)
+				addon:Debug("Spell ID %d: %s ID %s does not exist in the %s AcquireType's Entity table.", self.spell_id, type_string, identifier, acquire_type:Label())
 			end
 		else
 			local string_id = type(identifier) == "string"
