@@ -182,7 +182,7 @@ do
 		-- Dump out trainer info
 		local trainer_id = private.MobGUIDToIDNum(_G.UnitGUID("target"))
 		local trainer_name = _G.UnitName("target")
-		local trainer_entry = private.trainer_list[trainer_id]
+		local trainer_entry = private.ACQUIRE_TYPES[A.TRAINER]:GetEntity(trainer_id)
 		local trainer_x, trainer_y = _G.GetPlayerMapPosition("player")
 		trainer_x = ("%.2f"):format(trainer_x * 100)
 		trainer_y = ("%.2f"):format(trainer_y * 100)
@@ -1039,13 +1039,31 @@ do
 		table.sort(sorted_data)
 
 		for index, identifier in ipairs(sorted_data) do
-			local trainer = private.trainer_list[identifier]
+			local trainer = private.ACQUIRE_TYPES[A.TRAINER]:GetEntity(identifier)
 
 			if trainer then
 				if trainer.spell_id then
-					output:AddLine(("self:AddTrainer(%s, %s, Z.%s, %s, %s, \"%s\")"):format(identifier, trainer.spell_id, private.ZONE_LABELS_FROM_NAME[trainer.location], trainer.coord_x, trainer.coord_y, trainer.faction))
+					output:AddLine(
+						("self:AddTrainer(%s, %s, Z.%s, %s, %s, \"%s\")"):format(
+							identifier,
+							trainer.spell_id,
+							private.ZONE_LABELS_FROM_NAME[trainer.location],
+							trainer.coord_x,
+							trainer.coord_y,
+							trainer.faction
+						)
+					)
 				else
-					output:AddLine(("self:AddTrainer(%s, \"%s\", Z.%s, %s, %s, \"%s\")"):format(identifier, trainer.name:gsub("\"", "\\\""), private.ZONE_LABELS_FROM_NAME[trainer.location], trainer.coord_x, trainer.coord_y, trainer.faction))
+					output:AddLine(
+						("self:AddTrainer(%s, \"%s\", Z.%s, %s, %s, \"%s\")"):format(
+							identifier,
+							trainer.name:gsub("\"", "\\\""),
+							private.ZONE_LABELS_FROM_NAME[trainer.location],
+							trainer.coord_x,
+							trainer.coord_y,
+							trainer.faction
+						)
+					)
 				end
 			end
 		end

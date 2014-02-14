@@ -504,9 +504,9 @@ function private.InitializeFrame()
 		local function SearchByAcquireType(recipe, search_pattern)
 			local ACQUIRE_TYPES = private.ACQUIRE_TYPES
 
-			for acquire_type in pairs(ACQUIRE_TYPES) do
-				if recipe.acquire_data[acquire_type] then
-					local acquire_name = ACQUIRE_TYPES[acquire_type]:Name():lower()
+			for acquire_type_id in pairs(ACQUIRE_TYPES) do
+				if recipe.acquire_data[acquire_type_id] then
+					local acquire_name = ACQUIRE_TYPES[acquire_type_id]:Name():lower()
 
 					if acquire_name:find(search_pattern) then
 						return true
@@ -549,7 +549,7 @@ function private.InitializeFrame()
 		end
 
 		local function SearchByTrainer(recipe, search_pattern)
-			return SearchByList(recipe, search_pattern, private.trainer_list)
+			return SearchByList(recipe, search_pattern, private.ACQUIRE_TYPES[A.TRAINER]:Entities())
 		end
 
 		local function SearchByVendor(recipe, search_pattern)
