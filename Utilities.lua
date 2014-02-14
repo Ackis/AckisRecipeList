@@ -31,46 +31,6 @@ function private.ColorRGBtoHEX(r, g, b)
 	return ("%02x%02x%02x"):format(r * 255, g * 255, b * 255)
 end
 
-local NO_LOCATION_LISTS
-
-function private:AddListEntry(lookup_list, identifier, name, location, coord_x, coord_y, faction)
-	if lookup_list[identifier] then
-		addon:Debug("Duplicate lookup: %s - %s.", identifier, name)
-		return
-	end
-
-	local entry = {
-		name = name,
-		location = location,
-		faction = faction,
-	}
-
-	if coord_x and coord_y then
-		entry.coord_x = coord_x
-		entry.coord_y = coord_y
-	end
-
-	--@alpha@
-	if not NO_LOCATION_LISTS then
-		NO_LOCATION_LISTS = {
-			[self.custom_list] = true,
-			[self.discovery_list] = true,
-			[self.reputation_list] = true,
-		}
-	end
-
-	if not location and not NO_LOCATION_LISTS[lookup_list] then
-		addon:Debug("Lookup ID: %s (%s) has an unknown location.", identifier, entry.name or _G.UNKNOWN)
-	end
-
-	if faction and lookup_list == self.mob_list then
-		addon:Debug("Mob %d (%s) has been assigned to faction %s.", identifier, name, entry.faction)
-	end
-	--@end-alpha@
-	lookup_list[identifier] = entry
-	return entry
-end
-
 function private.ItemLinkToID(item_link)
 	if not item_link then
 		return
