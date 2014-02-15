@@ -310,7 +310,7 @@ function private.InitializeListFrame()
 			elseif _G.IsAltKeyDown() then
 				local exclusion_list = addon.db.profile.exclusionlist
 
-				exclusion_list[recipe.id] = (not exclusion_list[recipe.id] and true or nil)
+				exclusion_list[recipe.spell_id] = (not exclusion_list[recipe.spell_id] and true or nil)
 				ListFrame:Update(nil, false)
 			end
 		elseif entry:IsHeader() or entry:IsSubHeader() then
@@ -984,7 +984,7 @@ do
 			acquire_tip:SetCell(2, 1, ("|T%s:30:30|t"):format(recipe_item_texture), "CENTER", 2)
 		end
 
-		if addon.db.profile.exclusionlist[recipe.id] then
+		if addon.db.profile.exclusionlist[recipe.spell_id] then
 			ttAdd(0, -1, true, L["RECIPE_EXCLUDED"], private.DIFFICULTY_COLORS.impossible)
 		end
 
