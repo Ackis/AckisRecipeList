@@ -1031,7 +1031,8 @@ do
 		end
 		ttAdd(0, -1, false, L["Obtained From"] .. " : ", BASIC_COLORS.normal)
 
-		addon:DisplayAcquireData(recipe, list_entry:AcquireType():ID(), list_entry:LocationID(), ttAdd)
+		local entry_acquire_type = list_entry:AcquireType()
+		addon:DisplayAcquireData(recipe, entry_acquire_type and entry_acquire_type:ID(), list_entry:LocationID(), ttAdd)
 
 		if not addon.db.profile.hide_tooltip_hint then
 			local hint_color = private.CATEGORY_COLORS.hint
