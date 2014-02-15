@@ -246,7 +246,7 @@ do
 		local acquire_type = private.ACQUIRE_TYPES_BY_ID[acquire_type_id]
 		local count
 
-		for unit_id, unit in pairs(acquire_type:Entities()) do
+		for unit_id, unit in acquire_type:EntityPairs() do
 			count = 0
 
 			if unit.item_list then

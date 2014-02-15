@@ -539,7 +539,7 @@ function private.InitializeFrame()
 		end
 
 		local function SearchByList(recipe, search_pattern, acquire_type_id)
-			for id_num, unit in pairs(private.ACQUIRE_TYPES_BY_ID[acquire_type_id]:Entities()) do
+			for id_num, unit in private.ACQUIRE_TYPES_BY_ID[acquire_type_id]:EntityPairs() do
 				if unit.item_list and unit.item_list[recipe.spell_id] and unit.name:lower():find(search_pattern) then
 					return true
 				end

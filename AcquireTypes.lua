@@ -877,8 +877,8 @@ function AcquireType:ColorData()
 	return self._color_data
 end
 
-function AcquireType:Entities()
-	return self._entities
+function AcquireType:EntityPairs()
+	return pairs(self._entities)
 end
 
 function AcquireType:ExpandListEntry(entry_index, entry_type, parent_entry, identifier, info, recipe, hide_location, hide_type)
