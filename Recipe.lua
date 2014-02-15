@@ -155,46 +155,6 @@ function Recipe:PreviousRankID()
 	return self.old_rank_spell_id
 end
 
--------------------------------------------------------------------------------
--- Recipe state flags.
--------------------------------------------------------------------------------
-local RECIPE_STATE_FLAGS = {
-	KNOWN		= 0x00000001,
-	RELEVANT	= 0x00000002,
-	VISIBLE		= 0x00000004,
-	LINKED		= 0x00000008,
-}
-
-function Recipe:HasState(state_name)
-	return self.state and (bit.band(self.state, RECIPE_STATE_FLAGS[state_name]) == RECIPE_STATE_FLAGS[state_name]) or false
-end
-
-function Recipe:AddState(state_name)
-	if not self.state then
-		self.state = 0
-	end
-
-	if bit.band(self.state, RECIPE_STATE_FLAGS[state_name]) == RECIPE_STATE_FLAGS[state_name] then
-		return
-	end
-	self.state = bit.bxor(self.state, RECIPE_STATE_FLAGS[state_name])
-end
-
-function Recipe:RemoveState(state_name)
-	if not self.state then
-		return
-	end
-
-	if bit.band(self.state, RECIPE_STATE_FLAGS[state_name]) ~= RECIPE_STATE_FLAGS[state_name] then
-		return
-	end
-	self.state = bit.bxor(self.state, RECIPE_STATE_FLAGS[state_name])
-
-	if self.state == 0 then
-		self.state = nil
-	end
-end
-
 function Recipe:SetAsKnownOrLinked(is_linked)
 	if is_linked then
 		self:AddState("LINKED")
@@ -204,13 +164,55 @@ function Recipe:SetAsKnownOrLinked(is_linked)
 	end
 end
 
+-------------------------------------------------------------------------------
+-- Recipe state flags.
+-------------------------------------------------------------------------------
+do
+	local RECIPE_STATE_FLAGS = {
+	KNOWN = 0x00000001,
+	RELEVANT = 0x00000002,
+	VISIBLE = 0x00000004,
+	LINKED = 0x00000008,
+	}
+
+	function Recipe:HasState(state_name)
+		return self.state and (bit.band(self.state, RECIPE_STATE_FLAGS[state_name]) == RECIPE_STATE_FLAGS[state_name]) or false
+end
+
+	function Recipe:AddState(state_name)
+		if not self.state then
+			self.state = 0
+		end
+
+		if bit.band(self.state, RECIPE_STATE_FLAGS[state_name]) == RECIPE_STATE_FLAGS[state_name] then
+			return
+		end
+		self.state = bit.bxor(self.state, RECIPE_STATE_FLAGS[state_name])
+	end
+
+	function Recipe:RemoveState(state_name)
+		if not self.state then
+			return
+		end
+
+		if bit.band(self.state, RECIPE_STATE_FLAGS[state_name]) ~= RECIPE_STATE_FLAGS[state_name] then
+			return
+		end
+		self.state = bit.bxor(self.state, RECIPE_STATE_FLAGS[state_name])
+
+		if self.state == 0 then
+			self.state = nil
+		end
+	end
+end -- do-block
+
 do
 	local BITFIELD_MAP = {
-		common1 = private.COMMON_FLAGS_WORD1,
-		class1 = private.CLASS_FLAGS_WORD1,
-		reputation1 = private.REP_FLAGS_WORD1,
-		reputation2 = private.REP_FLAGS_WORD2,
-		item1 = private.ITEM_FLAGS_WORD1,
+	common1 = private.COMMON_FLAGS_WORD1,
+	class1 = private.CLASS_FLAGS_WORD1,
+	reputation1 = private.REP_FLAGS_WORD1,
+	reputation2 = private.REP_FLAGS_WORD2,
+	item1 = private.ITEM_FLAGS_WORD1,
 	}
 
 	function Recipe:HasFilter(field_name, flag_name)
@@ -219,7 +221,7 @@ do
 		local value = bitset[flag_name]
 
 		return bitfield and (bit.band(bitfield, value) == value) or false
-	end
+end
 end -- do-block
 
 do
