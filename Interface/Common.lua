@@ -89,17 +89,13 @@ do
 
 	-- Sorts the recipe_list according to configuration settings.
 	function private.SortRecipeList(recipe_list)
-		local sort_type = addon.db.profile.sorting
-		local skill_view = addon.db.profile.skill_view
-
-		local sort_func = RECIPE_SORT_FUNCS[(skill_view and "Skill" or "Name")..sort_type] or Sort_NameAsc
-
 		table.wipe(sorted_recipes)
 
 		for recipe_id, recipe in pairs(recipe_list) do
 			sorted_recipes[#sorted_recipes + 1] = recipe_id
 		end
-		table.sort(sorted_recipes, sort_func)
+		table.sort(sorted_recipes, RECIPE_SORT_FUNCS[(addon.db.profile.skill_view and "Skill" or "Name") .. addon.db.profile.sorting] or Sort_NameAsc)
+		return sorted_recipes
 	end
 end	-- do
 
