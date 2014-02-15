@@ -209,7 +209,7 @@ local ACQUIRE_PROTOTYPES = {
 				return entry_index
 			end
 
-			local quantity = vendor.item_list[recipe.spell_id]
+			local quantity = vendor.item_list[recipe:SpellID()]
 			local entry = private.CreateListEntry(entry_type, parent_entry, recipe)
 			entry:SetNPCID(identifier)
 			entry:SetText("%s%s %s%s",
@@ -258,7 +258,7 @@ local ACQUIRE_PROTOTYPES = {
 			else
 				addline_func(1, -2, true, vendor.location, CATEGORY_COLORS.location, "", CATEGORY_COLORS.coords)
 			end
-			local quantity = vendor.item_list[recipe.spell_id]
+			local quantity = vendor.item_list[recipe:SpellID()]
 
 			if type(quantity) == "number" then
 				addline_func(2, -2, true, L["LIMITED_SUPPLY"], self:ColorData(), ("(%d)"):format(quantity), BASIC_COLORS.white)

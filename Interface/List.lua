@@ -288,7 +288,7 @@ function private.InitializeListFrame()
 					local edit_box = _G.ChatEdit_ChooseBoxForSend()
 
 					_G.ChatEdit_ActivateChat(edit_box)
-					edit_box:Insert(_G.GetSpellLink(recipe.spell_id))
+					edit_box:Insert(_G.GetSpellLink(recipe:SpellID()))
 				end
 			elseif _G.IsShiftKeyDown() then
 				local crafted_item_id = recipe:CraftedItem()
@@ -309,8 +309,9 @@ function private.InitializeListFrame()
 				end
 			elseif _G.IsAltKeyDown() then
 				local exclusion_list = addon.db.profile.exclusionlist
+				local recipe_spell_id = recipe:SpellID()
 
-				exclusion_list[recipe.spell_id] = (not exclusion_list[recipe.spell_id] and true or nil)
+				exclusion_list[recipe_spell_id] = (not exclusion_list[recipe_spell_id] and true or nil)
 				ListFrame:Update(nil, false)
 			end
 		elseif entry:IsHeader() or entry:IsSubHeader() then
@@ -968,7 +969,7 @@ do
 		if not recipe then
 			return
 		end
-		InitializeTooltips(recipe.spell_id)
+		InitializeTooltips(recipe:SpellID())
 
 		if not acquire_tip then
 			return
@@ -984,7 +985,7 @@ do
 			acquire_tip:SetCell(2, 1, ("|T%s:30:30|t"):format(recipe_item_texture), "CENTER", 2)
 		end
 
-		if addon.db.profile.exclusionlist[recipe.spell_id] then
+		if addon.db.profile.exclusionlist[recipe:SpellID()] then
 			ttAdd(0, -1, true, L["RECIPE_EXCLUDED"], private.DIFFICULTY_COLORS.impossible)
 		end
 

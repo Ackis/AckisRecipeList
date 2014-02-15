@@ -519,7 +519,7 @@ function private.InitializeFrame()
 
 			for location_name in pairs(location_list) do
 				for spell_id in pairs(location_list[location_name].recipes) do
-					if spell_id == recipe.spell_id then
+					if spell_id == recipe:SpellID() then
 						local location = location_name:lower()
 
 						if location:find(search_pattern) then
@@ -540,7 +540,7 @@ function private.InitializeFrame()
 
 		local function SearchByList(recipe, search_pattern, acquire_type_id)
 			for id_num, unit in private.ACQUIRE_TYPES_BY_ID[acquire_type_id]:EntityPairs() do
-				if unit.item_list and unit.item_list[recipe.spell_id] and unit.name:lower():find(search_pattern) then
+				if unit.item_list and unit.item_list[recipe:SpellID()] and unit.name:lower():find(search_pattern) then
 					return true
 				end
 			end

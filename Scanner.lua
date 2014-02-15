@@ -816,7 +816,7 @@ do
 	local function Sort_AscID(a, b)
 		local reca, recb = private.recipe_list[a], private.recipe_list[b]
 
-		return reca.spell_id < recb.spell_id
+		return reca:SpellID()< recb:SpellID()
 	end
 
 	local function SortRecipesByID()
@@ -2102,7 +2102,7 @@ do
 				output:AddLine("Skill Level Error: " .. tostring(spell_id) .. " " .. recipe_name)
 			end
 		end
-		local recipe_link = _G.GetSpellLink(recipe.spell_id)
+		local recipe_link = _G.GetSpellLink(recipe:SpellID())
 
 		if not recipe_link then
 			if recipe.profession ~= private.LOCALIZED_PROFESSION_NAMES.RUNEFORGING then
@@ -2136,7 +2136,13 @@ do
 
 		if recipe_item_id then
 			if recipe:HasFilter("common1", "TRAINER") and not recipe:HasFilter("common1", "VENDOR") and not recipe:HasFilter("common1", "INSTANCE") and not recipe:HasFilter("common1", "RAID") and not recipe:HasFilter("common1", "WORLD_DROP") then
-				output:AddLine(("Recipe %d (%s): Has Trainer filter flag, but also has a recipe item (%d)."):format(recipe.spell_id, recipe.name, recipe_item_id))
+				output:AddLine(
+					("Recipe %d (%s): Has Trainer filter flag, but also has a recipe item (%d)."):format(
+						recipe:SpellID(),
+						recipe.name,
+						recipe_item_id
+					)
+				)
 			elseif not DO_NOT_SCAN[recipe_item_id] then
 				local item_name, item_link, item_quality = _G.GetItemInfo(recipe_item_id)
 
@@ -2147,7 +2153,12 @@ do
 						ARLDatamineTT:SetHyperlink(item_link)
 						ScanTooltip(recipe_name, recipe_list, reverse_lookup, is_vendor)
 					else
-						output:AddLine(("Recipe %d (%s): Recipe item quality is 0 (junk), which probably means it has been removed from the game."):format(recipe.spell_id, recipe.name))
+						output:AddLine(
+							("Recipe %d (%s): Recipe item quality is 0 (junk), which probably means it has been removed from the game."):format(
+								recipe:SpellID(),
+								recipe.name
+							)
+						)
 					end
 				else
 					output:AddLine(("%s: %d"):format(recipe.name, spell_id))

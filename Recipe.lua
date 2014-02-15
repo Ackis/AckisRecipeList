@@ -62,7 +62,7 @@ function addon:AddRecipe(spell_id, profession, genesis, quality)
 		name = _G.GetSpellInfo(spell_id),
 		profession = _G.GetSpellInfo(profession),
 		quality = quality,
-		spell_id = spell_id,
+		_spell_id = spell_id,
 	}, recipe_meta)
 
 	if not recipe.name or recipe.name == "" then
@@ -83,6 +83,10 @@ end
 -------------------------------------------------------------------------------
 -- Recipe methods.
 -------------------------------------------------------------------------------
+function Recipe:SpellID()
+	return self._spell_id
+end
+
 function Recipe:HasCoordinates()
 	for acquire_type_id in pairs(self.acquire_data) do
 		if private.ACQUIRE_TYPES_BY_ID[acquire_type_id]:HasCoordinates() then
@@ -177,7 +181,7 @@ do
 
 	function Recipe:HasState(state_name)
 		return self.state and (bit.band(self.state, RECIPE_STATE_FLAGS[state_name]) == RECIPE_STATE_FLAGS[state_name]) or false
-end
+	end
 
 	function Recipe:AddState(state_name)
 		if not self.state then
@@ -208,11 +212,11 @@ end -- do-block
 
 do
 	local BITFIELD_MAP = {
-	common1 = private.COMMON_FLAGS_WORD1,
-	class1 = private.CLASS_FLAGS_WORD1,
-	reputation1 = private.REP_FLAGS_WORD1,
-	reputation2 = private.REP_FLAGS_WORD2,
-	item1 = private.ITEM_FLAGS_WORD1,
+		common1 = private.COMMON_FLAGS_WORD1,
+		class1 = private.CLASS_FLAGS_WORD1,
+		reputation1 = private.REP_FLAGS_WORD1,
+		reputation2 = private.REP_FLAGS_WORD2,
+		item1 = private.ITEM_FLAGS_WORD1,
 	}
 
 	function Recipe:HasFilter(field_name, flag_name)
@@ -221,7 +225,7 @@ do
 		local value = bitset[flag_name]
 
 		return bitfield and (bit.band(bitfield, value) == value) or false
-end
+	end
 end -- do-block
 
 do
@@ -266,7 +270,7 @@ do
 			display_name = ("%s - %s"):format(display_name, level_text)
 		end
 
-		if addon.db.profile.exclusionlist[self.spell_id] then
+		if addon.db.profile.exclusionlist[self:SpellID()] then
 			display_name = ("** %s **"):format(display_name)
 		end
 		return display_name
@@ -275,7 +279,7 @@ end -- do-block
 
 function Recipe:SetItemFilterType(filter_type)
 	if not private.ITEM_FILTER_TYPES[filter_type:upper()] then
-		addon:Debug("Attempting to set invalid item filter type '%s' for '%s' (%d)", filter_type, self.name, self.spell_id)
+		addon:Debug("Attempting to set invalid item filter type '%s' for '%s' (%d)", filter_type, self.name, self:SpellID())
 		return
 	end
 	self.item_filter_type = filter_type:lower()
@@ -332,7 +336,7 @@ local function SetFilterState(recipe, turn_on, ...)
 				recipe.flags[member_name] = nil
 			end
 		else
-			addon:Debug("Recipe '%s' (spell ID %d): Attempting to %s non-existent filter flag.", recipe.name, recipe.spell_id, turn_on and "assign" or "remove")
+			addon:Debug("Recipe '%s' (spell ID %d): Attempting to %s non-existent filter flag.", recipe.name, recipe:SpellID(), turn_on and "assign" or "remove")
 		end
 	end
 end
@@ -355,7 +359,7 @@ function Recipe:AddAcquireData(acquire_type_id, type_string, has_entity_list, ..
 	end
 
 	local acquire_type = private.ACQUIRE_TYPES_BY_ID[acquire_type_id]
-	acquire_type:AssignRecipe(self.spell_id)
+	acquire_type:AssignRecipe(self:SpellID())
 
 	local limited_vendor = type_string == "Limited Vendor"
 	local num_vars = select('#', ...)
@@ -382,9 +386,9 @@ function Recipe:AddAcquireData(acquire_type_id, type_string, has_entity_list, ..
 				location_name = entity.location
 
 				entity.item_list = entity.item_list or {}
-				entity.item_list[self.spell_id] = quantity
+				entity.item_list[self:SpellID()] = quantity
 			else
-				addon:Debug("Spell ID %d: %s ID %s does not exist in the %s AcquireType's Entity table.", self.spell_id, type_string, identifier, acquire_type:Label())
+				addon:Debug("Spell ID %d: %s ID %s does not exist in the %s AcquireType's Entity table.", self:SpellID(), type_string, identifier, acquire_type:Label())
 			end
 		else
 			local string_id = type(identifier) == "string"
@@ -394,12 +398,12 @@ function Recipe:AddAcquireData(acquire_type_id, type_string, has_entity_list, ..
 			if location_name then
 				affiliation = "world_drop"
 			elseif string_id then
-				addon:Debug("%s with no location: %d %s", type_string, self.spell_id, self.name)
+				addon:Debug("%s with no location: %d %s", type_string, self:SpellID(), self.name)
 			end
 		end
 
 		if affiliation then
-			acquire_type:AssignRecipe(self.spell_id, affiliation)
+			acquire_type:AssignRecipe(self:SpellID(), affiliation)
 		end
 
 		if location_name then
@@ -407,7 +411,7 @@ function Recipe:AddAcquireData(acquire_type_id, type_string, has_entity_list, ..
 			location_list[location_name].recipes = location_list[location_name].recipes or {}
 
 			location_list[location_name].name = location_name
-			location_list[location_name].recipes[self.spell_id] = affiliation or true
+			location_list[location_name].recipes[self:SpellID()] = affiliation or true
 		end
 	end
 end
@@ -499,29 +503,29 @@ function Recipe:AddRepVendor(reputation_id, rep_level, ...)
 
 					rep_vendor.reputation_id = reputation_id
 					rep_vendor.item_list = rep_vendor.item_list or {}
-					rep_vendor.item_list[self.spell_id] = true
+					rep_vendor.item_list[self:SpellID()] = true
 				else
 					addon:Debug("Spell ID %d (%s): Reputation Vendor ID %s does not exist in the %s AcquireType Entity table.",
-						self.spell_id,
+						self:SpellID(),
 						tostring(self.name),
 						tostring(vendor_id),
 						vendor_acquire_type:Label()
 					)
 				end
 			else
-				addon:Debug("Spell ID %d (%s): Nil Reputation Vendor ID passed.", self.spell_id, tostring(self.name))
+				addon:Debug("Spell ID %d (%s): Nil Reputation Vendor ID passed.", self:SpellID(), tostring(self.name))
 			end
 		else
-			addon:Debug("Spell ID %d: Faction ID %d does not exist in the %s AcquireType Entity table.", self.spell_id, reputation_id, reputation_acquire_type:Label())
+			addon:Debug("Spell ID %d: Faction ID %d does not exist in the %s AcquireType Entity table.", self:SpellID(), reputation_id, reputation_acquire_type:Label())
 		end
-		private.AcquireTypes.Reputation:AssignRecipe(self.spell_id, affiliation)
+		private.AcquireTypes.Reputation:AssignRecipe(self:SpellID(), affiliation)
 
 		if location_name then
 			location_list[location_name] = location_list[location_name] or {}
 			location_list[location_name].recipes = location_list[location_name].recipes or {}
 
 			location_list[location_name].name = location_name
-			location_list[location_name].recipes[self.spell_id] = affiliation or true
+			location_list[location_name].recipes[self:SpellID()] = affiliation or true
 		end
 	end
 	self:AddFilters(private.FILTER_IDS.REPUTATION)
@@ -684,7 +688,7 @@ do
 			 InitializeFilters()
 		 end
 
-		 if addon.db.profile.exclusionlist[self.spell_id] and not addon.db.profile.ignoreexclusionlist then
+		 if addon.db.profile.exclusionlist[self:SpellID()] and not addon.db.profile.ignoreexclusionlist then
 			return false
 		end
 		local general_filters = filter_db.general
@@ -828,8 +832,8 @@ function Recipe:Dump(output, use_genesis)
 		output:AddLine("-------------------------------------------------------------------------------", genesis_val)
 	end
 
-	output:AddLine(("-- %s -- %d"):format(self.name, self.spell_id), genesis_val)
-	output:AddLine(("recipe = AddRecipe(%d, V.%s, Q.%s)"):format(self.spell_id, self.genesis, private.ITEM_QUALITY_NAMES[self.quality]), genesis_val)
+	output:AddLine(("-- %s -- %d"):format(self.name, self:SpellID()), genesis_val)
+	output:AddLine(("recipe = AddRecipe(%d, V.%s, Q.%s)"):format(self:SpellID(), self.genesis, private.ITEM_QUALITY_NAMES[self.quality]), genesis_val)
 	output:AddLine(("recipe:SetSkillLevels(%d, %d, %d, %d, %d)"):format(self.skill_level, self.optimal_level, self.medium_level, self.easy_level, self.trivial_level), genesis_val)
 
 	if self.recipe_item_id then
@@ -842,7 +846,7 @@ function Recipe:Dump(output, use_genesis)
 	local previous_rank_recipe = private.profession_recipe_list[self.profession][self:PreviousRankID()]
 
 	if previous_rank_recipe then
-		output:AddLine(("recipe:SetPreviousRankID(%d)"):format(previous_rank_recipe.spell_id), genesis_val)
+		output:AddLine(("recipe:SetPreviousRankID(%d)"):format(previous_rank_recipe:SpellID()), genesis_val)
 	end
 
 	if self.specialty then
@@ -903,7 +907,7 @@ function Recipe:Dump(output, use_genesis)
 					faction_string = ("FAC.%s"):format(faction_string)
 				else
 					faction_string = rep_id
-					addon:Printf("Recipe %d (%s) - no string for faction %d", self.spell_id, self.name, rep_id)
+					addon:Printf("Recipe %d (%s) - no string for faction %d", self:SpellID(), self.name, rep_id)
 				end
 
 				for rep_level, level_info in pairs(rep_info) do
@@ -949,7 +953,7 @@ function Recipe:Dump(output, use_genesis)
 					saved_id = identifier
 				end
 				local vendor = private.private.AcquireTypes.Vendor:GetEntity(identifier)
-				local quantity = vendor.item_list[self.spell_id]
+				local quantity = vendor.item_list[self:SpellID()]
 
 				if type(quantity) == "number" then
 					if limited_values then

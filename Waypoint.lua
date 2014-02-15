@@ -467,20 +467,20 @@ function addon:AddWaypoint(recipe, acquire_id, location_id, npc_id)
 			coord_y = info.y
 			name = ("%s (%s)"):format(name, location_name)
 		else
-			self:Debug("No continent/zone map match for recipe ID %d. Location: %s.", recipe.spell_id, location_name)
+			self:Debug("No continent/zone map match for recipe ID %d. Location: %s.", recipe:SpellID(), location_name)
 		end
 
 		--@debug@
 		if coord_x and ((coord_x < -100) or (coord_x > 100)) or coord_y and ((coord_y < -100) or (coord_y > 100)) then
 			coord_x = nil
 			coord_y = nil
-			self:Debug("Invalid location coordinates for recipe ID %d. Location: %s.", recipe.spell_id, location_name)
+			self:Debug("Invalid location coordinates for recipe ID %d. Location: %s.", recipe:SpellID(), location_name)
 		end
 		--@end-debug@
 
 		if coord_x and coord_y and zone and continent then
 			if coord_x == 0 and coord_y == 0 and not INSTANCE_LOCATIONS[location_name] then
-				self:Debug("Location is \"0, 0\" for recipe ID %d. Location: %s.", recipe.spell_id, location_name)
+				self:Debug("Location is \"0, 0\" for recipe ID %d. Location: %s.", recipe:SpellID(), location_name)
 			end
 
 			if _G.TomTom then
@@ -494,14 +494,14 @@ function addon:AddWaypoint(recipe, acquire_id, location_id, npc_id)
 				end
 
 			end
-		else
 			--@debug@
+		else
 			if not zone then
-				self:Debug("No zone for recipe ID %d. Location: %s.", recipe.spell_id, location_name)
+				self:Debug("No zone for recipe ID %d. Location: %s.", recipe:SpellID(), location_name)
 			end
 
 			if not continent then
-				self:Debug("No continent for recipe ID %d. Location: %s.", recipe.spell_id, location_name)
+				self:Debug("No continent for recipe ID %d. Location: %s.", recipe:SpellID(), location_name)
 			end
 			--@end-debug@
 		end
