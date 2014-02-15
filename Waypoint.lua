@@ -363,7 +363,7 @@ local function AddAllWaypoints()
 
 								if entity then
 									entity.acquire_type = acquire_type
-									WAYPOINT_ENTITIES[entity] = sorted_recipes[index]
+									WAYPOINT_ENTITIES[entity] = recipe
 								end
 							end
 						end
@@ -373,7 +373,7 @@ local function AddAllWaypoints()
 						if entity then
 							entity.acquire_type = acquire_type
 							entity.reference_id = id_num
-							WAYPOINT_ENTITIES[entity] = sorted_recipes[index]
+							WAYPOINT_ENTITIES[entity] = recipe
 						end
 					end
 				end
