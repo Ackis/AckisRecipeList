@@ -845,7 +845,8 @@ do
 	-- * The addline_func paramater must be a function which accepts the same
 	-- * arguments as ARL's ttAdd function.
 	-------------------------------------------------------------------------------
-	function addon:DisplayAcquireData(recipe, acquire_type_id, location, addline_func)
+	function addon:DisplayAcquireData(recipe_spell_id, acquire_type_id, location, addline_func)
+		local recipe = private.recipe_list[recipe_spell_id]
 		if not recipe then
 			return
 		end
@@ -1033,7 +1034,7 @@ do
 		ttAdd(0, -1, false, L["Obtained From"] .. " : ", BASIC_COLORS.normal)
 
 		local entry_acquire_type = list_entry:AcquireType()
-		addon:DisplayAcquireData(recipe, entry_acquire_type and entry_acquire_type:ID(), list_entry:LocationID(), ttAdd)
+		addon:DisplayAcquireData(recipe:SpellID(), entry_acquire_type and entry_acquire_type:ID(), list_entry:LocationID(), ttAdd)
 
 		if not addon.db.profile.hide_tooltip_hint then
 			local hint_color = private.CATEGORY_COLORS.hint
