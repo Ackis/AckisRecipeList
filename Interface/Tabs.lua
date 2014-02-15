@@ -240,19 +240,17 @@ local function InitializeAcquisitionTab()
 		table.wipe(recipe_registry)
 
 		if not sorted_acquires then
-			-- Sorting function: Only used once and then thrown away.
-			local function Sort_Acquisition(a, b)
-				local acquire_list = private.acquire_list
-				local acquire_a = acquire_list[a]
-				local acquire_b = acquire_list[b]
+			local ACQUIRE_TYPES_BY_ID = private.ACQUIRE_TYPES_BY_ID
 
-				return acquire_a.name < acquire_b.name
+			-- Sorting function: Only used once and then thrown away.
+			local function Sort_Acquisition(first_id, second_id)
+				return ACQUIRE_TYPES_BY_ID[first_id]:Name() < ACQUIRE_TYPES_BY_ID[second_id]:Name()
 			end
 
 			sorted_acquires = {}
 
-			for acquire_name in pairs(private.acquire_list) do
-				sorted_acquires[#sorted_acquires + 1] = acquire_name
+			for acquire_type_id = 1, #ACQUIRE_TYPES_BY_ID do
+				sorted_acquires[#sorted_acquires + 1] = acquire_type_id
 			end
 			table.sort(sorted_acquires, Sort_Acquisition)
 		end
