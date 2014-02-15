@@ -844,22 +844,22 @@ do
 	-- * The addline_func paramater must be a function which accepts the same
 	-- * arguments as ARL's ttAdd function.
 	-------------------------------------------------------------------------------
-	function addon:DisplayAcquireData(recipe, acquire_type, location, addline_func)
+	function addon:DisplayAcquireData(recipe, acquire_type_id, location, addline_func)
 		if not recipe then
 			return
 		end
 
-		for acquire_type_id, acquire_data in pairs(recipe.acquire_data) do
-			if not acquire_type or acquire_type_id == acquire_type:ID() then
+		for recipe_acquire_type_id, acquire_data in pairs(recipe.acquire_data) do
+			if not acquire_type_id or recipe_acquire_type_id == acquire_type_id then
 				local count = 0
 
 				for identifier, info in pairs(acquire_data) do
-					private.ACQUIRE_TYPES_BY_ID[acquire_type_id]:InsertTooltipText(recipe, identifier, location, info, addline_func)
+					private.ACQUIRE_TYPES_BY_ID[recipe_acquire_type_id]:InsertTooltipText(recipe, identifier, location, info, addline_func)
 					count = count + 1
 				end
 
 				if count == 0 then
-					private.ACQUIRE_TYPES_BY_ID[acquire_type_id]:InsertTooltipText(recipe, nil, location, nil, addline_func)
+					private.ACQUIRE_TYPES_BY_ID[recipe_acquire_type_id]:InsertTooltipText(recipe, nil, location, nil, addline_func)
 				end
 			end
 		end
@@ -1031,7 +1031,7 @@ do
 		end
 		ttAdd(0, -1, false, L["Obtained From"] .. " : ", BASIC_COLORS.normal)
 
-		addon:DisplayAcquireData(recipe, list_entry:AcquireType(), list_entry:LocationID(), ttAdd)
+		addon:DisplayAcquireData(recipe, list_entry:AcquireType():ID(), list_entry:LocationID(), ttAdd)
 
 		if not addon.db.profile.hide_tooltip_hint then
 			local hint_color = private.CATEGORY_COLORS.hint
