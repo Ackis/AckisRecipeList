@@ -831,6 +831,8 @@ for index = 1, #ACQUIRE_PROTOTYPES do
 	local acquire_type = ACQUIRE_PROTOTYPES[index]
 	acquire_type._id = index
 	acquire_type._entities = {}
+	acquire_type._recipes = {}
+
 	_G.setmetatable(acquire_type, acquire_type_metatable)
 
 	private.ACQUIRE_TYPES_BY_ID[index] = acquire_type
@@ -873,6 +875,10 @@ function AcquireType:AddEntity(identifier, name, location, coord_x, coord_y, fac
 	return entity
 end
 
+function AcquireType:AssignRecipe(spell_id, affiliation)
+	self._recipes[spell_id] = affiliation or true
+end
+
 function AcquireType:ColorData()
 	return self._color_data
 end
@@ -887,6 +893,14 @@ end
 
 function AcquireType:GetEntity(identifier)
 	return self._entities[identifier]
+end
+
+function AcquireType:GetRecipe(spell_id)
+	return self._recipes[spell_id]
+end
+
+function AcquireType:GetSortedRecipes()
+	return private.SortRecipeList(self._recipes)
 end
 
 function AcquireType:HasCoordinates()
@@ -907,6 +921,10 @@ end
 
 function AcquireType:Name()
 	return self._name
+end
+
+function AcquireType:RecipePairs()
+	return pairs(self._recipes)
 end
 
 function AcquireType:WaypointTarget(id_num, recipe)

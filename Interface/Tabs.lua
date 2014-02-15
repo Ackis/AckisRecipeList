@@ -264,7 +264,7 @@ local function InitializeAcquisitionTab()
 			local count = 0
 
 			-- Check to see if any recipes for this acquire type will be shown - otherwise, don't show the type in the list.
-			for spell_id, affiliation in pairs(private.acquire_list[acquire_type_id].recipes) do
+			for spell_id, affiliation in private.ACQUIRE_TYPES_BY_ID[acquire_type_id]:RecipePairs() do
 				local recipe = profession_recipes[spell_id]
 
 				if recipe and recipe:HasState("VISIBLE") and MainPanel.search_editbox:MatchesRecipe(recipe) then
@@ -313,11 +313,8 @@ local function InitializeAcquisitionTab()
 		self:SaveListEntryState(entry, true)
 
 		if entry:IsHeader() then
-			local recipe_list = private.acquire_list[entry_acquire_type_id].recipes
-			local sorted_recipes = addon.sorted_recipes
+			local sorted_recipes = entry_acquire_type:GetSortedRecipes()
 			local profession_recipes = private.profession_recipe_list[prof_name]
-
-			private.SortRecipeList(recipe_list)
 
 			for index = 1, #sorted_recipes do
 				local recipe = profession_recipes[sorted_recipes[index]]

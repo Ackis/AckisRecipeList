@@ -29,17 +29,6 @@ private.recipe_list = {}
 private.profession_recipe_list = {}
 private.num_profession_recipes = {}
 
-do
-	local acquire_list = {}
-
-	for acquire_type_id = 1, #private.ACQUIRE_TYPES_BY_ID do
-		acquire_list[acquire_type_id] = {
-			name = private.ACQUIRE_TYPES_BY_ID[acquire_type_id]:Name(),
-			recipes = {}
-		}
-	end
-	private.acquire_list = acquire_list
-end
 private.location_list	= {}
 
 -----------------------------------------------------------------------
@@ -356,14 +345,15 @@ end
 
 function Recipe:AddAcquireData(acquire_type_id, type_string, has_entity_list, ...)
 	local location_list = private.location_list
-	local acquire_list = private.acquire_list
 	local recipe_acquire_data = self.acquire_data[acquire_type_id]
 
 	if not recipe_acquire_data then
 		self.acquire_data[acquire_type_id] = {}
 		recipe_acquire_data = self.acquire_data[acquire_type_id]
 	end
-	acquire_list[acquire_type_id].recipes[self.spell_id] = true
+
+	local acquire_type = private.ACQUIRE_TYPES_BY_ID[acquire_type_id]
+	acquire_type:AssignRecipe(self.spell_id)
 
 	local limited_vendor = type_string == "Limited Vendor"
 	local num_vars = select('#', ...)
@@ -383,7 +373,6 @@ function Recipe:AddAcquireData(acquire_type_id, type_string, has_entity_list, ..
 		recipe_acquire_data[identifier] = true
 
 		if has_entity_list then
-			local acquire_type = private.ACQUIRE_TYPES_BY_ID[acquire_type_id]
 			local entity = acquire_type:GetEntity(identifier)
 
 			if entity then
@@ -408,7 +397,7 @@ function Recipe:AddAcquireData(acquire_type_id, type_string, has_entity_list, ..
 		end
 
 		if affiliation then
-			acquire_list[acquire_type_id].recipes[self.spell_id] = affiliation
+			acquire_type:AssignRecipe(self.spell_id, affiliation)
 		end
 
 		if location_name then
@@ -472,7 +461,6 @@ end
 
 function Recipe:AddRepVendor(reputation_id, rep_level, ...)
 	local location_list = private.location_list
-	local acquire_list = private.acquire_list
 	local acquire_data = self.acquire_data[A.REPUTATION]
 
 	if not acquire_data then
@@ -524,11 +512,7 @@ function Recipe:AddRepVendor(reputation_id, rep_level, ...)
 		else
 			addon:Debug("Spell ID %d: Faction ID %d does not exist in the %s AcquireType Entity table.", self.spell_id, reputation_id, reputation_acquire_type:Label())
 		end
-		acquire_list[A.REPUTATION] = acquire_list[A.REPUTATION] or {}
-		acquire_list[A.REPUTATION].recipes = acquire_list[A.REPUTATION].recipes or {}
-
-		acquire_list[A.REPUTATION].name = private.AcquireTypes.Reputation:Name()
-		acquire_list[A.REPUTATION].recipes[self.spell_id] = affiliation or true
+		private.AcquireTypes.Reputation:AssignRecipe(self.spell_id, affiliation)
 
 		if location_name then
 			location_list[location_name] = location_list[location_name] or {}
