@@ -903,6 +903,11 @@ function AcquireType:GetSortedRecipes()
 	return private.SortRecipeList(self._recipes)
 end
 
+
+function AcquireType:GetWaypointEntity(id_num, recipe)
+	return self._func_waypoint_target(self, id_num, recipe)
+end
+
 function AcquireType:HasCoordinates()
 	return self._has_coordinates
 end
@@ -925,8 +930,4 @@ end
 
 function AcquireType:RecipePairs()
 	return pairs(self._recipes)
-end
-
-function AcquireType:WaypointTarget(id_num, recipe)
-	return self._func_waypoint_target(self, id_num, recipe)
 end

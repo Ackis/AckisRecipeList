@@ -1780,11 +1780,11 @@ do
 			end
 		end
 
-		for flag, acquire_type in pairs(FILTER_TO_ACQUIRE_MAP) do
-			if acquire_data[acquire_type] and not recipe:HasFilter("common1", FS[flag]) then
+		for flag, acquire_type_id in pairs(FILTER_TO_ACQUIRE_MAP) do
+			if acquire_data[acquire_type_id] and not recipe:HasFilter("common1", FS[flag]) then
 				local can_add = true
 
-				if (acquire_type == A.WORLD_DROP or acquire_type == A.MOB_DROP) and (recipe:HasFilter("common1", "INSTANCE") or recipe:HasFilter("common1", "RAID")) then
+				if (acquire_type_id == A.WORLD_DROP or acquire_type_id == A.MOB_DROP) and (recipe:HasFilter("common1", "INSTANCE") or recipe:HasFilter("common1", "RAID")) then
 					can_add = false
 				end
 
@@ -1792,10 +1792,10 @@ do
 					recipe:AddFilters(flag)
 					table.insert(missing_flags, flag_format:format(FS[flag]))
 				end
-			elseif not acquire_data[acquire_type] and recipe:HasFilter("common1", FS[flag]) then
+			elseif not acquire_data[acquire_type_id] and recipe:HasFilter("common1", FS[flag]) then
 				local can_remove = true
 
-				if acquire_type == A.WORLD_DROP and (not recipe:HasFilter("common1", "INSTANCE") and not recipe:HasFilter("common1", "RAID")) then
+				if acquire_type_id == A.WORLD_DROP and (not recipe:HasFilter("common1", "INSTANCE") and not recipe:HasFilter("common1", "RAID")) then
 					can_remove = false
 				end
 

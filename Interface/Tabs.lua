@@ -327,7 +327,7 @@ local function InitializeAcquisitionTab()
 						expand = true
 						entry_type = "entry"
 					end
-					local is_expanded = (self[prof_name.." expanded"][recipe] and self[prof_name.." expanded"][private.ACQUIRE_TYPES_BY_ID[entry_acquire_type_id]:Name()])
+					local is_expanded = (self[prof_name.." expanded"][recipe] and self[prof_name.." expanded"][entry_acquire_type:Name()])
 
 					local new_entry = CreateListEntry(entry_type, entry, recipe)
 					new_entry:SetAcquireType(entry_acquire_type)

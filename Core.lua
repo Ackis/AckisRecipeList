@@ -1280,8 +1280,8 @@ do
 			local acquire_data = recipe["acquire_data"]
 			table.wipe(acquire_list)
 
-			for acquire_type in pairs(acquire_data) do
-				acquire_list[private.ACQUIRE_TYPES_BY_ID[acquire_type]:Name()] = true
+			for acquire_type_id in pairs(acquire_data) do
+				acquire_list[private.ACQUIRE_TYPES_BY_ID[acquire_type_id]:Name()] = true
 			end
 
 			-- Add all the acquire methods in

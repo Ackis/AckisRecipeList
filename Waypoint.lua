@@ -17,9 +17,9 @@
 local _G = getfenv(0)
 
 local table = _G.table
-local string = _G.string
 
-local pairs, select = _G.pairs, _G.select
+local pairs= _G.pairs
+local select =  _G.select
 
 -------------------------------------------------------------------------------
 -- AddOn namespace.
@@ -163,7 +163,6 @@ local INSTANCE_LOCATIONS = {
 	},
 	[Z.OLD_HILLSBRAD_FOOTHILLS] = {
 		zone = KALIMDOR_IDNUMS[Z.TANARIS],
---		zone = Z.TANARIS,
 		continent = 1,
 		x = 0,
 		y = 0,
@@ -303,32 +302,34 @@ function addon:ClearWaypoints()
 	end
 end
 
-local current_waypoints = {}
+local WAYPOINT_ENTITIES = {}
 
 local function AddRecipeWaypoints(recipe, acquire_id, location_id, npc_id)
 	for acquire_type_id, acquire_info in pairs(recipe.acquire_data) do
 		if not acquire_id or acquire_type_id == acquire_id then
+			local acquire_type = private.ACQUIRE_TYPES_BY_ID[acquire_type_id]
+
 			for id_num, id_info in pairs(acquire_info) do
 				if acquire_type_id == A.REPUTATION then
 					for rep_level, level_info in pairs(id_info) do
 						for vendor_id in pairs(level_info) do
-							local waypoint = private.ACQUIRE_TYPES_BY_ID[acquire_type_id]:WaypointTarget(vendor_id, recipe)
+							local entity = acquire_type:GetWaypointEntity(vendor_id, recipe)
 
 							-- TODO: Figure out why this changes on-click when there are two different locations for the same recipe
 							--							addon:Debug("location_id: %s waypoint.location: %s", tostring(location_id), waypoint and tostring(waypoint.location) or "nil")
-							if waypoint and (not location_id or waypoint.location == location_id) then
-								waypoint.acquire_type = acquire_type_id
-								current_waypoints[waypoint] = recipe
+							if entity and (not location_id or entity.location == location_id) then
+								entity.acquire_type = acquire_type
+								WAYPOINT_ENTITIES[entity] = recipe
 							end
 						end
 					end
 				elseif not npc_id or id_num == npc_id then
-					local waypoint = private.ACQUIRE_TYPES_BY_ID[acquire_type_id]:WaypointTarget(id_num, recipe)
+					local entity = acquire_type:GetWaypointEntity(id_num, recipe)
 
-					if waypoint and (not location_id or waypoint.location == location_id) then
-						waypoint.acquire_type = acquire_type_id
-						waypoint.reference_id = id_num
-						current_waypoints[waypoint] = recipe
+					if entity and (not location_id or entity.location == location_id) then
+						entity.acquire_type = acquire_type
+						entity.reference_id = id_num
+						WAYPOINT_ENTITIES[entity] = recipe
 					end
 				end
 			end
@@ -336,7 +337,7 @@ local function AddRecipeWaypoints(recipe, acquire_id, location_id, npc_id)
 	end
 end
 
-local function AddAllWaypoints(acquire_id, location_id, npc_id)
+local function AddAllWaypoints()
 	local recipe_list = private.recipe_list
 	local sorted_recipes = addon.sorted_recipes
 	local editbox_text = addon.Frame.search_editbox:GetText()
@@ -352,26 +353,27 @@ local function AddAllWaypoints(acquire_id, location_id, npc_id)
 
 		if recipe:HasState("VISIBLE") and matches_search then
 			for acquire_type_id, acquire_info in pairs(recipe.acquire_data) do
+				local acquire_type = private.ACQUIRE_TYPES_BY_ID[acquire_type_id]
 
 				for id_num, id_info in pairs(acquire_info) do
 					if acquire_type_id == A.REPUTATION then
 						for rep_level, level_info in pairs(id_info) do
 							for vendor_id in pairs(level_info) do
-								local waypoint = private.ACQUIRE_TYPES_BY_ID[acquire_type_id]:WaypointTarget(vendor_id, recipe)
+								local entity = acquire_type:GetWaypointEntity(vendor_id, recipe)
 
-								if waypoint then
-									waypoint.acquire_type = acquire_type_id
-									current_waypoints[waypoint] = sorted_recipes[index]
+								if entity then
+									entity.acquire_type = acquire_type
+									WAYPOINT_ENTITIES[entity] = sorted_recipes[index]
 								end
 							end
 						end
 					else
-						local waypoint = private.ACQUIRE_TYPES_BY_ID[acquire_type_id]:WaypointTarget(id_num, recipe)
+						local entity = acquire_type:GetWaypointEntity(id_num, recipe)
 
-						if waypoint then
-							waypoint.acquire_type = acquire_type_id
-							waypoint.reference_id = id_num
-							current_waypoints[waypoint] = sorted_recipes[index]
+						if entity then
+							entity.acquire_type = acquire_type
+							entity.reference_id = id_num
+							WAYPOINT_ENTITIES[entity] = sorted_recipes[index]
 						end
 					end
 				end
@@ -411,31 +413,35 @@ function addon:AddWaypoint(recipe, acquire_id, location_id, npc_id)
 	if not worldmap and not minimap then
 		return
 	end
-	table.wipe(current_waypoints)
+	table.wipe(WAYPOINT_ENTITIES)
 
 	if recipe then
 		AddRecipeWaypoints(recipe, acquire_id, location_id, npc_id)
 	elseif addon.db.profile.autoscanmap then
-		AddAllWaypoints(acquire_id, location_id, npc_id)
+		AddAllWaypoints()
 	end
-	local recipe_list = private.recipe_list
 
-	for waypoint, recipe in pairs(current_waypoints) do
+	for entity, recipe in pairs(WAYPOINT_ENTITIES) do
+		local color_code = entity.acquire_type:ColorData().hex
 		local name
-		local x = waypoint.coord_x
-		local y = waypoint.coord_y
-		local location_name = waypoint.location or "nil"
-		local continent, zone
-		local _, _, _, quality_color = _G.GetItemQualityColor(recipe.quality)
-		local color_code = private.ACQUIRE_TYPES_BY_ID[waypoint.acquire_type]:ColorData().hex
 
-		if waypoint.acquire_type == A.QUEST then
-			name = ("Quest: |cff%s%s|r (|c%s%s|r)"):format(color_code, private.quest_names[waypoint.reference_id], quality_color, recipe.name)
+		local _, _, _, quality_color = _G.GetItemQualityColor(recipe.quality)
+
+		if entity.acquire_type == private.AcquireTypes.Quest then
+			name = ("%s: |cff%s%s|r (|c%s%s|r)"):format(L.Quest, color_code, private.quest_names[entity.reference_id], quality_color, recipe.name)
 		else
-			name = ("|cff%s%s|r (|c%s%s|r)"):format(color_code, waypoint.name or _G.UNKNOWN, quality_color, recipe.name)
+			name = ("|cff%s%s|r (|c%s%s|r)"):format(color_code, entity.name or _G.UNKNOWN, quality_color, recipe.name)
 		end
-		waypoint.acquire_type = nil
-		waypoint.reference_id = nil
+
+		-- Unset these - they're only needed for the waypoint system and shouldn't persist beyond.
+		entity.acquire_type = nil
+		entity.reference_id = nil
+
+		local continent
+		local coord_x = entity.coord_x
+		local coord_y = entity.coord_y
+		local location_name = entity.location or "nil"
+		local zone
 
 		if KALIMDOR_IDNUMS[location_name] then
 			continent = 1
@@ -457,28 +463,28 @@ function addon:AddWaypoint(recipe, acquire_id, location_id, npc_id)
 
 			zone = info.zone
 			continent = info.continent
-			x = info.x
-			y = info.y
+			coord_x = info.x
+			coord_y = info.y
 			name = ("%s (%s)"):format(name, location_name)
 		else
 			self:Debug("No continent/zone map match for recipe ID %d. Location: %s.", recipe.spell_id, location_name)
 		end
 
 		--@debug@
-		if x and ((x < -100) or (x > 100)) or y and ((y < -100) or (y > 100)) then
-			x = nil
-			y = nil
+		if coord_x and ((coord_x < -100) or (coord_x > 100)) or coord_y and ((coord_y < -100) or (coord_y > 100)) then
+			coord_x = nil
+			coord_y = nil
 			self:Debug("Invalid location coordinates for recipe ID %d. Location: %s.", recipe.spell_id, location_name)
 		end
 		--@end-debug@
 
-		if x and y and zone and continent then
-			if x == 0 and y == 0 and not INSTANCE_LOCATIONS[location_name] then
+		if coord_x and coord_y and zone and continent then
+			if coord_x == 0 and coord_y == 0 and not INSTANCE_LOCATIONS[location_name] then
 				self:Debug("Location is \"0, 0\" for recipe ID %d. Location: %s.", recipe.spell_id, location_name)
 			end
 
 			if _G.TomTom then
-				local uid = _G.TomTom:AddZWaypoint(continent, zone, x, y, name, false, minimap, worldmap)
+				local uid = _G.TomTom:AddZWaypoint(continent, zone, coord_x, coord_y, name, false, minimap, worldmap)
 				table.insert(icon_list, uid)
 
 				SetWaypointIcon(uid, _G.Minimap:GetChildren())

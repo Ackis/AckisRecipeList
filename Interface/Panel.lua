@@ -569,8 +569,8 @@ function private.InitializeFrame()
 		local function SearchByReputation(recipe, search_pattern)
 			local reputation_acquire_type = private.AcquireTypes.Reputation
 
-			for acquire_type, acquire_data in pairs(recipe.acquire_data) do
-				if acquire_type == A.REPUTATION then
+			for acquire_type_id, acquire_data in pairs(recipe.acquire_data) do
+				if acquire_type_id == A.REPUTATION then
 					for id_num, info in pairs(acquire_data) do
 						local str = reputation_acquire_type:GetEntity(id_num).name:lower()
 
