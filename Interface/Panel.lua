@@ -967,26 +967,57 @@ function private.InitializeFrame()
 	end
 
 	-------------------------------------------------------------------------------
-	-- "Skill Level" checkbox.
+	-- Sort By buttons.
 	-------------------------------------------------------------------------------
-	local SkillToggle = _G.CreateFrame("CheckButton", nil, MainPanel, "UICheckButtonTemplate")
-	SkillToggle:SetPoint("LEFT", sort_toggle, "RIGHT", 0, 0)
-	SkillToggle:SetSize(16, 16)
+	do
+		local name_button, skill_button
 
-	SkillToggle.text = SkillToggle:CreateFontString(nil, "ARTWORK", "GameFontNormalSmall")
-	SkillToggle.text:SetPoint("LEFT", SkillToggle, "RIGHT", 0, 0)
+		local function ToggleOnClick(self)
+			addon.db.profile.skill_view = not addon.db.profile.skill_view
 
-	SkillToggle:SetScript("OnClick", function(self, button, down)
-		addon.db.profile.skill_view = not addon.db.profile.skill_view
-		MainPanel.list_frame:Update(nil, false)
-	end)
+			name_button:GetScript("OnShow")(name_button)
+			skill_button:GetScript("OnShow")(skill_button)
+			MainPanel.list_frame:Update(nil, false)
+		end
 
-	SkillToggle:SetScript("OnShow", function(self)
-		self:SetChecked(addon.db.profile.skill_view)
-	end)
+		local sort_label = MainPanel:CreateFontString(nil, "OVERLAY", "GameFontNormalSmall")
+		sort_label:SetPoint("LEFT", sort_toggle, "RIGHT", 0, 0)
+		sort_label:SetText(_G.COMPACT_UNIT_FRAME_PROFILE_SORTBY)
 
-	SkillToggle.text:SetText(_G.SKILL)
-	SetTooltipScripts(SkillToggle, L["SKILL_TOGGLE_DESC"], 1)
+		name_button = _G.CreateFrame("Button", nil, MainPanel)
+		name_button:SetNormalFontObject("GameFontNormalGraySmall")
+		name_button:SetHighlightFontObject("GameFontNormalSmall")
+		name_button:SetDisabledFontObject("GameFontHighlightSmallOutline")
+		name_button:SetFontString(name_button:CreateFontString(nil, "ARTWORK", "GameFontNormalSmall"))
+		name_button:SetText(_G.NAME)
+		name_button:SetSize(name_button:GetFontString():GetStringWidth(), 16)
+		name_button:SetPoint("LEFT", sort_label, "RIGHT", 2, 0)
+
+		name_button:SetScript("OnClick", ToggleOnClick)
+
+		name_button:SetScript("OnShow", function(self)
+			self[addon.db.profile.skill_view and "Enable" or "Disable"](self)
+		end)
+
+		local separator = MainPanel:CreateFontString(nil, "OVERLAY", "GameFontNormalSmall")
+		separator:SetPoint("LEFT", name_button, "RIGHT", 0, 0)
+		separator:SetText(" / ")
+
+		skill_button = _G.CreateFrame("Button", nil, MainPanel)
+		skill_button:SetNormalFontObject("GameFontNormalGraySmall")
+		skill_button:SetHighlightFontObject("GameFontNormalSmall")
+		skill_button:SetDisabledFontObject("GameFontHighlightSmallOutline")
+		skill_button:SetFontString(skill_button:CreateFontString(nil, "ARTWORK", "GameFontNormalSmall"))
+		skill_button:SetText(_G.SKILL_LEVEL)
+		skill_button:SetSize(skill_button:GetFontString():GetStringWidth(), 16)
+		skill_button:SetPoint("LEFT", separator, "RIGHT", 0, 0)
+
+		skill_button:SetScript("OnClick", ToggleOnClick)
+
+		skill_button:SetScript("OnShow", function(self)
+			self[addon.db.profile.skill_view and "Disable" or "Enable"](self)
+		end)
+	end -- do-block
 
 	-------------------------------------------------------------------------------
 	-- Create MainPanel.progress_bar and set its scripts
