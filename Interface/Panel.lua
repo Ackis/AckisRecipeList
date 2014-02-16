@@ -864,35 +864,11 @@ function private.InitializeFrame()
 	end
 
 	-------------------------------------------------------------------------------
-	-- "Skill Level" checkbox.
-	-------------------------------------------------------------------------------
-	local SkillToggle = _G.CreateFrame("CheckButton", nil, MainPanel, "UICheckButtonTemplate")
-	SkillToggle:SetPoint("TOPLEFT", SearchBox, "TOPRIGHT", 0, 0)
-	SkillToggle:SetHeight(16)
-	SkillToggle:SetWidth(16)
-
-	SkillToggle.text = SkillToggle:CreateFontString(nil, "ARTWORK", "GameFontNormalSmall")
-	SkillToggle.text:SetPoint("LEFT", SkillToggle, "RIGHT", 0, 0)
-
-	SkillToggle:SetScript("OnClick", function(self, button, down)
-		addon.db.profile.skill_view = not addon.db.profile.skill_view
-		MainPanel.list_frame:Update(nil, false)
-	end)
-
-	SkillToggle:SetScript("OnShow", function(self)
-		self:SetChecked(addon.db.profile.skill_view)
-	end)
-
-	SkillToggle.text:SetText(_G.SKILL)
-	SetTooltipScripts(SkillToggle, L["SKILL_TOGGLE_DESC"], 1)
-
-	-------------------------------------------------------------------------------
 	-- "Display Exclusions" checkbox.
 	-------------------------------------------------------------------------------
 	local ExcludeToggle = _G.CreateFrame("CheckButton", nil, MainPanel, "UICheckButtonTemplate")
-	ExcludeToggle:SetPoint("TOP", SkillToggle, "BOTTOM", 0, 1)
-	ExcludeToggle:SetHeight(16)
-	ExcludeToggle:SetWidth(16)
+	ExcludeToggle:SetPoint("TOPLEFT", SearchBox, "TOPRIGHT", 0, 0)
+	ExcludeToggle:SetSize(16, 16)
 
 	ExcludeToggle.text = ExcludeToggle:CreateFontString(nil, "ARTWORK", "GameFontNormalSmall")
 	ExcludeToggle.text:SetPoint("LEFT", ExcludeToggle, "RIGHT", 0, 0)
@@ -989,6 +965,28 @@ function private.InitializeFrame()
 			self:SetDisabledTexture([[Interface\CHATFRAME\UI-ChatIcon-ScrollUp-Disabled]])
 		end
 	end
+
+	-------------------------------------------------------------------------------
+	-- "Skill Level" checkbox.
+	-------------------------------------------------------------------------------
+	local SkillToggle = _G.CreateFrame("CheckButton", nil, MainPanel, "UICheckButtonTemplate")
+	SkillToggle:SetPoint("LEFT", sort_toggle, "RIGHT", 0, 0)
+	SkillToggle:SetSize(16, 16)
+
+	SkillToggle.text = SkillToggle:CreateFontString(nil, "ARTWORK", "GameFontNormalSmall")
+	SkillToggle.text:SetPoint("LEFT", SkillToggle, "RIGHT", 0, 0)
+
+	SkillToggle:SetScript("OnClick", function(self, button, down)
+		addon.db.profile.skill_view = not addon.db.profile.skill_view
+		MainPanel.list_frame:Update(nil, false)
+	end)
+
+	SkillToggle:SetScript("OnShow", function(self)
+		self:SetChecked(addon.db.profile.skill_view)
+	end)
+
+	SkillToggle.text:SetText(_G.SKILL)
+	SetTooltipScripts(SkillToggle, L["SKILL_TOGGLE_DESC"], 1)
 
 	-------------------------------------------------------------------------------
 	-- Create MainPanel.progress_bar and set its scripts
