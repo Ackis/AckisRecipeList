@@ -138,9 +138,8 @@ function private.InitializeListFrame()
 	ListFrame:EnableMouse(true)
 	ListFrame:EnableMouseWheel(true)
 	ListFrame:SetScript("OnHide", function(self)
-		if acquire_tip then 
-			QTip:Release(acquire_tip) 
-			acquire_tip = nil
+		if acquire_tip then
+			acquire_tip = QTip:Release(acquire_tip)
 		end
 		spell_tip:Hide()
 		self.selected_entry = nil
@@ -250,9 +249,9 @@ function private.InitializeListFrame()
 		if ListFrame.selected_entry then
 			return
 		end
-		if acquire_tip then 
-			QTip:Release(acquire_tip) 
-			acquire_tip = nil
+
+		if acquire_tip then
+			acquire_tip = QTip:Release(acquire_tip)
 		end
 		spell_tip:Hide()
 	end
@@ -556,9 +555,8 @@ function private.InitializeListFrame()
 			local current_tab = MainPanel.tabs[addon.db.profile.current_tab]
 			local expanded_button = current_tab["expand_button_"..MainPanel.current_profession]
 
-			if acquire_tip then 
-				QTip:Release(acquire_tip) 
-				acquire_tip = nil
+			if acquire_tip then
+				acquire_tip = QTip:Release(acquire_tip)
 			end
 			spell_tip:Hide()
 			self.selected_entry = nil
@@ -916,9 +914,8 @@ do
 		local MainPanel = addon.Frame
 
 		if acquire_tip_anchor == _G.OFF then
-			if acquire_tip then 
-				QTip:Release(acquire_tip) 
-				acquire_tip = nil
+			if acquire_tip then
+				acquire_tip = QTip:Release(acquire_tip)
 			end
 
 			-- If we have the spell link tooltip, anchor it to MainPanel instead so it shows
