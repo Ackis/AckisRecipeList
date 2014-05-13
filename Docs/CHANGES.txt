@@ -1,6 +1,31 @@
 ==ARL Change Log
 NOTE: Always remove the folder for old versions and install a fresh copy when upgrading.
 
+== 2.6.3
+=== Recipe Database:
+* Fix ticketed issues
+
+=== Dev Tools
+* Cleanup/overhaul
+
+== 2.6.2
+=== Dev Tools
+* Rewrote a large portion of the backend
+* Cleanup/overhaul
+
+== 2.6.1
+=== Recipe Database:
+* Fix various ticketed errors
+
+=== Dev Tools
+* Rewrote a large portion of the backend
+* Cleanup/overhaul
+
+== 2.6.0
+=== Dev Tools
+* Rewrote a large portion of the backend
+* Cleanup/overhaul
+
 == 2.5.13
 === Recipe Database:
 * Fix Swiftstrike Bracers location
