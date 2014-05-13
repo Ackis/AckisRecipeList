@@ -1593,8 +1593,8 @@ function addon:InitTailoring()
 	recipe:SetRecipeItem(14514, "BIND_ON_EQUIP")
 	recipe:SetCraftedItem(14153, "BIND_ON_PICKUP")
 	recipe:SetItemFilterType("TAILORING_CHEST")
-	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.INSTANCE, F.HEALER, F.CASTER)
-	recipe:AddMobDrop(1853)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.HEALER, F.CASTER)
+	recipe:Retire()
 
 	-- Mooncloth -- 18560
 	recipe = AddRecipe(18560, V.ORIG, Q.COMMON)
