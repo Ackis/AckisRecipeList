@@ -249,12 +249,12 @@ function addon:InitVendor()
 	AddVendor(16670,	L["Eriden"],				Z.SILVERMOON_CITY,		80.3,	36.1,	"Horde") -- COMPLETELY UPDATED
 	AddVendor(16677,	L["Quelis"],				Z.SILVERMOON_CITY,		69.3,	70.4,	"Horde") -- COMPLETELY UPDATED
 	AddVendor(16689,	L["Zaralda"],				Z.SILVERMOON_CITY,		84.8,	78.6,	"Horde") -- COMPLETELY UPDATED
-	AddVendor(16705,	L["Altaa"],				Z.THUNDER_BLUFF,		27.5,	62.1,	"Alliance")
-	AddVendor(16713,	L["Arras"],				Z.THUNDER_BLUFF,		60.0,	89.5,	"Alliance")
-	AddVendor(16718,	L["Phea"],				Z.THUNDER_BLUFF,		54.7,	26.5,	"Alliance")
-	AddVendor(16722,	L["Egomis"],				Z.THUNDER_BLUFF,		39.9,	40.2,	"Alliance") -- COMPLETELY UPDATED
+	AddVendor(16705,	L["Altaa"],				Z.THE_EXODAR,			27.5,	62.1,	"Alliance")
+	AddVendor(16713,	L["Arras"],				Z.THE_EXODAR,			60.0,	89.5,	"Alliance")
+	AddVendor(16718,	L["Phea"],				Z.THE_EXODAR,			54.7,	26.5,	"Alliance")
+	AddVendor(16722,	L["Egomis"],				Z.THE_EXODAR,			39.9,	40.2,	"Alliance") -- COMPLETELY UPDATED
 	AddVendor(16748,	L["Haferet"],				Z.THE_EXODAR,			66.6,	73.7,	"Alliance") -- COMPLETELY UPDATED
-	AddVendor(16767,	L["Neii"],				Z.THUNDER_BLUFF,		64.5,	68.5,	"Alliance") -- COMPLETELY UPDATED
+	AddVendor(16767,	L["Neii"],				Z.THE_EXODAR,			64.5,	68.5,	"Alliance") -- COMPLETELY UPDATED
 	AddVendor(16782,	L["Yatheon"],				Z.SILVERMOON_CITY,		75.6,	40.7,	"Horde") -- COMPLETELY UPDATED
 	AddVendor(16826,	L["Sid Limbardi"],			Z.HELLFIRE_PENINSULA,		54.3,	63.6,	"Alliance")
 	AddVendor(17246,	L["\"Cookie\" McWeaksauce"],		Z.AZUREMYST_ISLE,		46.7,	70.5,	"Alliance")
