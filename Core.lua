@@ -876,6 +876,11 @@ do
 		if profession_name == private.MINING_PROFESSION_NAME then
 			profession_name = private.LOCALIZED_PROFESSION_NAMES.SMELTING
 		end
+		local profession_module_name = private.PROFESSION_MODULE_NAMES[profession_name]
+
+		if not profession_module_name or not addon:GetModule(profession_module_name, true) then
+			return
+		end
 
 		local player = private.Player
 		player:UpdateProfessions()
