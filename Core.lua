@@ -62,7 +62,6 @@ private.TextDump = LibStub("LibTextDump-1.0"):New(private.addon_name)
 ------------------------------------------------------------------------------
 -- Constants.
 ------------------------------------------------------------------------------
-local PROFESSION_INIT_FUNCS
 
 ------------------------------------------------------------------------------
 -- Database tables
@@ -354,7 +353,7 @@ function addon:OnInitialize()
 		}
 	}
 
-	for filter_name in pairs(private.ITEM_FILTER_TYPES) do
+	for filter_name in pairs(self.constants.ITEM_FILTER_TYPES) do
 		defaults.profile.filters.item[filter_name:lower()] = true
 	end
 	self.db = LibStub("AceDB-3.0"):New("ARLDB2", defaults)
@@ -387,22 +386,6 @@ function addon:OnInitialize()
 	self:RegisterChatCommand("arl", "ChatCommand")
 	self:RegisterChatCommand("ackisrecipelist", "ChatCommand")
 
-	-------------------------------------------------------------------------------
-	-- Populate the profession initialization functions.
-	-------------------------------------------------------------------------------
-	PROFESSION_INIT_FUNCS = {
-		[private.LOCALIZED_PROFESSION_NAMES.ALCHEMY] = addon.InitAlchemy,
-		[private.LOCALIZED_PROFESSION_NAMES.BLACKSMITHING] = addon.InitBlacksmithing,
-		[private.LOCALIZED_PROFESSION_NAMES.COOKING] = addon.InitCooking,
-		[private.LOCALIZED_PROFESSION_NAMES.ENCHANTING] = addon.InitEnchanting,
-		[private.LOCALIZED_PROFESSION_NAMES.ENGINEERING] = addon.InitEngineering,
-		[private.LOCALIZED_PROFESSION_NAMES.FIRSTAID] = addon.InitFirstAid,
-		[private.LOCALIZED_PROFESSION_NAMES.LEATHERWORKING] = addon.InitLeatherworking,
-		[private.LOCALIZED_PROFESSION_NAMES.SMELTING] = addon.InitSmelting,
-		[private.LOCALIZED_PROFESSION_NAMES.TAILORING] = addon.InitTailoring,
-		[private.LOCALIZED_PROFESSION_NAMES.JEWELCRAFTING] = addon.InitJewelcrafting,
-		[private.LOCALIZED_PROFESSION_NAMES.INSCRIPTION] = addon.InitInscription,
-	}
 	-------------------------------------------------------------------------------
 	-- Hook GameTooltip so we can show information on mobs that drop/sell/train
 	-------------------------------------------------------------------------------
@@ -722,7 +705,7 @@ do
 
 	-- Returns true if a profession was initialized.
 	function addon:InitializeProfession(profession_name)
-		if not profession_name then
+		if not profession_name or not private.PROFESSION_MODULE_NAMES[profession_name] then
 			addon:Debug("nil profession passed to InitializeProfession()")
 			return false
 		end
@@ -730,12 +713,11 @@ do
 		if InitializeLookups then
 			InitializeLookups()
 		end
-		local func = PROFESSION_INIT_FUNCS[profession_name]
+		local module_name = FOLDER_NAME .. "_" .. private.PROFESSION_MODULE_NAMES[profession_name] or ""
+		local _, _, _, is_enabled = _G.GetAddOnInfo(module_name)
 
-		if func then
-			func(addon)
-			PROFESSION_INIT_FUNCS[profession_name] = nil
-			return true
+		if is_enabled then
+			return _G.LoadAddOn(module_name)
 		end
 		return false
 	end

@@ -278,7 +278,7 @@ do
 end -- do-block
 
 function Recipe:SetItemFilterType(filter_type)
-	if not private.ITEM_FILTER_TYPES[filter_type:upper()] then
+	if not addon.constants.ITEM_FILTER_TYPES[filter_type:upper()] then
 		addon:Debug("Attempting to set invalid item filter type '%s' for '%s' (%d)", filter_type, self.name, self:SpellID())
 		return
 	end
@@ -727,8 +727,9 @@ do
 			return false
 		end
 		local item_filter_type = self:ItemFilterType()
+		local profession_module = addon:GetModule(private.PROFESSION_MODULE_NAMES[private.ORDERED_PROFESSIONS[addon.Frame.current_profession]])
 
-		if item_filter_type and not addon.db.profile.filters.item[item_filter_type] then
+		if item_filter_type and not profession_module or not profession_module.db.profile.filters.item[item_filter_type] then
 			return false
 		end
 
