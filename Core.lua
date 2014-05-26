@@ -642,9 +642,16 @@ function addon:TRADE_SKILL_SHOW()
 		scan_button:SetWidth(scan_button:GetTextWidth() + 10)
 	end
 	local profession_name = _G.GetTradeSkillLine()
+	local profession_module_name = private.PROFESSION_MODULE_NAMES[profession_name]
 
-	if private.PROFESSION_MODULE_NAMES[profession_name] then
-		scan_button:Show()
+	if profession_module_name then
+		addon:InitializeProfession(profession_name)
+
+		if addon:GetModule(profession_module_name, true) then
+			scan_button:Show()
+		else
+			scan_button:Hide()
+		end
 	else
 		scan_button:Hide()
 	end
@@ -918,7 +925,6 @@ do
 				end
 			end
 		end
-		addon:InitializeProfession(profession_name)
 
 		-------------------------------------------------------------------------------
 		-- Scan all recipes and mark the ones we know
