@@ -121,4 +121,5 @@ do
 		frame:SetScript("OnEnter", Show_Tooltip)
 		frame:SetScript("OnLeave", Hide_Tooltip)
 	end
+	addon.SetTooltipScripts = private.SetTooltipScripts -- TODO: Move this somewhere more sensical.
 end	-- do

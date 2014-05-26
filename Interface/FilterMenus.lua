@@ -94,6 +94,7 @@ do
 			parent[section].text:SetText(data.text)
 		end
 	end
+	addon.GenerateCheckBoxes = private.GenerateCheckBoxes -- TODO: Move this somewhere more sensical.
 end	-- do
 
 -------------------------------------------------------------------------------
