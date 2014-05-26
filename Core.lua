@@ -714,8 +714,8 @@ do
 	end
 
 	-- Returns true if a profession was initialized.
-	function addon:InitializeProfession(profession)
-		if not profession then
+	function addon:InitializeProfession(profession_name)
+		if not profession_name then
 			addon:Debug("nil profession passed to InitializeProfession()")
 			return false
 		end
@@ -723,11 +723,11 @@ do
 		if InitializeLookups then
 			InitializeLookups()
 		end
-		local func = PROFESSION_INIT_FUNCS[profession]
+		local func = PROFESSION_INIT_FUNCS[profession_name]
 
 		if func then
 			func(addon)
-			PROFESSION_INIT_FUNCS[profession] = nil
+			PROFESSION_INIT_FUNCS[profession_name] = nil
 			return true
 		end
 		return false
