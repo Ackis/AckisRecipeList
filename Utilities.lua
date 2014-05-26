@@ -236,6 +236,11 @@ do
 				output:AddLine(("%s = _G.EJ_GetEncounterInfo(%d),"):format(TableKeyFormat(boss_name), index))
 			end
 		end
+
+		if output:Lines() == 0 then
+			output:AddLine("Nothing to display.")
+		end
+
 		output:Display()
 	end
 
