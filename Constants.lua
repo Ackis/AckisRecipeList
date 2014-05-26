@@ -109,6 +109,21 @@ private.ORDERED_PROFESSIONS = {
 	private.LOCALIZED_PROFESSION_NAMES.TAILORING,		-- 11
 }
 
+-- Required for loading profession modules.
+private.PROFESSION_MODULE_NAMES = {
+	[private.LOCALIZED_PROFESSION_NAMES.ALCHEMY] = "Alchemy",
+	[private.LOCALIZED_PROFESSION_NAMES.BLACKSMITHING] = "Blacksmithing",
+	[private.LOCALIZED_PROFESSION_NAMES.COOKING] = "Cooking",
+	[private.LOCALIZED_PROFESSION_NAMES.ENCHANTING] = "Enchanting",
+	[private.LOCALIZED_PROFESSION_NAMES.ENGINEERING] = "Engineering",
+	[private.LOCALIZED_PROFESSION_NAMES.FIRSTAID] = "FirstAid",
+	[private.LOCALIZED_PROFESSION_NAMES.INSCRIPTION] = "Inscription",
+	[private.LOCALIZED_PROFESSION_NAMES.JEWELCRAFTING] = "Jewelcrafting",
+	[private.LOCALIZED_PROFESSION_NAMES.LEATHERWORKING] = "Leatherworking",
+	[private.LOCALIZED_PROFESSION_NAMES.SMELTING] = "Smelting",
+	[private.LOCALIZED_PROFESSION_NAMES.TAILORING] = "Tailoring",
+}
+
 private.PROFESSION_IDS = {}
 
 for index = 1, #private.ORDERED_PROFESSIONS do
