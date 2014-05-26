@@ -286,9 +286,7 @@ function private.InitializeListFrame()
 				if _G.IsShiftKeyDown() then
 					local entry_acquire_type = entry:AcquireType()
 
-					if entry_acquire_type then
-						addon:AddWaypoint(recipe, entry_acquire_type:ID(), entry:LocationID(), entry:NPCID())
-					end
+					addon:AddWaypoint(recipe, entry_acquire_type and entry_acquire_type:ID() or nil, entry:LocationID(), entry:NPCID())
 				else
 					local edit_box = _G.ChatEdit_ChooseBoxForSend()
 
