@@ -658,7 +658,13 @@ function addon:TRADE_SKILL_SHOW()
 		end
 		scan_button:SetWidth(scan_button:GetTextWidth() + 10)
 	end
-	scan_button:Show()
+	local profession_name = _G.GetTradeSkillLine()
+
+	if private.PROFESSION_MODULE_NAMES[profession_name] then
+		scan_button:Show()
+	else
+		scan_button:Hide()
+	end
 end
 
 function addon:TRADE_SKILL_CLOSE()
