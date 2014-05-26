@@ -201,7 +201,7 @@ do
 			_G.SetMapToCurrentZone() -- Make sure were are looking at the right zone
 
 			L[trainer_name] = trainer_name
-			private:AddTrainer(trainer_id, trainer_name, _G.GetRealZoneText(), trainer_x, trainer_y, private.Player.faction)
+			addon:AddTrainer(trainer_id, trainer_name, _G.GetRealZoneText(), trainer_x, trainer_y, private.Player.faction)
 		end
 
 		for spell_id, recipe in pairs(recipe_list) do
