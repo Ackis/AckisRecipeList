@@ -402,7 +402,6 @@ function addon:OnInitialize()
 		[private.LOCALIZED_PROFESSION_NAMES.TAILORING] = addon.InitTailoring,
 		[private.LOCALIZED_PROFESSION_NAMES.JEWELCRAFTING] = addon.InitJewelcrafting,
 		[private.LOCALIZED_PROFESSION_NAMES.INSCRIPTION] = addon.InitInscription,
-		[private.LOCALIZED_PROFESSION_NAMES.RUNEFORGING] = addon.InitRuneforging,
 	}
 	-------------------------------------------------------------------------------
 	-- Hook GameTooltip so we can show information on mobs that drop/sell/train
@@ -879,9 +878,7 @@ do
 		end
 		private.current_profession_specialty = nil
 
-		if profession_name == private.LOCALIZED_PROFESSION_NAMES.RUNEFORGING then
-			prof_level = _G.UnitLevel("player")
-		elseif profession_name == private.MINING_PROFESSION_NAME then
+		if profession_name == private.MINING_PROFESSION_NAME then
 			profession_name = private.LOCALIZED_PROFESSION_NAMES.SMELTING
 		end
 

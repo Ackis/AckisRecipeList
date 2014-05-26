@@ -157,7 +157,6 @@ function private.InitializeFrame()
 		["tailoring"] = private.InitializeItemFilters_Tailoring,
 		["jewelcrafting"] = private.InitializeItemFilters_Jewelcrafting,
 		["inscription"] = private.InitializeItemFilters_Inscription,
-		["runeforging"] = private.InitializeItemFilters_Runeforging,
 	}
 
 	function MainPanel:Display(profession_name, is_linked)

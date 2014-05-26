@@ -20,7 +20,6 @@
     <Include file="Database\Recipes\Inscription.lua"/>
     <Include file="Database\Recipes\Jewelcrafting.lua"/>
     <Include file="Database\Recipes\Leatherworking.lua"/>
-    <Include file="Database\Recipes\Runeforging.lua"/>
     <Include file="Database\Recipes\Smelting.lua"/>
     <Include file="Database\Recipes\Tailoring.lua"/>
 
@@ -42,7 +41,6 @@
     <Include file="Database\Trainers\Inscription.lua"/>
     <Include file="Database\Trainers\Jewelcrafting.lua"/>
     <Include file="Database\Trainers\Leatherworking.lua"/>
-    <Include file="Database\Trainers\Runeforging.lua"/>
     <Include file="Database\Trainers\Smelting.lua"/>
     <Include file="Database\Trainers\Tailoring.lua"/>
 </Ui>

@@ -55,7 +55,6 @@ private.PROFESSION_SPELL_IDS = {
 	INSCRIPTION = 45357,
 	JEWELCRAFTING = 25229,
 	LEATHERWORKING = 2108,
-	RUNEFORGING = 53428,
 	SMELTING = 2656,
 	TAILORING = 3908,
 }
@@ -65,11 +64,6 @@ private.LOCALIZED_PROFESSION_NAMES = {}
 
 for name, spell_id in pairs(private.PROFESSION_SPELL_IDS) do
 	private.LOCALIZED_PROFESSION_NAMES[name] = _G.GetSpellInfo(spell_id)
-end
-
--- Special case for Runeforging is needed because the French translation is non-conforming.
-if _G.GetLocale() == "frFR" then
-	private.LOCALIZED_PROFESSION_NAMES.RUNEFORGING = "Runeforger"
 end
 
 -- This is needed due to Pandaren cooking spells.
@@ -97,9 +91,8 @@ private.PROFESSION_LABELS = {
 	"inscription",		-- 7
 	"jewelcrafting",	-- 8
 	"leatherworking",	-- 9
-	"runeforging",		-- 10
-	"smelting",		-- 11
-	"tailoring",		-- 12
+	"smelting",		-- 10
+	"tailoring",		-- 11
 }
 
 private.ORDERED_PROFESSIONS = {
@@ -112,9 +105,8 @@ private.ORDERED_PROFESSIONS = {
 	private.LOCALIZED_PROFESSION_NAMES.INSCRIPTION,		-- 7
 	private.LOCALIZED_PROFESSION_NAMES.JEWELCRAFTING, 	-- 8
 	private.LOCALIZED_PROFESSION_NAMES.LEATHERWORKING, 	-- 9
-	private.LOCALIZED_PROFESSION_NAMES.RUNEFORGING,		-- 10
-	private.LOCALIZED_PROFESSION_NAMES.SMELTING,		-- 11
-	private.LOCALIZED_PROFESSION_NAMES.TAILORING,		-- 12
+	private.LOCALIZED_PROFESSION_NAMES.SMELTING,		-- 10
+	private.LOCALIZED_PROFESSION_NAMES.TAILORING,		-- 11
 }
 
 private.PROFESSION_IDS = {}
@@ -133,9 +125,8 @@ private.PROFESSION_TEXTURES = {
 	[[INV_Inscription_Tradeskill01]],	-- 07 (Inscription)
 	[[INV_Misc_Gem_01]],			-- 08 (Jewelcrafting)
 	[[Trade_LeatherWorking]],		-- 09 (Leatherworking)
-	[[Spell_DeathKnight_FrozenRuneWeapon]],	-- 10 (Runeforging)
-	[[Spell_Fire_FlameBlades]],		-- 11 (Smelting)
-	[[Trade_Tailoring]],			-- 12 (Tailoring)
+	[[Spell_Fire_FlameBlades]],		-- 10 (Smelting)
+	[[Trade_Tailoring]],			-- 11 (Tailoring)
 }
 
 -------------------------------------------------------------------------------
