@@ -25,7 +25,11 @@ local FOLDER_NAME, private = ...
 private.addon_name = "Ackis Recipe List"
 
 local LibStub = _G.LibStub
-local L		= LibStub("AceLocale-3.0"):GetLocale(private.addon_name)
+local L = LibStub("AceLocale-3.0"):GetLocale(private.addon_name)
+
+-- Required so constants can be assigned to the AddOn object in Core.lua in order to be accessible from profession modules
+local constants = {}
+private.constants = constants
 
 -------------------------------------------------------------------------------
 -- General constants.
@@ -42,19 +46,20 @@ private.COORDINATES_FORMAT = "(%.2f, %.2f)"
 private.MINING_PROFESSION_NAME = _G.GetSpellInfo(2575)
 
 private.PROFESSION_SPELL_IDS = {
-	ALCHEMY		= 2259,
-	BLACKSMITHING	= 2018,
-	COOKING		= 2550,
-	ENCHANTING	= 7411,
-	ENGINEERING	= 4036,
-	FIRSTAID	= 3273,
-	INSCRIPTION	= 45357,
-	JEWELCRAFTING	= 25229,
-	LEATHERWORKING	= 2108,
-	RUNEFORGING	= 53428,
-	SMELTING	= 2656,
-	TAILORING	= 3908,
+	ALCHEMY = 2259,
+	BLACKSMITHING = 2018,
+	COOKING = 2550,
+	ENCHANTING = 7411,
+	ENGINEERING = 4036,
+	FIRSTAID = 3273,
+	INSCRIPTION = 45357,
+	JEWELCRAFTING = 25229,
+	LEATHERWORKING = 2108,
+	RUNEFORGING = 53428,
+	SMELTING = 2656,
+	TAILORING = 3908,
 }
+constants.PROFESSION_SPELL_IDS = private.PROFESSION_SPELL_IDS
 
 private.LOCALIZED_PROFESSION_NAMES = {}
 
@@ -146,6 +151,7 @@ private.ITEM_QUALITY_NAMES = {
 }
 
 private.ITEM_QUALITIES = {}
+constants.ITEM_QUALITIES = private.ITEM_QUALITIES
 
 for index = 1, #private.ITEM_QUALITY_NAMES do
 	private.ITEM_QUALITIES[private.ITEM_QUALITY_NAMES[index]] = index
@@ -163,6 +169,7 @@ private.GAME_VERSION_NAMES = {
 }
 
 private.GAME_VERSIONS = {}
+constants.GAME_VERSIONS = private.GAME_VERSIONS
 
 for index = 1, #private.GAME_VERSION_NAMES do
 	private.GAME_VERSIONS[private.GAME_VERSION_NAMES[index]] = index
@@ -320,6 +327,7 @@ for index = 1, #private.FLAG_WORDS do
 end
 
 private.FILTER_IDS = {}
+constants.FILTER_IDS = private.FILTER_IDS
 
 for index = 1, #private.FILTER_STRINGS do
 	private.FILTER_IDS[private.FILTER_STRINGS[index]] = index
@@ -483,6 +491,7 @@ private.REP_LEVEL_STRINGS = {
 }
 
 private.REP_LEVELS = {}
+constants.REP_LEVELS = private.REP_LEVELS
 
 for index = 1, #private.REP_LEVEL_STRINGS do
 	private.REP_LEVELS[private.REP_LEVEL_STRINGS[index]] = index
@@ -655,6 +664,7 @@ private.LOCALIZED_FACTION_STRINGS = {
 }
 
 private.FACTION_IDS = {}
+constants.FACTION_IDS = private.FACTION_IDS
 
 for id, name in pairs(private.FACTION_STRINGS) do
 	private.FACTION_IDS[name] = id
@@ -815,6 +825,8 @@ private.ZONE_NAMES = {
 	ISLE_OF_THUNDER = _G.GetMapNameByID(928),
 	TIMELESS_ISLE = _G.GetMapNameByID(951),
 }
+
+constants.ZONE_NAMES = private.ZONE_NAMES
 
 do
 	local continent_names = { _G.GetMapContinents() }

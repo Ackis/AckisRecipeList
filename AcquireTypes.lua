@@ -825,6 +825,8 @@ local ACQUIRE_PROTOTYPES = {
 
 private.ACQUIRE_TYPES_BY_ID = {}
 private.ACQUIRE_TYPE_IDS = {}
+private.constants.ACQUIRE_TYPE_IDS = private.ACQUIRE_TYPE_IDS
+
 private.AcquireTypes = {}
 
 for index = 1, #ACQUIRE_PROTOTYPES do
