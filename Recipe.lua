@@ -682,13 +682,13 @@ do
 		return false
 	end
 
-	---Scans a specific recipe to determine if it is to be displayed or not.
-	 function Recipe:CanDisplay()
-		 if InitializeFilters then
-			 InitializeFilters()
-		 end
+	--- Scans a specific recipe to determine if it is to be displayed or not.
+	function Recipe:CanDisplay()
+		if InitializeFilters then
+			InitializeFilters()
+		end
 
-		 if addon.db.profile.exclusionlist[self:SpellID()] and not addon.db.profile.ignoreexclusionlist then
+		if addon.db.profile.exclusionlist[self:SpellID()] and not addon.db.profile.ignoreexclusionlist then
 			return false
 		end
 		local general_filters = filter_db.general
