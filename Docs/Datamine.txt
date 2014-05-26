@@ -16,7 +16,3 @@ Does a comparison of the information in your internal ARL database, and those it
 ====Trainer Recipes====
 Does a comparison of the information in your internal ARL database, and those items which are available on the trainer.  Compares the acquire information of the ARL database with what is available on the trainer.
 <<code lua>>/script AckisRecipeList:ScanTrainerData()<</code>>
-
-====Generate Complete Links====
-Generates a complete link for all tradeskills.  This has all known recipes in it and can be used for comparison purposes.
-<<code lua>>/script AckisRecipeList:GenerateLinks()<</code>>

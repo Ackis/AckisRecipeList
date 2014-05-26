@@ -809,9 +809,6 @@ local SUBCOMMAND_FUNCS = {
 		addon:ScanProfession("all")
 	end,
 	--@end-debug@
-	tradelinks = function()
-		addon:GenerateLinks()
-	end,
 }
 
 function addon:ChatCommand(input)

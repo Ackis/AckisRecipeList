@@ -380,14 +380,6 @@ local function GetDatamineOptions()
 					type	= "description",
 					name	= L["DATAMINE_WARNING_DESC"] .. "\n",
 				},
-				generatelinks = {
-					width	= "double",
-					order	= 10,
-					type	= "execute",
-					name	= L["Generate Tradeskill Links"],
-					desc	= L["GENERATE_LINKS_DESC"],
-					func	= function() addon:GenerateLinks() end,
-				},
 				scantraineracquire = {
 					width	= "double",
 					order	= 30,
