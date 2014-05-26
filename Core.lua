@@ -647,11 +647,7 @@ function addon:TRADE_SKILL_SHOW()
 	if profession_module_name then
 		addon:InitializeProfession(profession_name)
 
-		if addon:GetModule(profession_module_name, true) then
-			scan_button:Show()
-		else
-			scan_button:Hide()
-		end
+		scan_button:Show()
 	else
 		scan_button:Hide()
 	end
@@ -878,7 +874,12 @@ do
 		end
 		local profession_module_name = private.PROFESSION_MODULE_NAMES[profession_name]
 
-		if not profession_module_name or not addon:GetModule(profession_module_name, true) then
+		if not profession_module_name then
+			return
+		end
+
+		if not addon:GetModule(profession_module_name, true) then
+			self:Print(L["MODULE_NOT_LOADED"]:format(profession_module_name))
 			return
 		end
 

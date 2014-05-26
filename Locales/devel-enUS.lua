@@ -817,6 +817,7 @@ L["MAP_OPTIONS_DESC"] = "Allows you to change how ARL integrates into the world 
 L["MISC_DESC"] = "Recipes that are miscellaneous should be included in the scan."
 L["MISSING_LIBRARY"] = "%s is missing.  Addon cannot run."
 L["MOB_DROP_DESC"] = "Recipes that are Mob Drops should be included in the scan."
+L["MODULE_NOT_LOADED"] = "The \"Ackis Recipe List: %s\" module is not loaded. Either it is not installed or is disabled."
 L["Mack Diver"] = true
 L["Madame Ruby"] = true
 L["Magar"] = true
