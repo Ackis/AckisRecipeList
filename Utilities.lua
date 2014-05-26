@@ -91,6 +91,9 @@ do
 			end
 			addon:DumpProfession(input)
 		end,
+		reputations = function()
+			addon:DumpReps()
+		end,
 		zones = function(input)
 			if not input then
 				addon:Print("Type the name or partial name of a zone.")
