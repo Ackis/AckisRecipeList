@@ -9,19 +9,19 @@ local Z = private.ZONE_NAMES
 -----------------------------------------------------------------------
 function private:InitializeTailoringTrainers()
 	self:AddTrainer(1103, "Eldrin", Z.ELWYNN_FOREST, 79.3, 69, "Alliance")
-	self:AddTrainer(1346, "Georgio Bolero", Z.STORMWIND_CITY, 53.2, 81.5, "Alliance") -- COMPLETELY UPDATED
-	self:AddTrainer(2399, "Daryl Stack", Z.HILLSBRAD_FOOTHILLS, 58.1, 48, "Horde") -- COMPLETELY UPDATED
+	self:AddTrainer(1346, "Georgio Bolero", Z.STORMWIND_CITY, 53.2, 81.5, "Alliance")
+	self:AddTrainer(2399, "Daryl Stack", Z.HILLSBRAD_FOOTHILLS, 58.1, 48, "Horde")
 	self:AddTrainer(2627, "Grarnik Goodstitch", Z.THE_CAPE_OF_STRANGLETHORN, 43.6, 73, "Neutral")
-	self:AddTrainer(3004, "Tepa", Z.THUNDER_BLUFF, 44.5, 45.3, "Horde") -- COMPLETELY UPDATED
+	self:AddTrainer(3004, "Tepa", Z.THUNDER_BLUFF, 44.5, 45.3, "Horde")
 	self:AddTrainer(3363, "Magar", Z.ORGRIMMAR, 63.5, 50, "Horde")
 	self:AddTrainer(3484, "Kil'hala", Z.NORTHERN_BARRENS, 49.9, 61.2, "Horde")
 	self:AddTrainer(3523, "Bowen Brisboise", Z.TIRISFAL_GLADES, 52.6, 55.6, "Horde")
 	self:AddTrainer(3704, "Mahani", Z.SOUTHERN_BARRENS, 41.5, 46.9, "Horde")
-	self:AddTrainer(4159, "Me'lynn", Z.DARNASSUS, 59.8, 37.4, "Alliance") -- COMPLETELY UPDATED
+	self:AddTrainer(4159, "Me'lynn", Z.DARNASSUS, 59.8, 37.4, "Alliance")
 	self:AddTrainer(4576, "Josef Gregorian", Z.UNDERCITY, 70.7, 30.3, "Horde")
 	self:AddTrainer(4578, "Josephine Lister", Z.UNDERCITY, 86.5, 22.3, "Horde")
 	self:AddTrainer(5153, "Jormund Stonebrow", Z.IRONFORGE, 43.2, 29, "Alliance")
-	self:AddTrainer(9584, "Jalane Ayrole", Z.STORMWIND_CITY, 40.4, 84.6, "Alliance") -- COMPLETELY UPDATED
+	self:AddTrainer(9584, "Jalane Ayrole", Z.STORMWIND_CITY, 40.4, 84.6, "Alliance")
 	self:AddTrainer(11052, "Timothy Worthington", Z.DUSTWALLOW_MARSH, 66.22, 51.7, "Alliance")
 	self:AddTrainer(11557, "Meilosh", Z.FELWOOD, 65.7, 2.9, "Neutral")
 	self:AddTrainer(16366, "Sempstress Ambershine", Z.EVERSONG_WOODS, 37.4, 71.9, "Horde")

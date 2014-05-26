@@ -15,11 +15,11 @@ function private:InitializeInscriptionTrainers()
 	self:AddTrainer(26995, "Tink Brightbolt", Z.BOREAN_TUNDRA, 57.6, 71.7, "Alliance")
 	self:AddTrainer(28702, "Professor Pallin", Z.DALARAN, 41.8, 36.9, "Neutral")
 	self:AddTrainer(30706, "Jo'mah", Z.ORGRIMMAR, 56.2, 46.5, "Horde")
-	self:AddTrainer(30709, "Poshken Hardbinder", Z.THUNDER_BLUFF, 28.7, 20.9, "Horde") -- COMPLETELY UPDATED
+	self:AddTrainer(30709, "Poshken Hardbinder", Z.THUNDER_BLUFF, 28.7, 20.9, "Horde")
 	self:AddTrainer(30710, "Zantasia", Z.SILVERMOON_CITY, 69.5, 24, "Horde")
 	self:AddTrainer(30711, "Margaux Parchley", Z.UNDERCITY, 61, 58.5, "Horde")
-	self:AddTrainer(30713, "Catarina Stanford", Z.STORMWIND_CITY, 49.8, 74.7, "Alliance") -- COMPLETELY UPDATED
-	self:AddTrainer(30715, "Feyden Darkin", Z.DARNASSUS, 56.8, 31.6, "Alliance") -- COMPLETELY UPDATED
+	self:AddTrainer(30713, "Catarina Stanford", Z.STORMWIND_CITY, 49.8, 74.7, "Alliance")
+	self:AddTrainer(30715, "Feyden Darkin", Z.DARNASSUS, 56.8, 31.6, "Alliance")
 	self:AddTrainer(30716, "Thoth", Z.THE_EXODAR, 40.5, 39.1, "Alliance")
 	self:AddTrainer(30717, "Elise Brightletter", Z.IRONFORGE, 60.7, 44.9, "Alliance")
 	self:AddTrainer(30721, "Michael Schwan", Z.HELLFIRE_PENINSULA, 53.9, 65.5, "Alliance")

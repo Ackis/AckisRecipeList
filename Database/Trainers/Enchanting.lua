@@ -8,11 +8,11 @@ local Z = private.ZONE_NAMES
 -- What we _really_ came here to see...
 -----------------------------------------------------------------------
 function private:InitializeEnchantingTrainers()
-	self:AddTrainer(1317, "Lucan Cordell", Z.STORMWIND_CITY, 53, 74.3, "Alliance") -- COMPLETELY UPDATED
-	self:AddTrainer(3011, "Teg Dawnstrider", Z.THUNDER_BLUFF, 45.3, 38.4, "Horde") -- COMPLETELY UPDATED
+	self:AddTrainer(1317, "Lucan Cordell", Z.STORMWIND_CITY, 53, 74.3, "Alliance")
+	self:AddTrainer(3011, "Teg Dawnstrider", Z.THUNDER_BLUFF, 45.3, 38.4, "Horde")
 	self:AddTrainer(3345, "Godan", Z.ORGRIMMAR, 53.8, 38.5, "Horde")
 	self:AddTrainer(3606, "Alanna Raveneye", Z.TELDRASSIL, 36.8, 34.2, "Alliance")
-	self:AddTrainer(4213, "Taladan", Z.DARNASSUS, 56.4, 31, "Alliance") -- COMPLETELY UPDATED
+	self:AddTrainer(4213, "Taladan", Z.DARNASSUS, 56.4, 31, "Alliance")
 	self:AddTrainer(4616, "Lavinia Crowe", Z.UNDERCITY, 62.1, 60.5, "Horde")
 	self:AddTrainer(5157, "Gimble Thistlefuzz", Z.IRONFORGE, 60, 45.4, "Alliance")
 	self:AddTrainer(5695, "Vance Undergloom", Z.TIRISFAL_GLADES, 61.7, 51.6, "Horde")
@@ -27,7 +27,7 @@ function private:InitializeEnchantingTrainers()
 	self:AddTrainer(18773, "Johan Barnes", Z.HELLFIRE_PENINSULA, 53.7, 66.1, "Alliance")
 	self:AddTrainer(19251, "Enchantress Volali", Z.SHATTRATH_CITY, 43.2, 92.3, "Neutral")
 	self:AddTrainer(19252, "High Enchanter Bardolan", Z.SHATTRATH_CITY, 43.2, 92.2, "Neutral")
-	self:AddTrainer(19540, "Asarnan", Z.NETHERSTORM, 44.2, 33.7, "Neutral") -- COMPLETELY UPDATED
+	self:AddTrainer(19540, "Asarnan", Z.NETHERSTORM, 44.2, 33.7, "Neutral")
 	self:AddTrainer(26906, "Elizabeth Jackson", Z.HOWLING_FJORD, 58.6, 62.8, "Alliance")
 	self:AddTrainer(26954, "Emil Autumn", Z.HOWLING_FJORD, 78.7, 28.3, "Horde")
 	self:AddTrainer(26980, "Eorain Dawnstrike", Z.BOREAN_TUNDRA, 41.2, 53.9, "Horde")

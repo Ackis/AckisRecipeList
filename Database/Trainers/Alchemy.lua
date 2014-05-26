@@ -11,21 +11,21 @@ function private:InitializeAlchemyTrainers()
 
 	self:AddTrainer(1215, "Alchemist Mallory", Z.ELWYNN_FOREST, 39.8, 48.3, "Alliance")
 	self:AddTrainer(1246, "Vosur Brakthel", Z.IRONFORGE, 66.5, 55.2, "Alliance")
-	self:AddTrainer(1386, "Rogvar", Z.SWAMP_OF_SORROWS, 50, 56.2, "Horde") -- COMPLETELY UPDATED
+	self:AddTrainer(1386, "Rogvar", Z.SWAMP_OF_SORROWS, 50, 56.2, "Horde")
 	self:AddTrainer(1470, "Ghak Healtouch", Z.LOCH_MODAN, 37, 49.2, "Alliance")
 	self:AddTrainer(2132, "Carolai Anise", Z.TIRISFAL_GLADES, 59.5, 52.2, "Horde")
-	self:AddTrainer(2391, "Serge Hinott", Z.HILLSBRAD_FOOTHILLS, 49.1, 66.4, "Horde") -- COMPLETELY UPDATED
+	self:AddTrainer(2391, "Serge Hinott", Z.HILLSBRAD_FOOTHILLS, 49.1, 66.4, "Horde")
 	self:AddTrainer(2837, "Jaxin Chong", Z.THE_CAPE_OF_STRANGLETHORN, 42.6, 74.8, "Neutral")
-	self:AddTrainer(3009, "Bena Winterhoof", Z.THUNDER_BLUFF, 46.6, 33.2, "Horde") -- COMPLETELY UPDATED
-	self:AddTrainer(3184, "Miao'zan", Z.DUROTAR, 55.5, 74, "Horde") -- COMPLETELY UPDATED
+	self:AddTrainer(3009, "Bena Winterhoof", Z.THUNDER_BLUFF, 46.6, 33.2, "Horde")
+	self:AddTrainer(3184, "Miao'zan", Z.DUROTAR, 55.5, 74, "Horde")
 	self:AddTrainer(3347, "Yelmak", Z.ORGRIMMAR, 55.68, 44.77, "Horde")
 	self:AddTrainer(3603, "Cyndra Kindwhisper", Z.TELDRASSIL, 57.6, 60.7, "Alliance")
 	self:AddTrainer(3964, "Kylanna", Z.ASHENVALE, 50.8, 67.1, "Alliance")
-	self:AddTrainer(4160, "Ainethil", Z.DARNASSUS, 53.9, 38.5, "Alliance") -- COMPLETELY UPDATED
+	self:AddTrainer(4160, "Ainethil", Z.DARNASSUS, 53.9, 38.5, "Alliance")
 	self:AddTrainer(4611, "Doctor Herbert Halsey", Z.UNDERCITY, 47.7, 73, "Horde")
 	self:AddTrainer(4900, "Alchemist Narett", Z.DUSTWALLOW_MARSH, 64, 47.7, "Alliance")
 	self:AddTrainer(5177, "Tally Berryfizz", Z.IRONFORGE, 66.6, 55.2, "Alliance")
-	self:AddTrainer(5499, "Lilyssia Nightbreeze", Z.STORMWIND_CITY, 55.6, 85.9, "Alliance") -- COMPLETELY UPDATED
+	self:AddTrainer(5499, "Lilyssia Nightbreeze", Z.STORMWIND_CITY, 55.6, 85.9, "Alliance")
 	self:AddTrainer(7948, "Kylanna Windwhisper", Z.FERALAS, 32.6, 43.8, "Alliance")
 	self:AddTrainer(16161, "Arcanist Sheynathren", Z.EVERSONG_WOODS, 38.2, 72.5, "Horde")
 	self:AddTrainer(16588, "Apothecary Antonivich", Z.HELLFIRE_PENINSULA, 52.4, 36.5, "Horde")
@@ -45,7 +45,7 @@ function private:InitializeAlchemyTrainers()
 	self:AddTrainer(33608, 51304, Z.SHATTRATH_CITY, 44.3, 90.4, "Neutral")
 	self:AddTrainer(33630, "Aelthin", Z.SHATTRATH_CITY, 38.6, 70.8, "Neutral")
 	self:AddTrainer(33674, "Alchemist Kanhu", Z.SHATTRATH_CITY, 38.6, 30, "Neutral")
-	self:AddTrainer(56777, "Ni Gentlepaw", Z.THE_JADE_FOREST, 46.6, 46, "Neutral") -- COMPLETELY UPDATED
+	self:AddTrainer(56777, "Ni Gentlepaw", Z.THE_JADE_FOREST, 46.6, 46, "Neutral")
 	self:AddTrainer(65186, "Poisoncrafter Kil'zit", Z.DREAD_WASTES, 55.6, 32.3, "Neutral")
 
 	self.InitializeAlchemyTrainers = nil
