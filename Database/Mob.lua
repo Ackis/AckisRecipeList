@@ -412,7 +412,7 @@ function addon:InitMob()
 	AddMob(23954,	BN.INGVAR_THE_PLUNDERER,		Z.UTGARDE_KEEP,			0, 0)
 
 	-- Utgarde Pinnacle
-	AddMob(26861,	BN.KING_YMIRON,			Z.UTGARDE_PINNACLE,		0, 0)
+	AddMob(26861,	BN.KING_YMIRON,			        Z.UTGARDE_PINNACLE,		0, 0)
 
 	self.InitMob = nil
 end
