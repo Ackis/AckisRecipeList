@@ -43,11 +43,11 @@ local recipe_meta = {
 -- @name AckisRecipeList:AddRecipe
 -- @usage AckisRecipeList:AddRecipe(28927, 23109, V.TBC, Q.UNCOMMON)
 -- @param spell_id The [[http://www.wowpedia.org/SpellLink|Spell ID]] of the recipe being added to the database
--- @param profession The profession ID that uses the recipe.  See [[API/database-documentation]] for a listing of profession IDs
+-- @param profession_spell_id The profession ID that uses the recipe.  See [[API/database-documentation]] for a listing of profession IDs
 -- @param genesis Game version that the recipe was first introduced in, for example, Original, BC, WoTLK, or Cata
 -- @param quality The quality/rarity of the recipe
 -- @return Resultant recipe table.
-function addon:AddRecipe(spell_id, profession, genesis, quality)
+function addon:AddRecipe(spell_id, profession_spell_id, genesis, quality)
 	local recipe_list = private.recipe_list
 
 	if recipe_list[spell_id] then
@@ -60,7 +60,7 @@ function addon:AddRecipe(spell_id, profession, genesis, quality)
 		flags = {},
 		genesis = private.GAME_VERSION_NAMES[genesis],
 		name = _G.GetSpellInfo(spell_id),
-		profession = _G.GetSpellInfo(profession),
+		profession = _G.GetSpellInfo(profession_spell_id),
 		quality = quality,
 		_spell_id = spell_id,
 	}, recipe_meta)
