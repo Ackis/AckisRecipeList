@@ -854,9 +854,10 @@ function AcquireType:AddEntity(identifier, name, location, coord_x, coord_y, fac
 	end
 
 	local entity = {
-		name = name,
-		location = location,
 		faction = faction,
+		identifier = identifier,
+		location = location,
+		name = name,
 	}
 
 	if coord_x and coord_y then
