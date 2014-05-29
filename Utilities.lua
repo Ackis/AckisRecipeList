@@ -67,6 +67,9 @@ do
 		empties = function()
 			addon:ShowEmptySources()
 		end,
+		lists = function()
+			addon:DumpProfessionLists()
+		end,
 		phrases = function()
 			addon:DumpPhrases()
 		end,
@@ -244,6 +247,87 @@ do
 			output:AddLine("Nothing to display.")
 		end
 
+		output:Display()
+	end
+
+	local ACQUIRE_TYPE_LIST = {
+		"Trainer",
+		"Vendor",
+		"MobDrop",
+		"Quest",
+		"Custom",
+		"Discovery",
+		"WorldEvents",
+	}
+
+	local profession_entries = {}
+	local sorted_profession_entries = {}
+
+	local function GroupListByProfession(category_name, acquire_type)
+		for unit_id, unit in acquire_type:EntityPairs() do
+			if unit.item_list then
+				for recipe_id in pairs(unit.item_list) do
+					local profession = private.recipe_list[recipe_id].profession
+					local profession_table = profession_entries[profession]
+
+					if not profession_table then
+						profession_table = {}
+						profession_entries[profession] = profession_table
+					end
+					local sorted_profession_table = sorted_profession_entries[profession]
+
+					if not sorted_profession_table then
+						sorted_profession_table = {}
+						sorted_profession_entries[profession] = sorted_profession_table
+					end
+					local category_table = profession_table[category_name]
+
+					if not category_table then
+						category_table = {}
+						profession_table[category_name] = category_table
+					end
+					local sorted_category_table = sorted_profession_table[category_name]
+
+					if not sorted_category_table then
+						sorted_category_table = {}
+						sorted_profession_table[category_name] = sorted_category_table
+					end
+
+					if not category_table[unit] then
+						sorted_category_table[#sorted_category_table + 1] = unit
+					end
+					category_table[unit] = unit
+				end
+			end
+		end
+	end
+
+	function addon:DumpProfessionLists()
+		for identifier, name in pairs(private.LOCALIZED_PROFESSION_NAMES) do
+			addon:InitializeProfession(name)
+		end
+
+		table.wipe(profession_entries)
+		table.wipe(sorted_profession_entries)
+
+		for index = 1, #ACQUIRE_TYPE_LIST do
+			local category_name = ACQUIRE_TYPE_LIST[index]
+			GroupListByProfession(category_name, private.AcquireTypes[category_name])
+		end
+		output:Clear()
+
+		for profession_name, profession_table in pairs(sorted_profession_entries) do
+			output:AddLine(("-----------------------------------------------------------------------\n-- %s.\n-----------------------------------------------------------------------"):format(profession_name))
+
+			for category_name, category_table in pairs(profession_table) do
+				output:AddLine(("-----------------------------------------------------------------------\n-- %s.\n-----------------------------------------------------------------------"):format(category_name))
+
+				for index = 1, #category_table do
+					local unit = category_table[index]
+					output:AddLine(("%s: %s"):format(unit.identifier or _G.UNKNOWN, unit.name or _G.UNKNOWN))
+				end
+			end
+		end
 		output:Display()
 	end
 
