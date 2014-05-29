@@ -432,6 +432,8 @@ end
 
 --- Function run when the addon is enabled.  Registers events and pre-loads certain variables.
 function addon:OnEnable()
+	self.AcquireTypes = private.AcquireTypes
+
 	self:RegisterEvent("TRADE_SKILL_SHOW") -- Make addon respond to the tradeskill windows being shown
 	self:RegisterEvent("TRADE_SKILL_CLOSE") -- Addon responds to tradeskill windows being closed.
 	self:RegisterEvent("TRADE_SKILL_UPDATE")
