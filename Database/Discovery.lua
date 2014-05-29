@@ -34,13 +34,6 @@ function addon:InitDiscovery()
 		private.AcquireTypes.Discovery:AddEntity(identifier, L[identifier], location, coord_x, coord_y, faction)
 	end
 
-	AddDiscovery("DISCOVERY_ALCH_ELIXIRFLASK")
-	AddDiscovery("DISCOVERY_ALCH_POTION")
-	AddDiscovery("DISCOVERY_ALCH_PROT")
-	AddDiscovery("DISCOVERY_ALCH_BC_XMUTE")
-	AddDiscovery("DISCOVERY_ALCH_NORTHREND_RESEARCH")
-	AddDiscovery("DISCOVERY_ALCH_NORTHREND_XMUTE")
-	AddDiscovery("DISCOVERY_ALCH_PANDARIA")
 	AddDiscovery("DISCOVERY_INSC_BOOK")
 	AddDiscovery("DISCOVERY_INSC_MINOR")
 	AddDiscovery("DISCOVERY_INSC_NORTHREND")
