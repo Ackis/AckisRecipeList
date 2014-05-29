@@ -752,6 +752,8 @@ private.BOSS_NAMES = {
 	DARKMASTER_GANDLING = _G.EJ_GetEncounterInfo(684),
 }
 
+constants.BOSS_NAMES = private.BOSS_NAMES
+
 -------------------------------------------------------------------------------
 -- Colors.
 -------------------------------------------------------------------------------
