@@ -49,7 +49,6 @@ function addon:InitMob()
 	AddMob(2558,	L["Witherbark Berserker"],		Z.ARATHI_HIGHLANDS,		24.2, 66.2)
 
 	-- Blade's Edge Mountains
-	AddMob(16952,	L["Anger Guard"],			Z.BLADES_EDGE_MOUNTAINS,	72.0, 40.5)
 	AddMob(19952,	L["Bloodmaul Geomancer"],		Z.BLADES_EDGE_MOUNTAINS,	45.0, 68.5)
 	AddMob(19960,	L["Doomforge Engineer"],		Z.BLADES_EDGE_MOUNTAINS,	75.1, 39.8)
 	AddMob(19984,	L["Vekh'nir Dreadhawk"],		Z.BLADES_EDGE_MOUNTAINS,	78.0, 74.3)
@@ -61,7 +60,6 @@ function addon:InitMob()
 	-- Burning Steppes
 	AddMob(7035,	L["Firegut Brute"],			Z.BURNING_STEPPES,		82.5, 48.1)
 	AddMob(7037,	L["Thaurissan Firewalker"],		Z.BURNING_STEPPES,		61.1, 42.0)
-	AddMob(10119,	L["Volchan"],				Z.BURNING_STEPPES,		22.0, 41.0)
 
 	-- Deadwind Pass
 	AddMob(7372,	L["Deadwind Warlock"],			Z.DEADWIND_PASS,		59.8, 74.4)
@@ -73,7 +71,6 @@ function addon:InitMob()
 	AddMob(26343,	L["Indu'le Fisherman"],			Z.DRAGONBLIGHT,			40.2, 65.5)
 	AddMob(26336,	L["Indu'le Mystic"],			Z.DRAGONBLIGHT,			40.2, 65.5)
 	AddMob(26344,	L["Indu'le Warrior"],			Z.DRAGONBLIGHT,			40.2, 65.5)
-	AddMob(27333,	L["Onslaught Mason"],			Z.DRAGONBLIGHT,			85.8, 36.0)
 
 	-- Dread Wastes
 	AddMob(66867,	L["Wild Seahorse"],			Z.DREAD_WASTES,			28.0, 96.8)
@@ -83,14 +80,12 @@ function addon:InitMob()
 	AddMob(4834,	L["Theramore Infiltrator"],		Z.DUSTWALLOW_MARSH,		44.0, 27.3)
 
 	-- Eastern Plaguelands
-	AddMob(1844,	L["Foreman Marcrid"],			Z.EASTERN_PLAGUELANDS,		54.0, 68.0)
 	AddMob(9451,	L["Scarlet Archmage"],			Z.EASTERN_PLAGUELANDS,		81.5, 75.4)
 
 	-- Felwood
 	AddMob(7158,	L["Deadwood Shaman"],			Z.FELWOOD,			62.5, 10.3)
 
 	-- Grizzly Hills
-	AddMob(26270,	L["Iron Rune-Shaper"],			Z.GRIZZLY_HILLS,		67.8, 16.3)
 	AddMob(26679,	L["Silverbrook Trapper"],		Z.GRIZZLY_HILLS,		27.3, 33.9)
 	AddMob(26708,	L["Silverbrook Villager"],		Z.GRIZZLY_HILLS,		27.3, 33.9)
 	AddMob(27546,	L["Silverbrook Hunter"],		Z.GRIZZLY_HILLS,		37.5, 68.0)
@@ -107,15 +102,9 @@ function addon:InitMob()
 	-- Mount Hyjal
 	AddMob(50056,	BB["Garr"],				Z.MOUNT_HYJAL,			39.6, 80.4)
 
-	-- Nagrand
-	AddMob(17136,	L["Boulderfist Warrior"],		Z.NAGRAND,			51.0, 57.0)
-	AddMob(18203,	L["Murkblood Raider"],			Z.NAGRAND,			31.5, 43.5)
-
 	-- Netherstorm
-	AddMob(18853,	L["Sunfury Bloodwarder"],		Z.NETHERSTORM,			27.0, 72.0)
 	AddMob(18866,	L["Mageslayer"],			Z.NETHERSTORM,			55.5, 85.5)
 	AddMob(18872,	L["Disembodied Vindicator"],		Z.NETHERSTORM,			36.0, 55.5)
-	AddMob(18873,	L["Disembodied Protector"],		Z.NETHERSTORM,			31.8, 52.7)
 	AddMob(22822,	L["Ethereum Nullifier"],		Z.NETHERSTORM,			66.0, 49.5)
 	AddMob(20134,	L["Sunfury Arcanist"],			Z.NETHERSTORM,			51.0, 82.5)
 	AddMob(20135,	L["Sunfury Arch Mage"],			Z.NETHERSTORM,			46.5, 81.0)
@@ -132,16 +121,8 @@ function addon:InitMob()
 	AddMob(19768,	L["Coilskar Siren"],			Z.SHADOWMOON_VALLEY,		46.5, 30.0)
 	AddMob(19826,	L["Dark Conclave Shadowmancer"],	Z.SHADOWMOON_VALLEY,		37.5, 29.0)
 	AddMob(20878,	L["Deathforge Guardian"],		Z.SHADOWMOON_VALLEY,		39.0, 47.0) -- Alchemy, Blacksmithing
-	AddMob(21050,	L["Enraged Earth Spirit"],		Z.SHADOWMOON_VALLEY,		46.5, 45.0)
-	AddMob(21059,	L["Enraged Water Spirit"],		Z.SHADOWMOON_VALLEY,		51.0, 25.5)
-	AddMob(21060,	L["Enraged Air Spirit"],		Z.SHADOWMOON_VALLEY,		70.5, 28.5)
-	AddMob(21061,	L["Enraged Fire Spirit"],		Z.SHADOWMOON_VALLEY,		48.0, 43.5)
-	AddMob(21454,	L["Ashtongue Warrior"],			Z.SHADOWMOON_VALLEY,		57.0, 36.0)
-	AddMob(23305,	L["Crazed Murkblood Foreman"],		Z.SHADOWMOON_VALLEY,		72.3, 90.0)
-	AddMob(23324,	L["Crazed Murkblood Miner"],		Z.SHADOWMOON_VALLEY,		73.5, 88.5)
 
 	-- Sholazar Basin
-	AddMob(28123,	L["Venture Co. Excavator"],		Z.SHOLAZAR_BASIN,		35.8, 45.5)
 	AddMob(28379,	L["Shattertusk Mammoth"],		Z.SHOLAZAR_BASIN,		53.5, 24.4)
 
 	-- Silverpine Forest
@@ -234,7 +215,6 @@ function addon:InitMob()
 
 	-- Zul'drak
 	AddMob(28851,	L["Enraged Mammoth"],			Z.ZULDRAK,			72.0, 41.1)
-	AddMob(29235,	L["Gundrak Savage"],			Z.ZULDRAK,			66.8, 42.4)
 
 	-------------------------------------------------------------------------------
 	-- Instances
@@ -243,7 +223,6 @@ function addon:InitMob()
 	AddMob(29311,	BN.HERALD_VOLAZJ,			Z.AHNKAHET_THE_OLD_KINGDOM,	0, 0)
 
 	-- Auchenai Crypts
-	AddMob(18497,	L["Auchenai Monk"],			Z.AUCHENAI_CRYPTS,		0, 0)
 	AddMob(18521,	L["Raging Skeleton"],			Z.AUCHENAI_CRYPTS,		0, 0)
 
 	-- Blackrock Depths
@@ -254,24 +233,18 @@ function addon:InitMob()
 	AddMob(8983,	BN.GOLEM_LORD_ARGELMACH,		Z.BLACKROCK_DEPTHS,		0, 0)
 	AddMob(9024,	BN.PYROMANCER_LOREGRAIN,		Z.BLACKROCK_DEPTHS,		0, 0)
 	AddMob(9025,	BN.LORD_ROCCOR,				Z.BLACKROCK_DEPTHS,		0, 0)
-	AddMob(9028,	BB["Grizzle"],				Z.BLACKROCK_DEPTHS,		0, 0)
 	AddMob(9499,	BN.PLUGGER_SPAZZRING,			Z.BLACKROCK_DEPTHS,		0, 0)
-	AddMob(9543,	BN.RIBBLY_SCREWSPIGOT,			Z.BLACKROCK_DEPTHS,		0, 0)
-	AddMob(9554,	L["Hammered Patron"],			Z.BLACKROCK_DEPTHS,		0, 0)
-	AddMob(10043,	L["Ribbly's Crony"],			Z.BLACKROCK_DEPTHS,		0, 0)
 
 	-- Blackrock Spire
 	AddMob(9216,	L["Spirestone Warlord"],		Z.BLACKROCK_SPIRE,		0, 0)
 	AddMob(9259,	L["Firebrand Grunt"],			Z.BLACKROCK_SPIRE,		0, 0)
 	AddMob(9260,	L["Firebrand Legionnaire"],		Z.BLACKROCK_SPIRE,		0, 0)
 	AddMob(9264,	L["Firebrand Pyromancer"],		Z.BLACKROCK_SPIRE,		0, 0) -- Alchemy, Tailoring
-	AddMob(9596,	BB["Bannok Grimaxe"],			Z.BLACKROCK_SPIRE,		0, 0)
-	AddMob(9736,	BN.QUARTERMASTER_ZIGRIS,		Z.BLACKROCK_SPIRE,		0, 0)
+	AddMob(9736,	BN.QUARTERMASTER_ZIGRIS,		Z.BLACKROCK_SPIRE,		0, 0) -- Blacksmithing, Jewelcrafting
 	AddMob(10264,	BN.SOLAKAR_FLAMEWREATH,			Z.BLACKROCK_SPIRE,		0, 0)
 	AddMob(10317,	L["Blackhand Elite"],			Z.BLACKROCK_SPIRE,		0, 0)
 	AddMob(10318,	L["Blackhand Assassin"],		Z.BLACKROCK_SPIRE,		0, 0)
 	AddMob(10363,	BN.GENERAL_DRAKKISATH,			Z.BLACKROCK_SPIRE,		0, 0) -- Alchemy, Leatherworking
-	AddMob(10899,	BB["Goraluk Anvilcrack"],		Z.BLACKROCK_SPIRE,		0, 0)
 
 	-- Blackwing Lair
 	AddMob(14401,	L["Master Elemental Shaper Krixix"],	Z.BLACKWING_LAIR,		0, 0)
@@ -285,9 +258,6 @@ function addon:InitMob()
 
 	-- Halls of Lightning
 	AddMob(28923,	BN.LOKEN,				Z.HALLS_OF_LIGHTNING,		0, 0)
-
-	-- Isle of Thunder
-	AddMob(69461,	L["Itoka"],				Z.ISLE_OF_THUNDER,		0, 0)
 
 	-- Karazhan
 	AddMob(16406,	L["Phantom Attendant"],			Z.KARAZHAN,			0, 0)
@@ -303,7 +273,6 @@ function addon:InitMob()
 	AddMob(24664,	BN.KAELTHAS_SUNSTRIDER,			Z.MAGISTERS_TERRACE,		0, 0) -- Alchemy, Blacksmithing, Enchanting, Engineering, Jewelcrafting, Leatherworking, Tailoring
 
 	-- Mana-Tombs
-	AddMob(18314,	L["Nexus Stalker"],			Z.MANA_TOMBS,			0, 0)
 	AddMob(18317,	L["Ethereal Priest"],			Z.MANA_TOMBS,			0, 0)
 
 	-- Oculus
@@ -313,9 +282,6 @@ function addon:InitMob()
 	AddMob(17820,	L["Durnholde Rifleman"],		Z.OLD_HILLSBRAD_FOOTHILLS,	0, 0)
 	AddMob(18096,	BN.EPOCH_HUNTER,			Z.OLD_HILLSBRAD_FOOTHILLS,	0, 0)
 	AddMob(28132,	L["Don Carlos"],			Z.OLD_HILLSBRAD_FOOTHILLS,	0, 0)
-
-	-- Ruins of Ahn'Qiraj
-	AddMob(15340,	BB["Moam"],				Z.RUINS_OF_AHNQIRAJ,		0, 0)
 
 	-- Scholomance
 	AddMob(10469,	L["Scholomance Adept"],			Z.SCHOLOMANCE,			0, 0)
@@ -328,25 +294,20 @@ function addon:InitMob()
 	-- Shadow Labyrinth
 	AddMob(18667,	BN.BLACKHEART_THE_INCITER,		Z.SHADOW_LABYRINTH,		0, 0)
 	AddMob(18708,	BN.MURMUR,				Z.SHADOW_LABYRINTH,		0, 0)
-	AddMob(18830,	L["Cabal Fanatic"],			Z.SHADOW_LABYRINTH,		0, 0)
 
 	-- Stratholme
 	AddMob(10398,	L["Thuzadin Shadowcaster"],		Z.STRATHOLME,			0, 0)
 	AddMob(10422,	L["Risen Sorcerer"],			Z.STRATHOLME,			0, 0)
 	AddMob(10426,	L["Risen Inquisitor"],			Z.STRATHOLME,			0, 0)
 	AddMob(10813,	BN.BALNAZZAR,				Z.STRATHOLME,			0, 0) -- Alchemy, Tailoring
-	AddMob(10438,	BN.MALEKI_THE_PALLID,			Z.STRATHOLME,			0, 0)
-	AddMob(10997,	BB["Willey Hopebreaker"],		Z.STRATHOLME,			0, 0)
 
 	-- Temple of Ahn'Qiraj
-	AddMob(15263,	BB["The Prophet Skeram"],		Z.AHNQIRAJ_THE_FALLEN_KINGDOM,	0, 0)
 	AddMob(15275,	BB["Emperor Vek'nilash"],		Z.AHNQIRAJ_THE_FALLEN_KINGDOM,	0, 0)
 	AddMob(15276,	BB["Emperor Vek'lor"],			Z.AHNQIRAJ_THE_FALLEN_KINGDOM,	0, 0)
 
 	-- The Arcatraz
 	AddMob(20869,	L["Arcatraz Sentinel"],			Z.THE_ARCATRAZ,			0, 0)
 	AddMob(20880,	L["Eredar Deathbringer"],		Z.THE_ARCATRAZ,			0, 0)
-	AddMob(20900,	L["Unchained Doombringer"],		Z.THE_ARCATRAZ,			0, 0)
 	AddMob(20885,	BN.DALLIAH_THE_DOOMSAYER,		Z.THE_ARCATRAZ,			0, 0)
 
 	--The Black Morass
@@ -354,7 +315,6 @@ function addon:InitMob()
 	AddMob(17839,	L["Rift Lord"],				Z.THE_BLACK_MORASS,		0, 0)
 
 	-- The Botanica
-	AddMob(17975,	BN.HIGH_BOTANIST_FREYWINN,		Z.THE_BOTANICA,			0, 0)
 	AddMob(18422,	L["Sunseeker Botanist"],		Z.THE_BOTANICA,			0, 0)
 	AddMob(17977,	BN.WARP_SPLINTER,			Z.THE_BOTANICA,			0, 0)
 	AddMob(17978,	BN.THORNGRIN_THE_TENDER,		Z.THE_BOTANICA,			0, 0)

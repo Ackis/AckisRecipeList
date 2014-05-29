@@ -45,9 +45,6 @@ function addon:InitDiscovery()
 	AddDiscovery("DISCOVERY_LW_HARDENED_PANDARIA")
 	AddDiscovery("DISCOVERY_TAILOR_PANDARIA")
 	AddDiscovery("DISCOVERY_TAILOR_CELESTIAL_PANDARIA")
-	AddDiscovery("DISCOVERY_BS_PANDARIA")
-	AddDiscovery("DISCOVERY_BS_WEAP_PANDARIA")
-	AddDiscovery("DISCOVERY_BS_INGOT_PANDARIA")
 
 	self.InitDiscovery = nil
 end
