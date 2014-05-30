@@ -250,18 +250,12 @@ do
 		output:Display()
 	end
 
-	local ACQUIRE_TYPE_LIST = {
-		"Trainer",
-		"Vendor",
-		"MobDrop",
-		"Quest",
-		"Custom",
-		"Discovery",
-		"WorldEvents",
-	}
-
 	local profession_entries = {}
 	local sorted_profession_entries = {}
+
+	local function SortByIdentifier(a, b)
+		return a.identifier < b.identifier
+	end
 
 	local function GroupListByProfession(category_name, acquire_type)
 		for unit_id, unit in acquire_type:EntityPairs() do
@@ -295,12 +289,23 @@ do
 
 					if not category_table[unit] then
 						sorted_category_table[#sorted_category_table + 1] = unit
+						table.sort(sorted_category_table, SortByIdentifier)
 					end
 					category_table[unit] = unit
 				end
 			end
 		end
 	end
+
+	local ACQUIRE_TYPE_LIST = {
+		"Trainer",
+		"Vendor",
+		"MobDrop",
+		"Quest",
+		"Custom",
+		"Discovery",
+		"WorldEvents",
+	}
 
 	function addon:DumpProfessionLists()
 		for identifier, name in pairs(private.LOCALIZED_PROFESSION_NAMES) do
