@@ -36,18 +36,18 @@ local Z = private.ZONE_NAMES
 -----------------------------------------------------------------------
 private.quest_names = _G.setmetatable({}, {
 	__index = function(t, id_num)
-			  _G.GameTooltip:SetOwner(_G.UIParent, _G.ANCHOR_NONE)
-			  _G.GameTooltip:SetHyperlink(("quest:%s"):format(_G.tostring(id_num)))
+		_G.GameTooltip:SetOwner(_G.UIParent, _G.ANCHOR_NONE)
+		_G.GameTooltip:SetHyperlink(("quest:%s"):format(_G.tostring(id_num)))
 
-			  local quest_name = _G["GameTooltipTextLeft1"]:GetText()
-			  _G.GameTooltip:Hide()
+		local quest_name = _G["GameTooltipTextLeft1"]:GetText()
+		_G.GameTooltip:Hide()
 
-			  if not quest_name then
-				  return _G.UNKNOWN
-			  end
-			  t[id_num] = quest_name
-			  return quest_name
-		  end,
+		if not quest_name then
+			return _G.UNKNOWN
+		end
+		t[id_num] = quest_name
+		return quest_name
+	end,
 })
 
 function addon:InitQuest()
