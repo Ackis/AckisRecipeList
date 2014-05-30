@@ -729,7 +729,7 @@ do
 		local item_filter_type = self:ItemFilterType()
 		local profession_module = addon:GetModule(private.PROFESSION_MODULE_NAMES[private.ORDERED_PROFESSIONS[addon.Frame.current_profession]])
 
-		if item_filter_type and not profession_module or not profession_module.db.profile.filters.item[item_filter_type] then
+		if item_filter_type and (not profession_module or not profession_module.db.profile.filters.item[item_filter_type]) then
 			return false
 		end
 
