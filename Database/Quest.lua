@@ -56,24 +56,15 @@ function addon:InitQuest()
 	end
 
 	AddQuest(769,	Z.THUNDER_BLUFF,		44.1,	44.6,	"Horde")
-	AddQuest(1578,	Z.IRONFORGE,			48.5,	43.0,	"Alliance")
 	AddQuest(1582,	Z.DARNASSUS,			60.5,	37.3,	"Alliance")
-	AddQuest(1618,	Z.IRONFORGE,			48.5,	43.0,	"Alliance")
-	AddQuest(2751,	Z.ORGRIMMAR,			78.0,	21.4,	"Horde")
-	AddQuest(2752,	Z.ORGRIMMAR,			78.0,	21.4,	"Horde")
-	AddQuest(2753,	Z.ORGRIMMAR,			78.0,	21.4,	"Horde")
-	AddQuest(2754,	Z.ORGRIMMAR,			78.0,	21.4,	"Horde")
-	AddQuest(2755,	Z.ORGRIMMAR,			78.0,	21.4,	"Horde")
 	AddQuest(4083,	Z.BLACKROCK_DEPTHS,		0,	0,	"Neutral")
 	AddQuest(6032,	Z.FELWOOD,			65.7,	2.9,	"Neutral")
 	AddQuest(7493,	Z.ORGRIMMAR,			51.0,	76.5,	"Horde")
 	AddQuest(7497,	Z.STORMWIND_CITY,		67.2,	85.5,	"Alliance")
-	AddQuest(7604,	Z.BLACKROCK_DEPTHS,		0,	0,	"Neutral")
-	AddQuest(8323,	Z.SILITHUS,			67.1,	69.7,	"Neutral")
+	AddQuest(8323,	Z.SILITHUS,			67.1,	69.7,	"Neutral") -- Blacksmithing, Tailoring
 	AddQuest(9635,	Z.ZANGARMARSH,			34.0,	50.8,	"Horde")
 	AddQuest(9636,	Z.ZANGARMARSH,			68.6,	50.2,	"Alliance")
 	AddQuest(12889,	Z.THE_STORM_PEAKS,		37.7,	46.5,	"Neutral")
-	AddQuest(14151,	Z.DALARAN,			42.5,	32.1,	"Neutral")
 	AddQuest(31539,	Z.THE_JADE_FOREST,		54.8,	45.0,	"Neutral")
 
 	self.InitQuest = nil
