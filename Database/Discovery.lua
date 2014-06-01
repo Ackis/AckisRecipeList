@@ -34,7 +34,6 @@ function addon:InitDiscovery()
 		private.AcquireTypes.Discovery:AddEntity(identifier, L[identifier], location, coord_x, coord_y, faction)
 	end
 
-	AddDiscovery("DISCOVERY_JC_PANDARIA")
 	AddDiscovery("DISCOVERY_LW_PANDARIA")
 	AddDiscovery("DISCOVERY_LW_HARDENED_PANDARIA")
 	AddDiscovery("DISCOVERY_TAILOR_PANDARIA")

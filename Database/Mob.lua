@@ -43,8 +43,6 @@ function addon:InitMob()
 	AddMob(50005,	L["Poseidus"],				Z.ABYSSAL_DEPTHS,		65.4, 41.4)
 	AddMob(50009,	L["Mobus"],				Z.ABYSSAL_DEPTHS,		73.8, 19.2)
 
-	-- Blade's Edge Mountains
-	AddMob(19984,	L["Vekh'nir Dreadhawk"],		Z.BLADES_EDGE_MOUNTAINS,	78.0, 74.3)
 	AddMob(23385,	L["Simon Unit"],			Z.BLADES_EDGE_MOUNTAINS,	33.5, 51.5) -- Enchanting, Engineering
 
 	-- Burning Steppes
@@ -71,7 +69,6 @@ function addon:InitMob()
 	AddMob(50056,	BB["Garr"],				Z.MOUNT_HYJAL,			39.6, 80.4)
 
 	-- Netherstorm
-	AddMob(18866,	L["Mageslayer"],			Z.NETHERSTORM,			55.5, 85.5)
 	AddMob(18872,	L["Disembodied Vindicator"],		Z.NETHERSTORM,			36.0, 55.5)
 	AddMob(20134,	L["Sunfury Arcanist"],			Z.NETHERSTORM,			51.0, 82.5)
 	AddMob(20135,	L["Sunfury Arch Mage"],			Z.NETHERSTORM,			46.5, 81.0)
@@ -82,12 +79,7 @@ function addon:InitMob()
 
 	-- Shadowmoon Valley
 	AddMob(19755,	L["Mo'arg Weaponsmith"],		Z.SHADOWMOON_VALLEY,		25.5, 31.5) -- Alchemy, Engineering
-	AddMob(19768,	L["Coilskar Siren"],			Z.SHADOWMOON_VALLEY,		46.5, 30.0)
-	AddMob(19826,	L["Dark Conclave Shadowmancer"],	Z.SHADOWMOON_VALLEY,		37.5, 29.0)
 	AddMob(20878,	L["Deathforge Guardian"],		Z.SHADOWMOON_VALLEY,		39.0, 47.0) -- Alchemy, Blacksmithing
-
-	-- Sholazar Basin
-	AddMob(28379,	L["Shattertusk Mammoth"],		Z.SHOLAZAR_BASIN,		53.5, 24.4)
 
 	-- Silverpine Forest
 	AddMob(3530,	L["Pyrewood Tailor"],			Z.SILVERPINE_FOREST,		45.7, 71.0)
@@ -115,17 +107,6 @@ function addon:InitMob()
 	-- The Hinterlands
 	AddMob(2644,	L["Vilebranch Hideskinner"],		Z.THE_HINTERLANDS,		62.2, 69.2)
 
-	-- The Storm Peaks
-	AddMob(29370,	L["Stormforged Champion"],		Z.THE_STORM_PEAKS,		26.1, 47.5)
-	AddMob(29376,	L["Stormforged Artificer"],		Z.THE_STORM_PEAKS,		31.5, 44.2)
-	AddMob(29402,	L["Ironwool Mammoth"],			Z.THE_STORM_PEAKS,		36.0, 83.5)
-	AddMob(29792,	L["Frostfeather Screecher"],		Z.THE_STORM_PEAKS,		33.5, 65.5)
-	AddMob(29793,	L["Frostfeather Witch"],		Z.THE_STORM_PEAKS,		33.0, 66.8)
-	AddMob(30208,	L["Stormforged Ambusher"],		Z.THE_STORM_PEAKS,		70.3, 57.5)
-	AddMob(30222,	L["Stormforged Infiltrator"],		Z.THE_STORM_PEAKS,		58.5, 63.2)
-	AddMob(30260,	L["Stoic Mammoth"],			Z.THE_STORM_PEAKS,		54.8, 64.9)
-	AddMob(30448,	L["Plains Mammoth"],			Z.THE_STORM_PEAKS,		66.1, 45.6)
-
 	-- Twilight Highlands
 	AddMob(50089,	L["Julak-Doom"],			Z.TWILIGHT_HIGHLANDS,		52.6, 7.4)
 
@@ -147,19 +128,12 @@ function addon:InitMob()
 	AddMob(7440,	L["Winterfall Den Watcher"],		Z.WINTERSPRING,			68.0, 35.5)
 	AddMob(7441,	L["Winterfall Totemic"],		Z.WINTERSPRING,			24.2, 50.4)
 
-	-- Zul'drak
-	AddMob(28851,	L["Enraged Mammoth"],			Z.ZULDRAK,			72.0, 41.1)
-
 	-------------------------------------------------------------------------------
 	-- Instances
 	-------------------------------------------------------------------------------
-	-- Ahn'kahet: The Old Kingdom
-	AddMob(29311,	BN.HERALD_VOLAZJ,			Z.AHNKAHET_THE_OLD_KINGDOM,	0, 0)
-
 	-- Blackrock Depths
 	AddMob(8898,	L["Anvilrage Marshal"],			Z.BLACKROCK_DEPTHS,		0, 0)
 	AddMob(8903,	L["Anvilrage Captain"],			Z.BLACKROCK_DEPTHS,		0, 0)
-	AddMob(8983,	BN.GOLEM_LORD_ARGELMACH,		Z.BLACKROCK_DEPTHS,		0, 0)
 
 	-- Blackrock Spire
 	AddMob(9259,	L["Firebrand Grunt"],			Z.BLACKROCK_SPIRE,		0, 0)
@@ -175,9 +149,6 @@ function addon:InitMob()
 	-- Dire Maul
 	AddMob(11487,	BN.MAGISTER_KALENDRIS,			Z.DIRE_MAUL,			59.04, 48.82)
 
-	-- Halls of Lightning
-	AddMob(28923,	BN.LOKEN,				Z.HALLS_OF_LIGHTNING,		0, 0)
-
 	-- Karazhan
 	AddMob(16406,	L["Phantom Attendant"],			Z.KARAZHAN,			0, 0)
 	AddMob(16408,	L["Phantom Valet"],			Z.KARAZHAN,			0, 0)
@@ -185,17 +156,12 @@ function addon:InitMob()
 	-- Magister's Terrace
 	AddMob(24664,	BN.KAELTHAS_SUNSTRIDER,			Z.MAGISTERS_TERRACE,		0, 0) -- Alchemy, Blacksmithing, Enchanting, Engineering, Jewelcrafting, Leatherworking, Tailoring
 
-	-- Oculus
-	AddMob(27656,	BN.LEY_GUARDIAN_EREGOS,			Z.THE_OCULUS,			0, 0)
-
 	-- Old Hillsbrad Foothills
 	AddMob(17820,	L["Durnholde Rifleman"],		Z.OLD_HILLSBRAD_FOOTHILLS,	0, 0)
-	AddMob(18096,	BN.EPOCH_HUNTER,			Z.OLD_HILLSBRAD_FOOTHILLS,	0, 0)
 	AddMob(28132,	L["Don Carlos"],			Z.OLD_HILLSBRAD_FOOTHILLS,	0, 0)
 
 	-- Sethekk Halls
 	AddMob(18322,	L["Sethekk Ravenguard"],		Z.SETHEKK_HALLS,		0, 0)
-	AddMob(18472,	BN.DARKWEAVER_SYTH,			Z.SETHEKK_HALLS,		0, 0)
 
 	-- Shadow Labyrinth
 	AddMob(18667,	BN.BLACKHEART_THE_INCITER,		Z.SHADOW_LABYRINTH,		0, 0)
@@ -213,7 +179,6 @@ function addon:InitMob()
 	AddMob(17839,	L["Rift Lord"],				Z.THE_BLACK_MORASS,		0, 0)
 
 	-- The Botanica
-	AddMob(18422,	L["Sunseeker Botanist"],		Z.THE_BOTANICA,			0, 0)
 	AddMob(17977,	BN.WARP_SPLINTER,			Z.THE_BOTANICA,			0, 0)
 	AddMob(17978,	BN.THORNGRIN_THE_TENDER,		Z.THE_BOTANICA,			0, 0)
 
@@ -229,14 +194,7 @@ function addon:InitMob()
 	AddMob(16807,	BN.GRAND_WARLOCK_NETHEKURSE,		Z.THE_SHATTERED_HALLS,		0, 0)
 
 	-- The Steamvault
-	AddMob(17722,	L["Coilfang Sorceress"],		Z.THE_STEAMVAULT,		0, 0)
 	AddMob(17798,	BN.WARLORD_KALITHRESH,			Z.THE_STEAMVAULT,		0, 0)
-
-	-- Utgarde Keep
-	AddMob(23954,	BN.INGVAR_THE_PLUNDERER,		Z.UTGARDE_KEEP,			0, 0)
-
-	-- Utgarde Pinnacle
-	AddMob(26861,	BN.KING_YMIRON,			        Z.UTGARDE_PINNACLE,		0, 0)
 
 	self.InitMob = nil
 end
