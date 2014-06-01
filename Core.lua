@@ -697,7 +697,6 @@ end
 do
 	local function InitializeLookups()
 		addon:InitCustom()
-		addon:InitDiscovery()
 		addon:InitMob()
 		addon:InitQuest()
 		addon:InitReputation()

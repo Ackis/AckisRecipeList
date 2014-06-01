@@ -55,7 +55,6 @@ function addon:InitQuest()
 		private.AcquireTypes.Quest:AddEntity(quest_id, nil, zone_name, coord_x, coord_y, faction)
 	end
 
-	AddQuest(6032,	Z.FELWOOD,			65.7,	2.9,	"Neutral")
 	AddQuest(8323,	Z.SILITHUS,			67.1,	69.7,	"Neutral") -- Blacksmithing, Tailoring
 
 	self.InitQuest = nil
