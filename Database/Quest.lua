@@ -57,7 +57,6 @@ function addon:InitQuest()
 
 	AddQuest(769,	Z.THUNDER_BLUFF,		44.1,	44.6,	"Horde")
 	AddQuest(1582,	Z.DARNASSUS,			60.5,	37.3,	"Alliance")
-	AddQuest(4083,	Z.BLACKROCK_DEPTHS,		0,	0,	"Neutral")
 	AddQuest(6032,	Z.FELWOOD,			65.7,	2.9,	"Neutral")
 	AddQuest(7493,	Z.ORGRIMMAR,			51.0,	76.5,	"Horde")
 	AddQuest(7497,	Z.STORMWIND_CITY,		67.2,	85.5,	"Alliance")
