@@ -62,7 +62,6 @@ function addon:InitQuest()
 	AddQuest(7493,	Z.ORGRIMMAR,			51.0,	76.5,	"Horde")
 	AddQuest(7497,	Z.STORMWIND_CITY,		67.2,	85.5,	"Alliance")
 	AddQuest(8323,	Z.SILITHUS,			67.1,	69.7,	"Neutral") -- Blacksmithing, Tailoring
-	AddQuest(31539,	Z.THE_JADE_FOREST,		54.8,	45.0,	"Neutral")
 
 	self.InitQuest = nil
 end

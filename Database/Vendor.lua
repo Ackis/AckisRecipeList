@@ -191,14 +191,11 @@ function addon:InitVendor()
 	AddVendor(28701,	L["Timothy Jones"],			Z.DALARAN,			40.5,	35.2,	"Neutral")
 	AddVendor(28714,	L["Ildine Sorrowspear"],		Z.DALARAN,			39.1,	41.5,	"Neutral") -- Enchanting, Tailoring
 	AddVendor(28721,	L["Tiffany Cartier"],			Z.DALARAN,			40.5,	34.4,	"Neutral")
-	AddVendor(28723,	L["Larana Drome"],			Z.DALARAN,			42.3,	37.5,	"Neutral")
 	AddVendor(29510,	L["Linna Bruder"],			Z.DALARAN,			34.6,	34.5,	"Neutral")
 	AddVendor(29511,	L["Lalla Brightweave"],			Z.DALARAN,			36.5,	33.5,	"Neutral")
 	AddVendor(29512,	L["Ainderu Summerleaf"],		Z.DALARAN,			36.5,	34.0,	"Neutral")
 	AddVendor(30431,	L["Veteran Crusader Aliocha Segard"],	Z.ICECROWN,			87.6,	75.6,	"Neutral")
 	AddVendor(30489,	L["Morgan Day"],			Z.WINTERGRASP,			49.0,	17.1,	"Alliance")
-	AddVendor(30734,	L["Jezebel Bican"],			Z.HELLFIRE_PENINSULA,		53.9,	65.5,	"Alliance")
-	AddVendor(30735,	L["Kul Inkspiller"],			Z.HELLFIRE_PENINSULA,		52.5,	36.0,	"Horde")
 	AddVendor(31910,	L["Geen"],				Z.SHOLAZAR_BASIN,		54.5,	56.2,	"Neutral")
 	AddVendor(31911,	L["Tanak"],				Z.SHOLAZAR_BASIN,		55.1,	69.1,	"Neutral")
 	AddVendor(31916,	L["Tanaika"],				Z.HOWLING_FJORD,		25.5,	58.7,	"Neutral")
@@ -226,9 +223,7 @@ function addon:InitVendor()
 	AddVendor(45558,	L["Lizna Goldweaver"],			Z.ORGRIMMAR,			41.3,	79.2,	"Horde")
 	AddVendor(46572,	L["Goram"],				Z.ORGRIMMAR,			48.2,	75.6,	"Horde") -- Alchemy, Cooking
 	AddVendor(46602,	L["Shay Pressler"],			Z.STORMWIND_CITY,		64.6,	76.8,	"Alliance") -- Alchemy, Cooking
-	AddVendor(49703,	L["Casandra Downs"],			Z.TWILIGHT_HIGHLANDS,		78.6,	76.2,	"Alliance")
 	AddVendor(50172,	L["Threm Blackscalp"],			Z.TWILIGHT_HIGHLANDS,		75.2,	50.1,	"Horde")
-	AddVendor(50248,	L["Una Kobuna"],			Z.TWILIGHT_HIGHLANDS,		76.6,	49.4,	"Horde")
 	AddVendor(50381,	L["Misty Merriweather"],		Z.TWILIGHT_HIGHLANDS,		78.8,	76.2,	"Alliance")
 	AddVendor(50386,	L["Sal Ferraga"],			Z.TWILIGHT_HIGHLANDS,		78.6,	76.9,	"Alliance")
 	AddVendor(50433,	L["Aristaleon Sunweaver"],		Z.TWILIGHT_HIGHLANDS,		75.2,	50.1,	"Horde")
@@ -252,7 +247,6 @@ function addon:InitVendor()
 	AddVendor(64052,	L["Raishen the Needle"],		Z.SHRINE_OF_SEVEN_STARS,	67.6,	46.2,	"Alliance")
 	AddVendor(64054,	L["Krogo Darkhide"],			Z.SHRINE_OF_TWO_MOONS,		31.2,	47.0,	"Horde")
 	AddVendor(64094,	L["Tanner Pang"],			Z.SHRINE_OF_SEVEN_STARS,	76.8, 	49.0,	"Alliance")
-	AddVendor(73293,	L["Whizzig"],				Z.TIMELESS_ISLE,		42.8,	59.2,	"Neutral")
 
 	self.InitVendor = nil
 end
