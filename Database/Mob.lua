@@ -44,10 +44,8 @@ function addon:InitMob()
 	AddMob(50009,	L["Mobus"],				Z.ABYSSAL_DEPTHS,		73.8, 19.2)
 
 	-- Blade's Edge Mountains
-	AddMob(19960,	L["Doomforge Engineer"],		Z.BLADES_EDGE_MOUNTAINS,	75.1, 39.8)
 	AddMob(19984,	L["Vekh'nir Dreadhawk"],		Z.BLADES_EDGE_MOUNTAINS,	78.0, 74.3)
 	AddMob(23385,	L["Simon Unit"],			Z.BLADES_EDGE_MOUNTAINS,	33.5, 51.5) -- Enchanting, Engineering
-	AddMob(23386,	L["Gan'arg Analyzer"],			Z.BLADES_EDGE_MOUNTAINS,	33.0, 52.5)
 
 	-- Burning Steppes
 	AddMob(7035,	L["Firegut Brute"],			Z.BURNING_STEPPES,		82.5, 48.1)
@@ -83,7 +81,6 @@ function addon:InitMob()
 	AddMob(18872,	L["Disembodied Vindicator"],		Z.NETHERSTORM,			36.0, 55.5)
 	AddMob(20134,	L["Sunfury Arcanist"],			Z.NETHERSTORM,			51.0, 82.5)
 	AddMob(20135,	L["Sunfury Arch Mage"],			Z.NETHERSTORM,			46.5, 81.0)
-	AddMob(20207,	L["Sunfury Bowman"],			Z.NETHERSTORM,			56.8, 64.6)
 
 	-- Searing Gorge
 	AddMob(5861,	L["Twilight Fire Guard"],		Z.SEARING_GORGE,		25.5, 33.8)
@@ -191,19 +188,15 @@ function addon:InitMob()
 	AddMob(29311,	BN.HERALD_VOLAZJ,			Z.AHNKAHET_THE_OLD_KINGDOM,	0, 0)
 
 	-- Blackrock Depths
-	AddMob(8897,	L["Doomforge Craftsman"],		Z.BLACKROCK_DEPTHS,		0, 0)
 	AddMob(8898,	L["Anvilrage Marshal"],			Z.BLACKROCK_DEPTHS,		0, 0)
 	AddMob(8903,	L["Anvilrage Captain"],			Z.BLACKROCK_DEPTHS,		0, 0)
-	AddMob(8920,	L["Weapon Technician"],			Z.BLACKROCK_DEPTHS,		0, 0)
 	AddMob(8983,	BN.GOLEM_LORD_ARGELMACH,		Z.BLACKROCK_DEPTHS,		0, 0)
-	AddMob(9499,	BN.PLUGGER_SPAZZRING,			Z.BLACKROCK_DEPTHS,		0, 0)
 
 	-- Blackrock Spire
 	AddMob(9259,	L["Firebrand Grunt"],			Z.BLACKROCK_SPIRE,		0, 0)
 	AddMob(9260,	L["Firebrand Legionnaire"],		Z.BLACKROCK_SPIRE,		0, 0)
 	AddMob(9264,	L["Firebrand Pyromancer"],		Z.BLACKROCK_SPIRE,		0, 0) -- Alchemy, Tailoring
 	AddMob(9736,	BN.QUARTERMASTER_ZIGRIS,		Z.BLACKROCK_SPIRE,		0, 0) -- Blacksmithing, Jewelcrafting
-	AddMob(10264,	BN.SOLAKAR_FLAMEWREATH,			Z.BLACKROCK_SPIRE,		0, 0)
 	AddMob(10318,	L["Blackhand Assassin"],		Z.BLACKROCK_SPIRE,		0, 0)
 	AddMob(10363,	BN.GENERAL_DRAKKISATH,			Z.BLACKROCK_SPIRE,		0, 0) -- Alchemy, Leatherworking
 
@@ -213,16 +206,12 @@ function addon:InitMob()
 	-- Dire Maul
 	AddMob(11487,	BN.MAGISTER_KALENDRIS,			Z.DIRE_MAUL,			59.04, 48.82)
 
-	-- Gnomeregan
-	AddMob(7800,	BN.MEKGINEER_THERMAPLUGG,		Z.GNOMEREGAN,			0, 0)
-
 	-- Halls of Lightning
 	AddMob(28923,	BN.LOKEN,				Z.HALLS_OF_LIGHTNING,		0, 0)
 
 	-- Karazhan
 	AddMob(16406,	L["Phantom Attendant"],			Z.KARAZHAN,			0, 0)
 	AddMob(16408,	L["Phantom Valet"],			Z.KARAZHAN,			0, 0)
-	AddMob(16152,	BB["Attumen the Huntsman"],		Z.KARAZHAN,			0, 0)
 
 	-- Magister's Terrace
 	AddMob(24664,	BN.KAELTHAS_SUNSTRIDER,			Z.MAGISTERS_TERRACE,		0, 0) -- Alchemy, Blacksmithing, Enchanting, Engineering, Jewelcrafting, Leatherworking, Tailoring
@@ -244,7 +233,6 @@ function addon:InitMob()
 	AddMob(18708,	BN.MURMUR,				Z.SHADOW_LABYRINTH,		0, 0)
 
 	-- Stratholme
-	AddMob(10426,	L["Risen Inquisitor"],			Z.STRATHOLME,			0, 0)
 	AddMob(10813,	BN.BALNAZZAR,				Z.STRATHOLME,			0, 0) -- Alchemy, Tailoring
 
 	-- The Arcatraz
@@ -266,7 +254,6 @@ function addon:InitMob()
 
 	-- The Mechanar
 	AddMob(19168,	L["Sunseeker Astromage"],		Z.THE_MECHANAR,			0, 0) -- Alchemy, Blacksmithing
-	AddMob(19219,	BN.MECHANO_LORD_CAPACITUS,		Z.THE_MECHANAR,			0, 0)
 	AddMob(19220,	BN.PATHALEON_THE_CALCULATOR,		Z.THE_MECHANAR,			0, 0)
 
 	-- The Shattered Halls
@@ -274,7 +261,6 @@ function addon:InitMob()
 
 	-- The Steamvault
 	AddMob(17722,	L["Coilfang Sorceress"],		Z.THE_STEAMVAULT,		0, 0)
-	AddMob(17796,	BN.MEKGINEER_STEAMRIGGER,		Z.THE_STEAMVAULT,		0, 0)
 	AddMob(17798,	BN.WARLORD_KALITHRESH,			Z.THE_STEAMVAULT,		0, 0)
 
 	-- Utgarde Keep
