@@ -117,8 +117,6 @@ function addon:InitVendor()
 	AddVendor(11536,	L["Quartermaster Miranda Breechlock"],	Z.EASTERN_PLAGUELANDS,		75.8,	54.1,	"Neutral") -- Alchemy, Blacksmithing, Enchanting, FirstAid, Leatherworking, Tailoring
 	AddVendor(11557,	L["Meilosh"],				Z.FELWOOD,			65.7,	2.9, 	"Neutral") -- Alchemy, Blacksmithing, Enchanting, Leatherworking, Tailoring
 	AddVendor(12022,	L["Lorelae Wintersong"],		Z.MOONGLADE,			48.3,	40.1,	"Neutral") -- Enchanting, Tailoring
---	AddVendor(12245,	L["Vendor-Tron 1000"],			Z.DESOLACE,			60.3,	38.1,	"Neutral")
---	AddVendor(12246,	L["Super-Seller 680"],			Z.DESOLACE,			40.5,	79.3,	"Neutral")
 	AddVendor(12941,	L["Jase Farlane"],			Z.EASTERN_PLAGUELANDS,		74.8,	51.8,	"Neutral")
 	AddVendor(12942,	L["Leonard Porter"],			Z.WESTERN_PLAGUELANDS,		43.0,	84.3,	"Alliance")
 	AddVendor(12943,	L["Werg Thickblade"],			Z.TIRISFAL_GLADES,		83.2,	69.7,	"Horde")
