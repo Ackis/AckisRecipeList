@@ -145,9 +145,6 @@ function addon:InitMob()
 	AddMob(22143,	L["Gordunni Back-Breaker"],		Z.TEROKKAR_FOREST,		21.2, 8.1)
 	AddMob(22144,	L["Gordunni Elementalist"],		Z.TEROKKAR_FOREST,		21.3, 12.0)
 
-	-- Southern Barrens
-	AddMob(3444,	L["Dig Rat"],				Z.SOUTHERN_BARRENS,		47.8, 88.6)
-
 	-- Northern Barrens
 	AddMob(3385,	L["Theramore Marine"],			Z.NORTHERN_BARRENS,		71.5, 86.6)
 	AddMob(3386,	L["Theramore Preserver"],		Z.NORTHERN_BARRENS,		71.5, 86.6)
@@ -251,7 +248,6 @@ function addon:InitMob()
 
 	-- Dire Maul
 	AddMob(11487,	BN.MAGISTER_KALENDRIS,			Z.DIRE_MAUL,			59.04, 48.82)
-	AddMob(14354,	BB["Pusillin"],				Z.DIRE_MAUL,			59.04, 48.82)
 
 	-- Gnomeregan
 	AddMob(7800,	BN.MEKGINEER_THERMAPLUGG,		Z.GNOMEREGAN,			0, 0)
