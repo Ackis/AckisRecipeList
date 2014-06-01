@@ -67,8 +67,8 @@ do
 		empties = function()
 			addon:ShowEmptySources()
 		end,
-		lists = function()
-			addon:DumpProfessionLists()
+		lists = function(input)
+			addon:DumpProfessionLists(input)
 		end,
 		phrases = function()
 			addon:DumpPhrases()
@@ -252,6 +252,7 @@ do
 
 	local profession_entries = {}
 	local sorted_profession_entries = {}
+	local entity_counts = {}
 
 	local function SortByIdentifier(a, b)
 		return a.identifier < b.identifier
@@ -288,6 +289,7 @@ do
 					end
 
 					if not category_table[unit] then
+						entity_counts[unit] = (entity_counts[unit] or 0) + 1
 						sorted_category_table[#sorted_category_table + 1] = unit
 						table.sort(sorted_category_table, SortByIdentifier)
 					end
@@ -298,20 +300,25 @@ do
 	end
 
 	local ACQUIRE_TYPE_LIST = {
-		"Trainer",
-		"Vendor",
-		"MobDrop",
-		"Quest",
 		"Custom",
 		"Discovery",
+		"MobDrop",
+		"Quest",
+		"Trainer",
+		"Vendor",
 		"WorldEvents",
 	}
 
-	function addon:DumpProfessionLists()
+	function addon:DumpProfessionLists(target_profession_name)
+		if target_profession_name then
+			target_profession_name = target_profession_name:lower()
+		end
+
 		for identifier, name in pairs(private.LOCALIZED_PROFESSION_NAMES) do
 			addon:InitializeProfession(name)
 		end
 
+		table.wipe(entity_counts)
 		table.wipe(profession_entries)
 		table.wipe(sorted_profession_entries)
 
@@ -322,14 +329,25 @@ do
 		output:Clear()
 
 		for profession_name, profession_table in pairs(sorted_profession_entries) do
-			output:AddLine(("-----------------------------------------------------------------------\n-- %s.\n-----------------------------------------------------------------------"):format(profession_name))
+			if not target_profession_name or profession_name:lower() == target_profession_name then
+				output:AddLine(("-----------------------------------------------------------------------\n-- %s.\n-----------------------------------------------------------------------"):format(profession_name))
 
-			for category_name, category_table in pairs(profession_table) do
-				output:AddLine(("-----------------------------------------------------------------------\n-- %s.\n-----------------------------------------------------------------------"):format(category_name))
+				for category_name, category_table in pairs(profession_table) do
+					output:AddLine(("-----------------------------------------------------------------------\n-- %s.\n-----------------------------------------------------------------------"):format(category_name))
 
-				for index = 1, #category_table do
-					local unit = category_table[index]
-					output:AddLine(("%s: %s"):format(unit.identifier or _G.UNKNOWN, unit.name or _G.UNKNOWN))
+					for index = 1, #category_table do
+						local unit = category_table[index]
+
+						if entity_counts[unit] == 1 then
+							output:AddLine(("%s: %s"):format(unit.identifier or _G.UNKNOWN, unit.name or _G.UNKNOWN))
+						else
+							addon:Printf("Skipping %s %s: %s - %d professions.",
+								category_name,
+								unit.identifier or _G.UNKNOWN,
+								unit.name or _G.UNKNOWN,
+								entity_counts[unit])
+						end
+					end
 				end
 			end
 		end
