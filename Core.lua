@@ -53,12 +53,28 @@ _G.ARL = addon
 
 local L = LibStub("AceLocale-3.0"):GetLocale(private.addon_name)
 local Toast = LibStub("LibToast-1.0")
+local Dialog = LibStub("LibDialog-1.0")
 
 local debugger -- Only defined if needed.
 
 private.build_num = select(2, _G.GetBuildInfo())
 private.TextDump = LibStub("LibTextDump-1.0"):New(private.addon_name)
 
+Dialog:Register("ARL_ModuleErrorDialog", {
+	buttons = {
+		{
+			text = _G.OKAY
+		},
+	},
+	show_while_dead = true,
+	hide_on_escape = true,
+	icon = [[Interface\DialogFrame\UI-Dialog-Icon-AlertNew]],
+	text_justify_h = "LEFT",
+	width = 400,
+	on_show = function(self, profession_name)
+		self.text:SetFormattedText("%s - %s\n\n%s", private.addon_name, addon.version, L.MODULE_ERROR_FORMAT:format(profession_name))
+	end
+})
 ------------------------------------------------------------------------------
 -- Constants.
 ------------------------------------------------------------------------------
@@ -880,7 +896,7 @@ do
 		end
 
 		if not addon:GetModule(profession_module_name, true) then
-			self:Print(L["MODULE_ERROR_FORMAT"]:format(profession_module_name))
+			Dialog:Spawn("ARL_ModuleErrorDialog", profession_module_name)
 			return
 		end
 
