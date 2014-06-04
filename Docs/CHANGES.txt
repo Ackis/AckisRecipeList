@@ -1,6 +1,26 @@
 ==ARL Change Log
 NOTE: Always remove the folder for old versions and install a fresh copy when upgrading.
 
+== 3.0.0
+=== Recipe Database:
+* Recipes split off into separate modules for each profession, loaded on demand. Typical memory usage is about 20% what it was previous, due to this change.
+
+New modules:
+** AckisRecipeList_Alchemy
+** AckisRecipeList_Blacksmithing
+** AckisRecipeList_Cooking
+** AckisRecipeList_Enchanting
+** AckisRecipeList_Engineering
+** AckisRecipeList_FirstAid
+** AckisRecipeList_Inscription
+** AckisRecipeList_Jewelcrafting
+** AckisRecipeList_Leatherworking
+** AckisRecipeList_Smelting
+** AckisRecipeList_Tailoring
+
+Note that Ackis Recipe List will not work without the module for the profession you are trying to scan. If you attempt to scan a profession that is missing a module, you will be informed.
+
+
 == 2.6.3
 === Recipe Database:
 * Fix ticketed issues
