@@ -880,7 +880,7 @@ do
 		end
 
 		if not addon:GetModule(profession_module_name, true) then
-			self:Print(L["MODULE_NOT_LOADED"]:format(profession_module_name))
+			self:Print(L["MODULE_ERROR_FORMAT"]:format(profession_module_name))
 			return
 		end
 
