@@ -1,6 +1,10 @@
 ==ARL Change Log
 NOTE: Always remove the folder for old versions and install a fresh copy when upgrading.
 
+== 3.0.1
+=== Module support:
+* Fixed issue that prevented the Smelting profession module from loading.
+
 == 3.0.0
 === Recipe Database:
 * Recipes split off into separate modules for each profession, loaded on demand. Typical memory usage is about 20% what it was previous, due to this change.
