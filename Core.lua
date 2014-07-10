@@ -664,11 +664,8 @@ function addon:TRADE_SKILL_SHOW()
 	if profession_name == private.MINING_PROFESSION_NAME then
 		profession_name = private.LOCALIZED_PROFESSION_NAMES.SMELTING
 	end
-	local profession_module_name = private.PROFESSION_MODULE_NAMES[profession_name]
 
-	if profession_module_name then
-		addon:InitializeProfession(profession_name)
-
+	if private.PROFESSION_MODULE_NAMES[profession_name] then
 		scan_button:Show()
 	else
 		scan_button:Hide()
@@ -727,6 +724,8 @@ do
 		InitializeLookups = nil
 	end
 
+	local loaded_modules = {}
+
 	-- Returns true if a profession was initialized.
 	function addon:InitializeProfession(profession_name)
 		if not profession_name or not private.PROFESSION_MODULE_NAMES[profession_name] then
@@ -742,10 +741,16 @@ do
 			profession_name = private.LOCALIZED_PROFESSION_NAMES.SMELTING
 		end
 		local module_name = FOLDER_NAME .. "_" .. private.PROFESSION_MODULE_NAMES[profession_name] or ""
+
+		if loaded_modules[module_name] then
+			return true
+		end
 		local _, _, _, is_enabled = _G.GetAddOnInfo(module_name)
 
 		if is_enabled then
-			return _G.LoadAddOn(module_name)
+			local is_loaded = _G.LoadAddOn(module_name) and true or false
+			loaded_modules[module_name] = is_loaded
+			return is_loaded
 		end
 		return false
 	end
@@ -902,6 +907,7 @@ do
 		if not profession_module_name then
 			return
 		end
+		addon:InitializeProfession(profession_name)
 
 		if not addon:GetModule(profession_module_name, true) then
 			Dialog:Spawn("ARL_ModuleErrorDialog", profession_module_name)
