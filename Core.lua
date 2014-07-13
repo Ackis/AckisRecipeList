@@ -75,6 +75,24 @@ Dialog:Register("ARL_ModuleErrorDialog", {
 		self.text:SetFormattedText("%s - %s\n\n%s", private.addon_name, addon.version, L.MODULE_ERROR_FORMAT:format(profession_name))
 	end
 })
+
+Dialog:Register("ARL_NoModulesErrorDialog", {
+	buttons = {
+		{
+			text = _G.OKAY
+		},
+	},
+	show_while_dead = true,
+	hide_on_escape = true,
+	icon = [[Interface\DialogFrame\UI-Dialog-Icon-AlertNew]],
+	text_justify_h = "LEFT",
+	width = 400,
+	on_show = function(self)
+	-- TODO: Localize this.
+		self.text:SetFormattedText("No profession module AddOns were found.\n\nAs of version 3.0, all professions were split into individual module AddOns. These can be obtained either from Curse, from the Curse Client, or from WoWInterface.\n\nThe main %s page on either site contains URLs for all of the module AddOns; download only those you need.", private.addon_name, private.addon_name)
+	end
+})
+
 ------------------------------------------------------------------------------
 -- Constants.
 ------------------------------------------------------------------------------
@@ -907,10 +925,25 @@ do
 		if not profession_module_name then
 			return
 		end
-		addon:InitializeProfession(profession_name)
+		self:InitializeProfession(profession_name)
 
-		if not addon:GetModule(profession_module_name, true) then
-			Dialog:Spawn("ARL_ModuleErrorDialog", profession_module_name)
+		if not self:GetModule(profession_module_name, true) then
+			local found_module
+
+			for profession_name, module_name in pairs(private.PROFESSION_MODULE_NAMES) do
+				local _, _, _, _, _, reason = _G.GetAddOnInfo(FOLDER_NAME .. "_" .. module_name or "")
+				if not reason or reason == "DISABLED" then
+					-- The assumption here is that if a module is disabled, the user is aware that modules exist.
+					found_module = true
+					break
+				end
+			end
+
+			if found_module then
+				Dialog:Spawn("ARL_ModuleErrorDialog", profession_module_name)
+			else
+				Dialog:Spawn("ARL_NoModulesErrorDialog")
+			end
 			return
 		end
 
