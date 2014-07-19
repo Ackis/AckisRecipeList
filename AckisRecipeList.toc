@@ -35,8 +35,8 @@
 ## Author: Ackis, Torhal, Zhinjio
 ## X-Donate: http://www.wowace.com/addons/arl/pages/donations/
 
-## Interface: 50400
-## X-Compatible-With: 50400
+## Interface: 60000
+## X-Compatible-With: 60000
 ## Version: @project-version@
 ## X-Revision: @project-abbreviated-hash@
 ## X-Date: @file-date-iso@
