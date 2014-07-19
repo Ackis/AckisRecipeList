@@ -57,7 +57,11 @@ local Dialog = LibStub("LibDialog-1.0")
 
 local debugger -- Only defined if needed.
 
-private.build_num = select(2, _G.GetBuildInfo())
+local wow_version, wow_build_num, wow_date, wow_ui_version = _G.GetBuildInfo()
+private.wow_version = wow_version
+private.wow_build_num = wow_build_num
+private.wow_ui_version = wow_ui_version
+
 private.TextDump = LibStub("LibTextDump-1.0"):New(private.addon_name)
 
 Dialog:Register("ARL_ModuleErrorDialog", {
