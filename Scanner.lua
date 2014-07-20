@@ -344,15 +344,6 @@ end	-- do
 -------------------------------------------------------------------------------
 local CopyFrame
 do
-	local EXPANSION_LOGOS = {
-		"Glues-WoW-Logo",
-		"GLUES-WOW-BCLOGO",
-		"Glues-WOW-WotlkLogo",
-		"Glues-WOW-CCLogo",
-		"Glues-WOW-MPLogo",
-		"Glues-WOW-WoDLogo",
-	}
-
 	local copy_frame = _G.CreateFrame("Frame", "ARL_DatamineCopyFrame", _G.UIParent)
 	copy_frame:SetSize(750, 600)
 	copy_frame:SetPoint("CENTER", _G.UIParent, "CENTER")
@@ -528,7 +519,7 @@ do
 
 		local icon_texture = button:CreateTexture(nil, "BORDER")
 		button.icon_texture = icon_texture
-		icon_texture:SetTexture(([[Interface\Glues\Common\%s]]):format(EXPANSION_LOGOS[index]))
+		icon_texture:SetTexture(private.EXPANSION_LOGO_TEXTURES[index])
 		icon_texture:SetAllPoints(button)
 
 		local pushed_texture = button:CreateTexture(nil, "ARTWORK")
