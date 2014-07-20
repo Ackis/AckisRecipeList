@@ -620,17 +620,12 @@ do
 		[REP1.ORACLES]			= "oracles",
 		[REP1.WYRMREST]			= "wyrmrest",
 		[REP1.WRATHCOMMON1]		= "wrathcommon1",
-		[REP1.WRATHCOMMON2]		= "wrathcommon2",
-		[REP1.WRATHCOMMON3]		= "wrathcommon3",
-		[REP1.WRATHCOMMON4]		= "wrathcommon4",
-		[REP1.WRATHCOMMON5]		= "wrathcommon5",
 	}
 
 	local REP2 = private.REP_FLAGS_WORD2
 	local REP_FILTERS_2 = {
 		[REP2.ASHEN_VERDICT]		= "ashenverdict",
 		[REP2.CATACOMMON1]		= "catacommon1",
-		[REP2.CATACOMMON2]		= "catacommon2",
 		[REP2.GUARDIANS]		= "guardiansofhyjal",
 		[REP2.RAMKAHEN]			= "ramkahen",
 		[REP2.EARTHEN_RING]		= "earthenring",

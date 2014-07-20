@@ -859,11 +859,6 @@ function private.InitializeFilterPanel()
 	local HonorHold_Thrallmar_Text =	isAlliance and FAC["Honor Hold"] 	or FAC["Thrallmar"]
 	local Kurenai_Maghar_Text = 		isAlliance and FAC["Kurenai"] 		or FAC["The Mag'har"]
 	local Vanguard_Expedition_Text = 	isAlliance and FAC["Alliance Vanguard"] or FAC["Horde Expedition"]
-	local SilverCov_Sunreaver_Text = 	isAlliance and FAC["The Silver Covenant"] or FAC["The Sunreavers"]
-	local Valiance_Warsong_Text = 		isAlliance and FAC["Valiance Expedition"] or FAC["Warsong Offensive"]
-	local Frostborn_Taunka_Text = 		isAlliance and FAC["The Frostborn"] 	or FAC["The Taunka"]
-	local Explorer_Hand_Text = 		isAlliance and FAC["Explorers' League"] or FAC["The Hand of Vengeance"]
-	local Tol_Barad = 			isAlliance and FAC["Baradin's Wardens"] or FAC["Hellscream's Reach"]
 	local Wildhammer_Dragonmaw = 		isAlliance and FAC["Wildhammer Clan"]	or FAC["Dragonmaw Clan"]
 	local Tushui_Huojin =			isAlliance and FAC["Tushui Pandaren"]	or FAC["Huojin Pandaren"]
 
@@ -1010,26 +1005,16 @@ function private.InitializeFilterPanel()
 		local expansion2_buttons = {
 			wrathcommon1	= { tt = ReputationDesc(Vanguard_Expedition_Text),		text = Vanguard_Expedition_Text,		row = 2,	col = 1 },
 			argentcrusade	= { tt = ReputationDesc(FAC["Argent Crusade"]),			text = FAC["Argent Crusade"],			row = 3,	col = 1 },
-			wrathcommon5	= { tt = ReputationDesc(Explorer_Hand_Text),			text = DisabledText(Explorer_Hand_Text),	row = 4,	col = 1 },
-			frenzyheart	= { tt = ReputationDesc(FAC["Frenzyheart Tribe"]),		text = FAC["Frenzyheart Tribe"],		row = 5,	col = 1 },
-			kaluak		= { tt = ReputationDesc(FAC["The Kalu'ak"]),			text = FAC["The Kalu'ak"],			row = 6,	col = 1 },
-			kirintor	= { tt = ReputationDesc(FAC["Kirin Tor"]),			text = FAC["Kirin Tor"],			row = 7,	col = 1 },
-			ebonblade	= { tt = ReputationDesc(FAC["Knights of the Ebon Blade"]),	text = FAC["Knights of the Ebon Blade"],	row = 8,	col = 1 },
-			oracles		= { tt = ReputationDesc(FAC["The Oracles"]),			text = FAC["The Oracles"],			row = 9,	col = 1 },
-			wrathcommon2	= { tt = ReputationDesc(SilverCov_Sunreaver_Text),		text = DisabledText(SilverCov_Sunreaver_Text),	row = 10,	col = 1 },
-			sonsofhodir	= { tt = ReputationDesc(FAC["The Sons of Hodir"]),		text = FAC["The Sons of Hodir"],		row = 11,	col = 1 },
-			wrathcommon4	= { tt = ReputationDesc(Frostborn_Taunka_Text),			text = DisabledText(Frostborn_Taunka_Text),	row = 12,	col = 1 },
-			wrathcommon3	= { tt = ReputationDesc(Valiance_Warsong_Text),			text = DisabledText(Valiance_Warsong_Text),	row = 13,	col = 1 },
-			wyrmrest	= { tt = ReputationDesc(FAC["The Wyrmrest Accord"]),		text = FAC["The Wyrmrest Accord"],		row = 14,	col = 1 },
-			ashenverdict	= { tt = ReputationDesc(FAC["The Ashen Verdict"]),		text = FAC["The Ashen Verdict"],		row = 15,	col = 1 },
+			frenzyheart	= { tt = ReputationDesc(FAC["Frenzyheart Tribe"]),		text = FAC["Frenzyheart Tribe"],		row = 4,	col = 1 },
+			kaluak		= { tt = ReputationDesc(FAC["The Kalu'ak"]),			text = FAC["The Kalu'ak"],			row = 5,	col = 1 },
+			kirintor	= { tt = ReputationDesc(FAC["Kirin Tor"]),			text = FAC["Kirin Tor"],			row = 6,	col = 1 },
+			ebonblade	= { tt = ReputationDesc(FAC["Knights of the Ebon Blade"]),	text = FAC["Knights of the Ebon Blade"],	row = 7,	col = 1 },
+			oracles		= { tt = ReputationDesc(FAC["The Oracles"]),			text = FAC["The Oracles"],			row = 8,	col = 1 },
+			sonsofhodir	= { tt = ReputationDesc(FAC["The Sons of Hodir"]),		text = FAC["The Sons of Hodir"],		row = 9,	col = 1 },
+			wyrmrest	= { tt = ReputationDesc(FAC["The Wyrmrest Accord"]),		text = FAC["The Wyrmrest Accord"],		row = 10,	col = 1 },
+			ashenverdict	= { tt = ReputationDesc(FAC["The Ashen Verdict"]),		text = FAC["The Ashen Verdict"],		row = 11,	col = 1 },
 		}
 		private.GenerateCheckBoxes(expansion2_frame, expansion2_buttons)
-
-		-- Disable these for now, since they have no recipes.
-		expansion2_frame.wrathcommon2:Disable()
-		expansion2_frame.wrathcommon3:Disable()
-		expansion2_frame.wrathcommon4:Disable()
-		expansion2_frame.wrathcommon5:Disable()
 
 		local expansion2_toggle = _G.CreateFrame("Button", nil, expansion2_frame)
 		expansion2_toggle:SetWidth(105)
@@ -1072,17 +1057,15 @@ function private.InitializeFilterPanel()
 
 		local expansion3_buttons = {
 			catacommon1		= { tt = ReputationDesc(Wildhammer_Dragonmaw),			text = DisabledText(Wildhammer_Dragonmaw),		row = 2,	col = 1 },
-			catacommon2		= { tt = ReputationDesc(Tol_Barad),				text = DisabledText(Tol_Barad),				row = 3,	col = 1 },
-			guardiansofhyjal	= { tt = ReputationDesc(FAC["Guardians of Hyjal"]),		text = DisabledText(FAC["Guardians of Hyjal"]),		row = 4,	col = 1 },
-			ramkahen		= { tt = ReputationDesc(FAC["Ramkahen"]),			text = DisabledText(FAC["Ramkahen"]),			row = 5,	col = 1 },
-			earthenring		= { tt = ReputationDesc(FAC["The Earthen Ring"]),		text = DisabledText(FAC["The Earthen Ring"]),		row = 6,	col = 1 },
-			therazane		= { tt = ReputationDesc(FAC["Therazane"]),			text = DisabledText(FAC["Therazane"]),			row = 7,	col = 1 },
+			guardiansofhyjal	= { tt = ReputationDesc(FAC["Guardians of Hyjal"]),		text = DisabledText(FAC["Guardians of Hyjal"]),		row = 3,	col = 1 },
+			ramkahen		= { tt = ReputationDesc(FAC["Ramkahen"]),			text = DisabledText(FAC["Ramkahen"]),			row = 4,	col = 1 },
+			earthenring		= { tt = ReputationDesc(FAC["The Earthen Ring"]),		text = DisabledText(FAC["The Earthen Ring"]),		row = 5,	col = 1 },
+			therazane		= { tt = ReputationDesc(FAC["Therazane"]),			text = DisabledText(FAC["Therazane"]),			row = 6,	col = 1 },
 		}
 		private.GenerateCheckBoxes(expansion3_frame, expansion3_buttons)
 
-		-- Disable them as the data isn't in yet.
+		-- TODO: Figure out what to do with this entire expansion section, since it has no reputations which offer recipes.
 		expansion3_frame.catacommon1:Disable()
-		expansion3_frame.catacommon2:Disable()
 		expansion3_frame.guardiansofhyjal:Disable()
 		expansion3_frame.ramkahen:Disable()
 		expansion3_frame.earthenring:Disable()
@@ -1196,14 +1179,6 @@ function private.InitializeFilterPanel()
 			foresthozen		= { tt = ReputationDesc(FAC["Forest Hozen"]),			text = FAC["Forest Hozen"],				row = 2,	col = 1 },
 		}
 		private.GenerateCheckBoxes(expansion5_frame, expansion5_buttons)
-
-		-- Disable them as the data isn't in yet.
---		expansion4_frame.catacommon1:Disable()
---		expansion4_frame.catacommon2:Disable()
---		expansion4_frame.guardiansofhyjal:Disable()
---		expansion4_frame.ramkahen:Disable()
---		expansion4_frame.earthenring:Disable()
---		expansion4_frame.therazane:Disable()
 
 		local expansion5_toggle = _G.CreateFrame("Button", nil, expansion5_frame)
 		expansion5_toggle:SetWidth(105)
