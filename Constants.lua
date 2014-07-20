@@ -662,7 +662,10 @@ private.ZONE_NAMES = {
 	SHRINE_OF_TWO_MOONS = _G.GetMapNameByID(903),
 	SHRINE_OF_SEVEN_STARS = _G.GetMapNameByID(905),
 	ISLE_OF_THUNDER = _G.GetMapNameByID(928),
+	TALADOR = _G.GetMapNameByID(946),
 	TIMELESS_ISLE = _G.GetMapNameByID(951),
+	LUNARFALL = _G.GetMapNameByID(971),
+	FROSTWALL = _G.GetMapNameByID(976),
 }
 
 constants.ZONE_NAMES = private.ZONE_NAMES
