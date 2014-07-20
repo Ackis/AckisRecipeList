@@ -793,7 +793,7 @@ function private.InitializeFilterPanel()
 			end)
 
 			local iconTex = cButton:CreateTexture(nil, "BORDER")
-			iconTex:SetTexture(([[Interface\Glues\Common\%s]]):format(texture))
+			iconTex:SetTexture(texture)
 			iconTex:SetWidth(110)
 			iconTex:SetHeight(50)
 			iconTex:SetAllPoints(cButton)
@@ -824,30 +824,19 @@ function private.InitializeFilterPanel()
 		-------------------------------------------------------------------------------
 		-- Create the expansion toggles.
 		-------------------------------------------------------------------------------
-		local expansion0 = rep_frame:CreateExpansionButton("Glues-WoW-Logo", "expansion0")
-		expansion0:SetPoint("TOPLEFT", FilterPanel.rep, "TOPLEFT", 2, -10)
+		local expansion_buttons = {}
+		for index = 1, #private.GAME_VERSION_NAMES do
+			local expansion_button = rep_frame:CreateExpansionButton(private.EXPANSION_LOGO_TEXTURES[index], ("expansion%d"):format(index - 1))
+			expansion_buttons[#expansion_buttons + 1] = expansion_button
 
-		local expansion1 = rep_frame:CreateExpansionButton("GLUES-WOW-BCLOGO", "expansion1")
-		expansion1:SetPoint("TOP", expansion0, "BOTTOM", 0, 0)
+			if index == 1 then
+				expansion_button:SetPoint("TOPLEFT", FilterPanel.rep, "TOPLEFT", 2, -10)
+			else
+				expansion_button:SetPoint("TOP", expansion_buttons[index - 1], "BOTTOM", 0, 0)
+			end
 
-		local expansion2 = rep_frame:CreateExpansionButton("Glues-WOW-WotlkLogo", "expansion2")
-		expansion2:SetPoint("TOP", expansion1, "BOTTOM", 0, 0)
-
-		local expansion3 = rep_frame:CreateExpansionButton("Glues-WOW-CCLogo", "expansion3")
-		expansion3:SetPoint("TOP", expansion2, "BOTTOM", 0, 0)
-
-		local expansion4 = rep_frame:CreateExpansionButton("Glues-WOW-MPLogo", "expansion4")
-		expansion4:SetPoint("TOP", expansion3, "BOTTOM", 0, 0)
-
-		local expansion5 = rep_frame:CreateExpansionButton("Glues-WOW-WoDLogo", "expansion5")
-		expansion5:SetPoint("TOP", expansion4, "BOTTOM", 0, 0)
-
-		rep_frame.toggle_expansion0 = expansion0
-		rep_frame.toggle_expansion1 = expansion1
-		rep_frame.toggle_expansion2 = expansion2
-		rep_frame.toggle_expansion3 = expansion3
-		rep_frame.toggle_expansion4 = expansion4
-		rep_frame.toggle_expansion5 = expansion5
+			rep_frame["toggle_expansion" .. index - 1] = expansion_button
+		end
 	end	-- do
 
 	-------------------------------------------------------------------------------

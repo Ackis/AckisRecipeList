@@ -1,17 +1,4 @@
 -------------------------------------------------------------------------------
--- Constants.lua
--------------------------------------------------------------------------------
--- File date: @file-date-iso@
--- File hash: @file-abbreviated-hash@
--- Project hash: @project-abbreviated-hash@
--- Project version: @project-version@
--------------------------------------------------------------------------------
--- Please see http://www.wowace.com/addons/arl/ for more information.
--------------------------------------------------------------------------------
--- This source code is released under All Rights Reserved.
--------------------------------------------------------------------------------
-
--------------------------------------------------------------------------------
 -- Upvalued Lua API
 -------------------------------------------------------------------------------
 local _G = getfenv(0)
@@ -187,6 +174,15 @@ private.EXPANSION_FILTERS = {}
 for index = 1, #private.GAME_VERSION_NAMES do
 	private.EXPANSION_FILTERS[index] = ("expansion%d"):format(index - 1)
 end
+
+private.EXPANSION_LOGO_TEXTURES = {
+	[[Interface\Glues\Common\Glues-WoW-Logo]],
+	[[Interface\Glues\Common\GLUES-WOW-BCLOGO]],
+	[[Interface\Glues\Common\Glues-WOW-WotlkLogo]],
+	[[Interface\Glues\Common\Glues-WOW-CCLogo]],
+	[[Interface\Glues\Common\Glues-WOW-MPLogo]],
+	[[Interface\Glues\Common\Glues-WOW-WoDLogo]],
+}
 
 -------------------------------------------------------------------------------
 -- Common filter bitfield word 1.
