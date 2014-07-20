@@ -948,7 +948,7 @@ function Recipe:Dump(output, use_genesis)
 				else
 					saved_id = identifier
 				end
-				local vendor = private.private.AcquireTypes.Vendor:GetEntity(identifier)
+				local vendor = private.AcquireTypes.Vendor:GetEntity(identifier)
 				local quantity = vendor.item_list[self:SpellID()]
 
 				if type(quantity) == "number" then
