@@ -36,7 +36,6 @@ function addon:InitReputation()
 	AddReputation(270) -- Zandalar Tribe
 	AddReputation(529) -- Argent Dawn
 	AddReputation(576) -- Timbermaw Hold
-	AddReputation(589) -- Wintersaber Trainers
 	AddReputation(609) -- Cenarion Circle
 	AddReputation(932) -- The Aldor
 	AddReputation(933) -- The Consortium
@@ -61,7 +60,6 @@ function addon:InitReputation()
 	AddReputation(1068) -- Explorers' League
 	AddReputation(1073) -- The Kalu'ak
 	AddReputation(1077) -- Shattered Sun Offensive
-	AddReputation(1085) -- Warsong Offensive
 	AddReputation(1090) -- Kirin Tor
 	AddReputation(1091) -- The Wyrmrest Accord
 	AddReputation(1094) -- The Silver Covenant
@@ -72,7 +70,6 @@ function addon:InitReputation()
 	AddReputation(1119) -- The Sons of Hodir
 	AddReputation(1124) -- The Sunreavers
 	AddReputation(1135) -- The Earthen Ring
-	AddReputation(1136) -- Tranquillien Conversion
 	AddReputation(1156) -- The Ashen Verdict
 	AddReputation(1158) -- Guardians of Hyjal
 	AddReputation(1171) -- Therazane
@@ -80,7 +77,6 @@ function addon:InitReputation()
 	AddReputation(1173) -- Ramkahen
 	AddReputation(1174) -- Wildhammer Clan
 	AddReputation(1177) -- Baradin's Wardens
-	AddReputation(1178) -- Hellscream's Reach
 	AddReputation(1216) -- Shang Xi's Academy
 	AddReputation(1228) -- Forest Hozen
 	AddReputation(1242) -- Pearlfin Jinyu
