@@ -350,7 +350,7 @@ do
 		"Glues-WOW-WotlkLogo",
 		"Glues-WOW-CCLogo",
 		"Glues-WOW-MPLogo",
-		"Glues-WOW-MPLogo",
+		"Glues-WOW-WoDLogo",
 	}
 
 	local copy_frame = _G.CreateFrame("Frame", "ARL_DatamineCopyFrame", _G.UIParent)
