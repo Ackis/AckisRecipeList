@@ -321,6 +321,7 @@ L["DISCOVERY_TAILOR_CELESTIAL_PANDARIA"] = "Discovered by crafting Celestial Clo
 L["DISPLAY_EXCLUSION_DESC"] = "Display recipes that are in the exclusion list."
 L["DISPLAY_OPTIONS_DESC"] = "Allows you to customize how the GUI behaves."
 L["DM_TRIBUTE"] = "DM Tribute Run - Chest"
+L["DRAENOR_DEFAULT"] = "Automatically learned after using the corresponding Draenor profession scroll."
 L["Daedal"] = true
 L["Daenril"] = true
 L["Daga Ramba"] = true
