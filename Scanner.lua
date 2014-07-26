@@ -333,9 +333,9 @@ do
 			output:Display()
 		end
 		-- Reset the filters to what they were before
-		_G.SetTrainerServiceTypeFilter("available", avail or 0)
-		_G.SetTrainerServiceTypeFilter("unavailable", unavail or 0)
-		_G.SetTrainerServiceTypeFilter("used", used or 0)
+		_G.SetTrainerServiceTypeFilter("available", 1)
+		_G.SetTrainerServiceTypeFilter("unavailable", 1)
+		_G.SetTrainerServiceTypeFilter("used", 1)
 	end
 end	-- do
 
