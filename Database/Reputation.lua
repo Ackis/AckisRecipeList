@@ -41,7 +41,6 @@ function addon:InitReputation()
 	AddReputation(933) -- The Consortium
 	AddReputation(934) -- The Scryers
 	AddReputation(935) -- The Sha'tar
-	AddReputation(941) -- The Mag'har
 	AddReputation(942) -- Cenarion Expedition
 	AddReputation(946) -- Honor Hold
 	AddReputation(947) -- Thrallmar
@@ -55,7 +54,6 @@ function addon:InitReputation()
 	AddReputation(1037) -- Alliance Vanguard
 	AddReputation(1050) -- Valiance Expedition
 	AddReputation(1052) -- Horde Expedition
-	AddReputation(1064) -- The Taunka
 	AddReputation(1067) -- The Hand of Vengeance
 	AddReputation(1068) -- Explorers' League
 	AddReputation(1073) -- The Kalu'ak
@@ -68,7 +66,6 @@ function addon:InitReputation()
 	AddReputation(1105) -- The Oracles
 	AddReputation(1106) -- Argent Crusade
 	AddReputation(1119) -- The Sons of Hodir
-	AddReputation(1124) -- The Sunreavers
 	AddReputation(1135) -- The Earthen Ring
 	AddReputation(1156) -- The Ashen Verdict
 	AddReputation(1158) -- Guardians of Hyjal
@@ -99,7 +96,6 @@ function addon:InitReputation()
 	AddReputation(1341) -- The August Celestials
 	AddReputation(1345) -- The Lorewalkers
 	AddReputation(1351) -- The Brewmasters
-	AddReputation(1352) -- Huojin Pandaren
 	AddReputation(1353) -- Tushui Pandaren
 	AddReputation(1358) -- Nat Pagle
 	AddReputation(1359) -- The Black Prince
