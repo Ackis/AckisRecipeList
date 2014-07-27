@@ -897,7 +897,7 @@ function Recipe:Dump(output, use_genesis)
 	for acquire_type_id, acquire_info in pairs(self.acquire_data) do
 		if acquire_type_id == A.REPUTATION then
 			for rep_id, rep_info in pairs(acquire_info) do
-				local faction_string = private.FACTION_STRINGS[rep_id]
+				local faction_string = private.FACTION_LABELS_FROM_ID[rep_id]
 
 				if faction_string then
 					faction_string = ("FAC.%s"):format(faction_string)

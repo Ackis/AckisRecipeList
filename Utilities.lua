@@ -191,7 +191,7 @@ do
 		for index = 1, 1500 do
 			local rep_name = _G.GetFactionInfoByID(index)
 
-			if rep_name and private.FACTION_STRINGS[index] then
+			if rep_name and private.FACTION_LABELS_FROM_ID[index] then
 				output:AddLine(("[\"%s\"] = _G.GetFactionInfoByID(%d),"):format(TableKeyFormat(rep_name), index))
 			end
 		end

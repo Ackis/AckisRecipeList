@@ -360,7 +360,7 @@ end
 -------------------------------------------------------------------------------
 -- Factions.
 -------------------------------------------------------------------------------
-private.FACTION_STRINGS = {
+private.FACTION_LABELS_FROM_ID = {
 	[59]	= "THORIUM_BROTHERHOOD",
 	[270]	= "ZANDALAR",
 	[529]	= "ARGENTDAWN",
@@ -505,7 +505,7 @@ private.LOCALIZED_FACTION_STRINGS = {
 private.FACTION_IDS = {}
 constants.FACTION_IDS = private.FACTION_IDS
 
-for id, name in pairs(private.FACTION_STRINGS) do
+for id, name in pairs(private.FACTION_LABELS_FROM_ID) do
 	private.FACTION_IDS[name] = id
 end
 
