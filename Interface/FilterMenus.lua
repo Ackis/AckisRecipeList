@@ -130,7 +130,12 @@ end
 function private.UpdateFilterMarks()
 	for filter, info in pairs(addon.Frame.filter_menu.value_map) do
 		if info.svroot then
-			info.cb:SetChecked(info.svroot[filter])
+			if info.cb then
+				info.cb:SetChecked(info.svroot[filter])
+			else
+				addon:Debug("The filter \"%s\" has an invalid checkbutton definition.", filter)
+			end
+
 		end
 	end
 end
