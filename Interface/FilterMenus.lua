@@ -1486,7 +1486,6 @@ function private.InitializeFilterPanel()
 		cenarioncircle		= { cb = expansion0.cenarioncircle,			svroot = filterdb.rep },
 		thoriumbrotherhood	= { cb = expansion0.thoriumbrotherhood,			svroot = filterdb.rep },
 		timbermaw		= { cb = expansion0.timbermaw,				svroot = filterdb.rep },
-		zandalar		= { cb = expansion0.zandalar,				svroot = filterdb.rep },
 		------------------------------------------------------------------------------------------------
 		-- The Burning Crusade Rep Options
 		------------------------------------------------------------------------------------------------
