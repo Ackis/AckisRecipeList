@@ -482,7 +482,7 @@ local ACQUIRE_PROTOTYPES = {
 			g = 0.35,
 			b = 0.6
 		},
-		_has_coordinates = true,
+		_has_coordinates = false,
 		_label = "REPUTATION",
 		_name = _G.REPUTATION,
 		-------------------------------------------------------------------------------
