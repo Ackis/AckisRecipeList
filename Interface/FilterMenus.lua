@@ -52,7 +52,7 @@ local CATEGORY_TOOLTIP = {
 	["misc"]	= L["FILTERING_MISC_DESC"]
 }
 
-local FAC = private.LOCALIZED_FACTION_STRINGS
+local LFAC = private.LOCALIZED_FACTION_STRINGS_FROM_LABEL
 
 -------------------------------------------------------------------------------
 -- Function to create and initialize a check-button with the given values.
@@ -845,11 +845,11 @@ function private.InitializeFilterPanel()
 	-------------------------------------------------------------------------------
 	local isAlliance = (private.Player.faction == "Alliance")
 
-	local HonorHold_Thrallmar_Text =	isAlliance and FAC["Honor Hold"] 	or FAC["Thrallmar"]
-	local Kurenai_Maghar_Text = 		isAlliance and FAC["Kurenai"] 		or FAC["The Mag'har"]
-	local Vanguard_Expedition_Text = 	isAlliance and FAC["Alliance Vanguard"] or FAC["Horde Expedition"]
-	local Wildhammer_Dragonmaw = 		isAlliance and FAC["Wildhammer Clan"]	or FAC["Dragonmaw Clan"]
-	local Tushui_Huojin =			isAlliance and FAC["Tushui Pandaren"]	or FAC["Huojin Pandaren"]
+	local HELLFIRE_TEXT = isAlliance and LFAC.HONOR_HOLD or LFAC.THRALLMAR
+	local NAGRAND_TEXT = isAlliance and LFAC.KURENAI or LFAC.MAGHAR
+	local WRATHCOMMON1_TEXT = isAlliance and LFAC.ALLIANCE_VANGUARD or LFAC.HORDE_EXPEDITION
+	local CATACOMMON1_TEXT = isAlliance and LFAC.WILDHAMMER or LFAC.DRAGONMAW
+	local PANDACOMMON1_TEXT = isAlliance and LFAC.TUSHUIPANDAREN or LFAC.HUOJINPANDAREN
 
 	-- Used for the tooltip of every reputation checkbox.
 	local function ReputationDesc(text)
@@ -891,12 +891,16 @@ function private.InitializeFilterPanel()
 		-- Create the Reputation toggle and CheckButtons
 		-------------------------------------------------------------------------------
 		local expansion0_buttons = {
-			argentdawn		= { tt = ReputationDesc(FAC["Argent Dawn"]),		text = FAC["Argent Dawn"],		row = 2, col = 1 },
-			cenarioncircle		= { tt = ReputationDesc(FAC["Cenarion Circle"]),	text = FAC["Cenarion Circle"],		row = 3, col = 1 },
-			thoriumbrotherhood	= { tt = ReputationDesc(FAC["Thorium Brotherhood"]),	text = FAC["Thorium Brotherhood"],	row = 4, col = 1 },
-			timbermaw		= { tt = ReputationDesc(FAC["Timbermaw Hold"]),		text = FAC["Timbermaw Hold"],		row = 5, col = 1 },
-			zandalar		= { tt = ReputationDesc(FAC["Zandalar Tribe"]),		text = FAC["Zandalar Tribe"],		row = 6, col = 1 },
+			argentdawn		= { text = LFAC.ARGENTDAWN,		row = 2, col = 1 },
+			cenarioncircle		= { text = LFAC.CENARION_CIRCLE,	row = 3, col = 1 },
+			thoriumbrotherhood	= { text = LFAC.THORIUM_BROTHERHOOD,	row = 4, col = 1 },
+			timbermaw		= { text = LFAC.TIMBERMAW_HOLD,		row = 5, col = 1 },
+			zandalar		= { text = LFAC.ZANDALAR,		row = 6, col = 1 },
 		}
+
+		for label, data in pairs(expansion0_buttons) do
+			data.tt = ReputationDesc(data.text)
+		end
 		private.GenerateCheckBoxes(expansion0_frame, expansion0_buttons)
 
 		local expansion0_toggle = _G.CreateFrame("Button", nil, expansion0_frame)
@@ -935,21 +939,25 @@ function private.InitializeFilterPanel()
 		-- Create the Reputation toggle and CheckButtons
 		-------------------------------------------------------------------------------
 		local expansion1_buttons = {
-			aldor			= { tt = ReputationDesc(FAC["The Aldor"]),			text = FAC["The Aldor"],		row = 2,	col = 1 },
-			ashtonguedeathsworn	= { tt = ReputationDesc(FAC["Ashtongue Deathsworn"]),		text = FAC["Ashtongue Deathsworn"],	row = 3,	col = 1 },
-			cenarionexpedition	= { tt = ReputationDesc(FAC["Cenarion Expedition"]),		text = FAC["Cenarion Expedition"],	row = 4,	col = 1 },
-			consortium		= { tt = ReputationDesc(FAC["The Consortium"]),			text = FAC["The Consortium"],		row = 5,	col = 1 },
-			hellfire		= { tt = ReputationDesc(HonorHold_Thrallmar_Text),		text = HonorHold_Thrallmar_Text,	row = 6,	col = 1 },
-			keepersoftime		= { tt = ReputationDesc(FAC["Keepers of Time"]),		text = FAC["Keepers of Time"],		row = 7,	col = 1 },
-			nagrand			= { tt = ReputationDesc(Kurenai_Maghar_Text),			text = Kurenai_Maghar_Text,		row = 8,	col = 1 },
-			lowercity		= { tt = ReputationDesc(FAC["Lower City"]),			text = FAC["Lower City"],		row = 9,	col = 1 },
-			scaleofthesands		= { tt = ReputationDesc(FAC["The Scale of the Sands"]),		text = FAC["The Scale of the Sands"],	row = 10,	col = 1 },
-			scryer			= { tt = ReputationDesc(FAC["The Scryers"]),			text = FAC["The Scryers"],		row = 11,	col = 1 },
-			shatar			= { tt = ReputationDesc(FAC["The Sha'tar"]),			text = FAC["The Sha'tar"],		row = 12,	col = 1 },
-			shatteredsun		= { tt = ReputationDesc(FAC["Shattered Sun Offensive"]),	text = FAC["Shattered Sun Offensive"],	row = 13,	col = 1 },
-			sporeggar		= { tt = ReputationDesc(FAC["Sporeggar"]),			text = FAC["Sporeggar"],		row = 14,	col = 1 },
-			violeteye		= { tt = ReputationDesc(FAC["The Violet Eye"]),			text = FAC["The Violet Eye"],		row = 15,	col = 1 },
+			aldor			= { text = LFAC.ALDOR,			row = 2,	col = 1 },
+			ashtonguedeathsworn	= { text = LFAC.ASHTONGUE,		row = 3,	col = 1 },
+			cenarionexpedition	= { text = LFAC.CENARION_EXPEDITION,	row = 4,	col = 1 },
+			consortium		= { text = LFAC.CONSORTIUM,		row = 5,	col = 1 },
+			hellfire		= { text = HELLFIRE_TEXT,		row = 6,	col = 1 },
+			keepersoftime		= { text = LFAC.KEEPERS_OF_TIME,	row = 7,	col = 1 },
+			nagrand			= { text = NAGRAND_TEXT,		row = 8,	col = 1 },
+			lowercity		= { text = LFAC.LOWERCITY,		row = 9,	col = 1 },
+			scaleofthesands		= { text = LFAC.SCALE_OF_SANDS,		row = 10,	col = 1 },
+			scryer			= { text = LFAC.SCRYER,			row = 11,	col = 1 },
+			shatar			= { text = LFAC.SHATAR,			row = 12,	col = 1 },
+			shatteredsun		= { text = LFAC.SHATTEREDSUN,		row = 13,	col = 1 },
+			sporeggar		= { text = LFAC.SPOREGGAR,		row = 14,	col = 1 },
+			violeteye		= { text = LFAC.VIOLETEYE,		row = 15,	col = 1 },
 		}
+
+		for label, data in pairs(expansion1_buttons) do
+			data.tt = ReputationDesc(data.text)
+		end
 		private.GenerateCheckBoxes(expansion1_frame, expansion1_buttons)
 
 		local expansion1_toggle = _G.CreateFrame("Button", nil, expansion1_frame)
@@ -992,17 +1000,21 @@ function private.InitializeFilterPanel()
 		end
 
 		local expansion2_buttons = {
-			wrathcommon1	= { tt = ReputationDesc(Vanguard_Expedition_Text),		text = Vanguard_Expedition_Text,		row = 2,	col = 1 },
-			argentcrusade	= { tt = ReputationDesc(FAC["Argent Crusade"]),			text = FAC["Argent Crusade"],			row = 3,	col = 1 },
-			frenzyheart	= { tt = ReputationDesc(FAC["Frenzyheart Tribe"]),		text = FAC["Frenzyheart Tribe"],		row = 4,	col = 1 },
-			kaluak		= { tt = ReputationDesc(FAC["The Kalu'ak"]),			text = FAC["The Kalu'ak"],			row = 5,	col = 1 },
-			kirintor	= { tt = ReputationDesc(FAC["Kirin Tor"]),			text = FAC["Kirin Tor"],			row = 6,	col = 1 },
-			ebonblade	= { tt = ReputationDesc(FAC["Knights of the Ebon Blade"]),	text = FAC["Knights of the Ebon Blade"],	row = 7,	col = 1 },
-			oracles		= { tt = ReputationDesc(FAC["The Oracles"]),			text = FAC["The Oracles"],			row = 8,	col = 1 },
-			sonsofhodir	= { tt = ReputationDesc(FAC["The Sons of Hodir"]),		text = FAC["The Sons of Hodir"],		row = 9,	col = 1 },
-			wyrmrest	= { tt = ReputationDesc(FAC["The Wyrmrest Accord"]),		text = FAC["The Wyrmrest Accord"],		row = 10,	col = 1 },
-			ashenverdict	= { tt = ReputationDesc(FAC["The Ashen Verdict"]),		text = FAC["The Ashen Verdict"],		row = 11,	col = 1 },
+			wrathcommon1	= { text = WRATHCOMMON1_TEXT,	row = 2,	col = 1 },
+			argentcrusade	= { text = LFAC.ARGENTCRUSADE,	row = 3,	col = 1 },
+			frenzyheart	= { text = LFAC.FRENZYHEART,	row = 4,	col = 1 },
+			kaluak		= { text = LFAC.KALUAK,		row = 5,	col = 1 },
+			kirintor	= { text = LFAC.KIRINTOR,	row = 6,	col = 1 },
+			ebonblade	= { text = LFAC.EBONBLADE,	row = 7,	col = 1 },
+			oracles		= { text = LFAC.ORACLES,	row = 8,	col = 1 },
+			sonsofhodir	= { text = LFAC.HODIR,		row = 9,	col = 1 },
+			wyrmrest	= { text = LFAC.WYRMREST,	row = 10,	col = 1 },
+			ashenverdict	= { text = LFAC.ASHEN_VERDICT,	row = 11,	col = 1 },
 		}
+
+		for label, data in pairs(expansion2_buttons) do
+			data.tt = ReputationDesc(data.text)
+		end
 		private.GenerateCheckBoxes(expansion2_frame, expansion2_buttons)
 
 		local expansion2_toggle = _G.CreateFrame("Button", nil, expansion2_frame)
@@ -1040,26 +1052,8 @@ function private.InitializeFilterPanel()
 		-------------------------------------------------------------------------------
 		-- Create the Reputation toggle and CheckButtons
 		-------------------------------------------------------------------------------
-		local function DisabledText(text)
-			return SetTextColor(private.BASIC_COLORS.grey.hex, text)
-		end
 
-		local expansion3_buttons = {
-			catacommon1		= { tt = ReputationDesc(Wildhammer_Dragonmaw),			text = DisabledText(Wildhammer_Dragonmaw),		row = 2,	col = 1 },
-			guardiansofhyjal	= { tt = ReputationDesc(FAC["Guardians of Hyjal"]),		text = DisabledText(FAC["Guardians of Hyjal"]),		row = 3,	col = 1 },
-			ramkahen		= { tt = ReputationDesc(FAC["Ramkahen"]),			text = DisabledText(FAC["Ramkahen"]),			row = 4,	col = 1 },
-			earthenring		= { tt = ReputationDesc(FAC["The Earthen Ring"]),		text = DisabledText(FAC["The Earthen Ring"]),		row = 5,	col = 1 },
-			therazane		= { tt = ReputationDesc(FAC["Therazane"]),			text = DisabledText(FAC["Therazane"]),			row = 6,	col = 1 },
-		}
-		private.GenerateCheckBoxes(expansion3_frame, expansion3_buttons)
-
-		-- TODO: Figure out what to do with this entire expansion section, since it has no reputations which offer recipes.
-		expansion3_frame.catacommon1:Disable()
-		expansion3_frame.guardiansofhyjal:Disable()
-		expansion3_frame.ramkahen:Disable()
-		expansion3_frame.earthenring:Disable()
-		expansion3_frame.therazane:Disable()
-
+		-- Cataclysm had no reputation recipes, so we display an empty frame.
 		local expansion3_toggle = _G.CreateFrame("Button", nil, expansion3_frame)
 		expansion3_toggle:SetWidth(105)
 		expansion3_toggle:SetHeight(20)
@@ -1071,7 +1065,6 @@ function private.InitializeFilterPanel()
 
 		private.SetTooltipScripts(expansion3_toggle, L["GROUP_TOGGLE_FORMAT"]:format(_G.REPUTATION))
 
-		expansion3_toggle.buttons = expansion3_buttons
 		expansion3_toggle.frame = expansion3_frame
 
 		expansion3_toggle:SetScript("OnClick", ToggleExpansionCheckBoxes)
@@ -1100,30 +1093,26 @@ function private.InitializeFilterPanel()
 		end
 
 		local expansion4_buttons = {
-			foresthozen		= { tt = ReputationDesc(FAC["Forest Hozen"]),			text = FAC["Forest Hozen"],				row = 2,	col = 1 },
-			goldenlotus		= { tt = ReputationDesc(FAC["Golden Lotus"]),			text = FAC["Golden Lotus"],				row = 3,	col = 1 },
-			cloudserpent		= { tt = ReputationDesc(FAC["Order of the Cloud Serpent"]),	text = FAC["Order of the Cloud Serpent"],		row = 4,	col = 1 },
-			pearlfinjinyu		= { tt = ReputationDesc(FAC["Pearlfin Jinyu"]),			text = FAC["Pearlfin Jinyu"],				row = 5,	col = 1 },
-			shadopan		= { tt = ReputationDesc(FAC["Shado-Pan"]),			text = FAC["Shado-Pan"],				row = 6,	col = 1 },
-			anglers			= { tt = ReputationDesc(FAC["The Anglers"]),			text = FAC["The Anglers"],				row = 7,	col = 1 },
-			augustcelestials	= { tt = ReputationDesc(FAC["The August Celestials"]),		text = FAC["The August Celestials"],			row = 8,	col = 1 },
-			brewmasters		= { tt = ReputationDesc(FAC["The Brewmasters"]),		text = FAC["The Brewmasters"],				row = 9,	col = 1 },
-			klaxxi			= { tt = ReputationDesc(FAC["The Klaxxi"]),			text = FAC["The Klaxxi"],				row = 10,	col = 1 },
-			lorewalkers		= { tt = ReputationDesc(FAC["The Lorewalkers"]),		text = FAC["The Lorewalkers"],				row = 11,	col = 1 },
-			tillers			= { tt = ReputationDesc(FAC["The Tillers"]),			text = FAC["The Tillers"],				row = 12,	col = 1 },
-			blackprince		= { tt = ReputationDesc(FAC["The Black Prince"]),		text = FAC["The Black Prince"],				row = 13,	col = 1 },
-			shangxiacademy		= { tt = ReputationDesc(FAC["Shang Xi's Academy"]),		text = FAC["Shang Xi's Academy"],			row = 14,	col = 1 },
-			pandacommon1		= { tt = ReputationDesc(Tushui_Huojin),				text = Tushui_Huojin,					row = 15,	col = 1 },
+			foresthozen		= { text = LFAC.FORESTHOZEN,		row = 2,	col = 1 },
+			goldenlotus		= { text = LFAC.GOLDENLOTUS,		row = 3,	col = 1 },
+			cloudserpent		= { text = LFAC.CLOUDSERPENT,		row = 4,	col = 1 },
+			pearlfinjinyu		= { text = LFAC.PEARLFINJINYU,		row = 5,	col = 1 },
+			shadopan		= { text = LFAC.SHADOPAN,		row = 6,	col = 1 },
+			anglers			= { text = LFAC.ANGLERS,		row = 7,	col = 1 },
+			augustcelestials	= { text = LFAC.AUGUSTCELESTIALS,	row = 8,	col = 1 },
+			brewmasters		= { text = LFAC.BREWMASTERS,		row = 9,	col = 1 },
+			klaxxi			= { text = LFAC.KLAXXI,			row = 10,	col = 1 },
+			lorewalkers		= { text = LFAC.LOREWALKERS,		row = 11,	col = 1 },
+			tillers			= { text = LFAC.TILLERS,		row = 12,	col = 1 },
+			blackprince		= { text = LFAC.BLACKPRINCE,		row = 13,	col = 1 },
+			shangxiacademy		= { text = LFAC.SHANGXIACADEMY,		row = 14,	col = 1 },
+			pandacommon1		= { text = PANDACOMMON1_TEXT,		row = 15,	col = 1 },
 		}
-		private.GenerateCheckBoxes(expansion4_frame, expansion4_buttons)
 
-		-- Disable them as the data isn't in yet.
---		expansion4_frame.catacommon1:Disable()
---		expansion4_frame.catacommon2:Disable()
---		expansion4_frame.guardiansofhyjal:Disable()
---		expansion4_frame.ramkahen:Disable()
---		expansion4_frame.earthenring:Disable()
---		expansion4_frame.therazane:Disable()
+		for label, data in pairs(expansion4_buttons) do
+			data.tt = ReputationDesc(data.text)
+		end
+		private.GenerateCheckBoxes(expansion4_frame, expansion4_buttons)
 
 		local expansion4_toggle = _G.CreateFrame("Button", nil, expansion4_frame)
 		expansion4_toggle:SetWidth(105)
@@ -1165,8 +1154,12 @@ function private.InitializeFilterPanel()
 		end
 
 		local expansion5_buttons = {
-			foresthozen		= { tt = ReputationDesc(FAC["Forest Hozen"]),			text = FAC["Forest Hozen"],				row = 2,	col = 1 },
+			undefined1		= { text = _G.UNKNOWN,				row = 2,	col = 1 },
 		}
+
+		for label, data in pairs(expansion5_buttons) do
+			data.tt = ReputationDesc(data.text)
+		end
 		private.GenerateCheckBoxes(expansion5_frame, expansion5_buttons)
 
 		local expansion5_toggle = _G.CreateFrame("Button", nil, expansion5_frame)

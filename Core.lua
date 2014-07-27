@@ -1132,7 +1132,7 @@ do
 	local GetFilterFlagNames
 	do
 		local LC = _G.LOCALIZED_CLASS_NAMES_MALE
-		local FAC = private.LOCALIZED_FACTION_STRINGS
+		local LFAC = private.LOCALIZED_FACTION_STRINGS_FROM_LABEL
 		local FILTER_FLAG_NAMES
 
 		function GetFilterFlagNames()
@@ -1145,8 +1145,8 @@ do
 				-------------------------------------------------------------------------------
 				-- Common flags.
 				-------------------------------------------------------------------------------
-				ALLIANCE = FAC["Alliance"],
-				HORDE = FAC["Horde"],
+				ALLIANCE = LFAC.ALLIANCE,
+				HORDE = LFAC.HORDE,
 				TRAINER = L["Trainer"],
 				VENDOR = L["Vendor"],
 				INSTANCE = _G.INSTANCE,
@@ -1181,66 +1181,16 @@ do
 				-------------------------------------------------------------------------------
 				-- Reputation flags.
 				-------------------------------------------------------------------------------
-				ARGENTDAWN = FAC["Argent Dawn"],
-				CENARION_CIRCLE = FAC["Cenarion Circle"],
-				THORIUM_BROTHERHOOD = FAC["Thorium Brotherhood"],
-				TIMBERMAW_HOLD = FAC["Timbermaw Hold"],
-				ZANDALAR = FAC["Zandalar Tribe"],
-				ALDOR = FAC["The Aldor"],
-				ASHTONGUE = FAC["Ashtongue Deathsworn"],
-				CENARION_EXPEDITION = FAC["Cenarion Expedition"],
-				HELLFIRE = (is_alliance and FAC["Honor Hold"] or FAC["Thrallmar"]),
-				CONSORTIUM = FAC["The Consortium"],
-				KOT = FAC["Keepers of Time"],
-				LOWERCITY = FAC["Lower City"],
-				NAGRAND = (is_alliance and FAC["Kurenai"] or FAC["The Mag'har"]),
-				SCALE_SANDS = FAC["The Scale of the Sands"],
-				SCRYER = FAC["The Scryers"],
-				SHATAR = FAC["The Sha'tar"],
-				SHATTEREDSUN = FAC["Shattered Sun Offensive"],
-				SPOREGGAR = FAC["Sporeggar"],
-				VIOLETEYE = FAC["The Violet Eye"],
-				ARGENTCRUSADE = FAC["Argent Crusade"],
-				FRENZYHEART = FAC["Frenzyheart Tribe"],
-				EBONBLADE = FAC["Knights of the Ebon Blade"],
-				KIRINTOR = FAC["Kirin Tor"],
-				HODIR = FAC["The Sons of Hodir"],
-				KALUAK = FAC["The Kalu'ak"],
-				ORACLES = FAC["The Oracles"],
-				WYRMREST = FAC["The Wyrmrest Accord"],
-				WRATHCOMMON1 = (is_alliance and FAC["The Silver Covenant"] or FAC["The Sunreavers"]),
-				ASHEN_VERDICT = FAC["The Ashen Verdict"],
-				CATACOMMON1 = (is_alliance and FAC["Wildhammer Clan"] or FAC["Dragonmaw Clan"]),
-				GUARDIANS = FAC["Guardians of Hyjal"],
-				RAMKAHEN = FAC["Ramkahen"],
-				EARTHEN_RING = FAC["The Earthen Ring"],
-				THERAZANE = FAC["Therazane"],
---[[				SHANGXIACADEMY
-				FORESTHOZEN
-				PEARLFINJINYU
-				GOLDENLOTUS
-				SHADOPAN
-				CLOUDSERPENT
-				TILLERS
-				JOGU_THE_DRUNK
-				ELLA
-				OLD_HILLPAW
-				CHEE_CHEE
-				SHO
-				HAOHAN_MUDCLAW
-				TINA_MUDCLAW
-				GINA_MUDCLAW
-				FISH_FELLREED
-				FARMER_FUNG
-				ANGLERS
-				KLAXX,
-				AUGUSTCELESTIALS
-				LOREWALKERS
-				BREWMASTERS
-				NAT_PAGLE
-				BLACKPRINCE]]--
-				TUSHUI_HUOJIN =	is_alliance and FAC["Tushui Pandaren"]	or FAC["Huojin Pandaren"]
+				HELLFIRE = (is_alliance and LFAC.HONOR_HOLD or LFAC.THRALLMAR),
+				NAGRAND = (is_alliance and LFAC.KURENAI or LFAC.MAGHAR),
+				CATACOMMON1 = (is_alliance and LFAC.WILDHAMMER or LFAC.DRAGONMAW),
+				PANDACOMMON1 =	is_alliance and LFAC.TUSHUIPANDAREN or LFAC.HUOJINPANDAREN
 			}
+
+			for rep_label in private.FACTION_IDS_FROM_LABEL do
+				FILTER_FLAG_NAMES[rep_label] = private.LOCALIZED_FACTION_STRINGS_FROM_LABEL[rep_label]
+			end
+
 			return FILTER_FLAG_NAMES
 		end
 	end -- do
@@ -1301,9 +1251,10 @@ do
 					local bitfield = recipe.flags[private.FLAG_MEMBERS[table_index]]
 
 					if bitfield and bit.band(bitfield, flag) == flag then
-						local filter_name = filter_names[flag_name] or _G.UNKNOWN
+						local filter_name = filter_names[flag_name]
 
-						if filter_name == _G.UNKNOWN then
+						if not filter_name then
+							filter_name = _G.UNKNOWN
 							addon:Debug("%s is unknown", flag_name)
 						end
 
