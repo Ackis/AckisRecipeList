@@ -391,6 +391,7 @@ do
 		find_empties(private.ACQUIRE_TYPE_IDS.CUSTOM)
 		find_empties(private.ACQUIRE_TYPE_IDS.DISCOVERY)
 		find_empties(private.ACQUIRE_TYPE_IDS.WORLD_EVENTS)
+		find_empties(private.ACQUIRE_TYPE_IDS.REPUTATION)
 
 		if output:Lines() == 0 then
 			output:AddLine("Nothing to display.")
