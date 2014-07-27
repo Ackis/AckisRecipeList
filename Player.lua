@@ -114,7 +114,7 @@ function Player:HasProperRepLevel(rep_data)
 	end
 	local is_alliance = self.faction == "Alliance"
 	local reputation_levels = self.reputation_levels
-	local FAC = private.FACTION_IDS
+	local FAC = private.FACTION_IDS_FROM_LABEL
 	local has_faction = true
 
 	for rep_id, rep_info in pairs(rep_data) do

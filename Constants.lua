@@ -502,11 +502,11 @@ private.LOCALIZED_FACTION_STRINGS = {
 	["The Black Prince"] = _G.GetFactionInfoByID(1359),
 }
 
-private.FACTION_IDS = {}
-constants.FACTION_IDS = private.FACTION_IDS
+private.FACTION_IDS_FROM_LABEL = {}
+constants.FACTION_IDS = private.FACTION_IDS_FROM_LABEL
 
 for id, name in pairs(private.FACTION_LABELS_FROM_ID) do
-	private.FACTION_IDS[name] = id
+	private.FACTION_IDS_FROM_LABEL[name] = id
 end
 
 -------------------------------------------------------------------------------
