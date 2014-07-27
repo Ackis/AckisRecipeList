@@ -848,8 +848,6 @@ function private.InitializeFilterPanel()
 	local HELLFIRE_TEXT = isAlliance and LFAC.HONOR_HOLD or LFAC.THRALLMAR
 	local NAGRAND_TEXT = isAlliance and LFAC.KURENAI or LFAC.MAGHAR
 	local WRATHCOMMON1_TEXT = isAlliance and LFAC.ALLIANCE_VANGUARD or LFAC.HORDE_EXPEDITION
-	local CATACOMMON1_TEXT = isAlliance and LFAC.WILDHAMMER or LFAC.DRAGONMAW
-	local PANDACOMMON1_TEXT = isAlliance and LFAC.TUSHUIPANDAREN or LFAC.HUOJINPANDAREN
 
 	-- Used for the tooltip of every reputation checkbox.
 	local function ReputationDesc(text)
@@ -895,7 +893,6 @@ function private.InitializeFilterPanel()
 			cenarioncircle		= { text = LFAC.CENARION_CIRCLE,	row = 3, col = 1 },
 			thoriumbrotherhood	= { text = LFAC.THORIUM_BROTHERHOOD,	row = 4, col = 1 },
 			timbermaw		= { text = LFAC.TIMBERMAW_HOLD,		row = 5, col = 1 },
-			zandalar		= { text = LFAC.ZANDALAR,		row = 6, col = 1 },
 		}
 
 		for label, data in pairs(expansion0_buttons) do
@@ -1093,20 +1090,13 @@ function private.InitializeFilterPanel()
 		end
 
 		local expansion4_buttons = {
-			foresthozen		= { text = LFAC.FORESTHOZEN,		row = 2,	col = 1 },
-			goldenlotus		= { text = LFAC.GOLDENLOTUS,		row = 3,	col = 1 },
+			anglers			= { text = LFAC.ANGLERS,		row = 2,	col = 1 },
+			augustcelestials	= { text = LFAC.AUGUSTCELESTIALS,	row = 3,	col = 1 },
 			cloudserpent		= { text = LFAC.CLOUDSERPENT,		row = 4,	col = 1 },
-			pearlfinjinyu		= { text = LFAC.PEARLFINJINYU,		row = 5,	col = 1 },
-			shadopan		= { text = LFAC.SHADOPAN,		row = 6,	col = 1 },
-			anglers			= { text = LFAC.ANGLERS,		row = 7,	col = 1 },
-			augustcelestials	= { text = LFAC.AUGUSTCELESTIALS,	row = 8,	col = 1 },
-			brewmasters		= { text = LFAC.BREWMASTERS,		row = 9,	col = 1 },
-			klaxxi			= { text = LFAC.KLAXXI,			row = 10,	col = 1 },
-			lorewalkers		= { text = LFAC.LOREWALKERS,		row = 11,	col = 1 },
-			tillers			= { text = LFAC.TILLERS,		row = 12,	col = 1 },
-			blackprince		= { text = LFAC.BLACKPRINCE,		row = 13,	col = 1 },
-			shangxiacademy		= { text = LFAC.SHANGXIACADEMY,		row = 14,	col = 1 },
-			pandacommon1		= { text = PANDACOMMON1_TEXT,		row = 15,	col = 1 },
+			goldenlotus		= { text = LFAC.GOLDENLOTUS,		row = 5,	col = 1 },
+			klaxxi			= { text = LFAC.KLAXXI,			row = 6,	col = 1 },
+			shadopan		= { text = LFAC.SHADOPAN,		row = 7,	col = 1 },
+			tillers			= { text = LFAC.TILLERS,		row = 8,	col = 1 },
 		}
 
 		for label, data in pairs(expansion4_buttons) do
@@ -1522,36 +1512,21 @@ function private.InitializeFilterPanel()
 		wyrmrest		= { cb = expansion2.wyrmrest,				svroot = filterdb.rep },
 		ashenverdict		= { cb = expansion2.ashenverdict,			svroot = filterdb.rep },
 		wrathcommon1		= { cb = expansion2.wrathcommon1,			svroot = filterdb.rep },
-		wrathcommon2		= { cb = expansion2.wrathcommon2,			svroot = nil },
-		wrathcommon3		= { cb = expansion2.wrathcommon3,			svroot = nil },
-		wrathcommon4		= { cb = expansion2.wrathcommon4,			svroot = nil },
-		wrathcommon5		= { cb = expansion2.wrathcommon5,			svroot = nil },
 		------------------------------------------------------------------------------------------------
 		-- Cataclysm Rep Options
 		------------------------------------------------------------------------------------------------
-		catacommon1		= { cb = expansion3.catacommon1,			svroot = nil },
-		catacommon2		= { cb = expansion3.catacommon2,			svroot = nil },
-		guardiansofhyjal	= { cb = expansion3.guardiansofhyjal,			svroot = nil },
-		ramkahen		= { cb = expansion3.ramkahen,				svroot = nil },
-		earthenring		= { cb = expansion3.earthenring,			svroot = nil },
-		therazane		= { cb = expansion3.therazane,				svroot = nil },
+
 		------------------------------------------------------------------------------------------------
 		-- Mists of Pandaria Rep Options
 		------------------------------------------------------------------------------------------------
-		foresthozen		= { cb = expansion4.foresthozen,			svroot = filterdb.rep },
 		goldenlotus		= { cb = expansion4.goldenlotus,			svroot = filterdb.rep },
 		cloudserpent		= { cb = expansion4.cloudserpent,			svroot = filterdb.rep },
-		pearlfinjinyu		= { cb = expansion4.pearlfinjinyu,			svroot = filterdb.rep },
 		shadopan		= { cb = expansion4.shadopan,				svroot = filterdb.rep },
 		anglers			= { cb = expansion4.anglers,				svroot = filterdb.rep },
 		augustcelestials	= { cb = expansion4.augustcelestials,			svroot = filterdb.rep },
-		brewmasters		= { cb = expansion4.brewmasters,			svroot = filterdb.rep },
 		klaxxi			= { cb = expansion4.klaxxi,				svroot = filterdb.rep },
-		lorewalkers		= { cb = expansion4.lorewalkers,			svroot = filterdb.rep },
 		tillers			= { cb = expansion4.tillers,				svroot = filterdb.rep },
-		blackprince		= { cb = expansion4.blackprince,			svroot = filterdb.rep },
-		shangxiacademy		= { cb = expansion4.shangxiacademy,			svroot = filterdb.rep },
-		pandacommon1		= { cb = expansion4.pandacommon1,			svroot = filterdb.rep },
 	}
+
 	private.InitializeFilterPanel = nil
 end

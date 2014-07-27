@@ -285,7 +285,7 @@ function addon:OnInitialize()
 				-- Profession Item Filters
 				-------------------------------------------------------------------------------
 				item = {
-					-- These are populated from the item flags in Constants.lua
+					-- These are populated from the item flags defined in profession modules.
 				},
 				-------------------------------------------------------------------------------
 				-- Quality Filters
@@ -309,63 +309,65 @@ function addon:OnInitialize()
 				-- Player Role Filters
 				-------------------------------------------------------------------------------
 				player = {
+					caster = true,
+					healer = true,
 					melee = true,
 					tank = true,
-					healer = true,
-					caster = true,
 				},
 				-------------------------------------------------------------------------------
 				-- Reputation Filters
 				-------------------------------------------------------------------------------
 				rep = {
-					aldor = true,
-					scryer = true,
+					-------------------------------------------------------------------------------
+					-- Classic
+					-------------------------------------------------------------------------------
 					argentdawn = true,
-					ashtonguedeathsworn = true,
 					cenarioncircle = true,
+					thoriumbrotherhood = true,
+					timbermaw = true,
+					-------------------------------------------------------------------------------
+					-- The Burning Crusade
+					-------------------------------------------------------------------------------
+					aldor = true,
+					ashtonguedeathsworn = true,
 					cenarionexpedition = true,
 					consortium = true,
 					hellfire = true,
 					keepersoftime = true,
-					nagrand = true,
 					lowercity = true,
+					nagrand = true,
 					scaleofthesands = true,
+					scryer = true,
 					shatar = true,
 					shatteredsun = true,
 					sporeggar = true,
-					thoriumbrotherhood = true,
-					timbermaw = true,
 					violeteye = true,
-					zandalar = true,
+					-------------------------------------------------------------------------------
+					-- Wrath of the Lich King
+					-------------------------------------------------------------------------------
 					argentcrusade = true,
-					frenzyheart = true,
+					ashenverdict = true,
 					ebonblade = true,
+					frenzyheart = true,
+					kaluak = true,
 					kirintor = true,
 					sonsofhodir = true,
-					kaluak = true,
 					oracles = true,
-					wyrmrest = true,
 					wrathcommon1 = true,
-					ashenverdict = true,
-					catacommon1 = true,
-					guardiansofhyjal = true,
-					ramkahen = true,
-					earthenring = true,
-					therazane = true,
-					foresthozen = true,
-					goldenlotus = true,
-					cloudserpent = true,
-					pearlfinjinyu = true,
-					shadopan = true,
+					wyrmrest = true,
+					-------------------------------------------------------------------------------
+					-- Mists of Pandaria
+					-------------------------------------------------------------------------------
 					anglers = true,
 					augustcelestials = true,
-					brewmasters = true,
+					cloudserpent = true,
+					goldenlotus = true,
 					klaxxi = true,
-					lorewalkers = true,
+					shadopan = true,
 					tillers = true,
-					blackprince = true,
-					shangxiacademy = true,
-					pandacommon1 = true,
+					-------------------------------------------------------------------------------
+					-- Warlords of Draenor
+					-------------------------------------------------------------------------------
 				},
 				-------------------------------------------------------------------------------
 				-- Class Filters
@@ -1183,8 +1185,6 @@ do
 				-------------------------------------------------------------------------------
 				HELLFIRE = (is_alliance and LFAC.HONOR_HOLD or LFAC.THRALLMAR),
 				NAGRAND = (is_alliance and LFAC.KURENAI or LFAC.MAGHAR),
-				CATACOMMON1 = (is_alliance and LFAC.WILDHAMMER or LFAC.DRAGONMAW),
-				PANDACOMMON1 =	is_alliance and LFAC.TUSHUIPANDAREN or LFAC.HUOJINPANDAREN
 			}
 
 			for rep_label in private.FACTION_IDS_FROM_LABEL do

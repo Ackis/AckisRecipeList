@@ -601,7 +601,6 @@ do
 		[REP1.CENARION_CIRCLE]		= "cenarioncircle",
 		[REP1.THORIUM_BROTHERHOOD]	= "thoriumbrotherhood",
 		[REP1.TIMBERMAW_HOLD]		= "timbermaw",
-		[REP1.ZANDALAR]			= "zandalar",
 		[REP1.ALDOR]			= "aldor",
 		[REP1.ASHTONGUE]		= "ashtonguedeathsworn",
 		[REP1.CENARION_EXPEDITION]	= "cenarionexpedition",
@@ -630,25 +629,13 @@ do
 	local REP2 = private.REP_FLAGS_WORD2
 	local REP_FILTERS_2 = {
 		[REP2.ASHEN_VERDICT]		= "ashenverdict",
-		[REP2.CATACOMMON1]		= "catacommon1",
-		[REP2.GUARDIANS]		= "guardiansofhyjal",
-		[REP2.RAMKAHEN]			= "ramkahen",
-		[REP2.EARTHEN_RING]		= "earthenring",
-		[REP2.THERAZANE]		= "therazane",
-		[REP2.FORESTHOZEN]		= "foresthozen",
 		[REP2.GOLDENLOTUS]		= "goldenlotus",
 		[REP2.CLOUDSERPENT]		= "cloudserpent",
-		[REP2.PEARLFINJINYU]		= "pearlfinjinyu",
 		[REP2.SHADOPAN]			= "shadopan",
 		[REP2.ANGLERS]			= "anglers",
 		[REP2.AUGUSTCELESTIALS]		= "augustcelestials",
-		[REP2.BREWMASTERS]		= "brewmasters",
 		[REP2.KLAXXI]			= "klaxxi",
-		[REP2.LOREWALKERS]		= "lorewalkers",
 		[REP2.TILLERS]			= "tillers",
-		[REP2.BLACKPRINCE]		= "blackprince",
-		[REP2.SHANGXIACADEMY]		= "shangxiacademy",
-		[REP2.PANDACOMMON1]		= "pandacommon1",
 	}
 
 	local CLASS1 = private.CLASS_FLAGS_WORD1

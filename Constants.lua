@@ -240,30 +240,30 @@ private.REP_FLAGS_WORD1 = {
 	CENARION_CIRCLE		= 0x00000002,	-- 2
 	THORIUM_BROTHERHOOD	= 0x00000004,	-- 3
 	TIMBERMAW_HOLD		= 0x00000008,	-- 4
-	ZANDALAR		= 0x00000010,	-- 5
-	ALDOR			= 0x00000020,	-- 6
-	ASHTONGUE		= 0x00000040,	-- 7
-	CENARION_EXPEDITION	= 0x00000080,	-- 8
-	HELLFIRE		= 0x00000100,	-- 9
-	CONSORTIUM		= 0x00000200,	-- 10
-	KOT			= 0x00000400,	-- 11
-	LOWERCITY		= 0x00000800,	-- 12
-	NAGRAND			= 0x00001000,	-- 13
-	SCALE_SANDS		= 0x00002000,	-- 14
-	SCRYER			= 0x00004000,	-- 15
-	SHATAR			= 0x00008000,	-- 16
-	SHATTEREDSUN		= 0x00010000,	-- 17
-	SPOREGGAR		= 0x00020000,	-- 18
-	VIOLETEYE		= 0x00040000,	-- 19
-	ARGENTCRUSADE		= 0x00080000,	-- 20
-	FRENZYHEART		= 0x00100000,	-- 21
-	EBONBLADE		= 0x00200000,	-- 22
-	KIRINTOR		= 0x00400000,	-- 23
-	HODIR			= 0x00800000,	-- 24
-	KALUAK			= 0x01000000,	-- 25
-	ORACLES			= 0x02000000,	-- 26
-	WYRMREST		= 0x04000000,	-- 27
-	WRATHCOMMON1		= 0x08000000,	-- 28
+	ALDOR			= 0x00000010,	-- 5
+	ASHTONGUE		= 0x00000020,	-- 6
+	CENARION_EXPEDITION	= 0x00000040,	-- 7
+	HELLFIRE	        = 0x00000080,	-- 8
+	CONSORTIUM		= 0x00000100,	-- 9
+	KOT		        = 0x00000200,	-- 10
+	LOWERCITY		= 0x00000400,	-- 11
+	NAGRAND		        = 0x00000800,	-- 12
+	SCALE_SANDS		= 0x00001000,	-- 13
+	SCRYER			= 0x00002000,	-- 14
+	SHATAR			= 0x00004000,	-- 15
+	SHATTEREDSUN		= 0x00008000,	-- 16
+	SPOREGGAR		= 0x00010000,	-- 17
+	VIOLETEYE		= 0x00020000,	-- 18
+	ARGENTCRUSADE		= 0x00040000,	-- 19
+	FRENZYHEART		= 0x00080000,	-- 20
+	EBONBLADE		= 0x00100000,	-- 21
+	KIRINTOR		= 0x00200000,	-- 22
+	HODIR			= 0x00400000,	-- 23
+	KALUAK			= 0x00800000,	-- 24
+	ORACLES			= 0x01000000,	-- 25
+	WYRMREST		= 0x02000000,	-- 26
+	WRATHCOMMON1		= 0x04000000,	-- 27
+	UNUSED_28		= 0x08000000,	-- 28
 	UNUSED_29		= 0x10000000,	-- 29
 	UNUSED_30		= 0x20000000,	-- 30
 	UNUSED_31		= 0x40000000,	-- 31
@@ -275,25 +275,25 @@ private.REP_FLAGS_WORD1 = {
 -------------------------------------------------------------------------------
 private.REP_FLAGS_WORD2 = {
 	ASHEN_VERDICT		= 0x00000001,	-- 1
-	CATACOMMON1		= 0x00000002,	-- 2
-	GUARDIANS		= 0x00000004,	-- 3
-	RAMKAHEN		= 0x00000008,	-- 4
-	EARTHEN_RING		= 0x00000010,	-- 5
-	THERAZANE		= 0x00000020,	-- 6
-	FORESTHOZEN		= 0x00000040,	-- 7
-	GOLDENLOTUS		= 0X00000080,	-- 8
-	CLOUDSERPENT		= 0X00000100,	-- 9
-	PEARLFINJINYU		= 0X00000200,	-- 10
-	SHADOPAN		= 0X00000400,	-- 11
-	ANGLERS	        	= 0X00000800,	-- 12
-	AUGUSTCELESTIALS	= 0X00001000,	-- 13
-	BREWMASTERS		= 0X00002000,	-- 14
-	KLAXXI			= 0X00004000,	-- 15
-	LOREWALKERS		= 0X00008000,	-- 16
-	TILLERS			= 0X00010000,	-- 17
-	BLACKPRINCE		= 0X00020000,	-- 18
-	SHANGXIACADEMY		= 0X00040000,	-- 19
-	PANDACOMMON1		= 0X00080000,	-- 20
+	GOLDENLOTUS		= 0x00000002,	-- 2
+	CLOUDSERPENT		= 0x00000004,	-- 3
+	SHADOPAN		= 0x00000008,	-- 4
+	ANGLERS			= 0x00000010,	-- 5
+	AUGUSTCELESTIALS	= 0x00000020,	-- 6
+	KLAXXI			= 0x00000040,	-- 7
+	TILLERS			= 0X00000080,	-- 8
+	UNUSED_9		= 0X00000100,	-- 9
+	UNUSED_10		= 0X00000200,	-- 10
+	UNUSED_11		= 0X00000400,	-- 11
+	UNUSED_12	       	= 0X00000800,	-- 12
+	UNUSED_13		= 0X00001000,	-- 13
+	UNUSED_14		= 0X00002000,	-- 14
+	UNUSED_15		= 0X00004000,	-- 15
+	UNUSED_16		= 0X00008000,	-- 16
+	UNUSED_17		= 0X00010000,	-- 17
+	UNUSED_18		= 0X00020000,	-- 18
+	UNUSED_19		= 0X00040000,	-- 19
+	UNUSED_20		= 0X00080000,	-- 20
 }
 
 -------------------------------------------------------------------------------
@@ -361,11 +361,16 @@ end
 -- Factions.
 -------------------------------------------------------------------------------
 private.FACTION_LABELS_FROM_ID = {
+	-------------------------------------------------------------------------------
+	-- Classic
+	-------------------------------------------------------------------------------
 	[59]	= "THORIUM_BROTHERHOOD",
-	[270]	= "ZANDALAR",
 	[529]	= "ARGENTDAWN",
 	[576]	= "TIMBERMAW_HOLD",
 	[609]	= "CENARION_CIRCLE",
+	-------------------------------------------------------------------------------
+	-- The Burning Crusade
+	-------------------------------------------------------------------------------
 	[932]	= "ALDOR",
 	[933]	= "CONSORTIUM",
 	[934]	= "SCRYER",
@@ -381,6 +386,9 @@ private.FACTION_LABELS_FROM_ID = {
 	[990]	= "SCALE_OF_SANDS",
 	[1011]	= "LOWERCITY",
 	[1012]	= "ASHTONGUE",
+	-------------------------------------------------------------------------------
+	-- Wrath of the Lich King
+	-------------------------------------------------------------------------------
 	[1037]	= "ALLIANCE_VANGUARD",
 	[1052]	= "HORDE_EXPEDITION",
 	[1073]	= "KALUAK",
@@ -393,39 +401,19 @@ private.FACTION_LABELS_FROM_ID = {
 	[1106]	= "ARGENTCRUSADE",
 	[1119]	= "HODIR",
 	[1156]	= "ASHEN_VERDICT",
-	[1135]	= "EARTHEN_RING",
-	[1158]	= "GUARDIANS",
-	[1171]	= "THERAZANE",
-	[1172]	= "DRAGONMAW",
-	[1173]	= "RAMKAHEN",
-	[1174]	= "WILDHAMMER",
-	[1177]	= "WARDENS",
-	[1216]	= "SHANGXIACADEMY",
-	[1228]	= "FORESTHOZEN",
-	[1242]	= "PEARLFINJINYU",
+	-------------------------------------------------------------------------------
+	-- Mists of Pandaria
+	-------------------------------------------------------------------------------
 	[1269]	= "GOLDENLOTUS",
 	[1270]	= "SHADOPAN",
 	[1271]	= "CLOUDSERPENT",
 	[1272]	= "TILLERS",
-	[1273]	= "JOGU_THE_DRUNK",
-	[1275]	= "ELLA",
-	[1276]	= "OLD_HILLPAW",
-	[1277]	= "CHEE_CHEE",
-	[1278]	= "SHO",
-	[1279]	= "HAOHAN_MUDCLAW",
-	[1280]	= "TINA_MUDCLAW",
-	[1281]	= "GINA_MUDCLAW",
-	[1282]	= "FISH_FELLREED",
-	[1283]	= "FARMER_FUNG",
 	[1302]	= "ANGLERS",
 	[1337]	= "KLAXXI",
 	[1341]	= "AUGUSTCELESTIALS",
-	[1345]	= "LOREWALKERS",
-	[1351]	= "BREWMASTERS",
-	[1352]	= "HUOJINPANDAREN",
-	[1353]	= "TUSHUIPANDAREN",
-	[1358]	= "NAT_PAGLE",
-	[1359]	= "BLACKPRINCE",
+	-------------------------------------------------------------------------------
+	-- Warlords of Draenor
+	-------------------------------------------------------------------------------
 }
 
 private.LOCALIZED_FACTION_STRINGS_FROM_LABEL = {
