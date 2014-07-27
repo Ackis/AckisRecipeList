@@ -161,7 +161,7 @@ do
 			return ""
 		end
 
-		return input:upper():gsub(" ", "_"):gsub("'", ""):gsub(":", ""):gsub("-", "_"):gsub("%(", ""):gsub("%)", "")
+		return input:upper():gsub(" ", "_"):gsub("'", ""):gsub(":", ""):gsub(",", "_"):gsub("-", "_"):gsub("%(", ""):gsub("%)", "")
 	end
 
 	function addon:DumpZones(input)
