@@ -318,56 +318,7 @@ function addon:OnInitialize()
 				-- Reputation Filters
 				-------------------------------------------------------------------------------
 				rep = {
-					-------------------------------------------------------------------------------
-					-- Classic
-					-------------------------------------------------------------------------------
-					argentdawn = true,
-					cenarioncircle = true,
-					thoriumbrotherhood = true,
-					timbermaw = true,
-					-------------------------------------------------------------------------------
-					-- The Burning Crusade
-					-------------------------------------------------------------------------------
-					aldor = true,
-					ashtonguedeathsworn = true,
-					cenarionexpedition = true,
-					consortium = true,
-					hellfire = true,
-					keepersoftime = true,
-					lowercity = true,
-					nagrand = true,
-					scaleofthesands = true,
-					scryer = true,
-					shatar = true,
-					shatteredsun = true,
-					sporeggar = true,
-					violeteye = true,
-					-------------------------------------------------------------------------------
-					-- Wrath of the Lich King
-					-------------------------------------------------------------------------------
-					argentcrusade = true,
-					ashenverdict = true,
-					ebonblade = true,
-					frenzyheart = true,
-					kaluak = true,
-					kirintor = true,
-					sonsofhodir = true,
-					oracles = true,
-					wrathcommon1 = true,
-					wyrmrest = true,
-					-------------------------------------------------------------------------------
-					-- Mists of Pandaria
-					-------------------------------------------------------------------------------
-					anglers = true,
-					augustcelestials = true,
-					cloudserpent = true,
-					goldenlotus = true,
-					klaxxi = true,
-					shadopan = true,
-					tillers = true,
-					-------------------------------------------------------------------------------
-					-- Warlords of Draenor
-					-------------------------------------------------------------------------------
+					-- These are populated from the reputations defined in Constants.lua
 				},
 				-------------------------------------------------------------------------------
 				-- Class Filters
@@ -389,11 +340,15 @@ function addon:OnInitialize()
 		}
 	}
 
+	for reputation_name in pairs(private.FACTION_IDS_FROM_LABEL) do
+		defaults.profile.filters.rep[reputation_name:lower()] = true
+	end
+
 	for filter_name in pairs(self.constants.ITEM_FILTER_TYPES) do
 		defaults.profile.filters.item[filter_name:lower()] = true
 	end
-	self.db = LibStub("AceDB-3.0"):New("ARLDB2", defaults)
 
+	self.db = LibStub("AceDB-3.0"):New("ARLDB2", defaults)
 	if not self.db then
 		self:Print("Error: Database not loaded correctly.  Please exit out of WoW and delete the ARL database file (AckisRecipeList.lua) found in: \\World of Warcraft\\WTF\\Account\\<Account Name>>\\SavedVariables\\")
 		return
