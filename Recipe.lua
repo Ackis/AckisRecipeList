@@ -662,9 +662,9 @@ do
 			return true
 		end
 
-		for flag, name in pairs(filters) do
-			if bit.band(bitfield, flag) == flag then
-				if name_field[name] then
+		for bitflag, flag_name in pairs(filters) do
+			if bit.band(bitfield, bitflag) == bitflag then
+				if name_field[flag_name] then
 					return true
 				end
 			end
