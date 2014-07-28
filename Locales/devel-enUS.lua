@@ -425,6 +425,7 @@ L["Eldrin"] = true
 L["Elise Brightletter"] = true
 L["Elixir"] = true
 L["Elizabeth Jackson"] = true
+L["Elton Black"] = true
 L["Elynna"] = true
 L["Emil Autumn"] = true
 L["Emrul Riknussun"] = true
