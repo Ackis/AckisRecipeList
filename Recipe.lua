@@ -177,10 +177,10 @@ end
 -------------------------------------------------------------------------------
 do
 	local RECIPE_STATE_FLAGS = {
-	KNOWN = 0x00000001,
-	RELEVANT = 0x00000002,
-	VISIBLE = 0x00000004,
-	LINKED = 0x00000008,
+		KNOWN = 0x00000001,
+		RELEVANT = 0x00000002,
+		VISIBLE = 0x00000004,
+		LINKED = 0x00000008,
 	}
 
 	function Recipe:HasState(state_name)
