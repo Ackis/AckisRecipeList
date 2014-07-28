@@ -598,51 +598,18 @@ do
 		[Q.EPIC] = "epic",
 	}
 
-	local REP1 = private.REP_FLAGS_WORD1
-	local REP_FILTERS = {
-		[REP1.ARGENTDAWN]		= "argentdawn",
-		[REP1.CENARION_CIRCLE]		= "cenarioncircle",
-		[REP1.THORIUM_BROTHERHOOD]	= "thoriumbrotherhood",
-		[REP1.TIMBERMAW_HOLD]		= "timbermaw",
-		[REP1.ALDOR]			= "aldor",
-		[REP1.ASHTONGUE]		= "ashtonguedeathsworn",
-		[REP1.CENARION_EXPEDITION]	= "cenarionexpedition",
-		[REP1.HELLFIRE]			= "hellfire",
-		[REP1.CONSORTIUM]		= "consortium",
-		[REP1.KOT]			= "keepersoftime",
-		[REP1.LOWERCITY]		= "lowercity",
-		[REP1.NAGRAND]			= "nagrand",
-		[REP1.SCALE_SANDS]		= "scaleofthesands",
-		[REP1.SCRYER]			= "scryer",
-		[REP1.SHATAR]			= "shatar",
-		[REP1.SHATTEREDSUN]		= "shatteredsun",
-		[REP1.SPOREGGAR]		= "sporeggar",
-		[REP1.VIOLETEYE]		= "violeteye",
-		[REP1.ARGENTCRUSADE]		= "argentcrusade",
-		[REP1.FRENZYHEART]		= "frenzyheart",
-		[REP1.EBONBLADE]		= "ebonblade",
-		[REP1.KIRINTOR]			= "kirintor",
-		[REP1.HODIR]			= "sonsofhodir",
-		[REP1.KALUAK]			= "kaluak",
-		[REP1.ORACLES]			= "oracles",
-		[REP1.WYRMREST]			= "wyrmrest",
-		[REP1.WRATHCOMMON1]		= "wrathcommon1",
-	}
+	local REPUTATION_BITFLAG_FILTERS = {}
+	for flag_name, bitflag in pairs(private.REP_FLAGS_WORD1) do
+		REPUTATION_BITFLAG_FILTERS[bitflag] = flag_name:lower()
+	end
 
-	local REP2 = private.REP_FLAGS_WORD2
-	local REP_FILTERS_2 = {
-		[REP2.ASHEN_VERDICT]		= "ashenverdict",
-		[REP2.GOLDENLOTUS]		= "goldenlotus",
-		[REP2.CLOUDSERPENT]		= "cloudserpent",
-		[REP2.SHADOPAN]			= "shadopan",
-		[REP2.ANGLERS]			= "anglers",
-		[REP2.AUGUSTCELESTIALS]		= "augustcelestials",
-		[REP2.KLAXXI]			= "klaxxi",
-		[REP2.TILLERS]			= "tillers",
-	}
+	local REPUTATION_BITFLAG_FILTERS_2 = {}
+	for flag_name, bitflag in pairs(private.REP_FLAGS_WORD2) do
+		REPUTATION_BITFLAG_FILTERS_2[bitflag] = flag_name:lower()
+	end
 
 	local CLASS1 = private.CLASS_FLAGS_WORD1
-	local CLASS_FILTERS = {
+	local CLASS_BITFLAG_FILTERS = {
 		[CLASS1.DK]		= "deathknight",
 		[CLASS1.DRUID]		= "druid",
 		[CLASS1.HUNTER]		= "hunter",
@@ -755,18 +722,18 @@ do
 		-------------------------------------------------------------------------------
 		-- Check the reputation filter flags.
 		------------------------------------------------------------------------------
-		if not HasEnabledFlag(REP_FILTERS, self.flags.reputation1, filter_db.rep) then
+		if not HasEnabledFlag(REPUTATION_BITFLAG_FILTERS, self.flags.reputation1, filter_db.rep) then
 			return false
 		end
 
-		if not HasEnabledFlag(REP_FILTERS_2, self.flags.reputation2, filter_db.rep) then
+		if not HasEnabledFlag(REPUTATION_BITFLAG_FILTERS_2, self.flags.reputation2, filter_db.rep) then
 			return false
 		end
 
 		-------------------------------------------------------------------------------
 		-- Check the class filter flags
 		-------------------------------------------------------------------------------
-		if not HasEnabledFlag(CLASS_FILTERS, self.flags.class1, filter_db.classes) then
+		if not HasEnabledFlag(CLASS_BITFLAG_FILTERS, self.flags.class1, filter_db.classes) then
 			return false
 		end
 
