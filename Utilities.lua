@@ -188,11 +188,11 @@ do
 	function addon:DumpReps()
 		output:Clear()
 
-		for index = 1, 1500 do
-			local rep_name = _G.GetFactionInfoByID(index)
+		for reputation_id = 1, 10000 do
+			local reputation_name = _G.GetFactionInfoByID(reputation_id)
 
-			if rep_name and private.FACTION_LABELS_FROM_ID[index] then
-				output:AddLine(("[\"%s\"] = _G.GetFactionInfoByID(%d),"):format(TableKeyFormat(rep_name), index))
+			if reputation_name and private.FACTION_LABELS_FROM_ID[reputation_id] then
+				output:AddLine(("[%d] = \"%s\","):format(reputation_id, TableKeyFormat(reputation_name)))
 			end
 		end
 		output:Display()
