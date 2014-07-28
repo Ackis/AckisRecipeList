@@ -296,19 +296,11 @@ private.REP_FLAGS_WORD2 = {
 	UNUSED_20		= 0X00080000,	-- 20
 }
 
--------------------------------------------------------------------------------
--- Item filter bitfield word 1.
--------------------------------------------------------------------------------
-private.ITEM_FLAGS_WORD1 = {
-	--	UNUSED	= 0x00000001 -- 1
-}
-
 private.FLAG_WORDS = {
 	private.COMMON_FLAGS_WORD1,
 	private.CLASS_FLAGS_WORD1,
 	private.REP_FLAGS_WORD1,
 	private.REP_FLAGS_WORD2,
-	private.ITEM_FLAGS_WORD1,
 }
 
 -- Member names within a recipe's flags table.
