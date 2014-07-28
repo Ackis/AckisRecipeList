@@ -49,9 +49,10 @@ local recipe_meta = {
 -- @return Resultant recipe table.
 function addon:AddRecipe(spell_id, profession_spell_id, genesis, quality)
 	local recipe_list = private.recipe_list
+	local existing_recipe = recipe_list[spell_id]
 
-	if recipe_list[spell_id] then
-		self:Debug("Duplicate recipe: %d - %s (%s)", spell_id, recipe_list[spell_id].name, recipe_list[spell_id].profession)
+	if existing_recipe then
+		self:Debug("Duplicate recipe: %d - %s (%s)", spell_id, existing_recipe.name, existing_recipe.profession)
 		return
 	end
 
@@ -71,10 +72,13 @@ function addon:AddRecipe(spell_id, profession_spell_id, genesis, quality)
 	end
 	recipe_list[spell_id] = recipe
 
-	if not private.profession_recipe_list[recipe.profession] then
-		private.profession_recipe_list[recipe.profession] = {}
+	local profession_recipes = private.profession_recipe_list[recipe.profession]
+	if not profession_recipes then
+		profession_recipes = {}
+		private.profession_recipe_list[recipe.profession] = profession_recipes
 	end
-	private.profession_recipe_list[recipe.profession][spell_id] = recipe
+	profession_recipes[spell_id] = recipe
+
 	private.num_profession_recipes[recipe.profession] = (private.num_profession_recipes[recipe.profession] or 0) + 1
 
 	return recipe
