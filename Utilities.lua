@@ -64,8 +64,7 @@ do
 	private.DUMP_COMMANDS = {
 		bossids = function(input)
 			if not input then
-				addon:Print("Type the name or partial name of a boss.")
-				return
+				addon:Print("You can also type the name or partial name of a boss.")
 			end
 			addon:DumpBossIDs(input)
 		end,
@@ -99,8 +98,11 @@ do
 			end
 			addon:DumpProfession(input)
 		end,
-		reputations = function()
-			addon:DumpReps()
+		reputations = function(input)
+			if not input then
+				addon:Print("You can also type the name or partial name of a reputation.")
+			end
+			addon:DumpReps(input)
 		end,
 		zones = function(input)
 			if not input then
@@ -185,15 +187,19 @@ do
 		output:Display()
 	end
 
-	function addon:DumpReps()
+	function addon:DumpReps(name)
 		output:Clear()
 
 		for reputation_id = 1, 10000 do
 			local reputation_name = _G.GetFactionInfoByID(reputation_id)
 
-			if reputation_name and private.FACTION_LABELS_FROM_ID[reputation_id] then
+			if reputation_name and (not name or reputation_name:lower():find(name:lower())) then
 				output:AddLine(("[%d] = \"%s\","):format(reputation_id, TableKeyFormat(reputation_name)))
 			end
+		end
+
+		if output:Lines() == 0 then
+			output:AddLine("Nothing to display.")
 		end
 		output:Display()
 	end
@@ -243,7 +249,7 @@ do
 		for index = 1, 10000 do
 			local boss_name = _G.EJ_GetEncounterInfo(index)
 
-			if boss_name and boss_name:lower():find(name:lower()) then
+			if boss_name and (not name or boss_name:lower():find(name:lower())) then
 				output:AddLine(("%s = _G.EJ_GetEncounterInfo(%d),"):format(TableKeyFormat(boss_name), index))
 			end
 		end
