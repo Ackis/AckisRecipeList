@@ -511,6 +511,8 @@ function Recipe:AddRepVendor(reputation_id, rep_level, ...)
 
 					reputation.item_list = reputation.item_list or {}
 					reputation.item_list[self:SpellID()] = true
+
+					self:AddFilters(private.FILTER_IDS[private.FACTION_LABELS_FROM_ID[reputation_id]])
 				else
 					addon:Debug("Spell ID %d (%s): Reputation Vendor ID %s does not exist in the %s AcquireType Entity table.",
 						self:SpellID(),
@@ -777,6 +779,13 @@ local IMPLICIT_FLAGS = {
 	VENDOR = true,
 	WORLD_DROP = true,
 }
+
+-- Reputation flags are automatically added when a reputation vendor is assigned to the recipe.
+for index = 1, #private.REP_FLAGS do
+	for reputation_name in pairs(private.REP_FLAGS[index]) do
+		IMPLICIT_FLAGS[reputation_name] = true
+	end
+end
 
 function Recipe:Dump(output, use_genesis)
 	local genesis_val = (use_genesis and tonumber(private.GAME_VERSIONS[self.genesis]) or nil)
