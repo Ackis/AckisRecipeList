@@ -307,6 +307,7 @@ local function SetFilterState(recipe, turn_on, ...)
 				if bits[filter_name] then
 					bitfield = bits
 					member_name = private.FLAG_MEMBERS[table_index]
+					break
 				end
 			end
 
