@@ -215,12 +215,10 @@ do
 end -- do-block
 
 do
-	local BITFIELD_MAP = {
-		common1 = private.COMMON_FLAGS_WORD1,
-		class1 = private.CLASS_FLAGS_WORD1,
-		reputation1 = private.REP_FLAGS_WORD1,
-		reputation2 = private.REP_FLAGS_WORD2,
-	}
+	local BITFIELD_MAP = {}
+	for index = 1, #private.FLAG_WORDS do
+		BITFIELD_MAP[private.FLAG_MEMBERS[index]] = private.FLAG_WORDS[index]
+	end
 
 	function Recipe:HasFilter(field_name, flag_name)
 		local bitfield = self.flags[field_name]
@@ -600,13 +598,13 @@ do
 	}
 
 	local REPUTATION_BITFLAG_FILTERS = {}
-	for flag_name, bitflag in pairs(private.REP_FLAGS_WORD1) do
-		REPUTATION_BITFLAG_FILTERS[bitflag] = flag_name:lower()
-	end
+	for index = 1, #private.REP_FLAGS do
+		REPUTATION_BITFLAG_FILTERS[index] = {}
 
-	local REPUTATION_BITFLAG_FILTERS_2 = {}
-	for flag_name, bitflag in pairs(private.REP_FLAGS_WORD2) do
-		REPUTATION_BITFLAG_FILTERS_2[bitflag] = flag_name:lower()
+		for flag_name, bitflag in pairs(private.REP_FLAGS[index]) do
+			REPUTATION_BITFLAG_FILTERS[index][bitflag] = flag_name:lower()
+		end
+
 	end
 
 	local CLASS1 = private.CLASS_FLAGS_WORD1
@@ -723,12 +721,10 @@ do
 		-------------------------------------------------------------------------------
 		-- Check the reputation filter flags.
 		------------------------------------------------------------------------------
-		if not HasEnabledFlag(REPUTATION_BITFLAG_FILTERS, self.flags.reputation1, filter_db.rep) then
-			return false
-		end
-
-		if not HasEnabledFlag(REPUTATION_BITFLAG_FILTERS_2, self.flags.reputation2, filter_db.rep) then
-			return false
+		for index = 1, #REPUTATION_BITFLAG_FILTERS do
+			if not HasEnabledFlag(REPUTATION_BITFLAG_FILTERS[index], self.flags[("reputation%d"):format(index)], filter_db.rep) then
+				return false
+			end
 		end
 
 		-------------------------------------------------------------------------------

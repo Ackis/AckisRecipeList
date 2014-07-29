@@ -340,8 +340,10 @@ function addon:OnInitialize()
 		}
 	}
 
-	for reputation_name in pairs(private.FACTION_IDS_FROM_LABEL) do
-		defaults.profile.filters.rep[reputation_name:lower()] = true
+	for index = 1, #private.REP_FLAGS do
+		for reputation_name in pairs(private.REP_FLAGS[index]) do
+			defaults.profile.filters.rep[reputation_name:lower()] = true
+		end
 	end
 
 	for filter_name in pairs(self.constants.ITEM_FILTER_TYPES) do

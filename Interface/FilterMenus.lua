@@ -844,16 +844,6 @@ function private.InitializeFilterPanel()
 		end
 	end	-- do
 
-	-------------------------------------------------------------------------------
-	-- Check to see if we're Horde or Alliance, and change the displayed
-	-- reputation strings to be faction-correct.
-	-------------------------------------------------------------------------------
-	local isAlliance = (private.Player.faction == "Alliance")
-
-	local HELLFIRE_TEXT = isAlliance and LFAC.HONOR_HOLD or LFAC.THRALLMAR
-	local NAGRAND_TEXT = isAlliance and LFAC.KURENAI or LFAC.MAGHAR
-	local WRATHCOMMON1_TEXT = isAlliance and LFAC.ALLIANCE_VANGUARD or LFAC.HORDE_EXPEDITION
-
 	-- Used for the tooltip of every reputation checkbox.
 	local function ReputationDesc(text)
 		return L["SPECIFIC_REP_DESC"]:format(text)
@@ -893,15 +883,10 @@ function private.InitializeFilterPanel()
 		-------------------------------------------------------------------------------
 		-- Create the Reputation toggle and CheckButtons
 		-------------------------------------------------------------------------------
-		local expansion0_buttons = {
-			argentdawn		= { text = LFAC.ARGENTDAWN,		row = 2, col = 1 },
-			cenarioncircle		= { text = LFAC.CENARION_CIRCLE,	row = 3, col = 1 },
-			thoriumbrotherhood	= { text = LFAC.THORIUM_BROTHERHOOD,	row = 4, col = 1 },
-			timbermaw		= { text = LFAC.TIMBERMAW_HOLD,		row = 5, col = 1 },
-		}
-
-		for label, data in pairs(expansion0_buttons) do
-			data.tt = ReputationDesc(data.text)
+		local expansion0_buttons = {}
+		for index = 1, #private.EXPANSION0_REPUTATIONS do
+			local rep_name = private.EXPANSION0_REPUTATIONS[index]
+			expansion0_buttons[rep_name:lower()] = { text = LFAC[rep_name], tt = ReputationDesc(LFAC[rep_name]), row = index + 1, col = 1 }
 		end
 		private.GenerateCheckBoxes(expansion0_frame, expansion0_buttons)
 
@@ -940,25 +925,10 @@ function private.InitializeFilterPanel()
 		-------------------------------------------------------------------------------
 		-- Create the Reputation toggle and CheckButtons
 		-------------------------------------------------------------------------------
-		local expansion1_buttons = {
-			aldor			= { text = LFAC.ALDOR,			row = 2,	col = 1 },
-			ashtonguedeathsworn	= { text = LFAC.ASHTONGUE,		row = 3,	col = 1 },
-			cenarionexpedition	= { text = LFAC.CENARION_EXPEDITION,	row = 4,	col = 1 },
-			consortium		= { text = LFAC.CONSORTIUM,		row = 5,	col = 1 },
-			hellfire		= { text = HELLFIRE_TEXT,		row = 6,	col = 1 },
-			keepersoftime		= { text = LFAC.KEEPERS_OF_TIME,	row = 7,	col = 1 },
-			nagrand			= { text = NAGRAND_TEXT,		row = 8,	col = 1 },
-			lowercity		= { text = LFAC.LOWERCITY,		row = 9,	col = 1 },
-			scaleofthesands		= { text = LFAC.SCALE_OF_SANDS,		row = 10,	col = 1 },
-			scryer			= { text = LFAC.SCRYER,			row = 11,	col = 1 },
-			shatar			= { text = LFAC.SHATAR,			row = 12,	col = 1 },
-			shatteredsun		= { text = LFAC.SHATTEREDSUN,		row = 13,	col = 1 },
-			sporeggar		= { text = LFAC.SPOREGGAR,		row = 14,	col = 1 },
-			violeteye		= { text = LFAC.VIOLETEYE,		row = 15,	col = 1 },
-		}
-
-		for label, data in pairs(expansion1_buttons) do
-			data.tt = ReputationDesc(data.text)
+		local expansion1_buttons = {}
+		for index = 1, #private.EXPANSION1_REPUTATIONS do
+			local rep_name = private.EXPANSION1_REPUTATIONS[index]
+			expansion1_buttons[rep_name:lower()] = { text = LFAC[rep_name], tt = ReputationDesc(LFAC[rep_name]), row = index + 1, col = 1 }
 		end
 		private.GenerateCheckBoxes(expansion1_frame, expansion1_buttons)
 
@@ -997,25 +967,10 @@ function private.InitializeFilterPanel()
 		-------------------------------------------------------------------------------
 		-- Create the Reputation toggle and CheckButtons
 		-------------------------------------------------------------------------------
-		local function DisabledText(text)
-			return SetTextColor(private.BASIC_COLORS.grey.hex, text)
-		end
-
-		local expansion2_buttons = {
-			wrathcommon1	= { text = WRATHCOMMON1_TEXT,	row = 2,	col = 1 },
-			argentcrusade	= { text = LFAC.ARGENTCRUSADE,	row = 3,	col = 1 },
-			frenzyheart	= { text = LFAC.FRENZYHEART,	row = 4,	col = 1 },
-			kaluak		= { text = LFAC.KALUAK,		row = 5,	col = 1 },
-			kirintor	= { text = LFAC.KIRINTOR,	row = 6,	col = 1 },
-			ebonblade	= { text = LFAC.EBONBLADE,	row = 7,	col = 1 },
-			oracles		= { text = LFAC.ORACLES,	row = 8,	col = 1 },
-			sonsofhodir	= { text = LFAC.HODIR,		row = 9,	col = 1 },
-			wyrmrest	= { text = LFAC.WYRMREST,	row = 10,	col = 1 },
-			ashenverdict	= { text = LFAC.ASHEN_VERDICT,	row = 11,	col = 1 },
-		}
-
-		for label, data in pairs(expansion2_buttons) do
-			data.tt = ReputationDesc(data.text)
+		local expansion2_buttons = {}
+		for index = 1, #private.EXPANSION2_REPUTATIONS do
+			local rep_name = private.EXPANSION2_REPUTATIONS[index]
+			expansion2_buttons[rep_name:lower()] = { text = LFAC[rep_name], tt = ReputationDesc(LFAC[rep_name]), row = index + 1, col = 1 }
 		end
 		private.GenerateCheckBoxes(expansion2_frame, expansion2_buttons)
 
@@ -1090,22 +1045,10 @@ function private.InitializeFilterPanel()
 		-------------------------------------------------------------------------------
 		-- Create the Reputation toggle and CheckButtons
 		-------------------------------------------------------------------------------
-		local function DisabledText(text)
-			return SetTextColor(private.BASIC_COLORS.grey.hex, text)
-		end
-
-		local expansion4_buttons = {
-			anglers			= { text = LFAC.ANGLERS,		row = 2,	col = 1 },
-			augustcelestials	= { text = LFAC.AUGUSTCELESTIALS,	row = 3,	col = 1 },
-			cloudserpent		= { text = LFAC.CLOUDSERPENT,		row = 4,	col = 1 },
-			goldenlotus		= { text = LFAC.GOLDENLOTUS,		row = 5,	col = 1 },
-			klaxxi			= { text = LFAC.KLAXXI,			row = 6,	col = 1 },
-			shadopan		= { text = LFAC.SHADOPAN,		row = 7,	col = 1 },
-			tillers			= { text = LFAC.TILLERS,		row = 8,	col = 1 },
-		}
-
-		for label, data in pairs(expansion4_buttons) do
-			data.tt = ReputationDesc(data.text)
+		local expansion4_buttons = {}
+		for index = 1, #private.EXPANSION4_REPUTATIONS do
+			local rep_name = private.EXPANSION4_REPUTATIONS[index]
+			expansion4_buttons[rep_name:lower()] = { text = LFAC[rep_name], tt = ReputationDesc(LFAC[rep_name]), row = index + 1, col = 1 }
 		end
 		private.GenerateCheckBoxes(expansion4_frame, expansion4_buttons)
 
@@ -1144,16 +1087,10 @@ function private.InitializeFilterPanel()
 		-------------------------------------------------------------------------------
 		-- Create the Reputation toggle and CheckButtons
 		-------------------------------------------------------------------------------
-		local function DisabledText(text)
-			return SetTextColor(private.BASIC_COLORS.grey.hex, text)
-		end
-
-		local expansion5_buttons = {
-			undefined1		= { text = _G.UNKNOWN,				row = 2,	col = 1 },
-		}
-
-		for label, data in pairs(expansion5_buttons) do
-			data.tt = ReputationDesc(data.text)
+		local expansion5_buttons = {}
+		for index = 1, #private.EXPANSION5_REPUTATIONS do
+			local rep_name = private.EXPANSION5_REPUTATIONS[index]
+			expansion5_buttons[rep_name:lower()] = { text = LFAC[rep_name], tt = ReputationDesc(LFAC[rep_name]), row = index + 1, col = 1 }
 		end
 		private.GenerateCheckBoxes(expansion5_frame, expansion5_buttons)
 
@@ -1479,58 +1416,23 @@ function private.InitializeFilterPanel()
 		melee			= { cb = FilterPanel.player.melee,			svroot = filterdb.player },
 		healer			= { cb = FilterPanel.player.healer,			svroot = filterdb.player },
 		caster			= { cb = FilterPanel.player.caster,			svroot = filterdb.player },
-		------------------------------------------------------------------------------------------------
-		-- Old World Rep Options
-		------------------------------------------------------------------------------------------------
-		argentdawn		= { cb = expansion0.argentdawn,				svroot = filterdb.rep },
-		cenarioncircle		= { cb = expansion0.cenarioncircle,			svroot = filterdb.rep },
-		thoriumbrotherhood	= { cb = expansion0.thoriumbrotherhood,			svroot = filterdb.rep },
-		timbermaw		= { cb = expansion0.timbermaw,				svroot = filterdb.rep },
-		------------------------------------------------------------------------------------------------
-		-- The Burning Crusade Rep Options
-		------------------------------------------------------------------------------------------------
-		aldor			= { cb = expansion1.aldor,				svroot = filterdb.rep },
-		ashtonguedeathsworn	= { cb = expansion1.ashtonguedeathsworn,		svroot = filterdb.rep },
-		cenarionexpedition	= { cb = expansion1.cenarionexpedition,			svroot = filterdb.rep },
-		consortium		= { cb = expansion1.consortium,				svroot = filterdb.rep },
-		hellfire		= { cb = expansion1.hellfire,				svroot = filterdb.rep },
-		keepersoftime		= { cb = expansion1.keepersoftime,			svroot = filterdb.rep },
-		nagrand			= { cb = expansion1.nagrand,				svroot = filterdb.rep },
-		lowercity		= { cb = expansion1.lowercity,				svroot = filterdb.rep },
-		scaleofthesands		= { cb = expansion1.scaleofthesands,			svroot = filterdb.rep },
-		scryer			= { cb = expansion1.scryer,				svroot = filterdb.rep },
-		shatar			= { cb = expansion1.shatar,				svroot = filterdb.rep },
-		shatteredsun		= { cb = expansion1.shatteredsun,			svroot = filterdb.rep },
-		sporeggar		= { cb = expansion1.sporeggar,				svroot = filterdb.rep },
-		violeteye		= { cb = expansion1.violeteye,				svroot = filterdb.rep },
-		------------------------------------------------------------------------------------------------
-		-- Wrath of The Lich King Rep Options
-		------------------------------------------------------------------------------------------------
-		argentcrusade		= { cb = expansion2.argentcrusade,			svroot = filterdb.rep },
-		frenzyheart		= { cb = expansion2.frenzyheart,			svroot = filterdb.rep },
-		ebonblade		= { cb = expansion2.ebonblade,				svroot = filterdb.rep },
-		kirintor		= { cb = expansion2.kirintor,				svroot = filterdb.rep },
-		sonsofhodir		= { cb = expansion2.sonsofhodir,			svroot = filterdb.rep },
-		kaluak			= { cb = expansion2.kaluak,				svroot = filterdb.rep },
-		oracles			= { cb = expansion2.oracles,				svroot = filterdb.rep },
-		wyrmrest		= { cb = expansion2.wyrmrest,				svroot = filterdb.rep },
-		ashenverdict		= { cb = expansion2.ashenverdict,			svroot = filterdb.rep },
-		wrathcommon1		= { cb = expansion2.wrathcommon1,			svroot = filterdb.rep },
-		------------------------------------------------------------------------------------------------
-		-- Cataclysm Rep Options
-		------------------------------------------------------------------------------------------------
-
-		------------------------------------------------------------------------------------------------
-		-- Mists of Pandaria Rep Options
-		------------------------------------------------------------------------------------------------
-		goldenlotus		= { cb = expansion4.goldenlotus,			svroot = filterdb.rep },
-		cloudserpent		= { cb = expansion4.cloudserpent,			svroot = filterdb.rep },
-		shadopan		= { cb = expansion4.shadopan,				svroot = filterdb.rep },
-		anglers			= { cb = expansion4.anglers,				svroot = filterdb.rep },
-		augustcelestials	= { cb = expansion4.augustcelestials,			svroot = filterdb.rep },
-		klaxxi			= { cb = expansion4.klaxxi,				svroot = filterdb.rep },
-		tillers			= { cb = expansion4.tillers,				svroot = filterdb.rep },
 	}
+
+	------------------------------------------------------------------------------------------------
+	-- Reputation Options
+	------------------------------------------------------------------------------------------------
+	for expansion_index = 1, #private.GAME_VERSION_NAMES do
+		local reputations = private[("EXPANSION%d_REPUTATIONS"):format(expansion_index - 1)]
+
+		for reputation_index = 1, #reputations do
+			local reputation_name = reputations[reputation_index]:lower()
+
+			FilterPanel.value_map[reputation_name] = {
+				cb = FilterPanel.rep[("expansion%d"):format(expansion_index - 1)][reputation_name],
+				svroot = filterdb.rep
+			}
+		end
+	end
 
 	private.InitializeFilterPanel = nil
 end
