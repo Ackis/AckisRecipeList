@@ -545,14 +545,11 @@ function private.InitializeFilterPanel()
 		end
 		obtain_frame.version_toggle = version_toggle
 
-		local version_buttons = {
-			expansion0	= { tt = ExpansionDesc(_G.EXPANSION_NAME0),	text = _G.EXPANSION_NAME0,	row = 1, col = 1 },
-			expansion1	= { tt = ExpansionDesc(_G.EXPANSION_NAME1),	text = _G.EXPANSION_NAME1,	row = 2, col = 1 },
-			expansion2	= { tt = ExpansionDesc(_G.EXPANSION_NAME2),	text = _G.EXPANSION_NAME2,	row = 3, col = 1 },
-			expansion3	= { tt = ExpansionDesc(_G.EXPANSION_NAME3),	text = _G.EXPANSION_NAME3,	row = 4, col = 1 },
-			expansion4	= { tt = ExpansionDesc(_G.EXPANSION_NAME4),	text = _G.EXPANSION_NAME4,	row = 5, col = 1 },
-			expansion5	= { tt = ExpansionDesc(_G.EXPANSION_NAME5),	text = _G.EXPANSION_NAME5,	row = 6, col = 1 },
-		}
+		local version_buttons = {}
+		for index = 1, #private.GAME_VERSION_NAMES do
+			local expansion_name = _G[("EXPANSION_NAME%d"):format(index - 1)]
+			version_buttons[("expansion%d"):format(index - 1)]  = { tt = ExpansionDesc(expansion_name), text = expansion_name, row = index, col = 1 }
+		end
 
 		local version_panel = _G.CreateFrame("Frame", nil, obtain_frame)
 		version_panel:SetHeight(60)
@@ -1174,11 +1171,6 @@ function private.InitializeFilterPanel()
 		------------------------------------------------------------------------------------------------
 		achievement		= { cb = FilterPanel.obtain.achievement,		svroot = filterdb.obtain },
 		discovery		= { cb = FilterPanel.obtain.discovery,			svroot = filterdb.obtain },
-		expansion0		= { cb = FilterPanel.obtain.expansion0,			svroot = filterdb.obtain },
-		expansion1		= { cb = FilterPanel.obtain.expansion1,			svroot = filterdb.obtain },
-		expansion2		= { cb = FilterPanel.obtain.expansion2,			svroot = filterdb.obtain },
-		expansion3		= { cb = FilterPanel.obtain.expansion3,			svroot = filterdb.obtain },
-		expansion4		= { cb = FilterPanel.obtain.expansion4,			svroot = filterdb.obtain },
 		instance		= { cb = FilterPanel.obtain.instance,			svroot = filterdb.obtain },
 		mobdrop			= { cb = FilterPanel.obtain.mobdrop,			svroot = filterdb.obtain },
 		pvp			= { cb = FilterPanel.obtain.pvp,			svroot = filterdb.obtain },
@@ -1215,16 +1207,21 @@ function private.InitializeFilterPanel()
 	}
 
 	------------------------------------------------------------------------------------------------
-	-- Reputation Options
+	-- Expansion and Reputation Options
 	------------------------------------------------------------------------------------------------
 	for expansion_index = 1, #private.GAME_VERSION_NAMES do
-		local reputations = private[("EXPANSION%d_REPUTATIONS"):format(expansion_index - 1)]
+		local expansion_name = ("expansion%d"):format(expansion_index - 1)
+		FilterPanel.value_map[expansion_name] = {
+			cb = FilterPanel.obtain[expansion_name],
+			svroot = filterdb.obtain
+		}
 
+		local reputations = private[("EXPANSION%d_REPUTATIONS"):format(expansion_index - 1)]
 		for reputation_index = 1, #reputations do
 			local reputation_name = reputations[reputation_index]:lower()
 
 			FilterPanel.value_map[reputation_name] = {
-				cb = FilterPanel.rep[("expansion%d"):format(expansion_index - 1)][reputation_name],
+				cb = FilterPanel.rep[expansion_name][reputation_name],
 				svroot = filterdb.rep
 			}
 		end
