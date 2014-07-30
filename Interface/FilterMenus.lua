@@ -42,14 +42,14 @@ local EXPANSION_FRAMES = {
 }
 
 local CATEGORY_TOOLTIP = {
-	["general"]	= L["FILTERING_GENERAL_DESC"],
-	["obtain"]	= L["FILTERING_OBTAIN_DESC"],
-	["binding"]	= L["FILTERING_BINDING_DESC"],
-	["item"]	= L["FILTERING_ITEM_DESC"],
-	["quality"]	= L["FILTERING_QUALITY_DESC"],
-	["player"]	= L["FILTERING_PLAYERTYPE_DESC"],
-	["rep"]		= L["FILTERING_REP_DESC"],
-	["misc"]	= L["FILTERING_MISC_DESC"]
+	general	= L["FILTERING_GENERAL_DESC"],
+	obtain	= L["FILTERING_OBTAIN_DESC"],
+	binding	= L["FILTERING_BINDING_DESC"],
+	item	= L["FILTERING_ITEM_DESC"],
+	quality	= L["FILTERING_QUALITY_DESC"],
+	player	= L["FILTERING_PLAYERTYPE_DESC"],
+	rep	= L["FILTERING_REP_DESC"],
+	misc	= L["FILTERING_MISC_DESC"]
 }
 
 local LFAC = private.LOCALIZED_FACTION_STRINGS_FROM_LABEL
