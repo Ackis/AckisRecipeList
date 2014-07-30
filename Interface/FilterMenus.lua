@@ -858,251 +858,54 @@ function private.InitializeFilterPanel()
 		MainPanel:UpdateTitle()
 		MainPanel.list_frame:Update(nil, false)
 	end
-	-------------------------------------------------------------------------------
-	-- Create FilterPanel.rep.expansion0, and set its scripts.
-	-------------------------------------------------------------------------------
-	do
-		local expansion0_frame = _G.CreateFrame("Frame", nil, FilterPanel.rep)
-		expansion0_frame:SetWidth(200)
-		expansion0_frame:SetHeight(FILTERMENU_HEIGHT)
-		expansion0_frame:EnableMouse(true)
-		expansion0_frame:EnableKeyboard(true)
-		expansion0_frame:SetMovable(false)
-		expansion0_frame:SetPoint("TOPRIGHT", FilterPanel, "TOPRIGHT", 0, 0)
-		expansion0_frame:Hide()
 
-		FilterPanel.rep.expansion0 = expansion0_frame
+	-------------------------------------------------------------------------------
+	-- Create FilterPanel.rep.expansionX, and set its scripts.
+	-------------------------------------------------------------------------------
+	local function CreateExpansionFrame(expansion_num)
+		local expansion_frame = _G.CreateFrame("Frame", nil, FilterPanel.rep)
+		expansion_frame:SetWidth(200)
+		expansion_frame:SetHeight(FILTERMENU_HEIGHT)
+		expansion_frame:EnableMouse(true)
+		expansion_frame:EnableKeyboard(true)
+		expansion_frame:SetMovable(false)
+		expansion_frame:SetPoint("TOPRIGHT", FilterPanel, "TOPRIGHT", 0, 0)
+		expansion_frame:Hide()
+
+		FilterPanel.rep[("expansion%d"):format(expansion_num)] = expansion_frame
 
 		-------------------------------------------------------------------------------
 		-- Create the Reputation toggle and CheckButtons
 		-------------------------------------------------------------------------------
-		local expansion0_buttons = {}
-		for index = 1, #private.EXPANSION0_REPUTATIONS do
-			local rep_name = private.EXPANSION0_REPUTATIONS[index]
-			expansion0_buttons[rep_name:lower()] = { text = LFAC[rep_name], tt = ReputationDesc(LFAC[rep_name]), row = index + 1, col = 1 }
+		local expansion_buttons = {}
+		local reputations = private[("EXPANSION%d_REPUTATIONS"):format(expansion_num)]
+
+		for index = 1, #reputations do
+			local rep_name = reputations[index]
+			expansion_buttons[rep_name:lower()] = { text = LFAC[rep_name], tt = ReputationDesc(LFAC[rep_name]), row = index + 1, col = 1 }
 		end
-		private.GenerateCheckBoxes(expansion0_frame, expansion0_buttons)
+		private.GenerateCheckBoxes(expansion_frame, expansion_buttons)
 
-		local expansion0_toggle = _G.CreateFrame("Button", nil, expansion0_frame)
-		expansion0_toggle:SetWidth(105)
-		expansion0_toggle:SetHeight(20)
-		expansion0_toggle:SetNormalFontObject("QuestTitleFont")
-		expansion0_toggle:SetHighlightFontObject("QuestTitleFontBlackShadow")
-		expansion0_toggle:SetText(_G.REPUTATION .. ":")
-		expansion0_toggle:SetPoint("TOPLEFT", expansion0_frame, "TOPLEFT", -2, -7)
-		expansion0_toggle:RegisterForClicks("LeftButtonUp", "RightButtonUp")
+		local expansion_toggle = _G.CreateFrame("Button", nil, expansion_frame)
+		expansion_toggle:SetWidth(105)
+		expansion_toggle:SetHeight(20)
+		expansion_toggle:SetNormalFontObject("QuestTitleFont")
+		expansion_toggle:SetHighlightFontObject("QuestTitleFontBlackShadow")
+		expansion_toggle:SetText(_G.REPUTATION .. ":")
+		expansion_toggle:SetPoint("TOPLEFT", expansion_frame, "TOPLEFT", -2, -7)
+		expansion_toggle:RegisterForClicks("LeftButtonUp", "RightButtonUp")
 
-		private.SetTooltipScripts(expansion0_toggle, L["GROUP_TOGGLE_FORMAT"]:format(_G.REPUTATION))
+		private.SetTooltipScripts(expansion_toggle, L["GROUP_TOGGLE_FORMAT"]:format(_G.REPUTATION))
 
-		expansion0_toggle.buttons = expansion0_buttons
-		expansion0_toggle.frame = expansion0_frame
+		expansion_toggle.buttons = expansion_buttons
+		expansion_toggle.frame = expansion_frame
 
-		expansion0_toggle:SetScript("OnClick", ToggleExpansionCheckBoxes)
-	end	-- do-block
+		expansion_toggle:SetScript("OnClick", ToggleExpansionCheckBoxes)
+	end
 
-	-------------------------------------------------------------------------------
-	-- Create FilterPanel.rep.expansion1, and set its scripts.
-	-------------------------------------------------------------------------------
-	do
-		local expansion1_frame = _G.CreateFrame("Frame", nil, FilterPanel.rep)
-		expansion1_frame:SetWidth(200)
-		expansion1_frame:SetHeight(FILTERMENU_HEIGHT)
-		expansion1_frame:EnableMouse(true)
-		expansion1_frame:EnableKeyboard(true)
-		expansion1_frame:SetMovable(false)
-		expansion1_frame:SetPoint("TOPRIGHT", FilterPanel, "TOPRIGHT", -0, -0)
-		expansion1_frame:Hide()
-
-		FilterPanel.rep.expansion1 = expansion1_frame
-
-		-------------------------------------------------------------------------------
-		-- Create the Reputation toggle and CheckButtons
-		-------------------------------------------------------------------------------
-		local expansion1_buttons = {}
-		for index = 1, #private.EXPANSION1_REPUTATIONS do
-			local rep_name = private.EXPANSION1_REPUTATIONS[index]
-			expansion1_buttons[rep_name:lower()] = { text = LFAC[rep_name], tt = ReputationDesc(LFAC[rep_name]), row = index + 1, col = 1 }
-		end
-		private.GenerateCheckBoxes(expansion1_frame, expansion1_buttons)
-
-		local expansion1_toggle = _G.CreateFrame("Button", nil, expansion1_frame)
-		expansion1_toggle:SetWidth(105)
-		expansion1_toggle:SetHeight(20)
-		expansion1_toggle:SetNormalFontObject("QuestTitleFont")
-		expansion1_toggle:SetHighlightFontObject("QuestTitleFontBlackShadow")
-		expansion1_toggle:SetText(_G.REPUTATION .. ":")
-		expansion1_toggle:SetPoint("TOPLEFT", expansion1_frame, "TOPLEFT", -2, -7)
-		expansion1_toggle:RegisterForClicks("LeftButtonUp", "RightButtonUp")
-
-		private.SetTooltipScripts(expansion1_toggle, L["GROUP_TOGGLE_FORMAT"]:format(_G.REPUTATION))
-
-		expansion1_toggle.buttons = expansion1_buttons
-		expansion1_toggle.frame = expansion1_frame
-
-		expansion1_toggle:SetScript("OnClick", ToggleExpansionCheckBoxes)
-	end	-- do-block
-
-	-------------------------------------------------------------------------------
-	-- Create FilterPanel.rep.expansion2, and set its scripts.
-	-------------------------------------------------------------------------------
-	do
-		local expansion2_frame = _G.CreateFrame("Frame", nil, FilterPanel.rep)
-		expansion2_frame:SetWidth(200)
-		expansion2_frame:SetHeight(FILTERMENU_HEIGHT)
-		expansion2_frame:EnableMouse(true)
-		expansion2_frame:EnableKeyboard(true)
-		expansion2_frame:SetMovable(false)
-		expansion2_frame:SetPoint("TOPRIGHT", FilterPanel, "TOPRIGHT", 0, 0)
-		expansion2_frame:Hide()
-
-		FilterPanel.rep.expansion2 = expansion2_frame
-
-		-------------------------------------------------------------------------------
-		-- Create the Reputation toggle and CheckButtons
-		-------------------------------------------------------------------------------
-		local expansion2_buttons = {}
-		for index = 1, #private.EXPANSION2_REPUTATIONS do
-			local rep_name = private.EXPANSION2_REPUTATIONS[index]
-			expansion2_buttons[rep_name:lower()] = { text = LFAC[rep_name], tt = ReputationDesc(LFAC[rep_name]), row = index + 1, col = 1 }
-		end
-		private.GenerateCheckBoxes(expansion2_frame, expansion2_buttons)
-
-		local expansion2_toggle = _G.CreateFrame("Button", nil, expansion2_frame)
-		expansion2_toggle:SetWidth(105)
-		expansion2_toggle:SetHeight(20)
-		expansion2_toggle:SetNormalFontObject("QuestTitleFont")
-		expansion2_toggle:SetHighlightFontObject("QuestTitleFontBlackShadow")
-		expansion2_toggle:SetText(_G.REPUTATION .. ":")
-		expansion2_toggle:SetPoint("TOPLEFT", expansion2_frame, "TOPLEFT", -2, -7)
-		expansion2_toggle:RegisterForClicks("LeftButtonUp", "RightButtonUp")
-
-		private.SetTooltipScripts(expansion2_toggle, L["GROUP_TOGGLE_FORMAT"]:format(_G.REPUTATION))
-
-		expansion2_toggle.buttons = expansion2_buttons
-		expansion2_toggle.frame = expansion2_frame
-
-		expansion2_toggle:SetScript("OnClick", ToggleExpansionCheckBoxes)
-	end	-- do-block
-
-	-------------------------------------------------------------------------------
-	-- Create FilterPanel.rep.expansion3, and set its scripts.
-	-------------------------------------------------------------------------------
-	do
-		local expansion3_frame = _G.CreateFrame("Frame", nil, FilterPanel.rep)
-		expansion3_frame:SetWidth(200)
-		expansion3_frame:SetHeight(FILTERMENU_HEIGHT)
-		expansion3_frame:EnableMouse(true)
-		expansion3_frame:EnableKeyboard(true)
-		expansion3_frame:SetMovable(false)
-		expansion3_frame:SetPoint("TOPRIGHT", FilterPanel, "TOPRIGHT", 0, 0)
-		expansion3_frame:Hide()
-
-		FilterPanel.rep.expansion3 = expansion3_frame
-
-		-------------------------------------------------------------------------------
-		-- Create the Reputation toggle and CheckButtons
-		-------------------------------------------------------------------------------
-
-		-- Cataclysm had no reputation recipes, so we display an empty frame.
-		local expansion3_toggle = _G.CreateFrame("Button", nil, expansion3_frame)
-		expansion3_toggle:SetWidth(105)
-		expansion3_toggle:SetHeight(20)
-		expansion3_toggle:SetNormalFontObject("QuestTitleFont")
-		expansion3_toggle:SetHighlightFontObject("QuestTitleFontBlackShadow")
-		expansion3_toggle:SetText(_G.REPUTATION .. ":")
-		expansion3_toggle:SetPoint("TOPLEFT", expansion3_frame, "TOPLEFT", -2, -7)
-		expansion3_toggle:RegisterForClicks("LeftButtonUp", "RightButtonUp")
-
-		private.SetTooltipScripts(expansion3_toggle, L["GROUP_TOGGLE_FORMAT"]:format(_G.REPUTATION))
-
-		expansion3_toggle.frame = expansion3_frame
-
-		expansion3_toggle:SetScript("OnClick", ToggleExpansionCheckBoxes)
-	end	-- do-block
-
-	-------------------------------------------------------------------------------
-	-- Create FilterPanel.rep.expansion4, and set its scripts.
-	-------------------------------------------------------------------------------
-	do
-		local expansion4_frame = _G.CreateFrame("Frame", nil, FilterPanel.rep)
-		expansion4_frame:SetWidth(200)
-		expansion4_frame:SetHeight(FILTERMENU_HEIGHT)
-		expansion4_frame:EnableMouse(true)
-		expansion4_frame:EnableKeyboard(true)
-		expansion4_frame:SetMovable(false)
-		expansion4_frame:SetPoint("TOPRIGHT", FilterPanel, "TOPRIGHT", 0, 0)
-		expansion4_frame:Hide()
-
-		FilterPanel.rep.expansion4 = expansion4_frame
-
-		-------------------------------------------------------------------------------
-		-- Create the Reputation toggle and CheckButtons
-		-------------------------------------------------------------------------------
-		local expansion4_buttons = {}
-		for index = 1, #private.EXPANSION4_REPUTATIONS do
-			local rep_name = private.EXPANSION4_REPUTATIONS[index]
-			expansion4_buttons[rep_name:lower()] = { text = LFAC[rep_name], tt = ReputationDesc(LFAC[rep_name]), row = index + 1, col = 1 }
-		end
-		private.GenerateCheckBoxes(expansion4_frame, expansion4_buttons)
-
-		local expansion4_toggle = _G.CreateFrame("Button", nil, expansion4_frame)
-		expansion4_toggle:SetWidth(105)
-		expansion4_toggle:SetHeight(20)
-		expansion4_toggle:SetNormalFontObject("QuestTitleFont")
-		expansion4_toggle:SetHighlightFontObject("QuestTitleFontBlackShadow")
-		expansion4_toggle:SetText(_G.REPUTATION .. ":")
-		expansion4_toggle:SetPoint("TOPLEFT", expansion4_frame, "TOPLEFT", -2, -7)
-		expansion4_toggle:RegisterForClicks("LeftButtonUp", "RightButtonUp")
-
-		private.SetTooltipScripts(expansion4_toggle, L["GROUP_TOGGLE_FORMAT"]:format(_G.REPUTATION))
-
-		expansion4_toggle.buttons = expansion4_buttons
-		expansion4_toggle.frame = expansion4_frame
-
-		expansion4_toggle:SetScript("OnClick", ToggleExpansionCheckBoxes)
-	end	-- do-block
-
-	-------------------------------------------------------------------------------
-	-- Create FilterPanel.rep.expansion5, and set its scripts.
-	-------------------------------------------------------------------------------
-	do
-		local expansion5_frame = _G.CreateFrame("Frame", nil, FilterPanel.rep)
-		expansion5_frame:SetWidth(200)
-		expansion5_frame:SetHeight(FILTERMENU_HEIGHT)
-		expansion5_frame:EnableMouse(true)
-		expansion5_frame:EnableKeyboard(true)
-		expansion5_frame:SetMovable(false)
-		expansion5_frame:SetPoint("TOPRIGHT", FilterPanel, "TOPRIGHT", 0, 0)
-		expansion5_frame:Hide()
-
-		FilterPanel.rep.expansion5 = expansion5_frame
-
-		-------------------------------------------------------------------------------
-		-- Create the Reputation toggle and CheckButtons
-		-------------------------------------------------------------------------------
-		local expansion5_buttons = {}
-		for index = 1, #private.EXPANSION5_REPUTATIONS do
-			local rep_name = private.EXPANSION5_REPUTATIONS[index]
-			expansion5_buttons[rep_name:lower()] = { text = LFAC[rep_name], tt = ReputationDesc(LFAC[rep_name]), row = index + 1, col = 1 }
-		end
-		private.GenerateCheckBoxes(expansion5_frame, expansion5_buttons)
-
-		local expansion5_toggle = _G.CreateFrame("Button", nil, expansion5_frame)
-		expansion5_toggle:SetWidth(105)
-		expansion5_toggle:SetHeight(20)
-		expansion5_toggle:SetNormalFontObject("QuestTitleFont")
-		expansion5_toggle:SetHighlightFontObject("QuestTitleFontBlackShadow")
-		expansion5_toggle:SetText(_G.REPUTATION .. ":")
-		expansion5_toggle:SetPoint("TOPLEFT", expansion5_frame, "TOPLEFT", -2, -7)
-		expansion5_toggle:RegisterForClicks("LeftButtonUp", "RightButtonUp")
-
-		private.SetTooltipScripts(expansion5_toggle, L["GROUP_TOGGLE_FORMAT"]:format(_G.REPUTATION))
-
-		expansion5_toggle.buttons = expansion5_buttons
-		expansion5_toggle.frame = expansion5_frame
-
-		expansion5_toggle:SetScript("OnClick", ToggleExpansionCheckBoxes)
-	end	-- do-block
+	for index = 1, #private.GAME_VERSION_NAMES do
+		CreateExpansionFrame(index - 1)
+	end
 
 	-------------------------------------------------------------------------------
 	-- Miscellaneous Filter Menu
