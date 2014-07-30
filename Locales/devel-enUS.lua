@@ -1065,6 +1065,7 @@ L["Recorder Lidio"] = true
 L["Refik"] = true
 L["Rekka the Hammer"] = true
 L["Reporting Bugs"] = true
+L["Research"] = true
 L["Reset Window Position"] = true
 L["Retired"] = true
 L["Ribbly's Crony"] = true
