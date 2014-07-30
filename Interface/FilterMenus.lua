@@ -32,14 +32,10 @@ local SetTooltipScripts = private.SetTooltipScripts
 local FILTERMENU_WIDTH		= 306
 local FILTERMENU_HEIGHT		= 343
 
-local EXPANSION_FRAMES = {
-	["expansion0"]	= true,
-	["expansion1"]	= true,
-	["expansion2"]	= true,
-	["expansion3"]	= true,
-	["expansion4"]	= true,
-	["expansion5"]	= true,
-}
+local EXPANSION_FRAMES = {}
+for index = 1, #private.GAME_VERSION_NAMES do
+	EXPANSION_FRAMES[("expansion%d"):format(index - 1)] = true
+end
 
 local CATEGORY_TOOLTIP = {
 	general	= L["FILTERING_GENERAL_DESC"],
@@ -749,14 +745,11 @@ function private.InitializeFilterPanel()
 	do
 		local rep_frame = FilterPanel:CreateSubMenu("rep")
 
-		local EXPANSION_TOOLTIP = {
-			expansion0	= L["EXPANSION_FILTER_FORMAT"]:format(_G.EXPANSION_NAME0),
-			expansion1	= L["EXPANSION_FILTER_FORMAT"]:format(_G.EXPANSION_NAME1),
-			expansion2	= L["EXPANSION_FILTER_FORMAT"]:format(_G.EXPANSION_NAME2),
-			expansion3	= L["EXPANSION_FILTER_FORMAT"]:format(_G.EXPANSION_NAME3),
-			expansion4	= L["EXPANSION_FILTER_FORMAT"]:format(_G.EXPANSION_NAME4),
-			expansion5	= L["EXPANSION_FILTER_FORMAT"]:format(_G.EXPANSION_NAME5),
-		}
+		local EXPANSION_TOOLTIPS = {}
+		for index = 1, #private.GAME_VERSION_NAMES do
+			EXPANSION_TOOLTIPS[("expansion%d"):format(index - 1)] = L["EXPANSION_FILTER_FORMAT"]:format(_G[("EXPANSION_NAME%d"):format(index - 1)])
+		end
+
 		-------------------------------------------------------------------------------
 		-- This manages the WoW expansion reputation filter menu panel
 		-------------------------------------------------------------------------------
