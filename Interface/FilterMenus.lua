@@ -781,13 +781,13 @@ function private.InitializeFilterPanel()
 		-------------------------------------------------------------------------------
 		-- Generic function to create expansion buttons.
 		-------------------------------------------------------------------------------
-		function rep_frame:CreateExpansionButton(texture, expansion)
+		function rep_frame:CreateExpansionButton(texture, expansion_num)
 			local cButton = _G.CreateFrame("CheckButton", nil, self)
 			cButton:SetWidth(110)
 			cButton:SetHeight(50)
 			cButton:SetChecked(false)
 			cButton:SetScript("OnClick", function(self, button, down)
-				ToggleExpansionMenu(expansion)
+				ToggleExpansionMenu(expansion_num)
 			end)
 
 			local iconTex = cButton:CreateTexture(nil, "BORDER")
@@ -814,7 +814,7 @@ function private.InitializeFilterPanel()
 			cButton:SetCheckedTexture(checkedTexture)
 
 			-- And throw up a tooltip
-			SetTooltipScripts(cButton, EXPANSION_TOOLTIP[expansion])
+			SetTooltipScripts(cButton, EXPANSION_TOOLTIPS[expansion_num])
 
 			return cButton
 		end
