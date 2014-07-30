@@ -262,12 +262,6 @@ function addon:OnInitialize()
 				obtain = {
 					achievement = true,
 					discovery = true,
-					expansion0 = true,
-					expansion1 = true,
-					expansion2 = true,
-					expansion3 = true,
-					expansion4 = true,
-					expansion5 = true,
 					instance = true,
 					mobdrop = true,
 					pvp = true,
@@ -339,6 +333,10 @@ function addon:OnInitialize()
 			}
 		}
 	}
+
+	for index = 1, #private.GAME_VERSION_NAMES do
+		defaults.profile.filters.obtain[("expansion%d"):format(index - 1)] = true
+	end
 
 	for index = 1, #private.REP_FLAGS do
 		for reputation_name in pairs(private.REP_FLAGS[index]) do
