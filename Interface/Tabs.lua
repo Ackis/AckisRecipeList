@@ -386,10 +386,7 @@ local function InitializeLocationTab()
 			-- Sorting function: Only used once and then thrown away.
 			local function Sort_Location(a, b)
 				local location_list = private.location_list
-				local loc_a = location_list[a]
-				local loc_b = location_list[b]
-
-				return loc_a.name < loc_b.name
+				return location_list[a].name < location_list[b].name
 			end
 
 			sorted_locations = {}

@@ -691,12 +691,8 @@ do
 			return false
 		end
 
-		------------------------------------------------------------------------------------------------
-		-- Binding types.
-		------------------------------------------------------------------------------------------------
-		local _, recipe_item_binding = self:RecipeItem()
-
 		-- Assume that recipes without a recipe item are obtained via trainers, and treat them as bind on pickup.
+		local _, recipe_item_binding = self:RecipeItem()
 		if recipe_item_binding and not addon.db.profile.filters.binding["recipe_" .. recipe_item_binding:lower()] then
 			return false
 		elseif not recipe_item_binding and not addon.db.profile.filters.binding.recipe_bind_on_pickup then
@@ -709,9 +705,7 @@ do
 			return false
 		end
 
-		-------------------------------------------------------------------------------
 		-- Check the hard filter flags.
-		-------------------------------------------------------------------------------
 		for filter, data in pairs(private.HARD_FILTERS) do
 			local bitfield = self.flags[data.field]
 
@@ -720,18 +714,14 @@ do
 			end
 		end
 
-		-------------------------------------------------------------------------------
 		-- Check the reputation filter flags.
-		------------------------------------------------------------------------------
 		for index = 1, #REPUTATION_BITFLAG_FILTERS do
 			if not HasEnabledFlag(REPUTATION_BITFLAG_FILTERS[index], self.flags[("reputation%d"):format(index)], filter_db.rep) then
 				return false
 			end
 		end
 
-		-------------------------------------------------------------------------------
 		-- Check the class filter flags
-		-------------------------------------------------------------------------------
 		if not HasEnabledFlag(CLASS_BITFLAG_FILTERS, self.flags.class1, filter_db.classes) then
 			return false
 		end
