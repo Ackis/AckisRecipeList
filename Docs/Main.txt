@@ -1,3 +1,6 @@
+==Announcement
+Hey everyone, it's Ackis writing this.  I've been away from WoW for a while and my good friend Torhal, Ressy and Pompy have been keeping ARL up to date.  I've seen a lot of posts lately that quite frankly have pissed me off.  Everyone is entitled to their opinion, but the hatred over the decision to break ARL up into modules isn't needed at all.
+
 ==What it does
 Ackis Recipe List is an addon which will scan your trade skills and provide information on how to obtain recipes.  It works for all tradeskills including [[http://www.wowpedia.org/Runeforge | Runeforging]].
 
