@@ -720,9 +720,9 @@ do
 		if loaded_modules[module_name] then
 			return true
 		end
-		local _, _, _, _, is_loadable = private.GetAddOnInfo(module_name)
+		local _, _, _, _, reason = private.GetAddOnInfo(module_name)
 
-		if is_loadable then
+		if reason ~= "DISABLED" then
 			local is_loaded = _G.LoadAddOn(module_name) and true or false
 			loaded_modules[module_name] = is_loaded
 			return is_loaded
@@ -888,7 +888,7 @@ do
 			local found_module
 
 			for profession_name, module_name in pairs(private.PROFESSION_MODULE_NAMES) do
-				local _, _, _, _, _, reason = private.GetAddOnInfo(FOLDER_NAME .. "_" .. module_name or "")
+				local _, _, _, _, reason = private.GetAddOnInfo(FOLDER_NAME .. "_" .. module_name or "")
 				if not reason or reason == "DISABLED" then
 					-- The assumption here is that if a module is disabled, the user is aware that modules exist.
 					found_module = true
