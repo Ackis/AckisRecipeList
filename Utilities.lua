@@ -53,7 +53,7 @@ end
 -- This wrapper exists primarily because Blizzard keeps changing how NPC ID numbers are extracted from GUIDs, and fixing it in one place is less error-prone.
 function private.MobGUIDToIDNum(guid)
 	if private.wow_ui_version >= 60000 then
-		local _, _, _, _, _, id_num = (":"):split(guid)
+		local _, _, _, _, _, id_num = ("-"):split(guid)
 		return tonumber(id_num)
 	else
 		return tonumber(guid:sub(6, 10), 16)
