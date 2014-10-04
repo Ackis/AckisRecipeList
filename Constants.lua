@@ -637,6 +637,7 @@ private.ZONE_NAMES = {
 	LUNARFALL = _G.GetMapNameByID(971),
 	FROSTWALL = _G.GetMapNameByID(976),
 	STORMSHIELD = _G.GetMapNameByID(1009),
+	WARSPEAR = _G.GetMapNameByID(1011),
 }
 
 constants.ZONE_NAMES = private.ZONE_NAMES
