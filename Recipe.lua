@@ -66,6 +66,8 @@ function addon:AddRecipe(spell_id, profession_spell_id, genesis, quality)
 		_spell_id = spell_id,
 	}, recipe_meta)
 
+	recipe:AddFilters(private.FILTER_IDS.ALLIANCE, private.FILTER_IDS.HORDE)
+
 	if not recipe.name or recipe.name == "" then
 		recipe.name = ("%s: %d"):format(_G.UNKNOWN, tonumber(spell_id))
 		self:Debug(L["SpellIDCache"]:format(spell_id))
@@ -144,9 +146,21 @@ end
 function Recipe:SetRequiredFaction(faction_name)
 	self.required_faction = faction_name
 
-	if faction_name and private.Player.faction ~= faction_name then
-		self.is_ignored = true
-		private.num_profession_recipes[self.profession] = private.num_profession_recipes[self.profession] - 1
+	if faction_name then
+		if faction_name == "Alliance" then
+			self:RemoveFilters(private.FILTER_IDS.HORDE)
+		elseif faction_name == "Horde" then
+			self:RemoveFilters(private.FILTER_IDS.ALLIANCE)
+		else
+			addon:Debug("Unknown faction_name \"%s\" passed to SetRequiredFaction for recipe %d.", faction_name, self.SpellID())
+		end
+
+		if private.Player.faction ~= faction_name then
+			self.is_ignored = true
+			private.num_profession_recipes[self.profession] = private.num_profession_recipes[self.profession] - 1
+		end
+	else
+		addon:Debuf("No faction name passed to SetRequiredFaction for recipe %d", self.SpellID())
 	end
 end
 
