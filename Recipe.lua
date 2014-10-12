@@ -773,7 +773,9 @@ local reverse_map = {}
 -- These are automatically added when assigning the appropriate acquire type; dumping them is redundant.
 local IMPLICIT_FLAGS = {
 	ACHIEVEMENT = true,
+	ALLIANCE = true,
 	DISC = true,
+	HORDE = true,
 	MOB_DROP = true,
 	QUEST = true,
 	REPUTATION = true,
