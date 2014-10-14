@@ -130,9 +130,9 @@ do
 			return
 		end
 		-- Get the initial trainer filters
-		local avail = _G.GetTrainerServiceTypeFilter("available")
-		local unavail = _G.GetTrainerServiceTypeFilter("unavailable")
-		local used = _G.GetTrainerServiceTypeFilter("used")
+		local available = _G.GetTrainerServiceTypeFilter("available") and 1 or 0
+		local unavailable = _G.GetTrainerServiceTypeFilter("unavailable") and 1 or 0
+		local used = _G.GetTrainerServiceTypeFilter("used") and 1 or 0
 
 		-- Clear the trainer filters
 		_G.SetTrainerServiceTypeFilter("available", 1)
@@ -333,9 +333,9 @@ do
 			output:Display()
 		end
 		-- Reset the filters to what they were before
-		_G.SetTrainerServiceTypeFilter("available", 1)
-		_G.SetTrainerServiceTypeFilter("unavailable", 1)
-		_G.SetTrainerServiceTypeFilter("used", 1)
+		_G.SetTrainerServiceTypeFilter("available", available or 0)
+		_G.SetTrainerServiceTypeFilter("unavailable", unavailable or 0)
+		_G.SetTrainerServiceTypeFilter("used", used or 0)
 	end
 end	-- do
 
