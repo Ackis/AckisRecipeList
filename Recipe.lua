@@ -780,10 +780,10 @@ local IMPLICIT_FLAGS = {
 	QUEST = true,
 	REPUTATION = true,
 	RETIRED = true,
-	WORLD_EVENTS = true,
 	TRAINER = true,
 	VENDOR = true,
 	WORLD_DROP = true,
+	WORLD_EVENTS = true,
 }
 
 -- Reputation flags are automatically added when a reputation vendor is assigned to the recipe.
@@ -832,30 +832,32 @@ function Recipe:Dump(output, use_genesis)
 	end
 	local flag_string
 
-	for table_index, bits in ipairs(private.FLAG_WORDS) do
+	for table_index = 1, #private.FLAG_WORDS do
 		table.wipe(sorted_data)
 		table.wipe(reverse_map)
 
-		for flag_name, flag in pairs(bits) do
+		local bits = private.FLAG_WORDS[table_index]
+		for flag_name, flag_bit in pairs(bits) do
 			if not IMPLICIT_FLAGS[flag_name] then
 				local bitfield = self.flags[private.FLAG_MEMBERS[table_index]]
 
-				if bitfield and bit.band(bitfield, flag) == flag then
-					table.insert(sorted_data, flag)
-					reverse_map[flag] = flag_name
+				if bitfield and bit.band(bitfield, flag_bit) == flag_bit then
+					table.insert(sorted_data, flag_bit)
+					reverse_map[flag_bit] = flag_name
 				end
 			end
 		end
 		table.sort(sorted_data)
 
-		for index, flag in ipairs(sorted_data) do
+		for flag_index = 1, #sorted_data do
+			local flag_bit = sorted_data[flag_index]
 			local bitfield = self.flags[private.FLAG_MEMBERS[table_index]]
 
-			if bitfield and bit.band(bitfield, flag) == flag then
+			if bitfield and bit.band(bitfield, flag_bit) == flag_bit then
 				if flag_string then
-					flag_string = ("%s, F.%s"):format(flag_string, private.FILTER_STRINGS[private.FILTER_IDS[reverse_map[flag]]])
+					flag_string = ("%s, F.%s"):format(flag_string, private.FILTER_STRINGS[private.FILTER_IDS[reverse_map[flag_bit]]])
 				else
-					flag_string = ("F.%s"):format(private.FILTER_STRINGS[private.FILTER_IDS[reverse_map[flag]]])
+					flag_string = ("F.%s"):format(private.FILTER_STRINGS[private.FILTER_IDS[reverse_map[flag_bit]]])
 				end
 			end
 		end
