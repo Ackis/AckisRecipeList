@@ -30,7 +30,7 @@ local acquire_type_metatable = {
 local BASIC_COLORS = private.BASIC_COLORS
 local CATEGORY_COLORS = private.CATEGORY_COLORS
 local COORDINATES_FORMAT = private.COORDINATES_FORMAT
-local FAC = private.LOCALIZED_FACTION_STRINGS
+local LFAC = private.LOCALIZED_FACTION_STRINGS_FROM_LABEL
 local REPUTATION_COLORS = private.REPUTATION_COLORS
 
 -------------------------------------------------------------------------------
@@ -482,7 +482,7 @@ local ACQUIRE_PROTOTYPES = {
 			g = 0.35,
 			b = 0.6
 		},
-		_has_coordinates = true,
+		_has_coordinates = false,
 		_label = "REPUTATION",
 		_name = _G.REPUTATION,
 		-------------------------------------------------------------------------------
@@ -501,11 +501,11 @@ local ACQUIRE_PROTOTYPES = {
 						local rep_color = private.REPUTATION_COLORS
 
 						self.__faction_labels = {
-							[0] = private.SetTextColor(rep_color.neutral.hex, FAC["Neutral"] .. " : "),
-							[1] = private.SetTextColor(rep_color.friendly.hex, FAC["Friendly"] .. " : "),
-							[2] = private.SetTextColor(rep_color.honored.hex, FAC["Honored"] .. " : "),
-							[3] = private.SetTextColor(rep_color.revered.hex, FAC["Revered"] .. " : "),
-							[4] = private.SetTextColor(rep_color.exalted.hex, FAC["Exalted"] .. " : ")
+							[0] = private.SetTextColor(rep_color.neutral.hex, LFAC.NEUTRAL .. " : "),
+							[1] = private.SetTextColor(rep_color.friendly.hex, LFAC.FRIENDLY .. " : "),
+							[2] = private.SetTextColor(rep_color.honored.hex, LFAC.HONORED .. " : "),
+							[3] = private.SetTextColor(rep_color.revered.hex, LFAC.REVERED .. " : "),
+							[4] = private.SetTextColor(rep_color.exalted.hex, LFAC.EXALTED .. " : ")
 						}
 					end
 
@@ -559,15 +559,15 @@ local ACQUIRE_PROTOTYPES = {
 							addline_func(0, -1, false, _G.REPUTATION, self:ColorData(), self:GetEntity(identifier).name, CATEGORY_COLORS.repname)
 
 							if rep_level == 0 then
-								addline_func(1, -2, false, FAC["Neutral"], private.REPUTATION_COLORS.neutral, rep_vendor.name, name_color)
+								addline_func(1, -2, false, LFAC.NEUTRAL, private.REPUTATION_COLORS.neutral, rep_vendor.name, name_color)
 							elseif rep_level == 1 then
-								addline_func(1, -2, false, FAC["Friendly"], private.REPUTATION_COLORS.friendly, rep_vendor.name, name_color)
+								addline_func(1, -2, false, LFAC.FRIENDLY, private.REPUTATION_COLORS.friendly, rep_vendor.name, name_color)
 							elseif rep_level == 2 then
-								addline_func(1, -2, false, FAC["Honored"], private.REPUTATION_COLORS.honored, rep_vendor.name, name_color)
+								addline_func(1, -2, false, LFAC.HONORED, private.REPUTATION_COLORS.honored, rep_vendor.name, name_color)
 							elseif rep_level == 3 then
-								addline_func(1, -2, false, FAC["Revered"], private.REPUTATION_COLORS.revered, rep_vendor.name, name_color)
+								addline_func(1, -2, false, LFAC.REVERED, private.REPUTATION_COLORS.revered, rep_vendor.name, name_color)
 							else
-								addline_func(1, -2, false, FAC["Exalted"], private.REPUTATION_COLORS.exalted, rep_vendor.name, name_color)
+								addline_func(1, -2, false, LFAC.EXALTED, private.REPUTATION_COLORS.exalted, rep_vendor.name, name_color)
 							end
 
 							if rep_vendor.coord_x ~= 0 and rep_vendor.coord_y ~= 0 then

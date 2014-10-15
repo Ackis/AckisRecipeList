@@ -36,7 +36,6 @@ local COORDINATES_FORMAT = private.COORDINATES_FORMAT
 local BASIC_COLORS = private.BASIC_COLORS
 
 local A = private.ACQUIRE_TYPE_IDS
-local FAC = private.LOCALIZED_FACTION_STRINGS
 
 -------------------------------------------------------------------------------
 -- Constants

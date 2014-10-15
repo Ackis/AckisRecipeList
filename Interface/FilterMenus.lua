@@ -32,26 +32,23 @@ local SetTooltipScripts = private.SetTooltipScripts
 local FILTERMENU_WIDTH		= 306
 local FILTERMENU_HEIGHT		= 343
 
-local EXPANSION_FRAMES = {
-	["expansion0"]	= true,
-	["expansion1"]	= true,
-	["expansion2"]	= true,
-	["expansion3"]	= true,
-	["expansion4"]	= true,
-}
+local EXPANSION_FRAMES = {}
+for index = 1, #private.GAME_VERSION_NAMES do
+	EXPANSION_FRAMES[("expansion%d"):format(index - 1)] = true
+end
 
 local CATEGORY_TOOLTIP = {
-	["general"]	= L["FILTERING_GENERAL_DESC"],
-	["obtain"]	= L["FILTERING_OBTAIN_DESC"],
-	["binding"]	= L["FILTERING_BINDING_DESC"],
-	["item"]	= L["FILTERING_ITEM_DESC"],
-	["quality"]	= L["FILTERING_QUALITY_DESC"],
-	["player"]	= L["FILTERING_PLAYERTYPE_DESC"],
-	["rep"]		= L["FILTERING_REP_DESC"],
-	["misc"]	= L["FILTERING_MISC_DESC"]
+	general	= L["FILTERING_GENERAL_DESC"],
+	obtain	= L["FILTERING_OBTAIN_DESC"],
+	binding	= L["FILTERING_BINDING_DESC"],
+	item	= L["FILTERING_ITEM_DESC"],
+	quality	= L["FILTERING_QUALITY_DESC"],
+	player	= L["FILTERING_PLAYERTYPE_DESC"],
+	rep	= L["FILTERING_REP_DESC"],
+	misc	= L["FILTERING_MISC_DESC"]
 }
 
-local FAC = private.LOCALIZED_FACTION_STRINGS
+local LFAC = private.LOCALIZED_FACTION_STRINGS_FROM_LABEL
 
 -------------------------------------------------------------------------------
 -- Function to create and initialize a check-button with the given values.
@@ -129,7 +126,12 @@ end
 function private.UpdateFilterMarks()
 	for filter, info in pairs(addon.Frame.filter_menu.value_map) do
 		if info.svroot then
-			info.cb:SetChecked(info.svroot[filter])
+			if info.cb then
+				info.cb:SetChecked(info.svroot[filter])
+			else
+				addon:Debug("The filter \"%s\" has an invalid checkbutton definition.", filter)
+			end
+
 		end
 	end
 end
@@ -543,13 +545,11 @@ function private.InitializeFilterPanel()
 		end
 		obtain_frame.version_toggle = version_toggle
 
-		local version_buttons = {
-			expansion0	= { tt = ExpansionDesc(_G.EXPANSION_NAME0),	text = _G.EXPANSION_NAME0,	row = 1, col = 1 },
-			expansion1	= { tt = ExpansionDesc(_G.EXPANSION_NAME1),	text = _G.EXPANSION_NAME1,	row = 2, col = 1 },
-			expansion2	= { tt = ExpansionDesc(_G.EXPANSION_NAME2),	text = _G.EXPANSION_NAME2,	row = 3, col = 1 },
-			expansion3	= { tt = ExpansionDesc(_G.EXPANSION_NAME3),	text = _G.EXPANSION_NAME3,	row = 4, col = 1 },
-			expansion4	= { tt = ExpansionDesc(_G.EXPANSION_NAME4),	text = _G.EXPANSION_NAME4,	row = 5, col = 1 },
-		}
+		local version_buttons = {}
+		for index = 1, #private.GAME_VERSION_NAMES do
+			local expansion_name = _G[("EXPANSION_NAME%d"):format(index - 1)]
+			version_buttons[("expansion%d"):format(index - 1)]  = { tt = ExpansionDesc(expansion_name), text = expansion_name, row = index, col = 1 }
+		end
 
 		local version_panel = _G.CreateFrame("Frame", nil, obtain_frame)
 		version_panel:SetHeight(60)
@@ -742,13 +742,11 @@ function private.InitializeFilterPanel()
 	do
 		local rep_frame = FilterPanel:CreateSubMenu("rep")
 
-		local EXPANSION_TOOLTIP = {
-			expansion0	= L["EXPANSION_FILTER_FORMAT"]:format(_G.EXPANSION_NAME0),
-			expansion1	= L["EXPANSION_FILTER_FORMAT"]:format(_G.EXPANSION_NAME1),
-			expansion2	= L["EXPANSION_FILTER_FORMAT"]:format(_G.EXPANSION_NAME2),
-			expansion3	= L["EXPANSION_FILTER_FORMAT"]:format(_G.EXPANSION_NAME3),
-			expansion4	= L["EXPANSION_FILTER_FORMAT"]:format(_G.EXPANSION_NAME4),
-		}
+		local EXPANSION_TOOLTIPS = {}
+		for index = 1, #private.GAME_VERSION_NAMES do
+			EXPANSION_TOOLTIPS[("expansion%d"):format(index - 1)] = L["EXPANSION_FILTER_FORMAT"]:format(_G[("EXPANSION_NAME%d"):format(index - 1)])
+		end
+
 		-------------------------------------------------------------------------------
 		-- This manages the WoW expansion reputation filter menu panel
 		-------------------------------------------------------------------------------
@@ -780,17 +778,17 @@ function private.InitializeFilterPanel()
 		-------------------------------------------------------------------------------
 		-- Generic function to create expansion buttons.
 		-------------------------------------------------------------------------------
-		function rep_frame:CreateExpansionButton(texture, expansion)
+		function rep_frame:CreateExpansionButton(texture, expansion_num)
 			local cButton = _G.CreateFrame("CheckButton", nil, self)
 			cButton:SetWidth(110)
 			cButton:SetHeight(50)
 			cButton:SetChecked(false)
 			cButton:SetScript("OnClick", function(self, button, down)
-				ToggleExpansionMenu(expansion)
+				ToggleExpansionMenu(expansion_num)
 			end)
 
 			local iconTex = cButton:CreateTexture(nil, "BORDER")
-			iconTex:SetTexture(([[Interface\Glues\Common\%s]]):format(texture))
+			iconTex:SetTexture(texture)
 			iconTex:SetWidth(110)
 			iconTex:SetHeight(50)
 			iconTex:SetAllPoints(cButton)
@@ -813,7 +811,7 @@ function private.InitializeFilterPanel()
 			cButton:SetCheckedTexture(checkedTexture)
 
 			-- And throw up a tooltip
-			SetTooltipScripts(cButton, EXPANSION_TOOLTIP[expansion])
+			SetTooltipScripts(cButton, EXPANSION_TOOLTIPS[expansion_num])
 
 			return cButton
 		end
@@ -821,44 +819,20 @@ function private.InitializeFilterPanel()
 		-------------------------------------------------------------------------------
 		-- Create the expansion toggles.
 		-------------------------------------------------------------------------------
-		local expansion0 = rep_frame:CreateExpansionButton("Glues-WoW-Logo", "expansion0")
-		expansion0:SetPoint("TOPLEFT", FilterPanel.rep, "TOPLEFT", 2, -10)
+		local expansion_buttons = {}
+		for index = 1, #private.GAME_VERSION_NAMES do
+			local expansion_button = rep_frame:CreateExpansionButton(private.EXPANSION_LOGO_TEXTURES[index], ("expansion%d"):format(index - 1))
+			expansion_buttons[#expansion_buttons + 1] = expansion_button
 
-		local expansion1 = rep_frame:CreateExpansionButton("GLUES-WOW-BCLOGO", "expansion1")
-		expansion1:SetPoint("TOP", expansion0, "BOTTOM", 0, 0)
+			if index == 1 then
+				expansion_button:SetPoint("TOPLEFT", FilterPanel.rep, "TOPLEFT", 2, -10)
+			else
+				expansion_button:SetPoint("TOP", expansion_buttons[index - 1], "BOTTOM", 0, 0)
+			end
 
-		local expansion2 = rep_frame:CreateExpansionButton("Glues-WOW-WotlkLogo", "expansion2")
-		expansion2:SetPoint("TOP", expansion1, "BOTTOM", 0, 0)
-
-		local expansion3 = rep_frame:CreateExpansionButton("Glues-WOW-CCLogo", "expansion3")
-		expansion3:SetPoint("TOP", expansion2, "BOTTOM", 0, 0)
-
-		local expansion4 = rep_frame:CreateExpansionButton("Glues-WOW-MPLogo", "expansion4")
-		expansion4:SetPoint("TOP", expansion3, "BOTTOM", 0, 0)
-
-		rep_frame.toggle_expansion0 = expansion0
-		rep_frame.toggle_expansion1 = expansion1
-		rep_frame.toggle_expansion2 = expansion2
-		rep_frame.toggle_expansion3 = expansion3
-		rep_frame.toggle_expansion4 = expansion4
+			rep_frame["toggle_expansion" .. index - 1] = expansion_button
+		end
 	end	-- do
-
-	-------------------------------------------------------------------------------
-	-- Check to see if we're Horde or Alliance, and change the displayed
-	-- reputation strings to be faction-correct.
-	-------------------------------------------------------------------------------
-	local isAlliance = (private.Player.faction == "Alliance")
-
-	local HonorHold_Thrallmar_Text =	isAlliance and FAC["Honor Hold"] 	or FAC["Thrallmar"]
-	local Kurenai_Maghar_Text = 		isAlliance and FAC["Kurenai"] 		or FAC["The Mag'har"]
-	local Vanguard_Expedition_Text = 	isAlliance and FAC["Alliance Vanguard"] or FAC["Horde Expedition"]
-	local SilverCov_Sunreaver_Text = 	isAlliance and FAC["The Silver Covenant"] or FAC["The Sunreavers"]
-	local Valiance_Warsong_Text = 		isAlliance and FAC["Valiance Expedition"] or FAC["Warsong Offensive"]
-	local Frostborn_Taunka_Text = 		isAlliance and FAC["The Frostborn"] 	or FAC["The Taunka"]
-	local Explorer_Hand_Text = 		isAlliance and FAC["Explorers' League"] or FAC["The Hand of Vengeance"]
-	local Tol_Barad = 			isAlliance and FAC["Baradin's Wardens"] or FAC["Hellscream's Reach"]
-	local Wildhammer_Dragonmaw = 		isAlliance and FAC["Wildhammer Clan"]	or FAC["Dragonmaw Clan"]
-	local Tushui_Huojin =			isAlliance and FAC["Tushui Pandaren"]	or FAC["Huojin Pandaren"]
 
 	-- Used for the tooltip of every reputation checkbox.
 	local function ReputationDesc(text)
@@ -881,287 +855,54 @@ function private.InitializeFilterPanel()
 		MainPanel:UpdateTitle()
 		MainPanel.list_frame:Update(nil, false)
 	end
-	-------------------------------------------------------------------------------
-	-- Create FilterPanel.rep.expansion0, and set its scripts.
-	-------------------------------------------------------------------------------
-	do
-		local expansion0_frame = _G.CreateFrame("Frame", nil, FilterPanel.rep)
-		expansion0_frame:SetWidth(200)
-		expansion0_frame:SetHeight(FILTERMENU_HEIGHT)
-		expansion0_frame:EnableMouse(true)
-		expansion0_frame:EnableKeyboard(true)
-		expansion0_frame:SetMovable(false)
-		expansion0_frame:SetPoint("TOPRIGHT", FilterPanel, "TOPRIGHT", 0, 0)
-		expansion0_frame:Hide()
 
-		FilterPanel.rep.expansion0 = expansion0_frame
+	-------------------------------------------------------------------------------
+	-- Create FilterPanel.rep.expansionX, and set its scripts.
+	-------------------------------------------------------------------------------
+	local function CreateExpansionFrame(expansion_num)
+		local expansion_frame = _G.CreateFrame("Frame", nil, FilterPanel.rep)
+		expansion_frame:SetWidth(200)
+		expansion_frame:SetHeight(FILTERMENU_HEIGHT)
+		expansion_frame:EnableMouse(true)
+		expansion_frame:EnableKeyboard(true)
+		expansion_frame:SetMovable(false)
+		expansion_frame:SetPoint("TOPRIGHT", FilterPanel, "TOPRIGHT", 0, 0)
+		expansion_frame:Hide()
+
+		FilterPanel.rep[("expansion%d"):format(expansion_num)] = expansion_frame
 
 		-------------------------------------------------------------------------------
 		-- Create the Reputation toggle and CheckButtons
 		-------------------------------------------------------------------------------
-		local expansion0_buttons = {
-			argentdawn		= { tt = ReputationDesc(FAC["Argent Dawn"]),		text = FAC["Argent Dawn"],		row = 2, col = 1 },
-			cenarioncircle		= { tt = ReputationDesc(FAC["Cenarion Circle"]),	text = FAC["Cenarion Circle"],		row = 3, col = 1 },
-			thoriumbrotherhood	= { tt = ReputationDesc(FAC["Thorium Brotherhood"]),	text = FAC["Thorium Brotherhood"],	row = 4, col = 1 },
-			timbermaw		= { tt = ReputationDesc(FAC["Timbermaw Hold"]),		text = FAC["Timbermaw Hold"],		row = 5, col = 1 },
-			zandalar		= { tt = ReputationDesc(FAC["Zandalar Tribe"]),		text = FAC["Zandalar Tribe"],		row = 6, col = 1 },
-		}
-		private.GenerateCheckBoxes(expansion0_frame, expansion0_buttons)
+		local expansion_buttons = {}
+		local reputations = private[("EXPANSION%d_REPUTATIONS"):format(expansion_num)]
 
-		local expansion0_toggle = _G.CreateFrame("Button", nil, expansion0_frame)
-		expansion0_toggle:SetWidth(105)
-		expansion0_toggle:SetHeight(20)
-		expansion0_toggle:SetNormalFontObject("QuestTitleFont")
-		expansion0_toggle:SetHighlightFontObject("QuestTitleFontBlackShadow")
-		expansion0_toggle:SetText(_G.REPUTATION .. ":")
-		expansion0_toggle:SetPoint("TOPLEFT", expansion0_frame, "TOPLEFT", -2, -7)
-		expansion0_toggle:RegisterForClicks("LeftButtonUp", "RightButtonUp")
-
-		private.SetTooltipScripts(expansion0_toggle, L["GROUP_TOGGLE_FORMAT"]:format(_G.REPUTATION))
-
-		expansion0_toggle.buttons = expansion0_buttons
-		expansion0_toggle.frame = expansion0_frame
-
-		expansion0_toggle:SetScript("OnClick", ToggleExpansionCheckBoxes)
-	end	-- do-block
-
-	-------------------------------------------------------------------------------
-	-- Create FilterPanel.rep.expansion1, and set its scripts.
-	-------------------------------------------------------------------------------
-	do
-		local expansion1_frame = _G.CreateFrame("Frame", nil, FilterPanel.rep)
-		expansion1_frame:SetWidth(200)
-		expansion1_frame:SetHeight(FILTERMENU_HEIGHT)
-		expansion1_frame:EnableMouse(true)
-		expansion1_frame:EnableKeyboard(true)
-		expansion1_frame:SetMovable(false)
-		expansion1_frame:SetPoint("TOPRIGHT", FilterPanel, "TOPRIGHT", -0, -0)
-		expansion1_frame:Hide()
-
-		FilterPanel.rep.expansion1 = expansion1_frame
-
-		-------------------------------------------------------------------------------
-		-- Create the Reputation toggle and CheckButtons
-		-------------------------------------------------------------------------------
-		local expansion1_buttons = {
-			aldor			= { tt = ReputationDesc(FAC["The Aldor"]),			text = FAC["The Aldor"],		row = 2,	col = 1 },
-			ashtonguedeathsworn	= { tt = ReputationDesc(FAC["Ashtongue Deathsworn"]),		text = FAC["Ashtongue Deathsworn"],	row = 3,	col = 1 },
-			cenarionexpedition	= { tt = ReputationDesc(FAC["Cenarion Expedition"]),		text = FAC["Cenarion Expedition"],	row = 4,	col = 1 },
-			consortium		= { tt = ReputationDesc(FAC["The Consortium"]),			text = FAC["The Consortium"],		row = 5,	col = 1 },
-			hellfire		= { tt = ReputationDesc(HonorHold_Thrallmar_Text),		text = HonorHold_Thrallmar_Text,	row = 6,	col = 1 },
-			keepersoftime		= { tt = ReputationDesc(FAC["Keepers of Time"]),		text = FAC["Keepers of Time"],		row = 7,	col = 1 },
-			nagrand			= { tt = ReputationDesc(Kurenai_Maghar_Text),			text = Kurenai_Maghar_Text,		row = 8,	col = 1 },
-			lowercity		= { tt = ReputationDesc(FAC["Lower City"]),			text = FAC["Lower City"],		row = 9,	col = 1 },
-			scaleofthesands		= { tt = ReputationDesc(FAC["The Scale of the Sands"]),		text = FAC["The Scale of the Sands"],	row = 10,	col = 1 },
-			scryer			= { tt = ReputationDesc(FAC["The Scryers"]),			text = FAC["The Scryers"],		row = 11,	col = 1 },
-			shatar			= { tt = ReputationDesc(FAC["The Sha'tar"]),			text = FAC["The Sha'tar"],		row = 12,	col = 1 },
-			shatteredsun		= { tt = ReputationDesc(FAC["Shattered Sun Offensive"]),	text = FAC["Shattered Sun Offensive"],	row = 13,	col = 1 },
-			sporeggar		= { tt = ReputationDesc(FAC["Sporeggar"]),			text = FAC["Sporeggar"],		row = 14,	col = 1 },
-			violeteye		= { tt = ReputationDesc(FAC["The Violet Eye"]),			text = FAC["The Violet Eye"],		row = 15,	col = 1 },
-		}
-		private.GenerateCheckBoxes(expansion1_frame, expansion1_buttons)
-
-		local expansion1_toggle = _G.CreateFrame("Button", nil, expansion1_frame)
-		expansion1_toggle:SetWidth(105)
-		expansion1_toggle:SetHeight(20)
-		expansion1_toggle:SetNormalFontObject("QuestTitleFont")
-		expansion1_toggle:SetHighlightFontObject("QuestTitleFontBlackShadow")
-		expansion1_toggle:SetText(_G.REPUTATION .. ":")
-		expansion1_toggle:SetPoint("TOPLEFT", expansion1_frame, "TOPLEFT", -2, -7)
-		expansion1_toggle:RegisterForClicks("LeftButtonUp", "RightButtonUp")
-
-		private.SetTooltipScripts(expansion1_toggle, L["GROUP_TOGGLE_FORMAT"]:format(_G.REPUTATION))
-
-		expansion1_toggle.buttons = expansion1_buttons
-		expansion1_toggle.frame = expansion1_frame
-
-		expansion1_toggle:SetScript("OnClick", ToggleExpansionCheckBoxes)
-	end	-- do-block
-
-	-------------------------------------------------------------------------------
-	-- Create FilterPanel.rep.expansion2, and set its scripts.
-	-------------------------------------------------------------------------------
-	do
-		local expansion2_frame = _G.CreateFrame("Frame", nil, FilterPanel.rep)
-		expansion2_frame:SetWidth(200)
-		expansion2_frame:SetHeight(FILTERMENU_HEIGHT)
-		expansion2_frame:EnableMouse(true)
-		expansion2_frame:EnableKeyboard(true)
-		expansion2_frame:SetMovable(false)
-		expansion2_frame:SetPoint("TOPRIGHT", FilterPanel, "TOPRIGHT", 0, 0)
-		expansion2_frame:Hide()
-
-		FilterPanel.rep.expansion2 = expansion2_frame
-
-		-------------------------------------------------------------------------------
-		-- Create the Reputation toggle and CheckButtons
-		-------------------------------------------------------------------------------
-		local function DisabledText(text)
-			return SetTextColor(private.BASIC_COLORS.grey.hex, text)
+		for index = 1, #reputations do
+			local rep_name = reputations[index]
+			expansion_buttons[rep_name:lower()] = { text = LFAC[rep_name], tt = ReputationDesc(LFAC[rep_name]), row = index + 1, col = 1 }
 		end
+		private.GenerateCheckBoxes(expansion_frame, expansion_buttons)
 
-		local expansion2_buttons = {
-			wrathcommon1	= { tt = ReputationDesc(Vanguard_Expedition_Text),		text = Vanguard_Expedition_Text,		row = 2,	col = 1 },
-			argentcrusade	= { tt = ReputationDesc(FAC["Argent Crusade"]),			text = FAC["Argent Crusade"],			row = 3,	col = 1 },
-			wrathcommon5	= { tt = ReputationDesc(Explorer_Hand_Text),			text = DisabledText(Explorer_Hand_Text),	row = 4,	col = 1 },
-			frenzyheart	= { tt = ReputationDesc(FAC["Frenzyheart Tribe"]),		text = FAC["Frenzyheart Tribe"],		row = 5,	col = 1 },
-			kaluak		= { tt = ReputationDesc(FAC["The Kalu'ak"]),			text = FAC["The Kalu'ak"],			row = 6,	col = 1 },
-			kirintor	= { tt = ReputationDesc(FAC["Kirin Tor"]),			text = FAC["Kirin Tor"],			row = 7,	col = 1 },
-			ebonblade	= { tt = ReputationDesc(FAC["Knights of the Ebon Blade"]),	text = FAC["Knights of the Ebon Blade"],	row = 8,	col = 1 },
-			oracles		= { tt = ReputationDesc(FAC["The Oracles"]),			text = FAC["The Oracles"],			row = 9,	col = 1 },
-			wrathcommon2	= { tt = ReputationDesc(SilverCov_Sunreaver_Text),		text = DisabledText(SilverCov_Sunreaver_Text),	row = 10,	col = 1 },
-			sonsofhodir	= { tt = ReputationDesc(FAC["The Sons of Hodir"]),		text = FAC["The Sons of Hodir"],		row = 11,	col = 1 },
-			wrathcommon4	= { tt = ReputationDesc(Frostborn_Taunka_Text),			text = DisabledText(Frostborn_Taunka_Text),	row = 12,	col = 1 },
-			wrathcommon3	= { tt = ReputationDesc(Valiance_Warsong_Text),			text = DisabledText(Valiance_Warsong_Text),	row = 13,	col = 1 },
-			wyrmrest	= { tt = ReputationDesc(FAC["The Wyrmrest Accord"]),		text = FAC["The Wyrmrest Accord"],		row = 14,	col = 1 },
-			ashenverdict	= { tt = ReputationDesc(FAC["The Ashen Verdict"]),		text = FAC["The Ashen Verdict"],		row = 15,	col = 1 },
-		}
-		private.GenerateCheckBoxes(expansion2_frame, expansion2_buttons)
+		local expansion_toggle = _G.CreateFrame("Button", nil, expansion_frame)
+		expansion_toggle:SetWidth(105)
+		expansion_toggle:SetHeight(20)
+		expansion_toggle:SetNormalFontObject("QuestTitleFont")
+		expansion_toggle:SetHighlightFontObject("QuestTitleFontBlackShadow")
+		expansion_toggle:SetText(_G.REPUTATION .. ":")
+		expansion_toggle:SetPoint("TOPLEFT", expansion_frame, "TOPLEFT", -2, -7)
+		expansion_toggle:RegisterForClicks("LeftButtonUp", "RightButtonUp")
 
-		-- Disable these for now, since they have no recipes.
-		expansion2_frame.wrathcommon2:Disable()
-		expansion2_frame.wrathcommon3:Disable()
-		expansion2_frame.wrathcommon4:Disable()
-		expansion2_frame.wrathcommon5:Disable()
+		private.SetTooltipScripts(expansion_toggle, L["GROUP_TOGGLE_FORMAT"]:format(_G.REPUTATION))
 
-		local expansion2_toggle = _G.CreateFrame("Button", nil, expansion2_frame)
-		expansion2_toggle:SetWidth(105)
-		expansion2_toggle:SetHeight(20)
-		expansion2_toggle:SetNormalFontObject("QuestTitleFont")
-		expansion2_toggle:SetHighlightFontObject("QuestTitleFontBlackShadow")
-		expansion2_toggle:SetText(_G.REPUTATION .. ":")
-		expansion2_toggle:SetPoint("TOPLEFT", expansion2_frame, "TOPLEFT", -2, -7)
-		expansion2_toggle:RegisterForClicks("LeftButtonUp", "RightButtonUp")
+		expansion_toggle.buttons = expansion_buttons
+		expansion_toggle.frame = expansion_frame
 
-		private.SetTooltipScripts(expansion2_toggle, L["GROUP_TOGGLE_FORMAT"]:format(_G.REPUTATION))
+		expansion_toggle:SetScript("OnClick", ToggleExpansionCheckBoxes)
+	end
 
-		expansion2_toggle.buttons = expansion2_buttons
-		expansion2_toggle.frame = expansion2_frame
-
-		expansion2_toggle:SetScript("OnClick", ToggleExpansionCheckBoxes)
-	end	-- do-block
-
-	-------------------------------------------------------------------------------
-	-- Create FilterPanel.rep.expansion3, and set its scripts.
-	-------------------------------------------------------------------------------
-	do
-		local expansion3_frame = _G.CreateFrame("Frame", nil, FilterPanel.rep)
-		expansion3_frame:SetWidth(200)
-		expansion3_frame:SetHeight(FILTERMENU_HEIGHT)
-		expansion3_frame:EnableMouse(true)
-		expansion3_frame:EnableKeyboard(true)
-		expansion3_frame:SetMovable(false)
-		expansion3_frame:SetPoint("TOPRIGHT", FilterPanel, "TOPRIGHT", 0, 0)
-		expansion3_frame:Hide()
-
-		FilterPanel.rep.expansion3 = expansion3_frame
-
-		-------------------------------------------------------------------------------
-		-- Create the Reputation toggle and CheckButtons
-		-------------------------------------------------------------------------------
-		local function DisabledText(text)
-			return SetTextColor(private.BASIC_COLORS.grey.hex, text)
-		end
-
-		local expansion3_buttons = {
-			catacommon1		= { tt = ReputationDesc(Wildhammer_Dragonmaw),			text = DisabledText(Wildhammer_Dragonmaw),		row = 2,	col = 1 },
-			catacommon2		= { tt = ReputationDesc(Tol_Barad),				text = DisabledText(Tol_Barad),				row = 3,	col = 1 },
-			guardiansofhyjal	= { tt = ReputationDesc(FAC["Guardians of Hyjal"]),		text = DisabledText(FAC["Guardians of Hyjal"]),		row = 4,	col = 1 },
-			ramkahen		= { tt = ReputationDesc(FAC["Ramkahen"]),			text = DisabledText(FAC["Ramkahen"]),			row = 5,	col = 1 },
-			earthenring		= { tt = ReputationDesc(FAC["The Earthen Ring"]),		text = DisabledText(FAC["The Earthen Ring"]),		row = 6,	col = 1 },
-			therazane		= { tt = ReputationDesc(FAC["Therazane"]),			text = DisabledText(FAC["Therazane"]),			row = 7,	col = 1 },
-		}
-		private.GenerateCheckBoxes(expansion3_frame, expansion3_buttons)
-
-		-- Disable them as the data isn't in yet.
-		expansion3_frame.catacommon1:Disable()
-		expansion3_frame.catacommon2:Disable()
-		expansion3_frame.guardiansofhyjal:Disable()
-		expansion3_frame.ramkahen:Disable()
-		expansion3_frame.earthenring:Disable()
-		expansion3_frame.therazane:Disable()
-
-		local expansion3_toggle = _G.CreateFrame("Button", nil, expansion3_frame)
-		expansion3_toggle:SetWidth(105)
-		expansion3_toggle:SetHeight(20)
-		expansion3_toggle:SetNormalFontObject("QuestTitleFont")
-		expansion3_toggle:SetHighlightFontObject("QuestTitleFontBlackShadow")
-		expansion3_toggle:SetText(_G.REPUTATION .. ":")
-		expansion3_toggle:SetPoint("TOPLEFT", expansion3_frame, "TOPLEFT", -2, -7)
-		expansion3_toggle:RegisterForClicks("LeftButtonUp", "RightButtonUp")
-
-		private.SetTooltipScripts(expansion3_toggle, L["GROUP_TOGGLE_FORMAT"]:format(_G.REPUTATION))
-
-		expansion3_toggle.buttons = expansion3_buttons
-		expansion3_toggle.frame = expansion3_frame
-
-		expansion3_toggle:SetScript("OnClick", ToggleExpansionCheckBoxes)
-	end	-- do-block
-
-	-------------------------------------------------------------------------------
-	-- Create FilterPanel.rep.expansion4, and set its scripts.
-	-------------------------------------------------------------------------------
-	do
-		local expansion4_frame = _G.CreateFrame("Frame", nil, FilterPanel.rep)
-		expansion4_frame:SetWidth(200)
-		expansion4_frame:SetHeight(FILTERMENU_HEIGHT)
-		expansion4_frame:EnableMouse(true)
-		expansion4_frame:EnableKeyboard(true)
-		expansion4_frame:SetMovable(false)
-		expansion4_frame:SetPoint("TOPRIGHT", FilterPanel, "TOPRIGHT", 0, 0)
-		expansion4_frame:Hide()
-
-		FilterPanel.rep.expansion4 = expansion4_frame
-
-		-------------------------------------------------------------------------------
-		-- Create the Reputation toggle and CheckButtons
-		-------------------------------------------------------------------------------
-		local function DisabledText(text)
-			return SetTextColor(private.BASIC_COLORS.grey.hex, text)
-		end
-
-		local expansion4_buttons = {
-			foresthozen		= { tt = ReputationDesc(FAC["Forest Hozen"]),			text = FAC["Forest Hozen"],				row = 2,	col = 1 },
-			goldenlotus		= { tt = ReputationDesc(FAC["Golden Lotus"]),			text = FAC["Golden Lotus"],				row = 3,	col = 1 },
-			cloudserpent		= { tt = ReputationDesc(FAC["Order of the Cloud Serpent"]),	text = FAC["Order of the Cloud Serpent"],		row = 4,	col = 1 },
-			pearlfinjinyu		= { tt = ReputationDesc(FAC["Pearlfin Jinyu"]),			text = FAC["Pearlfin Jinyu"],				row = 5,	col = 1 },
-			shadopan		= { tt = ReputationDesc(FAC["Shado-Pan"]),			text = FAC["Shado-Pan"],				row = 6,	col = 1 },
-			anglers			= { tt = ReputationDesc(FAC["The Anglers"]),			text = FAC["The Anglers"],				row = 7,	col = 1 },
-			augustcelestials	= { tt = ReputationDesc(FAC["The August Celestials"]),		text = FAC["The August Celestials"],			row = 8,	col = 1 },
-			brewmasters		= { tt = ReputationDesc(FAC["The Brewmasters"]),		text = FAC["The Brewmasters"],				row = 9,	col = 1 },
-			klaxxi			= { tt = ReputationDesc(FAC["The Klaxxi"]),			text = FAC["The Klaxxi"],				row = 10,	col = 1 },
-			lorewalkers		= { tt = ReputationDesc(FAC["The Lorewalkers"]),		text = FAC["The Lorewalkers"],				row = 11,	col = 1 },
-			tillers			= { tt = ReputationDesc(FAC["The Tillers"]),			text = FAC["The Tillers"],				row = 12,	col = 1 },
-			blackprince		= { tt = ReputationDesc(FAC["The Black Prince"]),		text = FAC["The Black Prince"],				row = 13,	col = 1 },
-			shangxiacademy		= { tt = ReputationDesc(FAC["Shang Xi's Academy"]),		text = FAC["Shang Xi's Academy"],			row = 14,	col = 1 },
-			pandacommon1		= { tt = ReputationDesc(Tushui_Huojin),				text = Tushui_Huojin,					row = 15,	col = 1 },
-		}
-		private.GenerateCheckBoxes(expansion4_frame, expansion4_buttons)
-
-		-- Disable them as the data isn't in yet.
---		expansion4_frame.catacommon1:Disable()
---		expansion4_frame.catacommon2:Disable()
---		expansion4_frame.guardiansofhyjal:Disable()
---		expansion4_frame.ramkahen:Disable()
---		expansion4_frame.earthenring:Disable()
---		expansion4_frame.therazane:Disable()
-
-		local expansion4_toggle = _G.CreateFrame("Button", nil, expansion4_frame)
-		expansion4_toggle:SetWidth(105)
-		expansion4_toggle:SetHeight(20)
-		expansion4_toggle:SetNormalFontObject("QuestTitleFont")
-		expansion4_toggle:SetHighlightFontObject("QuestTitleFontBlackShadow")
-		expansion4_toggle:SetText(_G.REPUTATION .. ":")
-		expansion4_toggle:SetPoint("TOPLEFT", expansion4_frame, "TOPLEFT", -2, -7)
-		expansion4_toggle:RegisterForClicks("LeftButtonUp", "RightButtonUp")
-
-		private.SetTooltipScripts(expansion4_toggle, L["GROUP_TOGGLE_FORMAT"]:format(_G.REPUTATION))
-
-		expansion4_toggle.buttons = expansion4_buttons
-		expansion4_toggle.frame = expansion4_frame
-
-		expansion4_toggle:SetScript("OnClick", ToggleExpansionCheckBoxes)
-	end	-- do-block
+	for index = 1, #private.GAME_VERSION_NAMES do
+		CreateExpansionFrame(index - 1)
+	end
 
 	-------------------------------------------------------------------------------
 	-- Miscellaneous Filter Menu
@@ -1400,6 +1141,7 @@ function private.InitializeFilterPanel()
 	local expansion2 = FilterPanel.rep.expansion2
 	local expansion3 = FilterPanel.rep.expansion3
 	local expansion4 = FilterPanel.rep.expansion4
+	local expansion5 = FilterPanel.rep.expansion5
 
 	FilterPanel.value_map = {
 		------------------------------------------------------------------------------------------------
@@ -1429,11 +1171,6 @@ function private.InitializeFilterPanel()
 		------------------------------------------------------------------------------------------------
 		achievement		= { cb = FilterPanel.obtain.achievement,		svroot = filterdb.obtain },
 		discovery		= { cb = FilterPanel.obtain.discovery,			svroot = filterdb.obtain },
-		expansion0		= { cb = FilterPanel.obtain.expansion0,			svroot = filterdb.obtain },
-		expansion1		= { cb = FilterPanel.obtain.expansion1,			svroot = filterdb.obtain },
-		expansion2		= { cb = FilterPanel.obtain.expansion2,			svroot = filterdb.obtain },
-		expansion3		= { cb = FilterPanel.obtain.expansion3,			svroot = filterdb.obtain },
-		expansion4		= { cb = FilterPanel.obtain.expansion4,			svroot = filterdb.obtain },
 		instance		= { cb = FilterPanel.obtain.instance,			svroot = filterdb.obtain },
 		mobdrop			= { cb = FilterPanel.obtain.mobdrop,			svroot = filterdb.obtain },
 		pvp			= { cb = FilterPanel.obtain.pvp,			svroot = filterdb.obtain },
@@ -1467,74 +1204,28 @@ function private.InitializeFilterPanel()
 		melee			= { cb = FilterPanel.player.melee,			svroot = filterdb.player },
 		healer			= { cb = FilterPanel.player.healer,			svroot = filterdb.player },
 		caster			= { cb = FilterPanel.player.caster,			svroot = filterdb.player },
-		------------------------------------------------------------------------------------------------
-		-- Old World Rep Options
-		------------------------------------------------------------------------------------------------
-		argentdawn		= { cb = expansion0.argentdawn,				svroot = filterdb.rep },
-		cenarioncircle		= { cb = expansion0.cenarioncircle,			svroot = filterdb.rep },
-		thoriumbrotherhood	= { cb = expansion0.thoriumbrotherhood,			svroot = filterdb.rep },
-		timbermaw		= { cb = expansion0.timbermaw,				svroot = filterdb.rep },
-		zandalar		= { cb = expansion0.zandalar,				svroot = filterdb.rep },
-		------------------------------------------------------------------------------------------------
-		-- The Burning Crusade Rep Options
-		------------------------------------------------------------------------------------------------
-		aldor			= { cb = expansion1.aldor,				svroot = filterdb.rep },
-		ashtonguedeathsworn	= { cb = expansion1.ashtonguedeathsworn,		svroot = filterdb.rep },
-		cenarionexpedition	= { cb = expansion1.cenarionexpedition,			svroot = filterdb.rep },
-		consortium		= { cb = expansion1.consortium,				svroot = filterdb.rep },
-		hellfire		= { cb = expansion1.hellfire,				svroot = filterdb.rep },
-		keepersoftime		= { cb = expansion1.keepersoftime,			svroot = filterdb.rep },
-		nagrand			= { cb = expansion1.nagrand,				svroot = filterdb.rep },
-		lowercity		= { cb = expansion1.lowercity,				svroot = filterdb.rep },
-		scaleofthesands		= { cb = expansion1.scaleofthesands,			svroot = filterdb.rep },
-		scryer			= { cb = expansion1.scryer,				svroot = filterdb.rep },
-		shatar			= { cb = expansion1.shatar,				svroot = filterdb.rep },
-		shatteredsun		= { cb = expansion1.shatteredsun,			svroot = filterdb.rep },
-		sporeggar		= { cb = expansion1.sporeggar,				svroot = filterdb.rep },
-		violeteye		= { cb = expansion1.violeteye,				svroot = filterdb.rep },
-		------------------------------------------------------------------------------------------------
-		-- Wrath of The Lich King Rep Options
-		------------------------------------------------------------------------------------------------
-		argentcrusade		= { cb = expansion2.argentcrusade,			svroot = filterdb.rep },
-		frenzyheart		= { cb = expansion2.frenzyheart,			svroot = filterdb.rep },
-		ebonblade		= { cb = expansion2.ebonblade,				svroot = filterdb.rep },
-		kirintor		= { cb = expansion2.kirintor,				svroot = filterdb.rep },
-		sonsofhodir		= { cb = expansion2.sonsofhodir,			svroot = filterdb.rep },
-		kaluak			= { cb = expansion2.kaluak,				svroot = filterdb.rep },
-		oracles			= { cb = expansion2.oracles,				svroot = filterdb.rep },
-		wyrmrest		= { cb = expansion2.wyrmrest,				svroot = filterdb.rep },
-		ashenverdict		= { cb = expansion2.ashenverdict,			svroot = filterdb.rep },
-		wrathcommon1		= { cb = expansion2.wrathcommon1,			svroot = filterdb.rep },
-		wrathcommon2		= { cb = expansion2.wrathcommon2,			svroot = nil },
-		wrathcommon3		= { cb = expansion2.wrathcommon3,			svroot = nil },
-		wrathcommon4		= { cb = expansion2.wrathcommon4,			svroot = nil },
-		wrathcommon5		= { cb = expansion2.wrathcommon5,			svroot = nil },
-		------------------------------------------------------------------------------------------------
-		-- Cataclysm Rep Options
-		------------------------------------------------------------------------------------------------
-		catacommon1		= { cb = expansion3.catacommon1,			svroot = nil },
-		catacommon2		= { cb = expansion3.catacommon2,			svroot = nil },
-		guardiansofhyjal	= { cb = expansion3.guardiansofhyjal,			svroot = nil },
-		ramkahen		= { cb = expansion3.ramkahen,				svroot = nil },
-		earthenring		= { cb = expansion3.earthenring,			svroot = nil },
-		therazane		= { cb = expansion3.therazane,				svroot = nil },
-		------------------------------------------------------------------------------------------------
-		-- Mists of Pandaria Rep Options
-		------------------------------------------------------------------------------------------------
-		foresthozen		= { cb = expansion4.foresthozen,			svroot = filterdb.rep },
-		goldenlotus		= { cb = expansion4.goldenlotus,			svroot = filterdb.rep },
-		cloudserpent		= { cb = expansion4.cloudserpent,			svroot = filterdb.rep },
-		pearlfinjinyu		= { cb = expansion4.pearlfinjinyu,			svroot = filterdb.rep },
-		shadopan		= { cb = expansion4.shadopan,				svroot = filterdb.rep },
-		anglers			= { cb = expansion4.anglers,				svroot = filterdb.rep },
-		augustcelestials	= { cb = expansion4.augustcelestials,			svroot = filterdb.rep },
-		brewmasters		= { cb = expansion4.brewmasters,			svroot = filterdb.rep },
-		klaxxi			= { cb = expansion4.klaxxi,				svroot = filterdb.rep },
-		lorewalkers		= { cb = expansion4.lorewalkers,			svroot = filterdb.rep },
-		tillers			= { cb = expansion4.tillers,				svroot = filterdb.rep },
-		blackprince		= { cb = expansion4.blackprince,			svroot = filterdb.rep },
-		shangxiacademy		= { cb = expansion4.shangxiacademy,			svroot = filterdb.rep },
-		pandacommon1		= { cb = expansion4.pandacommon1,			svroot = filterdb.rep },
 	}
+
+	------------------------------------------------------------------------------------------------
+	-- Expansion and Reputation Options
+	------------------------------------------------------------------------------------------------
+	for expansion_index = 1, #private.GAME_VERSION_NAMES do
+		local expansion_name = ("expansion%d"):format(expansion_index - 1)
+		FilterPanel.value_map[expansion_name] = {
+			cb = FilterPanel.obtain[expansion_name],
+			svroot = filterdb.obtain
+		}
+
+		local reputations = private[("EXPANSION%d_REPUTATIONS"):format(expansion_index - 1)]
+		for reputation_index = 1, #reputations do
+			local reputation_name = reputations[reputation_index]:lower()
+
+			FilterPanel.value_map[reputation_name] = {
+				cb = FilterPanel.rep[expansion_name][reputation_name],
+				svroot = filterdb.rep
+			}
+		end
+	end
+
 	private.InitializeFilterPanel = nil
 end

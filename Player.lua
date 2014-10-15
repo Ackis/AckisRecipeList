@@ -114,24 +114,30 @@ function Player:HasProperRepLevel(rep_data)
 	end
 	local is_alliance = self.faction == "Alliance"
 	local reputation_levels = self.reputation_levels
-	local FAC = private.FACTION_IDS
+	local FAC = private.FACTION_IDS_FROM_LABEL
 	local has_faction = true
 
 	for rep_id, rep_info in pairs(rep_data) do
-		for rep_level in pairs(rep_info) do
-			if rep_id == FAC.HONOR_HOLD or rep_id == FAC.THRALLMAR then
-				rep_id = is_alliance and FAC.HONOR_HOLD or FAC.THRALLMAR
-			elseif rep_id == FAC.MAGHAR or rep_id == FAC.KURENAI then
-				rep_id = is_alliance and FAC.KURENAI or FAC.MAGHAR
-			end
-			local rep_name = private.AcquireTypes.Reputation:GetEntity(rep_id).name
+		local reputation = private.AcquireTypes.Reputation:GetEntity(rep_id)
 
-			if not reputation_levels[rep_name] or reputation_levels[rep_name] < rep_level then
-				has_faction = false
-			else
-				has_faction = true
-				break
+		if reputation then
+			local rep_name = reputation.name
+			for rep_level in pairs(rep_info) do
+				if rep_id == FAC.HONOR_HOLD or rep_id == FAC.THRALLMAR then
+					rep_id = is_alliance and FAC.HONOR_HOLD or FAC.THRALLMAR
+				elseif rep_id == FAC.MAGHAR or rep_id == FAC.KURENAI then
+					rep_id = is_alliance and FAC.KURENAI or FAC.MAGHAR
+				end
+
+				if not reputation_levels[rep_name] or reputation_levels[rep_name] < rep_level then
+					has_faction = false
+				else
+					has_faction = true
+					break
+				end
 			end
+		else
+			addon:Debug("Unable to find reputation data for ID %d.", rep_id)
 		end
 	end
 	return has_faction

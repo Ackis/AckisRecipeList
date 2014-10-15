@@ -1,17 +1,4 @@
 -------------------------------------------------------------------------------
--- Constants.lua
--------------------------------------------------------------------------------
--- File date: @file-date-iso@
--- File hash: @file-abbreviated-hash@
--- Project hash: @project-abbreviated-hash@
--- Project version: @project-version@
--------------------------------------------------------------------------------
--- Please see http://www.wowace.com/addons/arl/ for more information.
--------------------------------------------------------------------------------
--- This source code is released under All Rights Reserved.
--------------------------------------------------------------------------------
-
--------------------------------------------------------------------------------
 -- Upvalued Lua API
 -------------------------------------------------------------------------------
 local _G = getfenv(0)
@@ -172,6 +159,7 @@ private.GAME_VERSION_NAMES = {
 	[3] = "WOTLK",
 	[4] = "CATA",
 	[5] = "MOP",
+	[6] = "WOD",
 }
 
 private.GAME_VERSIONS = {}
@@ -186,6 +174,15 @@ private.EXPANSION_FILTERS = {}
 for index = 1, #private.GAME_VERSION_NAMES do
 	private.EXPANSION_FILTERS[index] = ("expansion%d"):format(index - 1)
 end
+
+private.EXPANSION_LOGO_TEXTURES = {
+	[[Interface\Glues\Common\Glues-WoW-Logo]],
+	[[Interface\Glues\Common\GLUES-WOW-BCLOGO]],
+	[[Interface\Glues\Common\Glues-WOW-WotlkLogo]],
+	[[Interface\Glues\Common\Glues-WOW-CCLogo]],
+	[[Interface\Glues\Common\Glues-WOW-MPLogo]],
+	[[Interface\Glues\Common\Glues-WOW-WoDLogo]],
+}
 
 -------------------------------------------------------------------------------
 -- Common filter bitfield word 1.
@@ -235,109 +232,16 @@ private.CLASS_FLAGS_WORD1 = {
 	MONK	= 0x00000400,	-- 11
 }
 
--------------------------------------------------------------------------------
--- Reputation filter bitfield word 1.
--------------------------------------------------------------------------------
-private.REP_FLAGS_WORD1 = {
-	ARGENTDAWN		= 0x00000001,	-- 1
-	CENARION_CIRCLE		= 0x00000002,	-- 2
-	THORIUM_BROTHERHOOD	= 0x00000004,	-- 3
-	TIMBERMAW_HOLD		= 0x00000008,	-- 4
-	ZANDALAR		= 0x00000010,	-- 5
-	ALDOR			= 0x00000020,	-- 6
-	ASHTONGUE		= 0x00000040,	-- 7
-	CENARION_EXPEDITION	= 0x00000080,	-- 8
-	HELLFIRE		= 0x00000100,	-- 9
-	CONSORTIUM		= 0x00000200,	-- 10
-	KOT			= 0x00000400,	-- 11
-	LOWERCITY		= 0x00000800,	-- 12
-	NAGRAND			= 0x00001000,	-- 13
-	SCALE_SANDS		= 0x00002000,	-- 14
-	SCRYER			= 0x00004000,	-- 15
-	SHATAR			= 0x00008000,	-- 16
-	SHATTEREDSUN		= 0x00010000,	-- 17
-	SPOREGGAR		= 0x00020000,	-- 18
-	VIOLETEYE		= 0x00040000,	-- 19
-	ARGENTCRUSADE		= 0x00080000,	-- 20
-	FRENZYHEART		= 0x00100000,	-- 21
-	EBONBLADE		= 0x00200000,	-- 22
-	KIRINTOR		= 0x00400000,	-- 23
-	HODIR			= 0x00800000,	-- 24
-	KALUAK			= 0x01000000,	-- 25
-	ORACLES			= 0x02000000,	-- 26
-	WYRMREST		= 0x04000000,	-- 27
-	WRATHCOMMON1		= 0x08000000,	-- 28
-	WRATHCOMMON2		= 0x10000000,	-- 29
-	WRATHCOMMON3		= 0x20000000,	-- 30
-	WRATHCOMMON4		= 0x40000000,	-- 31
-	WRATHCOMMON5		= 0x80000000,	-- 32
-}
-
--------------------------------------------------------------------------------
--- Reputation filter bitfield word 2.
--------------------------------------------------------------------------------
-private.REP_FLAGS_WORD2 = {
-	ASHEN_VERDICT		= 0x00000001,	-- 1
-	CATACOMMON1		= 0x00000002,	-- 2
-	CATACOMMON2		= 0x00000004,	-- 3
-	GUARDIANS		= 0x00000008,	-- 4
-	RAMKAHEN		= 0x00000010,	-- 5
-	EARTHEN_RING		= 0x00000020,	-- 6
-	THERAZANE		= 0x00000040,	-- 7
-	FORESTHOZEN		= 0X00000080,	-- 8
-	GOLDENLOTUS		= 0X00000100,	-- 9
-	CLOUDSERPENT		= 0X00000200,	-- 10
-	PEARLFINJINYU		= 0X00000400,	-- 11
-	SHADOPAN		= 0X00000800,	-- 12
-	ANGLERS			= 0X00001000,	-- 13
-	AUGUSTCELESTIALS	= 0X00002000,	-- 14
-	BREWMASTERS		= 0X00004000,	-- 15
-	KLAXXI			= 0X00008000,	-- 16
-	LOREWALKERS		= 0X00010000,	-- 17
-	TILLERS			= 0X00020000,	-- 18
-	BLACKPRINCE		= 0X00040000,	-- 19
-	SHANGXIACADEMY		= 0X00080000,	-- 20
-	PANDACOMMON1		= 0X00100000,	-- 21
-}
-
--------------------------------------------------------------------------------
--- Item filter bitfield word 1.
--------------------------------------------------------------------------------
-private.ITEM_FLAGS_WORD1 = {
-	--	UNUSED	= 0x00000001 -- 1
-}
-
 private.FLAG_WORDS = {
 	private.COMMON_FLAGS_WORD1,
 	private.CLASS_FLAGS_WORD1,
-	private.REP_FLAGS_WORD1,
-	private.REP_FLAGS_WORD2,
-	private.ITEM_FLAGS_WORD1,
 }
 
 -- Member names within a recipe's flags table.
 private.FLAG_MEMBERS = {
 	"common1",
 	"class1",
-	"reputation1",
-	"reputation2",
-	"item1",
 }
-
-private.FILTER_STRINGS = {}
-
-for index = 1, #private.FLAG_WORDS do
-	for flag_name in pairs(private.FLAG_WORDS[index]) do
-		private.FILTER_STRINGS[#private.FILTER_STRINGS + 1] = flag_name
-	end
-end
-
-private.FILTER_IDS = {}
-constants.FILTER_IDS = private.FILTER_IDS
-
-for index = 1, #private.FILTER_STRINGS do
-	private.FILTER_IDS[private.FILTER_STRINGS[index]] = index
-end
 
 -------------------------------------------------------------------------------
 -- Item filter types.
@@ -364,174 +268,215 @@ end
 -------------------------------------------------------------------------------
 -- Factions.
 -------------------------------------------------------------------------------
-private.FACTION_STRINGS = {
+private.FACTION_LABELS_FROM_ID = {
+	-------------------------------------------------------------------------------
+	-- Classic
+	-------------------------------------------------------------------------------
 	[59]	= "THORIUM_BROTHERHOOD",
-	[270]	= "ZANDALAR",
-	[529]	= "ARGENTDAWN",
+	[529]	= "ARGENT_DAWN",
 	[576]	= "TIMBERMAW_HOLD",
-	[589]	= "WINTERSPRING",
 	[609]	= "CENARION_CIRCLE",
-	[932]	= "ALDOR",
-	[933]	= "CONSORTIUM",
-	[934]	= "SCRYER",
-	[935]	= "SHATAR",
-	[941]	= "MAGHAR",
+	-------------------------------------------------------------------------------
+	-- The Burning Crusade
+	-------------------------------------------------------------------------------
+	[932]	= "THE_ALDOR",
+	[933]	= "THE_CONSORTIUM",
+	[934]	= "THE_SCRYERS",
+	[935]	= "THE_SHATAR",
+	[941]	= "THE_MAGHAR",
 	[942]	= "CENARION_EXPEDITION",
 	[946]	= "HONOR_HOLD",
 	[947]	= "THRALLMAR",
-	[967]	= "VIOLETEYE",
+	[967]	= "THE_VIOLET_EYE",
 	[970]	= "SPOREGGAR",
 	[978]	= "KURENAI",
 	[989]	= "KEEPERS_OF_TIME",
-	[990]	= "SCALE_OF_SANDS",
-	[1011]	= "LOWERCITY",
-	[1012]	= "ASHTONGUE",
+	[990]	= "THE_SCALE_OF_THE_SANDS",
+	[1011]	= "LOWER_CITY",
+	[1012]	= "ASHTONGUE_DEATHSWORN",
+	[1077]	= "SHATTERED_SUN_OFFENSIVE",
+	-------------------------------------------------------------------------------
+	-- Wrath of the Lich King
+	-------------------------------------------------------------------------------
 	[1037]	= "ALLIANCE_VANGUARD",
-	[1050]  = "VALLIANCE",
 	[1052]	= "HORDE_EXPEDITION",
-	[1064]  = "TAUNKA",
-	[1067]  = "HAND_VENGANCE",
-	[1068]	= "EXPLORERS_LEAGUE",
-	[1073]	= "KALUAK",
-	[1077]	= "SHATTEREDSUN",
-	[1085]  = "WARSONG",
-	[1090]	= "KIRINTOR",
-	[1091]	= "WYRMREST",
-	[1094]  = "SILVER_COVENANT",
-	[1098]	= "EBONBLADE",
-	[1104]	= "FRENZYHEART",
-	[1105]	= "ORACLES",
-	[1106]	= "ARGENTCRUSADE",
-	[1119]	= "HODIR",
-	[1124]  = "SUNREAVERS",
-	[1136]  = "FROSTBORN",
-	[1156]	= "ASHEN_VERDICT",
-	[1135]	= "EARTHEN_RING",
-	[1158]	= "GUARDIANS",
-	[1171]	= "THERAZANE",
-	[1172]	= "DRAGONMAW",
-	[1173]	= "RAMKAHEN",
-	[1174]	= "WILDHAMMER",
-	[1177]	= "WARDENS",
-	[1178]	= "HELLSCREAM",
-	[1216]	=  "SHANGXIACADEMY",
-	[1228]	=  "FORESTHOZEN",
-	[1242]	=  "PEARLFINJINYU",
-	[1269]	=  "GOLDENLOTUS",
-	[1270]	=  "SHADOPAN",
-	[1271]	=  "CLOUDSERPENT",
-	[1272]	=  "TILLERS",
-	[1273]	=  "JOGU_THE_DRUNK",
-	[1275]	=  "ELLA",
-	[1276]	=  "OLD_HILLPAW",
-	[1277]	=  "CHEE_CHEE",
-	[1278]	=  "SHO",
-	[1279]	=  "HAOHAN_MUDCLAW",
-	[1280]	=  "TINA_MUDCLAW",
-	[1281]	=  "GINA_MUDCLAW",
-	[1282]	=  "FISH_FELLREED",
-	[1283]	=  "FARMER_FUNG",
-	[1302]	=  "ANGLERS",
-	[1337]	=  "KLAXXI",
-	[1341]	=  "AUGUSTCELESTIALS",
-	[1345]	=  "LOREWALKERS",
-	[1351]	=  "BREWMASTERS",
-	[1352]	=  "HUOJINPANDAREN",
-	[1353]	=  "TUSHUIPANDAREN",
-	[1358]	=  "NAT_PAGLE",
-	[1359]	=  "BLACKPRINCE",
+	[1073]	= "THE_KALUAK",
+	[1090]	= "KIRIN_TOR",
+	[1091]	= "THE_WYRMREST_ACCORD",
+	[1098]	= "KNIGHTS_OF_THE_EBON_BLADE",
+	[1104]	= "FRENZYHEART_TRIBE",
+	[1105]	= "THE_ORACLES",
+	[1106]	= "ARGENT_CRUSADE",
+	[1119]	= "THE_SONS_OF_HODIR",
+	[1156]	= "THE_ASHEN_VERDICT",
+	-------------------------------------------------------------------------------
+	-- Mists of Pandaria
+	-------------------------------------------------------------------------------
+	[1269]	= "GOLDEN_LOTUS",
+	[1270]	= "SHADO_PAN",
+	[1271]	= "ORDER_OF_THE_CLOUD_SERPENT",
+	[1272]	= "THE_TILLERS",
+	[1302]	= "THE_ANGLERS",
+	[1337]	= "THE_KLAXXI",
+	[1341]	= "THE_AUGUST_CELESTIALS",
+	-------------------------------------------------------------------------------
+	-- Warlords of Draenor
+	-------------------------------------------------------------------------------
 }
 
-private.LOCALIZED_FACTION_STRINGS = {
-	["Neutral"]	= _G.FACTION_STANDING_LABEL4,
-	["Friendly"]	= _G.FACTION_STANDING_LABEL5,
-	["Honored"]	= _G.FACTION_STANDING_LABEL6,
-	["Revered"]	= _G.FACTION_STANDING_LABEL7,
-	["Exalted"]	= _G.FACTION_STANDING_LABEL8,
-	["Horde"] = _G.GetFactionInfoByID(67),
-	["Alliance"] = _G.GetFactionInfoByID(469),
-	["Thorium Brotherhood"] = _G.GetFactionInfoByID(59),
-	["Zandalar Tribe"] = _G.GetFactionInfoByID(270),
-	["Argent Dawn"] = _G.GetFactionInfoByID(529),
-	["Timbermaw Hold"] = _G.GetFactionInfoByID(576),
-	["Wintersaber Trainers"] = _G.GetFactionInfoByID(589),
-	["Cenarion Circle"] = _G.GetFactionInfoByID(609),
-	["The Aldor"] = _G.GetFactionInfoByID(932),
-	["The Consortium"] = _G.GetFactionInfoByID(933),
-	["The Scryers"] = _G.GetFactionInfoByID(934),
-	["The Sha'tar"] = _G.GetFactionInfoByID(935),
-	["The Mag'har"] = _G.GetFactionInfoByID(941),
-	["Cenarion Expedition"] = _G.GetFactionInfoByID(942),
-	["Honor Hold"] = _G.GetFactionInfoByID(946),
-	["Thrallmar"] = _G.GetFactionInfoByID(947),
-	["The Violet Eye"] = _G.GetFactionInfoByID(967),
-	["Sporeggar"] = _G.GetFactionInfoByID(970),
-	["Kurenai"] = _G.GetFactionInfoByID(978),
-	["Keepers of Time"] = _G.GetFactionInfoByID(989),
-	["The Scale of the Sands"] = _G.GetFactionInfoByID(990),
-	["Lower City"] = _G.GetFactionInfoByID(1011),
-	["Ashtongue Deathsworn"] = _G.GetFactionInfoByID(1012),
-	["Alliance Vanguard"] = _G.GetFactionInfoByID(1037),
-	["Valiance Expedition"] = _G.GetFactionInfoByID(1050),
-	["Horde Expedition"] = _G.GetFactionInfoByID(1052),
-	["The Taunka"] = _G.GetFactionInfoByID(1064),
-	["The Hand of Vengeance"] = _G.GetFactionInfoByID(1067),
-	["Explorers' League"] = _G.GetFactionInfoByID(1068),
-	["The Kalu'ak"] = _G.GetFactionInfoByID(1073),
-	["Shattered Sun Offensive"] = _G.GetFactionInfoByID(1077),
-	["Warsong Offensive"] = _G.GetFactionInfoByID(1085),
-	["Kirin Tor"] = _G.GetFactionInfoByID(1090),
-	["The Wyrmrest Accord"] = _G.GetFactionInfoByID(1091),
-	["The Silver Covenant"] = _G.GetFactionInfoByID(1094),
-	["Knights of the Ebon Blade"] = _G.GetFactionInfoByID(1098),
-	["Frenzyheart Tribe"] = _G.GetFactionInfoByID(1104),
-	["The Oracles"] = _G.GetFactionInfoByID(1105),
-	["Argent Crusade"] = _G.GetFactionInfoByID(1106),
-	["The Sons of Hodir"] = _G.GetFactionInfoByID(1119),
-	["The Sunreavers"] = _G.GetFactionInfoByID(1124),
-	["The Earthen Ring"] = _G.GetFactionInfoByID(1135),
-	["Tranquillien Conversion"] = _G.GetFactionInfoByID(1136),
-	["The Ashen Verdict"] = _G.GetFactionInfoByID(1156),
-	["Guardians of Hyjal"] = _G.GetFactionInfoByID(1158),
-	["Therazane"] = _G.GetFactionInfoByID(1171),
-	["Dragonmaw Clan"] = _G.GetFactionInfoByID(1172),
-	["Ramkahen"] = _G.GetFactionInfoByID(1173),
-	["Wildhammer Clan"] = _G.GetFactionInfoByID(1174),
-	["Baradin's Wardens"] = _G.GetFactionInfoByID(1177),
-	["Hellscream's Reach"] = _G.GetFactionInfoByID(1178),
-	["Shang Xi's Academy"] = _G.GetFactionInfoByID(1216),
-	["Forest Hozen"] = _G.GetFactionInfoByID(1228),
-	["Pearlfin Jinyu"] = _G.GetFactionInfoByID(1242),
-	["Golden Lotus"] = _G.GetFactionInfoByID(1269),
-	["Shado-Pan"] = _G.GetFactionInfoByID(1270),
-	["Order of the Cloud Serpent"] = _G.GetFactionInfoByID(1271),
-	["The Tillers"] = _G.GetFactionInfoByID(1272),
-	["Jogu the Drunk"] = _G.GetFactionInfoByID(1273),
-	["Ella"] = _G.GetFactionInfoByID(1275),
-	["Old Hillpaw"] = _G.GetFactionInfoByID(1276),
-	["Chee Chee"] = _G.GetFactionInfoByID(1277),
-	["Sho"] = _G.GetFactionInfoByID(1278),
-	["Haohan Mudclaw"] = _G.GetFactionInfoByID(1279),
-	["Tina Mudclaw"] = _G.GetFactionInfoByID(1280),
-	["Gina Mudclaw"] = _G.GetFactionInfoByID(1281),
-	["Fish Fellreed"] = _G.GetFactionInfoByID(1282),
-	["Farmer Fung"] = _G.GetFactionInfoByID(1283),
-	["The Anglers"] = _G.GetFactionInfoByID(1302),
-	["The Klaxxi"] = _G.GetFactionInfoByID(1337),
-	["The August Celestials"] = _G.GetFactionInfoByID(1341),
-	["The Lorewalkers"] = _G.GetFactionInfoByID(1345),
-	["The Brewmasters"] = _G.GetFactionInfoByID(1351),
-	["Huojin Pandaren"] = _G.GetFactionInfoByID(1352),
-	["Tushui Pandaren"] = _G.GetFactionInfoByID(1353),
-	["Nat Pagle"] = _G.GetFactionInfoByID(1358),
-	["The Black Prince"] = _G.GetFactionInfoByID(1359),
+-- The expansionX_reputations tables are ordered alphabetically (ignoring leading "THE"). These are used for
+-- populating the reputation menus and their toggles.
+private.EXPANSION0_REPUTATIONS = {
+	"ARGENT_DAWN",
+	"CENARION_CIRCLE",
+	"THORIUM_BROTHERHOOD",
+	"TIMBERMAW_HOLD",
 }
 
-private.FACTION_IDS = {}
-constants.FACTION_IDS = private.FACTION_IDS
+private.EXPANSION1_REPUTATIONS = {
+	"THE_ALDOR",
+	"ASHTONGUE_DEATHSWORN",
+	"CENARION_EXPEDITION",
+	"THE_CONSORTIUM",
+	"HONOR_HOLD",
+	"KEEPERS_OF_TIME",
+	"KURENAI",
+	"LOWER_CITY",
+	"THE_MAGHAR",
+	"THE_SCALE_OF_THE_SANDS",
+	"THE_SCRYERS",
+	"THE_SHATAR",
+	"SHATTERED_SUN_OFFENSIVE",
+	"SPOREGGAR",
+	"THRALLMAR",
+	"THE_VIOLET_EYE",
+}
 
-for id, name in pairs(private.FACTION_STRINGS) do
-	private.FACTION_IDS[name] = id
+private.EXPANSION2_REPUTATIONS = {
+	"ALLIANCE_VANGUARD",
+	"ARGENT_CRUSADE",
+	"THE_ASHEN_VERDICT",
+	"FRENZYHEART_TRIBE",
+	"HORDE_EXPEDITION",
+	"THE_KALUAK",
+	"KIRIN_TOR",
+	"KNIGHTS_OF_THE_EBON_BLADE",
+	"THE_ORACLES",
+	"THE_SONS_OF_HODIR",
+	"THE_WYRMREST_ACCORD",
+}
+
+private.EXPANSION3_REPUTATIONS = {}
+
+private.EXPANSION4_REPUTATIONS = {
+	"THE_ANGLERS",
+	"THE_AUGUST_CELESTIALS",
+	"GOLDEN_LOTUS",
+	"THE_KLAXXI",
+	"ORDER_OF_THE_CLOUD_SERPENT",
+	"SHADO_PAN",
+	"THE_TILLERS",
+}
+
+private.EXPANSION5_REPUTATIONS = {}
+
+private.LOCALIZED_FACTION_STRINGS_FROM_LABEL = {
+	NEUTRAL	= _G.FACTION_STANDING_LABEL4,
+	FRIENDLY = _G.FACTION_STANDING_LABEL5,
+	HONORED	= _G.FACTION_STANDING_LABEL6,
+	REVERED	= _G.FACTION_STANDING_LABEL7,
+	EXALTED	= _G.FACTION_STANDING_LABEL8,
+	HORDE = _G.GetFactionInfoByID(67),
+	ALLIANCE = _G.GetFactionInfoByID(469),
+}
+
+private.FACTION_IDS_FROM_LABEL = {}
+constants.FACTION_IDS = private.FACTION_IDS_FROM_LABEL
+
+for id, label in pairs(private.FACTION_LABELS_FROM_ID) do
+	private.FACTION_IDS_FROM_LABEL[label] = id
+	private.LOCALIZED_FACTION_STRINGS_FROM_LABEL[label] = _G.GetFactionInfoByID(id) or ("%s_%d"):format(_G.UNKNOWN, id)
+end
+
+-- This is far from elegant, and could be done using math instead of the BITS table. I was, however,
+-- simply wanting to Make It Work(™) and this is what we have for the moment.
+do
+	local BITS = {
+		0x00000001,	-- 1
+		0x00000002,	-- 2
+		0x00000004,	-- 3
+		0x00000008,	-- 4
+		0x00000010,	-- 5
+		0x00000020,	-- 6
+		0x00000040,	-- 7
+		0x00000080,	-- 8
+		0x00000100,	-- 9
+		0x00000200,	-- 10
+		0x00000400,	-- 11
+		0x00000800,	-- 12
+		0x00001000,	-- 13
+		0x00002000,	-- 14
+		0x00004000,	-- 15
+		0x00008000,	-- 16
+		0x00010000,	-- 17
+		0x00020000,	-- 18
+		0x00040000,	-- 19
+		0x00080000,	-- 20
+		0x00100000,	-- 21
+		0x00200000,	-- 22
+		0x00400000,	-- 23
+		0x00800000,	-- 24
+		0x01000000,	-- 25
+		0x02000000,	-- 26
+		0x04000000,	-- 27
+		0x08000000,	-- 28
+		0x10000000,	-- 29
+		0x20000000,	-- 30
+		0x40000000,	-- 31
+		0x80000000,	-- 32
+	}
+
+	local flags = {
+		{}, -- First word added preemptively.
+	}
+
+	local flag_word = 1
+	local flag_index = 1
+
+	for name in pairs(private.FACTION_IDS_FROM_LABEL) do
+		flags[flag_word][name] = BITS[flag_index]
+
+		flag_index = flag_index + 1
+		if flag_index > #BITS then
+			flags[#flags + 1] = {}
+			flag_word = flag_word + 1
+			flag_index = 1
+		end
+	end
+
+	for index = 1, #flags do
+		private.FLAG_WORDS[#private.FLAG_WORDS + 1] = flags[index]
+		private.FLAG_MEMBERS[#private.FLAG_MEMBERS + 1] = ("reputation%d"):format(index)
+	end
+
+	private.REP_FLAGS = flags
+end
+
+-------------------------------------------------------------------------------
+-- This has to be done here, after every other flag definition.
+-------------------------------------------------------------------------------
+private.FILTER_STRINGS = {}
+for index = 1, #private.FLAG_WORDS do
+	for flag_name in pairs(private.FLAG_WORDS[index]) do
+		private.FILTER_STRINGS[#private.FILTER_STRINGS + 1] = flag_name
+	end
+end
+
+private.FILTER_IDS = {}
+constants.FILTER_IDS = private.FILTER_IDS
+
+for index = 1, #private.FILTER_STRINGS do
+	private.FILTER_IDS[private.FILTER_STRINGS[index]] = index
 end
 
 -------------------------------------------------------------------------------
@@ -687,7 +632,12 @@ private.ZONE_NAMES = {
 	SHRINE_OF_TWO_MOONS = _G.GetMapNameByID(903),
 	SHRINE_OF_SEVEN_STARS = _G.GetMapNameByID(905),
 	ISLE_OF_THUNDER = _G.GetMapNameByID(928),
+	TALADOR = _G.GetMapNameByID(946),
 	TIMELESS_ISLE = _G.GetMapNameByID(951),
+	LUNARFALL = _G.GetMapNameByID(971),
+	FROSTWALL = _G.GetMapNameByID(976),
+	STORMSHIELD = _G.GetMapNameByID(1009),
+	WARSPEAR = _G.GetMapNameByID(1011),
 }
 
 constants.ZONE_NAMES = private.ZONE_NAMES
@@ -695,12 +645,13 @@ constants.ZONE_NAMES = private.ZONE_NAMES
 do
 	local continent_names = { _G.GetMapContinents() }
 
-	private.ZONE_NAMES.KALIMDOR = continent_names[1]
-	private.ZONE_NAMES.EASTERN_KINGDOMS = continent_names[2]
-	private.ZONE_NAMES.OUTLAND = continent_names[3]
-	private.ZONE_NAMES.NORTHREND = continent_names[4]
-	private.ZONE_NAMES.THE_MAELSTROM = continent_names[5]
-	private.ZONE_NAMES.PANDARIA = continent_names[6]
+	private.ZONE_NAMES.KALIMDOR = continent_names[2]
+	private.ZONE_NAMES.EASTERN_KINGDOMS = continent_names[4]
+	private.ZONE_NAMES.OUTLAND = continent_names[6]
+	private.ZONE_NAMES.NORTHREND = continent_names[8]
+	private.ZONE_NAMES.THE_MAELSTROM = continent_names[10]
+	private.ZONE_NAMES.PANDARIA = continent_names[12]
+	private.ZONE_NAMES.DRAENOR = continent_names[14]
 end
 
 private.ZONE_LABELS_FROM_NAME = {}

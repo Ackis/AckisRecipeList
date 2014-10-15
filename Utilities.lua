@@ -23,6 +23,18 @@ local addon = LibStub("AceAddon-3.0"):GetAddon(private.addon_name)
 -----------------------------------------------------------------------
 -- Methods.
 -----------------------------------------------------------------------
+function private.GetAddOnInfo(addon_name)
+	local name, title, notes, is_loaded, reason, security, newVersion
+
+	for index = 1, _G.GetNumAddOns() do
+		name, title, notes, is_loaded, reason, security, newVersion = _G.GetAddOnInfo(index)
+
+		if name == addon_name then
+			return name, title, notes, is_loaded, reason, security, newVersion
+		end
+	end
+end
+
 function private.SetTextColor(color_code, text)
 	return ("|cff%s%s|r"):format(color_code or "ffffff", text)
 end
@@ -40,7 +52,12 @@ end
 
 -- This wrapper exists primarily because Blizzard keeps changing how NPC ID numbers are extracted from GUIDs, and fixing it in one place is less error-prone.
 function private.MobGUIDToIDNum(guid)
-	return tonumber(guid:sub(6, 10), 16)
+	if private.wow_ui_version >= 60000 then
+		local _, _, _, _, _, id_num = ("-"):split(guid)
+		return tonumber(id_num)
+	else
+		return tonumber(guid:sub(6, 10), 16)
+	end
 end
 
 --@debug@
@@ -59,8 +76,7 @@ do
 	private.DUMP_COMMANDS = {
 		bossids = function(input)
 			if not input then
-				addon:Print("Type the name or partial name of a boss.")
-				return
+				addon:Print("You can also type the name or partial name of a boss.")
 			end
 			addon:DumpBossIDs(input)
 		end,
@@ -94,8 +110,11 @@ do
 			end
 			addon:DumpProfession(input)
 		end,
-		reputations = function()
-			addon:DumpReps()
+		reputations = function(input)
+			if not input then
+				addon:Print("You can also type the name or partial name of a reputation.")
+			end
+			addon:DumpReps(input)
 		end,
 		zones = function(input)
 			if not input then
@@ -156,7 +175,7 @@ do
 			return ""
 		end
 
-		return input:upper():gsub(" ", "_"):gsub("'", ""):gsub(":", ""):gsub("-", "_"):gsub("%(", ""):gsub("%)", "")
+		return input:upper():gsub(" ", "_"):gsub("'", ""):gsub(":", ""):gsub(",", "_"):gsub("-", "_"):gsub("%(", ""):gsub("%)", "")
 	end
 
 	function addon:DumpZones(input)
@@ -180,15 +199,19 @@ do
 		output:Display()
 	end
 
-	function addon:DumpReps()
+	function addon:DumpReps(name)
 		output:Clear()
 
-		for index = 1, 1500 do
-			local rep_name = _G.GetFactionInfoByID(index)
+		for reputation_id = 1, 10000 do
+			local reputation_name = _G.GetFactionInfoByID(reputation_id)
 
-			if rep_name and private.FACTION_STRINGS[index] then
-				output:AddLine(("[\"%s\"] = _G.GetFactionInfoByID(%d),"):format(TableKeyFormat(rep_name), index))
+			if reputation_name and (not name or reputation_name:lower():find(name:lower())) then
+				output:AddLine(("[%d] = \"%s\","):format(reputation_id, TableKeyFormat(reputation_name)))
 			end
+		end
+
+		if output:Lines() == 0 then
+			output:AddLine("Nothing to display.")
 		end
 		output:Display()
 	end
@@ -238,7 +261,7 @@ do
 		for index = 1, 10000 do
 			local boss_name = _G.EJ_GetEncounterInfo(index)
 
-			if boss_name and boss_name:lower():find(name:lower()) then
+			if boss_name and (not name or boss_name:lower():find(name:lower())) then
 				output:AddLine(("%s = _G.EJ_GetEncounterInfo(%d),"):format(TableKeyFormat(boss_name), index))
 			end
 		end

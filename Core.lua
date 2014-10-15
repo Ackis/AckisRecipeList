@@ -57,7 +57,11 @@ local Dialog = LibStub("LibDialog-1.0")
 
 local debugger -- Only defined if needed.
 
-private.build_num = select(2, _G.GetBuildInfo())
+local wow_version, wow_build_num, wow_date, wow_ui_version = _G.GetBuildInfo()
+private.wow_version = wow_version
+private.wow_build_num = wow_build_num
+private.wow_ui_version = wow_ui_version
+
 private.TextDump = LibStub("LibTextDump-1.0"):New(private.addon_name)
 
 Dialog:Register("ARL_ModuleErrorDialog", {
@@ -258,11 +262,6 @@ function addon:OnInitialize()
 				obtain = {
 					achievement = true,
 					discovery = true,
-					expansion0 = true,
-					expansion1 = true,
-					expansion2 = true,
-					expansion3 = true,
-					expansion4 = true,
 					instance = true,
 					mobdrop = true,
 					pvp = true,
@@ -280,7 +279,7 @@ function addon:OnInitialize()
 				-- Profession Item Filters
 				-------------------------------------------------------------------------------
 				item = {
-					-- These are populated from the item flags in Constants.lua
+					-- These are populated from the item flags defined in profession modules.
 				},
 				-------------------------------------------------------------------------------
 				-- Quality Filters
@@ -304,68 +303,16 @@ function addon:OnInitialize()
 				-- Player Role Filters
 				-------------------------------------------------------------------------------
 				player = {
+					caster = true,
+					healer = true,
 					melee = true,
 					tank = true,
-					healer = true,
-					caster = true,
 				},
 				-------------------------------------------------------------------------------
 				-- Reputation Filters
 				-------------------------------------------------------------------------------
 				rep = {
-					aldor = true,
-					scryer = true,
-					argentdawn = true,
-					ashtonguedeathsworn = true,
-					cenarioncircle = true,
-					cenarionexpedition = true,
-					consortium = true,
-					hellfire = true,
-					keepersoftime = true,
-					nagrand = true,
-					lowercity = true,
-					scaleofthesands = true,
-					shatar = true,
-					shatteredsun = true,
-					sporeggar = true,
-					thoriumbrotherhood = true,
-					timbermaw = true,
-					violeteye = true,
-					zandalar = true,
-					argentcrusade = true,
-					frenzyheart = true,
-					ebonblade = true,
-					kirintor = true,
-					sonsofhodir = true,
-					kaluak = true,
-					oracles = true,
-					wyrmrest = true,
-					wrathcommon1 = true,
-					wrathcommon2 = true,
-					wrathcommon3 = true,
-					wrathcommon4 = true,
-					wrathcommon5 = true,
-					ashenverdict = true,
-					catacommon1 = true,
-					catacommon2 = true,
-					guardiansofhyjal = true,
-					ramkahen = true,
-					earthenring = true,
-					therazane = true,
-					foresthozen = true,
-					goldenlotus = true,
-					cloudserpent = true,
-					pearlfinjinyu = true,
-					shadopan = true,
-					anglers = true,
-					augustcelestials = true,
-					brewmasters = true,
-					klaxxi = true,
-					lorewalkers = true,
-					tillers = true,
-					blackprince = true,
-					shangxiacademy = true,
-					pandacommon1 = true,
+					-- These are populated from the reputations defined in Constants.lua
 				},
 				-------------------------------------------------------------------------------
 				-- Class Filters
@@ -387,11 +334,21 @@ function addon:OnInitialize()
 		}
 	}
 
+	for index = 1, #private.GAME_VERSION_NAMES do
+		defaults.profile.filters.obtain[("expansion%d"):format(index - 1)] = true
+	end
+
+	for index = 1, #private.REP_FLAGS do
+		for reputation_name in pairs(private.REP_FLAGS[index]) do
+			defaults.profile.filters.rep[reputation_name:lower()] = true
+		end
+	end
+
 	for filter_name in pairs(self.constants.ITEM_FILTER_TYPES) do
 		defaults.profile.filters.item[filter_name:lower()] = true
 	end
-	self.db = LibStub("AceDB-3.0"):New("ARLDB2", defaults)
 
+	self.db = LibStub("AceDB-3.0"):New("ARLDB2", defaults)
 	if not self.db then
 		self:Print("Error: Database not loaded correctly.  Please exit out of WoW and delete the ARL database file (AckisRecipeList.lua) found in: \\World of Warcraft\\WTF\\Account\\<Account Name>>\\SavedVariables\\")
 		return
@@ -763,9 +720,9 @@ do
 		if loaded_modules[module_name] then
 			return true
 		end
-		local _, _, _, is_enabled = _G.GetAddOnInfo(module_name)
+		local _, _, _, _, reason = private.GetAddOnInfo(module_name)
 
-		if is_enabled then
+		if reason ~= "DISABLED" then
 			local is_loaded = _G.LoadAddOn(module_name) and true or false
 			loaded_modules[module_name] = is_loaded
 			return is_loaded
@@ -931,7 +888,7 @@ do
 			local found_module
 
 			for profession_name, module_name in pairs(private.PROFESSION_MODULE_NAMES) do
-				local _, _, _, _, _, reason = _G.GetAddOnInfo(FOLDER_NAME .. "_" .. module_name or "")
+				local _, _, _, _, reason = private.GetAddOnInfo(FOLDER_NAME .. "_" .. module_name or "")
 				if not reason or reason == "DISABLED" then
 					-- The assumption here is that if a module is disabled, the user is aware that modules exist.
 					found_module = true
@@ -1132,7 +1089,7 @@ do
 	local GetFilterFlagNames
 	do
 		local LC = _G.LOCALIZED_CLASS_NAMES_MALE
-		local FAC = private.LOCALIZED_FACTION_STRINGS
+		local LFAC = private.LOCALIZED_FACTION_STRINGS_FROM_LABEL
 		local FILTER_FLAG_NAMES
 
 		function GetFilterFlagNames()
@@ -1145,8 +1102,8 @@ do
 				-------------------------------------------------------------------------------
 				-- Common flags.
 				-------------------------------------------------------------------------------
-				ALLIANCE = FAC["Alliance"],
-				HORDE = FAC["Horde"],
+				ALLIANCE = LFAC.ALLIANCE,
+				HORDE = LFAC.HORDE,
 				TRAINER = L["Trainer"],
 				VENDOR = L["Vendor"],
 				INSTANCE = _G.INSTANCE,
@@ -1181,71 +1138,14 @@ do
 				-------------------------------------------------------------------------------
 				-- Reputation flags.
 				-------------------------------------------------------------------------------
-				ARGENTDAWN = FAC["Argent Dawn"],
-				CENARION_CIRCLE = FAC["Cenarion Circle"],
-				THORIUM_BROTHERHOOD = FAC["Thorium Brotherhood"],
-				TIMBERMAW_HOLD = FAC["Timbermaw Hold"],
-				ZANDALAR = FAC["Zandalar Tribe"],
-				ALDOR = FAC["The Aldor"],
-				ASHTONGUE = FAC["Ashtongue Deathsworn"],
-				CENARION_EXPEDITION = FAC["Cenarion Expedition"],
-				HELLFIRE = (is_alliance and FAC["Honor Hold"] or FAC["Thrallmar"]),
-				CONSORTIUM = FAC["The Consortium"],
-				KOT = FAC["Keepers of Time"],
-				LOWERCITY = FAC["Lower City"],
-				NAGRAND = (is_alliance and FAC["Kurenai"] or FAC["The Mag'har"]),
-				SCALE_SANDS = FAC["The Scale of the Sands"],
-				SCRYER = FAC["The Scryers"],
-				SHATAR = FAC["The Sha'tar"],
-				SHATTEREDSUN = FAC["Shattered Sun Offensive"],
-				SPOREGGAR = FAC["Sporeggar"],
-				VIOLETEYE = FAC["The Violet Eye"],
-				ARGENTCRUSADE = FAC["Argent Crusade"],
-				FRENZYHEART = FAC["Frenzyheart Tribe"],
-				EBONBLADE = FAC["Knights of the Ebon Blade"],
-				KIRINTOR = FAC["Kirin Tor"],
-				HODIR = FAC["The Sons of Hodir"],
-				KALUAK = FAC["The Kalu'ak"],
-				ORACLES = FAC["The Oracles"],
-				WYRMREST = FAC["The Wyrmrest Accord"],
-				WRATHCOMMON1 = (is_alliance and FAC["The Silver Covenant"] or FAC["The Sunreavers"]),
-				WRATHCOMMON2 = (is_alliance and FAC["Explorers' League"] or FAC["The Hand of Vengeance"]),
-				WRATHCOMMON3 = (is_alliance and FAC["Valiance Expedition"] or FAC["Warsong Offensive"]),
-				WRATHCOMMON4 = (is_alliance and FAC["The Frostborn"] or FAC["The Taunka"]),
-				WRATHCOMMON5 = (is_alliance and FAC["Alliance Vanguard"] or FAC["Horde Expedition"]),
-				ASHEN_VERDICT = FAC["The Ashen Verdict"],
-				CATACOMMON1 = (is_alliance and FAC["Wildhammer Clan"] or FAC["Dragonmaw Clan"]),
-				CATACOMMON2 = (is_alliance and FAC["Baradin's Wardens"] or FAC["Hellscream's Reach"]),
-				GUARDIANS = FAC["Guardians of Hyjal"],
-				RAMKAHEN = FAC["Ramkahen"],
-				EARTHEN_RING = FAC["The Earthen Ring"],
-				THERAZANE = FAC["Therazane"],
---[[				SHANGXIACADEMY
-				FORESTHOZEN
-				PEARLFINJINYU
-				GOLDENLOTUS
-				SHADOPAN
-				CLOUDSERPENT
-				TILLERS
-				JOGU_THE_DRUNK
-				ELLA
-				OLD_HILLPAW
-				CHEE_CHEE
-				SHO
-				HAOHAN_MUDCLAW
-				TINA_MUDCLAW
-				GINA_MUDCLAW
-				FISH_FELLREED
-				FARMER_FUNG
-				ANGLERS
-				KLAXX,
-				AUGUSTCELESTIALS
-				LOREWALKERS
-				BREWMASTERS
-				NAT_PAGLE
-				BLACKPRINCE]]--
-				TUSHUI_HUOJIN =	is_alliance and FAC["Tushui Pandaren"]	or FAC["Huojin Pandaren"]
+				HELLFIRE = (is_alliance and LFAC.HONOR_HOLD or LFAC.THRALLMAR),
+				NAGRAND = (is_alliance and LFAC.KURENAI or LFAC.MAGHAR),
 			}
+
+			for rep_label in private.FACTION_IDS_FROM_LABEL do
+				FILTER_FLAG_NAMES[rep_label] = private.LOCALIZED_FACTION_STRINGS_FROM_LABEL[rep_label]
+			end
+
 			return FILTER_FLAG_NAMES
 		end
 	end -- do
@@ -1306,9 +1206,10 @@ do
 					local bitfield = recipe.flags[private.FLAG_MEMBERS[table_index]]
 
 					if bitfield and bit.band(bitfield, flag) == flag then
-						local filter_name = filter_names[flag_name] or _G.UNKNOWN
+						local filter_name = filter_names[flag_name]
 
-						if filter_name == _G.UNKNOWN then
+						if not filter_name then
+							filter_name = _G.UNKNOWN
 							addon:Debug("%s is unknown", flag_name)
 						end
 

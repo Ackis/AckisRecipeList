@@ -130,9 +130,9 @@ do
 			return
 		end
 		-- Get the initial trainer filters
-		local avail = _G.GetTrainerServiceTypeFilter("available")
-		local unavail = _G.GetTrainerServiceTypeFilter("unavailable")
-		local used = _G.GetTrainerServiceTypeFilter("used")
+		local available = _G.GetTrainerServiceTypeFilter("available") and 1 or 0
+		local unavailable = _G.GetTrainerServiceTypeFilter("unavailable") and 1 or 0
+		local used = _G.GetTrainerServiceTypeFilter("used") and 1 or 0
 
 		-- Clear the trainer filters
 		_G.SetTrainerServiceTypeFilter("available", 1)
@@ -333,8 +333,8 @@ do
 			output:Display()
 		end
 		-- Reset the filters to what they were before
-		_G.SetTrainerServiceTypeFilter("available", avail or 0)
-		_G.SetTrainerServiceTypeFilter("unavailable", unavail or 0)
+		_G.SetTrainerServiceTypeFilter("available", available or 0)
+		_G.SetTrainerServiceTypeFilter("unavailable", unavailable or 0)
 		_G.SetTrainerServiceTypeFilter("used", used or 0)
 	end
 end	-- do
@@ -344,14 +344,6 @@ end	-- do
 -------------------------------------------------------------------------------
 local CopyFrame
 do
-	local EXPANSION_LOGOS = {
-		"Glues-WoW-Logo",
-		"GLUES-WOW-BCLOGO",
-		"Glues-WOW-WotlkLogo",
-		"Glues-WOW-CCLogo",
-		"Glues-WOW-MPLogo",
-	}
-
 	local copy_frame = _G.CreateFrame("Frame", "ARL_DatamineCopyFrame", _G.UIParent)
 	copy_frame:SetSize(750, 600)
 	copy_frame:SetPoint("CENTER", _G.UIParent, "CENTER")
@@ -527,7 +519,7 @@ do
 
 		local icon_texture = button:CreateTexture(nil, "BORDER")
 		button.icon_texture = icon_texture
-		icon_texture:SetTexture(([[Interface\Glues\Common\%s]]):format(EXPANSION_LOGOS[index]))
+		icon_texture:SetTexture(private.EXPANSION_LOGO_TEXTURES[index])
 		icon_texture:SetAllPoints(button)
 
 		local pushed_texture = button:CreateTexture(nil, "ARTWORK")

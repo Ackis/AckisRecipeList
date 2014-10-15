@@ -49,9 +49,10 @@ local recipe_meta = {
 -- @return Resultant recipe table.
 function addon:AddRecipe(spell_id, profession_spell_id, genesis, quality)
 	local recipe_list = private.recipe_list
+	local existing_recipe = recipe_list[spell_id]
 
-	if recipe_list[spell_id] then
-		self:Debug("Duplicate recipe: %d - %s (%s)", spell_id, recipe_list[spell_id].name, recipe_list[spell_id].profession)
+	if existing_recipe then
+		self:Debug("Duplicate recipe: %d - %s (%s)", spell_id, existing_recipe.name, existing_recipe.profession)
 		return
 	end
 
@@ -65,16 +66,21 @@ function addon:AddRecipe(spell_id, profession_spell_id, genesis, quality)
 		_spell_id = spell_id,
 	}, recipe_meta)
 
+	recipe:AddFilters(private.FILTER_IDS.ALLIANCE, private.FILTER_IDS.HORDE)
+
 	if not recipe.name or recipe.name == "" then
 		recipe.name = ("%s: %d"):format(_G.UNKNOWN, tonumber(spell_id))
 		self:Debug(L["SpellIDCache"]:format(spell_id))
 	end
 	recipe_list[spell_id] = recipe
 
-	if not private.profession_recipe_list[recipe.profession] then
-		private.profession_recipe_list[recipe.profession] = {}
+	local profession_recipes = private.profession_recipe_list[recipe.profession]
+	if not profession_recipes then
+		profession_recipes = {}
+		private.profession_recipe_list[recipe.profession] = profession_recipes
 	end
-	private.profession_recipe_list[recipe.profession][spell_id] = recipe
+	profession_recipes[spell_id] = recipe
+
 	private.num_profession_recipes[recipe.profession] = (private.num_profession_recipes[recipe.profession] or 0) + 1
 
 	return recipe
@@ -140,9 +146,21 @@ end
 function Recipe:SetRequiredFaction(faction_name)
 	self.required_faction = faction_name
 
-	if faction_name and private.Player.faction ~= faction_name then
-		self.is_ignored = true
-		private.num_profession_recipes[self.profession] = private.num_profession_recipes[self.profession] - 1
+	if faction_name then
+		if faction_name == "Alliance" then
+			self:RemoveFilters(private.FILTER_IDS.HORDE)
+		elseif faction_name == "Horde" then
+			self:RemoveFilters(private.FILTER_IDS.ALLIANCE)
+		else
+			addon:Debug("Unknown faction_name \"%s\" passed to SetRequiredFaction for recipe %d.", faction_name, self.SpellID())
+		end
+
+		if private.Player.faction ~= faction_name then
+			self.is_ignored = true
+			private.num_profession_recipes[self.profession] = private.num_profession_recipes[self.profession] - 1
+		end
+	else
+		addon:Debuf("No faction name passed to SetRequiredFaction for recipe %d", self.SpellID())
 	end
 end
 
@@ -173,10 +191,10 @@ end
 -------------------------------------------------------------------------------
 do
 	local RECIPE_STATE_FLAGS = {
-	KNOWN = 0x00000001,
-	RELEVANT = 0x00000002,
-	VISIBLE = 0x00000004,
-	LINKED = 0x00000008,
+		KNOWN = 0x00000001,
+		RELEVANT = 0x00000002,
+		VISIBLE = 0x00000004,
+		LINKED = 0x00000008,
 	}
 
 	function Recipe:HasState(state_name)
@@ -211,13 +229,10 @@ do
 end -- do-block
 
 do
-	local BITFIELD_MAP = {
-		common1 = private.COMMON_FLAGS_WORD1,
-		class1 = private.CLASS_FLAGS_WORD1,
-		reputation1 = private.REP_FLAGS_WORD1,
-		reputation2 = private.REP_FLAGS_WORD2,
-		item1 = private.ITEM_FLAGS_WORD1,
-	}
+	local BITFIELD_MAP = {}
+	for index = 1, #private.FLAG_WORDS do
+		BITFIELD_MAP[private.FLAG_MEMBERS[index]] = private.FLAG_WORDS[index]
+	end
 
 	function Recipe:HasFilter(field_name, flag_name)
 		local bitfield = self.flags[field_name]
@@ -304,6 +319,7 @@ local function SetFilterState(recipe, turn_on, ...)
 				if bits[filter_name] then
 					bitfield = bits
 					member_name = private.FLAG_MEMBERS[table_index]
+					break
 				end
 			end
 
@@ -509,6 +525,8 @@ function Recipe:AddRepVendor(reputation_id, rep_level, ...)
 
 					reputation.item_list = reputation.item_list or {}
 					reputation.item_list[self:SpellID()] = true
+
+					self:AddFilters(private.FILTER_IDS[private.FACTION_LABELS_FROM_ID[reputation_id]])
 				else
 					addon:Debug("Spell ID %d (%s): Reputation Vendor ID %s does not exist in the %s AcquireType Entity table.",
 						self:SpellID(),
@@ -595,69 +613,18 @@ do
 		[Q.EPIC] = "epic",
 	}
 
-	local REP1 = private.REP_FLAGS_WORD1
-	local REP_FILTERS = {
-		[REP1.ARGENTDAWN]		= "argentdawn",
-		[REP1.CENARION_CIRCLE]		= "cenarioncircle",
-		[REP1.THORIUM_BROTHERHOOD]	= "thoriumbrotherhood",
-		[REP1.TIMBERMAW_HOLD]		= "timbermaw",
-		[REP1.ZANDALAR]			= "zandalar",
-		[REP1.ALDOR]			= "aldor",
-		[REP1.ASHTONGUE]		= "ashtonguedeathsworn",
-		[REP1.CENARION_EXPEDITION]	= "cenarionexpedition",
-		[REP1.HELLFIRE]			= "hellfire",
-		[REP1.CONSORTIUM]		= "consortium",
-		[REP1.KOT]			= "keepersoftime",
-		[REP1.LOWERCITY]		= "lowercity",
-		[REP1.NAGRAND]			= "nagrand",
-		[REP1.SCALE_SANDS]		= "scaleofthesands",
-		[REP1.SCRYER]			= "scryer",
-		[REP1.SHATAR]			= "shatar",
-		[REP1.SHATTEREDSUN]		= "shatteredsun",
-		[REP1.SPOREGGAR]		= "sporeggar",
-		[REP1.VIOLETEYE]		= "violeteye",
-		[REP1.ARGENTCRUSADE]		= "argentcrusade",
-		[REP1.FRENZYHEART]		= "frenzyheart",
-		[REP1.EBONBLADE]		= "ebonblade",
-		[REP1.KIRINTOR]			= "kirintor",
-		[REP1.HODIR]			= "sonsofhodir",
-		[REP1.KALUAK]			= "kaluak",
-		[REP1.ORACLES]			= "oracles",
-		[REP1.WYRMREST]			= "wyrmrest",
-		[REP1.WRATHCOMMON1]		= "wrathcommon1",
-		[REP1.WRATHCOMMON2]		= "wrathcommon2",
-		[REP1.WRATHCOMMON3]		= "wrathcommon3",
-		[REP1.WRATHCOMMON4]		= "wrathcommon4",
-		[REP1.WRATHCOMMON5]		= "wrathcommon5",
-	}
+	local REPUTATION_BITFLAG_FILTERS = {}
+	for index = 1, #private.REP_FLAGS do
+		REPUTATION_BITFLAG_FILTERS[index] = {}
 
-	local REP2 = private.REP_FLAGS_WORD2
-	local REP_FILTERS_2 = {
-		[REP2.ASHEN_VERDICT]		= "ashenverdict",
-		[REP2.CATACOMMON1]		= "catacommon1",
-		[REP2.CATACOMMON2]		= "catacommon2",
-		[REP2.GUARDIANS]		= "guardiansofhyjal",
-		[REP2.RAMKAHEN]			= "ramkahen",
-		[REP2.EARTHEN_RING]		= "earthenring",
-		[REP2.THERAZANE]		= "therazane",
-		[REP2.FORESTHOZEN]		= "foresthozen",
-		[REP2.GOLDENLOTUS]		= "goldenlotus",
-		[REP2.CLOUDSERPENT]		= "cloudserpent",
-		[REP2.PEARLFINJINYU]		= "pearlfinjinyu",
-		[REP2.SHADOPAN]			= "shadopan",
-		[REP2.ANGLERS]			= "anglers",
-		[REP2.AUGUSTCELESTIALS]		= "augustcelestials",
-		[REP2.BREWMASTERS]		= "brewmasters",
-		[REP2.KLAXXI]			= "klaxxi",
-		[REP2.LOREWALKERS]		= "lorewalkers",
-		[REP2.TILLERS]			= "tillers",
-		[REP2.BLACKPRINCE]		= "blackprince",
-		[REP2.SHANGXIACADEMY]		= "shangxiacademy",
-		[REP2.PANDACOMMON1]		= "pandacommon1",
-	}
+		for flag_name, bitflag in pairs(private.REP_FLAGS[index]) do
+			REPUTATION_BITFLAG_FILTERS[index][bitflag] = flag_name:lower()
+		end
+
+	end
 
 	local CLASS1 = private.CLASS_FLAGS_WORD1
-	local CLASS_FILTERS = {
+	local CLASS_BITFLAG_FILTERS = {
 		[CLASS1.DK]		= "deathknight",
 		[CLASS1.DRUID]		= "druid",
 		[CLASS1.HUNTER]		= "hunter",
@@ -677,9 +644,9 @@ do
 			return true
 		end
 
-		for flag, name in pairs(filters) do
-			if bit.band(bitfield, flag) == flag then
-				if name_field[name] then
+		for bitflag, flag_name in pairs(filters) do
+			if bit.band(bitfield, bitflag) == bitflag then
+				if name_field[flag_name] then
 					return true
 				end
 			end
@@ -738,12 +705,8 @@ do
 			return false
 		end
 
-		------------------------------------------------------------------------------------------------
-		-- Binding types.
-		------------------------------------------------------------------------------------------------
-		local _, recipe_item_binding = self:RecipeItem()
-
 		-- Assume that recipes without a recipe item are obtained via trainers, and treat them as bind on pickup.
+		local _, recipe_item_binding = self:RecipeItem()
 		if recipe_item_binding and not addon.db.profile.filters.binding["recipe_" .. recipe_item_binding:lower()] then
 			return false
 		elseif not recipe_item_binding and not addon.db.profile.filters.binding.recipe_bind_on_pickup then
@@ -756,9 +719,7 @@ do
 			return false
 		end
 
-		-------------------------------------------------------------------------------
 		-- Check the hard filter flags.
-		-------------------------------------------------------------------------------
 		for filter, data in pairs(private.HARD_FILTERS) do
 			local bitfield = self.flags[data.field]
 
@@ -767,21 +728,15 @@ do
 			end
 		end
 
-		-------------------------------------------------------------------------------
 		-- Check the reputation filter flags.
-		------------------------------------------------------------------------------
-		if not HasEnabledFlag(REP_FILTERS, self.flags.reputation1, filter_db.rep) then
-			return false
+		for index = 1, #REPUTATION_BITFLAG_FILTERS do
+			if not HasEnabledFlag(REPUTATION_BITFLAG_FILTERS[index], self.flags[("reputation%d"):format(index)], filter_db.rep) then
+				return false
+			end
 		end
 
-		if not HasEnabledFlag(REP_FILTERS_2, self.flags.reputation2, filter_db.rep) then
-			return false
-		end
-
-		-------------------------------------------------------------------------------
 		-- Check the class filter flags
-		-------------------------------------------------------------------------------
-		if not HasEnabledFlag(CLASS_FILTERS, self.flags.class1, filter_db.classes) then
+		if not HasEnabledFlag(CLASS_BITFLAG_FILTERS, self.flags.class1, filter_db.classes) then
 			return false
 		end
 
@@ -818,16 +773,25 @@ local reverse_map = {}
 -- These are automatically added when assigning the appropriate acquire type; dumping them is redundant.
 local IMPLICIT_FLAGS = {
 	ACHIEVEMENT = true,
+	ALLIANCE = true,
 	DISC = true,
+	HORDE = true,
 	MOB_DROP = true,
 	QUEST = true,
 	REPUTATION = true,
 	RETIRED = true,
-	WORLD_EVENTS = true,
 	TRAINER = true,
 	VENDOR = true,
 	WORLD_DROP = true,
+	WORLD_EVENTS = true,
 }
+
+-- Reputation flags are automatically added when a reputation vendor is assigned to the recipe.
+for index = 1, #private.REP_FLAGS do
+	for reputation_name in pairs(private.REP_FLAGS[index]) do
+		IMPLICIT_FLAGS[reputation_name] = true
+	end
+end
 
 function Recipe:Dump(output, use_genesis)
 	local genesis_val = (use_genesis and tonumber(private.GAME_VERSIONS[self.genesis]) or nil)
@@ -868,30 +832,32 @@ function Recipe:Dump(output, use_genesis)
 	end
 	local flag_string
 
-	for table_index, bits in ipairs(private.FLAG_WORDS) do
+	for table_index = 1, #private.FLAG_WORDS do
 		table.wipe(sorted_data)
 		table.wipe(reverse_map)
 
-		for flag_name, flag in pairs(bits) do
+		local bits = private.FLAG_WORDS[table_index]
+		for flag_name, flag_bit in pairs(bits) do
 			if not IMPLICIT_FLAGS[flag_name] then
 				local bitfield = self.flags[private.FLAG_MEMBERS[table_index]]
 
-				if bitfield and bit.band(bitfield, flag) == flag then
-					table.insert(sorted_data, flag)
-					reverse_map[flag] = flag_name
+				if bitfield and bit.band(bitfield, flag_bit) == flag_bit then
+					table.insert(sorted_data, flag_bit)
+					reverse_map[flag_bit] = flag_name
 				end
 			end
 		end
 		table.sort(sorted_data)
 
-		for index, flag in ipairs(sorted_data) do
+		for flag_index = 1, #sorted_data do
+			local flag_bit = sorted_data[flag_index]
 			local bitfield = self.flags[private.FLAG_MEMBERS[table_index]]
 
-			if bitfield and bit.band(bitfield, flag) == flag then
+			if bitfield and bit.band(bitfield, flag_bit) == flag_bit then
 				if flag_string then
-					flag_string = ("%s, F.%s"):format(flag_string, private.FILTER_STRINGS[private.FILTER_IDS[reverse_map[flag]]])
+					flag_string = ("%s, F.%s"):format(flag_string, private.FILTER_STRINGS[private.FILTER_IDS[reverse_map[flag_bit]]])
 				else
-					flag_string = ("F.%s"):format(private.FILTER_STRINGS[private.FILTER_IDS[reverse_map[flag]]])
+					flag_string = ("F.%s"):format(private.FILTER_STRINGS[private.FILTER_IDS[reverse_map[flag_bit]]])
 				end
 			end
 		end
@@ -907,7 +873,7 @@ function Recipe:Dump(output, use_genesis)
 	for acquire_type_id, acquire_info in pairs(self.acquire_data) do
 		if acquire_type_id == A.REPUTATION then
 			for rep_id, rep_info in pairs(acquire_info) do
-				local faction_string = private.FACTION_STRINGS[rep_id]
+				local faction_string = private.FACTION_LABELS_FROM_ID[rep_id]
 
 				if faction_string then
 					faction_string = ("FAC.%s"):format(faction_string)
