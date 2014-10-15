@@ -582,7 +582,7 @@ function private.InitializeFrame()
 			SearchByCustom,
 			SearchByDiscovery,
 		}
-		
+
 		-- Scans through the recipe database and toggles the flag on if the item is in the search criteria
 		function SearchRecipes(search_pattern)
 			if not search_pattern then
