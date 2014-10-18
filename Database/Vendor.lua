@@ -91,8 +91,8 @@ function addon:InitVendor()
 	AddVendor(18382,	L["Mycah"],				Z.ZANGARMARSH,			17.9,	51.2,	"Neutral") -- Alchemy, Cooking, Tailoring
 	AddVendor(18753,	L["Felannia"],				Z.HELLFIRE_PENINSULA,		52.3,	36.1,	"Horde") -- Enchanting, Tailoring
 	AddVendor(18773,	L["Johan Barnes"],			Z.HELLFIRE_PENINSULA,		53.7,	66.1,	"Alliance") -- Enchanting, Tailoring
-	AddVendor(18821,	L["Quartermaster Jaffrey Noreliqe"],	Z.NAGRAND,			41.2,	44.3,	"Horde") -- Alchemy, Jewelcrafting
-	AddVendor(18822,	L["Quartermaster Davian Vaclav"],	Z.NAGRAND,			41.2,	44.3,	"Alliance") -- Alchemy, Jewelcrafting
+	AddVendor(18821,	L["Quartermaster Jaffrey Noreliqe"],	Z.NAGRAND_OUTLAND,		41.2,	44.3,	"Horde") -- Alchemy, Jewelcrafting
+	AddVendor(18822,	L["Quartermaster Davian Vaclav"],	Z.NAGRAND_OUTLAND,		41.2,	44.3,	"Alliance") -- Alchemy, Jewelcrafting
 	AddVendor(18951,	L["Erilia"],				Z.EVERSONG_WOODS,		55.5,	54.0,	"Horde") -- Enchanting, Tailoring
 	AddVendor(19234,	L["Yurial Soulwater"],			Z.SHATTRATH_CITY,		43.5,	96.9,	"Neutral") -- Enchanting, Tailoring
 	AddVendor(19321,	L["Quartermaster Endarin"],		Z.SHATTRATH_CITY,		47.9,	26.1,	"Neutral") -- Blacksmithing, Jewelcrafting, Leatherworking, Tailoring
@@ -100,13 +100,13 @@ function addon:InitVendor()
 	AddVendor(19537,	L["Dealer Malij"],			Z.NETHERSTORM,			44.2,	34.0,	"Neutral") -- Enchanting, Tailoring
 	AddVendor(19540,	L["Asarnan"],				Z.NETHERSTORM,			44.2,	33.7,	"Neutral") -- Enchanting, Tailoring
 	AddVendor(19663,	L["Madame Ruby"],			Z.SHATTRATH_CITY,		63.1,	69.3,	"Neutral") -- Enchanting, Tailoring
-	AddVendor(20240,	L["Trader Narasu"],			Z.NAGRAND,			54.6,	75.2,	"Alliance") -- Alchemy, Leatherworking
-	AddVendor(20241,	L["Provisioner Nasela"],		Z.NAGRAND,			53.5,	36.9,	"Horde") -- Alchemy, Leatherworking
+	AddVendor(20240,	L["Trader Narasu"],			Z.NAGRAND_OUTLAND,		54.6,	75.2,	"Alliance") -- Alchemy, Leatherworking
+	AddVendor(20241,	L["Provisioner Nasela"],		Z.NAGRAND_OUTLAND,		53.5,	36.9,	"Horde") -- Alchemy, Leatherworking
 	AddVendor(20242,	L["Karaaz"],				Z.NETHERSTORM,			43.6,	34.3,	"Neutral") -- Enchanting, Engineering, Jewelcrafting, Leatherworking, Tailoring
 	AddVendor(21432,	L["Almaador"],				Z.SHATTRATH_CITY,		51.0,	41.9,	"Neutral") -- Alchemy, Enchanting, Jewelcrafting, Leatherworking
 	AddVendor(21643,	L["Alurmi"],				Z.TANARIS,			63.0,	57.3,	"Neutral") -- Alchemy, Enchanting, Jewelcrafting, Leatherworking
 	AddVendor(21655,	L["Nakodu"],				Z.SHATTRATH_CITY,		62.1,	69.0,	"Neutral") -- Alchemy, Enchanting, Jewelcrafting, Tailoring
-	AddVendor(23007,	L["Paulsta'ats"],			Z.NAGRAND,			30.6,	57.0,	"Neutral") -- Enchanting, Engineering, Jewelcrafting, Leatherworking, Tailoring
+	AddVendor(23007,	L["Paulsta'ats"],			Z.NAGRAND_OUTLAND,		30.6,	57.0,	"Neutral") -- Enchanting, Engineering, Jewelcrafting, Leatherworking, Tailoring
 	AddVendor(23159,	L["Okuno"],				Z.BLACK_TEMPLE,			0,	0,	"Neutral") -- Blacksmithing, Leatherworking, Tailoring
 	AddVendor(25032,	L["Eldara Dawnrunner"],			Z.ISLE_OF_QUELDANAS,		47.1,	30.0,	"Neutral") -- Alchemy, Enchanting, Jewelcrafting
 	AddVendor(26569,	L["Alys Vol'tyr"],			Z.DRAGONBLIGHT,			36.3,	46.5,	"Horde") -- Enchanting, Tailoring
