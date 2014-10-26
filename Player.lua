@@ -73,36 +73,34 @@ do
 		-- Number of factions before expansion
 		local num_factions = _G.GetNumFactions()
 
-		-- Expand all the headers, storing those which were collapsed.
-		for i = num_factions, 1, -1 do
-			local name, _, _, _, _, _, _, _, _, isCollapsed = _G.GetFactionInfo(i)
-
+		for index = num_factions, 1, -1 do
+			-- Expand collapsed headers, storing them so they can be collapsed again when we're finished.
+			local name, _, _, _, _, _, _, _, _, isCollapsed = _G.GetFactionInfo(index)
 			if isCollapsed then
-				_G.ExpandFactionHeader(i)
+				_G.ExpandFactionHeader(index)
 				headers[name] = true
 			end
 		end
 
-		-- Number of factions with everything expanded
+		-- Number of factions with everything expanded.
 		num_factions = _G.GetNumFactions()
 
-		-- Get the rep levels
-		for i = 1, num_factions, 1 do
-			local name, _, replevel = _G.GetFactionInfo(i)
+		for index = 1, num_factions, 1 do
+			local name, _, replevel = _G.GetFactionInfo(index)
 
 			-- If the rep is greater than neutral
-			if replevel > 4 then
+			if replevel and replevel > 4 then
 				-- We use levels of 0, 1, 2, 3, 4 internally for reputation levels, make it correspond here
 				self.reputation_levels[name] = replevel - 4
 			end
 		end
 
-		-- Collapse the headers again
-		for i = num_factions, 1, -1 do
-			local name = _G.GetFactionInfo(i)
+		-- Re-collapse stored headers.
+		for index = num_factions, 1, -1 do
+			local name = _G.GetFactionInfo(index)
 
 			if headers[name] then
-				_G.CollapseFactionHeader(i)
+				_G.CollapseFactionHeader(index)
 			end
 		end
 	end
