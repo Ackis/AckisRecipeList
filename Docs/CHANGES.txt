@@ -1,6 +1,42 @@
 ==ARL Change Log
 NOTE: Always remove the folder for old versions and install a fresh copy when upgrading.
 
+== Known Issues
+=== Due to a change Blizzard made long ago, it is no longer possible to post an alt's profession link via Ackis Recipe List. It seems this functionality won't be returning.
+
+== 3.0.9 (current alpha release)
+=== Functionality
+* Fix GetFactionInfo() results
+* Fix various tickets and bugs
+
+== 3.0.8
+=== Functionality
+* Fix issues for Nagrand vs Nagrand (Draenor) & Shadowmoon Valley vs Shadowmoon Valley (Draenor)
+
+== 3.0.7
+=== Functionality
+* Search fixes
+
+== 3.0.6
+=== Functionality
+* Add all Warlords of Draenor-related info
+
+== 3.0.5
+=== Functionality
+* Fix issues with LibAboutPanel
+
+=== Dev Tools
+* Multiple reputation-related changes
+* Fix 'private' issues
+
+== 3.0.4
+=== Functionality
+* Check for installed profession modules - if none, inform user of modules for ARL
+
+== 3.0.3
+=== Functionality
+* Fix when ARL loads
+
 == 3.0.1
 === Module support:
 * Fixed issue that prevented the Smelting profession module from loading.
