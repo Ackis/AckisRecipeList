@@ -303,7 +303,7 @@ local ACQUIRE_PROTOTYPES = {
 			entry:SetText("%s%s %s",
 				PADDING,
 				hide_type and "" or private.SetTextColor(self:ColorData().hex, self:Name()) .. ":",
-				private.SetTextColor(private.REPUTATION_COLORS.hostile.hex, mob.name))
+				private.SetTextColor(private.REPUTATION_COLORS.hostile.hex, mob.name or _G.UNKNOWN))
 
 			entry_index = private.list_frame:InsertEntry(entry, entry_index, true)
 
