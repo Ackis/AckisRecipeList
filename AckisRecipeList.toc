@@ -46,7 +46,7 @@
 ## X-Website: http://wow.curse.com/downloads/wow-addons/details/arl.aspx
 ## X-Feedback: http://www.wowace.com/addons/arl/forum/
 
-## OptionalDeps: Ace3, LibAboutPanel, LibBabble-Boss-3.0, LibSharedMedia-3.0, LibQTip-1.0, LibTextDump-1.0, LibToast-1.0, LibDialog-1.0, Skillet, ATSW, Cauldron, TomTom, TipTac, Carbonite, tekDebug
+## OptionalDeps: Ace3, LibAboutPanel, LibBabble-Boss-3.0, LibSharedMedia-3.0, LibQTip-1.0, LibTextDump-1.0, LibToast-1.0, LibDialog-1.0, Skillet, ATSW, Cauldron, TomTom, TipTac, Carbonite
 ## DefaultState: Enabled
 
 ## X-WoWI-ID: 5061
