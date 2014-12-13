@@ -771,6 +771,7 @@ local IMPLICIT_FLAGS = {
 	ALLIANCE = true,
 	DISC = true,
 	HORDE = true,
+	MISC1 = true,
 	MOB_DROP = true,
 	QUEST = true,
 	REPUTATION = true,
