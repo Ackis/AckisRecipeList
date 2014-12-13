@@ -705,9 +705,16 @@ function private.InitializeFrame()
 	end)
 
 
-	SearchBox:HookScript("OnTextSet", function(self)
-		local text = self:GetText()
+	SearchBox:SetScript("OnTextSet", function(self)
+		if not self:HasFocus() and self:GetText() == "" then
+			self.searchIcon:SetVertexColor(0.6, 0.6, 0.6)
+			self.clearButton:Hide()
+		else
+			self.searchIcon:SetVertexColor(1.0, 1.0, 1.0)
+			self.clearButton:Show()
+		end
 
+		local text = self:GetText()
 		if text ~= "" and text ~= _G.SEARCH and text ~= self.prev_search then
 			self:HighlightText()
 		else
