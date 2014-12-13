@@ -470,6 +470,7 @@ end
 
 function Recipe:AddCustom(...)
 	self:AddAcquireData(A.CUSTOM, "Custom", true, ...)
+	self:AddFilters(private.FILTER_IDS.MISC1)
 end
 
 function Recipe:AddDiscovery(...)
