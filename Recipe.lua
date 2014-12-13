@@ -305,51 +305,52 @@ function Recipe:ItemFilterType()
 end
 
 local function SetFilterState(recipe, turn_on, ...)
-	local num_filters = select('#', ...)
+	local numFilters = select('#', ...)
 
-	for index = 1, num_filters, 1 do
-		local filter = select(index, ...)
+	for filterIndex = 1, numFilters do
+		local filterID = select(filterIndex, ...)
 
-		if filter then
-			local filter_name = private.FILTER_STRINGS[filter]
+		if filterID then
+			local filterName = private.FILTER_STRINGS[filterID]
 			local bitfield
-			local member_name
+			local memberName
 
 			for table_index, bits in ipairs(private.FLAG_WORDS) do
-				if bits[filter_name] then
+				if bits[filterName] then
 					bitfield = bits
-					member_name = private.FLAG_MEMBERS[table_index]
+					memberName = private.FLAG_MEMBERS[table_index]
 					break
 				end
 			end
 
-			if not bitfield or not member_name then
+			if not bitfield or not memberName then
+				addon:Debug("Recipe '%s' (spell ID %d): Attempting to assign non-existent filter flag %s.", recipe.name, recipe:SpellID(), filterName)
 				return
 			end
 
-			if not recipe.flags[member_name] then
-				recipe.flags[member_name] = 0
+			if not recipe.flags[memberName] then
+				recipe.flags[memberName] = 0
 			end
 
 			if turn_on then
-				if bit.band(recipe.flags[member_name], bitfield[filter_name]) == bitfield[filter_name] then
-					if recipe.flags[member_name] == 0 then
-						recipe.flags[member_name] = nil
+				if bit.band(recipe.flags[memberName], bitfield[filterName]) == bitfield[filterName] then
+					if recipe.flags[memberName] == 0 then
+						recipe.flags[memberName] = nil
 					end
 					return
 				end
 			else
-				if bit.band(recipe.flags[member_name], bitfield[filter_name]) ~= bitfield[filter_name] then
-					if recipe.flags[member_name] == 0 then
-						recipe.flags[member_name] = nil
+				if bit.band(recipe.flags[memberName], bitfield[filterName]) ~= bitfield[filterName] then
+					if recipe.flags[memberName] == 0 then
+						recipe.flags[memberName] = nil
 					end
 					return
 				end
 			end
-			recipe.flags[member_name] = bit.bxor(recipe.flags[member_name], bitfield[filter_name])
+			recipe.flags[memberName] = bit.bxor(recipe.flags[memberName], bitfield[filterName])
 
-			if recipe.flags[member_name] == 0 then
-				recipe.flags[member_name] = nil
+			if recipe.flags[memberName] == 0 then
+				recipe.flags[memberName] = nil
 			end
 		else
 			addon:Debug("Recipe '%s' (spell ID %d): Attempting to %s non-existent filter flag.", recipe.name, recipe:SpellID(), turn_on and "assign" or "remove")
@@ -579,27 +580,27 @@ do
 			------------------------------------------------------------------------------------------------
 			-- Player Type flags.
 			------------------------------------------------------------------------------------------------
-			melee	= { flag = COMMON1.DPS,		field = "common1",	sv_root = player_filters },
-			tank	= { flag = COMMON1.TANK,	field = "common1",	sv_root = player_filters },
-			healer	= { flag = COMMON1.HEALER,	field = "common1",	sv_root = player_filters },
-			caster	= { flag = COMMON1.CASTER,	field = "common1",	sv_root = player_filters },
+			melee	= { flagName = "DPS",		field = "common1",	sv_root = player_filters },
+			tank	= { flagName = "TANK",		field = "common1",	sv_root = player_filters },
+			healer	= { flagName = "HEALER",	field = "common1",	sv_root = player_filters },
+			caster	= { flagName = "CASTER",	field = "common1",	sv_root = player_filters },
 		}
 
 		SOFT_FILTERS = {
-			achievement	= { flag = COMMON1.ACHIEVEMENT,		field = "common1",	sv_root = obtain_filters },
-			discovery	= { flag = COMMON1.DISC,		field = "common1",	sv_root = obtain_filters },
-			instance	= { flag = COMMON1.INSTANCE,		field = "common1",	sv_root = obtain_filters },
-			mobdrop		= { flag = COMMON1.MOB_DROP,		field = "common1",	sv_root = obtain_filters },
-			pvp		= { flag = COMMON1.PVP,			field = "common1",	sv_root = obtain_filters },
-			quest		= { flag = COMMON1.QUEST,		field = "common1",	sv_root = obtain_filters },
-			raid		= { flag = COMMON1.RAID,		field = "common1",	sv_root = obtain_filters },
-			retired		= { flag = COMMON1.RETIRED,		field = "common1",	sv_root = obtain_filters },
-			reputation	= { flag = COMMON1.REPUTATION,		field = "common1",	sv_root = obtain_filters },
-			seasonal	= { flag = COMMON1.WORLD_EVENTS,	field = "common1",	sv_root = obtain_filters },
-			trainer		= { flag = COMMON1.TRAINER,		field = "common1",	sv_root = obtain_filters },
-			vendor		= { flag = COMMON1.VENDOR,		field = "common1",	sv_root = obtain_filters },
-			worlddrop	= { flag = COMMON1.WORLD_DROP,		field = "common1",	sv_root = obtain_filters },
-			misc1		= { flag = COMMON1.MISC1,		field = "common1",	sv_root = obtain_filters },
+			achievement	= { flagName = "ACHIEVEMENT",	field = "common1",	sv_root = obtain_filters },
+			discovery	= { flagName = "DISC",		field = "common1",	sv_root = obtain_filters },
+			instance	= { flagName = "INSTANCE",	field = "common1",	sv_root = obtain_filters },
+			mobdrop		= { flagName = "MOB_DROP",	field = "common1",	sv_root = obtain_filters },
+			pvp		= { flagName = "PVP",		field = "common1",	sv_root = obtain_filters },
+			quest		= { flagName = "QUEST",		field = "common1",	sv_root = obtain_filters },
+			raid		= { flagName = "RAID",		field = "common1",	sv_root = obtain_filters },
+			retired		= { flagName = "RETIRED",	field = "common1",	sv_root = obtain_filters },
+			reputation	= { flagName = "REPUTATION",	field = "common1",	sv_root = obtain_filters },
+			seasonal	= { flagName = "WORLD_EVENTS",	field = "common1",	sv_root = obtain_filters },
+			trainer		= { flagName = "TRAINER",	field = "common1",	sv_root = obtain_filters },
+			vendor		= { flagName = "VENDOR",	field = "common1",	sv_root = obtain_filters },
+			worlddrop	= { flagName = "WORLD_DROP",	field = "common1",	sv_root = obtain_filters },
+			misc1		= { flagName = "MISC1",		field = "common1",	sv_root = obtain_filters },
 		}
 
 		InitializeFilters = nil
@@ -645,10 +646,8 @@ do
 		end
 
 		for bitflag, flag_name in pairs(filters) do
-			if bit.band(bitfield, bitflag) == bitflag then
-				if name_field[flag_name] then
-					return true
-				end
+			if bit.band(bitfield, bitflag) == bitflag and name_field[flag_name] then
+				return true
 			end
 		end
 		return false
@@ -698,9 +697,9 @@ do
 		if not filter_db.quality[QUALITY_FILTERS[self.quality]] then
 			return false
 		end
+
 		local item_filter_type = self:ItemFilterType()
 		local profession_module = addon:GetModule(private.PROFESSION_MODULE_NAMES[private.ORDERED_PROFESSIONS[addon.Frame.current_profession]])
-
 		if item_filter_type and (not profession_module or not profession_module.db.profile.filters.item[item_filter_type]) then
 			return false
 		end
@@ -714,16 +713,13 @@ do
 		end
 
 		local _, crafted_item_binding = self:CraftedItem()
-
 		if crafted_item_binding and not addon.db.profile.filters.binding["item_" .. crafted_item_binding:lower()] then
 			return false
 		end
 
 		-- Check the hard filter flags.
-		for filter, data in pairs(private.HARD_FILTERS) do
-			local bitfield = self.flags[data.field]
-
-			if bitfield and bit.band(bitfield, data.flag) == data.flag and not data.sv_root[filter] then
+		for filterName, filterData in pairs(private.HARD_FILTERS) do
+			if self:HasFilter(filterData.field, filterData.flagName) and not filterData.sv_root[filterName] then
 				return false
 			end
 		end
@@ -745,10 +741,8 @@ do
 		-- loop through nonexclusive (soft filters) flags until one is true
 		-- If one of these is true (ie: we want to see trainers and there is a trainer flag) we display the recipe
 		------------------------------------------------------------------------------------------------
-		for filter, data in pairs(SOFT_FILTERS) do
-			local bitfield = self.flags[data.field]
-
-			if bitfield and bit.band(bitfield, data.flag) == data.flag and data.sv_root[filter] then
+		for filterName, filterData in pairs(SOFT_FILTERS) do
+			if self:HasFilter(filterData.field, filterData.flagName) and filterData.sv_root[filterName] then
 				return true
 			end
 		end
