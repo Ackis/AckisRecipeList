@@ -23,18 +23,6 @@ local addon = LibStub("AceAddon-3.0"):GetAddon(private.addon_name)
 -----------------------------------------------------------------------
 -- Methods.
 -----------------------------------------------------------------------
-function private.GetAddOnInfo(addon_name)
-	local name, title, notes, is_loaded, reason, security, newVersion
-
-	for index = 1, _G.GetNumAddOns() do
-		name, title, notes, is_loaded, reason, security, newVersion = _G.GetAddOnInfo(index)
-
-		if name == addon_name then
-			return name, title, notes, is_loaded, reason, security, newVersion
-		end
-	end
-end
-
 function private.SetTextColor(color_code, text)
 	return ("|cff%s%s|r"):format(color_code or "ffffff", text)
 end
