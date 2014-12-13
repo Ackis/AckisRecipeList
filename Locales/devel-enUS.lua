@@ -929,6 +929,7 @@ L["Muheru the Weaver"] = true
 L["Mukdrak"] = true
 L["Mumman"] = true
 L["Murkblood Raider"] = true
+L["Murg Stonecrack"] = true
 L["Murne Greenhoof"] = true
 L["Muuran"] = true
 L["Mycah"] = true
