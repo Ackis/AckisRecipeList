@@ -874,11 +874,7 @@ do
 		end
 		private.current_profession_specialty = nil
 
-		if profession_name == private.MINING_PROFESSION_NAME then
-			profession_name = private.LOCALIZED_PROFESSION_NAMES.SMELTING
-		end
 		local profession_module_name = private.PROFESSION_MODULE_NAMES[profession_name]
-
 		if not profession_module_name then
 			return
 		end
