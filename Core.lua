@@ -921,7 +921,7 @@ do
 			end
 			return
 		else
-			if not professionModule.version then
+			if not professionModule.Version then
 				Dialog:Spawn("ARL_ModuleWrongVersionDialog", {
 					moduleName = professionModuleName,
 					moduleVersion = 0
