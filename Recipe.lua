@@ -39,6 +39,21 @@ local recipeMetatable = {
 	__index = Recipe
 }
 
+-----------------------------------------------------------------------
+-- Helpers.
+-----------------------------------------------------------------------
+local function GetOrCreateLocation(locationName)
+	local locationList = private.location_list
+	if not locationList[locationName] then
+		locationList[locationName] = {
+			name = locationName,
+			recipes = {}
+		}
+	end
+
+	return locationList[locationName]
+end
+
 function addon:AddRecipe(module, recipeData)
 	local recipeList = private.recipe_list
 	local spellID = recipeData._spell_id
@@ -408,11 +423,7 @@ function Recipe:AddAcquireData(acquireTypeID, typeLabel, hasEntityList, ...)
 		end
 
 		if locationName then
-			locationList[locationName] = locationList[locationName] or {}
-			locationList[locationName].recipes = locationList[locationName].recipes or {}
-
-			locationList[locationName].name = locationName
-			locationList[locationName].recipes[self:SpellID()] = affiliation or true
+			GetOrCreateLocation(locationName).recipes[self:SpellID()] = affiliation or true
 		end
 	end
 end
@@ -530,11 +541,7 @@ function Recipe:AddRepVendor(factionID, reputationLevel, ...)
 		private.AcquireTypes.Reputation:AssignRecipe(self:SpellID(), affiliation)
 
 		if locationName then
-			locationList[locationName] = locationList[locationName] or {}
-			locationList[locationName].recipes = locationList[locationName].recipes or {}
-
-			locationList[locationName].name = locationName
-			locationList[locationName].recipes[self:SpellID()] = affiliation or true
+			GetOrCreateLocation(locationName).recipes[self:SpellID()] = affiliation or true
 		end
 	end
 	self:AddFilters(private.FILTER_IDS.REPUTATION)
