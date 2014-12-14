@@ -35,51 +35,35 @@ private.location_list	= {}
 -- Local constants.
 -----------------------------------------------------------------------
 local Recipe = {}
-local recipe_meta = {
+local recipeMetatable = {
 	__index = Recipe
 }
 
---- Adds a tradeskill recipe into the specified recipe database
--- @name AckisRecipeList:AddRecipe
--- @usage AckisRecipeList:AddRecipe(28927, 23109, V.TBC, Q.UNCOMMON)
--- @param spell_id The [[http://www.wowpedia.org/SpellLink|Spell ID]] of the recipe being added to the database
--- @param profession_spell_id The profession ID that uses the recipe.  See [[API/database-documentation]] for a listing of profession IDs
--- @param genesis Game version that the recipe was first introduced in, for example, Original, BC, WoTLK, or Cata
--- @param quality The quality/rarity of the recipe
--- @return Resultant recipe table.
-function addon:AddRecipe(spell_id, profession_spell_id, genesis, quality)
-	local recipe_list = private.recipe_list
-	local existing_recipe = recipe_list[spell_id]
+function addon:AddRecipe(module, recipeData)
+	local recipeList = private.recipe_list
+	local spellID = recipeData._spell_id
 
-	if existing_recipe then
-		self:Debug("Duplicate recipe: %d - %s (%s)", spell_id, existing_recipe.name, existing_recipe.profession)
+	local existingRecipe = recipeList[spellID]
+	if existingRecipe then
+		self:Debug("Duplicate recipe from %s: %d - %s", module.Name, spellID, existingRecipe.name)
 		return
 	end
 
-	local recipe = _G.setmetatable({
-		acquire_data = {},
-		flags = {},
-		genesis = private.GAME_VERSION_NAMES[genesis],
-		name = _G.GetSpellInfo(spell_id),
-		profession = _G.GetSpellInfo(profession_spell_id),
-		quality = quality,
-		_spell_id = spell_id,
-	}, recipe_meta)
-
+	local recipe = _G.setmetatable(recipeData, recipeMetatable)
 	recipe:AddFilters(private.FILTER_IDS.ALLIANCE, private.FILTER_IDS.HORDE)
 
 	if not recipe.name or recipe.name == "" then
-		recipe.name = ("%s: %d"):format(_G.UNKNOWN, tonumber(spell_id))
-		self:Debug(L["SpellIDCache"]:format(spell_id))
+		recipe.name = ("%s: %d"):format(_G.UNKNOWN, tonumber(spellID))
+		self:Debug(L["SpellIDCache"]:format(spellID))
 	end
-	recipe_list[spell_id] = recipe
+	recipeList[spellID] = recipe
 
-	local profession_recipes = private.profession_recipe_list[recipe.profession]
-	if not profession_recipes then
-		profession_recipes = {}
-		private.profession_recipe_list[recipe.profession] = profession_recipes
+	local professionRecipes = private.profession_recipe_list[recipe.profession]
+	if not professionRecipes then
+		professionRecipes = module.Recipes
+		private.profession_recipe_list[recipe.profession] = professionRecipes
 	end
-	profession_recipes[spell_id] = recipe
+	professionRecipes[spellID] = recipe
 
 	private.num_profession_recipes[recipe.profession] = (private.num_profession_recipes[recipe.profession] or 0) + 1
 
