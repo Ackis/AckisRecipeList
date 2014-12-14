@@ -33,9 +33,17 @@ local L			= LibStub("AceLocale-3.0"):GetLocale(private.addon_name)
 local Z			= private.ZONE_NAMES
 
 function addon:InitCustom()
-	local function AddCustom(identifier, zone_name, coord_x, coord_y, faction)
-		private.AcquireTypes.Custom:AddEntity(identifier, L[identifier], zone_name, coord_x, coord_y, faction)
+	local function AddCustom(identifier, zoneName, coordX, coordY, faction)
+		return private.AcquireTypes.Custom:AddEntity(addon, {
+			coord_x = coordX,
+			coord_y = coordY,
+			faction = faction,
+			identifier = identifier,
+			location = zoneName,
+			name = L[identifier],
+		})
 	end
+
 	AddCustom("DAILY_COOKING_MEAT", Z.SHATTRATH_CITY)
 	AddCustom("DAILY_COOKING_FISH", Z.SHATTRATH_CITY)
 	AddCustom("DAILY_FISHING_SHATT", Z.SHATTRATH_CITY)

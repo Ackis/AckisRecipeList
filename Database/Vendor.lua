@@ -35,8 +35,15 @@ local BN = private.BOSS_NAMES
 local Z = private.ZONE_NAMES
 
 function addon:InitVendor()
-	local function AddVendor(id_num, name, zone_name, x, y, faction)
-		private.AcquireTypes.Vendor:AddEntity(id_num, name, zone_name, x, y, faction)
+	local function AddVendor(identifier, name, location, coord_x, coord_y, faction)
+		return private.AcquireTypes.Vendor:AddEntity(addon, {
+			coord_x = coord_x,
+			coord_y = coord_y,
+			faction = faction,
+			identifier = identifier,
+			location = location,
+			name = name,
+		})
 	end
 
 	AddVendor(66,		L["Tharynn Bouden"],			Z.ELWYNN_FOREST,		41.9,	67.1,	"Alliance") -- Cooking, Tailoring

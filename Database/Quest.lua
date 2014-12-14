@@ -51,8 +51,15 @@ private.quest_names = _G.setmetatable({}, {
 })
 
 function addon:InitQuest()
-	local function AddQuest(quest_id, zone_name, coord_x, coord_y, faction)
-		private.AcquireTypes.Quest:AddEntity(quest_id, nil, zone_name, coord_x, coord_y, faction)
+	local function AddQuest(questID, zoneName, coordX, coordY, faction)
+		private.AcquireTypes.Quest:AddEntity(addon, {
+			coord_x = coordX,
+			coord_y = coordY,
+			faction = faction,
+			identifier = questID,
+			location = zoneName,
+			name = nil, -- Handled by memoizing table above.
+		})
 	end
 
 	AddQuest(8323,	Z.SILITHUS,			67.1,	69.7,	"Neutral") -- Blacksmithing, Tailoring

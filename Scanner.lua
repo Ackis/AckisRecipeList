@@ -1107,7 +1107,15 @@ do
 				L[vendor_name] = true
 			end
 			_G.SetMapToCurrentZone() -- Make sure were are looking at the right zone
-			vendor_acquire_type:AddEntity(vendor_id, L[vendor_name], _G.GetRealZoneText(), vendor_x, vendor_y, _G.UnitFactionGroup("target") or "Neutral")
+
+			vendor_acquire_type:AddEntity(addon, {
+				coord_x = vendor_x,
+				coord_y = vendor_y,
+				faction = _G.UnitFactionGroup("target") or "Neutral",
+				identifier = vendor_id,
+				location = _G.GetRealZoneText(),
+				name = L[vendor_name],
+			})
 		end
 
 		if matching_vendor and vendor_entry and vendor_entry.item_list then

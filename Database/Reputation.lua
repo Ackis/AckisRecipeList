@@ -12,8 +12,11 @@ local FOLDER_NAME, private = ...
 local addon = _G.LibStub("AceAddon-3.0"):GetAddon(private.addon_name)
 
 function addon:InitReputation()
-	for rep_id in pairs(private.FACTION_LABELS_FROM_ID) do
-		private.AcquireTypes.Reputation:AddEntity(rep_id, _G.GetFactionInfoByID(rep_id) or ("%s_%d"):format(_G.UNKNOWN, rep_id))
+	for reputationID in pairs(private.FACTION_LABELS_FROM_ID) do
+		private.AcquireTypes.Reputation:AddEntity(addon, {
+			identifier = reputationID,
+			name = _G.GetFactionInfoByID(reputationID) or ("%s_%d"):format(_G.UNKNOWN, reputationID),
+		})
 	end
 
 	self.InitReputation = nil

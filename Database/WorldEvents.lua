@@ -15,7 +15,11 @@ local L = LibStub("AceLocale-3.0"):GetLocale(private.addon_name)
 
 function addon:InitWorldEvents()
 	local function AddWorldEvent(identifier, name)
-		private.AcquireTypes.WorldEvents:AddEntity(identifier, name, _G.GetCategoryInfo(155))
+		private.AcquireTypes.WorldEvents:AddEntity(addon, {
+			identifier = identifier,
+			name = name,
+			location = _G.GetCategoryInfo(155)
+		})
 	end
 
 	AddWorldEvent("WINTER_VEIL", _G.GetCategoryInfo(156))

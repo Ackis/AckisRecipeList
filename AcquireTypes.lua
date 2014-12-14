@@ -847,34 +847,22 @@ end
 -------------------------------------------------------------------------------
 -- AcquireType Methods.
 -------------------------------------------------------------------------------
-function AcquireType:AddEntity(identifier, name, location, coord_x, coord_y, faction)
-	if self._entities[identifier] then
-		private:Debug("Duplicate lookup: %s - %s.", identifier, name)
+function AcquireType:AddEntity(module, entity)
+	if self._entities[entity.identifier] then
+		private:Debug("Duplicate %s entity from %s: %s - %s.", self:Name(), module.Name, entity.identifier, entity.name)
 		return
 	end
 
-	local entity = {
-		faction = faction,
-		identifier = identifier,
-		location = location,
-		name = name,
-	}
-
-	if coord_x and coord_y then
-		entity.coord_x = coord_x
-		entity.coord_y = coord_y
-	end
-
 	--@alpha@
-	if not location and self:HasCoordinates() then
-		private:Debug("%s %s (%s) has an unknown location.", self:Name(), name or _G.UNKNOWN, identifier)
+	if not entity.location and self:HasCoordinates() then
+		private:Debug("%s %s (%s) has an unknown location.", self:Name(), entity.name or _G.UNKNOWN, entity.identifier)
 	end
 
-	if faction and self:ID() == private.ACQUIRE_TYPE_IDS.MOB_DROP then
-		private:Debug("Mob %d (%s) has been assigned to faction %s.", identifier, name, entity.faction)
+	if entity.faction and self:ID() == private.ACQUIRE_TYPE_IDS.MOB_DROP then
+		private:Debug("Mob %d (%s) has been assigned to faction %s.", entity.identifier, entity.name, entity.faction)
 	end
 	--@end-alpha@
-	self._entities[identifier] = entity
+	self._entities[entity.identifier] = entity
 	return entity
 end
 

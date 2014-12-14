@@ -35,8 +35,15 @@ local BN = private.BOSS_NAMES
 local Z = private.ZONE_NAMES
 
 function addon:InitMob()
-	local function AddMob(mob_id, mob_name, zone_name, coord_x, coord_y)
-		private.AcquireTypes.MobDrop:AddEntity(mob_id, mob_name, zone_name, coord_x, coord_y, nil)
+	local function AddMob(npcID, npcName, zoneName, coordX, coordY)
+		private.AcquireTypes.MobDrop:AddEntity(addon, {
+			coord_x = coordX,
+			coord_y = coordY,
+			faction = nil,
+			identifier = npcID,
+			location = zoneName,
+			name = npcName,
+		})
 	end
 
 	AddMob(9264,	L["Firebrand Pyromancer"],		Z.BLACKROCK_SPIRE,		0, 0) -- Alchemy, Tailoring
