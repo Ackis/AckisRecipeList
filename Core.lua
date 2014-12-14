@@ -425,8 +425,8 @@ end
 function addon:OnEnable()
 	self.AcquireTypes = private.AcquireTypes
 
-	self:RegisterEvent("TRADE_SKILL_SHOW") -- Make addon respond to the tradeskill windows being shown
-	self:RegisterEvent("TRADE_SKILL_CLOSE") -- Addon responds to tradeskill windows being closed.
+	self:RegisterEvent("TRADE_SKILL_SHOW")
+	self:RegisterEvent("TRADE_SKILL_CLOSE")
 	self:RegisterEvent("TRADE_SKILL_UPDATE")
 
 	if addon.db.profile.scantrainers then
