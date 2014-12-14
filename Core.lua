@@ -895,6 +895,11 @@ do
 		end
 		private.current_profession_specialty = nil
 
+		-- This isn't needed for the module name lookup, but it is needed for other things further down the path.
+		if profession_name == private.MINING_PROFESSION_NAME then
+			profession_name = private.LOCALIZED_PROFESSION_NAMES.SMELTING
+		end
+
 		local professionModuleName = private.PROFESSION_MODULE_NAMES[profession_name]
 		if not professionModuleName then
 			return
