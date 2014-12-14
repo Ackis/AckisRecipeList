@@ -23,7 +23,7 @@ local LibStub = _G.LibStub
 local addon = LibStub("AceAddon-3.0"):GetAddon(private.addon_name)
 local L = LibStub("AceLocale-3.0"):GetLocale(private.addon_name)
 
-local A = private.ACQUIRE_TYPE_IDS
+local ACQUIRE_TYPE_IDS = private.ACQUIRE_TYPE_IDS
 
 private.recipe_list = {}
 private.profession_recipe_list = {}
@@ -237,7 +237,7 @@ do
 		if private.ORDERED_PROFESSIONS[addon.Frame.current_profession] == private.LOCALIZED_PROFESSION_NAMES.ENCHANTING then
 			recipe_name = recipe_name:gsub(_G.ENSCRIBE .. " ", "")
 		end
-		local has_faction = private.Player:HasProperRepLevel(self.acquire_data[A.REPUTATION])
+		local has_faction = private.Player:HasProperRepLevel(self.acquire_data[ACQUIRE_TYPE_IDS.REPUTATION])
 		local skill_level = private.current_profession_scanlevel
 		local recipe_level = self.skill_level
 
@@ -350,198 +350,198 @@ function Recipe:RemoveFilters(...)
 	SetFilterState(self, false, ...)
 end
 
-function Recipe:AddAcquireData(acquire_type_id, type_string, has_entity_list, ...)
-	local location_list = private.location_list
-	local recipe_acquire_data = self.acquire_data[acquire_type_id]
+function Recipe:AddAcquireData(acquireTypeID, typeLabel, hasEntityList, ...)
+	local locationList = private.location_list
+	local acquireTypeData = self.acquire_data[acquireTypeID]
 
-	if not recipe_acquire_data then
-		self.acquire_data[acquire_type_id] = {}
-		recipe_acquire_data = self.acquire_data[acquire_type_id]
+	if not acquireTypeData then
+		self.acquire_data[acquireTypeID] = {}
+		acquireTypeData = self.acquire_data[acquireTypeID]
 	end
 
-	local acquire_type = private.ACQUIRE_TYPES_BY_ID[acquire_type_id]
-	acquire_type:AssignRecipe(self:SpellID())
+	local acquireType = private.ACQUIRE_TYPES_BY_ID[acquireTypeID]
+	acquireType:AssignRecipe(self:SpellID())
 
-	local limited_vendor = type_string == "Limited Vendor"
-	local num_vars = select('#', ...)
-	local cur_var = 1
+	local isLimitedVendor = typeLabel == "Limited Vendor"
+	local variablesCount = select('#', ...)
+	local currentVariableIndex = 1
 
-	while cur_var <= num_vars do
+	while currentVariableIndex <= variablesCount do
 		-- A quantity of true means unlimited - normal vendor item.
 		local quantity = true
-		local location_name, affiliation
-		local identifier = select(cur_var, ...)
-		cur_var = cur_var + 1
+		local locationName, affiliation
+		local identifier = select(currentVariableIndex, ...)
+		currentVariableIndex = currentVariableIndex + 1
 
-		if limited_vendor then
-			quantity = select(cur_var, ...)
-			cur_var = cur_var + 1
+		if isLimitedVendor then
+			quantity = select(currentVariableIndex, ...)
+			currentVariableIndex = currentVariableIndex + 1
 		end
-		recipe_acquire_data[identifier] = true
+		acquireTypeData[identifier] = true
 
-		if has_entity_list then
-			local entity = acquire_type:GetEntity(identifier)
+		if hasEntityList then
+			local entity = acquireType:GetEntity(identifier)
 
 			if entity then
 				affiliation = entity.faction
-				location_name = entity.location
+				locationName = entity.location
 
 				entity.item_list = entity.item_list or {}
 				entity.item_list[self:SpellID()] = quantity
 			else
-				addon:Debug("Spell ID %d: %s ID %s does not exist in the %s AcquireType's Entity table.", self:SpellID(), type_string, identifier, acquire_type:Label())
+				addon:Debug("Spell ID %d: %s ID %s does not exist in the %s AcquireType's Entity table.", self:SpellID(), typeLabel, identifier, acquireType:Label())
 			end
 		else
-			local string_id = type(identifier) == "string"
+			local isStringID = type(identifier) == "string"
 
-			location_name = string_id and identifier or nil
+			locationName = isStringID and identifier or nil
 
-			if location_name then
+			if locationName then
 				affiliation = "world_drop"
-			elseif string_id then
-				addon:Debug("%s with no location: %d %s", type_string, self:SpellID(), self.name)
+			elseif isStringID then
+				addon:Debug("%s with no location: %d %s", typeLabel, self:SpellID(), self.name)
 			end
 		end
 
 		if affiliation then
-			acquire_type:AssignRecipe(self:SpellID(), affiliation)
+			acquireType:AssignRecipe(self:SpellID(), affiliation)
 		end
 
-		if location_name then
-			location_list[location_name] = location_list[location_name] or {}
-			location_list[location_name].recipes = location_list[location_name].recipes or {}
+		if locationName then
+			locationList[locationName] = locationList[locationName] or {}
+			locationList[locationName].recipes = locationList[locationName].recipes or {}
 
-			location_list[location_name].name = location_name
-			location_list[location_name].recipes[self:SpellID()] = affiliation or true
+			locationList[locationName].name = locationName
+			locationList[locationName].recipes[self:SpellID()] = affiliation or true
 		end
 	end
 end
 
 function Recipe:AddMobDrop(...)
-	self:AddAcquireData(A.MOB_DROP, "Mob", true, ...)
+	self:AddAcquireData(ACQUIRE_TYPE_IDS.MOB_DROP, "Mob", true, ...)
 	self:AddFilters(private.FILTER_IDS.MOB_DROP)
 end
 
 function Recipe:AddTrainer(...)
-	self:AddAcquireData(A.TRAINER, "Trainer", true, ...)
+	self:AddAcquireData(ACQUIRE_TYPE_IDS.TRAINER, "Trainer", true, ...)
 	self:AddFilters(private.FILTER_IDS.TRAINER)
 end
 
 function Recipe:AddVendor(...)
-	self:AddAcquireData(A.VENDOR, "Vendor", true, ...)
+	self:AddAcquireData(ACQUIRE_TYPE_IDS.VENDOR, "Vendor", true, ...)
 	self:AddFilters(private.FILTER_IDS.VENDOR)
 end
 
 function Recipe:AddLimitedVendor(...)
-	self:AddAcquireData(A.VENDOR, "Limited Vendor", true, ...)
+	self:AddAcquireData(ACQUIRE_TYPE_IDS.VENDOR, "Limited Vendor", true, ...)
 	self:AddFilters(private.FILTER_IDS.VENDOR)
 end
 
 function Recipe:AddWorldDrop(...)
-	self:AddAcquireData(A.WORLD_DROP, "World Drop", false, ...)
+	self:AddAcquireData(ACQUIRE_TYPE_IDS.WORLD_DROP, "World Drop", false, ...)
 	self:AddFilters(private.FILTER_IDS.WORLD_DROP)
 end
 
 function Recipe:AddQuest(...)
-	self:AddAcquireData(A.QUEST, "Quest", true, ...)
+	self:AddAcquireData(ACQUIRE_TYPE_IDS.QUEST, "Quest", true, ...)
 	self:AddFilters(private.FILTER_IDS.QUEST)
 end
 
 function Recipe:AddAchievement(...)
-	self:AddAcquireData(A.ACHIEVEMENT, "Achievement", false, ...)
+	self:AddAcquireData(ACQUIRE_TYPE_IDS.ACHIEVEMENT, "Achievement", false, ...)
 	self:AddFilters(private.FILTER_IDS.ACHIEVEMENT)
 end
 
 function Recipe:AddCustom(...)
-	self:AddAcquireData(A.CUSTOM, "Custom", true, ...)
+	self:AddAcquireData(ACQUIRE_TYPE_IDS.CUSTOM, "Custom", true, ...)
 	self:AddFilters(private.FILTER_IDS.MISC1)
 end
 
 function Recipe:AddDiscovery(...)
-	self:AddAcquireData(A.DISCOVERY, "Discovery", true, ...)
+	self:AddAcquireData(ACQUIRE_TYPE_IDS.DISCOVERY, "Discovery", true, ...)
 	self:AddFilters(private.FILTER_IDS.DISC)
 end
 
 function Recipe:AddWorldEvent(...)
-	self:AddAcquireData(A.WORLD_EVENTS, "World Events", true, ...)
+	self:AddAcquireData(ACQUIRE_TYPE_IDS.WORLD_EVENTS, "World Events", true, ...)
 	self:AddFilters(private.FILTER_IDS.WORLD_EVENTS)
 end
 
-function Recipe:AddRepVendor(reputation_id, rep_level, ...)
-	local location_list = private.location_list
-	local acquire_data = self.acquire_data[A.REPUTATION]
+function Recipe:AddRepVendor(factionID, reputationLevel, ...)
+	local locationList = private.location_list
+	local acquireTypeData = self.acquire_data[ACQUIRE_TYPE_IDS.REPUTATION]
 
-	if not acquire_data then
-		self.acquire_data[A.REPUTATION] = {}
-		acquire_data = self.acquire_data[A.REPUTATION]
+	if not acquireTypeData then
+		self.acquire_data[ACQUIRE_TYPE_IDS.REPUTATION] = {}
+		acquireTypeData = self.acquire_data[ACQUIRE_TYPE_IDS.REPUTATION]
 	end
-	local faction = acquire_data[reputation_id]
+	local faction = acquireTypeData[factionID]
 
 	if not faction then
-		acquire_data[reputation_id] = {}
-		faction = acquire_data[reputation_id]
-		faction[rep_level] = {}
+		acquireTypeData[factionID] = {}
+		faction = acquireTypeData[factionID]
+		faction[reputationLevel] = {}
 	end
-	local reputation_acquire_type = private.AcquireTypes.Reputation
-	local vendor_acquire_type = private.AcquireTypes.Vendor
+	local reputationAcquireType = private.AcquireTypes.Reputation
+	local vendorAcquireType = private.AcquireTypes.Vendor
 
-	local num_vars = select('#', ...)
-	local cur_var = 1
+	local variablesCount = select('#', ...)
+	local currentVariableIndex = 1
 
-	while cur_var <= num_vars do
-		local location_name, affiliation
-		local vendor_id = select(cur_var, ...)
-		cur_var = cur_var + 1
+	while currentVariableIndex <= variablesCount do
+		local locationName, affiliation
+		local vendorID = select(currentVariableIndex, ...)
+		currentVariableIndex = currentVariableIndex + 1
 
-		local reputation = reputation_acquire_type:GetEntity(reputation_id)
+		local reputation = reputationAcquireType:GetEntity(factionID)
 
 		if reputation then
-			if vendor_id then
-				local rep_vendor = vendor_acquire_type:GetEntity(vendor_id)
+			if vendorID then
+				local reputationVendor = vendorAcquireType:GetEntity(vendorID)
 
-				if rep_vendor then
-					faction[rep_level][vendor_id] = true
+				if reputationVendor then
+					faction[reputationLevel][vendorID] = true
 
-					affiliation = rep_vendor.faction
-					location_name = rep_vendor.location
+					affiliation = reputationVendor.faction
+					locationName = reputationVendor.location
 
-					rep_vendor.reputation_id = reputation_id
-					rep_vendor.item_list = rep_vendor.item_list or {}
-					rep_vendor.item_list[self:SpellID()] = true
+					reputationVendor.reputation_id = factionID
+					reputationVendor.item_list = reputationVendor.item_list or {}
+					reputationVendor.item_list[self:SpellID()] = true
 
 					reputation.item_list = reputation.item_list or {}
 					reputation.item_list[self:SpellID()] = true
 
-					self:AddFilters(private.FILTER_IDS[private.FACTION_LABELS_FROM_ID[reputation_id]])
+					self:AddFilters(private.FILTER_IDS[private.FACTION_LABELS_FROM_ID[factionID]])
 				else
 					addon:Debug("Spell ID %d (%s): Reputation Vendor ID %s does not exist in the %s AcquireType Entity table.",
 						self:SpellID(),
 						tostring(self.name),
-						tostring(vendor_id),
-						vendor_acquire_type:Label()
+						tostring(vendorID),
+						vendorAcquireType:Label()
 					)
 				end
 			else
 				addon:Debug("Spell ID %d (%s): Nil Reputation Vendor ID passed.", self:SpellID(), tostring(self.name))
 			end
 		else
-			addon:Debug("Spell ID %d: Faction ID %d does not exist in the %s AcquireType Entity table.", self:SpellID(), reputation_id, reputation_acquire_type:Label())
+			addon:Debug("Spell ID %d: Faction ID %d does not exist in the %s AcquireType Entity table.", self:SpellID(), factionID, reputationAcquireType:Label())
 		end
 		private.AcquireTypes.Reputation:AssignRecipe(self:SpellID(), affiliation)
 
-		if location_name then
-			location_list[location_name] = location_list[location_name] or {}
-			location_list[location_name].recipes = location_list[location_name].recipes or {}
+		if locationName then
+			locationList[locationName] = locationList[locationName] or {}
+			locationList[locationName].recipes = locationList[locationName].recipes or {}
 
-			location_list[location_name].name = location_name
-			location_list[location_name].recipes[self:SpellID()] = affiliation or true
+			locationList[locationName].name = locationName
+			locationList[locationName].recipes[self:SpellID()] = affiliation or true
 		end
 	end
 	self:AddFilters(private.FILTER_IDS.REPUTATION)
 end
 
 function Recipe:Retire()
-	self:AddAcquireData(A.RETIRED, "Retired")
+	self:AddAcquireData(ACQUIRE_TYPE_IDS.RETIRED, "Retired")
 	self:AddFilters(private.FILTER_IDS.RETIRED)
 end
 
@@ -735,15 +735,15 @@ do
 end --do-block
 
 local DUMP_FUNCTION_FORMATS = {
-	[A.ACHIEVEMENT] = "recipe:AddAchievement(%s)",
-	[A.CUSTOM] = "recipe:AddCustom(%s)",
-	[A.DISCOVERY] = "recipe:AddDiscovery(%s)",
-	[A.WORLD_EVENTS] = "recipe:AddWorldEvent(%s)",
-	[A.TRAINER] = "recipe:AddTrainer(%s)",
-	[A.MOB_DROP] = "recipe:AddMobDrop(%s)",
-	[A.WORLD_DROP] = "recipe:AddWorldDrop(%s)",
-	[A.QUEST] = "recipe:AddQuest(%s)",
-	[A.RETIRED] = "recipe:Retire()",
+	[ACQUIRE_TYPE_IDS.ACHIEVEMENT] = "recipe:AddAchievement(%s)",
+	[ACQUIRE_TYPE_IDS.CUSTOM] = "recipe:AddCustom(%s)",
+	[ACQUIRE_TYPE_IDS.DISCOVERY] = "recipe:AddDiscovery(%s)",
+	[ACQUIRE_TYPE_IDS.WORLD_EVENTS] = "recipe:AddWorldEvent(%s)",
+	[ACQUIRE_TYPE_IDS.TRAINER] = "recipe:AddTrainer(%s)",
+	[ACQUIRE_TYPE_IDS.MOB_DROP] = "recipe:AddMobDrop(%s)",
+	[ACQUIRE_TYPE_IDS.WORLD_DROP] = "recipe:AddWorldDrop(%s)",
+	[ACQUIRE_TYPE_IDS.QUEST] = "recipe:AddQuest(%s)",
+	[ACQUIRE_TYPE_IDS.RETIRED] = "recipe:Retire()",
 }
 
 local sortedData = {}
@@ -851,7 +851,7 @@ function Recipe:Dump(output, use_genesis)
 	filterOutputText = nil
 
 	for acquireTypeID, acquireInfo in pairs(self.acquire_data) do
-		if acquireTypeID == A.REPUTATION then
+		if acquireTypeID == ACQUIRE_TYPE_IDS.REPUTATION then
 			for factionID, factionInfo in pairs(acquireInfo) do
 				local factionLabel = private.FACTION_LABELS_FROM_ID[factionID]
 
@@ -884,7 +884,7 @@ function Recipe:Dump(output, use_genesis)
 					output:AddLine(("recipe:AddRepVendor(%s, %s, %s)"):format(factionLabel, reputationLevelString, values), genesis_val)
 				end
 			end
-		elseif acquireTypeID == A.VENDOR then
+		elseif acquireTypeID == ACQUIRE_TYPE_IDS.VENDOR then
 			local values
 			local limited_values
 
@@ -944,7 +944,7 @@ function Recipe:Dump(output, use_genesis)
 				local saved_id
 
 				if type(identifier) == "string" then
-					if acquireTypeID == A.WORLD_DROP then
+					if acquireTypeID == ACQUIRE_TYPE_IDS.WORLD_DROP then
 						saved_id = ("Z.%s"):format(ZL[identifier])
 					else
 						saved_id = ("\"%s\""):format(identifier)
@@ -986,7 +986,7 @@ function Recipe:Dump(output, use_genesis)
 end
 
 function Recipe:DumpTrainers(registry)
-	local trainer_data = self.acquire_data[A.TRAINER]
+	local trainer_data = self.acquire_data[ACQUIRE_TYPE_IDS.TRAINER]
 
 	if not trainer_data then
 		return
