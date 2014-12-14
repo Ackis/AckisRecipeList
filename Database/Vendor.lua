@@ -41,6 +41,7 @@ function addon:InitVendor()
 			coord_y = coord_y,
 			faction = faction,
 			identifier = identifier,
+			item_list = {},
 			location = location,
 			name = name,
 		})

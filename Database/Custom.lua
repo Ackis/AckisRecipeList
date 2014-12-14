@@ -39,6 +39,7 @@ function addon:InitCustom()
 			coord_y = coordY,
 			faction = faction,
 			identifier = identifier,
+			item_list = {},
 			location = zoneName,
 			name = L[identifier],
 		})

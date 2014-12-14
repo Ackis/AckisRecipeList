@@ -15,6 +15,7 @@ function addon:InitReputation()
 	for reputationID in pairs(private.FACTION_LABELS_FROM_ID) do
 		private.AcquireTypes.Reputation:AddEntity(addon, {
 			identifier = reputationID,
+			item_list = {},
 			name = _G.GetFactionInfoByID(reputationID) or ("%s_%d"):format(_G.UNKNOWN, reputationID),
 		})
 	end

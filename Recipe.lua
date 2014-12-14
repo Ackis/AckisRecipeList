@@ -65,6 +65,7 @@ function addon:AddRecipe(module, recipeData)
 	end
 
 	local recipe = _G.setmetatable(recipeData, recipeMetatable)
+	recipe.ProfessionModule = module
 	recipe:AddFilters(private.FILTER_IDS.ALLIANCE, private.FILTER_IDS.HORDE)
 
 	if not recipe.name or recipe.name == "" then
@@ -83,6 +84,28 @@ function addon:AddRecipe(module, recipeData)
 	private.num_profession_recipes[recipe.profession] = (private.num_profession_recipes[recipe.profession] or 0) + 1
 
 	return recipe
+end
+
+-- Required for cases where ARL is acting as a profession "module"
+function addon:GetOrCreateRecipeAcquireTypeTable(recipe, acquireTypeID, factionID, reputationLevel)
+	local acquireTypeData = recipe.acquire_data[acquireTypeID]
+	if not acquireTypeData then
+		recipe.acquire_data[acquireTypeID] = {}
+		acquireTypeData = recipe.acquire_data[acquireTypeID]
+
+	end
+
+	if factionID and reputationLevel and acquireTypeID == private.ACQUIRE_TYPE_IDS.REPUTATION then
+		if not acquireTypeData[factionID] then
+			acquireTypeData[factionID] = {
+				[reputationLevel] = {}
+			}
+		elseif not acquireTypeData[factionID][reputationLevel] then
+			acquireTypeData[factionID][reputationLevel] = {}
+		end
+	end
+
+	return acquireTypeData
 end
 
 -------------------------------------------------------------------------------
@@ -366,21 +389,15 @@ function Recipe:RemoveFilters(...)
 end
 
 function Recipe:AddAcquireData(acquireTypeID, typeLabel, hasEntityList, ...)
-	local locationList = private.location_list
-	local acquireTypeData = self.acquire_data[acquireTypeID]
-
-	if not acquireTypeData then
-		self.acquire_data[acquireTypeID] = {}
-		acquireTypeData = self.acquire_data[acquireTypeID]
-	end
+	local acquireTypeData = self.ProfessionModule:GetOrCreateRecipeAcquireTypeTable(self, acquireTypeID)
+	local isLimitedVendor = typeLabel == "Limited Vendor"
 
 	local acquireType = private.ACQUIRE_TYPES_BY_ID[acquireTypeID]
 	acquireType:AssignRecipe(self:SpellID())
+	acquireType:AssignRecipe(self:SpellID())
 
-	local isLimitedVendor = typeLabel == "Limited Vendor"
 	local variablesCount = select('#', ...)
 	local currentVariableIndex = 1
-
 	while currentVariableIndex <= variablesCount do
 		-- A quantity of true means unlimited - normal vendor item.
 		local quantity = true
@@ -396,12 +413,10 @@ function Recipe:AddAcquireData(acquireTypeID, typeLabel, hasEntityList, ...)
 
 		if hasEntityList then
 			local entity = acquireType:GetEntity(identifier)
-
 			if entity then
 				affiliation = entity.faction
 				locationName = entity.location
 
-				entity.item_list = entity.item_list or {}
 				entity.item_list[self:SpellID()] = quantity
 			else
 				addon:Debug("Spell ID %d: %s ID %s does not exist in the %s AcquireType's Entity table.", self:SpellID(), typeLabel, identifier, acquireType:Label())
@@ -479,20 +494,8 @@ function Recipe:AddWorldEvent(...)
 end
 
 function Recipe:AddRepVendor(factionID, reputationLevel, ...)
-	local locationList = private.location_list
-	local acquireTypeData = self.acquire_data[ACQUIRE_TYPE_IDS.REPUTATION]
-
-	if not acquireTypeData then
-		self.acquire_data[ACQUIRE_TYPE_IDS.REPUTATION] = {}
-		acquireTypeData = self.acquire_data[ACQUIRE_TYPE_IDS.REPUTATION]
-	end
+	local acquireTypeData = self.ProfessionModule:GetOrCreateRecipeAcquireTypeTable(self, ACQUIRE_TYPE_IDS.REPUTATION, factionID, reputationLevel)
 	local faction = acquireTypeData[factionID]
-
-	if not faction then
-		acquireTypeData[factionID] = {}
-		faction = acquireTypeData[factionID]
-		faction[reputationLevel] = {}
-	end
 	local reputationAcquireType = private.AcquireTypes.Reputation
 	local vendorAcquireType = private.AcquireTypes.Vendor
 
@@ -517,10 +520,8 @@ function Recipe:AddRepVendor(factionID, reputationLevel, ...)
 					locationName = reputationVendor.location
 
 					reputationVendor.reputation_id = factionID
-					reputationVendor.item_list = reputationVendor.item_list or {}
 					reputationVendor.item_list[self:SpellID()] = true
 
-					reputation.item_list = reputation.item_list or {}
 					reputation.item_list[self:SpellID()] = true
 
 					self:AddFilters(private.FILTER_IDS[private.FACTION_LABELS_FROM_ID[factionID]])

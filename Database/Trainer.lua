@@ -50,6 +50,7 @@ function addon:InitTrainer()
 			coord_y = coordY,
 			faction = faction,
 			identifier = trainerID,
+			item_list = {},
 			location = zoneName,
 			name = trainerName,
 		})

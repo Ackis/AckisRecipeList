@@ -17,6 +17,7 @@ function addon:InitWorldEvents()
 	local function AddWorldEvent(identifier, name)
 		private.AcquireTypes.WorldEvents:AddEntity(addon, {
 			identifier = identifier,
+			item_list = {},
 			name = name,
 			location = _G.GetCategoryInfo(155)
 		})
