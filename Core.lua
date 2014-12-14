@@ -1058,7 +1058,17 @@ do
 					end
 					local F = private.FILTER_IDS
 
-					local recipe = addon:AddRecipe(spell_id, profession_id, _G.GetExpansionLevel() + 1, private.ITEM_QUALITIES.COMMON)
+					local recipe = self:AddRecipe(self, {
+						acquire_data = {},
+						flags = {},
+						genesis = private.GAME_VERSION_NAMES[_G.GetExpansionLevel() + 1],
+						name = _G.GetSpellInfo(spell_id),
+						profession = _G.GetSpellInfo(profession_id),
+						quality = private.ITEM_QUALITIES.COMMON,
+						_spell_id = spell_id,
+
+					})
+
 					recipe:SetSkillLevels(0, 0, 0, 0, 0)
 					recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER)
 					addon:Printf("Added '%s (%d)' to %s. Do a profession dump.", entry_name, spell_id, profession_name)
