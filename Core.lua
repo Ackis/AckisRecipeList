@@ -634,12 +634,8 @@ function addon:TRADE_SKILL_SHOW()
 		end
 		scan_button:SetWidth(scan_button:GetTextWidth() + 10)
 	end
+
 	local profession_name = _G.GetTradeSkillLine()
-
-	if profession_name == private.MINING_PROFESSION_NAME then
-		profession_name = private.LOCALIZED_PROFESSION_NAMES.SMELTING
-	end
-
 	if private.PROFESSION_MODULE_NAMES[profession_name] then
 		scan_button:Show()
 	else
