@@ -163,6 +163,8 @@ private.GAME_VERSION_NAMES = {
 	[6] = "WOD",
 }
 
+constants.GAME_VERSION_NAMES = private.GAME_VERSION_NAMES
+
 private.GAME_VERSIONS = {}
 constants.GAME_VERSIONS = private.GAME_VERSIONS
 
