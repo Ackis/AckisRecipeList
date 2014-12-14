@@ -855,6 +855,7 @@ L["MISC_DESC"] = "Recipes that are miscellaneous should be included in the scan.
 L["MISSING_LIBRARY"] = "%s is missing.  Addon cannot run."
 L["MOB_DROP_DESC"] = "Recipes that are Mob Drops should be included in the scan."
 L["MODULE_ERROR_FORMAT"] = "The required profession module, \"Ackis Recipe List: %s,\" is not loaded. Either it is not installed or is disabled."
+L["MODULE_WRONG_VERSION_FORMAT"] = "The required profession module, \"Ackis Recipe List: %s,\" is version %d. The current supported profession module version is %d."
 L["Mack Diver"] = true
 L["Madame Ruby"] = true
 L["Magar"] = true
