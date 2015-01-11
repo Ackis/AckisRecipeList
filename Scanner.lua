@@ -672,8 +672,8 @@ do
 					top = 4,
 					bottom = 4
 				}
-			});
-			progress_bar:SetBackdropColor(0, 0, 0, 1);
+			})
+			progress_bar:SetBackdropColor(0, 0, 0, 1)
 
 			progress_bar.fg = progress_bar:CreateTexture()
 			progress_bar.fg:SetPoint("LEFT", progress_bar, "LEFT", 5, 0)
