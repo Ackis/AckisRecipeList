@@ -4,8 +4,34 @@ NOTE: Always remove the folder for old versions and install a fresh copy when up
 == Known Issues
 === Due to a change Blizzard made long ago, it is no longer possible to post an alt's profession link via Ackis Recipe List. It seems this functionality won't be returning.
 
-== 3.0.9 (current alpha release)
+== 3.0.14
 === Functionality
+* Add 6.1 info, vendors, etc
+
+== 3.0.13
+=== Backend
+* Fix typos
+* Localizations
+
+== 3.0.12
+=== Database
+* Add Vendor
+
+=== Backend
+* Make things run more smoothly, optimizations
+
+== 3.0.11
+=== Database
+* Fix Vendor name
+
+== 3.0.10
+=== Dev Tools
+* AUTOMATE
+* Fix no longer used stuffs
+
+== 3.0.9
+=== Functionality
+* Remove Alt functionality
 * Fix GetFactionInfo() results
 * Fix various tickets and bugs
 

@@ -34,8 +34,8 @@
 
 ## Author: Ackis, Torhal, Zhinjio
 
-## Interface: 60000
-## X-Compatible-With: 60000
+## Interface: 60100
+## X-Compatible-With: 60100
 ## Version: @project-version@
 ## X-Revision: @project-abbreviated-hash@
 ## X-Date: @file-date-iso@
