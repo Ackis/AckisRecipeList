@@ -514,20 +514,6 @@ local TRADESKILL_ADDON_INITS = {
 		scan_button:SetWidth(scan_button:GetTextWidth() + 10)
 		scan_button:Show()
 	end,
-	MRTAPI = function(scan_button)
-		_G.MRTAPI:RegisterHandler("TradeSkillWindowOnShow", function()
-			scan_button:SetParent(_G.MRTSkillFrame)
-			scan_button:SetPoint("RIGHT", _G.MRTSkillFrameCloseButton, "LEFT", 4, 0)
-			scan_button:SetWidth(scan_button:GetTextWidth() + 10)
-			scan_button:Show()
-		end)
-	end,
-	MRTSkillFrame = function(scan_button)
-		scan_button:SetParent(_G.MRTSkillFrame)
-		scan_button:SetPoint("RIGHT", _G.MRTSkillFrameCloseButton, "LEFT", 4, 0)
-		scan_button:SetWidth(scan_button:GetTextWidth() + 10)
-		scan_button:Show()
-	end,
 	Skillet = function(scan_button)
 		if not _G.Skillet:IsActive() then
 			return
