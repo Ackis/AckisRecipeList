@@ -508,17 +508,6 @@ end
 -- Create the scan button
 -------------------------------------------------------------------------------
 local TRADESKILL_ADDON_INITS = {
-	ATSWFrame = function(scan_button)
-		scan_button:SetParent(_G.ATSWFrame)
-
-		if _G.TradeJunkieMain and _G.TJ_OpenButtonATSW then
-			scan_button:SetPoint("RIGHT", _G.TJ_OpenButtonATSW, "LEFT", 0, 0)
-		else
-			scan_button:SetPoint("RIGHT", _G.ATSWOptionsButton, "LEFT", 0, 0)
-		end
-		scan_button:SetHeight(_G.ATSWOptionsButton:GetHeight())
-		scan_button:SetWidth(_G.ATSWOptionsButton:GetWidth())
-	end,
 	BPM_ShowTrainerFrame = function(scan_button)
 		scan_button:SetParent(_G.BPM_ShowTrainerFrame)
 		scan_button:SetPoint("RIGHT", _G.BPM_ShowTrainerFrame, "LEFT", 4, 0)
