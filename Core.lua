@@ -519,11 +519,6 @@ local TRADESKILL_ADDON_INITS = {
 		scan_button:SetHeight(_G.ATSWOptionsButton:GetHeight())
 		scan_button:SetWidth(_G.ATSWOptionsButton:GetWidth())
 	end,
-	CauldronFrame = function(scan_button)
-		scan_button:SetParent(_G.CauldronFrame)
-		scan_button:SetPoint("TOP", _G.CauldronFrame, "TOPRIGHT", -58, -52)
-		scan_button:SetWidth(90)
-	end,
 	BPM_ShowTrainerFrame = function(scan_button)
 		scan_button:SetParent(_G.BPM_ShowTrainerFrame)
 		scan_button:SetPoint("RIGHT", _G.BPM_ShowTrainerFrame, "LEFT", 4, 0)
