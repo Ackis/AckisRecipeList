@@ -420,7 +420,8 @@ function private.InitializeListFrame()
 		label:SetFontObject("GameFontNormalSmall")
 		label:SetJustifyH("LEFT")
 		label:SetJustifyV("CENTER")
-
+		label:SetWordWrap(false)
+		
 		cur_entry:SetFontString(label)
 		cur_entry.text = label
 
