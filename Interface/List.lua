@@ -421,7 +421,7 @@ function private.InitializeListFrame()
 		label:SetJustifyH("LEFT")
 		label:SetJustifyV("CENTER")
 		label:SetWordWrap(false)
-		
+
 		cur_entry:SetFontString(label)
 		cur_entry.text = label
 
