@@ -21,7 +21,6 @@ local _G = getfenv(0)
 local select = _G.select
 
 local math = _G.math
-local string = _G.string
 local table = _G.table
 
 local ipairs, pairs = _G.ipairs, _G.pairs

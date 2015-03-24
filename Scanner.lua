@@ -32,7 +32,6 @@ local type = _G.type
 -- Libraries
 local coroutine = _G.coroutine
 local math = _G.math
-local string = _G.string
 local table = _G.table
 
 -------------------------------------------------------------------------------

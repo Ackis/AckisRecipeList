@@ -839,7 +839,7 @@ for index = 1, #ACQUIRE_PROTOTYPES do
 	private.ACQUIRE_TYPE_IDS[acquire_type._label] = index
 
 	-- Make things easier by assigning the AcquireType by title case: WORLD_DROP becomes WorldDrop, for example
-	private.AcquireTypes[acquire_type._label:lower():gsub("^%l", _G.string.upper):gsub("_%l", _G.string.upper):gsub("_", "")] = acquire_type
+	private.AcquireTypes[acquire_type._label:lower():gsub("^%l", string.upper):gsub("_%l", string.upper):gsub("_", "")] = acquire_type
 end
 
 -------------------------------------------------------------------------------

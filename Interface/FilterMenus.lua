@@ -6,10 +6,6 @@ local _G = getfenv(0)
 -- Functions
 local pairs = _G.pairs
 
--- Libraries
-local string = _G.string
-local table = _G.table
-
 -------------------------------------------------------------------------------
 -- AddOn namespace.
 -------------------------------------------------------------------------------
