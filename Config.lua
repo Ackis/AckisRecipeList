@@ -35,11 +35,8 @@ local FOLDER_NAME, private	= ...
 local LibStub = _G.LibStub
 
 local addon		= LibStub("AceAddon-3.0"):GetAddon(private.addon_name)
-
-local LC		= _G.LOCALIZED_CLASS_NAMES_MALE
 local L			= LibStub("AceLocale-3.0"):GetLocale(private.addon_name)
 
-local AceConfig 	= LibStub("AceConfig-3.0")
 local AceConfigReg 	= LibStub("AceConfigRegistry-3.0")
 local AceConfigDialog 	= LibStub("AceConfigDialog-3.0")
 

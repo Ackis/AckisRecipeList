@@ -30,7 +30,6 @@ local tonumber, tostring = _G.tonumber, _G.tostring
 local type = _G.type
 
 -- Libraries
-local bit = _G.bit
 local coroutine = _G.coroutine
 local math = _G.math
 local string = _G.string

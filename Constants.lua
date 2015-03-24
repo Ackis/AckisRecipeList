@@ -12,7 +12,6 @@ local FOLDER_NAME, private = ...
 private.addon_name = "Ackis Recipe List"
 
 local LibStub = _G.LibStub
-local L = LibStub("AceLocale-3.0"):GetLocale(private.addon_name)
 
 -- Required so constants can be assigned to the AddOn object in Core.lua in order to be accessible from profession modules
 local constants = {}

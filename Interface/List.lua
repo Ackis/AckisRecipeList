@@ -7,12 +7,9 @@ local string = _G.string
 local math = _G.math
 local table = _G.table
 
-local bit = _G.bit
 local pairs = _G.pairs
 local select = _G.select
-local tonumber = _G.tonumber
 local tostring = _G.tostring
-local type = _G.type
 
 -------------------------------------------------------------------------------
 -- AddOn namespace.
@@ -28,14 +25,7 @@ local Dialog = LibStub("LibDialog-1.0")
 -------------------------------------------------------------------------------
 -- Imports.
 -------------------------------------------------------------------------------
-local CreateListEntry = private.CreateListEntry
-local SetTextColor = private.SetTextColor
-
-local CATEGORY_COLORS = private.CATEGORY_COLORS
-local COORDINATES_FORMAT = private.COORDINATES_FORMAT
 local BASIC_COLORS = private.BASIC_COLORS
-
-local A = private.ACQUIRE_TYPE_IDS
 
 -------------------------------------------------------------------------------
 -- Constants
@@ -664,7 +654,7 @@ function private.InitializeListFrame()
 				Dialog:Spawn("ARL_SearchFiltered")
 			else
 				addon:Print(L["NO_DISPLAY"])
-				addon:Debug("Current tab is %s", _G.tostring(addon.db.profile.current_tab))
+				addon:Debug("Current tab is %s", tostring(addon.db.profile.current_tab))
 				addon:Debug("recipes_total check for 0")
 				addon:Debug("recipes_total: " .. player.recipes_total)
 				addon:Debug("recipes_total check for equal to recipes_total")
@@ -985,7 +975,7 @@ do
 		acquire_tip:SetCell(1, 1, recipe.name, "CENTER", 2)
 		acquire_tip:SetCellTextColor(1, 1, _G.GetItemQualityColor(recipe.quality))
 
-		local recipe_item_texture = recipe.crafted_item_id and _G.select(10, _G.GetItemInfo(recipe.crafted_item_id))
+		local recipe_item_texture = recipe.crafted_item_id and select(10, _G.GetItemInfo(recipe.crafted_item_id))
 
 		if recipe_item_texture then
 			acquire_tip:AddHeader()

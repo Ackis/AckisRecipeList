@@ -18,12 +18,10 @@ local FOLDER_NAME, private = ...
 local LibStub = _G.LibStub
 local addon	= LibStub("AceAddon-3.0"):GetAddon(private.addon_name)
 local L		= LibStub("AceLocale-3.0"):GetLocale(private.addon_name)
-local QTip	= LibStub("LibQTip-1.0")
 
 -------------------------------------------------------------------------------
 -- Upvalues
 -------------------------------------------------------------------------------
-local SetTextColor = private.SetTextColor
 local SetTooltipScripts = private.SetTooltipScripts
 
 -------------------------------------------------------------------------------
@@ -97,31 +95,6 @@ end	-- do
 -------------------------------------------------------------------------------
 -- Functions for initializing specific filter menu panels.
 -------------------------------------------------------------------------------
-local function InitializeMenu_General()
-	local MainPanel = addon.Frame
-	local FilterPanel = MainPanel.filter_menu
-
-end
-
--- local MENU_CONSTRUCTORS = {
--- 	["general"]	= InitializeMenu_General,
--- 	["obtain"]	= InitializeMenu_Obtain,
--- 	["binding"]	= InitializeMenu_Binding,
--- 	["item"]	= InitializeMenu_Item,
--- 	["quality"]	= InitializeMenu_Quality,
--- 	["player"]	= InitializeMenu_Player,
--- 	["rep"]		= InitializeMenu_Reputation,
--- 	["misc"]	= InitializeMenu_Miscellaneous,
--- }
-
--- function InitializeFilterMenu(category)
--- 	local init_func = MENU_CONSTRUCTORS[category]
-
--- 	if init_func then
--- 		init_func()
--- 	end
--- end
-
 -- Set all the current options in the filter menu to make sure they are consistent with the SV options.
 function private.UpdateFilterMarks()
 	for filter, info in pairs(addon.Frame.filter_menu.value_map) do
@@ -454,7 +427,6 @@ function private.InitializeFilterPanel()
 	-- Create FilterPanel.obtain, and set its scripts.
 	-------------------------------------------------------------------------------
 	do
-		local A = private.ACQUIRE_TYPE_IDS
 		local obtain_frame = FilterPanel:CreateSubMenu("obtain")
 
 		-------------------------------------------------------------------------------
@@ -922,13 +894,6 @@ function private.InitializeFilterPanel()
 	-- Now that everything exists, populate the global filter table
 	-------------------------------------------------------------------------------
 	local filterdb = addon.db.profile.filters
-
-	local expansion0 = FilterPanel.rep.expansion0
-	local expansion1 = FilterPanel.rep.expansion1
-	local expansion2 = FilterPanel.rep.expansion2
-	local expansion3 = FilterPanel.rep.expansion3
-	local expansion4 = FilterPanel.rep.expansion4
-	local expansion5 = FilterPanel.rep.expansion5
 
 	FilterPanel.value_map = {
 		------------------------------------------------------------------------------------------------

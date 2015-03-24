@@ -558,17 +558,14 @@ do
 	local filter_db
 	local player_filters
 	local obtain_filters
-	local general_filters
 
 	local function InitializeFilters()
 		filter_db = addon.db.profile.filters
 		player_filters = filter_db.player
 		obtain_filters = filter_db.obtain
-		general_filters = filter_db.general
 
 		-- HARD_FILTERS and SOFT_FILTERS are used to determine if a recipe should be shown based on the value of the key compared to the value
 		-- of its saved_var.
-		local COMMON1 = private.COMMON_FLAGS_WORD1
 		private.HARD_FILTERS = {
 			------------------------------------------------------------------------------------------------
 			-- Player Type flags.

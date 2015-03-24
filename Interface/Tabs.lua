@@ -181,7 +181,6 @@ local CHILDLESS_ACQUIRE_TYPES_BY_ID = {
 
 local function ExpandAcquireData(entry_index, entry_type, parent_entry, acquire_type_id, acquire_type_data, recipe, hide_location, hide_type)
 	local obtain_filters = addon.db.profile.filters.obtain
-	local num_acquire_types = #private.ACQUIRE_TYPES_BY_ID
 
 	for data_identifier, data_info in pairs(acquire_type_data) do
 		local execute

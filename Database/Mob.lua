@@ -26,7 +26,6 @@ local FOLDER_NAME, private = ...
 local LibStub = _G.LibStub
 local addon = LibStub("AceAddon-3.0"):GetAddon(private.addon_name)
 local L = LibStub("AceLocale-3.0"):GetLocale(private.addon_name)
-local BB = LibStub("LibBabble-Boss-3.0"):GetLookupTable()
 
 -----------------------------------------------------------------------
 -- Imports.

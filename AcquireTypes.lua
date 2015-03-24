@@ -7,8 +7,6 @@ local string = _G.string
 
 local pairs = _G.pairs
 local select = _G.select
-local tonumber = _G.tonumber
-local tostring = _G.tostring
 local type = _G.type
 
 -------------------------------------------------------------------------------

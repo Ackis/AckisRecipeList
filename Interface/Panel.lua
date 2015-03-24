@@ -643,7 +643,7 @@ function private.InitializeFrame()
 				return
 			end
 
-			if (_G.math.abs(x - old_x) + _G.math.abs(y - old_y)) <= 5 and _G.GetTime() - click_time < .5 then
+			if (math.abs(x - old_x) + math.abs(y - old_y)) <= 5 and _G.GetTime() - click_time < .5 then
 				SearchBox:ClearFocus()
 			end
 		end)
