@@ -38,20 +38,20 @@ local SetTextColor = private.SetTextColor
 -- Helpers.
 -------------------------------------------------------------------------------
 local function Tab_OnClick(self, button, down)
-	local id_num = self:GetID()
+	local tabID = self:GetID()
 	local MainPanel = addon.Frame
 
 	for index in ipairs(MainPanel.tabs) do
 		local tab = MainPanel.tabs[index]
 
-		if index == id_num then
+		if index == tabID then
 			self:ToFront()
 		else
 			tab:ToBack()
 		end
 	end
-	addon.db.profile.current_tab = id_num
-	MainPanel.current_tab = MainPanel.tabs[id_num]
+	addon.db.profile.current_tab = tabID
+	MainPanel.current_tab = MainPanel.tabs[tabID]
 
 	MainPanel.list_frame:Update(nil, false)
 	_G.PlaySound("igCharacterInfoTab")
@@ -178,48 +178,51 @@ local CHILDLESS_ACQUIRE_TYPES_BY_ID = {
 	[A.WORLD_DROP] = true,
 }
 
+local EXPANSION_PREDICATES = {
+	[A.TRAINER] = function(obtain_filters, hide_type)
+		return obtain_filters.trainer
+	end,
+	[A.VENDOR] = function(obtain_filters, hide_type)
+		return obtain_filters.vendor or obtain_filters.pvp
+	end,
+	[A.MOB_DROP] = function(obtain_filters, hide_type)
+		return obtain_filters.mobdrop or obtain_filters.instance or obtain_filters.raid
+	end,
+	[A.QUEST] = function(obtain_filters, hide_type)
+		return obtain_filters.quest
+	end,
+	[A.WORLD_EVENTS] = function(obtain_filters, hide_type)
+		return obtain_filters.seasonal
+	end,
+	[A.REPUTATION] = function(obtain_filters, hide_type)
+		return true
+	end,
+	[A.WORLD_DROP] = function(obtain_filters, hide_type)
+		return obtain_filters.worlddrop and not hide_type
+	end,
+	[A.CUSTOM] = function(obtain_filters, hide_type)
+		return not hide_type
+	end,
+	[A.DISCOVERY] = function(obtain_filters, hide_type)
+		return not hide_type
+	end,
+	[A.RETIRED] = function(obtain_filters, hide_type)
+		return not hide_type
+	end,
+	[A.ACHIEVEMENT] = function(obtain_filters, hide_type)
+		return obtain_filters.achievement
+	end,
+}
+
 local function ExpandAcquireData(entry_index, entry_type, parent_entry, acquire_type_id, acquire_type_data, recipe, hide_location, hide_type)
 	local obtain_filters = addon.db.profile.filters.obtain
-
 	for data_identifier, data_info in pairs(acquire_type_data) do
-		local execute
-
-		if acquire_type_id == A.TRAINER and obtain_filters.trainer then
-			execute = true
-		elseif acquire_type_id == A.VENDOR and (obtain_filters.vendor or obtain_filters.pvp) then
-			execute = true
-		elseif acquire_type_id == A.MOB_DROP and (obtain_filters.mobdrop or obtain_filters.instance or obtain_filters.raid) then
-			execute = true
-		elseif acquire_type_id == A.QUEST and obtain_filters.quest then
-			execute = true
-		elseif acquire_type_id == A.WORLD_EVENTS and obtain_filters.seasonal then
-			execute = true
-		elseif acquire_type_id == A.REPUTATION then
-			execute = true
-		elseif acquire_type_id == A.WORLD_DROP and obtain_filters.worlddrop then
-			if not hide_type then
-				execute = true
-			end
-		elseif acquire_type_id == A.CUSTOM then
-			if not hide_type then
-				execute = true
-			end
-		elseif acquire_type_id == A.DISCOVERY then
-			if not hide_type then
-				execute = true
-			end
-		elseif acquire_type_id == A.RETIRED then
-			if not hide_type then
-				execute = true
-			end
-		elseif acquire_type_id == A.ACHIEVEMENT and obtain_filters.achievement then
-			execute = true
-		end
-
-		if execute then
+		local predicateFunc = EXPANSION_PREDICATES[acquire_type_id]
+		if predicateFunc and predicateFunc(obtain_filters, hide_type) then
 			entry_index = private.ACQUIRE_TYPES_BY_ID[acquire_type_id]:ExpandListEntry(entry_index, entry_type, parent_entry, data_identifier, data_info, recipe, hide_location, hide_type)
 		end
-	end	-- for
+	end
+
 	return entry_index
 end
 
