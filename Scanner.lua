@@ -1631,7 +1631,6 @@ do
 					recipe:AddFilters(CLASS_TYPES[class_name])
 					table.insert(missing_flags, flag_format:format(CLASS_TYPES[class_name]))
 				elseif not scan_data[class_name] and recipe:HasFilter("class1", CLASS_TYPES[class_name]) then
-					recipe:RemoveFilters(CLASS_TYPES[class_name])
 					table.insert(extra_flags, flag_format:format(CLASS_TYPES[class_name]))
 				end
 			end
