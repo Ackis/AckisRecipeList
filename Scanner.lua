@@ -1555,7 +1555,7 @@ do
 		["Held In Off-hand"] = "INSCRIPTION_OFF_HAND",
 	}
 
-	local FS = private.FILTER_STRINGS
+	local FilterStrings = private.FILTER_STRINGS
 
 	-- Flag data for printing. Wiped and re-used.
 	local missing_flags = {}
@@ -1614,14 +1614,14 @@ do
 		if scan_data.is_vendor then
 			if not recipe:HasFilter("common1", "VENDOR") and not recipe:HasFilter("common1", "WORLD_EVENTS") then
 				recipe:AddFilters(F.VENDOR)
-				table.insert(missing_flags, flag_format:format(FS[F.VENDOR]))
+				table.insert(missing_flags, flag_format:format(FilterStrings[F.VENDOR]))
 			end
 			local subzone_text = _G.GetSubZoneText()
 
 			if (subzone_text == "Wintergrasp Fortress" or subzone_text == "Halaa") and not recipe:HasFilter("common1", "PVP") then
-				table.insert(missing_flags, flag_format:format(FS[F.PVP]))
+				table.insert(missing_flags, flag_format:format(FilterStrings[F.PVP]))
 			elseif recipe:HasFilter("common1", "PVP") and not (subzone_text == "Wintergrasp Fortress" or subzone_text == "Halaa") then
-				table.insert(extra_flags, flag_format:format(FS[F.PVP]))
+				table.insert(extra_flags, flag_format:format(FilterStrings[F.PVP]))
 			end
 		end
 
@@ -1689,7 +1689,7 @@ do
 		local repid = scan_data.repid
 
 		if repid then
-			if not recipe:HasFilter("reputation1", FS[repid]) and not recipe:HasFilter("reputation2", FS[repid]) then
+			if not recipe:HasFilter("reputation1", FilterStrings[repid]) and not recipe:HasFilter("reputation2", FilterStrings[repid]) then
 				table.insert(missing_flags, repid)
 			end
 			local rep_data = acquire_data[A.REPUTATION]
@@ -1715,7 +1715,7 @@ do
 		end
 
 		for flag, acquire_type_id in pairs(FILTER_TO_ACQUIRE_MAP) do
-			if acquire_data[acquire_type_id] and not recipe:HasFilter("common1", FS[flag]) then
+			if acquire_data[acquire_type_id] and not recipe:HasFilter("common1", FilterStrings[flag]) then
 				local can_add = true
 
 				if (acquire_type_id == A.WORLD_DROP or acquire_type_id == A.MOB_DROP) and (recipe:HasFilter("common1", "INSTANCE") or recipe:HasFilter("common1", "RAID")) then
@@ -1724,9 +1724,9 @@ do
 
 				if can_add then
 					recipe:AddFilters(flag)
-					table.insert(missing_flags, flag_format:format(FS[flag]))
+					table.insert(missing_flags, flag_format:format(FilterStrings[flag]))
 				end
-			elseif not acquire_data[acquire_type_id] and recipe:HasFilter("common1", FS[flag]) then
+			elseif not acquire_data[acquire_type_id] and recipe:HasFilter("common1", FilterStrings[flag]) then
 				local can_remove = true
 
 				if acquire_type_id == A.WORLD_DROP and (not recipe:HasFilter("common1", "INSTANCE") and not recipe:HasFilter("common1", "RAID")) then
@@ -1735,7 +1735,7 @@ do
 
 				if can_remove then
 					recipe:RemoveFilters(flag)
-					table.insert(extra_flags, flag_format:format(FS[flag]))
+					table.insert(extra_flags, flag_format:format(FilterStrings[flag]))
 				end
 			end
 		end
@@ -1743,14 +1743,14 @@ do
 		if acquire_data[A.VENDOR] then
 			if not recipe:HasFilter("common1", "VENDOR") and not recipe:HasFilter("common1", "WORLD_EVENTS") and not recipe:HasFilter("common1", "REPUTATION") then
 				recipe:AddFilters(F.VENDOR)
-				table.insert(missing_flags, flag_format:format(FS[F.VENDOR]))
+				table.insert(missing_flags, flag_format:format(FilterStrings[F.VENDOR]))
 			end
 		end
 
 		if acquire_data[A.REPUTATION] then
 			if not recipe:HasFilter("common1", "REPUTATION") then
 				recipe:AddFilters(F.REPUTATION)
-				table.insert(missing_flags, FS[F.REPUTATION])
+				table.insert(missing_flags, FilterStrings[F.REPUTATION])
 			end
 
 			-- Commented out for possible later use. Originally added to transfer all reputation-vendors
@@ -1763,17 +1763,17 @@ do
 
 		if recipe:HasFilter("common1", "VENDOR") and not (acquire_data[A.VENDOR] or acquire_data[A.REPUTATION]) then
 			recipe:RemoveFilters(F.VENDOR)
-			table.insert(extra_flags, flag_format:format(FS[F.VENDOR]))
+			table.insert(extra_flags, flag_format:format(FilterStrings[F.VENDOR]))
 		end
 
 		if acquire_data[A.TRAINER] and not recipe:HasFilter("common1", "TRAINER") then
 			recipe:AddFilters(F.TRAINER)
-			table.insert(missing_flags, flag_format:format(FS[F.TRAINER]))
+			table.insert(missing_flags, flag_format:format(FilterStrings[F.TRAINER]))
 		end
 
 		if recipe:HasFilter("common1", "TRAINER") and not acquire_data[A.TRAINER] and not acquire_data[A.CUSTOM] then
 			recipe:RemoveFilters(F.TRAINER)
-			table.insert(extra_flags, flag_format:format(FS[F.TRAINER]))
+			table.insert(extra_flags, flag_format:format(FilterStrings[F.TRAINER]))
 		end
 
 		if scan_data.quality and scan_data.quality ~= recipe.quality then
