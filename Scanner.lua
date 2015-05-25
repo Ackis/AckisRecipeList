@@ -1571,18 +1571,20 @@ do
 	local FILTER_TO_ACQUIRE_MAP
 
 	local OBTAIN_FILTERS = {
+        ACHIEVEMENT = true,
 		DISC = true,
 		INSTANCE = true,
+        MISC1 = true,
 		MOB_DROP = true,
 		PVP = true,
 		QUEST = true,
 		RAID = true,
 		REPUTATION = true,
-		WORLD_EVENTS = true,
 		TRAINER = true,
-		VENDOR = true,
-		WORLD_DROP = true,
-	}
+        VENDOR = true,
+        WORLD_DROP = true,
+        WORLD_EVENTS = true,
+    }
 
 	--- Prints out the results of the tooltip scan.
 	local function ProcessScanData()
