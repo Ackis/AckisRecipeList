@@ -264,7 +264,7 @@ do
 		end
 
 		if #mismatched_recipe_levels > 0 then
-			output:AddLine("\nRecipes which had an incorrect skill level, but will not once a dump is performed:")
+			output:AddLine("\nRecipes which may have an incorrect skill level:")
 			table.sort(mismatched_recipe_levels)
 
 			for index in ipairs(mismatched_recipe_levels) do
@@ -273,7 +273,6 @@ do
 				local recipe_skill = recipe:SkillLevels()
 				local corrected_skill = scanned_recipes[recipe.name]
 				output:AddLine(("%d (%s): Skill set to %d; trainer reports %d."):format(spell_id, recipe.name, recipe_skill, scanned_recipes[recipe.name]))
-				recipe:SetSkillLevels(corrected_skill)
 			end
 		end
 
