@@ -1265,19 +1265,8 @@ do
 -- Tooltip-scanning code
 -------------------------------------------------------------------------------
 	local SPECIALTY_TEXT = {
-		--["requires spellfire tailoring"] = 26797,
-		--["requires mooncloth tailoring"] = 26798,
-		--["requires shadoweave tailoring"] = 26801,
-		--["requires dragonscale leatherworking"] = 10657,
-		--["requires elemental leatherworking"] = 10659,
-		--["requires tribal leatherworking"] = 10661,
 		["requires gnomish engineer"] = 20219,
 		["requires goblin engineer"] = 20222,
-		--["requires armorsmith"] = 9788,
-		--["requires master axesmith"] = 17041,
-		--["requires master hammersmith"] = 17040,
-		--["requires master swordsmith"] = 17039,
-		--["requires weaponsmith"] = 9787,
 	}
 
 	local FACTION_TEXT = {
@@ -1464,7 +1453,6 @@ do
 		},
 		["spell penetration"] = {
 			"caster",
---			"pvp",
 		},
 		["spell power"] = {
 			"caster",
@@ -1583,45 +1571,6 @@ do
 				end
 			end
 		end
-
-		-- TODO: Make this work with the new binding system, if even applicable anymore.
-		--		if scan_data.item_bop and not recipe:HasFilter("common1", "IBOP") then
-		--			table.insert(missing_flags, flag_format:format(FS[F.IBOP]))
-		--			recipe:AddFilters(F.IBOP)
-		--
-		--			if recipe:HasFilter("common1", "IBOE") then
-		--				recipe:RemoveFilters(F.IBOE)
-		--				table.insert(extra_flags, flag_format:format(FS[F.IBOE]))
-		--			end
-		--		elseif not recipe:HasFilter("common1", "IBOE") and not scan_data.item_bop then
-		--			recipe:AddFilters(F.IBOE)
-		--			table.insert(missing_flags, flag_format:format(FS[F.IBOE]))
-		--
-		--			if recipe:HasFilter("common1", "IBOP") then
-		--				recipe:RemoveFilters(F.IBOP)
-		--				table.insert(extra_flags, flag_format:format(FS[F.IBOP]))
-		--			end
-		--
-		--		end
-		--
-		--		if scan_data.recipe_bop and not recipe:HasFilter("common1", "RBOP") then
-		--			table.insert(missing_flags, flag_format:format(FS[F.RBOP]))
-		--			recipe:AddFilters(F.RBOP)
-		--
-		--			if recipe:HasFilter("common1", "RBOE") then
-		--				recipe:RemoveFilters(F.RBOE)
-		--				table.insert(extra_flags, flag_format:format(FS[F.RBOE]))
-		--			end
-		--
-		--		elseif not recipe:HasFilter("common1", "TRAINER") and not recipe:HasFilter("common1", "RBOE") and not scan_data.recipe_bop then
-		--			table.insert(missing_flags, flag_format:format(FS[F.RBOE]))
-		--			recipe:AddFilters(F.RBOE)
-		--
-		--			if recipe:HasFilter("common1", "RBOP") then
-		--				recipe:RemoveFilters(F.RBOP)
-		--				table.insert(extra_flags, flag_format:format(FS[F.RBOP]))
-		--			end
-		--		end
 
 		for role_index, role in ipairs(ORDERED_ROLE_TYPES) do
 			local role_string = ROLE_TYPES[role]
@@ -1752,19 +1701,6 @@ do
 			end
 		end
 
-		-- TODO: Make this work with the new binding system, if even applicable anymore.
-		--[[
-		-- Check for recipe binding information,  all recipes must have one of these
-		if not recipe:HasFilter("common1", "RBOE") and not recipe:HasFilter("common1", "RBOP") then
-			output:AddLine("    No recipe binding information.")
-		end
-
-		-- Check for item binding information,  all recipes must have one of these
-		if not recipe:HasFilter("common1", "IBOE") and not recipe:HasFilter("common1", "IBOP") then
-			output:AddLine("    No item binding information.")
-		end
-]] --
-
 		local spellID = recipe:SpellID()
 
 		-- We need to code this better.  Some items (aka bags) won't have a role at all.
@@ -1892,19 +1828,11 @@ do
 			-- TODO: Some or all of these may not even exist anymore.
 			if text:match("weapon damage") then
 				scan_data.dps = true
-				--elseif text:match("armor pen") then
-				--	scan_data.dps = true
-				--elseif text:match("feral attack power") then
-				--	scan_data.tank = true
-				--	scan_data.dps = true
-				--elseif text:match("defense") and not text:match("defenseless") then
-				--	scan_data.tank = true
 			elseif text:match("increases (%a+) health by (%d+)") then
 				scan_data.tank = true
 			end
 
 			local class_type = text_l:match("Classes: (.+)")
-
 			if class_type then
 				for idx, class in ipairs(ORDERED_CLASS_TYPES) do
 					if class_type:match(class) then
