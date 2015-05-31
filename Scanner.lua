@@ -46,29 +46,6 @@ function private.LoadAllRecipes()
 end
 
 -------------------------------------------------------------------------------
--- Creates a reverse lookup for a recipe list
--------------------------------------------------------------------------------
-local GetReverseLookup
-do
-	local reverse_lookup = {}
-
-	function GetReverseLookup(recipe_list)
-		if not recipe_list then
-			addon:Debug(L["DATAMINER_NODB_ERROR"])
-			return
-		end
-		table.wipe(reverse_lookup)
-
-		for i in pairs(recipe_list) do
-			--if t[recipe_list[i].name] then addon:Print("Dupe: " .. i) end
-			reverse_lookup[recipe_list[i].name] = i
-		end
-		return reverse_lookup
-	end
-
-end
-
--------------------------------------------------------------------------------
 -- Tooltip for data-mining.
 -------------------------------------------------------------------------------
 local ARLDatamineTT = _G.CreateFrame("GameTooltip", "ARLDatamineTT", _G.UIParent, "GameTooltipTemplate")
@@ -1567,22 +1544,13 @@ do
 
 	--- Prints out the results of the tooltip scan.
 	local function ProcessScanData()
-		if not scan_data.match_name then
+		local recipe = scan_data.recipe
+		if not recipe then
 			return
 		end
 
-		-- Parse the recipe database until we get a match on the name
-		local recipe_name = scan_data.match_name:gsub("%a+%?: ","")
-		local spell_id = scan_data.reverse_lookup[recipe_name]
-
-		if not spell_id then
-			addon:Debug(recipe_name .. " has no reverse lookup")
-			return
-		end
-		local recipe = scan_data.recipe_list[spell_id]
-		local acquire_data = recipe.acquire_data
 		local flag_format = "F.%s"
-		local start_line = output:Lines()
+		local firstLineNumber = output:Lines()
 
 		table.wipe(missing_flags)
 		table.wipe(extra_flags)
@@ -1667,13 +1635,14 @@ do
 				table.insert(extra_flags, flag_format:format(role_string))
 			end
 		end
-		local repid = scan_data.repid
+		local recipeAcquireData = recipe.acquire_data
 
+		local repid = scan_data.repid
 		if repid then
 			if not recipe:HasFilter("reputation1", FilterStrings[repid]) and not recipe:HasFilter("reputation2", FilterStrings[repid]) then
 				table.insert(missing_flags, repid)
 			end
-			local rep_data = acquire_data[A.REPUTATION]
+			local rep_data = recipeAcquireData[A.REPUTATION]
 
 			if rep_data then
 				for rep_id, rep_info in pairs(rep_data) do
@@ -1696,7 +1665,7 @@ do
 		end
 
 		for flag, acquire_type_id in pairs(FILTER_TO_ACQUIRE_MAP) do
-			if acquire_data[acquire_type_id] and not recipe:HasFilter("common1", FilterStrings[flag]) then
+			if recipeAcquireData[acquire_type_id] and not recipe:HasFilter("common1", FilterStrings[flag]) then
 				local can_add = true
 
 				if (acquire_type_id == A.WORLD_DROP or acquire_type_id == A.MOB_DROP) and (recipe:HasFilter("common1", "INSTANCE") or recipe:HasFilter("common1", "RAID")) then
@@ -1707,7 +1676,7 @@ do
 					recipe:AddFilters(flag)
 					table.insert(missing_flags, flag_format:format(FilterStrings[flag]))
 				end
-			elseif not acquire_data[acquire_type_id] and recipe:HasFilter("common1", FilterStrings[flag]) then
+			elseif not recipeAcquireData[acquire_type_id] and recipe:HasFilter("common1", FilterStrings[flag]) then
 				local can_remove = true
 
 				if acquire_type_id == A.WORLD_DROP and (not recipe:HasFilter("common1", "INSTANCE") and not recipe:HasFilter("common1", "RAID")) then
@@ -1721,31 +1690,31 @@ do
 			end
 		end
 
-		if acquire_data[A.VENDOR] then
+		if recipeAcquireData[A.VENDOR] then
 			if not recipe:HasFilter("common1", "VENDOR") and not recipe:HasFilter("common1", "WORLD_EVENTS") and not recipe:HasFilter("common1", "REPUTATION") then
 				recipe:AddFilters(F.VENDOR)
 				table.insert(missing_flags, flag_format:format(FilterStrings[F.VENDOR]))
 			end
 		end
 
-		if acquire_data[A.REPUTATION] then
+		if recipeAcquireData[A.REPUTATION] then
 			if not recipe:HasFilter("common1", "REPUTATION") then
 				recipe:AddFilters(F.REPUTATION)
 				table.insert(missing_flags, FilterStrings[F.REPUTATION])
 			end
 		end
 
-		if recipe:HasFilter("common1", "VENDOR") and not (acquire_data[A.VENDOR] or acquire_data[A.REPUTATION]) then
+		if recipe:HasFilter("common1", "VENDOR") and not (recipeAcquireData[A.VENDOR] or recipeAcquireData[A.REPUTATION]) then
 			recipe:RemoveFilters(F.VENDOR)
 			table.insert(extra_flags, flag_format:format(FilterStrings[F.VENDOR]))
 		end
 
-		if acquire_data[A.TRAINER] and not recipe:HasFilter("common1", "TRAINER") then
+		if recipeAcquireData[A.TRAINER] and not recipe:HasFilter("common1", "TRAINER") then
 			recipe:AddFilters(F.TRAINER)
 			table.insert(missing_flags, flag_format:format(FilterStrings[F.TRAINER]))
 		end
 
-		if recipe:HasFilter("common1", "TRAINER") and not acquire_data[A.TRAINER] and not acquire_data[A.CUSTOM] then
+		if recipe:HasFilter("common1", "TRAINER") and not recipeAcquireData[A.TRAINER] and not recipeAcquireData[A.CUSTOM] then
 			recipe:RemoveFilters(F.TRAINER)
 			table.insert(extra_flags, flag_format:format(FilterStrings[F.TRAINER]))
 		end
@@ -1797,9 +1766,11 @@ do
 		end
 ]] --
 
+		local spellID = recipe:SpellID()
+
 		-- We need to code this better.  Some items (aka bags) won't have a role at all.
 		-- Check for player role flags
-		if not scan_data.no_role and not scan_data.tank and not scan_data.healer and not scan_data.caster and not scan_data.dps and not NO_ROLE_FLAG[spell_id] then
+		if not scan_data.no_role and not scan_data.tank and not scan_data.healer and not scan_data.caster and not scan_data.dps and not NO_ROLE_FLAG[spellID] then
 			output:AddLine("    No player role flag.")
 		end
 
@@ -1843,16 +1814,13 @@ do
 			end
 		end
 
-		if output:Lines() > start_line then
-			output:InsertLine(start_line + 1, ("%s: <a href=\"http://www.wowhead.com/?spell=%d\">%d</a>"):format(recipe_name, spell_id, spell_id))
+		if output:Lines() > firstLineNumber then
+			output:InsertLine(firstLineNumber + 1, ("%s: <a href=\"http://www.wowhead.com/?spell=%d\">%d</a>"):format(recipe.name, spellID, spellID))
 		end
 	end
 
 	--- Parses the mining tooltip for certain keywords, comparing them with the database flags
-	local function ScanTooltip(recipe_name, recipe_list, reverse_lookup, is_vendor)
-		scan_data.match_name = recipe_name
-		scan_data.recipe_list = recipe_list
-		scan_data.reverse_lookup = reverse_lookup
+	local function ScanTooltip(recipe, is_vendor)
 		scan_data.is_vendor = is_vendor
 
 		-- Parse all the lines of the tooltip
@@ -1885,7 +1853,6 @@ do
 
 			-- Recipe Reputations
 			local rep, replevel = text_l:match("Requires (.+) %- (.+)")
-
 			if rep and replevel and FACTION_TEXT[rep] then
 				scan_data.repid = FACTION_TEXT[rep]
 				scan_data.repidlevel = FACTION_LEVELS[replevel]
@@ -1895,17 +1862,12 @@ do
 			-------------------------------------------------------------------------------
 			-- Do things the smart way and assign the filter type here. Uncomment when needed.
 			-------------------------------------------------------------------------------
-			local spell_id = scan_data.reverse_lookup[recipe_name]
-
-			if spell_id and recipe_list[spell_id].profession == "Inscription" then
+			if recipe.profession == "Inscription" then
 				scan_data.filter_type = nil
 
 				if not text_l:match("Tools: (.+)") and not text_l:match("Reagents:") and not text_l:match("Requires") then
 					for pattern, filter in pairs(INSCRIPTION_MATCH_FILTERS) do
 						if text_l:match(pattern) then
-							local recipe = recipe_list[spell_id]
-							--							scan_data.filter_type = filter
-							--							addon:Printf("%s: %s", recipe_name, filter)
 							recipe:SetItemFilterType(filter)
 							break
 						end
@@ -2035,8 +1997,7 @@ do
 			ARLDatamineTT:Hide()
 			return
 		end
-		local reverse_lookup = GetReverseLookup(recipe_list)
-		ScanTooltip(recipe_name, recipe_list, reverse_lookup, is_vendor)
+		ScanTooltip(recipe, is_vendor)
 
 		local recipe_item_id = recipe:RecipeItem()
 
@@ -2059,7 +2020,7 @@ do
 						scan_data.quality = item_quality
 
 						ARLDatamineTT:SetHyperlink(item_link)
-						ScanTooltip(recipe_name, recipe_list, reverse_lookup, is_vendor)
+						ScanTooltip(recipe, is_vendor)
 					else
 						output:AddLine(
 							("Recipe %d (%s): Recipe item quality is 0 (junk), which probably means it has been removed from the game."):format(
