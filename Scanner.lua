@@ -1537,6 +1537,7 @@ do
 	local function ProcessScanData()
 		local recipe = scan_data.recipe
 		if not recipe then
+			output:AddLine("No scan_data.recipe")
 			return
 		end
 
@@ -1759,8 +1760,11 @@ do
 	end
 
 	--- Parses the mining tooltip for certain keywords, comparing them with the database flags
-	local function ScanTooltip(recipe, is_vendor)
-		scan_data.is_vendor = is_vendor
+	local function ScanTooltip()
+		local recipe = scan_data.recipe
+		if not recipe then
+			return
+		end
 
 		-- Parse all the lines of the tooltip
 		for i = 1, ARLDatamineTT:NumLines(), 1 do
@@ -1849,7 +1853,6 @@ do
 			if text:match("(%d+) slot(.+)bag") then
 				scan_data.no_role = true
 			end
-
 		end	-- for
 	end
 
@@ -1861,26 +1864,25 @@ do
 	-- @param is_largescan Boolean to determine if we're doing a large scan
 	-- @return Recipe has its tooltips scanned
 	-- Output is always returned by the caller.
-	function addon:ScanTooltipRecipe(spell_id, is_vendor, is_largescan)
+	function addon:ScanTooltipRecipe(spellID, isVendor, isLargeScan)
 		local recipe_list = private.recipe_list
-
 		if not recipe_list then
 			self:Debug(L["DATAMINER_NODB_ERROR"])
 			return
 		end
-		local recipe = recipe_list[spell_id]
 
+		local recipe = recipe_list[spellID]
 		if not recipe then
-			self:Debug("Spell ID %d does not exist in the database.", tonumber(spell_id))
+			self:Debug("Spell ID %d does not exist in the database.", tonumber(spellID))
 			return
 		end
-		local recipe_name = recipe.name
+		local recipeName = recipe.name
 		local game_vers = private.GAME_VERSIONS[recipe.genesis]
 
 		if not game_vers then
-			output:AddLine("No expansion information: " .. tostring(spell_id) .. " " .. recipe_name)
+			output:AddLine("No expansion information: " .. tostring(spellID) .. " " .. recipeName)
 		elseif game_vers > #private.GAME_VERSION_NAMES then
-			output:AddLine("Expansion information too high: " .. tostring(spell_id) .. " " .. recipe_name)
+			output:AddLine("Expansion information too high: " .. tostring(spellID) .. " " .. recipeName)
 		end
 		local optimal = recipe.optimal_level
 		local medium = recipe.medium_level
@@ -1889,32 +1891,30 @@ do
 		local skill_level = recipe.skill_level
 
 		if not optimal then
-			output:AddLine("No skill level information: " .. tostring(spell_id) .. " " .. recipe_name)
+			output:AddLine("No skill level information: " .. tostring(spellID) .. " " .. recipeName)
 		else
 			-- Highest level is greater than the skill of the recipe
 			if optimal > skill_level then
-				output:AddLine("Skill Level Error (optimal_level > skill_level): " .. tostring(spell_id) .. " " .. recipe_name)
+				output:AddLine("Skill Level Error (optimal_level > skill_level): " .. tostring(spellID) .. " " .. recipeName)
 			elseif optimal < skill_level then
-				output:AddLine("Skill Level Error (optimal_level < skill_level): " .. tostring(spell_id) .. " " .. recipe_name)
+				output:AddLine("Skill Level Error (optimal_level < skill_level): " .. tostring(spellID) .. " " .. recipeName)
 			end
 
 			-- Level info is messed up
 			if optimal > medium or optimal > easy or optimal > trivial or medium > easy or medium > trivial or easy > trivial then
-				output:AddLine("Skill Level Error: " .. tostring(spell_id) .. " " .. recipe_name)
+				output:AddLine("Skill Level Error: " .. tostring(spellID) .. " " .. recipeName)
 			end
 		end
-		local recipe_link = _G.GetSpellLink(recipe:SpellID())
 
-		if not recipe_link then
-			if recipe.profession ~= private.LOCALIZED_PROFESSION_NAMES.RUNEFORGING then
-				self:Debug("Missing spell_link for ID %d (%s).", spell_id, recipe_name)
-			end
+		local recipeLink = _G.GetSpellLink(recipe:SpellID())
+		if not recipeLink then
+			self:Debug("Missing spell_link for ID %d (%s).", spellID, recipeName)
 			return
 		end
 		ARLDatamineTT:SetOwner(_G.WorldFrame, "ANCHOR_NONE")
 		_G.GameTooltip_SetDefaultAnchor(ARLDatamineTT, _G.UIParent)
 
-		ARLDatamineTT:SetHyperlink(recipe_link)
+		ARLDatamineTT:SetHyperlink(recipeLink)
 
 		-- Check to see if this is a recipe tooltip.
 		local text = _G["ARLDatamineTTTextLeft1"]:GetText():lower()
@@ -1928,43 +1928,33 @@ do
 			ARLDatamineTT:Hide()
 			return
 		end
-		ScanTooltip(recipe, is_vendor)
-
-		local recipe_item_id = recipe:RecipeItem()
-
 		table.wipe(scan_data)
+		scan_data.recipe = recipe
+		scan_data.is_vendor = isVendor
 
-		if recipe_item_id then
+		ScanTooltip()
+
+		local recipeItemID = recipe:RecipeItem()
+		if recipeItemID then
 			if recipe:HasFilter("common1", "TRAINER") and not recipe:HasFilter("common1", "VENDOR") and not recipe:HasFilter("common1", "INSTANCE") and not recipe:HasFilter("common1", "RAID") and not recipe:HasFilter("common1", "WORLD_DROP") then
-				output:AddLine(
-					("Recipe %d (%s): Has Trainer filter flag, but also has a recipe item (%d)."):format(
-						recipe:SpellID(),
-						recipe.name,
-						recipe_item_id
-					)
-				)
-			elseif not DO_NOT_SCAN[recipe_item_id] then
-				local item_name, item_link, item_quality = _G.GetItemInfo(recipe_item_id)
+				output:AddLine("Recipe %d (%s): Has Trainer filter flag, but also has a recipe item (%d)."):format(spellID, recipeName, recipeItemID)
+			elseif not DO_NOT_SCAN[recipeItemID] then
+				local item_name, item_link, item_quality = _G.GetItemInfo(recipeItemID)
 
-				if item_name then
+				if item_name and item_link and item_quality then
 					if item_quality > 0 then
 						scan_data.quality = item_quality
 
 						ARLDatamineTT:SetHyperlink(item_link)
-						ScanTooltip(recipe, is_vendor)
+						ScanTooltip()
 					else
-						output:AddLine(
-							("Recipe %d (%s): Recipe item quality is 0 (junk), which probably means it has been removed from the game."):format(
-								recipe:SpellID(),
-								recipe.name
-							)
-						)
+						output:AddLine("Recipe %d (%s): Recipe item quality is 0 (junk), which probably means it has been removed from the game."):format(spellID, recipeName)
 					end
 				else
-					output:AddLine(("%s: %d"):format(recipe.name, spell_id))
+					output:AddLine(("%s: %d"):format(recipe.name, spellID))
 
 					if _G.Querier then
-						output:AddLine(("    Recipe item not in cache. To fix: /iq %d"):format(recipe_item_id))
+						output:AddLine(("    Recipe item not in cache. To fix: /iq %d"):format(recipeItemID))
 					else
 						output:AddLine("    Recipe item not in cache.")
 					end
@@ -1974,9 +1964,9 @@ do
 			-- We are dealing with a recipe that does not have an item to learn it from.
 			-- Lets check the recipe flags to see if we have a data error and the item should exist
 			if recipe:HasFilter("common1", "VENDOR") or recipe:HasFilter("common1", "INSTANCE") or recipe:HasFilter("common1", "RAID") or recipe:HasFilter("common1", "MOB_DROP") or recipe:HasFilter("common1", "WORLD_DROP") then
-				output:AddLine(("Recipe %d (%s) is missing a recipe item ID."):format(spell_id, recipe.name))
+				output:AddLine(("Recipe %d (%s) is missing a recipe item ID."):format(spellID, recipe.name))
 			elseif recipe:HasFilter("common1", "TRAINER") and recipe.quality ~= private.ITEM_QUALITIES["COMMON"] then
-				output:AddLine(("%s: %d"):format(recipe.name, spell_id))
+				output:AddLine(("%s: %d"):format(recipe.name, spellID))
 				output:AddLine("    Issues which will be resolved with a profession dump:")
 				output:AddLine(("    Wrong quality: Q.%s - should be Q.COMMON."):format(private.ITEM_QUALITY_NAMES[recipe.quality]))
 				recipe.quality = private.ITEM_QUALITIES["COMMON"]
@@ -1986,7 +1976,7 @@ do
 
 		ProcessScanData()
 
-		if not is_largescan then
+		if not isLargeScan then
 			self:Print(output:String())
 		end
 	end
