@@ -83,7 +83,8 @@ do
 			end
 			return
 		end
-		-- Get the initial trainer filters
+
+		-- Get the initial values for the trainer filters
 		local available = _G.GetTrainerServiceTypeFilter("available") and 1 or 0
 		local unavailable = _G.GetTrainerServiceTypeFilter("unavailable") and 1 or 0
 		local used = _G.GetTrainerServiceTypeFilter("used") and 1 or 0
@@ -93,38 +94,40 @@ do
 		_G.SetTrainerServiceTypeFilter("unavailable", 1)
 		_G.SetTrainerServiceTypeFilter("used", 1)
 
-		if _G.GetNumTrainerServices() == 0 then
+		local trainerServicesCount = _G.GetNumTrainerServices()
+		if trainerServicesCount == 0 then
 			self:Debug("Warning: Trainer is bugged, reporting 0 trainer items.")
 			return
 		end
-		local trainer_profession = private.PROFESSION_NAME_MAP[_G.GetTrainerServiceSkillLine(1)]
 
-		if not trainer_profession then
+		local trainerProfession = private.PROFESSION_NAME_MAP[_G.GetTrainerServiceSkillLine(1)]
+		if not trainerProfession then
 			return
 		end
-		addon:InitializeProfession(trainer_profession)
 
-		local recipe_list = private.profession_recipe_list[trainer_profession]
+		addon:InitializeProfession(trainerProfession)
 
+		local recipe_list = private.profession_recipe_list[trainerProfession]
 		if not recipe_list then
 			self:Debug(L["DATAMINER_NODB_ERROR"])
 			return
 		end
+
 		table.wipe(scanned_items)
 		table.wipe(scanned_recipes)
 
-		for index = 1, _G.GetNumTrainerServices(), 1 do
-			local recipe_name = _G.GetTrainerServiceInfo(index)
-			local item_id = private.ItemLinkToID(_G.GetTrainerServiceItemLink(index))
+		for index = 1, trainerServicesCount, 1 do
+			local recipeName = _G.GetTrainerServiceInfo(index)
+			local itemID = private.ItemLinkToID(_G.GetTrainerServiceItemLink(index))
 			local _, skill_level = _G.GetTrainerServiceSkillReq(index)
 
 			if not skill_level then
 				skill_level = 0
 			end
-			scanned_recipes[recipe_name] = skill_level
+			scanned_recipes[recipeName] = skill_level
 
-			if item_id then
-				scanned_items[item_id] = skill_level
+			if itemID then
+				scanned_items[itemID] = skill_level
 			end
 		end
 		table.wipe(missing_spell_ids)
@@ -134,9 +137,9 @@ do
 		table.wipe(mismatched_recipe_levels)
 
 		-- Dump out trainer info
-		local trainer_id = private.MobGUIDToIDNum(_G.UnitGUID("target"))
-		local trainer_name = _G.UnitName("target")
-		local trainer_entry = private.AcquireTypes.Trainer:GetEntity(trainer_id)
+		local trainerID = private.MobGUIDToIDNum(_G.UnitGUID("target"))
+		local trainerName = _G.UnitName("target")
+		local trainer_entry = private.AcquireTypes.Trainer:GetEntity(trainerID)
 		local trainer_x, trainer_y = _G.GetPlayerMapPosition("player")
 		trainer_x = ("%.2f"):format(trainer_x * 100)
 		trainer_y = ("%.2f"):format(trainer_y * 100)
@@ -146,32 +149,32 @@ do
 
 		if trainer_entry then
 			if trainer_entry.coord_x ~= trainer_x or trainer_entry.coord_y ~= trainer_y then
-				output:AddLine(("%s appears to have different coordinates (%s, %s) than those in the database (%s, %s) - a trainer dump for %s will fix this."):format(trainer_name, trainer_entry.coord_x, trainer_entry.coord_y, trainer_x, trainer_y, trainer_profession))
+				output:AddLine(("%s appears to have different coordinates (%s, %s) than those in the database (%s, %s) - a trainer dump for %s will fix this."):format(trainerName, trainer_entry.coord_x, trainer_entry.coord_y, trainer_x, trainer_y, trainerProfession))
 				trainer_entry.coord_x = trainer_x
 				trainer_entry.coord_y = trainer_y
 			end
 		else
-			output:AddLine(("%s was not found in the trainer list - a trainer dump for %s will fix this. (Dump localization phrases as well.)"):format(trainer_name, trainer_profession))
+			output:AddLine(("%s was not found in the trainer list - a trainer dump for %s will fix this. (Dump localization phrases as well.)"):format(trainerName, trainerProfession))
 			_G.SetMapToCurrentZone() -- Make sure were are looking at the right zone
 
-			L[trainer_name] = trainer_name
-			addon:AddTrainer(trainer_id, trainer_name, _G.GetRealZoneText(), trainer_x, trainer_y, private.Player.faction)
+			L[trainerName] = trainerName
+			addon:AddTrainer(trainerID, trainerName, _G.GetRealZoneText(), trainer_x, trainer_y, private.Player.faction)
 		end
 
 		for spell_id, recipe in pairs(recipe_list) do
 			local trainer_acquire_data = recipe.acquire_data[A.TRAINER]
-			local matching_trainer = trainer_acquire_data and trainer_acquire_data[trainer_id]
+			local matching_trainer = trainer_acquire_data and trainer_acquire_data[trainerID]
 			local scanned_recipe_skill = scanned_recipes[recipe.name]
 			local scanned_item_skill = scanned_items[recipe:CraftedItem()]
 
 			if scanned_recipe_skill or scanned_item_skill then
-				if not matching_trainer and trainer_profession == recipe.profession and (not scanned_item_skill or FALSE_POSITIVE_RECIPE_TO_ITEM_MAP[spell_id] ~= recipe:CraftedItem()) then
+				if not matching_trainer and trainerProfession == recipe.profession and (not scanned_item_skill or FALSE_POSITIVE_RECIPE_TO_ITEM_MAP[spell_id] ~= recipe:CraftedItem()) then
 					table.insert(missing_spell_ids, spell_id)
 
-					if not L[trainer_name] then
-						L[trainer_name] = true
+					if not L[trainerName] then
+						L[trainerName] = true
 					end
-					recipe:AddTrainer(trainer_id)
+					recipe:AddTrainer(trainerID)
 
 					if not recipe:HasFilter("common1", "TRAINER") then
 						recipe:AddFilters(F.TRAINER)
@@ -278,13 +281,14 @@ do
 
 		if output:Lines() > 0 then
 			output:InsertLine(1, ("ARL Version: %s"):format(self.version))
-			output:InsertLine(2, L["DATAMINER_TRAINER_INFO"]:format(trainer_name, trainer_id))
+			output:InsertLine(2, L["DATAMINER_TRAINER_INFO"]:format(trainerName, trainerID))
 
-			if #extra_spell_ids > 0 and trainer_profession == private.LOCALIZED_PROFESSION_NAMES.ENGINEERING then
+			if #extra_spell_ids > 0 and trainerProfession == private.LOCALIZED_PROFESSION_NAMES.ENGINEERING then
 				output:AddLine("\nSome goggles may be listed as extra. These goggles ONLY show up for the classes who can make them, so they may be false positives.")
 			end
 			output:Display()
 		end
+
 		-- Reset the filters to what they were before
 		_G.SetTrainerServiceTypeFilter("available", available or 0)
 		_G.SetTrainerServiceTypeFilter("unavailable", unavailable or 0)
@@ -1701,10 +1705,10 @@ do
 			end
 		end
 
-		local spellID = recipe:SpellID()
 
 		-- We need to code this better.  Some items (aka bags) won't have a role at all.
 		-- Check for player role flags
+		local spellID = recipe:SpellID()
 		if not scan_data.no_role and not scan_data.tank and not scan_data.healer and not scan_data.caster and not scan_data.dps and not NO_ROLE_FLAG[spellID] then
 			output:AddLine("    No player role flag.")
 		end
