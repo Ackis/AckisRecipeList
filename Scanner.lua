@@ -1733,13 +1733,6 @@ do
 				recipe:AddFilters(F.REPUTATION)
 				table.insert(missing_flags, FilterStrings[F.REPUTATION])
 			end
-
-			-- Commented out for possible later use. Originally added to transfer all reputation-vendors
-			-- to F.REPUTATION, but there are a few cases where it's valid to have both.
-			--			if recipe:HasFilter("common1", "VENDOR") then
-			--				recipe:RemoveFilters(F.VENDOR)
-			--				table.insert(extra_flags, FS[F.VENDOR])
-			--			end
 		end
 
 		if recipe:HasFilter("common1", "VENDOR") and not (acquire_data[A.VENDOR] or acquire_data[A.REPUTATION]) then
