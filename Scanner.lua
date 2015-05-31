@@ -1568,7 +1568,7 @@ do
 		if scan_data.found_class then
 			for index, class_name in ipairs(ORDERED_CLASS_TYPES) do
 				if scan_data[class_name] and not recipe:HasFilter("class1", CLASS_TYPES[class_name]) then
-					recipe:AddFilters(CLASS_TYPES[class_name])
+					recipe:AddFilters(private.FILTER_IDS[CLASS_TYPES[class_name]])
 					table.insert(missing_flags, flag_format:format(CLASS_TYPES[class_name]))
 				elseif not scan_data[class_name] and recipe:HasFilter("class1", CLASS_TYPES[class_name]) then
 					table.insert(extra_flags, flag_format:format(CLASS_TYPES[class_name]))
