@@ -1588,8 +1588,8 @@ do
 				table.insert(extra_flags, flag_format:format(role_string))
 			end
 		end
-		local recipeAcquireData = recipe.acquire_data
 
+		local recipeAcquireData = recipe.acquire_data
 		local repid = scan_data.repid
 		if repid then
 			if not recipe:HasFilter("reputation1", FilterStrings[repid]) and not recipe:HasFilter("reputation2", FilterStrings[repid]) then
@@ -1937,8 +1937,10 @@ do
 		local recipeItemID = recipe:RecipeItem()
 		if recipeItemID then
 			if recipe:HasFilter("common1", "TRAINER") and not recipe:HasFilter("common1", "VENDOR") and not recipe:HasFilter("common1", "INSTANCE") and not recipe:HasFilter("common1", "RAID") and not recipe:HasFilter("common1", "WORLD_DROP") then
-				output:AddLine("Recipe %d (%s): Has Trainer filter flag, but also has a recipe item (%d)."):format(spellID, recipeName, recipeItemID)
-			elseif not DO_NOT_SCAN[recipeItemID] then
+				output:AddLine(("    Has Trainer filter flag, but also has a recipe item (%d)."):format(recipeItemID))
+			end
+
+			if not DO_NOT_SCAN[recipeItemID] then
 				local item_name, item_link, item_quality = _G.GetItemInfo(recipeItemID)
 
 				if item_name and item_link and item_quality then
@@ -1948,10 +1950,9 @@ do
 						ARLDatamineTT:SetHyperlink(item_link)
 						ScanTooltip()
 					else
-						output:AddLine("Recipe %d (%s): Recipe item quality is 0 (junk), which probably means it has been removed from the game."):format(spellID, recipeName)
+						output:AddLine("    Recipe item quality is 0 (junk), which probably means it has been removed from the game.")
 					end
 				else
-					output:AddLine(("%s: %d"):format(recipe.name, spellID))
 
 					if _G.Querier then
 						output:AddLine(("    Recipe item not in cache. To fix: /iq %d"):format(recipeItemID))
@@ -1964,9 +1965,8 @@ do
 			-- We are dealing with a recipe that does not have an item to learn it from.
 			-- Lets check the recipe flags to see if we have a data error and the item should exist
 			if recipe:HasFilter("common1", "VENDOR") or recipe:HasFilter("common1", "INSTANCE") or recipe:HasFilter("common1", "RAID") or recipe:HasFilter("common1", "MOB_DROP") or recipe:HasFilter("common1", "WORLD_DROP") then
-				output:AddLine(("Recipe %d (%s) is missing a recipe item ID."):format(spellID, recipe.name))
+				output:AddLine(("    Missing a recipe item ID."))
 			elseif recipe:HasFilter("common1", "TRAINER") and recipe.quality ~= private.ITEM_QUALITIES["COMMON"] then
-				output:AddLine(("%s: %d"):format(recipe.name, spellID))
 				output:AddLine("    Issues which will be resolved with a profession dump:")
 				output:AddLine(("    Wrong quality: Q.%s - should be Q.COMMON."):format(private.ITEM_QUALITY_NAMES[recipe.quality]))
 				recipe.quality = private.ITEM_QUALITIES["COMMON"]
