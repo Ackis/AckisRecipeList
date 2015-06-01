@@ -1679,7 +1679,7 @@ do
 
 		if scan_data.quality and scan_data.quality ~= recipe.quality then
 			local QS = private.ITEM_QUALITY_NAMES
-			table.insert(general_issues, ("Wrong quality: Q.%s - should be Q.%s."):format(QS[recipe.quality], QS[scan_data.quality]))
+			table.insert(general_issues, ("    Wrong quality: Q.%s - should be Q.%s."):format(QS[recipe.quality], QS[scan_data.quality]))
 			recipe.quality = scan_data.quality
 		end
 
@@ -1711,8 +1711,6 @@ do
 			end
 		end
 
-
-		-- We need to code this better.  Some items (aka bags) won't have a role at all.
 		-- Check for player role flags
 		local spellID = recipe:SpellID()
 		if not scan_data.no_role and not scan_data.tank and not scan_data.healer and not scan_data.caster and not scan_data.dps and not NO_ROLE_FLAG[spellID] then
@@ -1737,7 +1735,7 @@ do
 			end
 
 			if recipe_filter ~= scan_data.filter_type then
-				table.insert(missing_flags, ("Wrong filter type: %s - should be %s."):format(recipe_filter or "NONE", scan_data.filter_type))
+				table.insert(missing_flags, ("    Wrong filter type: %s - should be %s."):format(recipe_filter or "NONE", scan_data.filter_type))
 				recipe:SetItemFilterType(scan_data.filter_type)
 				scan_data.filter_type = nil
 			end
@@ -1760,7 +1758,7 @@ do
 		end
 
 		if output:Lines() > firstLineNumber then
-			output:InsertLine(firstLineNumber + 1, ("%s: <a href=\"http://www.wowhead.com/?spell=%d\">%d</a>"):format(recipe.name, spellID, spellID))
+			output:InsertLine(firstLineNumber + 1, ("\n%s: <a href=\"http://www.wowhead.com/?spell=%d\">%d</a>"):format(recipe.name, spellID, spellID))
 		end
 	end
 
