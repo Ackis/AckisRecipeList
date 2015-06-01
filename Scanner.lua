@@ -1773,14 +1773,7 @@ do
 		for i = 1, ARLDatamineTT:NumLines(), 1 do
 			local text_l = _G["ARLDatamineTTTextLeft" .. i]:GetText()
 			local text_r = _G["ARLDatamineTTTextRight" .. i]:GetText()
-			local text
-
-			if text_r then
-				text = ("%s %s"):format(text_l, text_r)
-			else
-				text = text_l
-			end
-			text = text:lower()
+			local text = (text_r and ("%s %s"):format(text_l, text_r) or text_l):lower()
 
 			-- Check for recipe/item binding
 			-- The recipe binding is within the first few lines of the tooltip always
@@ -1853,7 +1846,7 @@ do
 				end
 			end
 
-			if text:match("(%d+) slot(.+)bag") then
+			if text:match("(%d+) slot(.+)bag") or text:find("crafting reagent") then
 				scan_data.no_role = true
 			end
 		end	-- for
