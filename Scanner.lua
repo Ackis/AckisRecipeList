@@ -52,7 +52,7 @@ local ARLDatamineTT = _G.CreateFrame("GameTooltip", "ARLDatamineTT", _G.UIParent
 do
 	-- Tables used in addon:ScanTrainerData
     local ExtraSpellIDs = {}
-    local FixedItemSpellIDs = {}
+    local IncorrectItemIDs = {}
     local MismatchedRecipeLevels = {}
     local MissingSpellIDs = {}
     local ScannedRecipeIDToItemIDMapping = {}
@@ -154,7 +154,7 @@ do
 
         table.wipe(MissingSpellIDs)
         table.wipe(ExtraSpellIDs)
-        table.wipe(FixedItemSpellIDs)
+        table.wipe(IncorrectItemIDs)
         table.wipe(MismatchedRecipeLevels)
 
         for recipeSpellID, recipe in pairs(recipes) do
@@ -187,7 +187,7 @@ do
 
             if scannedRecipeItemID and scannedRecipeItemID ~= recipe:CraftedItem() then
                 recipe:SetCraftedItem(scannedRecipeItemID, "BIND_ON_EQUIP")
-                table.insert(FixedItemSpellIDs, recipeSpellID)
+                table.insert(IncorrectItemIDs, recipeSpellID)
             end
         end
 
@@ -212,12 +212,12 @@ do
 			end
 		end
 
-		if #FixedItemSpellIDs > 0 then
+		if #IncorrectItemIDs > 0 then
 			output:AddLine("\nRecipes which were missing or had an incorrect crafted item ID:")
-			table.sort(FixedItemSpellIDs)
+			table.sort(IncorrectItemIDs)
 
-			for index in ipairs(FixedItemSpellIDs) do
-				local recipeSpellID = FixedItemSpellIDs[index]
+			for index in ipairs(IncorrectItemIDs) do
+				local recipeSpellID = IncorrectItemIDs[index]
 				output:AddLine(("    %s -- %d"):format(recipes[recipeSpellID].name, recipeSpellID))
 			end
 		end
