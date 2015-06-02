@@ -40,7 +40,6 @@ local LIST_ENTRY_WIDTH	= 286
 local ListItem_ShowTooltip
 
 local acquire_tip
-local spell_tip
 
 -------------------------------------------------------------------------------
 -- Dialogs.
@@ -112,6 +111,8 @@ end
 -------------------------------------------------------------------------------
 -- Frame creation and anchoring
 -------------------------------------------------------------------------------
+local SpellTooltip = _G.CreateFrame("GameTooltip", "AckisRecipeList_SpellTooltip", _G.UIParent, "GameTooltipTemplate")
+
 function private.InitializeListFrame()
 	local MainPanel	= addon.Frame
 	local ListFrame = _G.CreateFrame("Frame", nil, MainPanel)
@@ -129,7 +130,7 @@ function private.InitializeListFrame()
 		if acquire_tip then
 			acquire_tip = QTip:Release(acquire_tip)
 		end
-		spell_tip:Hide()
+		SpellTooltip:Hide()
 		self.selected_entry = nil
 	end)
 	MainPanel.list_frame = ListFrame
@@ -241,7 +242,7 @@ function private.InitializeListFrame()
 		if acquire_tip then
 			acquire_tip = QTip:Release(acquire_tip)
 		end
-		spell_tip:Hide()
+		SpellTooltip:Hide()
 	end
 
 	local function ListItem_OnClick(self, button, down)
@@ -545,7 +546,7 @@ function private.InitializeListFrame()
 			if acquire_tip then
 				acquire_tip = QTip:Release(acquire_tip)
 			end
-			spell_tip:Hide()
+			SpellTooltip:Hide()
 			self.selected_entry = nil
 
 			if expanded_button then
@@ -757,8 +758,6 @@ end	-- InitializeListFrame()
 -------------------------------------------------------------------------------
 -- Tooltip functions and data.
 -------------------------------------------------------------------------------
-spell_tip = _G.CreateFrame("GameTooltip", "AckisRecipeList_SpellTooltip", _G.UIParent, "GameTooltipTemplate")
-
 -- Font Objects needed for acquire_tip
 local narrowFont
 local normalFont
@@ -863,86 +862,80 @@ do
 	-------------------------------------------------------------------------------
 	-- Main tooltip function.
 	-------------------------------------------------------------------------------
-	local function InitSpellTooltip(owner, loc, link)
-		spell_tip:SetOwner(owner, "ANCHOR_NONE")
-		spell_tip:ClearAllPoints()
-
-		if loc == "Top" then
-			spell_tip:SetPoint("BOTTOMLEFT", owner, "TOPLEFT")
-		elseif loc == "Bottom" then
-			spell_tip:SetPoint("TOPLEFT", owner, "BOTTOMLEFT")
-		elseif loc == "Left" then
-			spell_tip:SetPoint("TOPRIGHT", owner, "TOPLEFT")
-		elseif loc == "Right" then
-			spell_tip:SetPoint("TOPLEFT", owner, "TOPRIGHT")
-		end
-
-		-- Add TipTac Support
-		if _G.TipTac and _G.TipTac.AddModifiedTip and not spell_tip.tiptac then
-			_G.TipTac:AddModifiedTip(spell_tip)
-			spell_tip.tiptac = true
-		end
-
-		-- Set the spell tooltip's scale, and copy its other values from GameTooltip so AddOns which modify it will work.
-		spell_tip:SetBackdrop(_G.GameTooltip:GetBackdrop())
-		spell_tip:SetBackdropColor(_G.GameTooltip:GetBackdropColor())
-		spell_tip:SetBackdropBorderColor(_G.GameTooltip:GetBackdropBorderColor())
-		spell_tip:SetScale(addon.db.profile.tooltip.scale)
-		spell_tip:SetClampedToScreen(true)
-		spell_tip:SetHyperlink(link)
-		spell_tip:Show()
-	end
-
-	local function InitializeTooltips(spell_id)
-		local spell_tip_anchor = addon.db.profile.spelltooltiplocation
-		local acquire_tip_anchor = addon.db.profile.acquiretooltiplocation
-		local spell_link = _G.GetSpellLink(spell_id)
+	local function InitializeTooltips(recipe)
+		local spellTooltipAnchor = addon.db.profile.spelltooltiplocation
+		local acquireTooltipAnchor = addon.db.profile.acquiretooltiplocation
+		local spellHyperlink = _G.GetSpellLink(recipe:SpellID())
 		local MainPanel = addon.Frame
+        local spellTooltipOwner
 
-		if acquire_tip_anchor == _G.OFF then
-			if acquire_tip then
-				acquire_tip = QTip:Release(acquire_tip)
-			end
+        if acquireTooltipAnchor == _G.OFF then
+            if acquire_tip then
+                acquire_tip = QTip:Release(acquire_tip)
+            end
 
-			-- If we have the spell link tooltip, anchor it to MainPanel instead so it shows
-			if spell_tip_anchor == _G.OFF then
-				spell_tip:Hide()
-			elseif spell_link then
-				InitSpellTooltip(MainPanel, spell_tip_anchor, spell_link)
-			end
-			return
-		end
-		acquire_tip = QTip:Acquire(private.addon_name.." Tooltip", 2, "LEFT", "LEFT")
-		acquire_tip:ClearAllPoints()
-		acquire_tip:SetClampedToScreen(true)
-		acquire_tip:Clear()
-		acquire_tip:SetScale(addon.db.profile.tooltip.scale)
+            spellTooltipOwner = MainPanel
+        else
+            acquire_tip = QTip:Acquire(private.addon_name .. " Tooltip", 2, "LEFT", "LEFT")
+            acquire_tip:ClearAllPoints()
+            acquire_tip:SetClampedToScreen(true)
+            acquire_tip:Clear()
+            acquire_tip:SetScale(addon.db.profile.tooltip.scale)
 
-		if _G.TipTac and _G.TipTac.AddModifiedTip then
-			-- Pass true as second parameter because hooking OnHide causes C stack overflows -Torhal
-			_G.TipTac:AddModifiedTip(acquire_tip, true)
-		end
+            if _G.TipTac and _G.TipTac.AddModifiedTip then
+                -- Pass true as second parameter because hooking OnHide causes C stack overflows -Torhal
+                _G.TipTac:AddModifiedTip(acquire_tip, true)
+            end
 
-		if acquire_tip_anchor == "Right" then
-			acquire_tip:SetPoint("TOPLEFT", MainPanel, "TOPRIGHT", MainPanel.is_expanded and -90 or -35, 0)
-		elseif acquire_tip_anchor == "Left" then
-			acquire_tip:SetPoint("TOPRIGHT", MainPanel, "TOPLEFT")
-		elseif acquire_tip_anchor == "Top" then
-			acquire_tip:SetPoint("BOTTOMLEFT", MainPanel, "TOPLEFT")
-		elseif acquire_tip_anchor == "Bottom" then
-			acquire_tip:SetPoint("TOPLEFT", MainPanel, "BOTTOMLEFT", 0, 55)
-		elseif acquire_tip_anchor == "Mouse" then
-			local x, y = _G.GetCursorPosition()
-			local uiscale = _G.UIParent:GetEffectiveScale()
+            if acquireTooltipAnchor == "Right" then
+                acquire_tip:SetPoint("TOPLEFT", MainPanel, "TOPRIGHT", MainPanel.is_expanded and -90 or -35, 0)
+            elseif acquireTooltipAnchor == "Left" then
+                acquire_tip:SetPoint("TOPRIGHT", MainPanel, "TOPLEFT")
+            elseif acquireTooltipAnchor == "Top" then
+                acquire_tip:SetPoint("BOTTOMLEFT", MainPanel, "TOPLEFT")
+            elseif acquireTooltipAnchor == "Bottom" then
+                acquire_tip:SetPoint("TOPLEFT", MainPanel, "BOTTOMLEFT", 0, 55)
+            elseif acquireTooltipAnchor == "Mouse" then
+                local x, y = _G.GetCursorPosition()
+                local uiscale = _G.UIParent:GetEffectiveScale()
 
-			acquire_tip:SetPoint("BOTTOMLEFT", _G.UIParent, "BOTTOMLEFT", x / uiscale, y / uiscale)
-		end
+                acquire_tip:SetPoint("BOTTOMLEFT", _G.UIParent, "BOTTOMLEFT", x / uiscale, y / uiscale)
+            end
+
+            spellTooltipOwner = acquire_tip
+        end
 
 		-- If we have the spell link tooltip, link it to the acquire tooltip.
-		if spell_tip_anchor == _G.OFF then
-			spell_tip:Hide()
-		elseif spell_link then
-			InitSpellTooltip(acquire_tip, spell_tip_anchor, spell_link)
+		if spellTooltipAnchor == _G.OFF then
+			SpellTooltip:Hide()
+		elseif spellHyperlink then
+            SpellTooltip:SetOwner(spellTooltipOwner, "ANCHOR_NONE")
+            SpellTooltip:ClearAllPoints()
+
+            if spellTooltipAnchor == "Top" then
+                SpellTooltip:SetPoint("BOTTOMLEFT", spellTooltipOwner, "TOPLEFT")
+            elseif spellTooltipAnchor == "Bottom" then
+                SpellTooltip:SetPoint("TOPLEFT", spellTooltipOwner, "BOTTOMLEFT")
+            elseif spellTooltipAnchor == "Left" then
+                SpellTooltip:SetPoint("TOPRIGHT", spellTooltipOwner, "TOPLEFT")
+            elseif spellTooltipAnchor == "Right" then
+                SpellTooltip:SetPoint("TOPLEFT", spellTooltipOwner, "TOPRIGHT")
+            end
+
+            -- Add TipTac Support
+            if _G.TipTac and _G.TipTac.AddModifiedTip and not SpellTooltip.tiptac then
+                _G.TipTac:AddModifiedTip(SpellTooltip)
+                SpellTooltip.tiptac = true
+            end
+
+            -- Set the spell tooltip's scale, and copy its other values from GameTooltip so AddOns which modify it will work.
+            SpellTooltip:SetBackdrop(_G.GameTooltip:GetBackdrop())
+            SpellTooltip:SetBackdropColor(_G.GameTooltip:GetBackdropColor())
+            SpellTooltip:SetBackdropBorderColor(_G.GameTooltip:GetBackdropBorderColor())
+            SpellTooltip:SetScale(addon.db.profile.tooltip.scale)
+            SpellTooltip:SetClampedToScreen(true)
+            SpellTooltip:SetHyperlink(spellHyperlink)
+            SpellTooltip:Show()
 		end
 	end
 
@@ -965,7 +958,7 @@ do
 		if not recipe then
 			return
 		end
-		InitializeTooltips(recipe:SpellID())
+		InitializeTooltips(recipe)
 
 		if not acquire_tip then
 			return
