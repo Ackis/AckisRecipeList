@@ -43,7 +43,7 @@ private.quest_names = _G.setmetatable({}, {
 		_G.GameTooltip:Hide()
 
 		if not quest_name then
-			return _G.UNKNOWN
+			return _G.SEARCHING
 		end
 		t[id_num] = quest_name
 		return quest_name
