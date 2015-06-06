@@ -48,11 +48,11 @@ end
 
 local function ColorNameByFaction(name, faction)
 	if faction == "Neutral" then
-		name = private.SetTextColor(private.REPUTATION_COLORS.neutral.hex, name)
+		name = private.SetTextColor(REPUTATION_COLORS.neutral.hex, name)
 	elseif faction == private.Player.faction then
-		name = private.SetTextColor(private.REPUTATION_COLORS.exalted.hex, name)
+		name = private.SetTextColor(REPUTATION_COLORS.exalted.hex, name)
 	else
-		name = private.SetTextColor(private.REPUTATION_COLORS.hated.hex, name)
+		name = private.SetTextColor(REPUTATION_COLORS.hated.hex, name)
 	end
 	return name
 end
