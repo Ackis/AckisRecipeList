@@ -220,7 +220,8 @@ do
 	}
 
 	function Recipe:HasState(state_name)
-		return self.state and (bit.band(self.state, RECIPE_STATE_FLAGS[state_name]) == RECIPE_STATE_FLAGS[state_name]) or false
+        local flag = RECIPE_STATE_FLAGS[state_name]
+		return self.state and (bit.band(self.state, flag) == flag) or false
 	end
 
 	function Recipe:AddState(state_name)
@@ -228,10 +229,11 @@ do
 			self.state = 0
 		end
 
-		if bit.band(self.state, RECIPE_STATE_FLAGS[state_name]) == RECIPE_STATE_FLAGS[state_name] then
+        local flag = RECIPE_STATE_FLAGS[state_name]
+		if bit.band(self.state, flag) == flag then
 			return
 		end
-		self.state = bit.bxor(self.state, RECIPE_STATE_FLAGS[state_name])
+		self.state = bit.bxor(self.state, flag)
 	end
 
 	function Recipe:RemoveState(state_name)
@@ -239,10 +241,11 @@ do
 			return
 		end
 
-		if bit.band(self.state, RECIPE_STATE_FLAGS[state_name]) ~= RECIPE_STATE_FLAGS[state_name] then
+        local flag = RECIPE_STATE_FLAGS[state_name]
+		if bit.band(self.state, flag) ~= flag then
 			return
 		end
-		self.state = bit.bxor(self.state, RECIPE_STATE_FLAGS[state_name])
+		self.state = bit.bxor(self.state, flag)
 
 		if self.state == 0 then
 			self.state = nil
@@ -354,22 +357,23 @@ local function SetFilterState(recipe, turn_on, ...)
 				recipe.flags[memberName] = 0
 			end
 
+            local flag = bitfield[filterName]
 			if turn_on then
-				if bit.band(recipe.flags[memberName], bitfield[filterName]) == bitfield[filterName] then
+				if bit.band(recipe.flags[memberName], flag) == flag then
 					if recipe.flags[memberName] == 0 then
 						recipe.flags[memberName] = nil
 					end
 					return
 				end
 			else
-				if bit.band(recipe.flags[memberName], bitfield[filterName]) ~= bitfield[filterName] then
+				if bit.band(recipe.flags[memberName], flag) ~= flag then
 					if recipe.flags[memberName] == 0 then
 						recipe.flags[memberName] = nil
 					end
 					return
 				end
 			end
-			recipe.flags[memberName] = bit.bxor(recipe.flags[memberName], bitfield[filterName])
+			recipe.flags[memberName] = bit.bxor(recipe.flags[memberName], flag)
 
 			if recipe.flags[memberName] == 0 then
 				recipe.flags[memberName] = nil
@@ -578,19 +582,19 @@ do
 
 		SOFT_FILTERS = {
 			achievement	= { flagName = "ACHIEVEMENT",	field = "common1",	sv_root = obtain_filters },
-			discovery	= { flagName = "DISC",		field = "common1",	sv_root = obtain_filters },
-			instance	= { flagName = "INSTANCE",	field = "common1",	sv_root = obtain_filters },
-			mobdrop		= { flagName = "MOB_DROP",	field = "common1",	sv_root = obtain_filters },
-			pvp		= { flagName = "PVP",		field = "common1",	sv_root = obtain_filters },
-			quest		= { flagName = "QUEST",		field = "common1",	sv_root = obtain_filters },
-			raid		= { flagName = "RAID",		field = "common1",	sv_root = obtain_filters },
-			retired		= { flagName = "RETIRED",	field = "common1",	sv_root = obtain_filters },
+			discovery	= { flagName = "DISC",			field = "common1",	sv_root = obtain_filters },
+			instance	= { flagName = "INSTANCE",		field = "common1",	sv_root = obtain_filters },
+			mobdrop		= { flagName = "MOB_DROP",		field = "common1",	sv_root = obtain_filters },
+			pvp			= { flagName = "PVP",			field = "common1",	sv_root = obtain_filters },
+			quest		= { flagName = "QUEST",			field = "common1",	sv_root = obtain_filters },
+			raid		= { flagName = "RAID",			field = "common1",	sv_root = obtain_filters },
+			retired		= { flagName = "RETIRED",		field = "common1",	sv_root = obtain_filters },
 			reputation	= { flagName = "REPUTATION",	field = "common1",	sv_root = obtain_filters },
 			seasonal	= { flagName = "WORLD_EVENTS",	field = "common1",	sv_root = obtain_filters },
-			trainer		= { flagName = "TRAINER",	field = "common1",	sv_root = obtain_filters },
-			vendor		= { flagName = "VENDOR",	field = "common1",	sv_root = obtain_filters },
+			trainer		= { flagName = "TRAINER",		field = "common1",	sv_root = obtain_filters },
+			vendor		= { flagName = "VENDOR",		field = "common1",	sv_root = obtain_filters },
 			worlddrop	= { flagName = "WORLD_DROP",	field = "common1",	sv_root = obtain_filters },
-			misc1		= { flagName = "MISC1",		field = "common1",	sv_root = obtain_filters },
+			misc1		= { flagName = "MISC1",			field = "common1",	sv_root = obtain_filters },
 		}
 
 		InitializeFilters = nil
