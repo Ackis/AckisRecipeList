@@ -474,7 +474,6 @@ function addon:AddWaypoint(recipe, acquireTypeID, locationName, npcID)
             continentID = info.continent
             coordX = info.x
             coordY = info.y
-            waypointName = ("%s (%s)"):format(waypointName, locationName)
         elseif KALIMDOR_IDNUMS[locationName] then
             continentID = 1
 			zoneID = KALIMDOR_IDNUMS[locationName]
