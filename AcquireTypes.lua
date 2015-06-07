@@ -174,8 +174,7 @@ local ACQUIRE_PROTOTYPES = {
 			end
 
 			local trainer = self:GetEntity(id_num)
-
-			if trainer.faction == private.Player.faction or trainer.faction == "Neutral" then
+			if CanDisplayFaction(trainer.faction) then
 				return trainer
 			end
 		end
@@ -266,10 +265,9 @@ local ACQUIRE_PROTOTYPES = {
 			if not private.db.profile.mapvendor then
 				return
 			end
-			local vendor = self:GetEntity(id_num)
-			local vendor_faction = vendor.faction
 
-			if vendor_faction == private.Player.faction or vendor_faction == "Neutral" then
+			local vendor = self:GetEntity(id_num)
+			if CanDisplayFaction(vendor.faction) then
 				return vendor
 			end
 		end,
@@ -420,10 +418,9 @@ local ACQUIRE_PROTOTYPES = {
 			if not private.db.profile.mapquest then
 				return
 			end
-			local quest = self:GetEntity(id_num)
-			local quest_faction = quest.faction
 
-			if quest_faction == private.Player.faction or quest_faction == "Neutral" then
+			local quest = self:GetEntity(id_num)
+			if CanDisplayFaction(quest.faction) then
 				return quest
 			end
 		end,
@@ -582,8 +579,8 @@ local ACQUIRE_PROTOTYPES = {
 			if not private.db.profile.mapvendor then
 				return
 			end
-			local vendor = private.AcquireTypes.Vendor:GetEntity(id_num)
 
+			local vendor = private.AcquireTypes.Vendor:GetEntity(id_num)
 			if private.Player.reputation_levels[self:GetEntity(vendor.reputation_id).name] then
 				return vendor
 			end
