@@ -336,11 +336,11 @@ local function AddRecipeWaypoints(recipe, targetAcquireTypeID, locationName, npc
 						for vendorID in pairs(level_info) do
 							local entity = acquireType:GetWaypointEntity(vendorID, recipe)
 
-							-- TODO: Figure out why this changes on-click when there are two different locations for the same recipe
-							--							addon:Debug("location_id: %s waypoint.location: %s", tostring(location_id), waypoint and tostring(waypoint.location) or "nil")
 							if entity and (not locationName or entity.location == locationName) then
 								entity.acquire_type = acquireType
-								WAYPOINT_ENTITIES[entity] = recipe
+                                entity.location = entity.location or locationName
+
+                                WAYPOINT_ENTITIES[entity] = recipe
 							end
 						end
 					end
@@ -351,7 +351,9 @@ local function AddRecipeWaypoints(recipe, targetAcquireTypeID, locationName, npc
                         if entity then
                             if (not locationName or entity.location == locationName) then
                                 entity.acquire_type = acquireType
+                                entity.location = entity.location or locationName
                                 entity.reference_id = id_num
+
                                 WAYPOINT_ENTITIES[entity] = recipe
                             else
                                 addon:Debug("Failed location check.")
