@@ -42,6 +42,7 @@ local OUTLAND_NAMES = {}
 local NORTHREND_NAMES = {}
 local THE_MAELSTROM_NAMES = {}
 local PANDARIA_NAMES = {}
+local DRAENOR_NAMES = {}
 
 local KALIMDOR_IDNUMS = {}
 local EASTERN_KINGDOMS_IDNUMS = {}
@@ -49,6 +50,7 @@ local OUTLAND_IDNUMS = {}
 local NORTHREND_IDNUMS = {}
 local THE_MAELSTROM_IDNUMS = {}
 local PANDARIA_IDNUMS = {}
+local DRAENOR_IDNUMS = {}
 
 -- TODO: Rewrite the whole thing based on GetMapContinents() instead of raw IDs for continents.
 local function LoadZones(continent, zone, ...)
@@ -69,6 +71,7 @@ LoadZones(OUTLAND_NAMES, OUTLAND_IDNUMS, _G.GetMapZones(3))
 LoadZones(NORTHREND_NAMES, NORTHREND_IDNUMS, _G.GetMapZones(4))
 LoadZones(THE_MAELSTROM_NAMES, THE_MAELSTROM_IDNUMS, _G.GetMapZones(5))
 LoadZones(PANDARIA_NAMES, PANDARIA_IDNUMS, _G.GetMapZones(6))
+LoadZones(DRAENOR_NAMES, DRAENOR_IDNUMS, _G.GetMapZones(7))
 
 local INSTANCE_LOCATIONS = {
 	[Z.AHNKAHET_THE_OLD_KINGDOM] = {
@@ -440,47 +443,50 @@ function addon:AddWaypoint(recipe, acquire_id, location_id, npc_id)
 		local continent
 		local coord_x = entity.coord_x
 		local coord_y = entity.coord_y
-		local location_name = entity.location or "nil"
+		local locationName = entity.location or "nil"
 		local zone
 
-		if KALIMDOR_IDNUMS[location_name] then
+		if KALIMDOR_IDNUMS[locationName] then
 			continent = 1
-			zone = KALIMDOR_IDNUMS[location_name]
-		elseif EASTERN_KINGDOMS_IDNUMS[location_name] then
+			zone = KALIMDOR_IDNUMS[locationName]
+		elseif EASTERN_KINGDOMS_IDNUMS[locationName] then
 			continent = 2
-			zone = EASTERN_KINGDOMS_IDNUMS[location_name]
-		elseif OUTLAND_IDNUMS[location_name] then
+			zone = EASTERN_KINGDOMS_IDNUMS[locationName]
+		elseif OUTLAND_IDNUMS[locationName] then
 			continent = 3
-			zone = OUTLAND_IDNUMS[location_name]
-		elseif NORTHREND_IDNUMS[location_name] then
+			zone = OUTLAND_IDNUMS[locationName]
+		elseif NORTHREND_IDNUMS[locationName] then
 			continent = 4
-			zone = NORTHREND_IDNUMS[location_name]
-		elseif PANDARIA_IDNUMS[location_name] then
-			continent = 6
-			zone = PANDARIA_IDNUMS[location_name]
-		elseif INSTANCE_LOCATIONS[location_name] then
-			local info = INSTANCE_LOCATIONS[location_name]
+			zone = NORTHREND_IDNUMS[locationName]
+        elseif PANDARIA_IDNUMS[locationName] then
+            continent = 6
+            zone = PANDARIA_IDNUMS[locationName]
+        elseif DRAENOR_IDNUMS[locationName] then
+            continent = 7
+            zone = DRAENOR_IDNUMS[locationName]
+		elseif INSTANCE_LOCATIONS[locationName] then
+			local info = INSTANCE_LOCATIONS[locationName]
 
 			zone = info.zone
 			continent = info.continent
 			coord_x = info.x
 			coord_y = info.y
-			name = ("%s (%s)"):format(name, location_name)
+			name = ("%s (%s)"):format(name, locationName)
 		else
-			self:Debug("No continent/zone map match for recipe ID %d. Location: %s.", recipe:SpellID(), location_name)
+			self:Debug("No continent/zone map match for recipe ID %d. Location: %s.", recipe:SpellID(), locationName)
 		end
 
 		--@debug@
 		if coord_x and ((coord_x < -100) or (coord_x > 100)) or coord_y and ((coord_y < -100) or (coord_y > 100)) then
 			coord_x = nil
 			coord_y = nil
-			self:Debug("Invalid location coordinates for recipe ID %d. Location: %s.", recipe:SpellID(), location_name)
+			self:Debug("Invalid location coordinates for recipe ID %d. Location: %s.", recipe:SpellID(), locationName)
 		end
 		--@end-debug@
 
 		if coord_x and coord_y and zone and continent then
-			if coord_x == 0 and coord_y == 0 and not INSTANCE_LOCATIONS[location_name] then
-				self:Debug("Location is \"0, 0\" for recipe ID %d. Location: %s.", recipe:SpellID(), location_name)
+			if coord_x == 0 and coord_y == 0 and not INSTANCE_LOCATIONS[locationName] then
+				self:Debug("Location is \"0, 0\" for recipe ID %d. Location: %s.", recipe:SpellID(), locationName)
 			end
 
 			if _G.TomTom then
@@ -497,11 +503,11 @@ function addon:AddWaypoint(recipe, acquire_id, location_id, npc_id)
 			--@debug@
 		else
 			if not zone then
-				self:Debug("No zone for recipe ID %d. Location: %s.", recipe:SpellID(), location_name)
+				self:Debug("No zone for recipe ID %d. Location: %s.", recipe:SpellID(), locationName)
 			end
 
 			if not continent then
-				self:Debug("No continent for recipe ID %d. Location: %s.", recipe:SpellID(), location_name)
+				self:Debug("No continent for recipe ID %d. Location: %s.", recipe:SpellID(), locationName)
 			end
 			--@end-debug@
 		end
