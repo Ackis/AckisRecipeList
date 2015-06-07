@@ -516,7 +516,7 @@ function addon:AddWaypoint(recipe, acquireTypeID, locationName, npcID)
 			end
 
 			if _G.TomTom then
-                local uid = _G.TomTom:AddMFWaypoint(zoneID, nil, coordX, coordY, {
+                local uid = _G.TomTom:AddMFWaypoint(zoneID, nil, coordX / 100, coordY / 100, {
                     crazy = true,
                     title = waypointName,
                 })
