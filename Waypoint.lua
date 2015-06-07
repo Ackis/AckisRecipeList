@@ -428,10 +428,10 @@ function addon:AddWaypoint(recipe, acquireTypeID, locationName, npcID)
 	if not _G.TomTom then
 		return
 	end
-	local worldmap = addon.db.profile.worldmap
-	local minimap = addon.db.profile.minimap
+	local useWorldmap = addon.db.profile.worldmap
+	local useMinimap = addon.db.profile.minimap
 
-	if not worldmap and not minimap then
+	if not useWorldmap and not useMinimap then
 		return
 	end
 	table.wipe(WAYPOINT_ENTITIES)
@@ -444,71 +444,74 @@ function addon:AddWaypoint(recipe, acquireTypeID, locationName, npcID)
 
 	for entity, recipe in pairs(WAYPOINT_ENTITIES) do
 		local color_code = entity.acquire_type:ColorData().hex
-		local name
+		local waypointName
 
 		local _, _, _, quality_color = _G.GetItemQualityColor(recipe.quality)
 
 		if entity.acquire_type == private.AcquireTypes.Quest then
-			name = ("%s: |cff%s%s|r (|c%s%s|r)"):format(L.Quest, color_code, private.quest_names[entity.reference_id], quality_color, recipe.name)
+			waypointName = ("%s: |cff%s%s|r (|c%s%s|r)"):format(L.Quest, color_code, private.quest_names[entity.reference_id], quality_color, recipe.name)
 		else
-			name = ("|cff%s%s|r (|c%s%s|r)"):format(color_code, entity.name or _G.UNKNOWN, quality_color, recipe.name)
+			waypointName = ("|cff%s%s|r (|c%s%s|r)"):format(color_code, entity.name or _G.UNKNOWN, quality_color, recipe.name)
 		end
 
 		-- Unset these - they're only needed for the waypoint system and shouldn't persist beyond.
 		entity.acquire_type = nil
 		entity.reference_id = nil
 
-		local continent
-		local coord_x = entity.coord_x
-		local coord_y = entity.coord_y
+		local continentID
+		local coordX = entity.coord_x
+		local coordY = entity.coord_y
 		local locationName = entity.location or "nil"
-		local zone
+		local zoneID
 
-		if KALIMDOR_IDNUMS[locationName] then
-			continent = 1
-			zone = KALIMDOR_IDNUMS[locationName]
+        if INSTANCE_LOCATIONS[locationName] then
+            local info = INSTANCE_LOCATIONS[locationName]
+
+            zoneID = info.zone
+            continentID = info.continent
+            coordX = info.x
+            coordY = info.y
+            waypointName = ("%s (%s)"):format(waypointName, locationName)
+        elseif KALIMDOR_IDNUMS[locationName] then
+            continentID = 1
+			zoneID = KALIMDOR_IDNUMS[locationName]
 		elseif EASTERN_KINGDOMS_IDNUMS[locationName] then
-			continent = 2
-			zone = EASTERN_KINGDOMS_IDNUMS[locationName]
+			continentID = 2
+			zoneID = EASTERN_KINGDOMS_IDNUMS[locationName]
 		elseif OUTLAND_IDNUMS[locationName] then
-			continent = 3
-			zone = OUTLAND_IDNUMS[locationName]
+			continentID = 3
+			zoneID = OUTLAND_IDNUMS[locationName]
 		elseif NORTHREND_IDNUMS[locationName] then
-			continent = 4
-			zone = NORTHREND_IDNUMS[locationName]
+			continentID = 4
+			zoneID = NORTHREND_IDNUMS[locationName]
         elseif PANDARIA_IDNUMS[locationName] then
-            continent = 6
-            zone = PANDARIA_IDNUMS[locationName]
+            continentID = 6
+            zoneID = PANDARIA_IDNUMS[locationName]
         elseif DRAENOR_IDNUMS[locationName] then
-            continent = 7
-            zone = DRAENOR_IDNUMS[locationName]
-		elseif INSTANCE_LOCATIONS[locationName] then
-			local info = INSTANCE_LOCATIONS[locationName]
-
-			zone = info.zone
-			continent = info.continent
-			coord_x = info.x
-			coord_y = info.y
-			name = ("%s (%s)"):format(name, locationName)
+            continentID = 7
+            zoneID = DRAENOR_IDNUMS[locationName]
 		else
 			self:Debug("No continent/zone map match for recipe ID %d. Location: %s.", recipe:SpellID(), locationName)
 		end
 
 		--@debug@
-		if coord_x and ((coord_x < -100) or (coord_x > 100)) or coord_y and ((coord_y < -100) or (coord_y > 100)) then
-			coord_x = nil
-			coord_y = nil
+		if coordX and ((coordX < -100) or (coordX > 100)) or coordY and ((coordY < -100) or (coordY > 100)) then
+			coordX = nil
+			coordY = nil
 			self:Debug("Invalid location coordinates for recipe ID %d. Location: %s.", recipe:SpellID(), locationName)
 		end
 		--@end-debug@
 
-		if coord_x and coord_y and zone and continent then
-			if coord_x == 0 and coord_y == 0 and not INSTANCE_LOCATIONS[locationName] then
+		if coordX and coordY and zoneID and continentID then
+			if coordX == 0 and coordY == 0 and not INSTANCE_LOCATIONS[locationName] then
 				self:Debug("Location is \"0, 0\" for recipe ID %d. Location: %s.", recipe:SpellID(), locationName)
 			end
 
 			if _G.TomTom then
-				local uid = _G.TomTom:AddZWaypoint(continent, zone, coord_x, coord_y, name, false, minimap, worldmap)
+                local uid = _G.TomTom:AddMFWaypoint(zoneID, nil, coordX, coordY, {
+                    crazy = true,
+                    title = waypointName,
+                })
 				table.insert(icon_list, uid)
 
 				SetWaypointIcon(uid, _G.Minimap:GetChildren())
@@ -516,15 +519,14 @@ function addon:AddWaypoint(recipe, acquireTypeID, locationName, npcID)
 				if _G.TomTomMapOverlay then
 					SetWaypointIcon(uid, _G.TomTomMapOverlay:GetChildren())
 				end
-
 			end
 			--@debug@
-		else
-			if not zone then
+        else
+			if not zoneID then
 				self:Debug("No zone for recipe ID %d. Location: %s.", recipe:SpellID(), locationName)
 			end
 
-			if not continent then
+			if not continentID then
 				self:Debug("No continent for recipe ID %d. Location: %s.", recipe:SpellID(), locationName)
 			end
 			--@end-debug@
