@@ -453,16 +453,10 @@ function addon:AddWaypoint(recipe, acquireTypeID, locationName, npcID)
 	end
 
 	for entity, recipe in pairs(WAYPOINT_ENTITIES) do
-		local color_code = entity.acquire_type:ColorData().hex
-		local waypointName
-
-		local _, _, _, quality_color = _G.GetItemQualityColor(recipe.quality)
-
-		if entity.acquire_type == private.AcquireTypes.Quest then
-			waypointName = ("%s: |cff%s%s|r (|c%s%s|r)"):format(L.Quest, color_code, private.quest_names[entity.reference_id], quality_color, recipe.name)
-		else
-			waypointName = ("|cff%s%s|r (|c%s%s|r)"):format(color_code, entity.name or _G.UNKNOWN, quality_color, recipe.name)
-		end
+        local acquireType = entity.acquire_type
+        local entityName = entity.name or entity.acquire_type == private.AcquireTypes.Quest and private.quest_names[entity.reference_id] or _G.UNKNOWN
+        local _, _, _, qualityColor = _G.GetItemQualityColor(recipe.quality)
+        local waypointName = ("%s: |cff%s%s|r (|c%s%s|r)%s"):format(acquireType:Name(), acquireType:ColorData().hex, entityName, qualityColor, recipe.name, entity.location and ("\n%s"):format(entity.location) or "")
 
 		-- Unset these - they're only needed for the waypoint system and shouldn't persist beyond.
 		entity.acquire_type = nil
