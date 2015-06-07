@@ -52,26 +52,44 @@ local THE_MAELSTROM_IDNUMS = {}
 local PANDARIA_IDNUMS = {}
 local DRAENOR_IDNUMS = {}
 
--- TODO: Rewrite the whole thing based on GetMapContinents() instead of raw IDs for continents.
-local function LoadZones(continent, zone, ...)
-	-- Assign names to idnums
-	for id = 1, select('#', ...), 1 do
-		continent[id] = select(id, ...)
-	end
+local function PopulateZoneData(nameTable, IDTable, zoneTable)
+    local zoneIndex = 1
+    while zoneIndex < #zoneTable do
+        local zoneID = zoneTable[zoneIndex]
+        zoneIndex = zoneIndex + 1
 
-	-- Reverse lookup to make work easier later on
-	for id in pairs(continent) do
-		zone[continent[id]] = id
-	end
+        local zoneName = zoneTable[zoneIndex]
+        zoneIndex = zoneIndex + 1
+
+        nameTable[zoneID] = zoneName
+        IDTable[zoneName] = zoneID
+    end
 end
 
-LoadZones(KALIMDOR_NAMES, KALIMDOR_IDNUMS, _G.GetMapZones(1))
-LoadZones(EASTERN_KINGDOMS_NAMES, EASTERN_KINGDOMS_IDNUMS, _G.GetMapZones(2))
-LoadZones(OUTLAND_NAMES, OUTLAND_IDNUMS, _G.GetMapZones(3))
-LoadZones(NORTHREND_NAMES, NORTHREND_IDNUMS, _G.GetMapZones(4))
-LoadZones(THE_MAELSTROM_NAMES, THE_MAELSTROM_IDNUMS, _G.GetMapZones(5))
-LoadZones(PANDARIA_NAMES, PANDARIA_IDNUMS, _G.GetMapZones(6))
-LoadZones(DRAENOR_NAMES, DRAENOR_IDNUMS, _G.GetMapZones(7))
+local function LoadZones(nameTable, IDTable, zoneTable)
+    PopulateZoneData(nameTable, IDTable, zoneTable)
+
+    local tempNameTable = {}
+    local tempIDTable = {}
+
+    for zoneID in pairs(nameTable) do
+        PopulateZoneData(tempNameTable, tempIDTable, { _G.GetMapSubzones(zoneID) })
+    end
+
+    for zoneID, zoneName in pairs(tempNameTable) do
+        nameTable[zoneID] = zoneName
+        IDTable[zoneName] = zoneID
+    end
+
+end
+
+LoadZones(KALIMDOR_NAMES, KALIMDOR_IDNUMS, { _G.GetMapZones(1) })
+LoadZones(EASTERN_KINGDOMS_NAMES, EASTERN_KINGDOMS_IDNUMS, { _G.GetMapZones(2) })
+LoadZones(OUTLAND_NAMES, OUTLAND_IDNUMS, { _G.GetMapZones(3) })
+LoadZones(NORTHREND_NAMES, NORTHREND_IDNUMS, { _G.GetMapZones(4) })
+LoadZones(THE_MAELSTROM_NAMES, THE_MAELSTROM_IDNUMS, { _G.GetMapZones(5) })
+LoadZones(PANDARIA_NAMES, PANDARIA_IDNUMS, { _G.GetMapZones(6) })
+LoadZones(DRAENOR_NAMES, DRAENOR_IDNUMS, { _G.GetMapZones(7) })
 
 local INSTANCE_LOCATIONS = {
 	[Z.AHNKAHET_THE_OLD_KINGDOM] = {
