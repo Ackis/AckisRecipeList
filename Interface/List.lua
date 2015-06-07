@@ -271,28 +271,22 @@ function private.InitializeListFrame()
 				ListFrame.selected_entry = entry
 			end
 		elseif recipe and _G.IsModifierKeyDown() then
-			if _G.IsControlKeyDown() then
+            local hyperLink
+
+            if _G.IsControlKeyDown() then
 				if _G.IsShiftKeyDown() then
-					local entry_acquire_type = entry:AcquireType()
+					local entryAcquireType = entry:AcquireType()
 
-					addon:AddWaypoint(recipe, entry_acquire_type and entry_acquire_type:ID() or nil, entry:LocationID(), entry:NPCID())
-				else
-					local edit_box = _G.ChatEdit_ChooseBoxForSend()
-
-					_G.ChatEdit_ActivateChat(edit_box)
-					edit_box:Insert(_G.GetSpellLink(recipe:SpellID()))
+					addon:AddWaypoint(recipe, entryAcquireType and entryAcquireType:ID() or nil, entry:LocationID(), entry:NPCID())
+                else
+                    hyperLink = _G.GetSpellLink(recipe:SpellID())
 				end
 			elseif _G.IsShiftKeyDown() then
-				local crafted_item_id = recipe:CraftedItem()
-
-				if crafted_item_id then
-					local _, item_link = _G.GetItemInfo(crafted_item_id)
-
-					if item_link then
-						local edit_box = _G.ChatEdit_ChooseBoxForSend()
-
-						_G.ChatEdit_ActivateChat(edit_box)
-						edit_box:Insert(item_link)
+				local craftedItemID = recipe:CraftedItem()
+				if craftedItemID then
+					local _, itemLink = _G.GetItemInfo(craftedItemID)
+					if itemLink then
+                        hyperLink = itemLink
 					else
 						addon:Print(L["NoItemLink"])
 					end
@@ -305,7 +299,14 @@ function private.InitializeListFrame()
 
 				exclusion_list[recipe_spell_id] = (not exclusion_list[recipe_spell_id] and true or nil)
 				ListFrame:Update(nil, false)
-			end
+            end
+
+            if hyperLink and not _G.ChatEdit_InsertLink(hyperLink) then
+                local editBox = _G.ChatEdit_ChooseBoxForSend()
+
+                _G.ChatEdit_ActivateChat(editBox)
+                editBox:Insert(hyperLink)
+            end
 		elseif entry:IsHeader() or entry:IsSubHeader() then
 			-- three possibilities here (all with no modifiers)
 			-- 1) We clicked on the recipe button on a closed recipe
