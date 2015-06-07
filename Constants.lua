@@ -68,16 +68,16 @@ for name, localized_name in pairs(private.LOCALIZED_PROFESSION_NAMES) do
 end
 
 private.PROFESSION_LABELS = {
-	"alchemy",		-- 1
+	"alchemy",			-- 1
 	"blacksmithing",	-- 2
-	"cooking",		-- 3
+	"cooking",			-- 3
 	"enchanting",		-- 4
 	"engineering",		-- 5
-	"firstaid",		-- 6
+	"firstaid",			-- 6
 	"inscription",		-- 7
 	"jewelcrafting",	-- 8
 	"leatherworking",	-- 9
-	"smelting",		-- 10
+	"smelting",			-- 10
 	"tailoring",		-- 11
 }
 
@@ -118,29 +118,29 @@ for index = 1, #private.ORDERED_PROFESSIONS do
 end
 
 private.PROFESSION_TEXTURES = {
-	[[Trade_Alchemy]],			-- 01 (Alchemy)
-	[[Trade_BlackSmithing]],		-- 02 (Blacksmithing)
-	[[INV_Misc_Food_15]],			-- 03 (Cooking)
-	[[Trade_Engraving]],			-- 04 (Enchinting)
-	[[Trade_Engineering]],			-- 05 (Engineering)
+	[[Trade_Alchemy]],					-- 01 (Alchemy)
+	[[Trade_BlackSmithing]],			-- 02 (Blacksmithing)
+	[[INV_Misc_Food_15]],				-- 03 (Cooking)
+	[[Trade_Engraving]],				-- 04 (Enchinting)
+	[[Trade_Engineering]],				-- 05 (Engineering)
 	[[Spell_Holy_SealOfSacrifice]],		-- 06 (First Aid)
 	[[INV_Inscription_Tradeskill01]],	-- 07 (Inscription)
-	[[INV_Misc_Gem_01]],			-- 08 (Jewelcrafting)
-	[[Trade_LeatherWorking]],		-- 09 (Leatherworking)
-	[[Spell_Fire_FlameBlades]],		-- 10 (Smelting)
-	[[Trade_Tailoring]],			-- 11 (Tailoring)
+	[[INV_Misc_Gem_01]],				-- 08 (Jewelcrafting)
+	[[Trade_LeatherWorking]],			-- 09 (Leatherworking)
+	[[Spell_Fire_FlameBlades]],			-- 10 (Smelting)
+	[[Trade_Tailoring]],				-- 11 (Tailoring)
 }
 
 -------------------------------------------------------------------------------
 -- Item qualities.
 -------------------------------------------------------------------------------
 private.ITEM_QUALITY_NAMES = {
-	[1] = "COMMON",
-	[2] = "UNCOMMON",
-	[3] = "RARE",
-	[4] = "EPIC",
-	[5] = "LEGENDARY",
-	[6] = "ARTIFACT",
+	"COMMON",
+	"UNCOMMON",
+	"RARE",
+	"EPIC",
+	"LEGENDARY",
+	"ARTIFACT",
 }
 
 private.ITEM_QUALITIES = {}
@@ -154,12 +154,12 @@ end
 -- Game/expansion versions.
 -------------------------------------------------------------------------------
 private.GAME_VERSION_NAMES = {
-	[1] = "ORIG",
-	[2] = "TBC",
-	[3] = "WOTLK",
-	[4] = "CATA",
-	[5] = "MOP",
-	[6] = "WOD",
+	"ORIG",
+	"TBC",
+	"WOTLK",
+	"CATA",
+	"MOP",
+	"WOD",
 }
 
 constants.GAME_VERSION_NAMES = private.GAME_VERSION_NAMES
@@ -190,25 +190,25 @@ private.EXPANSION_LOGO_TEXTURES = {
 -- Common filter bitfield word 1.
 -------------------------------------------------------------------------------
 private.COMMON_FLAGS_WORD1 = {
-	ALLIANCE	= 0x00000001,	-- 1
-	ACHIEVEMENT	= 0x00000002,	-- 2
-	CASTER		= 0x00000004,	-- 3
-	DISC		= 0x00000008,	-- 4
-	DPS		= 0x00000010,	-- 5
-	HEALER		= 0x00000020,	-- 6
-	HORDE		= 0x00000040,	-- 7
-	INSTANCE	= 0x00000080,	-- 8
-	MISC1		= 0x00000100,	-- 9
-	MOB_DROP	= 0x00000200,	-- 10
-	PVP		= 0x00000400,	-- 11
-	QUEST		= 0x00000800,	-- 12
-	RAID		= 0x00001000,	-- 13
-	REPUTATION	= 0x00002000,	-- 14
-	RETIRED		= 0x00004000,	-- 15
-	TANK		= 0x00008000,	-- 16
-	TRAINER		= 0x00010000,	-- 17
-	VENDOR		= 0x00020000,	-- 18
-	WORLD_DROP	= 0x00040000,	-- 19
+	ALLIANCE		= 0x00000001,	-- 1
+	ACHIEVEMENT		= 0x00000002,	-- 2
+	CASTER			= 0x00000004,	-- 3
+	DISC			= 0x00000008,	-- 4
+	DPS				= 0x00000010,	-- 5
+	HEALER			= 0x00000020,	-- 6
+	HORDE			= 0x00000040,	-- 7
+	INSTANCE		= 0x00000080,	-- 8
+	MISC1			= 0x00000100,	-- 9
+	MOB_DROP		= 0x00000200,	-- 10
+	PVP				= 0x00000400,	-- 11
+	QUEST			= 0x00000800,	-- 12
+	RAID			= 0x00001000,	-- 13
+	REPUTATION		= 0x00002000,	-- 14
+	RETIRED			= 0x00004000,	-- 15
+	TANK			= 0x00008000,	-- 16
+	TRAINER			= 0x00010000,	-- 17
+	VENDOR			= 0x00020000,	-- 18
+	WORLD_DROP		= 0x00040000,	-- 19
 	WORLD_EVENTS	= 0x00080000,	-- 20
 }
 
@@ -216,7 +216,7 @@ private.COMMON_FLAGS_WORD1 = {
 -- Class filter bitfield word 1.
 -------------------------------------------------------------------------------
 private.CLASS_FLAGS_WORD1 = {
-	DK	= 0x00000001,	-- 1
+	DK		= 0x00000001,	-- 1
 	DRUID	= 0x00000002,	-- 2
 	HUNTER	= 0x00000004,	-- 3
 	MAGE	= 0x00000008,	-- 4
@@ -708,13 +708,6 @@ constants.BOSS_NAMES = private.BOSS_NAMES
 -------------------------------------------------------------------------------
 -- Colors.
 -------------------------------------------------------------------------------
-
--- Utility function for adding new colors.
---function HexToRGB(hex)
---	hex = hex:gsub("#", "")
---	return tonumber("0x" .. hex:sub(1, 2)) / 255, tonumber("0x" .. hex:sub(3, 4)) / 255, tonumber("0x" .. hex:sub(5, 6)) / 255
---end
-
 local function CreateColorTable(dict)
 	local r, g, b = dict.r, dict.g, dict.b
 	return { hex = ("%02x%02x%02x"):format(r * 255, g * 255, b * 255), r = r, g = g, b = b }
