@@ -317,6 +317,7 @@ L["DISCOVERY_ALCH_NORTHREND_XMUTE"] = "Discovered by doing transmutes of Eternal
 L["DISCOVERY_ALCH_PANDARIA"] = "Discovered randomly by creating any Mists of Pandaria recipe."
 L["DISCOVERY_ALCH_POTION"] = "Discovered by making potions using Burning Crusade or higher materials."
 L["DISCOVERY_ALCH_PROT"] = "Discovered by crafting Major Protection Potions using Burning Crusade materials."
+L["DISCOVERY_AUTOLEARN"] = "Automatically learned at the appropriate skill level."
 L["DISCOVERY_BS_INGOT_PANDARIA"] = "Discovered by crafting Balanced Trillium Ingots, or via the plans for the Balanced Trillium Ingots."
 L["DISCOVERY_BS_PANDARIA"] = "Discovered by crafting Lightning Steel Ingots."
 L["DISCOVERY_BS_WEAP_PANDARIA"] = "Discovered by crafting Pandaria weapons with a similar name."
