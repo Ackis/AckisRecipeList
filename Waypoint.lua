@@ -325,13 +325,13 @@ end
 
 local WAYPOINT_ENTITIES = {}
 
-local function AddRecipeWaypoints(recipe, acquireTypeID, locationName, npcID)
-	for recipeAcquireTypeID, acquire_info in pairs(recipe.acquire_data) do
-		if not acquireTypeID or recipeAcquireTypeID == acquireTypeID then
-			local acquireType = private.ACQUIRE_TYPES_BY_ID[recipeAcquireTypeID]
+local function AddRecipeWaypoints(recipe, targetAcquireTypeID, locationName, npcID)
+	for acquireTypeID, acquireTypeData in pairs(recipe.acquire_data) do
+		if not targetAcquireTypeID or acquireTypeID == targetAcquireTypeID then
+			local acquireType = private.ACQUIRE_TYPES_BY_ID[acquireTypeID]
 
-			for id_num, id_info in pairs(acquire_info) do
-				if recipeAcquireTypeID == A.REPUTATION then
+			for id_num, id_info in pairs(acquireTypeData) do
+				if acquireType == private.AcquireTypes.Reputation then
 					for rep_level, level_info in pairs(id_info) do
 						for vendorID in pairs(level_info) do
 							local entity = acquireType:GetWaypointEntity(vendorID, recipe)
@@ -344,17 +344,25 @@ local function AddRecipeWaypoints(recipe, acquireTypeID, locationName, npcID)
 							end
 						end
 					end
-				elseif not npcID or id_num == npcID then
-					local entity = acquireType:GetWaypointEntity(id_num, recipe)
+                else
+                    if not npcID or id_num == npcID then
+                        local entity = acquireType:GetWaypointEntity(npcID or id_num, recipe)
 
-					if entity and (not locationName or entity.location == locationName) then
-						entity.acquire_type = acquireType
-						entity.reference_id = id_num
-						WAYPOINT_ENTITIES[entity] = recipe
-					end
-				end
-			end
-		end
+                        if entity then
+                            if (not locationName or entity.location == locationName) then
+                                entity.acquire_type = acquireType
+                                entity.reference_id = id_num
+                                WAYPOINT_ENTITIES[entity] = recipe
+                            else
+                                addon:Debug("Failed location check.")
+                            end
+                        else
+                            addon:Debug("We have no entity")
+                        end
+                    end
+                end
+            end
+        end
 	end
 end
 
