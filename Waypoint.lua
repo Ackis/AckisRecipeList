@@ -80,7 +80,6 @@ local function LoadZones(nameTable, IDTable, zoneTable)
         nameTable[zoneID] = zoneName
         IDTable[zoneName] = zoneID
     end
-
 end
 
 LoadZones(KALIMDOR_NAMES, KALIMDOR_IDNUMS, { _G.GetMapZones(1) })
@@ -310,7 +309,7 @@ local INSTANCE_LOCATIONS = {
 	},
 }
 
-local icon_list = {}
+local ActiveWaypoints = {}
 
 -- Clears all the icons from the world map and the mini-map
 function addon:ClearWaypoints()
@@ -318,8 +317,8 @@ function addon:ClearWaypoints()
 		return
 	end
 
-	while icon_list[1] do
-		_G.TomTom:RemoveWaypoint(table.remove(icon_list))
+	while #ActiveWaypoints > 0 do
+		_G.TomTom:RemoveWaypoint(table.remove(ActiveWaypoints))
 	end
 end
 
@@ -518,7 +517,7 @@ function addon:AddWaypoint(recipe, acquireTypeID, locationName, npcID)
                 })
 
                 if waypoint then
-                    table.insert(icon_list, waypoint)
+                    table.insert(ActiveWaypoints, waypoint)
 
                     SetWaypointIcon(waypoint, _G.Minimap:GetChildren())
 
