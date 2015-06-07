@@ -307,30 +307,30 @@ end
 
 local WAYPOINT_ENTITIES = {}
 
-local function AddRecipeWaypoints(recipe, acquire_id, location_id, npc_id)
-	for acquire_type_id, acquire_info in pairs(recipe.acquire_data) do
-		if not acquire_id or acquire_type_id == acquire_id then
-			local acquire_type = private.ACQUIRE_TYPES_BY_ID[acquire_type_id]
+local function AddRecipeWaypoints(recipe, acquireTypeID, locationName, npcID)
+	for recipeAcquireTypeID, acquire_info in pairs(recipe.acquire_data) do
+		if not acquireTypeID or recipeAcquireTypeID == acquireTypeID then
+			local acquireType = private.ACQUIRE_TYPES_BY_ID[recipeAcquireTypeID]
 
 			for id_num, id_info in pairs(acquire_info) do
-				if acquire_type_id == A.REPUTATION then
+				if recipeAcquireTypeID == A.REPUTATION then
 					for rep_level, level_info in pairs(id_info) do
-						for vendor_id in pairs(level_info) do
-							local entity = acquire_type:GetWaypointEntity(vendor_id, recipe)
+						for vendorID in pairs(level_info) do
+							local entity = acquireType:GetWaypointEntity(vendorID, recipe)
 
 							-- TODO: Figure out why this changes on-click when there are two different locations for the same recipe
 							--							addon:Debug("location_id: %s waypoint.location: %s", tostring(location_id), waypoint and tostring(waypoint.location) or "nil")
-							if entity and (not location_id or entity.location == location_id) then
-								entity.acquire_type = acquire_type
+							if entity and (not locationName or entity.location == locationName) then
+								entity.acquire_type = acquireType
 								WAYPOINT_ENTITIES[entity] = recipe
 							end
 						end
 					end
-				elseif not npc_id or id_num == npc_id then
-					local entity = acquire_type:GetWaypointEntity(id_num, recipe)
+				elseif not npcID or id_num == npcID then
+					local entity = acquireType:GetWaypointEntity(id_num, recipe)
 
-					if entity and (not location_id or entity.location == location_id) then
-						entity.acquire_type = acquire_type
+					if entity and (not locationName or entity.location == locationName) then
+						entity.acquire_type = acquireType
 						entity.reference_id = id_num
 						WAYPOINT_ENTITIES[entity] = recipe
 					end
@@ -406,7 +406,7 @@ end
 -- Expected result: Icons are added to the world map and mini-map.
 -- Input: An optional recipe ID, acquire ID, and location ID.
 -- Output: Points are added to the maps
-function addon:AddWaypoint(recipe, acquire_id, location_id, npc_id)
+function addon:AddWaypoint(recipe, acquireTypeID, locationName, npcID)
 	if not _G.TomTom then
 		return
 	end
@@ -419,7 +419,7 @@ function addon:AddWaypoint(recipe, acquire_id, location_id, npc_id)
 	table.wipe(WAYPOINT_ENTITIES)
 
 	if recipe then
-		AddRecipeWaypoints(recipe, acquire_id, location_id, npc_id)
+		AddRecipeWaypoints(recipe, acquireTypeID, locationName, npcID)
 	elseif addon.db.profile.autoscanmap then
 		AddAllWaypoints()
 	end
