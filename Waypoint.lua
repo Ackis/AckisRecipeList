@@ -516,28 +516,33 @@ function addon:AddWaypoint(recipe, acquireTypeID, locationName, npcID)
 			end
 
 			if _G.TomTom then
-                local uid = _G.TomTom:AddMFWaypoint(zoneID, nil, coordX / 100, coordY / 100, {
+                local waypoint = _G.TomTom:AddMFWaypoint(zoneID, nil, coordX / 100, coordY / 100, {
                     crazy = true,
                     title = waypointName,
                 })
-				table.insert(icon_list, uid)
 
-				SetWaypointIcon(uid, _G.Minimap:GetChildren())
+                if waypoint then
+                    table.insert(icon_list, waypoint)
 
-				if _G.TomTomMapOverlay then
-					SetWaypointIcon(uid, _G.TomTomMapOverlay:GetChildren())
-				end
-			end
+                    SetWaypointIcon(waypoint, _G.Minimap:GetChildren())
+
+                    if _G.TomTomMapOverlay then
+                        SetWaypointIcon(waypoint, _G.TomTomMapOverlay:GetChildren())
+                    end
+                else
+                    self:Debug("No waypoint provided by TomTom.")
+                end
+            end
 			--@debug@
         else
-			if not zoneID then
-				self:Debug("No zone for recipe ID %d. Location: %s.", recipe:SpellID(), locationName)
-			end
+            if not zoneID then
+                self:Debug("No zone for recipe ID %d. Location: %s.", recipe:SpellID(), locationName)
+            end
 
-			if not continentID then
-				self:Debug("No continent for recipe ID %d. Location: %s.", recipe:SpellID(), locationName)
-			end
-			--@end-debug@
-		end
-	end
+            if not continentID then
+                self:Debug("No continent for recipe ID %d. Location: %s.", recipe:SpellID(), locationName)
+            end
+            --@end-debug@
+        end
+    end
 end
