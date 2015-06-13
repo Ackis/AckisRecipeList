@@ -530,25 +530,6 @@ local TRADESKILL_ADDON_INITS = {
 	end,
 }
 
-function addon:InitializeScanButton()
-	local scan_button = self.scan_button
-
-	-------------------------------------------------------------------------------
-	-- Grab the first lucky Trade Skill AddOn that exists and hand the scan button to it.
-	-------------------------------------------------------------------------------
-	for entity, init_func in pairs(TRADESKILL_ADDON_INITS) do
-		if _G[entity] then
-			scan_button:ClearAllPoints()
-			init_func(scan_button)
-			break
-		end
-	end
-	local scan_parent = scan_button:GetParent()
-	scan_button:SetFrameLevel(scan_parent:GetFrameLevel() + 1)
-	scan_button:SetFrameStrata(scan_parent:GetFrameStrata())
-	scan_button:Enable()
-end
-
 function addon:TRADE_SKILL_SHOW()
 	local player_name = private.PLAYER_NAME
 	local realm_name = private.REALM_NAME
@@ -616,7 +597,19 @@ function addon:TRADE_SKILL_SHOW()
 
 		self.scan_button = scan_button
 	end
-	self:InitializeScanButton()
+
+    -- Grab the first lucky Trade Skill AddOn that exists and hand the scan button to it.
+    for entity, init_func in pairs(TRADESKILL_ADDON_INITS) do
+        if _G[entity] then
+            scan_button:ClearAllPoints()
+            init_func(scan_button)
+            break
+        end
+    end
+    local scan_parent = scan_button:GetParent()
+    scan_button:SetFrameLevel(scan_parent:GetFrameLevel() + 1)
+    scan_button:SetFrameStrata(scan_parent:GetFrameStrata())
+    scan_button:Enable()
 
 	if scan_button:GetParent() == _G.TradeSkillFrame then
 		scan_button:ClearAllPoints()
