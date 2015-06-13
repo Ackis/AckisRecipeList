@@ -618,19 +618,19 @@ do
 
 	end
 
-	local CLASS1 = private.CLASS_FLAGS_WORD1
+	local CLASS_FLAGS_WORD1 = private.CLASS_FLAGS_WORD1
 	local CLASS_BITFLAG_FILTERS = {
-		[CLASS1.DK]		= "deathknight",
-		[CLASS1.DRUID]		= "druid",
-		[CLASS1.HUNTER]		= "hunter",
-		[CLASS1.MAGE]		= "mage",
-		[CLASS1.PALADIN]	= "paladin",
-		[CLASS1.PRIEST]		= "priest",
-		[CLASS1.SHAMAN]		= "shaman",
-		[CLASS1.ROGUE]		= "rogue",
-		[CLASS1.WARLOCK]	= "warlock",
-		[CLASS1.WARRIOR]	= "warrior",
-		[CLASS1.MONK]		= "monk",
+		[CLASS_FLAGS_WORD1.DK]			= "deathknight",
+		[CLASS_FLAGS_WORD1.DRUID]		= "druid",
+		[CLASS_FLAGS_WORD1.HUNTER]		= "hunter",
+		[CLASS_FLAGS_WORD1.MAGE]		= "mage",
+		[CLASS_FLAGS_WORD1.PALADIN]		= "paladin",
+		[CLASS_FLAGS_WORD1.PRIEST]		= "priest",
+		[CLASS_FLAGS_WORD1.SHAMAN]		= "shaman",
+		[CLASS_FLAGS_WORD1.ROGUE]		= "rogue",
+		[CLASS_FLAGS_WORD1.WARLOCK]		= "warlock",
+		[CLASS_FLAGS_WORD1.WARRIOR]		= "warrior",
+		[CLASS_FLAGS_WORD1.MONK]		= "monk",
 	}
 
 	-- Returns true if any of the filter flags are turned on.

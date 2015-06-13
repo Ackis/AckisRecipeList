@@ -69,11 +69,11 @@ locale.xml
 Constants.lua
 
 # AcquireTypes should be loaded second.
-AcquireTypes.lua
+Objects\AcquireTypes.lua
 
 Core.lua
 Utilities.lua
-Recipe.lua
+Objects\Recipe.lua
 Config.lua
 Waypoint.lua
 Scanner.lua

@@ -27,10 +27,6 @@ function private.SetTextColor(color_code, text)
 	return ("|cff%s%s|r"):format(color_code or "ffffff", text)
 end
 
-function private.ColorRGBtoHEX(r, g, b)
-	return ("%02x%02x%02x"):format(r * 255, g * 255, b * 255)
-end
-
 function private.ItemLinkToID(item_link)
 	if not item_link then
 		return
