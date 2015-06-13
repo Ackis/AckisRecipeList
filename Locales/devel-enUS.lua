@@ -232,7 +232,6 @@ L["COMMON_ISSUES_DESC"] = [[Please refer to these common issues before submittin
 1) Recipe X does not show up! - Check your filter settings to make sure that the recipe is not being filtered.
 2) Inscription is missing so many glyphs! Why aren't they listed?  Turn off your 'classes' filter.  By default (and due to popular request) ARL will only show recipes which your class can use and most glyphs are not usable by your class.
 3) I don't want to see opposite faction recipes! Turn on the factions filter.  This will set it up to only display your factions obtainable recipes.  If something still shows up and it shouldn't, please submit a bug report.]]
-L["COMPARE_TRAINER_ACQUIRE_DESC"] = "Compare selected trainer acquire methods with those in the ARL database."
 L["CONTRACTALL_DESC"] = "Minimize all recipes listed below."
 L["CRAFTED_ENGINEERS"] = "Recipe is created by Engineers."
 L["CSV"] = true
@@ -273,7 +272,6 @@ L["Coilfang Oracle"] = true
 L["Coilfang Sorceress"] = true
 L["Coilskar Siren"] = true
 L["Common Issues"] = true
-L["Compare Trainer Acquire"] = true
 L["Constance Brisboise"] = true
 L["Cook Ghilm"] = true
 L["Cookie One-Eye"] = true
@@ -1144,7 +1142,6 @@ L["SCAN_RECIPES_DESC"] = [[Scans an open tradeskill for missing recipes.
 Shift-click to generate a text dump.
 Alt-click to remove all waypoints from the mini-map and world map.]]
 L["SCAN_SPELL_ID_DESC"] = "Scans a specified spell ID, scanning its tooltip and comparing it with the internal database."
-L["SCAN_VENDOR_DESC"] = "Scans the currently opened vendor for recipes and compares the information with the internal database."
 L["SEASONAL_DESC"] = "Recipes obtained in world events should be included in the scan."
 L["SHIFT_CLICK"] = "Shift-Click to add the item crafted by this recipe's link to your chat."
 L["SKILL_DESC"] = "Include all recipes in the scan, regardless of your current skill level."
@@ -1177,7 +1174,6 @@ L["Scan A Profession"] = true
 L["Scan A Spell ID"] = true
 L["Scan Button Position"] = true
 L["Scan Entire Database"] = true
-L["Scan Vendor"] = true
 L["Scargil"] = true
 L["Scarlet Archmage"] = true
 L["Scholomance Adept"] = true
