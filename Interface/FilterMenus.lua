@@ -917,20 +917,9 @@ function private.InitializeFilterPanel()
 		------------------------------------------------------------------------------------------------
 		-- Obtain Options
 		------------------------------------------------------------------------------------------------
-		achievement		= { cb = FilterPanel.obtain.achievement,		svroot = filterdb.obtain },
-		discovery		= { cb = FilterPanel.obtain.discovery,			svroot = filterdb.obtain },
-		instance		= { cb = FilterPanel.obtain.instance,			svroot = filterdb.obtain },
-		mobdrop			= { cb = FilterPanel.obtain.mobdrop,			svroot = filterdb.obtain },
-		pvp			= { cb = FilterPanel.obtain.pvp,			svroot = filterdb.obtain },
-		quest			= { cb = FilterPanel.obtain.quest,			svroot = filterdb.obtain },
-		raid			= { cb = FilterPanel.obtain.raid,			svroot = filterdb.obtain },
-		reputation		= { cb = FilterPanel.obtain.reputation,			svroot = filterdb.obtain },
-		retired			= { cb = FilterPanel.obtain.retired,			svroot = filterdb.obtain },
-		worldevent		= { cb = FilterPanel.obtain.worldevent,			svroot = filterdb.obtain },
-		trainer			= { cb = FilterPanel.obtain.trainer,			svroot = filterdb.obtain },
-		vendor			= { cb = FilterPanel.obtain.vendor,			svroot = filterdb.obtain },
-		worlddrop		= { cb = FilterPanel.obtain.worlddrop,			svroot = filterdb.obtain },
-		custom			= { cb = FilterPanel.obtain.custom,			svroot = filterdb.obtain },
+        instance		= { cb = FilterPanel.obtain.instance,			svroot = filterdb.obtain },
+        pvp			= { cb = FilterPanel.obtain.pvp,			svroot = filterdb.obtain },
+        raid			= { cb = FilterPanel.obtain.raid,			svroot = filterdb.obtain },
 		------------------------------------------------------------------------------------------------
 		-- Binding Options
 		------------------------------------------------------------------------------------------------
@@ -954,7 +943,18 @@ function private.InitializeFilterPanel()
 		caster			= { cb = FilterPanel.player.caster,			svroot = filterdb.player },
 	}
 
-	------------------------------------------------------------------------------------------------
+    ------------------------------------------------------------------------------------------------
+    -- Obtain Options
+    ------------------------------------------------------------------------------------------------
+    for acquireTypeLabel, acquireType in pairs(private.AcquireTypes) do
+        local filterName = acquireTypeLabel:lower()
+        FilterPanel.value_map[filterName] = {
+            cb = FilterPanel.obtain[filterName],
+            svroot = filterdb.obtain
+        }
+    end
+
+    ------------------------------------------------------------------------------------------------
 	-- Expansion and Reputation Options
 	------------------------------------------------------------------------------------------------
 	for expansion_index = 1, #private.GAME_VERSION_NAMES do
