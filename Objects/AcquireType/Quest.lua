@@ -59,7 +59,7 @@ private.RegisterAcquireType({
         end
 
         local entry = private.CreateListEntry(entry_type, parent_entry, recipe)
-        entry:SetText("%s%s%s %s",
+        entry:SetText("%s%s %s",
             self.EntryPadding:rep(2),
             hide_location and "" or private.SetTextColor(CATEGORY_COLORS.location.hex, quest.location),
             coord_text)
