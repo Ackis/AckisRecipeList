@@ -967,28 +967,9 @@ function Recipe:Dump(output, use_genesis)
 				end
 			end
 			output:AddLine((DUMP_FUNCTION_FORMATS[acquireTypeID]):format(values), genesis_val)
-		else
-			for identifier in pairs(acquireInfo) do
-				local saved_id
-
-				if type(identifier) == "string" then
-					saved_id = ("\"%s\""):format(identifier)
-				else
-					saved_id = identifier
-				end
-
-				if filterOutputText then
-					filterOutputText = ("%s, A.%s, %s"):format(filterOutputText, private.ACQUIRE_TYPES_BY_ID[acquireTypeID]:Label(), saved_id)
-				else
-					filterOutputText = ("A.%s, %s"):format(private.ACQUIRE_TYPES_BY_ID[acquireTypeID]:Label(), saved_id)
-				end
-			end
 		end
 	end
 
-	if filterOutputText then
-		output:AddLine(("recipe:AddAcquireData(%s)"):format(filterOutputText), genesis_val)
-	end
 	output:AddLine(" ", genesis_val)
 end
 
