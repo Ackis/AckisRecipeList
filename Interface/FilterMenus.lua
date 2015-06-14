@@ -957,19 +957,19 @@ function private.InitializeFilterPanel()
     ------------------------------------------------------------------------------------------------
 	-- Expansion and Reputation Options
 	------------------------------------------------------------------------------------------------
-	for expansion_index = 1, #private.GAME_VERSION_NAMES do
-		local expansion_name = ("expansion%d"):format(expansion_index - 1)
-		FilterPanel.value_map[expansion_name] = {
-			cb = FilterPanel.obtain[expansion_name],
+	for expansionIndex = 1, #private.GAME_VERSION_NAMES do
+		local expansionName = ("expansion%d"):format(expansionIndex - 1)
+		FilterPanel.value_map[expansionName] = {
+			cb = FilterPanel.obtain[expansionName],
 			svroot = filterdb.obtain
 		}
 
-		local reputations = private[("EXPANSION%d_REPUTATIONS"):format(expansion_index - 1)]
-		for reputation_index = 1, #reputations do
-			local reputation_name = reputations[reputation_index]:lower()
+		local reputations = private[("EXPANSION%d_REPUTATIONS"):format(expansionIndex - 1)]
+		for reputationIndex = 1, #reputations do
+			local reputationName = reputations[reputationIndex]:lower()
 
-			FilterPanel.value_map[reputation_name] = {
-				cb = FilterPanel.rep[expansion_name][reputation_name],
+			FilterPanel.value_map[reputationName] = {
+				cb = FilterPanel.rep[expansionName][reputationName],
 				svroot = filterdb.rep
 			}
 		end
