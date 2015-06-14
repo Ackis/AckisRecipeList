@@ -928,13 +928,6 @@ function private.InitializeFilterPanel()
 		recipe_bind_on_equip	= { cb = FilterPanel.binding.recipe_bind_on_equip,	svroot = filterdb.binding },
 		recipe_bind_on_pickup	= { cb = FilterPanel.binding.recipe_bind_on_pickup,	svroot = filterdb.binding },
 		------------------------------------------------------------------------------------------------
-		-- Quality Options
-		------------------------------------------------------------------------------------------------
-		common			= { cb = FilterPanel.quality.common,			svroot = filterdb.quality },
-		uncommon		= { cb = FilterPanel.quality.uncommon,			svroot = filterdb.quality },
-		rare			= { cb = FilterPanel.quality.rare,			svroot = filterdb.quality },
-		epic			= { cb = FilterPanel.quality.epic,			svroot = filterdb.quality },
-		------------------------------------------------------------------------------------------------
 		-- Role Options
 		------------------------------------------------------------------------------------------------
 		tank			= { cb = FilterPanel.player.tank,			svroot = filterdb.player },
@@ -944,14 +937,19 @@ function private.InitializeFilterPanel()
 	}
 
     ------------------------------------------------------------------------------------------------
+    -- Quality Options
+    ------------------------------------------------------------------------------------------------
+    for index = 1, #private.ITEM_QUALITY_NAMES - 2 do
+        local filterName = private.ITEM_QUALITY_NAMES[index]:lower()
+        FilterPanel.value_map[filterName] = { cb = FilterPanel.quality[filterName], svroot = filterdb.quality }
+    end
+
+    ------------------------------------------------------------------------------------------------
     -- Obtain Options
     ------------------------------------------------------------------------------------------------
     for acquireTypeLabel, acquireType in pairs(private.AcquireTypes) do
         local filterName = acquireTypeLabel:lower()
-        FilterPanel.value_map[filterName] = {
-            cb = FilterPanel.obtain[filterName],
-            svroot = filterdb.obtain
-        }
+        FilterPanel.value_map[filterName] = { cb = FilterPanel.obtain[filterName], svroot = filterdb.obtain }
     end
 
     ------------------------------------------------------------------------------------------------
@@ -959,19 +957,12 @@ function private.InitializeFilterPanel()
 	------------------------------------------------------------------------------------------------
 	for expansionIndex = 1, #private.GAME_VERSION_NAMES do
 		local expansionName = ("expansion%d"):format(expansionIndex - 1)
-		FilterPanel.value_map[expansionName] = {
-			cb = FilterPanel.obtain[expansionName],
-			svroot = filterdb.obtain
-		}
+        FilterPanel.value_map[expansionName] = { cb = FilterPanel.obtain[expansionName], svroot = filterdb.obtain }
 
 		local reputations = private[("EXPANSION%d_REPUTATIONS"):format(expansionIndex - 1)]
 		for reputationIndex = 1, #reputations do
 			local reputationName = reputations[reputationIndex]:lower()
-
-			FilterPanel.value_map[reputationName] = {
-				cb = FilterPanel.rep[expansionName][reputationName],
-				svroot = filterdb.rep
-			}
+            FilterPanel.value_map[reputationName] = { cb = FilterPanel.rep[expansionName][reputationName], svroot = filterdb.rep }
 		end
 	end
 
