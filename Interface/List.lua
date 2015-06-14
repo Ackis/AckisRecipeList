@@ -785,53 +785,44 @@ do
 	-- I want to do a bit more comprehensive tooltip processing. Things like changing font sizes,
 	-- adding padding to the left hand side, and using better color handling. So... this function
 	-- will do that for me.
-	local function ttAdd(
-			leftPad,		-- number of times to pad two spaces on left side
-			textSize,		-- add to or subtract from addon.db.profile.tooltip.acquire_fontsize to get fontsize
-			narrow,			-- if 1, use ARIALN instead of FRITZQ
-			str1,			-- left-hand string
-			color_table1,		-- color values for left-hand side
-			str2,			-- if present, this is the right-hand string
-			color_table2)		-- if present, color vaues for right-hand side
+    --    leftPad,			-- number of times to pad two spaces on left side
+    --    textSize,			-- add to or subtract from addon.db.profile.tooltip.acquire_fontsize to get fontsize
+    --    useNarrowFont,	-- if 1, use ARIALN instead of FRITZQ
+    --    leftText,			-- left-hand string
+    --    leftColor,		-- color values for left-hand side
+    --    rightText,		-- if present, this is the right-hand string
+    --    rightColor)		-- if present, color vaues for right-hand side
+    local function ttAdd(leftPad, textSize, useNarrowFont, leftText, leftColor, rightText, rightColor)
+        local fontSize
+        if useNarrowFont or textSize ~= 0 then
+            local font = useNarrowFont and narrowFont or normalFont
+            local fontObj = useNarrowFont and narrowFontObj or normalFontObj
 
-		-- are we changing fontsize or narrow?
-		local fontSize
+            fontSize = addon.db.profile.tooltip.acquire_fontsize + textSize
 
-		if narrow or textSize ~= 0 then
-			local font = narrow and narrowFont or normalFont
-			local fontObj = narrow and narrowFontObj or normalFontObj
+            fontObj:SetFont(font, fontSize)
+            acquire_tip:SetFont(fontObj)
+        end
 
-			fontSize = addon.db.profile.tooltip.acquire_fontsize + textSize
+        leftText = ("    "):rep(leftPad) .. leftText
 
-			fontObj:SetFont(font, fontSize)
-			acquire_tip:SetFont(fontObj)
+        -- Set maximum width to match fontSize to maintain uniform tooltip size. -Torhal
+        local width = math.ceil(fontSize * 37.5)
+        local line = acquire_tip:AddLine()
+
+        if rightText then
+            width = width / 2
+
+			acquire_tip:SetCell(line, 1, leftText, "LEFT", nil, nil, 0, 0, width, width)
+
+            acquire_tip:SetCell(line, 2, rightText, "RIGHT", nil, nil, 0, 0, width, width)
+            acquire_tip:SetCellTextColor(line, 2, rightColor.r, rightColor.g, rightColor.b)
+        else
+            acquire_tip:SetCell(line, 1, leftText, nil, "LEFT", 2, nil, 0, 0, width, width)
 		end
 
-		-- Add in our left hand padding
-		local padding = leftPad
-		local left_text = str1
-
-		while padding > 0 do
-			left_text = "    " .. left_text
-			padding = padding - 1
-		end
-		-- Set maximum width to match fontSize to maintain uniform tooltip size. -Torhal
-		local width = math.ceil(fontSize * 37.5)
-		local line = acquire_tip:AddLine()
-
-		if str2 then
-			width = width / 2
-
-			acquire_tip:SetCell(line, 1, left_text, "LEFT", nil, nil, 0, 0, width, width)
-			acquire_tip:SetCellTextColor(line, 1, color_table1.r, color_table1.g, color_table1.b)
-
-			acquire_tip:SetCell(line, 2, str2, "RIGHT", nil, nil, 0, 0, width, width)
-			acquire_tip:SetCellTextColor(line, 2, color_table2.r, color_table2.g, color_table2.b)
-		else
-			acquire_tip:SetCell(line, 1, left_text, nil, "LEFT", 2, nil, 0, 0, width, width)
-			acquire_tip:SetCellTextColor(line, 1, color_table1.r, color_table1.g, color_table1.b)
-		end
-	end
+        acquire_tip:SetCellTextColor(line, 1, leftColor.r, leftColor.g, leftColor.b)
+    end
 
 	-------------------------------------------------------------------------------
 	-- Public API function for displaying a recipe's acquire data.
