@@ -994,7 +994,6 @@ L["OGRI_DRAGONS"] = "Drops from the elites in Ogri'la"
 L["ONYXIA_HEAD_QUEST"] = "Quest to obtain the recipe opens up after turning in the Head of Onyxia."
 L["ORANGE_GEM"] = "Orange"
 L["Obtain"] = true
-L["Obtained From"] = true
 L["Ockil"] = true
 L["Ogg'marr"] = true
 L["Oglethorpe Obnoticus"] = true

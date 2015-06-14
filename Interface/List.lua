@@ -1020,7 +1020,7 @@ do
 			ttAdd(0, -1, false, _G.ITEM_REQ_SKILL:format(_G.GetSpellInfo(recipe_specialty)), color_table)
 			acquire_tip:AddSeparator()
 		end
-		ttAdd(0, -1, false, L["Obtained From"] .. " : ", BASIC_COLORS.normal)
+        ttAdd(0, -1, false, _G.SOURCES .. _G.HEADER_COLON, BASIC_COLORS.normal)
 
 		local entry_acquire_type = list_entry:AcquireType()
 		addon:DisplayAcquireData(recipe:SpellID(), entry_acquire_type and entry_acquire_type:ID(), list_entry:LocationID(), ttAdd)
