@@ -592,7 +592,7 @@ do
 			raid		= { flagName = "RAID",			field = "common1",	sv_root = obtain_filters },
 			retired		= { flagName = "RETIRED",		field = "common1",	sv_root = obtain_filters },
 			reputation	= { flagName = "REPUTATION",	field = "common1",	sv_root = obtain_filters },
-			seasonal	= { flagName = "WORLD_EVENT",	field = "common1",	sv_root = obtain_filters },
+			worldevent	= { flagName = "WORLD_EVENT",	field = "common1",	sv_root = obtain_filters },
 			trainer		= { flagName = "TRAINER",		field = "common1",	sv_root = obtain_filters },
 			vendor		= { flagName = "VENDOR",		field = "common1",	sv_root = obtain_filters },
 			worlddrop	= { flagName = "WORLD_DROP",	field = "common1",	sv_root = obtain_filters },

@@ -192,7 +192,7 @@ local EXPANSION_PREDICATES = {
 		return obtain_filters.quest
 	end,
 	[A.WORLD_EVENT] = function(obtain_filters, hide_type)
-		return obtain_filters.seasonal
+		return obtain_filters.worldevent
 	end,
 	[A.REPUTATION] = function(obtain_filters, hide_type)
 		return true

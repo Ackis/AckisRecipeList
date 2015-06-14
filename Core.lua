@@ -296,11 +296,11 @@ function addon:OnInitialize()
 					raid = true,
 					reputation = true,
 					retired = false,
-					seasonal = true,
 					trainer = true,
-					vendor = true,
-					worlddrop = true,
-					misc1 = true,
+                    vendor = true,
+                    worlddrop = true,
+                    worldevent = true,
+                    misc1 = true,
 				},
 				-------------------------------------------------------------------------------
 				-- Profession Item Filters

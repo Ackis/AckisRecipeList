@@ -469,7 +469,7 @@ function private.InitializeFilterPanel()
 			trainer		= { tt = L["TRAINER_DESC"],		text = L["Trainer"],								row = 6, col = 1 },
 			vendor		= { tt = L["VENDOR_DESC"],		text = L["Vendor"],									row = 6, col = 2 },
 			worlddrop	= { tt = L["WORLD_DROP_DESC"],	text = L["World Drop"],								row = 7, col = 1 },
-			seasonal	= { tt = L["SEASONAL_DESC"],	text = private.AcquireTypes.WorldEvent:Name(),		row = 7, col = 2 },
+			worldevent	= { tt = L["SEASONAL_DESC"],	text = private.AcquireTypes.WorldEvent:Name(),		row = 7, col = 2 },
 		}
 
 		local acquire_panel = _G.CreateFrame("Frame", nil, obtain_frame)
@@ -926,7 +926,7 @@ function private.InitializeFilterPanel()
 		raid			= { cb = FilterPanel.obtain.raid,			svroot = filterdb.obtain },
 		reputation		= { cb = FilterPanel.obtain.reputation,			svroot = filterdb.obtain },
 		retired			= { cb = FilterPanel.obtain.retired,			svroot = filterdb.obtain },
-		seasonal		= { cb = FilterPanel.obtain.seasonal,			svroot = filterdb.obtain },
+		worldevent		= { cb = FilterPanel.obtain.worldevent,			svroot = filterdb.obtain },
 		trainer			= { cb = FilterPanel.obtain.trainer,			svroot = filterdb.obtain },
 		vendor			= { cb = FilterPanel.obtain.vendor,			svroot = filterdb.obtain },
 		worlddrop		= { cb = FilterPanel.obtain.worlddrop,			svroot = filterdb.obtain },
