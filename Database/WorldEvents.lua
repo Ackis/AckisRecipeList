@@ -15,7 +15,7 @@ local L = LibStub("AceLocale-3.0"):GetLocale(private.addon_name)
 
 function addon:InitWorldEvents()
 	local function AddWorldEvent(identifier, name)
-		private.AcquireTypes.WorldEvents:AddEntity(addon, {
+		private.AcquireTypes.WorldEvent:AddEntity(addon, {
 			identifier = identifier,
 			item_list = {},
 			name = name,

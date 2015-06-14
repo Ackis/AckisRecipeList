@@ -191,7 +191,7 @@ local EXPANSION_PREDICATES = {
 	[A.QUEST] = function(obtain_filters, hide_type)
 		return obtain_filters.quest
 	end,
-	[A.WORLD_EVENTS] = function(obtain_filters, hide_type)
+	[A.WORLD_EVENT] = function(obtain_filters, hide_type)
 		return obtain_filters.seasonal
 	end,
 	[A.REPUTATION] = function(obtain_filters, hide_type)
@@ -526,7 +526,7 @@ local function InitializeLocationTab()
 					if (acquire_type_id == A.TRAINER or acquire_type_id == A.VENDOR or acquire_type_id == A.MOB_DROP or acquire_type_id == A.QUEST)
 							and acquire_type:GetEntity(data_identifier).location == location_id then
 						execute = true
-					elseif (acquire_type_id == A.WORLD_EVENTS or acquire_type_id == A.CUSTOM or acquire_type_id == A.DISCOVERY)
+					elseif (acquire_type_id == A.WORLD_EVENT or acquire_type_id == A.CUSTOM or acquire_type_id == A.DISCOVERY)
 							and acquire_type:GetEntity(data_identifier).location == location_id then
 						hide_acquire_type = true
 						execute = true

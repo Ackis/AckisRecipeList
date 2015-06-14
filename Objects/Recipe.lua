@@ -493,8 +493,8 @@ function Recipe:AddDiscovery(...)
 end
 
 function Recipe:AddWorldEvent(...)
-	self:AddAcquireData(ACQUIRE_TYPE_IDS.WORLD_EVENTS, "World Events", true, ...)
-	self:AddFilters(private.FILTER_IDS.WORLD_EVENTS)
+	self:AddAcquireData(ACQUIRE_TYPE_IDS.WORLD_EVENT, "World Event", true, ...)
+	self:AddFilters(private.FILTER_IDS.WORLD_EVENT)
 end
 
 function Recipe:AddRepVendor(factionID, reputationLevel, ...)
@@ -590,7 +590,7 @@ do
 			raid		= { flagName = "RAID",			field = "common1",	sv_root = obtain_filters },
 			retired		= { flagName = "RETIRED",		field = "common1",	sv_root = obtain_filters },
 			reputation	= { flagName = "REPUTATION",	field = "common1",	sv_root = obtain_filters },
-			seasonal	= { flagName = "WORLD_EVENTS",	field = "common1",	sv_root = obtain_filters },
+			seasonal	= { flagName = "WORLD_EVENT",	field = "common1",	sv_root = obtain_filters },
 			trainer		= { flagName = "TRAINER",		field = "common1",	sv_root = obtain_filters },
 			vendor		= { flagName = "VENDOR",		field = "common1",	sv_root = obtain_filters },
 			worlddrop	= { flagName = "WORLD_DROP",	field = "common1",	sv_root = obtain_filters },
@@ -747,7 +747,7 @@ local DUMP_FUNCTION_FORMATS = {
 	[ACQUIRE_TYPE_IDS.ACHIEVEMENT] = "recipe:AddAchievement(%s)",
 	[ACQUIRE_TYPE_IDS.CUSTOM] = "recipe:AddCustom(%s)",
 	[ACQUIRE_TYPE_IDS.DISCOVERY] = "recipe:AddDiscovery(%s)",
-	[ACQUIRE_TYPE_IDS.WORLD_EVENTS] = "recipe:AddWorldEvent(%s)",
+	[ACQUIRE_TYPE_IDS.WORLD_EVENT] = "recipe:AddWorldEvent(%s)",
 	[ACQUIRE_TYPE_IDS.TRAINER] = "recipe:AddTrainer(%s)",
 	[ACQUIRE_TYPE_IDS.MOB_DROP] = "recipe:AddMobDrop(%s)",
 	[ACQUIRE_TYPE_IDS.WORLD_DROP] = "recipe:AddWorldDrop(%s)",
@@ -772,7 +772,7 @@ local IMPLICIT_FLAGS = {
 	TRAINER = true,
 	VENDOR = true,
 	WORLD_DROP = true,
-	WORLD_EVENTS = true,
+	WORLD_EVENT = true,
 }
 
 -- Reputation flags are automatically added when a reputation vendor is assigned to the recipe.

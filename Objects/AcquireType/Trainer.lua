@@ -1,0 +1,101 @@
+-------------------------------------------------------------------------------
+-- Localized Lua globals.
+-------------------------------------------------------------------------------
+local _G = getfenv(0)
+
+-------------------------------------------------------------------------------
+-- AddOn namespace.
+-------------------------------------------------------------------------------
+local FOLDER_NAME, private = ...
+
+local LibStub = _G.LibStub
+local L = LibStub("AceLocale-3.0"):GetLocale(private.addon_name)
+
+-------------------------------------------------------------------------------
+-- Imports.
+-------------------------------------------------------------------------------
+local CATEGORY_COLORS = private.CATEGORY_COLORS
+local COORDINATES_FORMAT = private.COORDINATES_FORMAT
+
+private.RegisterAcquireType({
+    -------------------------------------------------------------------------------
+    -- Data.
+    -------------------------------------------------------------------------------
+    _color_data = {
+        hex = "c98e26",
+        r = 0.79,
+        g = 0.56,
+        b = 0.14
+    },
+    _has_coordinates = true,
+    _label = "TRAINER",
+    _name = L["Trainer"],
+    -------------------------------------------------------------------------------
+    -- Methods.
+    -------------------------------------------------------------------------------
+    _func_expand_list_entry = function(self, entry_index, entry_type, parent_entry, identifier, info, recipe, hide_location, hide_type)
+        local trainer = self:GetEntity(identifier)
+
+        if not trainer or not self.CanDisplayFaction(trainer.faction) then
+            return entry_index
+        end
+
+        local entry = private.CreateListEntry(entry_type, parent_entry, recipe)
+        entry:SetNPCID(identifier)
+        entry:SetText("%s%s %s",
+            self.EntryPadding,
+            hide_type and "" or private.SetTextColor(self:ColorData().hex, self:Name()) .. ":",
+            self.ColorNameByFaction(trainer.name, trainer.faction))
+
+        entry_index = private.list_frame:InsertEntry(entry, entry_index, true)
+
+        local coord_text = ""
+
+        if trainer.coord_x ~= 0 and trainer.coord_y ~= 0 then
+            coord_text = private.SetTextColor(CATEGORY_COLORS.coords.hex, COORDINATES_FORMAT:format(trainer.coord_x, trainer.coord_y))
+        end
+
+        if coord_text == "" and hide_location then
+            return entry_index
+        end
+
+        entry = private.CreateListEntry(entry_type, parent_entry, recipe)
+        entry:SetNPCID(identifier)
+        entry:SetText("%s%s%s %s",
+            self.EntryPadding,
+            self.EntryPadding,
+            hide_location and "" or private.SetTextColor(CATEGORY_COLORS.location.hex, trainer.location),
+            coord_text)
+
+        return private.list_frame:InsertEntry(entry, entry_index, true)
+    end,
+    _func_insert_tooltip_text = function(self, recipe, identifier, location, acquire_info, addline_func)
+        local trainer = self:GetEntity(identifier)
+
+        if not trainer or (location and trainer.location ~= location) then
+            return
+        end
+        local display_tip, name_color = self.GetTipFactionInfo(trainer.faction)
+
+        if not display_tip then
+            return
+        end
+        addline_func(0, -2, false, self:Name(), self:ColorData(), trainer.name, name_color)
+
+        if trainer.coord_x ~= 0 and trainer.coord_y ~= 0 then
+            addline_func(1, -2, true, trainer.location, CATEGORY_COLORS.location, COORDINATES_FORMAT:format(trainer.coord_x, trainer.coord_y), CATEGORY_COLORS.coords)
+        else
+            addline_func(1, -2, true, trainer.location, CATEGORY_COLORS.location, "", CATEGORY_COLORS.coords)
+        end
+    end,
+    _func_waypoint_target = function(self, id_num, recipe)
+        if not private.db.profile.maptrainer then
+            return
+        end
+
+        local trainer = self:GetEntity(id_num)
+        if self.CanDisplayFaction(trainer.faction) then
+            return trainer
+        end
+    end
+})

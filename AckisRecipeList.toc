@@ -69,7 +69,18 @@ locale.xml
 Constants.lua
 
 # AcquireTypes should be loaded second.
-Objects\AcquireTypes.lua
+Objects\AcquireType\BaseAcquireType.lua
+Objects\AcquireType\Achievement.lua
+Objects\AcquireType\Custom.lua
+Objects\AcquireType\Discovery.lua
+Objects\AcquireType\MobDrop.lua
+Objects\AcquireType\Quest.lua
+Objects\AcquireType\Reputation.lua
+Objects\AcquireType\Retired.lua
+Objects\AcquireType\Trainer.lua
+Objects\AcquireType\Vendor.lua
+Objects\AcquireType\WorldDrop.lua
+Objects\AcquireType\WorldEvent.lua
 
 Core.lua
 Utilities.lua

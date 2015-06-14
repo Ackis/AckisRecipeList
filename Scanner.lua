@@ -1044,7 +1044,7 @@ do
 				output:AddLine(("Unlimited quantity for \"%s\" (%d) found on vendor %d - listed as limited quantity."):format(recipe.name, spell_id, vendor_id))
 			end
 
-			if not recipe:HasFilter("common1", "VENDOR") and not recipe:HasFilter("common1", "WORLD_EVENTS") then
+			if not recipe:HasFilter("common1", "VENDOR") and not recipe:HasFilter("common1", "WORLD_EVENT") then
 				recipe:AddFilters(F.VENDOR)
 				output:AddLine(("%d: Vendor flag was not set."):format(spell_id))
 			end
@@ -1055,7 +1055,7 @@ do
 				recipe:AddVendor(vendor_id)
 			end
 
-			if not recipe:HasFilter("common1", "VENDOR") and not recipe:HasFilter("common1", "WORLD_EVENTS") then
+			if not recipe:HasFilter("common1", "VENDOR") and not recipe:HasFilter("common1", "WORLD_EVENT") then
 				recipe:AddFilters(F.VENDOR)
 				output:AddLine(("%d: Vendor flag was not set."):format(spell_id))
 			end
@@ -1470,7 +1470,7 @@ do
 	local ACQUIRE_TO_FILTER_MAP = {
 		[A.MOB_DROP] = F.MOB_DROP,
 		[A.QUEST] = F.QUEST,
-		[A.WORLD_EVENTS] = F.WORLD_EVENTS,
+		[A.WORLD_EVENT] = F.WORLD_EVENT,
 		[A.WORLD_DROP] = F.WORLD_DROP,
 	}
 	local FILTER_TO_ACQUIRE_MAP
@@ -1488,7 +1488,7 @@ do
 		TRAINER = true,
         VENDOR = true,
         WORLD_DROP = true,
-        WORLD_EVENTS = true,
+        WORLD_EVENT = true,
     }
 
 	--- Prints out the results of the tooltip scan.
@@ -1511,7 +1511,7 @@ do
 		-------------------------------------------------------------------------------
 		-- If we're a vendor scan,  do some extra checks
 		if scan_data.is_vendor then
-			if not recipe:HasFilter("common1", "VENDOR") and not recipe:HasFilter("common1", "WORLD_EVENTS") then
+			if not recipe:HasFilter("common1", "VENDOR") and not recipe:HasFilter("common1", "WORLD_EVENT") then
 				recipe:AddFilters(F.VENDOR)
 				table.insert(missing_flags, flag_format:format(FilterStrings[F.VENDOR]))
 			end
@@ -1602,7 +1602,7 @@ do
 		end
 
 		if recipeAcquireData[A.VENDOR] then
-			if not recipe:HasFilter("common1", "VENDOR") and not recipe:HasFilter("common1", "WORLD_EVENTS") and not recipe:HasFilter("common1", "REPUTATION") then
+			if not recipe:HasFilter("common1", "VENDOR") and not recipe:HasFilter("common1", "WORLD_EVENT") and not recipe:HasFilter("common1", "REPUTATION") then
 				recipe:AddFilters(F.VENDOR)
 				table.insert(missing_flags, flag_format:format(FilterStrings[F.VENDOR]))
 			end
