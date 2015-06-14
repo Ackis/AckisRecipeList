@@ -459,7 +459,7 @@ function private.InitializeFilterPanel()
 			achievement	= { tt = L["ACHIEVEMENT_DESC"],	text = _G.ACHIEVEMENTS,								row = 1, col = 1 },
 			discovery	= { tt = L["DISCOVERY_DESC"],	text = L["Discovery"],								row = 1, col = 2 },
 			instance	= { tt = L["INSTANCE_DESC"],	text = _G.INSTANCE,									row = 2, col = 1 },
-			misc1		= { tt = L["MISC_DESC"],		text = _G.MISCELLANEOUS,							row = 2, col = 2 },
+			custom		= { tt = L["MISC_DESC"],		text = _G.MISCELLANEOUS,							row = 2, col = 2 },
 			mobdrop		= { tt = L["MOB_DROP_DESC"],	text = L["Mob Drop"],								row = 3, col = 1 },
 			pvp			= { tt = L["PVP_DESC"],			text = _G.PVP,										row = 3, col = 2 },
 			quest		= { tt = L["QUEST_DESC"],		text = L["Quest"],									row = 4, col = 1 },
@@ -930,7 +930,7 @@ function private.InitializeFilterPanel()
 		trainer			= { cb = FilterPanel.obtain.trainer,			svroot = filterdb.obtain },
 		vendor			= { cb = FilterPanel.obtain.vendor,			svroot = filterdb.obtain },
 		worlddrop		= { cb = FilterPanel.obtain.worlddrop,			svroot = filterdb.obtain },
-		misc1			= { cb = FilterPanel.obtain.misc1,			svroot = filterdb.obtain },
+		custom			= { cb = FilterPanel.obtain.custom,			svroot = filterdb.obtain },
 		------------------------------------------------------------------------------------------------
 		-- Binding Options
 		------------------------------------------------------------------------------------------------

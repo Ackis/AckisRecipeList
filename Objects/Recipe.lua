@@ -487,7 +487,7 @@ end
 
 function Recipe:AddCustom(...)
 	self:AddAcquireData(AcquireTypes.Custom, "Custom", true, ...)
-	self:AddFilters(private.FILTER_IDS.MISC1)
+	self:AddFilters(private.FILTER_IDS.CUSTOM)
 end
 
 function Recipe:AddDiscovery(...)
@@ -596,7 +596,7 @@ do
 			trainer		= { flagName = "TRAINER",		field = "common1",	sv_root = obtain_filters },
 			vendor		= { flagName = "VENDOR",		field = "common1",	sv_root = obtain_filters },
 			worlddrop	= { flagName = "WORLD_DROP",	field = "common1",	sv_root = obtain_filters },
-			misc1		= { flagName = "MISC1",			field = "common1",	sv_root = obtain_filters },
+			custom		= { flagName = "CUSTOM",		field = "common1",	sv_root = obtain_filters },
 		}
 
 		InitializeFilters = nil
@@ -766,7 +766,7 @@ local IMPLICIT_FLAGS = {
 	ALLIANCE = true,
 	DISC = true,
 	HORDE = true,
-	MISC1 = true,
+	CUSTOM = true,
 	MOB_DROP = true,
 	QUEST = true,
 	REPUTATION = true,

@@ -1477,9 +1477,9 @@ do
 
 	local OBTAIN_FILTERS = {
         ACHIEVEMENT = true,
-		DISC = true,
-		INSTANCE = true,
-        MISC1 = true,
+        CUSTOM = true,
+        DISC = true,
+        INSTANCE = true,
 		MOB_DROP = true,
 		PVP = true,
 		QUEST = true,
