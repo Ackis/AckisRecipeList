@@ -392,12 +392,10 @@ function Recipe:RemoveFilters(...)
 	SetFilterState(self, false, ...)
 end
 
-function Recipe:AddAcquireData(acquireTypeID, typeLabel, hasEntityList, ...)
-	local acquireTypeData = self.ProfessionModule:GetOrCreateRecipeAcquireTypeTable(self, acquireTypeID)
+function Recipe:AddAcquireData(acquireType, typeLabel, hasEntityList, ...)
+	local acquireTypeData = self.ProfessionModule:GetOrCreateRecipeAcquireTypeTable(self, acquireType:ID())
 	local isLimitedVendor = typeLabel == "Limited Vendor"
 
-	local acquireType = private.ACQUIRE_TYPES_BY_ID[acquireTypeID]
-	acquireType:AssignRecipe(self:SpellID())
 	acquireType:AssignRecipe(self:SpellID())
 
 	local variablesCount = select('#', ...)
@@ -448,52 +446,52 @@ function Recipe:AddAcquireData(acquireTypeID, typeLabel, hasEntityList, ...)
 end
 
 function Recipe:AddMobDrop(...)
-	self:AddAcquireData(ACQUIRE_TYPE_IDS.MOB_DROP, "Mob", true, ...)
+	self:AddAcquireData(private.AcquireTypes.MobDrop, "Mob", true, ...)
 	self:AddFilters(private.FILTER_IDS.MOB_DROP)
 end
 
 function Recipe:AddTrainer(...)
-	self:AddAcquireData(ACQUIRE_TYPE_IDS.TRAINER, "Trainer", true, ...)
+	self:AddAcquireData(private.AcquireTypes.Trainer, "Trainer", true, ...)
 	self:AddFilters(private.FILTER_IDS.TRAINER)
 end
 
 function Recipe:AddVendor(...)
-	self:AddAcquireData(ACQUIRE_TYPE_IDS.VENDOR, "Vendor", true, ...)
+	self:AddAcquireData(private.AcquireTypes.Vendor, "Vendor", true, ...)
 	self:AddFilters(private.FILTER_IDS.VENDOR)
 end
 
 function Recipe:AddLimitedVendor(...)
-	self:AddAcquireData(ACQUIRE_TYPE_IDS.VENDOR, "Limited Vendor", true, ...)
+	self:AddAcquireData(private.AcquireTypes.Vendor, "Limited Vendor", true, ...)
 	self:AddFilters(private.FILTER_IDS.VENDOR)
 end
 
 function Recipe:AddWorldDrop(...)
-	self:AddAcquireData(ACQUIRE_TYPE_IDS.WORLD_DROP, "World Drop", false, ...)
+	self:AddAcquireData(private.AcquireTypes.WorldDrop, "World Drop", false, ...)
 	self:AddFilters(private.FILTER_IDS.WORLD_DROP)
 end
 
 function Recipe:AddQuest(...)
-	self:AddAcquireData(ACQUIRE_TYPE_IDS.QUEST, "Quest", true, ...)
+	self:AddAcquireData(private.AcquireTypes.Quest, "Quest", true, ...)
 	self:AddFilters(private.FILTER_IDS.QUEST)
 end
 
 function Recipe:AddAchievement(...)
-	self:AddAcquireData(ACQUIRE_TYPE_IDS.ACHIEVEMENT, "Achievement", false, ...)
+	self:AddAcquireData(private.AcquireTypes.Achievement, "Achievement", false, ...)
 	self:AddFilters(private.FILTER_IDS.ACHIEVEMENT)
 end
 
 function Recipe:AddCustom(...)
-	self:AddAcquireData(ACQUIRE_TYPE_IDS.CUSTOM, "Custom", true, ...)
+	self:AddAcquireData(private.AcquireTypes.Custom, "Custom", true, ...)
 	self:AddFilters(private.FILTER_IDS.MISC1)
 end
 
 function Recipe:AddDiscovery(...)
-	self:AddAcquireData(ACQUIRE_TYPE_IDS.DISCOVERY, "Discovery", true, ...)
+	self:AddAcquireData(private.AcquireTypes.Discovery, "Discovery", true, ...)
 	self:AddFilters(private.FILTER_IDS.DISC)
 end
 
 function Recipe:AddWorldEvent(...)
-	self:AddAcquireData(ACQUIRE_TYPE_IDS.WORLD_EVENT, "World Event", true, ...)
+	self:AddAcquireData(private.AcquireTypes.WorldEvent, "World Event", true, ...)
 	self:AddFilters(private.FILTER_IDS.WORLD_EVENT)
 end
 
@@ -553,7 +551,7 @@ function Recipe:AddRepVendor(factionID, reputationLevel, ...)
 end
 
 function Recipe:Retire()
-	self:AddAcquireData(ACQUIRE_TYPE_IDS.RETIRED, "Retired")
+	self:AddAcquireData(private.AcquireTypes.Retired, "Retired")
 	self:AddFilters(private.FILTER_IDS.RETIRED)
 end
 
