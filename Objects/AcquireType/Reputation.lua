@@ -65,7 +65,7 @@ private.RegisterAcquireType({
 
                 entry = private.CreateListEntry(entry_type, parent_entry, recipe)
                 entry:SetNPCID(vendor_id)
-                entry:SetText(self.EntryPadding .. self.EntryPadding .. self.__faction_labels[reputation_level] .. self.ColorNameByFaction(rep_vendor.name, rep_vendor.faction))
+                entry:SetText(self.EntryPadding:rep(2) .. self.__faction_labels[reputation_level] .. self.ColorNameByFaction(rep_vendor.name, rep_vendor.faction))
 
                 entry_index = private.list_frame:InsertEntry(entry, entry_index, true)
 
@@ -81,10 +81,8 @@ private.RegisterAcquireType({
 
                 entry = private.CreateListEntry(entry_type, parent_entry, recipe)
                 entry:SetNPCID(vendor_id)
-                entry:SetText("%s%s%s%s %s",
-                    self.EntryPadding,
-                    self.EntryPadding,
-                    self.EntryPadding,
+                entry:SetText("%s%s %s",
+                    self.EntryPadding:rep(3),
                     hide_location and "" or private.SetTextColor(CATEGORY_COLORS.location.hex, rep_vendor.location),
                     coord_text)
 

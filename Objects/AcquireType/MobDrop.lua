@@ -56,9 +56,8 @@ private.RegisterAcquireType({
 
         entry = private.CreateListEntry(entry_type, parent_entry, recipe)
         entry:SetNPCID(identifier)
-        entry:SetText("%s%s%s %s",
-            self.EntryPadding,
-            self.EntryPadding,
+        entry:SetText("%s%s %s",
+            self.EntryPadding:rep(2),
             hide_location and "" or private.SetTextColor(CATEGORY_COLORS.location.hex, mob.location),
             coord_text)
 
