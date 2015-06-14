@@ -24,6 +24,7 @@ local addon = LibStub("AceAddon-3.0"):GetAddon(private.addon_name)
 local L = LibStub("AceLocale-3.0"):GetLocale(private.addon_name)
 
 local ACQUIRE_TYPE_IDS = private.ACQUIRE_TYPE_IDS
+local AcquireTypes = private.AcquireTypes
 
 private.recipe_list = {}
 private.profession_recipe_list = {}
@@ -95,7 +96,7 @@ function addon:GetOrCreateRecipeAcquireTypeTable(recipe, acquireTypeID, factionI
 
 	end
 
-	if factionID and reputationLevel and acquireTypeID == private.ACQUIRE_TYPE_IDS.REPUTATION then
+	if factionID and reputationLevel and acquireTypeID == ACQUIRE_TYPE_IDS.REPUTATION then
 		if not acquireTypeData[factionID] then
 			acquireTypeData[factionID] = {
 				[reputationLevel] = {}
@@ -420,9 +421,13 @@ function Recipe:AddAcquireData(acquireType, typeLabel, hasEntityList, ...)
 				locationName = entity.location
 
 				entity.item_list[self:SpellID()] = quantity
-			else
-				addon:Debug("Spell ID %d: %s ID %s does not exist in the %s AcquireType's Entity table.", self:SpellID(), typeLabel, identifier, acquireType:Label())
-			end
+            else
+                addon:Debug("Spell ID %d: %s ID %s does not exist in the %s AcquireType's Entity table.",
+                    self:SpellID(),
+                    typeLabel,
+                    identifier,
+                    acquireType:Label())
+            end
 		else
 			local isStringID = type(identifier) == "string"
 
@@ -446,60 +451,60 @@ function Recipe:AddAcquireData(acquireType, typeLabel, hasEntityList, ...)
 end
 
 function Recipe:AddMobDrop(...)
-	self:AddAcquireData(private.AcquireTypes.MobDrop, "Mob", true, ...)
+	self:AddAcquireData(AcquireTypes.MobDrop, "Mob", true, ...)
 	self:AddFilters(private.FILTER_IDS.MOB_DROP)
 end
 
 function Recipe:AddTrainer(...)
-	self:AddAcquireData(private.AcquireTypes.Trainer, "Trainer", true, ...)
+	self:AddAcquireData(AcquireTypes.Trainer, "Trainer", true, ...)
 	self:AddFilters(private.FILTER_IDS.TRAINER)
 end
 
 function Recipe:AddVendor(...)
-	self:AddAcquireData(private.AcquireTypes.Vendor, "Vendor", true, ...)
+	self:AddAcquireData(AcquireTypes.Vendor, "Vendor", true, ...)
 	self:AddFilters(private.FILTER_IDS.VENDOR)
 end
 
 function Recipe:AddLimitedVendor(...)
-	self:AddAcquireData(private.AcquireTypes.Vendor, "Limited Vendor", true, ...)
+	self:AddAcquireData(AcquireTypes.Vendor, "Limited Vendor", true, ...)
 	self:AddFilters(private.FILTER_IDS.VENDOR)
 end
 
 function Recipe:AddWorldDrop(...)
-	self:AddAcquireData(private.AcquireTypes.WorldDrop, "World Drop", false, ...)
+	self:AddAcquireData(AcquireTypes.WorldDrop, "World Drop", false, ...)
 	self:AddFilters(private.FILTER_IDS.WORLD_DROP)
 end
 
 function Recipe:AddQuest(...)
-	self:AddAcquireData(private.AcquireTypes.Quest, "Quest", true, ...)
+	self:AddAcquireData(AcquireTypes.Quest, "Quest", true, ...)
 	self:AddFilters(private.FILTER_IDS.QUEST)
 end
 
 function Recipe:AddAchievement(...)
-	self:AddAcquireData(private.AcquireTypes.Achievement, "Achievement", false, ...)
+	self:AddAcquireData(AcquireTypes.Achievement, "Achievement", false, ...)
 	self:AddFilters(private.FILTER_IDS.ACHIEVEMENT)
 end
 
 function Recipe:AddCustom(...)
-	self:AddAcquireData(private.AcquireTypes.Custom, "Custom", true, ...)
+	self:AddAcquireData(AcquireTypes.Custom, "Custom", true, ...)
 	self:AddFilters(private.FILTER_IDS.MISC1)
 end
 
 function Recipe:AddDiscovery(...)
-	self:AddAcquireData(private.AcquireTypes.Discovery, "Discovery", true, ...)
+	self:AddAcquireData(AcquireTypes.Discovery, "Discovery", true, ...)
 	self:AddFilters(private.FILTER_IDS.DISC)
 end
 
 function Recipe:AddWorldEvent(...)
-	self:AddAcquireData(private.AcquireTypes.WorldEvent, "World Event", true, ...)
+	self:AddAcquireData(AcquireTypes.WorldEvent, "World Event", true, ...)
 	self:AddFilters(private.FILTER_IDS.WORLD_EVENT)
 end
 
 function Recipe:AddRepVendor(factionID, reputationLevel, ...)
 	local acquireTypeData = self.ProfessionModule:GetOrCreateRecipeAcquireTypeTable(self, ACQUIRE_TYPE_IDS.REPUTATION, factionID, reputationLevel)
 	local faction = acquireTypeData[factionID]
-	local reputationAcquireType = private.AcquireTypes.Reputation
-	local vendorAcquireType = private.AcquireTypes.Vendor
+	local reputationAcquireType = AcquireTypes.Reputation
+	local vendorAcquireType = AcquireTypes.Vendor
 
 	local variablesCount = select('#', ...)
 	local currentVariableIndex = 1
@@ -528,20 +533,19 @@ function Recipe:AddRepVendor(factionID, reputationLevel, ...)
 
 					self:AddFilters(private.FILTER_IDS[private.FACTION_LABELS_FROM_ID[factionID]])
 				else
-					addon:Debug("Spell ID %d (%s): Reputation Vendor ID %s does not exist in the %s AcquireType Entity table.",
-						self:SpellID(),
-						tostring(self.name),
-						tostring(vendorID),
-						vendorAcquireType:Label()
-					)
-				end
+                    addon:Debug("Spell ID %d (%s): Reputation Vendor ID %s does not exist in the %s AcquireType Entity table.",
+                        self:SpellID(),
+                        tostring(self.name),
+                        tostring(vendorID),
+                        vendorAcquireType:Label())
+                end
 			else
 				addon:Debug("Spell ID %d (%s): Nil Reputation Vendor ID passed.", self:SpellID(), tostring(self.name))
 			end
 		else
 			addon:Debug("Spell ID %d: Faction ID %d does not exist in the %s AcquireType Entity table.", self:SpellID(), factionID, reputationAcquireType:Label())
 		end
-		private.AcquireTypes.Reputation:AssignRecipe(self:SpellID(), affiliation)
+        reputationAcquireType:AssignRecipe(self:SpellID(), affiliation)
 
 		if locationName then
 			GetOrCreateLocation(locationName).recipes[self:SpellID()] = affiliation or true
@@ -551,7 +555,7 @@ function Recipe:AddRepVendor(factionID, reputationLevel, ...)
 end
 
 function Recipe:Retire()
-	self:AddAcquireData(private.AcquireTypes.Retired, "Retired")
+	self:AddAcquireData(AcquireTypes.Retired, "Retired")
 	self:AddFilters(private.FILTER_IDS.RETIRED)
 end
 
@@ -911,7 +915,7 @@ function Recipe:Dump(output, use_genesis)
 				else
 					saved_id = identifier
 				end
-				local vendor = private.AcquireTypes.Vendor:GetEntity(identifier)
+				local vendor = AcquireTypes.Vendor:GetEntity(identifier)
 				local quantity = vendor.item_list[self:SpellID()]
 
 				if type(quantity) == "number" then
