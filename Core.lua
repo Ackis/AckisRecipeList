@@ -892,15 +892,13 @@ do
 				Dialog:Spawn("ARL_NoModulesErrorDialog")
 			end
 			return
-		else
-			if not professionModule.Version then
-				Dialog:Spawn("ARL_ModuleWrongVersionDialog", {
-					moduleName = professionModuleName,
-					moduleVersion = 0
-				})
-				return false
-			end
-		end
+        elseif professionModule.Version ~= SUPPORTED_MODULE_VERSION then
+            Dialog:Spawn("ARL_ModuleWrongVersionDialog", {
+                moduleName = professionModuleName,
+                moduleVersion = 0
+            })
+            return false
+        end
 
 		local player = private.Player
 		player:UpdateProfessions()
