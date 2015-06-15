@@ -1,25 +1,3 @@
---[[
-************************************************************************
-Core.lua
-Core functions for Ackis Recipe List
-************************************************************************
-File date: @file-date-iso@
-File hash: @file-abbreviated-hash@
-Project hash: @project-abbreviated-hash@
-Project version: @project-version@
-************************************************************************
-Please see http://www.wowace.com/addons/arl/ for more information.
-************************************************************************
-This source code is released under All Rights Reserved.
-************************************************************************
---- Ackis Recipe List provides functionality to scan your professions.
--- It will determine which recipes you are missing.
--- @class file
--- @name Core.lua
--- @release 2.0
-************************************************************************
-]]
-
 -------------------------------------------------------------------------------
 -- Localized Lua globals.
 -------------------------------------------------------------------------------
@@ -535,72 +513,72 @@ local TRADESKILL_ADDON_INITS = {
 }
 
 function addon:TRADE_SKILL_SHOW()
-	local player_name = private.PLAYER_NAME
-	local realm_name = private.REALM_NAME
+    local player_name = private.PLAYER_NAME
+    local realm_name = private.REALM_NAME
 
-	if not _G.IsTradeSkillLinked() and not _G.IsTradeSkillGuild() then
-		self.db.global.tradeskill[realm_name][player_name][_G.GetTradeSkillLine()] = _G.GetTradeSkillListLink()
-	else
-		self.db.global.tradeskill[realm_name][player_name][_G.GetTradeSkillLine()] = nil
-	end
-	local scan_button = self.scan_button
+    if not _G.IsTradeSkillLinked() and not _G.IsTradeSkillGuild() then
+        self.db.global.tradeskill[realm_name][player_name][_G.GetTradeSkillLine()] = _G.GetTradeSkillListLink()
+    else
+        self.db.global.tradeskill[realm_name][player_name][_G.GetTradeSkillLine()] = nil
+    end
 
-	if not scan_button then
-		scan_button = _G.CreateFrame("Button", nil, _G.TradeSkillFrame, "UIPanelButtonTemplate")
-		scan_button:SetHeight(20)
-		scan_button:RegisterForClicks("LeftButtonUp")
-		scan_button:SetText(L["Scan"])
+    local scan_button = self.scan_button
+    if not scan_button then
+        scan_button = _G.CreateFrame("Button", nil, _G.TradeSkillFrame, "UIPanelButtonTemplate")
+        scan_button:SetHeight(20)
+        scan_button:RegisterForClicks("LeftButtonUp")
+        scan_button:SetText(L["Scan"])
 
-		scan_button:SetScript("OnClick", function(self, _, _)
-			local main_panel = addon.Frame
-			local prev_profession
+        scan_button:SetScript("OnClick", function(self, _, _)
+            local main_panel = addon.Frame
+            local prev_profession
 
-			if main_panel then
-				prev_profession = private.ORDERED_PROFESSIONS[main_panel.current_profession]
-			end
-			local shift_pressed = _G.IsShiftKeyDown()
-			local alt_pressed = _G.IsAltKeyDown()
-			local ctrl_pressed = _G.IsControlKeyDown()
+            if main_panel then
+                prev_profession = private.ORDERED_PROFESSIONS[main_panel.current_profession]
+            end
+            local shift_pressed = _G.IsShiftKeyDown()
+            local alt_pressed = _G.IsAltKeyDown()
+            local ctrl_pressed = _G.IsControlKeyDown()
 
-			if shift_pressed and not alt_pressed and not ctrl_pressed then
-				addon:Scan(true)
-			elseif alt_pressed and not shift_pressed and not ctrl_pressed then
-				addon:ClearWaypoints()
-				--@debug@
-			elseif ctrl_pressed then
-				local current_prof = _G.GetTradeSkillLine()
+            if shift_pressed and not alt_pressed and not ctrl_pressed then
+                addon:Scan(true)
+            elseif alt_pressed and not shift_pressed and not ctrl_pressed then
+                addon:ClearWaypoints()
+                --@debug@
+            elseif ctrl_pressed then
+                local current_prof = _G.GetTradeSkillLine()
 
-				if shift_pressed and not alt_pressed then
-					addon:ScanProfession(current_prof)
-				elseif not shift_pressed and not alt_pressed then
-					addon:DumpProfession(current_prof)
-				end
-				--@end-debug@
-			elseif not shift_pressed and not alt_pressed and not ctrl_pressed then
-				if main_panel and main_panel:IsVisible() and prev_profession == _G.GetTradeSkillLine() then
-					main_panel:Hide()
-				else
-					addon:Scan(false)
-					addon:AddWaypoint()
-				end
-			end
-		end)
+                if shift_pressed and not alt_pressed then
+                    addon:ScanProfession(current_prof)
+                elseif not shift_pressed and not alt_pressed then
+                    addon:DumpProfession(current_prof)
+                end
+                --@end-debug@
+            elseif not shift_pressed and not alt_pressed and not ctrl_pressed then
+                if main_panel and main_panel:IsVisible() and prev_profession == _G.GetTradeSkillLine() then
+                    main_panel:Hide()
+                else
+                    addon:Scan(false)
+                    addon:AddWaypoint()
+                end
+            end
+        end)
 
-		scan_button:SetScript("OnEnter", function(self)
-			local tooltip = _G.GameTooltip
+        scan_button:SetScript("OnEnter", function(self)
+            local tooltip = _G.GameTooltip
 
-			_G.GameTooltip_SetDefaultAnchor(tooltip, self)
-			tooltip:SetText(L["SCAN_RECIPES_DESC"])
-			--@debug@
-			tooltip:AddLine("Control-click to generate a Lua code dump.")
-			tooltip:AddLine("Control-Shift-click to scan for issues.")
-			--@end-debug@
-			tooltip:Show()
-		end)
-		scan_button:SetScript("OnLeave", function() _G.GameTooltip:Hide() end)
+            _G.GameTooltip_SetDefaultAnchor(tooltip, self)
+            tooltip:SetText(L["SCAN_RECIPES_DESC"])
+            --@debug@
+            tooltip:AddLine("Control-click to generate a Lua code dump.")
+            tooltip:AddLine("Control-Shift-click to scan for issues.")
+            --@end-debug@
+            tooltip:Show()
+        end)
+        scan_button:SetScript("OnLeave", function() _G.GameTooltip:Hide() end)
 
-		self.scan_button = scan_button
-	end
+        self.scan_button = scan_button
+    end
 
     -- Grab the first lucky Trade Skill AddOn that exists and hand the scan button to it.
     for entity, init_func in pairs(TRADESKILL_ADDON_INITS) do
@@ -615,29 +593,29 @@ function addon:TRADE_SKILL_SHOW()
     scan_button:SetFrameStrata(scan_parent:GetFrameStrata())
     scan_button:Enable()
 
-	if scan_button:GetParent() == _G.TradeSkillFrame then
-		scan_button:ClearAllPoints()
+    if scan_button:GetParent() == _G.TradeSkillFrame then
+        scan_button:ClearAllPoints()
 
-		local loc = addon.db.profile.scanbuttonlocation
+        local loc = addon.db.profile.scanbuttonlocation
 
-		if loc == "TR" then
-			scan_button:SetPoint("RIGHT", _G.TradeSkillFrameCloseButton, "LEFT", 4, 0)
-		elseif loc == "TL" then
-			scan_button:SetPoint("LEFT", _G.TradeSkillFramePortrait, "RIGHT", 2, 12)
-		elseif loc == "BR" then
-			scan_button:SetPoint("TOP", _G.TradeSkillCancelButton, "BOTTOM", 0, -5)
-		elseif loc == "BL" then
-			scan_button:SetPoint("TOP", _G.TradeSkillCreateAllButton, "BOTTOM", 0, -5)
-		end
-		scan_button:SetWidth(scan_button:GetTextWidth() + 10)
-	end
+        if loc == "TR" then
+            scan_button:SetPoint("RIGHT", _G.TradeSkillFrameCloseButton, "LEFT", 4, 0)
+        elseif loc == "TL" then
+            scan_button:SetPoint("LEFT", _G.TradeSkillFramePortrait, "RIGHT", 2, 12)
+        elseif loc == "BR" then
+            scan_button:SetPoint("TOP", _G.TradeSkillCancelButton, "BOTTOM", 0, -5)
+        elseif loc == "BL" then
+            scan_button:SetPoint("TOP", _G.TradeSkillCreateAllButton, "BOTTOM", 0, -5)
+        end
+        scan_button:SetWidth(scan_button:GetTextWidth() + 10)
+    end
 
-	local profession_name = _G.GetTradeSkillLine()
-	if private.PROFESSION_MODULE_NAMES[profession_name] then
-		scan_button:Show()
-	else
-		scan_button:Hide()
-	end
+    local profession_name = _G.GetTradeSkillLine()
+    if private.PROFESSION_MODULE_NAMES[profession_name] then
+        scan_button:Show()
+    else
+        scan_button:Hide()
+    end
 end
 
 function addon:TRADE_SKILL_CLOSE()
