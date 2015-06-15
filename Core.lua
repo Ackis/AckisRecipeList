@@ -829,47 +829,46 @@ do
 	--- Causes a scan of the tradeskill to be conducted. Function called when the scan button is clicked.   Parses recipes and displays output
 	-- @name AckisRecipeList:Scan
 	-- @usage AckisRecipeList:Scan(true)
-	-- @param textdump Boolean indicating if we want the output to be a text dump, or if we want to use the ARL GUI
+	-- @param isTextDump Boolean indicating if we want the output to be a text dump, or if we want to use the ARL GUI
 	-- @return A frame with either the text dump, or the ARL frame
-	function addon:Scan(textdump, is_refresh)
-		local profession_name, prof_level = _G.GetTradeSkillLine()
+    function addon:Scan(isTextDump, isRefresh)
+        local localizedProfessionName, professionRank = _G.GetTradeSkillLine()
+        if localizedProfessionName == _G.UNKNOWN then
+            self:Print(L["OpenTradeSkillWindow"])
+            return
+        end
+        private.current_profession_specialty = nil
 
-		if profession_name == _G.UNKNOWN then
-			self:Print(L["OpenTradeSkillWindow"])
-			return
-		end
-		private.current_profession_specialty = nil
+        -- This isn't needed for the module name lookup, but it is needed for other things further down the path.
+        if localizedProfessionName == private.MINING_PROFESSION_NAME then
+            localizedProfessionName = private.LOCALIZED_PROFESSION_NAMES.SMELTING
+        end
 
-		-- This isn't needed for the module name lookup, but it is needed for other things further down the path.
-		if profession_name == private.MINING_PROFESSION_NAME then
-			profession_name = private.LOCALIZED_PROFESSION_NAMES.SMELTING
-		end
+        local professionModuleName = private.PROFESSION_MODULE_NAMES[localizedProfessionName]
+        if not professionModuleName then
+            return
+        end
+        self:InitializeProfession(localizedProfessionName)
 
-		local professionModuleName = private.PROFESSION_MODULE_NAMES[profession_name]
-		if not professionModuleName then
-			return
-		end
-		self:InitializeProfession(profession_name)
+        local professionModule = self:GetModule(professionModuleName, true)
+        if not professionModule then
+            local foundModule
 
-		local professionModule = self:GetModule(professionModuleName, true)
-		if not professionModule then
-			local found_module
+            for professionName, moduleName in pairs(private.PROFESSION_MODULE_NAMES) do
+                local _, _, _, _, reason = _G.GetAddOnInfo(FOLDER_NAME .. "_" .. moduleName or "")
+                if not reason or reason == "DISABLED" then
+                    -- The assumption here is that if a module is disabled, the user is aware that modules exist.
+                    foundModule = true
+                    break
+                end
+            end
 
-			for profession_name, module_name in pairs(private.PROFESSION_MODULE_NAMES) do
-				local _, _, _, _, reason = _G.GetAddOnInfo(FOLDER_NAME .. "_" .. module_name or "")
-				if not reason or reason == "DISABLED" then
-					-- The assumption here is that if a module is disabled, the user is aware that modules exist.
-					found_module = true
-					break
-				end
-			end
-
-			if found_module then
-				Dialog:Spawn("ARL_ModuleErrorDialog", professionModuleName)
-			else
-				Dialog:Spawn("ARL_NoModulesErrorDialog")
-			end
-			return
+            if foundModule then
+                Dialog:Spawn("ARL_ModuleErrorDialog", professionModuleName)
+            else
+                Dialog:Spawn("ARL_NoModulesErrorDialog")
+            end
+            return
         elseif professionModule.Version ~= SUPPORTED_MODULE_VERSION then
             Dialog:Spawn("ARL_ModuleWrongVersionDialog", {
                 moduleName = professionModuleName,
@@ -878,190 +877,185 @@ do
             return false
         end
 
-		local player = private.Player
-		player:UpdateProfessions()
+        local player = private.Player
+        player:UpdateProfessions()
 
-		private.current_profession_scanlevel = prof_level
+        private.current_profession_scanlevel = professionRank
 
-		-- Clear the search box and its focus so the scan will have correct results.
-		if _G.TradeSkillFrame and _G.TradeSkillFrame:IsVisible() then
-			local search_box = _G.TradeSkillFrameSearchBox
-			search_box:ClearFocus()
-			search_box:GetScript("OnEditFocusLost")(search_box)
-			search_box:SetText("")
-			_G.TradeSkillSearch_OnTextChanged(search_box)
-		end
+        -- Clear the search box and its focus so the scan will have correct results.
+        if _G.TradeSkillFrame and _G.TradeSkillFrame:IsVisible() then
+            local search_box = _G.TradeSkillFrameSearchBox
+            search_box:ClearFocus()
+            search_box:GetScript("OnEditFocusLost")(search_box)
+            search_box:SetText("")
+            _G.TradeSkillSearch_OnTextChanged(search_box)
+        end
 
-		-- Make sure we're only updating a profession the character actually knows - this could be a scan from a tradeskill link.
-		local tradeskill_is_linked = _G.IsTradeSkillLinked() or _G.IsTradeSkillGuild()
+        -- Make sure we're only updating a profession the character actually knows - this could be a scan from a tradeskill link.
+        local isTradesSkillLinked = _G.IsTradeSkillLinked() or _G.IsTradeSkillGuild()
+        if not isTradesSkillLinked then
+            player.scanned_professions[localizedProfessionName] = true
+        end
 
-		if not tradeskill_is_linked then
-			player.scanned_professions[profession_name] = true
-		end
-		local insert_index = 1
+        table.wipe(specialtices_indices)
 
-		table.wipe(specialtices_indices)
+        local insertIndex = 1
+        for index = 1, #PROFESSION_BUTTONS do
+            local button = PROFESSION_BUTTONS[index]
+            local spellOffset = button:GetParent().spellOffset
+            local specializationOffset = button:GetParent().specializationOffset
 
-		for index = 1, #PROFESSION_BUTTONS do
-			local button = PROFESSION_BUTTONS[index]
-			local spell_offset = button:GetParent().spellOffset
-			local specialization_offset = button:GetParent().specializationOffset
+            if spellOffset then
+                specialtices_indices[insertIndex] = specializationOffset + spellOffset
+                insertIndex = insertIndex + 1
+            end
+        end
 
-			if spell_offset then
-				specialtices_indices[insert_index] = specialization_offset + spell_offset
-				insert_index = insert_index + 1
-			end
-		end
-		local profession_specialties = SpecialtyTable[profession_name]
+        local professionSpecialties = SpecialtyTable[localizedProfessionName]
+        if professionSpecialties then
+            for _, bookIndex in ipairs(specialtices_indices) do
+                local spellName = _G.GetSpellBookItemName(bookIndex, _G.BOOKTYPE_PROFESSION)
+                if not spellName then
+                    break
+                elseif professionSpecialties[spellName] then
+                    private.current_profession_specialty = professionSpecialties[spellName]
+                    break
+                end
+            end
+        end
 
-		if profession_specialties then
-			for _, book_index in ipairs(specialtices_indices) do
-				local spell_name = _G.GetSpellBookItemName(book_index, _G.BOOKTYPE_PROFESSION)
+        -------------------------------------------------------------------------------
+        -- Scan all recipes and mark the ones we know
+        -------------------------------------------------------------------------------
+        table.wipe(header_list)
 
-				if not spell_name then
-					break
-				elseif profession_specialties[spell_name] then
-					private.current_profession_specialty = profession_specialties[spell_name]
-					break
-				end
-			end
-		end
+        -- Save the current state of the TradeSkillFrame so it can be restored after we muck with it.
+        local hasMaterials = _G.TradeSkillFrame.filterTbl.hasMaterials
+        local hasSkillup = _G.TradeSkillFrame.filterTbl.hasSkillUp
 
-		-------------------------------------------------------------------------------
-		-- Scan all recipes and mark the ones we know
-		-------------------------------------------------------------------------------
-		table.wipe(header_list)
+        if _G.MRTAPI then
+            _G.MRTAPI:PushFilterSelection()
+        else
+            if not _G.Skillet then
+                if hasMaterials then
+                    _G.TradeSkillFrame.filterTbl.hasMaterials = false
+                    _G.TradeSkillOnlyShowMakeable(false)
+                end
 
-		-- Save the current state of the TradeSkillFrame so it can be restored after we muck with it.
-		local have_materials = _G.TradeSkillFrame.filterTbl.hasMaterials
-		local have_skillup = _G.TradeSkillFrame.filterTbl.hasSkillUp
+                if hasSkillup then
+                    _G.TradeSkillFrame.filterTbl.hasSkillUp = false
+                    _G.TradeSkillOnlyShowSkillUps(false)
+                end
+            end
+            _G.SetTradeSkillInvSlotFilter(0, 1, 1)
+            _G.TradeSkillUpdateFilterBar()
+            _G.TradeSkillFrame_Update()
 
-		if _G.MRTAPI then
-			_G.MRTAPI:PushFilterSelection()
-		else
-			if not _G.Skillet then
-				if have_materials then
-					_G.TradeSkillFrame.filterTbl.hasMaterials = false
-					_G.TradeSkillOnlyShowMakeable(false)
-				end
+            -- Expand all headers so we can see all the recipes there are
+            for tradeSkillIndex = _G.GetNumTradeSkills(), 1, -1 do
+                local entryName, entryType, _, isExpanded = _G.GetTradeSkillInfo(tradeSkillIndex)
 
-				if have_skillup then
-					_G.TradeSkillFrame.filterTbl.hasSkillUp = false
-					_G.TradeSkillOnlyShowSkillUps(false)
-				end
-			end
-			_G.SetTradeSkillInvSlotFilter(0, 1, 1)
-			_G.TradeSkillUpdateFilterBar()
-			_G.TradeSkillFrame_Update()
+                if (entryType == "header" or entryType == "subheader") and not isExpanded then
+                    header_list[entryName] = true
+                    _G.ExpandTradeSkillSubClass(tradeSkillIndex)
+                end
+            end
+        end
+        local professionRecipes = private.profession_recipe_list[localizedProfessionName]
+        local foundRecipeCount = 0
 
-			-- Expand all headers so we can see all the recipes there are
-			for skill_index = _G.GetNumTradeSkills(), 1, -1 do
-				local entry_name, entry_type, _, is_expanded = _G.GetTradeSkillInfo(skill_index)
+        for _, recipe in pairs(professionRecipes) do
+            recipe:RemoveState("KNOWN")
+            recipe:RemoveState("RELEVANT")
+            recipe:RemoveState("VISIBLE")
+            recipe:RemoveState("LINKED")
+        end
 
-				if (entry_type == "header" or entry_type == "subheader") and not is_expanded then
-					header_list[entry_name] = true
-					_G.ExpandTradeSkillSubClass(skill_index)
-				end
-			end
-		end
-		local profession_recipes = private.profession_recipe_list[profession_name]
-		local recipes_found = 0
+        for tradeSkillIndex = 1, _G.GetNumTradeSkills() do
+            local entryName, entryType = _G.GetTradeSkillInfo(tradeSkillIndex)
 
-		for _, recipe in pairs(profession_recipes) do
-			recipe:RemoveState("KNOWN")
-			recipe:RemoveState("RELEVANT")
-			recipe:RemoveState("VISIBLE")
-			recipe:RemoveState("LINKED")
-		end
+            if entryType ~= "header" and entryType ~= "subheader" then
+                local spellID = tonumber(_G.GetTradeSkillRecipeLink(tradeSkillIndex):match("^|c%x%x%x%x%x%x%x%x|H%w+:(%d+)"))
 
-		for skill_index = 1, _G.GetNumTradeSkills() do
-			local entry_name, entry_type = _G.GetTradeSkillInfo(skill_index)
+                local recipe = professionRecipes[spellID]
+                if recipe then
+                    local recipePreviousRankID = recipe:PreviousRankID()
+                    if recipePreviousRankID then
+                        SetPreviousRanksKnown(recipePreviousRankID, professionRecipes, isTradesSkillLinked)
+                    end
 
-			if entry_type ~= "header" and entry_type ~= "subheader" then
-				local spell_id = tonumber(_G.GetTradeSkillRecipeLink(skill_index):match("^|c%x%x%x%x%x%x%x%x|H%w+:(%d+)"))
-				local recipe = profession_recipes[spell_id]
+                    recipe:SetAsKnownOrLinked(isTradesSkillLinked)
+                    foundRecipeCount = foundRecipeCount + 1
+                else
+                    --@debug@
+                    local professionID
+                    for _, professionSpellID in pairs(private.PROFESSION_SPELL_IDS) do
+                        if localizedProfessionName == _G.GetSpellInfo(professionSpellID) then
+                            professionID = professionSpellID
+                            break
+                        end
+                    end
 
-				if recipe then
-					local previous_rank_id = recipe:PreviousRankID()
+                    local recipe = self:AddRecipe(self, {
+                        acquire_data = {},
+                        flags = {},
+                        genesis = private.GAME_VERSION_NAMES[_G.GetExpansionLevel() + 1],
+                        name = _G.GetSpellInfo(spellID),
+                        profession = _G.GetSpellInfo(professionID),
+                        quality = private.ITEM_QUALITIES.COMMON,
+                        _spell_id = spellID,
+                    })
 
-					if previous_rank_id then
-						SetPreviousRanksKnown(previous_rank_id, profession_recipes, tradeskill_is_linked)
-					end
-					recipe:SetAsKnownOrLinked(tradeskill_is_linked)
-					recipes_found = recipes_found + 1
-				else
-					--@debug@
-					local profession_id
-					for _, profession_spell_id in pairs(private.PROFESSION_SPELL_IDS) do
-						if profession_name == _G.GetSpellInfo(profession_spell_id) then
-							profession_id = profession_spell_id
-							break
-						end
-					end
-					local F = private.FILTER_IDS
+                    recipe:SetSkillLevels(0, 0, 0, 0, 0)
+                    recipe:AddFilters(private.FILTER_IDS.ALLIANCE, private.FILTER_IDS.HORDE, private.FILTER_IDS.TRAINER)
+                    addon:Printf("Added '%s (%d)' to %s. Do a profession dump.", entryName, spellID, localizedProfessionName)
+                    --@end-debug@
 
-					local recipe = self:AddRecipe(self, {
-						acquire_data = {},
-						flags = {},
-						genesis = private.GAME_VERSION_NAMES[_G.GetExpansionLevel() + 1],
-						name = _G.GetSpellInfo(spell_id),
-						profession = _G.GetSpellInfo(profession_id),
-						quality = private.ITEM_QUALITIES.COMMON,
-						_spell_id = spell_id,
+                    if not self.is_development_version then
+                        self:Debug("%s (%d): %s", entryName, spellID, L["MissingFromDB"])
+                    end
+                end
+            end
+        end
 
-					})
+        -- Restore the state of the things we changed.
+        if _G.MRTAPI then
+            _G.MRTAPI:PopFilterSelection()
+        else
+            for tradeSkillIndex = _G.GetNumTradeSkills(), 1, -1 do
+                local entryName = _G.GetTradeSkillInfo(tradeSkillIndex)
+                if header_list[entryName] then
+                    _G.CollapseTradeSkillSubClass(tradeSkillIndex)
+                end
+            end
+            _G.TradeSkillFrame.filterTbl.hasMaterials = hasMaterials
+            _G.TradeSkillOnlyShowMakeable(hasMaterials)
+            _G.TradeSkillFrame.filterTbl.hasSkillUp = hasSkillup
+            _G.TradeSkillOnlyShowSkillUps(hasSkillup)
 
-					recipe:SetSkillLevels(0, 0, 0, 0, 0)
-					recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER)
-					addon:Printf("Added '%s (%d)' to %s. Do a profession dump.", entry_name, spell_id, profession_name)
-					--@end-debug@
+            _G.TradeSkillUpdateFilterBar()
+            _G.TradeSkillFrame_Update()
+        end
+        previous_recipe_count = current_recipe_count
+        current_recipe_count = foundRecipeCount
 
-					if not self.is_development_version then
-						self:Debug("%s (%d): %s", entry_name, spell_id, L["MissingFromDB"])
-					end
-				end
-			end
-		end
+        if isRefresh and previous_recipe_count == foundRecipeCount then
+            return
+        end
+        player:UpdateReputations()
 
-		-- Restore the state of the things we changed.
-		if _G.MRTAPI then
-			_G.MRTAPI:PopFilterSelection()
-		else
-			for skill_index = _G.GetNumTradeSkills(), 1, -1 do
-				local entry_name = _G.GetTradeSkillInfo(skill_index)
-
-				if header_list[entry_name] then
-					_G.CollapseTradeSkillSubClass(skill_index)
-				end
-			end
-			_G.TradeSkillFrame.filterTbl.hasMaterials = have_materials
-			_G.TradeSkillOnlyShowMakeable(have_materials)
-			_G.TradeSkillFrame.filterTbl.hasSkillUp = have_skillup
-			_G.TradeSkillOnlyShowSkillUps(have_skillup)
-
-			_G.TradeSkillUpdateFilterBar()
-			_G.TradeSkillFrame_Update()
-		end
-		previous_recipe_count = current_recipe_count
-		current_recipe_count = recipes_found
-
-		if is_refresh and previous_recipe_count == recipes_found then
-			return
-		end
-		player:UpdateReputations()
-
-		-------------------------------------------------------------------------------
-		-- Everything is ready - display the GUI or dump the list to text.
-		-------------------------------------------------------------------------------
-		if textdump then
-			self:GetTextDump(profession_name)
-		else
-			if private.InitializeFrame then
-				private.InitializeFrame()
-			end
-			self.Frame:Display(profession_name, tradeskill_is_linked)
-		end
-	end
+        -------------------------------------------------------------------------------
+        -- Everything is ready - display the GUI or dump the list to text.
+        -------------------------------------------------------------------------------
+        if isTextDump then
+            self:GetTextDump(localizedProfessionName)
+        else
+            if private.InitializeFrame then
+                private.InitializeFrame()
+            end
+            self.Frame:Display(localizedProfessionName, isTradesSkillLinked)
+        end
+    end
 end
 
 do
