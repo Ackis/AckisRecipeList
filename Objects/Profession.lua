@@ -40,6 +40,7 @@ function private.CreateProfessionFromModule(module)
             }, ProfessionMetatable)
 
             private.Professions[professionModuleName] = profession
+            private.Professions[localizedProfessionName] = profession
             module.Profession = profession
             break;
         end
