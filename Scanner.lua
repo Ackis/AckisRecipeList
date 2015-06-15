@@ -101,8 +101,8 @@ do
 
 		addon:InitializeProfession(trainerProfession)
 
-		local recipes = private.profession_recipe_list[trainerProfession]
-		if not recipes then
+		local professionRecipes = private.Professions[trainerProfession].Recipes
+		if not professionRecipes then
 			self:Debug(L["DATAMINER_NODB_ERROR"])
 			return
 		end
@@ -157,7 +157,7 @@ do
         table.wipe(IncorrectItemIDs)
         table.wipe(MismatchedRecipeLevels)
 
-        for recipeSpellID, recipe in pairs(recipes) do
+        for recipeSpellID, recipe in pairs(professionRecipes) do
             local scannedRecipeItemID = ScannedRecipeIDToItemIDMapping[recipeSpellID]
             local scannedRecipeSkillLevel = ScannedRecipeIDToSkillLevelMapping[recipeSpellID]
             local recipeTrainerAcquireData = recipe.acquire_data[A.TRAINER]
@@ -197,7 +197,7 @@ do
 
 			for index in ipairs(MissingSpellIDs) do
 				local recipeSpellID = MissingSpellIDs[index]
-                output:AddLine(("    %s -- %d"):format(recipes[recipeSpellID].name, recipeSpellID))
+                output:AddLine(("    %s -- %d"):format(professionRecipes[recipeSpellID].name, recipeSpellID))
 			end
 		end
 
@@ -207,7 +207,7 @@ do
 
 			for index in ipairs(ExtraSpellIDs) do
 				local recipeSpellID = ExtraSpellIDs[index]
-				local recipe = recipes[recipeSpellID]
+				local recipe = professionRecipes[recipeSpellID]
                 output:AddLine(("    %s -- %s"):format(recipe.name, recipeSpellID))
 			end
 		end
@@ -218,7 +218,7 @@ do
 
 			for index in ipairs(IncorrectItemIDs) do
 				local recipeSpellID = IncorrectItemIDs[index]
-				output:AddLine(("    %s -- %d"):format(recipes[recipeSpellID].name, recipeSpellID))
+				output:AddLine(("    %s -- %d"):format(professionRecipes[recipeSpellID].name, recipeSpellID))
 			end
 		end
 
@@ -228,7 +228,7 @@ do
 
 			for index in ipairs(MismatchedRecipeLevels) do
 				local spellID = MismatchedRecipeLevels[index]
-				local recipe = recipes[spellID]
+				local recipe = professionRecipes[spellID]
 				local recipeSkillLevel = recipe:SkillLevels()
 				local correctedSkillLevel = ScannedRecipeIDToSkillLevelMapping[spellID]
                 output:AddLine(("    %s -- %d:"):format(recipe.name, spellID))
@@ -676,15 +676,15 @@ do
 	-------------------------------------------------------------------------------
 	--- Scans the items in the specified profession
 	-------------------------------------------------------------------------------
-	local function CoroutineProfessionScan(profession_name)
-		ScannerUpdateFrame.profession = profession_name
+	local function CoroutineProfessionScan(localizedProfessionName)
+		ScannerUpdateFrame.profession = localizedProfessionName
 		table.wipe(intermediary_recipe_list)
 
-		local profession_recipe_list = private.profession_recipe_list[profession_name]
-
-		for spell_id in pairs(profession_recipe_list) do
-			intermediary_recipe_list[spell_id] = profession_recipe_list[spell_id]
+		local professionRecipes = private.Professions[localizedProfessionName].Recipes
+		for spell_id in pairs(professionRecipes) do
+			intermediary_recipe_list[spell_id] = professionRecipes[spell_id]
 		end
+
 		local output = private.TextDump
 		output:Clear()
 
@@ -776,15 +776,15 @@ do
 	-------------------------------------------------------------------------------
 	--- Dumps the items in the specified profession
 	-------------------------------------------------------------------------------
-	local function CoroutineProfessionDump(profession_name)
-		addon:InitializeProfession(profession_name)
+	local function CoroutineProfessionDump(localizedProfessionName)
+		addon:InitializeProfession(localizedProfessionName)
 		table.wipe(intermediary_recipe_list)
 
-		local profession_recipe_list = private.profession_recipe_list[profession_name]
-
-		for spell_id in pairs(profession_recipe_list) do
-			intermediary_recipe_list[spell_id] = profession_recipe_list[spell_id]
+		local professionRecipes = private.Professions[localizedProfessionName].Recipes
+		for spell_id in pairs(professionRecipes) do
+			intermediary_recipe_list[spell_id] = professionRecipes[spell_id]
 		end
+
 		local output = CopyFrame
 		output:Clear()
 
@@ -856,14 +856,13 @@ do
 	local source_registry = {}
 	local sorted_data = {}
 
-	local function ProfessionTrainerDump(profession_name)
-		addon:InitializeProfession(profession_name)
+	local function ProfessionTrainerDump(localizedProfessionName)
+		addon:InitializeProfession(localizedProfessionName)
 		table.wipe(intermediary_recipe_list)
 
-		local profession_recipe_list = private.profession_recipe_list[profession_name]
-
-		for spell_id in pairs(profession_recipe_list) do
-			intermediary_recipe_list[spell_id] = profession_recipe_list[spell_id]
+		local professionRecipes = private.Professions[localizedProfessionName].Recipes
+		for spell_id in pairs(professionRecipes) do
+			intermediary_recipe_list[spell_id] = professionRecipes[spell_id]
 		end
 		SortRecipesByID()
 

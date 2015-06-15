@@ -255,10 +255,10 @@ local function InitializeAcquisitionTab()
 			end
 			table.sort(sorted_acquires, Sort_Acquisition)
 		end
-		local prof_name = ORDERED_PROFESSIONS[MainPanel.current_profession]
-		local profession_recipes = private.profession_recipe_list[prof_name]
+		local localizedProfessionName = ORDERED_PROFESSIONS[MainPanel.current_profession]
+		local professionRecipes = private.Professions[localizedProfessionName].Recipes
 
-		self[prof_name .. " expanded"] = self[prof_name .. " expanded"] or {}
+		self[localizedProfessionName .. " expanded"] = self[localizedProfessionName .. " expanded"] or {}
 
 		for index = 1, #sorted_acquires do
 			local acquire_type_id = sorted_acquires[index]
@@ -266,7 +266,7 @@ local function InitializeAcquisitionTab()
 
 			-- Check to see if any recipes for this acquire type will be shown - otherwise, don't show the type in the list.
 			for spell_id, affiliation in private.ACQUIRE_TYPES_BY_ID[acquire_type_id]:RecipePairs() do
-				local recipe = profession_recipes[spell_id]
+				local recipe = professionRecipes[spell_id]
 
 				if recipe and recipe:HasState("VISIBLE") and MainPanel.search_editbox:MatchesRecipe(recipe) then
 					count = count + 1
@@ -276,14 +276,14 @@ local function InitializeAcquisitionTab()
 						recipe_count = recipe_count + 1
 					end
 				else
-					self[prof_name .. " expanded"][spell_id] = nil
+					self[localizedProfessionName .. " expanded"][spell_id] = nil
 				end
 			end
 
 			if count > 0 then
 				local acquire_type = private.ACQUIRE_TYPES_BY_ID[acquire_type_id]
 				local acquire_type_name = acquire_type:Name()
-				local is_expanded = self[prof_name .. " expanded"][acquire_type_name]
+				local is_expanded = self[localizedProfessionName .. " expanded"][acquire_type_name]
 
 				local entry = CreateListEntry("header")
 				entry:SetAcquireType(acquire_type)
@@ -294,7 +294,7 @@ local function InitializeAcquisitionTab()
 
 				insert_index = MainPanel.list_frame:InsertEntry(entry, insert_index, is_expanded or expand_mode, is_expanded or expand_mode)
 			else
-				self[prof_name .. " expanded"][private.ACQUIRE_TYPES_BY_ID[acquire_type_id]:Name()] = nil
+				self[localizedProfessionName .. " expanded"][private.ACQUIRE_TYPES_BY_ID[acquire_type_id]:Name()] = nil
 			end
 		end
 		return recipe_count
@@ -303,7 +303,7 @@ local function InitializeAcquisitionTab()
 	function AcquisitionTab:ExpandListEntry(entry, expand_mode)
 		local orig_index = entry.button and entry.button.entry_index or entry.index
 		local expand_all = expand_mode == "deep"
-		local prof_name = private.ORDERED_PROFESSIONS[MainPanel.current_profession]
+		local localizedProfessionName = private.ORDERED_PROFESSIONS[MainPanel.current_profession]
 		local entry_acquire_type = entry:AcquireType()
 		local entry_acquire_type_id = entry_acquire_type:ID()
 
@@ -315,10 +315,10 @@ local function InitializeAcquisitionTab()
 
 		if entry:IsHeader() then
 			local sorted_recipes = entry_acquire_type:GetSortedRecipes()
-			local profession_recipes = private.profession_recipe_list[prof_name]
+			local professionRecipes = private.Professions[localizedProfessionName].Recipes
 
 			for index = 1, #sorted_recipes do
-				local recipe = profession_recipes[sorted_recipes[index]]
+				local recipe = professionRecipes[sorted_recipes[index]]
 
 				if recipe and recipe:HasState("VISIBLE") and MainPanel.search_editbox:MatchesRecipe(recipe) then
 					local expand = false
@@ -328,7 +328,7 @@ local function InitializeAcquisitionTab()
 						expand = true
 						entry_type = "entry"
 					end
-					local is_expanded = (self[prof_name.." expanded"][recipe] and self[prof_name.." expanded"][entry_acquire_type:Name()])
+					local is_expanded = (self[localizedProfessionName .." expanded"][recipe] and self[localizedProfessionName .." expanded"][entry_acquire_type:Name()])
 
 					local new_entry = CreateListEntry(entry_type, entry, recipe)
 					new_entry:SetAcquireType(entry_acquire_type)
@@ -397,10 +397,10 @@ local function InitializeLocationTab()
 			end
 			table.sort(sorted_locations, Sort_Location)
 		end
-		local prof_name = ORDERED_PROFESSIONS[MainPanel.current_profession]
-		local profession_recipes = private.profession_recipe_list[prof_name]
+		local localizedProfessionName = ORDERED_PROFESSIONS[MainPanel.current_profession]
+		local professionRecipes = private.Professions[localizedProfessionName].Recipes
 
-		self[prof_name .. " expanded"] = self[prof_name .. " expanded"] or {}
+		self[localizedProfessionName .. " expanded"] = self[localizedProfessionName .. " expanded"] or {}
 
 		for index = 1, #sorted_locations do
 			local loc_name = sorted_locations[index]
@@ -408,7 +408,7 @@ local function InitializeLocationTab()
 
 			-- Check to see if any recipes for this location will be shown - otherwise, don't show the location in the list.
 			for spell_id, affiliation in pairs(private.location_list[loc_name].recipes) do
-				local recipe = profession_recipes[spell_id]
+				local recipe = professionRecipes[spell_id]
 
 				if recipe and recipe:HasState("VISIBLE") and search_box:MatchesRecipe(recipe) then
 					local good_count, bad_count = 0, 0
@@ -442,7 +442,7 @@ local function InitializeLocationTab()
 						end
 					end
 				else
-					self[prof_name .. " expanded"][spell_id] = nil
+					self[localizedProfessionName .. " expanded"][spell_id] = nil
 				end
 			end
 
@@ -464,10 +464,10 @@ local function InitializeLocationTab()
 				end
 				entry:SetLocationID(loc_name)
 
-				local is_expanded = self[prof_name .. " expanded"][loc_name]
+				local is_expanded = self[localizedProfessionName .. " expanded"][loc_name]
 				insert_index = MainPanel.list_frame:InsertEntry(entry, insert_index, is_expanded or expand_mode, is_expanded or expand_mode)
 			else
-				self[prof_name .. " expanded"][loc_name] = nil
+				self[localizedProfessionName .. " expanded"][loc_name] = nil
 			end
 		end
 		return recipe_count
@@ -487,14 +487,14 @@ local function InitializeLocationTab()
 		if entry:IsHeader() then
 			local recipe_list = private.location_list[location_id].recipes
 			local sorted_recipes = addon.sorted_recipes
-			local prof_name = private.ORDERED_PROFESSIONS[MainPanel.current_profession]
-			local profession_recipes = private.profession_recipe_list[prof_name]
+			local localizedProfessionName = private.ORDERED_PROFESSIONS[MainPanel.current_profession]
+			local professionRecipes = private.Professions[localizedProfessionName].Recipes
 
 			private.SortRecipeList(recipe_list)
 
 			for index = 1, #sorted_recipes do
 				local recipe_id = sorted_recipes[index]
-				local recipe = profession_recipes[recipe_id]
+				local recipe = professionRecipes[recipe_id]
 
 				if recipe and recipe:HasState("VISIBLE") and MainPanel.search_editbox:MatchesRecipe(recipe) then
 					local expand = false
@@ -505,7 +505,7 @@ local function InitializeLocationTab()
 						expand = true
 						entry_type = "entry"
 					end
-					local is_expanded = (self[prof_name.." expanded"][recipe] and self[prof_name.." expanded"][location_id])
+					local is_expanded = (self[localizedProfessionName .." expanded"][recipe] and self[localizedProfessionName .." expanded"][location_id])
 
 					local new_entry = CreateListEntry(entry_type, entry, recipe)
 					new_entry:SetText(recipe:GetDisplayName())
@@ -551,19 +551,19 @@ local function InitializeRecipesTab()
 	RecipesTab = CreateTab(3, _G.TRADESKILL_SERVICE_LEARN, "LEFT", LocationTab, "RIGHT", -14, 0)
 
 	function RecipesTab:Initialize(expand_mode)
-		local prof_name = ORDERED_PROFESSIONS[MainPanel.current_profession]
-		local profession_recipes = private.profession_recipe_list[prof_name]
+		local localizedProfessionName = ORDERED_PROFESSIONS[MainPanel.current_profession]
+		local professionRecipes = private.Professions[localizedProfessionName].Recipes
 
-		self[prof_name .. " expanded"] = self[prof_name .. " expanded"] or {}
+		self[localizedProfessionName .. " expanded"] = self[localizedProfessionName .. " expanded"] or {}
 
-		private.SortRecipeList(profession_recipes)
+		private.SortRecipeList(professionRecipes)
 
 		local sorted_recipes = addon.sorted_recipes
 		local recipe_count = 0
 		local insert_index = 1
 
 		for i = 1, #sorted_recipes do
-			local recipe = profession_recipes[sorted_recipes[i]]
+			local recipe = professionRecipes[sorted_recipes[i]]
 
 			if recipe and recipe:HasState("VISIBLE") and MainPanel.search_editbox:MatchesRecipe(recipe) then
 				local entry = CreateListEntry("header", nil, recipe)
@@ -571,10 +571,10 @@ local function InitializeRecipesTab()
 
 				recipe_count = recipe_count + 1
 
-				local is_expanded = self[prof_name .. " expanded"][recipe]
+				local is_expanded = self[localizedProfessionName .. " expanded"][recipe]
 				insert_index = MainPanel.list_frame:InsertEntry(entry, insert_index, is_expanded or expand_mode, is_expanded or expand_mode)
 			else
-				self[prof_name .. " expanded"][recipe] = nil
+				self[localizedProfessionName .. " expanded"][recipe] = nil
 			end
 		end
 		return recipe_count

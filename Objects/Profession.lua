@@ -37,6 +37,7 @@ function private.CreateProfessionFromModule(module)
                 _name = professionModuleName,
                 _module = module,
                 _recipeCount = 0,
+                Recipes = module.Recipes,
             }, ProfessionMetatable)
 
             private.Professions[professionModuleName] = profession

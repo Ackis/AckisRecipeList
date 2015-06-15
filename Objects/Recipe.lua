@@ -27,7 +27,6 @@ local ACQUIRE_TYPE_IDS = private.ACQUIRE_TYPE_IDS
 local AcquireTypes = private.AcquireTypes
 
 private.recipe_list = {}
-private.profession_recipe_list = {}
 private.num_profession_recipes = {}
 
 private.location_list	= {}
@@ -75,14 +74,15 @@ function addon:AddRecipe(module, recipeData)
 	end
 	recipeList[spellID] = recipe
 
-	local professionRecipes = private.profession_recipe_list[recipe.profession]
-	if not professionRecipes then
-		professionRecipes = module.Recipes
-		private.profession_recipe_list[recipe.profession] = professionRecipes
-	end
-	professionRecipes[spellID] = recipe
+    local professionRecipes = private.Professions[recipe.profession].Recipes
+    if not professionRecipes then
+        professionRecipes = module.Recipes
+        private.Professions[recipe.profession].Recipes = professionRecipes
+    end
+    professionRecipes[spellID] = recipe
 
-	private.num_profession_recipes[recipe.profession] = (private.num_profession_recipes[recipe.profession] or 0) + 1
+
+    private.num_profession_recipes[recipe.profession] = (private.num_profession_recipes[recipe.profession] or 0) + 1
 
 	return recipe
 end
@@ -804,7 +804,7 @@ function Recipe:Dump(output, use_genesis)
 	if self.crafted_item_id then
 		output:AddLine(("recipe:SetCraftedItem(%d, \"%s\")"):format(self.crafted_item_id, self.crafted_item_binding), genesis_val)
 	end
-	local previous_rank_recipe = private.profession_recipe_list[self.profession][self:PreviousRankID()]
+	local previous_rank_recipe = private.Professions[self.profession].Recipes[self:PreviousRankID()]
 
 	if previous_rank_recipe then
 		output:AddLine(("recipe:SetPreviousRankID(%d)"):format(previous_rank_recipe:SpellID()), genesis_val)

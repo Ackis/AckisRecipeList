@@ -471,11 +471,11 @@ function private.InitializeListFrame()
 			-- Update recipe filters.
 			-------------------------------------------------------------------------------
 			local general_filters = addon.db.profile.filters.general
-			local profession_recipes = private.profession_recipe_list[private.ORDERED_PROFESSIONS[MainPanel.current_profession]]
+			local professionRecipes = private.Professions[private.ORDERED_PROFESSIONS[MainPanel.current_profession]].Recipes
 			local recipes_known, recipes_known_filtered = 0, 0
 			local recipes_total, recipes_total_filtered = 0, 0
 
-			for _, recipe in pairs(profession_recipes) do
+			for _, recipe in pairs(professionRecipes) do
 				local can_display = false
 				recipe:RemoveState("VISIBLE")
 
@@ -525,7 +525,7 @@ function private.InitializeListFrame()
 			local unknown_count = 0
 
 			for spell_id in pairs(addon.db.profile.exclusionlist) do
-				local recipe = profession_recipes[spell_id]
+				local recipe = professionRecipes[spell_id]
 
 				if recipe then
 					if recipe:HasState("KNOWN") then

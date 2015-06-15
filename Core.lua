@@ -868,12 +868,14 @@ do
             else
                 Dialog:Spawn("ARL_NoModulesErrorDialog")
             end
-            return
+
+            return false
         elseif professionModule.Version ~= SUPPORTED_MODULE_VERSION then
             Dialog:Spawn("ARL_ModuleWrongVersionDialog", {
                 moduleName = professionModuleName,
                 moduleVersion = 0
             })
+
             return false
         end
 
@@ -961,7 +963,7 @@ do
                 end
             end
         end
-        local professionRecipes = private.profession_recipe_list[localizedProfessionName]
+        local professionRecipes = private.Professions[localizedProfessionName].Recipes
         local foundRecipeCount = 0
 
         for _, recipe in pairs(professionRecipes) do
@@ -1129,25 +1131,24 @@ do
 	end -- do
 
 	--- Dumps the recipe database in a format that is readable to humans (or machines)
-	function addon:GetTextDump(profession_name)
+	function addon:GetTextDump(localizedProfessionName)
 		local output_format = addon.db.profile.textdumpformat or "Comma"
 		local output = private.TextDump
 		output:Clear()
 
 		if output_format == "Comma" then
-			output:AddLine(("Ackis Recipe List Text Dump for %s's %s, in the form of Comma Separated Values.\n  "):format(private.PLAYER_NAME, profession_name))
+			output:AddLine(("Ackis Recipe List Text Dump for %s's %s, in the form of Comma Separated Values.\n  "):format(private.PLAYER_NAME, localizedProfessionName))
 			output:AddLine("Spell ID,Recipe Name,Skill Level,ARL Filter Flags,Acquire Methods,Known\n")
 		elseif output_format == "BBCode" then
-			output:AddLine(("Ackis Recipe List Text Dump for %s's %s, in the form of BBCode.\n"):format(private.PLAYER_NAME, profession_name))
+			output:AddLine(("Ackis Recipe List Text Dump for %s's %s, in the form of BBCode.\n"):format(private.PLAYER_NAME, localizedProfessionName))
 		elseif output_format == "XML" then
 			output:AddLine("<?xml version=\"1.0\" encoding=\"UTF-8\" ?>")
 			output:AddLine("\n<profession>")
 		end
 
-		local profession_recipes = private.profession_recipe_list[profession_name]
-
-		for recipe_id in pairs(profession_recipes) do
-			local recipe = profession_recipes[recipe_id]
+		local professionRecipes = private.Professions[localizedProfessionName].Recipes
+		for recipe_id in pairs(professionRecipes) do
+			local recipe = professionRecipes[recipe_id]
 			local is_known = recipe:HasState("KNOWN")
 
 			if output_format == "Comma" then
