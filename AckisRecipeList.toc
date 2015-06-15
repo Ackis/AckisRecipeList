@@ -82,6 +82,8 @@ Objects\AcquireType\Vendor.lua
 Objects\AcquireType\WorldDrop.lua
 Objects\AcquireType\WorldEvent.lua
 
+Objects\Profession.lua
+
 Core.lua
 Utilities.lua
 Objects\Recipe.lua

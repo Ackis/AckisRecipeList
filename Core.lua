@@ -493,6 +493,10 @@ function addon:OnDisable()
 	end
 end
 
+function addon:OnModuleCreated(module)
+    private.CreateProfessionFromModule(module)
+end
+
 -------------------------------------------------------------------------------
 -- Event handling functions
 -------------------------------------------------------------------------------
@@ -689,12 +693,11 @@ do
 		InitializeLookups = nil
 	end
 
-	local loaded_modules = {}
-
 	-- Returns true if a profession was initialized.
-	function addon:InitializeProfession(professionName)
-		if not professionName or not private.PROFESSION_MODULE_NAMES[professionName] then
-			addon:Debug("nil or invalid profession name passed to InitializeProfession()")
+	function addon:InitializeProfession(localizedProfessionName)
+        local professionName = localizedProfessionName and private.PROFESSION_MODULE_NAMES[localizedProfessionName] or nil
+		if not professionName then
+			addon:Debug("Invalid profession name (%s) passed to InitializeProfession()", tostring(localizedProfessionName))
 			return false
 		end
 
@@ -702,17 +705,16 @@ do
 			InitializeLookups()
 		end
 
-		local moduleName = FOLDER_NAME .. "_" .. private.PROFESSION_MODULE_NAMES[professionName] or ""
-		if loaded_modules[moduleName] then
-			return true
-		end
+        if private.Professions[professionName] then
+            return true
+        end
 
+		local moduleName = FOLDER_NAME .. "_" .. professionName or ""
 		local _, _, _, _, reason = _G.GetAddOnInfo(moduleName)
 		if reason ~= "DISABLED" then
-			local isLoaded = _G.LoadAddOn(moduleName) and true or false
-			loaded_modules[moduleName] = isLoaded
-			return isLoaded
+			return _G.LoadAddOn(moduleName) and true or false
 		end
+
 		return false
 	end
 end -- do-block
