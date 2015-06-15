@@ -27,7 +27,6 @@ local ACQUIRE_TYPE_IDS = private.ACQUIRE_TYPE_IDS
 local AcquireTypes = private.AcquireTypes
 
 private.recipe_list = {}
-private.num_profession_recipes = {}
 
 private.location_list	= {}
 
@@ -80,9 +79,6 @@ function addon:AddRecipe(module, recipeData)
         private.Professions[recipe.profession].Recipes = professionRecipes
     end
     professionRecipes[spellID] = recipe
-
-
-    private.num_profession_recipes[recipe.profession] = (private.num_profession_recipes[recipe.profession] or 0) + 1
 
 	return recipe
 end
@@ -180,7 +176,6 @@ function Recipe:SetRequiredFaction(faction_name)
 
 		if private.Player.faction ~= faction_name then
 			self.is_ignored = true
-			private.num_profession_recipes[self.profession] = private.num_profession_recipes[self.profession] - 1
 		end
 	else
 		addon:Debuf("No faction name passed to SetRequiredFaction for recipe %d", self.SpellID())
