@@ -11,6 +11,110 @@ local pairs = _G.pairs
 local FOLDER_NAME, private = ...
 
 -------------------------------------------------------------------------------
+-- Profession data.
+-------------------------------------------------------------------------------
+-- Needed for Smelting kludge.
+private.MINING_PROFESSION_NAME = _G.GetSpellInfo(2575)
+
+private.PROFESSION_SPELL_IDS = {
+    ALCHEMY = 2259,
+    BLACKSMITHING = 2018,
+    COOKING = 2550,
+    ENCHANTING = 7411,
+    ENGINEERING = 4036,
+    FIRSTAID = 3273,
+    INSCRIPTION = 45357,
+    JEWELCRAFTING = 25229,
+    LEATHERWORKING = 2108,
+    SMELTING = 2656,
+    TAILORING = 3908,
+}
+private.constants.PROFESSION_SPELL_IDS = private.PROFESSION_SPELL_IDS
+
+private.LOCALIZED_PROFESSION_NAMES = {}
+for name, spell_id in pairs(private.PROFESSION_SPELL_IDS) do
+    private.LOCALIZED_PROFESSION_NAMES[name] = _G.GetSpellInfo(spell_id)
+end
+
+-- This is needed due to Pandaren cooking spells.
+private.PROFESSION_NAME_MAP = {
+    [_G.GetSpellInfo(124694)] = private.LOCALIZED_PROFESSION_NAMES.COOKING, -- Way of the Grill
+    [_G.GetSpellInfo(125584)] = private.LOCALIZED_PROFESSION_NAMES.COOKING, -- Way of the Wok
+    [_G.GetSpellInfo(125586)] = private.LOCALIZED_PROFESSION_NAMES.COOKING, -- Way of the Pot
+    [_G.GetSpellInfo(125587)] = private.LOCALIZED_PROFESSION_NAMES.COOKING, -- Way of the Steamer
+    [_G.GetSpellInfo(125588)] = private.LOCALIZED_PROFESSION_NAMES.COOKING, -- Way of the Oven
+    [_G.GetSpellInfo(125589)] = private.LOCALIZED_PROFESSION_NAMES.COOKING, -- Way of the Brew
+    [_G.GetSpellInfo(2575)] = private.LOCALIZED_PROFESSION_NAMES.SMELTING, -- Mining
+}
+
+for name, localized_name in pairs(private.LOCALIZED_PROFESSION_NAMES) do
+    private.PROFESSION_NAME_MAP[localized_name] = localized_name
+end
+
+private.PROFESSION_LABELS = {
+    "alchemy",			-- 1
+    "blacksmithing",	-- 2
+    "cooking",			-- 3
+    "enchanting",		-- 4
+    "engineering",		-- 5
+    "firstaid",			-- 6
+    "inscription",		-- 7
+    "jewelcrafting",	-- 8
+    "leatherworking",	-- 9
+    "smelting",			-- 10
+    "tailoring",		-- 11
+}
+
+private.ORDERED_PROFESSIONS = {
+    private.LOCALIZED_PROFESSION_NAMES.ALCHEMY, 		-- 1
+    private.LOCALIZED_PROFESSION_NAMES.BLACKSMITHING, 	-- 2
+    private.LOCALIZED_PROFESSION_NAMES.COOKING, 		-- 3
+    private.LOCALIZED_PROFESSION_NAMES.ENCHANTING,		-- 4
+    private.LOCALIZED_PROFESSION_NAMES.ENGINEERING,		-- 5
+    private.LOCALIZED_PROFESSION_NAMES.FIRSTAID,		-- 6
+    private.LOCALIZED_PROFESSION_NAMES.INSCRIPTION,		-- 7
+    private.LOCALIZED_PROFESSION_NAMES.JEWELCRAFTING, 	-- 8
+    private.LOCALIZED_PROFESSION_NAMES.LEATHERWORKING, 	-- 9
+    private.LOCALIZED_PROFESSION_NAMES.SMELTING,		-- 10
+    private.LOCALIZED_PROFESSION_NAMES.TAILORING,		-- 11
+}
+
+-- Required for loading profession modules.
+private.PROFESSION_MODULE_NAMES = {
+    [private.LOCALIZED_PROFESSION_NAMES.ALCHEMY] = "Alchemy",
+    [private.LOCALIZED_PROFESSION_NAMES.BLACKSMITHING] = "Blacksmithing",
+    [private.LOCALIZED_PROFESSION_NAMES.COOKING] = "Cooking",
+    [private.LOCALIZED_PROFESSION_NAMES.ENCHANTING] = "Enchanting",
+    [private.LOCALIZED_PROFESSION_NAMES.ENGINEERING] = "Engineering",
+    [private.LOCALIZED_PROFESSION_NAMES.FIRSTAID] = "FirstAid",
+    [private.LOCALIZED_PROFESSION_NAMES.INSCRIPTION] = "Inscription",
+    [private.LOCALIZED_PROFESSION_NAMES.JEWELCRAFTING] = "Jewelcrafting",
+    [private.LOCALIZED_PROFESSION_NAMES.LEATHERWORKING] = "Leatherworking",
+    [private.LOCALIZED_PROFESSION_NAMES.SMELTING] = "Smelting",
+    [private.MINING_PROFESSION_NAME] = "Smelting",
+    [private.LOCALIZED_PROFESSION_NAMES.TAILORING] = "Tailoring",
+}
+
+private.PROFESSION_IDS = {}
+for index = 1, #private.ORDERED_PROFESSIONS do
+    private.PROFESSION_IDS[private.ORDERED_PROFESSIONS[index]] = index
+end
+
+private.PROFESSION_TEXTURES = {
+    [[Trade_Alchemy]],					-- 01 (Alchemy)
+    [[Trade_BlackSmithing]],			-- 02 (Blacksmithing)
+    [[INV_Misc_Food_15]],				-- 03 (Cooking)
+    [[Trade_Engraving]],				-- 04 (Enchinting)
+    [[Trade_Engineering]],				-- 05 (Engineering)
+    [[Spell_Holy_SealOfSacrifice]],		-- 06 (First Aid)
+    [[INV_Inscription_Tradeskill01]],	-- 07 (Inscription)
+    [[INV_Misc_Gem_01]],				-- 08 (Jewelcrafting)
+    [[Trade_LeatherWorking]],			-- 09 (Leatherworking)
+    [[Spell_Fire_FlameBlades]],			-- 10 (Smelting)
+    [[Trade_Tailoring]],				-- 11 (Tailoring)
+}
+
+-------------------------------------------------------------------------------
 -- Objects.
 -------------------------------------------------------------------------------
 local Profession = {}
