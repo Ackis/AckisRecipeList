@@ -127,6 +127,21 @@ private.Professions = {}
 -------------------------------------------------------------------------------
 -- Profession Methods.
 -------------------------------------------------------------------------------
+function Profession:ID()
+    return self._id
+end
+
+function Profession:LocalizedName()
+    return self._localizedName
+end
+
+function Profession:Module()
+    return self._module
+end
+
+function Profession:Name()
+    return self._name
+end
 
 -------------------------------------------------------------------------------
 -- Instantiation.
