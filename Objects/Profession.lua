@@ -51,20 +51,6 @@ for name, localized_name in pairs(private.LOCALIZED_PROFESSION_NAMES) do
     private.PROFESSION_NAME_MAP[localized_name] = localized_name
 end
 
-private.PROFESSION_LABELS = {
-    "alchemy",			-- 1
-    "blacksmithing",	-- 2
-    "cooking",			-- 3
-    "enchanting",		-- 4
-    "engineering",		-- 5
-    "firstaid",			-- 6
-    "inscription",		-- 7
-    "jewelcrafting",	-- 8
-    "leatherworking",	-- 9
-    "smelting",			-- 10
-    "tailoring",		-- 11
-}
-
 private.ORDERED_PROFESSIONS = {
     private.LOCALIZED_PROFESSION_NAMES.ALCHEMY, 		-- 1
     private.LOCALIZED_PROFESSION_NAMES.BLACKSMITHING, 	-- 2

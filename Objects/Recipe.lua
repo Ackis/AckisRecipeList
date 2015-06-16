@@ -271,7 +271,7 @@ do
 		local _, _, _, quality_color = _G.GetItemQualityColor(self.quality)
 		local recipe_name = self.name
 
-		if private.ORDERED_PROFESSIONS[addon.Frame.current_profession] == private.LOCALIZED_PROFESSION_NAMES.ENCHANTING then
+		if private.CurrentProfession:LocalizedName() == private.LOCALIZED_PROFESSION_NAMES.ENCHANTING then
 			recipe_name = recipe_name:gsub(_G.ENSCRIBE .. " ", "")
 		end
 		local has_faction = private.Player:HasProperRepLevel(self.acquire_data[ACQUIRE_TYPE_IDS.REPUTATION])
@@ -689,11 +689,13 @@ do
 			return false
 		end
 
-		local item_filter_type = self:ItemFilterType()
-		local profession_module = addon:GetModule(private.PROFESSION_MODULE_NAMES[private.ORDERED_PROFESSIONS[addon.Frame.current_profession]])
-		if item_filter_type and (not profession_module or not profession_module.db.profile.filters.item[item_filter_type]) then
-			return false
-		end
+		local itemFilterType = self:ItemFilterType()
+        if itemFilterType then
+            local professionModule = private.CurrentProfession:Module()
+            if not professionModule or not professionModule.db.profile.filters.item[itemFilterType] then
+                return false
+            end
+        end
 
 		-- Assume that recipes without a recipe item are obtained via trainers, and treat them as bind on pickup.
 		local _, recipe_item_binding = self:RecipeItem()

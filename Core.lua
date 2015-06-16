@@ -530,35 +530,32 @@ function addon:TRADE_SKILL_SHOW()
         scan_button:SetText(L["Scan"])
 
         scan_button:SetScript("OnClick", function(self, _, _)
-            local main_panel = addon.Frame
-            local prev_profession
+            local isShiftKeyDown = _G.IsShiftKeyDown()
+            local isAltKeyDown = _G.IsAltKeyDown()
+            local isControlKeyDown = _G.IsControlKeyDown()
 
-            if main_panel then
-                prev_profession = private.ORDERED_PROFESSIONS[main_panel.current_profession]
-            end
-            local shift_pressed = _G.IsShiftKeyDown()
-            local alt_pressed = _G.IsAltKeyDown()
-            local ctrl_pressed = _G.IsControlKeyDown()
-
-            if shift_pressed and not alt_pressed and not ctrl_pressed then
+            if isShiftKeyDown and not isAltKeyDown and not isControlKeyDown then
                 addon:Scan(true)
-            elseif alt_pressed and not shift_pressed and not ctrl_pressed then
+            elseif isAltKeyDown and not isShiftKeyDown and not isControlKeyDown then
                 addon:ClearWaypoints()
                 --@debug@
-            elseif ctrl_pressed then
-                local current_prof = _G.GetTradeSkillLine()
+            elseif isControlKeyDown then
+                local localizedProfessionName = _G.GetTradeSkillLine()
 
-                if shift_pressed and not alt_pressed then
-                    addon:ScanProfession(current_prof)
-                elseif not shift_pressed and not alt_pressed then
-                    addon:DumpProfession(current_prof)
+                if not isAltKeyDown then
+                    if isShiftKeyDown then
+                        addon:ScanProfession(localizedProfessionName)
+                    else
+                        addon:DumpProfession(localizedProfessionName)
+                    end
                 end
                 --@end-debug@
-            elseif not shift_pressed and not alt_pressed and not ctrl_pressed then
-                if main_panel and main_panel:IsVisible() and prev_profession == _G.GetTradeSkillLine() then
-                    main_panel:Hide()
+            elseif not isShiftKeyDown and not isAltKeyDown and not isControlKeyDown then
+                local mainPanel = addon.Frame
+                if mainPanel and mainPanel:IsVisible() and private.CurrentProfession:LocalizedName() == _G.GetTradeSkillLine() then
+                    mainPanel:Hide()
                 else
-                    addon:Scan(false)
+                    addon:Scan()
                     addon:AddWaypoint()
                 end
             end
@@ -1052,10 +1049,14 @@ do
         if isTextDump then
             self:GetTextDump(localizedProfessionName)
         else
+            private.PreviousProfession = private.CurrentProfession
+            private.CurrentProfession = private.Professions[localizedProfessionName]
+
             if private.InitializeFrame then
                 private.InitializeFrame()
             end
-            self.Frame:Display(localizedProfessionName, isTradesSkillLinked)
+
+            self.Frame:Display(isTradesSkillLinked)
         end
     end
 end

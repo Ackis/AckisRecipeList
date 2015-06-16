@@ -223,7 +223,7 @@ function private.InitializeListFrame()
 			ScrollUpButton:Enable()
 			ScrollDownButton:Enable()
 		end
-		MainPanel.current_tab:SetScrollValue(MainPanel.current_profession, value)
+		MainPanel.current_tab:SetScrollValue(private.CurrentProfession, value)
 		ListFrame:Update(nil, true)
 	end)
 
@@ -471,7 +471,7 @@ function private.InitializeListFrame()
 			-- Update recipe filters.
 			-------------------------------------------------------------------------------
 			local general_filters = addon.db.profile.filters.general
-			local professionRecipes = private.Professions[private.ORDERED_PROFESSIONS[MainPanel.current_profession]].Recipes
+			local professionRecipes = private.CurrentProfession.Recipes
 			local recipes_known, recipes_known_filtered = 0, 0
 			local recipes_total, recipes_total_filtered = 0, 0
 
@@ -541,8 +541,8 @@ function private.InitializeListFrame()
 			-------------------------------------------------------------------------------
 			-- Initialize the expand button and entries for the current tab.
 			-------------------------------------------------------------------------------
-			local current_tab = MainPanel.tabs[addon.db.profile.current_tab]
-			local expanded_button = current_tab["expand_button_"..MainPanel.current_profession]
+            local current_tab = MainPanel.tabs[addon.db.profile.current_tab]
+            local expanded_button = current_tab["expand_button_" .. private.CurrentProfession:Name()]
 
 			if acquire_tip then
 				acquire_tip = QTip:Release(acquire_tip)
@@ -681,7 +681,7 @@ function private.InitializeListFrame()
 		else
 			local max_val = num_entries - NUM_RECIPE_LINES
 			local current_tab = MainPanel.current_tab
-			local scroll_value = math.max(0, math.min(current_tab:ScrollValue(MainPanel.current_profession) or 0, max_val))
+			local scroll_value = math.max(0, math.min(current_tab:ScrollValue(private.CurrentProfession) or 0, max_val))
 			offset = scroll_value
 
 			self.scroll_bar:SetMinMaxValues(0, math.max(0, max_val))

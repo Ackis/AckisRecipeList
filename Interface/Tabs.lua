@@ -135,7 +135,7 @@ function tab_prototype:ToBack()
 end
 
 function tab_prototype:SaveListEntryState(entry, expanded)
-	local field = ORDERED_PROFESSIONS[addon.Frame.current_profession] .. " expanded"
+	local field = private.CurrentProfession:LocalizedName() .. " expanded"
 
 	if entry.acquire_id then
 		self[field][private.ACQUIRE_TYPES_BY_ID[entry.acquire_id]:Name()] = expanded or nil
@@ -150,12 +150,12 @@ function tab_prototype:SaveListEntryState(entry, expanded)
 	end
 end
 
-function tab_prototype:ScrollValue(profession_id)
-	return self["profession_" .. profession_id .. "_scroll_value"]
+function tab_prototype:ScrollValue(profession)
+	return self["profession_" .. profession:Name() .. "_scroll_value"]
 end
 
-function tab_prototype:SetScrollValue(profession_id, value)
-	self["profession_" .. profession_id .. "_scroll_value"] = value
+function tab_prototype:SetScrollValue(profession, value)
+	self["profession_" .. profession:Name() .. "_scroll_value"] = value
 end
 
 -------------------------------------------------------------------------------
@@ -255,7 +255,7 @@ local function InitializeAcquisitionTab()
 			end
 			table.sort(sorted_acquires, Sort_Acquisition)
 		end
-		local localizedProfessionName = ORDERED_PROFESSIONS[MainPanel.current_profession]
+		local localizedProfessionName = private.CurrentProfession:LocalizedName()
 		local professionRecipes = private.Professions[localizedProfessionName].Recipes
 
 		self[localizedProfessionName .. " expanded"] = self[localizedProfessionName .. " expanded"] or {}
@@ -303,7 +303,7 @@ local function InitializeAcquisitionTab()
 	function AcquisitionTab:ExpandListEntry(entry, expand_mode)
 		local orig_index = entry.button and entry.button.entry_index or entry.index
 		local expand_all = expand_mode == "deep"
-		local localizedProfessionName = private.ORDERED_PROFESSIONS[MainPanel.current_profession]
+		local localizedProfessionName = private.CurrentProfession:LocalizedName()
 		local entry_acquire_type = entry:AcquireType()
 		local entry_acquire_type_id = entry_acquire_type:ID()
 
@@ -397,7 +397,7 @@ local function InitializeLocationTab()
 			end
 			table.sort(sorted_locations, Sort_Location)
 		end
-		local localizedProfessionName = ORDERED_PROFESSIONS[MainPanel.current_profession]
+        local localizedProfessionName = private.CurrentProfession:LocalizedName()
 		local professionRecipes = private.Professions[localizedProfessionName].Recipes
 
 		self[localizedProfessionName .. " expanded"] = self[localizedProfessionName .. " expanded"] or {}
@@ -487,7 +487,7 @@ local function InitializeLocationTab()
 		if entry:IsHeader() then
 			local recipe_list = private.location_list[location_id].recipes
 			local sorted_recipes = addon.sorted_recipes
-			local localizedProfessionName = private.ORDERED_PROFESSIONS[MainPanel.current_profession]
+            local localizedProfessionName = private.CurrentProfession:LocalizedName()
 			local professionRecipes = private.Professions[localizedProfessionName].Recipes
 
 			private.SortRecipeList(recipe_list)
@@ -551,7 +551,7 @@ local function InitializeRecipesTab()
 	RecipesTab = CreateTab(3, _G.TRADESKILL_SERVICE_LEARN, "LEFT", LocationTab, "RIGHT", -14, 0)
 
 	function RecipesTab:Initialize(expand_mode)
-		local localizedProfessionName = ORDERED_PROFESSIONS[MainPanel.current_profession]
+        local localizedProfessionName = private.CurrentProfession:LocalizedName()
 		local professionRecipes = private.Professions[localizedProfessionName].Recipes
 
 		self[localizedProfessionName .. " expanded"] = self[localizedProfessionName .. " expanded"] or {}

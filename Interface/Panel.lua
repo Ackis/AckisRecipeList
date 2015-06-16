@@ -144,29 +144,12 @@ function private.InitializeFrame()
 	-------------------------------------------------------------------------------
 	-- Displays the main GUI frame.
 	-------------------------------------------------------------------------------
-	function MainPanel:Display(profession_name, is_linked)
-		self.is_linked = is_linked
-
-		-------------------------------------------------------------------------------
-		-- Set the profession.
-		-------------------------------------------------------------------------------
-		local prev_profession = self.current_profession
-
-		for index, name in ipairs(ORDERED_PROFESSIONS) do
-			if name == profession_name then
-				self.current_profession = index
-				break
-			end
-		end
-
-		if self.current_profession ~= prev_profession then
-			self.prev_profession = self.current_profession
-		end
+	function MainPanel:Display(isTradeSkillLinked)
+		self.is_linked = isTradeSkillLinked
 		self.prof_button:SetTexture()
 
 		local editbox = self.search_editbox
-
-		if self.current_profession ~= self.prev_profession then
+        if private.CurrentProfession ~= private.PreviousProfession then
 			editbox.prev_search = nil
 		end
 
@@ -177,22 +160,21 @@ function private.InitializeFrame()
 		-- The first time this function is called, everything in the expanded section of the MainPanel must be created.
 		if private.InitializeFilterPanel then
 			private.InitializeFilterPanel()
-		end
-		local prof_name = private.PROFESSION_LABELS[self.current_profession]
-		local profession_module = addon:GetModule(private.PROFESSION_MODULE_NAMES[private.ORDERED_PROFESSIONS[self.current_profession]], true)
-		local init_func = profession_module and profession_module.InitializeItemFilters
+        end
+        local profession = private.CurrentProfession
+		local professionModule = profession:Module()
 		local panel
 
-		if init_func then
-			local panel_name = "items_" .. prof_name
-			panel = self.filter_menu:CreateSubMenu(panel_name)
+		if professionModule.InitializeItemFilters then
+			local panelName = "items_" .. profession:Name():lower()
+			panel = self.filter_menu:CreateSubMenu(panelName)
 
-			self.filter_menu.item[panel_name] = self.filter_menu[panel_name]
-			self.filter_menu[panel_name] = nil
+			self.filter_menu.item[panelName] = self.filter_menu[panelName]
+			self.filter_menu[panelName] = nil
 
-			init_func(profession_module, panel)
+            professionModule:InitializeItemFilters(panel)
 		else
-			panel = self.filter_menu.item["items_" .. prof_name]
+			panel = self.filter_menu.item["items_" .. profession:Name():lower()]
 		end
 		private.UpdateFilterMarks()
 
@@ -226,10 +208,10 @@ function private.InitializeFrame()
 		if self.current_tab then
 			self.list_frame:Update(nil, false)
 		else
-			local current_tab = self.tabs[addon.db.profile.current_tab]
-			current_tab:GetScript("OnClick")(current_tab)
+			local currentTab = self.tabs[addon.db.profile.current_tab]
+			currentTab:GetScript("OnClick")(currentTab)
 
-			self.current_tab = current_tab
+			self.current_tab = currentTab
 		end
 		self.sort_button:SetTextures()
 		self.filter_toggle:SetTextures()
@@ -363,14 +345,14 @@ function private.InitializeFrame()
 	end	-- do-block
 
 	function MainPanel:UpdateTitle()
-		local current_prof = ORDERED_PROFESSIONS[self.current_profession]
+		local localizedProfessionName = private.CurrentProfession:LocalizedName()
 
 		if not self.is_expanded then
-			self.title_bar:SetFormattedText(SetTextColor(private.BASIC_COLORS.normal.hex, "ARL (%s) - %s"), addon.version, current_prof)
+			self.title_bar:SetFormattedText(SetTextColor(private.BASIC_COLORS.normal.hex, "ARL (%s) - %s"), addon.version, localizedProfessionName)
 			return
 		end
-		local total, active = 0, 0
 
+		local total, active = 0, 0
 		for filter, info in pairs(self.filter_menu.value_map) do
 			if info.svroot then
 				if info.svroot[filter] == true then
@@ -379,7 +361,8 @@ function private.InitializeFrame()
 				total = total + 1
 			end
 		end
-		self.title_bar:SetFormattedText(SetTextColor(private.BASIC_COLORS.normal.hex, "ARL (%s) - %s (%d/%d %s)"), addon.version, current_prof, active, total, _G.FILTERS)
+
+		self.title_bar:SetFormattedText(SetTextColor(private.BASIC_COLORS.normal.hex, "ARL (%s) - %s (%d/%d %s)"), addon.version, localizedProfessionName, active, total, _G.FILTERS)
 	end
 
 	-------------------------------------------------------------------------------
@@ -409,54 +392,50 @@ function private.InitializeFrame()
 			table.wipe(profession_registry)
 
 			for index = 1, #ORDERED_PROFESSIONS do
-				if player.professions[ORDERED_PROFESSIONS[index]] then
-					profession_registry[#profession_registry + 1] = index
+                local localizedProfessionName = ORDERED_PROFESSIONS[index]
+				if player.professions[localizedProfessionName] then
+					profession_registry[#profession_registry + 1] = localizedProfessionName
 				end
 			end
-			local current_index
 
+			local currentProfessionIndex
 			for index = 1, #profession_registry do
-				if profession_registry[index] == MainPanel.current_profession then
-					current_index = index
+				if profession_registry[index] == private.CurrentProfession:LocalizedName() then
+					currentProfessionIndex = index
 					break
 				end
 			end
 
 			if button_name == "LeftButton" then
-				current_index = current_index + 1
+				currentProfessionIndex = currentProfessionIndex + 1
 
-				if current_index > #profession_registry then
-					current_index = 1
+				if currentProfessionIndex > #profession_registry then
+					currentProfessionIndex = 1
 				end
 			elseif button_name == "RightButton" then
-				current_index = current_index - 1
+				currentProfessionIndex = currentProfessionIndex - 1
 
-				if current_index < 1 then
-					current_index = #profession_registry
+				if currentProfessionIndex < 1 then
+					currentProfessionIndex = #profession_registry
 				end
 			end
 
-			if MainPanel.current_profession == profession_registry[current_index] then
-				return
-			end
-			MainPanel.current_profession = profession_registry[current_index]
+            _G.PlaySound("igCharacterNPCSelect")
 
-			local is_shown = addon.scan_button:GetParent():IsVisible()
-			local sfx
-
-			_G.PlaySound("igCharacterNPCSelect")
-
-			-- If not shown, save the current sound effects setting then set it to 0.
-			if not is_shown then
-				sfx = tonumber(_G.GetCVar("Sound_EnableSFX"))
+            -- If not shown, save the current sound effects setting then set it to 0.
+            local cVarSfx
+            local isPanelShown = addon.scan_button:GetParent():IsVisible()
+            if not isPanelShown then
+				cVarSfx = tonumber(_G.GetCVar("Sound_EnableSFX"))
 				_G.SetCVar("Sound_EnableSFX", 0)
 			end
-			_G.CastSpellByName(ORDERED_PROFESSIONS[MainPanel.current_profession])
+
+			_G.CastSpellByName(profession_registry[currentProfessionIndex])
 			addon:Scan()
 
-			if not is_shown then
+			if not isPanelShown then
 				_G.CloseTradeSkill()
-				_G.SetCVar("Sound_EnableSFX", sfx)
+				_G.SetCVar("Sound_EnableSFX", cVarSfx)
 			end
 		end)
 	end -- do-block
@@ -589,7 +568,7 @@ function private.InitializeFrame()
 			end
 			search_pattern = search_pattern:lower()
 
-			for index, recipe in pairs(private.Professions[ORDERED_PROFESSIONS[MainPanel.current_profession]].Recipes) do
+			for index, recipe in pairs(private.CurrentProfession.Recipes) do
 				recipe:RemoveState("RELEVANT")
 
 				for search_index = 1, #SEARCH_FUNCTIONS do
@@ -650,7 +629,7 @@ function private.InitializeFrame()
 
 	-- Resets the SearchBox text and the state of all MainPanel.list_frame and recipe_list entries.
 	function SearchBox:Reset()
-		for index, recipe in pairs(private.Professions[private.ORDERED_PROFESSIONS[MainPanel.current_profession]].Recipes) do
+		for index, recipe in pairs(private.CurrentProfession.Recipes) do
 			recipe:RemoveState("RELEVANT")
 		end
 		self.prev_search = nil
@@ -808,11 +787,11 @@ function private.InitializeFrame()
 
 	expand_button:SetScript("OnClick", function(self, mouse_button, down)
 		local current_tab = MainPanel.current_tab
-		local is_expanded = current_tab["expand_button_" .. MainPanel.current_profession]
+		local is_expanded = current_tab["expand_button_" .. private.CurrentProfession:Name()]
 		local expand_mode
 
 		if is_expanded then
-			table.wipe(current_tab[ORDERED_PROFESSIONS[MainPanel.current_profession] .. " expanded"])
+			table.wipe(current_tab[private.CurrentProfession:LocalizedName() .. " expanded"])
 		else
 			if _G.IsShiftKeyDown() then
 				expand_mode = "deep"
@@ -833,7 +812,7 @@ function private.InitializeFrame()
 	end)
 
 	function expand_button:Expand(current_tab)
-		current_tab["expand_button_" .. MainPanel.current_profession] = true
+		current_tab["expand_button_" .. private.CurrentProfession:Name()] = true
 
 		self:SetNormalTexture("Interface\\BUTTONS\\UI-MinusButton-Up")
 		self:SetPushedTexture("Interface\\BUTTONS\\UI-MinusButton-Down")
@@ -844,7 +823,7 @@ function private.InitializeFrame()
 	end
 
 	function expand_button:Contract(current_tab)
-		current_tab["expand_button_" .. MainPanel.current_profession] = nil
+		current_tab["expand_button_" .. private.CurrentProfession:Name()] = nil
 
 		self:SetNormalTexture("Interface\\Buttons\\UI-PlusButton-Up")
 		self:SetPushedTexture("Interface\\Buttons\\UI-PlusButton-Down")

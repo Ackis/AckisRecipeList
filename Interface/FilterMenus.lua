@@ -591,12 +591,12 @@ function private.InitializeFilterPanel()
 		end)
 
 		item_frame:SetScript("OnShow", function(self)
-			local sub_panel = self["items_" .. private.PROFESSION_LABELS[MainPanel.current_profession]]
+			local subPanel = self["items_" .. private.CurrentProfession:Name():lower()]
 
-			if sub_panel then
-				sub_panel:Show()
+			if subPanel then
+				subPanel:Show()
 			end
-			self.sub_panel = sub_panel
+			self.sub_panel = subPanel
 		end)
 	end	-- do-block
 
