@@ -86,7 +86,8 @@ for index = 1, #private.ORDERED_PROFESSIONS do
     private.PROFESSION_IDS[private.ORDERED_PROFESSIONS[index]] = index
 end
 
-private.PROFESSION_TEXTURES = {
+local ICON_TEXTURE_FORMAT = [[Interface\ICONS\%s]]
+local WAYPOINT_ICON_TEXTURES = {
     [[Trade_Alchemy]],					-- 01 (Alchemy)
     [[Trade_BlackSmithing]],			-- 02 (Blacksmithing)
     [[INV_Misc_Food_15]],				-- 03 (Cooking)
@@ -127,6 +128,10 @@ end
 
 function Profession:Name()
     return self._name
+end
+
+function Profession:WaypointIconTexture()
+    return ICON_TEXTURE_FORMAT:format(WAYPOINT_ICON_TEXTURES[self._id])
 end
 
 -------------------------------------------------------------------------------

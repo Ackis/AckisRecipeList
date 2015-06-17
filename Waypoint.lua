@@ -413,8 +413,6 @@ local function AddAllWaypoints()
 end
 
 -- Replace the TomTom waypoint icon with the icon for the profession.
-local ICON_TEXTURE_FORMAT = [[Interface\ICONS\%s]]
-
 local function SetWaypointIcon(uid, ...)
 	local map_children = {...}
 
@@ -422,7 +420,7 @@ local function SetWaypointIcon(uid, ...)
 		local child = map_children[index]
 
 		if child.point and child.point.uid == uid then
-			child.icon:SetTexture(ICON_TEXTURE_FORMAT:format(private.PROFESSION_TEXTURES[private.CurrentProfession:ID()]))
+			child.icon:SetTexture(private.CurrentProfession:WaypointIconTexture())
 			break
 		end
 
