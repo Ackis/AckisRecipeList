@@ -81,9 +81,9 @@ private.PROFESSION_MODULE_NAMES = {
     [private.LOCALIZED_PROFESSION_NAMES.TAILORING] = "Tailoring",
 }
 
-private.PROFESSION_IDS = {}
+local LOCALIZED_PROFESSION_NAME_TO_ID_MAPPING = {}
 for index = 1, #private.ORDERED_LOCALIZED_PROFESSION_NAMES do
-    private.PROFESSION_IDS[private.ORDERED_LOCALIZED_PROFESSION_NAMES[index]] = index
+    LOCALIZED_PROFESSION_NAME_TO_ID_MAPPING[private.ORDERED_LOCALIZED_PROFESSION_NAMES[index]] = index
 end
 
 local ICON_TEXTURE_FORMAT = [[Interface\ICONS\%s]]
@@ -142,7 +142,7 @@ function private.CreateProfessionFromModule(module)
     for localizedProfessionName, professionModuleName in pairs(private.PROFESSION_MODULE_NAMES) do
         if professionModuleName == moduleName then
             local profession = _G.setmetatable({
-                _id = private.PROFESSION_IDS[localizedProfessionName],
+                _id = LOCALIZED_PROFESSION_NAME_TO_ID_MAPPING[localizedProfessionName],
                 _localizedName = localizedProfessionName,
                 _name = professionModuleName,
                 _module = module,
