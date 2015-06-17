@@ -19,8 +19,6 @@ local L = LibStub("AceLocale-3.0"):GetLocale(private.addon_name)
 -------------------------------------------------------------------------------
 -- Constants.
 -------------------------------------------------------------------------------
-local A = private.ACQUIRE_TYPE_IDS
-
 local frame_meta = { __index = _G.CreateFrame("Button") }
 local tab_prototype = _G.setmetatable({}, frame_meta)
 local tab_meta = { __index = tab_prototype }
@@ -169,45 +167,45 @@ local recipe_registry = {}
 
 -- Recipes with these acquire types will never show as headers.
 local CHILDLESS_ACQUIRE_TYPES_BY_ID = {
-	[A.ACHIEVEMENT] = true,
-	[A.CUSTOM] = true,
-	[A.DISCOVERY] = true,
-	[A.RETIRED] = true,
-	[A.WORLD_DROP] = true,
+	[private.ACQUIRE_TYPE_IDS.ACHIEVEMENT] = true,
+	[private.ACQUIRE_TYPE_IDS.CUSTOM] = true,
+	[private.ACQUIRE_TYPE_IDS.DISCOVERY] = true,
+	[private.ACQUIRE_TYPE_IDS.RETIRED] = true,
+	[private.ACQUIRE_TYPE_IDS.WORLD_DROP] = true,
 }
 
 local EXPANSION_PREDICATES = {
-	[A.TRAINER] = function(obtain_filters, hide_type)
+	[private.ACQUIRE_TYPE_IDS.TRAINER] = function(obtain_filters, hide_type)
 		return obtain_filters.trainer
 	end,
-	[A.VENDOR] = function(obtain_filters, hide_type)
+	[private.ACQUIRE_TYPE_IDS.VENDOR] = function(obtain_filters, hide_type)
 		return obtain_filters.vendor or obtain_filters.pvp
 	end,
-	[A.MOB_DROP] = function(obtain_filters, hide_type)
+	[private.ACQUIRE_TYPE_IDS.MOB_DROP] = function(obtain_filters, hide_type)
 		return obtain_filters.mobdrop or obtain_filters.instance or obtain_filters.raid
 	end,
-	[A.QUEST] = function(obtain_filters, hide_type)
+	[private.ACQUIRE_TYPE_IDS.QUEST] = function(obtain_filters, hide_type)
 		return obtain_filters.quest
 	end,
-	[A.WORLD_EVENT] = function(obtain_filters, hide_type)
+	[private.ACQUIRE_TYPE_IDS.WORLD_EVENT] = function(obtain_filters, hide_type)
 		return obtain_filters.worldevent
 	end,
-	[A.REPUTATION] = function(obtain_filters, hide_type)
+	[private.ACQUIRE_TYPE_IDS.REPUTATION] = function(obtain_filters, hide_type)
 		return true
 	end,
-	[A.WORLD_DROP] = function(obtain_filters, hide_type)
+	[private.ACQUIRE_TYPE_IDS.WORLD_DROP] = function(obtain_filters, hide_type)
 		return obtain_filters.worlddrop and not hide_type
 	end,
-	[A.CUSTOM] = function(obtain_filters, hide_type)
+	[private.ACQUIRE_TYPE_IDS.CUSTOM] = function(obtain_filters, hide_type)
 		return not hide_type
 	end,
-	[A.DISCOVERY] = function(obtain_filters, hide_type)
+	[private.ACQUIRE_TYPE_IDS.DISCOVERY] = function(obtain_filters, hide_type)
 		return not hide_type
 	end,
-	[A.RETIRED] = function(obtain_filters, hide_type)
+	[private.ACQUIRE_TYPE_IDS.RETIRED] = function(obtain_filters, hide_type)
 		return not hide_type
 	end,
-	[A.ACHIEVEMENT] = function(obtain_filters, hide_type)
+	[private.ACQUIRE_TYPE_IDS.ACHIEVEMENT] = function(obtain_filters, hide_type)
 		return obtain_filters.achievement
 	end,
 }
@@ -521,14 +519,14 @@ local function InitializeLocationTab()
 					local hide_acquire_type
 					local execute
 
-					if (acquire_type_id == A.TRAINER or acquire_type_id == A.VENDOR or acquire_type_id == A.MOB_DROP or acquire_type_id == A.QUEST)
+					if (acquire_type_id == private.ACQUIRE_TYPE_IDS.TRAINER or acquire_type_id == private.ACQUIRE_TYPE_IDS.VENDOR or acquire_type_id == private.ACQUIRE_TYPE_IDS.MOB_DROP or acquire_type_id == private.ACQUIRE_TYPE_IDS.QUEST)
 							and acquire_type:GetEntity(data_identifier).location == location_id then
 						execute = true
-					elseif (acquire_type_id == A.WORLD_EVENT or acquire_type_id == A.CUSTOM or acquire_type_id == A.DISCOVERY)
+					elseif (acquire_type_id == private.ACQUIRE_TYPE_IDS.WORLD_EVENT or acquire_type_id == private.ACQUIRE_TYPE_IDS.CUSTOM or acquire_type_id == private.ACQUIRE_TYPE_IDS.DISCOVERY)
 							and acquire_type:GetEntity(data_identifier).location == location_id then
 						hide_acquire_type = true
 						execute = true
-					elseif acquire_type_id == A.REPUTATION then
+					elseif acquire_type_id == private.ACQUIRE_TYPE_IDS.REPUTATION then
 						execute = true
 						break
 					end
