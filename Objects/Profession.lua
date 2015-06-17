@@ -51,7 +51,7 @@ for name, localized_name in pairs(private.LOCALIZED_PROFESSION_NAMES) do
     private.PROFESSION_NAME_MAP[localized_name] = localized_name
 end
 
-private.ORDERED_PROFESSIONS = {
+private.ORDERED_LOCALIZED_PROFESSION_NAMES = {
     private.LOCALIZED_PROFESSION_NAMES.ALCHEMY, 		-- 1
     private.LOCALIZED_PROFESSION_NAMES.BLACKSMITHING, 	-- 2
     private.LOCALIZED_PROFESSION_NAMES.COOKING, 		-- 3
@@ -82,8 +82,8 @@ private.PROFESSION_MODULE_NAMES = {
 }
 
 private.PROFESSION_IDS = {}
-for index = 1, #private.ORDERED_PROFESSIONS do
-    private.PROFESSION_IDS[private.ORDERED_PROFESSIONS[index]] = index
+for index = 1, #private.ORDERED_LOCALIZED_PROFESSION_NAMES do
+    private.PROFESSION_IDS[private.ORDERED_LOCALIZED_PROFESSION_NAMES[index]] = index
 end
 
 local ICON_TEXTURE_FORMAT = [[Interface\ICONS\%s]]

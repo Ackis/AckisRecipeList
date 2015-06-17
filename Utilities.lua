@@ -49,8 +49,8 @@ do
 	local function PrintProfessions()
 		addon:Print("Must supply a valid profession name, or \"all\":")
 
-		for index = 1, #private.ORDERED_PROFESSIONS do
-			addon:Print(private.ORDERED_PROFESSIONS[index])
+		for index = 1, #private.ORDERED_LOCALIZED_PROFESSION_NAMES do
+			addon:Print(private.ORDERED_LOCALIZED_PROFESSION_NAMES[index])
 		end
 
 		for profession_name in pairs(private.PROFESSION_NAME_MAP) do
@@ -81,8 +81,8 @@ do
 			local found
 			input = input:lower():trim()
 
-			for index = 1, #private.ORDERED_PROFESSIONS do
-				if input == private.ORDERED_PROFESSIONS[index]:lower() then
+			for index = 1, #private.ORDERED_LOCALIZED_PROFESSION_NAMES do
+				if input == private.ORDERED_LOCALIZED_PROFESSION_NAMES[index]:lower() then
 					found = true
 					break
 				end

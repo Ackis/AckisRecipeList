@@ -549,7 +549,7 @@ end -- do-block
 -- Recipe/Profession scanning and dumping routines.
 -------------------------------------------------------------------------------
 do
-	local ORDERED_PROFESSIONS = private.ORDERED_PROFESSIONS
+	local ORDERED_LOCALIZED_PROFESSION_NAMES = private.ORDERED_LOCALIZED_PROFESSION_NAMES
 
 	local intermediary_recipe_list = {}
 	local progress_bar
@@ -748,15 +748,15 @@ do
 		input_text = input_text:lower()
 
 		if input_text == "all" then
-			for index, profession_name in ipairs(ORDERED_PROFESSIONS) do
-				ScheduleProfessionScan(profession_name)
+			for index, professionName in ipairs(ORDERED_LOCALIZED_PROFESSION_NAMES) do
+				ScheduleProfessionScan(professionName)
 			end
 			return
 		end
 
-		for index, profession_name in ipairs(ORDERED_PROFESSIONS) do
-			if input_text == profession_name:lower() then
-				ScheduleProfessionScan(profession_name)
+		for index, professionName in ipairs(ORDERED_LOCALIZED_PROFESSION_NAMES) do
+			if input_text == professionName:lower() then
+				ScheduleProfessionScan(professionName)
 				return
 			end
 		end
@@ -836,14 +836,14 @@ do
 		input_text = input_text:lower()
 
 		if input_text == "all" then
-			for index, profession_name in ipairs(ORDERED_PROFESSIONS) do
-				ProfessionDump(profession_name)
+			for index, professionName in ipairs(ORDERED_LOCALIZED_PROFESSION_NAMES) do
+				ProfessionDump(professionName)
 			end
 		end
 
-		for index, profession_name in ipairs(ORDERED_PROFESSIONS) do
-			if input_text == profession_name:lower() then
-				ProfessionDump(profession_name)
+		for index, professionName in ipairs(ORDERED_LOCALIZED_PROFESSION_NAMES) do
+			if input_text == professionName:lower() then
+				ProfessionDump(professionName)
 				return
 			end
 		end
@@ -920,14 +920,14 @@ do
 		input_text = input_text:lower()
 
 		if input_text == "all" then
-			for index, profession_name in ipairs(ORDERED_PROFESSIONS) do
-				ProfessionTrainerDump(profession_name)
+			for index, professionName in ipairs(ORDERED_LOCALIZED_PROFESSION_NAMES) do
+				ProfessionTrainerDump(professionName)
 			end
 		end
 
-		for index, profession_name in ipairs(ORDERED_PROFESSIONS) do
-			if input_text == profession_name:lower() then
-				ProfessionTrainerDump(profession_name)
+		for index, professionName in ipairs(ORDERED_LOCALIZED_PROFESSION_NAMES) do
+			if input_text == professionName:lower() then
+				ProfessionTrainerDump(professionName)
 				return
 			end
 		end

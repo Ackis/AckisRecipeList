@@ -391,8 +391,8 @@ function private.InitializeFrame()
 			local player = private.Player
 			table.wipe(profession_registry)
 
-			for index = 1, #ORDERED_PROFESSIONS do
-                local localizedProfessionName = ORDERED_PROFESSIONS[index]
+			for index = 1, #private.ORDERED_LOCALIZED_PROFESSION_NAMES do
+                local localizedProfessionName = private.ORDERED_LOCALIZED_PROFESSION_NAMES[index]
 				if player.professions[localizedProfessionName] then
 					profession_registry[#profession_registry + 1] = localizedProfessionName
 				end
