@@ -52,9 +52,6 @@ do
 		for index = 1, #private.ORDERED_LOCALIZED_PROFESSION_NAMES do
 			addon:Print(private.ORDERED_LOCALIZED_PROFESSION_NAMES[index])
 		end
-
-		for profession_name in pairs(private.PROFESSION_NAME_MAP) do
-		end
 	end
 
 	private.DUMP_COMMANDS = {

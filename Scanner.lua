@@ -94,7 +94,7 @@ do
 			return
 		end
 
-		local trainerProfession = private.PROFESSION_NAME_MAP[_G.GetTrainerServiceSkillLine(1)]
+		local trainerProfession = private.LOCALIZED_SPELL_NAME_TO_LOCALIZED_PROFESSION_NAME_MAPPING[_G.GetTrainerServiceSkillLine(1)]
 		if not trainerProfession then
 			return
 		end

@@ -37,7 +37,7 @@ for name, spell_id in pairs(private.PROFESSION_SPELL_IDS) do
 end
 
 -- This is needed due to Pandaren cooking spells.
-private.PROFESSION_NAME_MAP = {
+private.LOCALIZED_SPELL_NAME_TO_LOCALIZED_PROFESSION_NAME_MAPPING = {
     [_G.GetSpellInfo(124694)] = private.LOCALIZED_PROFESSION_NAMES.COOKING, -- Way of the Grill
     [_G.GetSpellInfo(125584)] = private.LOCALIZED_PROFESSION_NAMES.COOKING, -- Way of the Wok
     [_G.GetSpellInfo(125586)] = private.LOCALIZED_PROFESSION_NAMES.COOKING, -- Way of the Pot
@@ -48,7 +48,7 @@ private.PROFESSION_NAME_MAP = {
 }
 
 for name, localized_name in pairs(private.LOCALIZED_PROFESSION_NAMES) do
-    private.PROFESSION_NAME_MAP[localized_name] = localized_name
+    private.LOCALIZED_SPELL_NAME_TO_LOCALIZED_PROFESSION_NAME_MAPPING[localized_name] = localized_name
 end
 
 private.ORDERED_LOCALIZED_PROFESSION_NAMES = {

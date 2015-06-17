@@ -715,8 +715,8 @@ local SUBCOMMAND_FUNCS = {
 		local found
 		input = input:lower()
 
-		for profession_name in pairs(private.PROFESSION_NAME_MAP) do
-			if input == profession_name:lower() then
+		for localizedSpellName in pairs(private.LOCALIZED_SPELL_NAME_TO_LOCALIZED_PROFESSION_NAME_MAPPING) do
+			if input == localizedSpellName:lower() then
 				found = true
 				break
 			end
