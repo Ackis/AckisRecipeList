@@ -1,18 +1,3 @@
---[[
-************************************************************************
-Panel.lua
-************************************************************************
-File date: @file-date-iso@
-File hash: @file-abbreviated-hash@
-Project hash: @project-abbreviated-hash@
-Project version: @project-version@
-************************************************************************
-Please see http://www.wowace.com/addons/arl/ for more information.
-************************************************************************
-This source code is released under All Rights Reserved.
-************************************************************************
-]]--
-
 -------------------------------------------------------------------------------
 -- Localized Lua globals.
 -------------------------------------------------------------------------------
@@ -36,19 +21,6 @@ local FOLDER_NAME, private	= ...
 local LibStub = _G.LibStub
 local addon	= LibStub("AceAddon-3.0"):GetAddon(private.addon_name)
 local L		= LibStub("AceLocale-3.0"):GetLocale(private.addon_name)
-
--------------------------------------------------------------------------------
--- Upvalues
--------------------------------------------------------------------------------
-local SetTextColor = private.SetTextColor
-local SetTooltipScripts = private.SetTooltipScripts
-
-local A = private.ACQUIRE_TYPE_IDS
-
--------------------------------------------------------------------------------
--- Constants
--------------------------------------------------------------------------------
-local ORDERED_PROFESSIONS	= private.ORDERED_PROFESSIONS
 
 function private.InitializeFrame()
 	-------------------------------------------------------------------------------
@@ -348,7 +320,7 @@ function private.InitializeFrame()
 		local localizedProfessionName = private.CurrentProfession:LocalizedName()
 
 		if not self.is_expanded then
-			self.title_bar:SetFormattedText(SetTextColor(private.BASIC_COLORS.normal.hex, "ARL (%s) - %s"), addon.version, localizedProfessionName)
+			self.title_bar:SetFormattedText(private.SetTextColor(private.BASIC_COLORS.normal.hex, "ARL (%s) - %s"), addon.version, localizedProfessionName)
 			return
 		end
 
@@ -362,7 +334,7 @@ function private.InitializeFrame()
 			end
 		end
 
-		self.title_bar:SetFormattedText(SetTextColor(private.BASIC_COLORS.normal.hex, "ARL (%s) - %s (%d/%d %s)"), addon.version, localizedProfessionName, active, total, _G.FILTERS)
+		self.title_bar:SetFormattedText(private.SetTextColor(private.BASIC_COLORS.normal.hex, "ARL (%s) - %s (%d/%d %s)"), addon.version, localizedProfessionName, active, total, _G.FILTERS)
 	end
 
 	-------------------------------------------------------------------------------
@@ -512,30 +484,30 @@ function private.InitializeFrame()
 		end
 
 		local function SearchByTrainer(recipe, search_pattern)
-			return SearchByList(recipe, search_pattern, A.TRAINER)
+			return SearchByList(recipe, search_pattern, private.ACQUIRE_TYPE_IDS.TRAINER)
 		end
 
 		local function SearchByVendor(recipe, search_pattern)
-			return SearchByList(recipe, search_pattern, A.VENDOR)
+			return SearchByList(recipe, search_pattern, private.ACQUIRE_TYPE_IDS.VENDOR)
 		end
 
 		local function SearchByMobDrop(recipe, search_pattern)
-			return SearchByList(recipe, search_pattern, A.MOB_DROP)
+			return SearchByList(recipe, search_pattern, private.ACQUIRE_TYPE_IDS.MOB_DROP)
 		end
 
 		local function SearchByCustom(recipe, search_pattern)
-			return SearchByList(recipe, search_pattern, A.CUSTOM)
+			return SearchByList(recipe, search_pattern, private.ACQUIRE_TYPE_IDS.CUSTOM)
 		end
 
 		local function SearchByDiscovery(recipe, search_pattern)
-			return SearchByList(recipe, search_pattern, A.DISCOVERY)
+			return SearchByList(recipe, search_pattern, private.ACQUIRE_TYPE_IDS.DISCOVERY)
 		end
 
 		local function SearchByReputation(recipe, search_pattern)
 			local reputation_acquire_type = private.AcquireTypes.Reputation
 
 			for acquire_type_id, acquire_data in pairs(recipe.acquire_data) do
-				if acquire_type_id == A.REPUTATION then
+				if acquire_type_id == private.ACQUIRE_TYPE_IDS.REPUTATION then
 					for id_num, info in pairs(acquire_data) do
 						local name = reputation_acquire_type:GetEntity(id_num).name
 
@@ -820,7 +792,7 @@ function private.InitializeFrame()
 		self:SetHighlightTexture("Interface\\BUTTONS\\UI-PlusButton-Hilight")
 		self:SetDisabledTexture("Interface\\BUTTONS\\UI-MinusButton-Disabled")
 
-		SetTooltipScripts(self, L["CONTRACTALL_DESC"])
+		private.SetTooltipScripts(self, L["CONTRACTALL_DESC"])
 	end
 
 	function expand_button:Contract(currentTab)
@@ -831,7 +803,7 @@ function private.InitializeFrame()
 		self:SetHighlightTexture("Interface\\Buttons\\UI-PlusButton-Hilight")
 		self:SetDisabledTexture("Interface\\Buttons\\UI-PlusButton-Disabled")
 
-		SetTooltipScripts(self, L["EXPANDALL_DESC"])
+		private.SetTooltipScripts(self, L["EXPANDALL_DESC"])
 	end
 
 	-------------------------------------------------------------------------------
@@ -854,7 +826,7 @@ function private.InitializeFrame()
 	end)
 
 	ExcludeToggle.text:SetText(L["Display Exclusions"])
-	SetTooltipScripts(ExcludeToggle, L["DISPLAY_EXCLUSION_DESC"], 1)
+	private.SetTooltipScripts(ExcludeToggle, L["DISPLAY_EXCLUSION_DESC"], 1)
 
 	-------------------------------------------------------------------------------
 	-- Create the X-close button, and set its scripts.
@@ -878,7 +850,7 @@ function private.InitializeFrame()
 		private.SetTooltipScripts(filter_toggle, L["FILTER_OPEN_DESC"])
 
 		filter_toggle:SetScript("OnClick", function(self, button, down)
-			SetTooltipScripts(self, MainPanel.is_expanded and L["FILTER_OPEN_DESC"] or L["FILTER_CLOSE_DESC"])
+			private.SetTooltipScripts(self, MainPanel.is_expanded and L["FILTER_OPEN_DESC"] or L["FILTER_CLOSE_DESC"])
 
 			MainPanel:ToggleState()
 			self:SetTextures()
