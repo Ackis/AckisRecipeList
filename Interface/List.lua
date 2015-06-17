@@ -524,9 +524,8 @@ function private.InitializeListFrame()
 			local known_count = 0
 			local unknown_count = 0
 
-			for spell_id in pairs(addon.db.profile.exclusionlist) do
-				local recipe = professionRecipes[spell_id]
-
+			for recipeSpellID in pairs(addon.db.profile.exclusionlist) do
+				local recipe = professionRecipes[recipeSpellID]
 				if recipe then
 					if recipe:HasState("KNOWN") then
 						known_count = known_count + 1
@@ -541,8 +540,8 @@ function private.InitializeListFrame()
 			-------------------------------------------------------------------------------
 			-- Initialize the expand button and entries for the current tab.
 			-------------------------------------------------------------------------------
-            local current_tab = MainPanel.tabs[addon.db.profile.current_tab]
-            local expanded_button = current_tab["expand_button_" .. private.CurrentProfession:Name()]
+            local currentTab = MainPanel.tabs[addon.db.profile.current_tab]
+            local professionExpandButton = currentTab["expand_button_" .. private.CurrentProfession:LocalizedName()]
 
 			if acquire_tip then
 				acquire_tip = QTip:Release(acquire_tip)
@@ -550,12 +549,12 @@ function private.InitializeListFrame()
 			SpellTooltip:Hide()
 			self.selected_entry = nil
 
-			if expanded_button then
-				MainPanel.expand_button:Expand(current_tab)
+			if professionExpandButton then
+				MainPanel.expand_button:Expand(currentTab)
 			else
-				MainPanel.expand_button:Contract(current_tab)
+				MainPanel.expand_button:Contract(currentTab)
 			end
-			local recipe_count = current_tab:Initialize(expand_mode)
+			local recipe_count = currentTab:Initialize(expand_mode)
 
 			-------------------------------------------------------------------------------
 			-- Update the progress bar display.

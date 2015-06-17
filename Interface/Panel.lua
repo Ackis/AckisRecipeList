@@ -161,12 +161,12 @@ function private.InitializeFrame()
 		if private.InitializeFilterPanel then
 			private.InitializeFilterPanel()
         end
-        local profession = private.CurrentProfession
-		local professionModule = profession:Module()
+        local currentProfession = private.CurrentProfession
+		local professionModule = currentProfession:Module()
 		local panel
 
 		if professionModule.InitializeItemFilters then
-			local panelName = "items_" .. profession:Name():lower()
+			local panelName = "items_" .. currentProfession:Name():lower()
 			panel = self.filter_menu:CreateSubMenu(panelName)
 
 			self.filter_menu.item[panelName] = self.filter_menu[panelName]
@@ -174,7 +174,7 @@ function private.InitializeFrame()
 
             professionModule:InitializeItemFilters(panel)
 		else
-			panel = self.filter_menu.item["items_" .. profession:Name():lower()]
+			panel = self.filter_menu.item["items_" .. currentProfession:Name():lower()]
 		end
 		private.UpdateFilterMarks()
 
@@ -786,33 +786,34 @@ function private.InitializeFrame()
 	expand_button:SetPoint("LEFT", expand_button_frame.left, "RIGHT", -3, -3)
 
 	expand_button:SetScript("OnClick", function(self, mouse_button, down)
-		local current_tab = MainPanel.current_tab
-		local is_expanded = current_tab["expand_button_" .. private.CurrentProfession:Name()]
-		local expand_mode
+		local currentTab = MainPanel.current_tab
+        local localizedProfessionName = private.CurrentProfession:LocalizedName()
+		local professionExpandButton = currentTab["expand_button_" .. localizedProfessionName]
+		local expandMode
 
-		if is_expanded then
-			table.wipe(current_tab[private.CurrentProfession:LocalizedName() .. " expanded"])
+		if professionExpandButton then
+			table.wipe(currentTab[localizedProfessionName .. " expanded"])
 		else
 			if _G.IsShiftKeyDown() then
-				expand_mode = "deep"
+				expandMode = "deep"
 			else
-				expand_mode = "normal"
+				expandMode = "normal"
 			end
 		end
 		-- MainPanel.list_frame:Update() must be called before the button can be expanded or contracted, since
 		-- the button is contracted from there.
 		-- If expand_mode is nil, that means expand nothing.
-		MainPanel.list_frame:Update(expand_mode, false)
+		MainPanel.list_frame:Update(expandMode, false)
 
-		if is_expanded then
-			self:Contract(current_tab)
+		if professionExpandButton then
+			self:Contract(currentTab)
 		else
-			self:Expand(current_tab)
+			self:Expand(currentTab)
 		end
 	end)
 
-	function expand_button:Expand(current_tab)
-		current_tab["expand_button_" .. private.CurrentProfession:Name()] = true
+	function expand_button:Expand(currentTab)
+		currentTab["expand_button_" .. private.CurrentProfession:LocalizedName()] = true
 
 		self:SetNormalTexture("Interface\\BUTTONS\\UI-MinusButton-Up")
 		self:SetPushedTexture("Interface\\BUTTONS\\UI-MinusButton-Down")
@@ -822,8 +823,8 @@ function private.InitializeFrame()
 		SetTooltipScripts(self, L["CONTRACTALL_DESC"])
 	end
 
-	function expand_button:Contract(current_tab)
-		current_tab["expand_button_" .. private.CurrentProfession:Name()] = nil
+	function expand_button:Contract(currentTab)
+		currentTab["expand_button_" .. private.CurrentProfession:LocalizedName()] = nil
 
 		self:SetNormalTexture("Interface\\Buttons\\UI-PlusButton-Up")
 		self:SetPushedTexture("Interface\\Buttons\\UI-PlusButton-Down")

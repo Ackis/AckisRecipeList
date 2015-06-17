@@ -303,9 +303,8 @@ local function InitializeAcquisitionTab()
 	function AcquisitionTab:ExpandListEntry(entry, expand_mode)
 		local orig_index = entry.button and entry.button.entry_index or entry.index
 		local expand_all = expand_mode == "deep"
-		local localizedProfessionName = private.CurrentProfession:LocalizedName()
 		local entry_acquire_type = entry:AcquireType()
-		local entry_acquire_type_id = entry_acquire_type:ID()
+        local entry_acquire_type_id = entry_acquire_type:ID()
 
 		-- Entry_index is the position in self.entries that we want to expand. Since we are expanding the current entry, the return
 		-- value should be the index of the next button after the expansion occurs
@@ -315,11 +314,11 @@ local function InitializeAcquisitionTab()
 
 		if entry:IsHeader() then
 			local sorted_recipes = entry_acquire_type:GetSortedRecipes()
-			local professionRecipes = private.Professions[localizedProfessionName].Recipes
+            local currentProfession = private.CurrentProfession
+            local localizedProfessionName = currentProfession:LocalizedName()
 
-			for index = 1, #sorted_recipes do
-				local recipe = professionRecipes[sorted_recipes[index]]
-
+            for index = 1, #sorted_recipes do
+				local recipe = currentProfession.Recipes[sorted_recipes[index]]
 				if recipe and recipe:HasState("VISIBLE") and MainPanel.search_editbox:MatchesRecipe(recipe) then
 					local expand = false
 					local entry_type = "subheader"
@@ -396,9 +395,10 @@ local function InitializeLocationTab()
 				table.insert(sorted_locations, loc_name)
 			end
 			table.sort(sorted_locations, Sort_Location)
-		end
-        local localizedProfessionName = private.CurrentProfession:LocalizedName()
-		local professionRecipes = private.Professions[localizedProfessionName].Recipes
+        end
+        local currentProfession = private.CurrentProfession
+        local localizedProfessionName = currentProfession:LocalizedName()
+		local professionRecipes = currentProfession.Recipes
 
 		self[localizedProfessionName .. " expanded"] = self[localizedProfessionName .. " expanded"] or {}
 
@@ -487,21 +487,21 @@ local function InitializeLocationTab()
 		if entry:IsHeader() then
 			local recipe_list = private.location_list[location_id].recipes
 			local sorted_recipes = addon.sorted_recipes
-            local localizedProfessionName = private.CurrentProfession:LocalizedName()
-			local professionRecipes = private.Professions[localizedProfessionName].Recipes
+            local currentProfession = private.CurrentProfession
+            local localizedProfessionName = currentProfession:LocalizedName()
 
 			private.SortRecipeList(recipe_list)
 
 			for index = 1, #sorted_recipes do
-				local recipe_id = sorted_recipes[index]
-				local recipe = professionRecipes[recipe_id]
+				local recipeSpellID = sorted_recipes[index]
+				local recipe = currentProfession.Recipes[recipeSpellID]
 
 				if recipe and recipe:HasState("VISIBLE") and MainPanel.search_editbox:MatchesRecipe(recipe) then
 					local expand = false
 					local entry_type = "subheader"
 
 					-- Add World Drop entries as normal entries.
-					if recipe_list[recipe_id] == "world_drop" then
+					if recipe_list[recipeSpellID] == "world_drop" then
 						expand = true
 						entry_type = "entry"
 					end
@@ -551,8 +551,9 @@ local function InitializeRecipesTab()
 	RecipesTab = CreateTab(3, _G.TRADESKILL_SERVICE_LEARN, "LEFT", LocationTab, "RIGHT", -14, 0)
 
 	function RecipesTab:Initialize(expand_mode)
-        local localizedProfessionName = private.CurrentProfession:LocalizedName()
-		local professionRecipes = private.Professions[localizedProfessionName].Recipes
+        local currentProfession = private.CurrentProfession
+        local localizedProfessionName = currentProfession:LocalizedName()
+		local professionRecipes = currentProfession.Recipes
 
 		self[localizedProfessionName .. " expanded"] = self[localizedProfessionName .. " expanded"] or {}
 
