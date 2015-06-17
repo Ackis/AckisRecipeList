@@ -66,7 +66,7 @@ private.ORDERED_LOCALIZED_PROFESSION_NAMES = {
 }
 
 -- Required for loading profession modules.
-private.PROFESSION_MODULE_NAMES = {
+private.LOCALIZED_PROFESSION_NAME_TO_MODULE_NAME_MAPPING = {
     [private.LOCALIZED_PROFESSION_NAMES.ALCHEMY] = "Alchemy",
     [private.LOCALIZED_PROFESSION_NAMES.BLACKSMITHING] = "Blacksmithing",
     [private.LOCALIZED_PROFESSION_NAMES.COOKING] = "Cooking",
@@ -139,7 +139,7 @@ end
 -------------------------------------------------------------------------------
 function private.CreateProfessionFromModule(module)
     local moduleName = module:GetName()
-    for localizedProfessionName, professionModuleName in pairs(private.PROFESSION_MODULE_NAMES) do
+    for localizedProfessionName, professionModuleName in pairs(private.LOCALIZED_PROFESSION_NAME_TO_MODULE_NAME_MAPPING) do
         if professionModuleName == moduleName then
             local profession = _G.setmetatable({
                 _id = LOCALIZED_PROFESSION_NAME_TO_ID_MAPPING[localizedProfessionName],

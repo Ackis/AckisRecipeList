@@ -607,8 +607,7 @@ function addon:TRADE_SKILL_SHOW()
         scan_button:SetWidth(scan_button:GetTextWidth() + 10)
     end
 
-    local profession_name = _G.GetTradeSkillLine()
-    if private.PROFESSION_MODULE_NAMES[profession_name] then
+    if private.LOCALIZED_PROFESSION_NAME_TO_MODULE_NAME_MAPPING[_G.GetTradeSkillLine()] then
         scan_button:Show()
     else
         scan_button:Hide()
@@ -670,8 +669,8 @@ do
 
 	-- Returns true if a profession was initialized.
 	function addon:InitializeProfession(localizedProfessionName)
-        local professionName = localizedProfessionName and private.PROFESSION_MODULE_NAMES[localizedProfessionName] or nil
-		if not professionName then
+        local professionModuleName = localizedProfessionName and private.LOCALIZED_PROFESSION_NAME_TO_MODULE_NAME_MAPPING[localizedProfessionName] or nil
+		if not professionModuleName then
 			addon:Debug("Invalid profession name (%s) passed to InitializeProfession()", tostring(localizedProfessionName))
 			return false
 		end
@@ -680,11 +679,11 @@ do
 			InitializeLookups()
 		end
 
-        if private.Professions[professionName] then
+        if private.Professions[professionModuleName] then
             return true
         end
 
-		local moduleName = FOLDER_NAME .. "_" .. professionName or ""
+		local moduleName = FOLDER_NAME .. "_" .. professionModuleName or ""
 		local _, _, _, _, reason = _G.GetAddOnInfo(moduleName)
 		if reason ~= "DISABLED" then
 			return _G.LoadAddOn(moduleName) and true or false
@@ -841,7 +840,7 @@ do
             localizedProfessionName = private.LOCALIZED_PROFESSION_NAMES.SMELTING
         end
 
-        local professionModuleName = private.PROFESSION_MODULE_NAMES[localizedProfessionName]
+        local professionModuleName = private.LOCALIZED_PROFESSION_NAME_TO_MODULE_NAME_MAPPING[localizedProfessionName]
         if not professionModuleName then
             return
         end
@@ -851,7 +850,7 @@ do
         if not professionModule then
             local foundModule
 
-            for professionName, moduleName in pairs(private.PROFESSION_MODULE_NAMES) do
+            for _, moduleName in pairs(private.LOCALIZED_PROFESSION_NAME_TO_MODULE_NAME_MAPPING) do
                 local _, _, _, _, reason = _G.GetAddOnInfo(FOLDER_NAME .. "_" .. moduleName or "")
                 if not reason or reason == "DISABLED" then
                     -- The assumption here is that if a module is disabled, the user is aware that modules exist.
