@@ -207,8 +207,7 @@ do
 
 			for index in ipairs(ExtraSpellIDs) do
 				local recipeSpellID = ExtraSpellIDs[index]
-				local recipe = professionRecipes[recipeSpellID]
-                output:AddLine(("    %s -- %s"):format(recipe.name, recipeSpellID))
+                output:AddLine(("    %s -- %s"):format(professionRecipes[recipeSpellID].name, recipeSpellID))
 			end
 		end
 
@@ -680,9 +679,8 @@ do
 		ScannerUpdateFrame.profession = localizedProfessionName
 		table.wipe(intermediary_recipe_list)
 
-		local professionRecipes = private.Professions[localizedProfessionName].Recipes
-		for spell_id in pairs(professionRecipes) do
-			intermediary_recipe_list[spell_id] = professionRecipes[spell_id]
+		for recipeSpellID, recipe in pairs(private.Professions[localizedProfessionName].Recipes) do
+			intermediary_recipe_list[recipeSpellID] = recipe
 		end
 
 		local output = private.TextDump
@@ -780,9 +778,8 @@ do
 		addon:InitializeProfession(localizedProfessionName)
 		table.wipe(intermediary_recipe_list)
 
-		local professionRecipes = private.Professions[localizedProfessionName].Recipes
-		for spell_id in pairs(professionRecipes) do
-			intermediary_recipe_list[spell_id] = professionRecipes[spell_id]
+		for recipeSpellID, recipe in pairs(private.Professions[localizedProfessionName].Recipes) do
+			intermediary_recipe_list[recipeSpellID] = recipe
 		end
 
 		local output = CopyFrame
@@ -860,9 +857,8 @@ do
 		addon:InitializeProfession(localizedProfessionName)
 		table.wipe(intermediary_recipe_list)
 
-		local professionRecipes = private.Professions[localizedProfessionName].Recipes
-		for spell_id in pairs(professionRecipes) do
-			intermediary_recipe_list[spell_id] = professionRecipes[spell_id]
+		for recipeSpellID, recipe in pairs(private.Professions[localizedProfessionName].Recipes) do
+			intermediary_recipe_list[recipeSpellID] = recipe
 		end
 		SortRecipesByID()
 
