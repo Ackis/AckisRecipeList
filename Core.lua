@@ -1147,13 +1147,12 @@ do
 		end
 
 		local professionRecipes = private.Professions[localizedProfessionName].Recipes
-		for recipe_id in pairs(professionRecipes) do
-			local recipe = professionRecipes[recipe_id]
-			local is_known = recipe:HasState("KNOWN")
+		for recipeSpellID, recipe in pairs(professionRecipes) do
+			local recipeIsKnown = recipe:HasState("KNOWN")
 
 			if output_format == "Comma" then
 				-- Add Spell ID, Name and Skill Level to the list
-				output:AddLine(recipe_id)
+				output:AddLine(recipeSpellID)
 				output:AddLine(",")
 				output:AddLine(recipe.name)
 				output:AddLine(",")
@@ -1161,15 +1160,15 @@ do
 				output:AddLine(",\"")
 			elseif output_format == "BBCode" then
 				-- Make the entry red
-				output:AddLine(("\n%s[b]%d[/b] - %s (%d)%s\n"):format(is_known and "" or "[color=red]", recipe_id, recipe.name, recipe.skill_level, is_known and "" or "[/color]"))
+				output:AddLine(("\n%s[b]%d[/b] - %s (%d)%s\n"):format(recipeIsKnown and "" or "[color=red]", recipeSpellID, recipe.name, recipe.skill_level, recipeIsKnown and "" or "[/color]"))
 
 				output:AddLine("\nRecipe Flags:\n[list]\n")
 			elseif output_format == "XML" then
 				output:AddLine("\n<recipe>\n")
-				output:AddLine("  <id>" .. recipe_id .. "</id>\n")
+				output:AddLine("  <id>" .. recipeSpellID .. "</id>\n")
 				output:AddLine("  <name>" .. recipe.name .. "</name>\n")
 				output:AddLine("  <skilllevel>" .. recipe.skill_level .. "</skilllevel>\n")
-				output:AddLine("  <known>" .. tostring(is_known) .. "</known>\n")
+				output:AddLine("  <known>" .. tostring(recipeIsKnown) .. "</known>\n")
 				output:AddLine("  <flags>\n")
 			elseif output_format == "Name" then
 				output:AddLine(recipe.name)
@@ -1217,7 +1216,7 @@ do
 			end
 
 			-- Find out which unique acquire methods we have
-			local acquire_data = recipe["acquire_data"]
+			local acquire_data = recipe.acquire_data
 			table.wipe(acquire_list)
 
 			for acquire_type_id in pairs(acquire_data) do
@@ -1242,7 +1241,7 @@ do
 			end
 
 			if output_format == "Comma" then
-				output:AddLine("\"," .. tostring(is_known) .. "\n")
+				output:AddLine("\"," .. tostring(recipeIsKnown) .. "\n")
 			elseif output_format == "BBCode" then
 				output:AddLine("\n[/list]\n")
 			elseif output_format == "XML" then
