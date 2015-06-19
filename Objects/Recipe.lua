@@ -854,8 +854,6 @@ function Recipe:Dump(output, use_genesis)
 	if filterOutputText then
 		output:AddLine(("recipe:AddFilters(%s)"):format(filterOutputText), genesis_val)
 	end
-	local ZL = private.ZONE_LABELS_FROM_NAME
-
 	filterOutputText = nil
 
 	for acquireTypeID, acquireInfo in pairs(self.acquire_data) do
@@ -953,7 +951,7 @@ function Recipe:Dump(output, use_genesis)
 
 				if type(identifier) == "string" then
 					if acquireTypeID == ACQUIRE_TYPE_IDS.WORLD_DROP then
-						saved_id = ("Z.%s"):format(ZL[identifier])
+						saved_id = ("Z.%s"):format(private.ZONE_LABELS_FROM_NAME[identifier])
 					else
 						saved_id = ("\"%s\""):format(identifier)
 					end
