@@ -3,8 +3,10 @@
 -------------------------------------------------------------------------------
 local _G = getfenv(0)
 
-local pairs = _G.pairs
 local string = _G.string
+
+local pairs = _G.pairs
+local tonumber = _G.tonumber
 local type = _G.type
 
 -------------------------------------------------------------------------------
@@ -270,6 +272,45 @@ local COSMIC_MAP_LOCATION_PARENT_MAPPING = {
     HYJAL_SUMMIT = ZONE_NAMES.TANARIS,
 }
 
+-- Coordinates are relative to the instance's parent location.
+local INSTANCE_ENTRANCE_COORDINATES = {
+    AHNKAHET_THE_OLD_KINGDOM = "28.49:51.73",
+    AUCHENAI_CRYPTS = "0:0",
+    AZJOL_NERUB = "26.01:50.83",
+    BLACKROCK_DEPTHS = "20.72:36.94", -- TODO: Double check this and the next two - they're identical.
+    BLACKROCK_SPIRE = "20.72:36.94",
+    BLACKWING_LAIR = "20.72:36.94",
+    DIRE_MAUL = "61.36:31.78",
+    DRAKTHARON_KEEP = "0:0",
+    GNOMEREGAN = "31.29:37.89",
+    HALLS_OF_LIGHTNING = "45.40:21.37",
+    HALLS_OF_STONE = "39.49:26.92",
+    KARAZHAN = "0:0",
+    MAGISTERS_TERRACE = "61.20:30.89",
+    MANA_TOMBS = "0:0",
+    THE_OCULUS = "27.52:26.71",
+    OLD_HILLSBRAD_FOOTHILLS = "0:0",
+    ONYXIAS_LAIR = "0:0",
+    RUINS_OF_AHNQIRAJ = "0:0",
+    SCHOLOMANCE = "0:0",
+    SETHEKK_HALLS = "0:0",
+    SHADOW_LABYRINTH = "0:0",
+    STRATHOLME = "26.75:11.60",
+    AHNQIRAJ_THE_FALLEN_KINGDOM = "0:0",
+    THE_ARCATRAZ = "0:0",
+    THE_BLACK_MORASS = "0:0",
+    THE_BOTANICA = "0:0",
+    THE_DEADMINES = "0:0",
+    THE_MECHANAR = "0:0",
+    THE_NEXUS = "27.50:25.97",
+    THE_SHATTERED_HALLS = "0:0",
+    THE_SLAVE_PENS = "0:0",
+    THE_STEAMVAULT = "0:0",
+    THE_TEMPLE_OF_ATALHAKKAR = "0:0",
+    THE_VIOLET_HOLD = "66.78:68.19",
+    UTGARDE_KEEP = "57.28:46.73",
+    UTGARDE_PINNACLE = "57.26:46.67"
+}
 -------------------------------------------------------------------------------
 -- Objects.
 -------------------------------------------------------------------------------
@@ -293,6 +334,16 @@ end
 
 function Location:ContinentID()
     return self._continentID
+end
+
+function Location:EntranceCoordinates()
+    local coordinates = self._entranceCoordinates
+    if coordinates then
+        local x, y = (":"):split(coordinates)
+        return tonumber(x), tonumber(y)
+    end
+
+    return 0, 0
 end
 
 function Location:GetRecipeAffiliation(recipe)
@@ -343,6 +394,7 @@ local function AddLocation(continentID, mapID, parentLocation)
 
         local location = _G.setmetatable({
             _continentID = continentID,
+            _entranceCoordinates = INSTANCE_ENTRANCE_COORDINATES[zoneLabel],
             _label = zoneLabel,
             _localizedName = localizedName,
             _mapID = mapID,
