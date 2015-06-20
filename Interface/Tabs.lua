@@ -226,7 +226,7 @@ local function InitializeAcquisitionTab()
 	local MainPanel = addon.Frame
 
 	-- Used to hold tables for sorting the tab:The tables are only sorted once, upon creation.
-	local sorted_acquires
+	local SortedAcquireTypes
 
 	AcquisitionTab = CreateTab(1, L["Acquisition"], "TOPLEFT", addon.Frame, "BOTTOMLEFT", 4, 81)
 
@@ -236,32 +236,28 @@ local function InitializeAcquisitionTab()
 
 		table.wipe(recipe_registry)
 
-		if not sorted_acquires then
-			local ACQUIRE_TYPES_BY_ID = private.ACQUIRE_TYPES_BY_ID
+		if not SortedAcquireTypes then
+			SortedAcquireTypes = {}
 
-			-- Sorting function: Only used once and then thrown away.
-			local function Sort_Acquisition(first_id, second_id)
-				return ACQUIRE_TYPES_BY_ID[first_id]:Name() < ACQUIRE_TYPES_BY_ID[second_id]:Name()
-			end
+            for name, acquireType in pairs(private.AcquireTypes) do
+				SortedAcquireTypes[#SortedAcquireTypes + 1] = acquireType
+            end
 
-			sorted_acquires = {}
-
-			for acquire_type_id = 1, #ACQUIRE_TYPES_BY_ID do
-				sorted_acquires[#sorted_acquires + 1] = acquire_type_id
-			end
-			table.sort(sorted_acquires, Sort_Acquisition)
+			table.sort(SortedAcquireTypes, function(acquireTypeA, acquireTypeB)
+                return acquireTypeA:Name() < acquireTypeB:Name()
+            end)
 		end
 		local localizedProfessionName = private.CurrentProfession:LocalizedName()
 		local professionRecipes = private.Professions[localizedProfessionName].Recipes
 
 		self[localizedProfessionName .. " expanded"] = self[localizedProfessionName .. " expanded"] or {}
 
-		for index = 1, #sorted_acquires do
-			local acquire_type_id = sorted_acquires[index]
+		for index = 1, #SortedAcquireTypes do
+			local acquireType = SortedAcquireTypes[index]
 			local count = 0
 
 			-- Check to see if any recipes for this acquire type will be shown - otherwise, don't show the type in the list.
-			for spell_id, affiliation in private.ACQUIRE_TYPES_BY_ID[acquire_type_id]:RecipePairs() do
+			for spell_id, affiliation in acquireType:RecipePairs() do
 				local recipe = professionRecipes[spell_id]
 
 				if recipe and recipe:HasState("VISIBLE") and MainPanel.search_editbox:MatchesRecipe(recipe) then
@@ -277,22 +273,20 @@ local function InitializeAcquisitionTab()
 			end
 
 			if count > 0 then
-				local acquire_type = private.ACQUIRE_TYPES_BY_ID[acquire_type_id]
-				local acquire_type_name = acquire_type:Name()
-				local is_expanded = self[localizedProfessionName .. " expanded"][acquire_type_name]
-
-				local entry = CreateListEntry("header")
-				entry:SetAcquireType(acquire_type)
-				entry:SetText("%s (%d)",
-					SetTextColor(acquire_type:ColorData().hex, acquire_type_name),
+				local isAcquireTypeExpanded = self[localizedProfessionName .. " expanded"][acquireType:Name()]
+				local listEntry = CreateListEntry("header")
+				listEntry:SetAcquireType(acquireType)
+				listEntry:SetText("%s (%d)",
+					SetTextColor(acquireType:ColorData().hex, acquireType:Name()),
 					count
 				)
 
-				insert_index = MainPanel.list_frame:InsertEntry(entry, insert_index, is_expanded or expand_mode, is_expanded or expand_mode)
+				insert_index = MainPanel.list_frame:InsertEntry(listEntry, insert_index, isAcquireTypeExpanded or expand_mode, isAcquireTypeExpanded or expand_mode)
 			else
-				self[localizedProfessionName .. " expanded"][private.ACQUIRE_TYPES_BY_ID[acquire_type_id]:Name()] = nil
+				self[localizedProfessionName .. " expanded"][acquireType:Name()] = nil
 			end
-		end
+        end
+
 		return recipe_count
 	end
 
@@ -325,11 +319,11 @@ local function InitializeAcquisitionTab()
 					end
 					local is_expanded = (self[localizedProfessionName .." expanded"][recipe] and self[localizedProfessionName .." expanded"][entry_acquire_type:Name()])
 
-					local new_entry = CreateListEntry(entry_type, entry, recipe)
-					new_entry:SetAcquireType(entry_acquire_type)
-					new_entry:SetText(recipe:GetDisplayName())
+					local listEntry = CreateListEntry(entry_type, entry, recipe)
+					listEntry:SetAcquireType(entry_acquire_type)
+					listEntry:SetText(recipe:GetDisplayName())
 
-					new_entry_index = MainPanel.list_frame:InsertEntry(new_entry, new_entry_index, expand or is_expanded, expand_all or is_expanded)
+					new_entry_index = MainPanel.list_frame:InsertEntry(listEntry, new_entry_index, expand or is_expanded, expand_all or is_expanded)
 				end
 			end
 		elseif entry:IsSubHeader() then
@@ -360,18 +354,15 @@ local function InitializeLocationTab()
 		table.wipe(recipe_registry)
 
 		if not SortedLocations then
-			-- Sorting function: Only used once and then thrown away.
-			local function SortLocationsByLocalizedName(locationA, locationB)
-				return locationA:LocalizedName() < locationB:LocalizedName()
-			end
-
 			SortedLocations = {}
 
 			for name, location in pairs(private.Locations) do
 				table.insert(SortedLocations, location)
 			end
 
-			table.sort(SortedLocations, SortLocationsByLocalizedName)
+			table.sort(SortedLocations, function(locationA, locationB)
+                return locationA:LocalizedName() < locationB:LocalizedName()
+            end)
         end
         local currentProfession = private.CurrentProfession
         local localizedProfessionName = currentProfession:LocalizedName()
@@ -391,11 +382,8 @@ local function InitializeLocationTab()
 					local showOpposingFaction = addon.db.profile.filters.general.faction
 
 					if not showOpposingFaction then
-						local ACQUIRE_TYPES_BY_ID = private.ACQUIRE_TYPES_BY_ID
-
-						for acquireTypeID = 1, #ACQUIRE_TYPES_BY_ID do
-							local acquireData = recipe.acquire_data[acquireTypeID]
-                            local acquireType = private.ACQUIRE_TYPES_BY_ID[acquireTypeID]
+                        for name, acquireType in pairs(private.AcquireTypes) do
+							local acquireData = recipe.acquire_data[acquireType:ID()]
 
 							if acquireData and acquireType:HasCoordinates() then
                                 local alignedCount = 0
@@ -437,25 +425,25 @@ local function InitializeLocationTab()
 			end
 
 			if count > 0 then
-				local entry = CreateListEntry("header")
+				local listEntry = CreateListEntry("header")
 
 				if localizedLocationName == _G.GetRealZoneText() then
-					entry:Emphasize(true)
-					entry:SetText("%s (%d)",
+					listEntry:Emphasize(true)
+					listEntry:SetText("%s (%d)",
 						SetTextColor(private.DIFFICULTY_COLORS.optimal.hex, localizedLocationName),
 						count
 					)
 				else
-					entry:Emphasize(false)
-					entry:SetText("%s (%d)",
+					listEntry:Emphasize(false)
+					listEntry:SetText("%s (%d)",
 						SetTextColor(private.CATEGORY_COLORS.location.hex, localizedLocationName),
 						count
 					)
 				end
-				entry:SetLocationID(localizedLocationName)
+				listEntry:SetLocationID(localizedLocationName)
 
-				local is_expanded = self[localizedProfessionName .. " expanded"][localizedLocationName]
-				insert_index = MainPanel.list_frame:InsertEntry(entry, insert_index, is_expanded or expand_mode, is_expanded or expand_mode)
+				local isLocationExpanded = self[localizedProfessionName .. " expanded"][localizedLocationName]
+				insert_index = MainPanel.list_frame:InsertEntry(listEntry, insert_index, isLocationExpanded or expand_mode, isLocationExpanded or expand_mode)
 			else
 				self[localizedProfessionName .. " expanded"][localizedLocationName] = nil
 			end
@@ -493,13 +481,13 @@ local function InitializeLocationTab()
 						expand = true
 						entry_type = "entry"
 					end
-					local is_expanded = (self[localizedProfessionName .." expanded"][recipe] and self[localizedProfessionName .." expanded"][localizedLocationName])
 
-					local new_entry = CreateListEntry(entry_type, entry, recipe)
-					new_entry:SetText(recipe:GetDisplayName())
-					new_entry:SetLocationID(localizedLocationName)
+					local isLocationExpanded = (self[localizedProfessionName .." expanded"][recipe] and self[localizedProfessionName .." expanded"][localizedLocationName])
+					local listEntry = CreateListEntry(entry_type, entry, recipe)
+					listEntry:SetText(recipe:GetDisplayName())
+					listEntry:SetLocationID(localizedLocationName)
 
-					new_entry_index = MainPanel.list_frame:InsertEntry(new_entry, new_entry_index, expand or is_expanded, expand_all or is_expanded)
+					new_entry_index = MainPanel.list_frame:InsertEntry(listEntry, new_entry_index, expand or isLocationExpanded, expand_all or isLocationExpanded)
 				end
 			end
 		elseif entry:IsSubHeader() then
@@ -555,17 +543,18 @@ local function InitializeRecipesTab()
 			local recipe = professionRecipes[sorted_recipes[i]]
 
 			if recipe and recipe:HasState("VISIBLE") and MainPanel.search_editbox:MatchesRecipe(recipe) then
-				local entry = CreateListEntry("header", nil, recipe)
-				entry:SetText(recipe:GetDisplayName())
+				local listEntry = CreateListEntry("header", nil, recipe)
+				listEntry:SetText(recipe:GetDisplayName())
 
 				recipe_count = recipe_count + 1
 
-				local is_expanded = self[localizedProfessionName .. " expanded"][recipe]
-				insert_index = MainPanel.list_frame:InsertEntry(entry, insert_index, is_expanded or expand_mode, is_expanded or expand_mode)
+				local isRecipeExpanded = self[localizedProfessionName .. " expanded"][recipe]
+				insert_index = MainPanel.list_frame:InsertEntry(listEntry, insert_index, isRecipeExpanded or expand_mode, isRecipeExpanded or expand_mode)
 			else
 				self[localizedProfessionName .. " expanded"][recipe] = nil
 			end
-		end
+        end
+
 		return recipe_count
 	end
 
