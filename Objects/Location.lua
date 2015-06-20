@@ -5,6 +5,7 @@ local _G = getfenv(0)
 
 local pairs = _G.pairs
 local string = _G.string
+local type = _G.type
 
 -------------------------------------------------------------------------------
 -- AddOn namespace.
@@ -48,6 +49,7 @@ local ZONE_MAP_IDS = {
     STONETALON_MOUNTAINS = 81,
     DESOLACE = 101,
     FERALAS = 121,
+    DUSTWALLOW_MARSH = { 141, 851, 906 },
     TANARIS = 161,
     AZSHARA = 181,
     FELWOOD = 182,
@@ -88,6 +90,7 @@ local ZONE_MAP_IDS = {
     ISLE_OF_QUELDANAS = 499,
     WINTERGRASP = 501,
     DALARAN = 504,
+    CRYSTALSONG_FOREST = 510, -- Required for DALARAN
     THE_NEXUS = 520,
     AHNKAHET_THE_OLD_KINGDOM = 522,
     UTGARDE_KEEP = 523,
@@ -99,7 +102,7 @@ local ZONE_MAP_IDS = {
     AZJOL_NERUB = 533,
     DRAKTHARON_KEEP = 534,
     THE_VIOLET_HOLD = 536,
-    GILNEAS = 539,
+    GILNEAS = { 539, 545, 678, 679, },
     TRIAL_OF_THE_CRUSADER = 543,
     THE_LOST_ISLES = 544,
     ICECROWN_CITADEL = 604,
@@ -138,7 +141,7 @@ local ZONE_MAP_IDS = {
     RAZORFEN_DOWNS = 760,
     STRATHOLME = 765,
     AHNQIRAJ = 766,
-    TWILIGHT_HIGHLANDS = 770,
+    TWILIGHT_HIGHLANDS = { 700, 770, },
     AHNQIRAJ_THE_FALLEN_KINGDOM = 772,
     HYJAL_SUMMIT = 775,
     SERPENTSHRINE_CAVERN = 780,
@@ -149,20 +152,20 @@ local ZONE_MAP_IDS = {
     MAGISTERS_TERRACE = 798,
     KARAZHAN = 799,
     FIRELANDS = 800,
+    THE_JADE_FOREST = { 806, 880, },
     VALLEY_OF_THE_FOUR_WINDS = 807,
     THE_WANDERING_ISLE = 808,
     TOWNLONG_STEPPES = 810,
     VALE_OF_ETERNAL_BLOSSOMS = 811,
     DARKMOON_ISLAND = 823,
     DRAGON_SOUL = 824,
-    DUSTWALLOW_MARSH = 851,
     KRASARANG_WILDS = 857,
     DREAD_WASTES = 858,
     PANDARIA = 862,
     THE_VEILED_STAIR = 873,
-    KUN_LAI_SUMMIT = 879,
-    THE_JADE_FOREST = 880,
+    KUN_LAI_SUMMIT = { 809, 879, },
     TERRACE_OF_ENDLESS_SPRING = 886,
+    SUNSTRIDER_ISLE = 893, -- Required for SUNWELL_PLATEAU
     NEW_TINKERTOWN = 895,
     MOGUSHAN_VAULTS = 896,
     HEART_OF_FEAR = 897,
@@ -170,39 +173,47 @@ local ZONE_MAP_IDS = {
     SHRINE_OF_TWO_MOONS = 903,
     SHRINE_OF_SEVEN_STARS = 905,
     ISLE_OF_THUNDER = 928,
+    FROSTFIRE_RIDGE = 941, -- Required for FROSTWALL
     TALADOR = 946,
+    SHADOWMOON_VALLEY_DRAENOR = 947, -- Required for LUNARFALL
     NAGRAND_DRAENOR = 950,
     TIMELESS_ISLE = 951,
     DRAENOR = 962,
-    LUNARFALL = 971,
-    FROSTWALL = 976,
+    LUNARFALL = { 971, 973, 974, 975, 991, },
+    FROSTWALL = { 976, 980, 981, 982, 990, },
+    ASHRAN = 978, -- Required for STORMSHIELD and WARSPEAR
     STORMSHIELD = 1009,
     WARSPEAR = 1011,
 }
 
 local ZONE_NAMES = {}
 for zoneLabel, mapID in pairs(ZONE_MAP_IDS) do
-    ZONE_NAMES[zoneLabel] = _G.GetMapNameByID(mapID)
+    ZONE_NAMES[zoneLabel] = _G.GetMapNameByID(type(mapID) == "table" and mapID[1] or mapID)
 end
 private.ZONE_NAMES = ZONE_NAMES
 private.constants.ZONE_NAMES = ZONE_NAMES
 
 -- Special cases, because Blizzard.
+ZONE_NAMES.SHADOWMOON_VALLEY_DRAENOR = (("%s %s"):format(_G.GetMapNameByID(ZONE_MAP_IDS.SHADOWMOON_VALLEY_DRAENOR), _G.PARENS_TEMPLATE:format(ZONE_NAMES.DRAENOR)))
 ZONE_NAMES.NAGRAND_OUTLAND = (("%s %s"):format(_G.GetMapNameByID(ZONE_MAP_IDS.NAGRAND_OUTLAND), _G.PARENS_TEMPLATE:format(ZONE_NAMES.OUTLAND)))
 ZONE_NAMES.NAGRAND_DRAENOR = (("%s %s"):format(_G.GetMapNameByID(ZONE_MAP_IDS.NAGRAND_DRAENOR), _G.PARENS_TEMPLATE:format(ZONE_NAMES.DRAENOR)))
 
 local ZONE_LABELS_FROM_NAME = {}
 private.ZONE_LABELS_FROM_NAME = ZONE_LABELS_FROM_NAME
 
-local ZONE_MAP_IDS_FROM_NAME = {}
-private.ZONE_MAP_IDS_FROM_NAME = ZONE_MAP_IDS_FROM_NAME
-
 local ZONE_LABELS_FROM_MAP_ID = {}
 
 for label, name in pairs(ZONE_NAMES) do
     ZONE_LABELS_FROM_NAME[name] = label
-    ZONE_MAP_IDS_FROM_NAME[name] = ZONE_MAP_IDS[label]
-    ZONE_LABELS_FROM_MAP_ID[ZONE_MAP_IDS[label]] = label
+
+    local mapIDValue = ZONE_MAP_IDS[label]
+    if type(mapIDValue) == "table" then
+        for mapIDIndex = 1, #mapIDValue do
+            ZONE_LABELS_FROM_MAP_ID[mapIDValue[mapIDIndex]] = label
+        end
+    else
+        ZONE_LABELS_FROM_MAP_ID[mapIDValue] = label
+    end
 end
 
 -------------------------------------------------------------------------------
@@ -298,6 +309,9 @@ local function AddLocation(continentID, mapID, parentLocation)
         end
 
         return location
+            -- Uncomment for debugging purposes when adding new map IDs
+        --                else
+        --                    private.Debug("No entry in ZONE_LABELS_FROM_MAP_ID for mapID %s (%s) - continentID %s.", mapID or "nil", _G.GetMapNameByID(mapID), continentID)
     end
 end
 
