@@ -4,6 +4,7 @@
 local _G = getfenv(0)
 
 local pairs = _G.pairs
+local string = _G.string
 
 -------------------------------------------------------------------------------
 -- AddOn namespace.
@@ -191,10 +192,18 @@ ZONE_NAMES.NAGRAND_OUTLAND = (("%s %s"):format(_G.GetMapNameByID(ZONE_MAP_IDS.NA
 ZONE_NAMES.NAGRAND_DRAENOR = (("%s %s"):format(_G.GetMapNameByID(ZONE_MAP_IDS.NAGRAND_DRAENOR), _G.PARENS_TEMPLATE:format(ZONE_NAMES.DRAENOR)))
 
 local ZONE_LABELS_FROM_NAME = {}
+private.ZONE_LABELS_FROM_NAME = ZONE_LABELS_FROM_NAME
+
+local ZONE_MAP_IDS_FROM_NAME = {}
+private.ZONE_MAP_IDS_FROM_NAME = ZONE_MAP_IDS_FROM_NAME
+
+local ZONE_LABELS_FROM_MAP_ID = {}
+
 for label, name in pairs(ZONE_NAMES) do
     ZONE_LABELS_FROM_NAME[name] = label
+    ZONE_MAP_IDS_FROM_NAME[name] = ZONE_MAP_IDS[label]
+    ZONE_LABELS_FROM_MAP_ID[ZONE_MAP_IDS[label]] = label
 end
-private.ZONE_LABELS_FROM_NAME = ZONE_LABELS_FROM_NAME
 
 -------------------------------------------------------------------------------
 -- Objects.
@@ -204,14 +213,106 @@ local LocationMetatable = {
     __index = Location,
 }
 
-private.Locations = {}
+local Locations = {}
+private.Locations = Locations
+
+local LocationsByLocalizedName = {}
+private.LocationsByLocalizedName = LocationsByLocalizedName
 
 -------------------------------------------------------------------------------
 -- Location Methods.
 -------------------------------------------------------------------------------
+function Location:AssignRecipe(recipe, affiliation)
+    self._recipes[recipe] = affiliation
+end
+
+function Location:ContinentID()
+    return self._continentID
+end
+
+function Location:Label()
+    return self._label
+end
+
+function Location:LocalizedName()
+    return self._localizedName
+end
+
+function Location:MapID()
+    return self._mapID
+end
+
+function Location:Name()
+    return self._name
+end
+
+function Location:Parent()
+    return self._parent
+end
+
+function Location:RecipePairs()
+    return pairs(self._recipes)
+end
 
 -------------------------------------------------------------------------------
 -- Instantiation.
 -------------------------------------------------------------------------------
-local function CreateLocations()
+local function AddLocation(continentID, mapID, parentLocation)
+    local zoneLabel = ZONE_LABELS_FROM_MAP_ID[mapID]
+    if zoneLabel then
+        -- Allows TitleCase lookups. For example - "private.Locations.ShadowmoonValleyDraenor"
+        local zoneName = zoneLabel:lower():gsub("^%l", string.upper):gsub("_%l", string.upper):gsub("_", "")
+        local localizedName = ZONE_NAMES[zoneLabel]
+
+        local location = _G.setmetatable({
+            _continentID = continentID,
+            _label = zoneLabel,
+            _localizedName = localizedName,
+            _mapID = mapID,
+            _name = zoneName,
+            _parent = parentLocation,
+            _recipes = {},
+        }, LocationMetatable)
+
+        Locations[zoneName] = location
+        LocationsByLocalizedName[localizedName] = location
+
+        if parentLocation then
+            parentLocation._childLocations = parentLocation._childLocations or {}
+            parentLocation._childLocations[zoneName] = location
+
+            parentLocation._childLocationsByLocalizedName = parentLocation._childLocationsByLocalizedName or {}
+            parentLocation._childLocationsByLocalizedName[localizedName] = location
+        end
+
+        return location
+    end
 end
+
+local function AddSubzoneLocations(parentLocation)
+    local zoneData = { _G.GetMapSubzones(parentLocation._mapID) }
+    for zoneDataIndex = 1, #zoneData, 2 do
+        local zone = AddLocation(parentLocation._continentID, zoneData[zoneDataIndex], parentLocation)
+        if zone then
+            AddSubzoneLocations(zone)
+        end
+    end
+end
+
+local mapContinentData = { _G.GetMapContinents() }
+for dataIndex = 1, #mapContinentData do
+    if dataIndex % 2 == 0 then
+        local continentID = dataIndex / 2
+        local continentMapID = mapContinentData[dataIndex - 1]
+        local continent = AddLocation(continentID, continentMapID)
+
+        local zoneData = { _G.GetMapZones(continentID) }
+        for zoneDataIndex = 1, #zoneData, 2 do
+            local zone = AddLocation(continentID, zoneData[zoneDataIndex], continent)
+            if zone then
+                AddSubzoneLocations(zone)
+            end
+        end
+    end
+end
+
