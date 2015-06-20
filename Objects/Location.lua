@@ -230,6 +230,18 @@ function Location:ContinentID()
     return self._continentID
 end
 
+function Location:GetRecipeAffiliation(recipe)
+    return self._recipes[recipe]
+end
+
+function Location:GetSortedRecipes()
+    return private.SortRecipePairs(self._recipes)
+end
+
+function Location:HasRecipe(recipe)
+    return self._recipes[recipe]
+end
+
 function Location:Label()
     return self._label
 end
