@@ -331,6 +331,7 @@ for dataIndex = 1, #mapContinentData do
         local continentID = dataIndex / 2
         local continentMapID = mapContinentData[dataIndex - 1]
         local continent = AddLocation(continentID, continentMapID)
+        AddSubzoneLocations(continent)
 
         local zoneData = { _G.GetMapZones(continentID) }
         for zoneDataIndex = 1, #zoneData, 2 do
