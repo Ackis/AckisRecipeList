@@ -186,6 +186,15 @@ local ZONE_MAP_IDS = {
     WARSPEAR = 1011,
 }
 
+-- These map IDs aren't tied to a continent, for whatever reason, so need to be added as special cases.
+local COSMIC_MAP_IDS = {
+    THE_BLACK_MORASS = 733,
+    OLD_HILLSBRAD_FOOTHILLS = 734,
+    HYJAL_SUMMIT = 775,
+    THE_WANDERING_ISLE = 808,
+    DARKMOON_ISLAND = 823,
+}
+
 local ZONE_NAMES = {}
 for zoneLabel, mapID in pairs(ZONE_MAP_IDS) do
     ZONE_NAMES[zoneLabel] = _G.GetMapNameByID(type(mapID) == "table" and mapID[1] or mapID)
@@ -343,3 +352,6 @@ for dataIndex = 1, #mapContinentData do
     end
 end
 
+for label, mapID in pairs(COSMIC_MAP_IDS) do
+    AddLocation(-1, mapID)
+end
