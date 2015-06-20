@@ -86,6 +86,22 @@ do
 		["NameDescending"]	= Sort_NameDesc,
 	}
 
+    function private.SortRecipePairs(recipePairs)
+        if not recipePairs then
+            return
+        end
+
+        table.wipe(sorted_recipes)
+
+        for recipe in pairs(recipePairs) do
+            sorted_recipes[#sorted_recipes + 1] = recipe:SpellID()
+        end
+
+        table.sort(sorted_recipes, RECIPE_SORT_FUNCS[(addon.db.profile.skill_view and "Skill" or "Name") .. addon.db.profile.sorting] or Sort_NameAsc)
+
+        return sorted_recipes
+    end
+
 	-- Sorts the recipe_list according to configuration settings.
 	function private.SortRecipeList(recipe_list)
 		table.wipe(sorted_recipes)
