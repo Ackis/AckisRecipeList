@@ -4,6 +4,7 @@
 local _G = getfenv(0)
 
 local pairs = _G.pairs
+local string = _G.string
 
 -------------------------------------------------------------------------------
 -- AddOn namespace.
@@ -16,6 +17,31 @@ local LibStub = _G.LibStub
 -- Required so constants can be assigned to the AddOn object in Core.lua in order to be accessible from profession modules
 local constants = {}
 private.constants = constants
+
+-------------------------------------------------------------------------------
+-- Debugger.
+-------------------------------------------------------------------------------
+local DebugFrame -- Only defined if needed.
+
+local function CreateDebugFrame()
+    if DebugFrame then
+        return
+    end
+    DebugFrame = LibStub("LibTextDump-1.0"):New(("%s Debug Output"):format(private.addon_name), 640, 480)
+    private.DebugFrame = DebugFrame
+end
+private.CreateDebugFrame = CreateDebugFrame
+
+function private.Debug(...)
+    if not DebugFrame then
+        CreateDebugFrame()
+    end
+
+    local text = string.format(...)
+    DebugFrame:AddLine(text)
+
+    return text
+end
 
 -------------------------------------------------------------------------------
 -- General constants.

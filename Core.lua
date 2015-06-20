@@ -34,8 +34,6 @@ local L = LibStub("AceLocale-3.0"):GetLocale(private.addon_name)
 local Toast = LibStub("LibToast-1.0")
 local Dialog = LibStub("LibDialog-1.0")
 
-local debugger -- Only defined if needed.
-
 local wow_version, wow_build_num, wow_date, wow_ui_version = _G.GetBuildInfo()
 private.wow_version = wow_version
 private.wow_build_num = wow_build_num
@@ -118,25 +116,12 @@ addon.optionsFrame = {}
 -------------------------------------------------------------------------------
 -- Debugger.
 -------------------------------------------------------------------------------
-local function CreateDebugFrame()
-	if debugger then
-		return
-	end
-	debugger = LibStub("LibTextDump-1.0"):New(("%s Debug Output"):format(private.addon_name), 640, 480)
-end
-
 function addon:Debug(...)
-	if not debugger then
-		CreateDebugFrame()
-	end
-	local text = string.format(...)
-	debugger:AddLine(text)
-
+    local text = private.Debug(...)
 	--@debug@
 	Toast:Spawn("ARL_DebugToast", text)
 	--@end-debug@
 end
-private.Debug = addon.Debug
 
 Toast:Register("ARL_DebugToast", function(toast, ...)
 	toast:SetTitle(("%s - Debug"):format(private.addon_name))
@@ -738,17 +723,19 @@ local SUBCOMMAND_FUNCS = {
 		end
 	end,
 	debug = function()
-		if not debugger then
-			CreateDebugFrame()
+        local DebugFrame = private.DebugFrame
+		if not DebugFrame then
+			private.CreateDebugFrame()
+            DebugFrame = private.DebugFrame
 		end
 
-		if debugger:Lines() == 0 then
-			debugger:AddLine("Nothing to report.")
-			debugger:Display()
-			debugger:Clear()
+		if DebugFrame:Lines() == 0 then
+			DebugFrame:AddLine("Nothing to report.")
+			DebugFrame:Display()
+			DebugFrame:Clear()
 			return
 		end
-		debugger:Display()
+		DebugFrame:Display()
 	end,
 	--@debug@
 	dump = function(arg1, arg2)
