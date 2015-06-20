@@ -453,20 +453,13 @@ function private.InitializeFrame()
 			return false
 		end
 
-		local function SearchByLocation(recipe, search_pattern)
-			local location_list = private.location_list
+		local function SearchByLocation(recipe, searchPattern)
+            for name, location in pairs(private.Locations) do
+                if location:HasRecipe(recipe) and location:LocalizedName():lower():find(searchPattern) then
+                    return true
+                end
+            end
 
-			for location_name in pairs(location_list) do
-				for spell_id in pairs(location_list[location_name].recipes) do
-					if spell_id == recipe:SpellID() then
-						local location = location_name:lower()
-
-						if location:find(search_pattern) then
-							return true
-						end
-					end
-				end
-			end
 			return false
 		end
 

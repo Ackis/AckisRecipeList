@@ -28,8 +28,6 @@ local AcquireTypes = private.AcquireTypes
 
 private.recipe_list = {}
 
-private.location_list	= {}
-
 -----------------------------------------------------------------------
 -- Local constants.
 -----------------------------------------------------------------------
@@ -41,18 +39,6 @@ local recipeMetatable = {
 -----------------------------------------------------------------------
 -- Helpers.
 -----------------------------------------------------------------------
-local function GetOrCreateLocation(locationName)
-	local locationList = private.location_list
-	if not locationList[locationName] then
-		locationList[locationName] = {
-			name = locationName,
-			recipes = {}
-		}
-	end
-
-	return locationList[locationName]
-end
-
 function addon:AddRecipe(module, recipeData)
 	local recipeList = private.recipe_list
 	local spellID = recipeData._spell_id
@@ -388,6 +374,8 @@ function Recipe:RemoveFilters(...)
 	SetFilterState(self, false, ...)
 end
 
+local InvalidLocationRegistry = {}
+
 function Recipe:AddAcquireData(acquireType, typeLabel, hasEntityList, ...)
 	local acquireTypeData = self.ProfessionModule:GetOrCreateRecipeAcquireTypeTable(self, acquireType:ID())
 	local isLimitedVendor = typeLabel == "Limited Vendor"
@@ -399,7 +387,7 @@ function Recipe:AddAcquireData(acquireType, typeLabel, hasEntityList, ...)
 	while currentVariableIndex <= variablesCount do
 		-- A quantity of true means unlimited - normal vendor item.
 		local quantity = true
-		local locationName, affiliation
+		local localizedLocationName, affiliation
 		local identifier = select(currentVariableIndex, ...)
 		currentVariableIndex = currentVariableIndex + 1
 
@@ -413,7 +401,7 @@ function Recipe:AddAcquireData(acquireType, typeLabel, hasEntityList, ...)
 			local entity = acquireType:GetEntity(identifier)
 			if entity then
 				affiliation = entity.faction
-				locationName = entity.location
+				localizedLocationName = entity.location
 
 				entity.item_list[self:SpellID()] = quantity
             else
@@ -426,9 +414,9 @@ function Recipe:AddAcquireData(acquireType, typeLabel, hasEntityList, ...)
 		else
 			local isStringID = type(identifier) == "string"
 
-			locationName = isStringID and identifier or nil
+			localizedLocationName = isStringID and identifier or nil
 
-			if locationName then
+			if localizedLocationName then
 				affiliation = "world_drop"
 			elseif isStringID then
 				addon:Debug("%s with no location: %d %s", typeLabel, self:SpellID(), self.name)
@@ -439,9 +427,17 @@ function Recipe:AddAcquireData(acquireType, typeLabel, hasEntityList, ...)
 			acquireType:AssignRecipe(self:SpellID(), affiliation)
 		end
 
-		if locationName then
-			GetOrCreateLocation(locationName).recipes[self:SpellID()] = affiliation or true
-		end
+		if localizedLocationName then
+            local location = private.LocationsByLocalizedName[localizedLocationName]
+            if not location then
+                if not InvalidLocationRegistry[localizedLocationName] then
+                    addon:Debug("Invalid location: %s", localizedLocationName)
+                    InvalidLocationRegistry[localizedLocationName] = true
+                end
+            else
+                location:AssignRecipe(self, affiliation or true)
+            end
+        end
 	end
 end
 
@@ -505,7 +501,7 @@ function Recipe:AddRepVendor(factionID, reputationLevel, ...)
 	local currentVariableIndex = 1
 
 	while currentVariableIndex <= variablesCount do
-		local locationName, affiliation
+		local localizedLocationName, affiliation
 		local vendorID = select(currentVariableIndex, ...)
 		currentVariableIndex = currentVariableIndex + 1
 
@@ -519,7 +515,7 @@ function Recipe:AddRepVendor(factionID, reputationLevel, ...)
 					faction[reputationLevel][vendorID] = true
 
 					affiliation = reputationVendor.faction
-					locationName = reputationVendor.location
+					localizedLocationName = reputationVendor.location
 
 					reputationVendor.reputation_id = factionID
 					reputationVendor.item_list[self:SpellID()] = true
@@ -542,9 +538,17 @@ function Recipe:AddRepVendor(factionID, reputationLevel, ...)
 		end
         reputationAcquireType:AssignRecipe(self:SpellID(), affiliation)
 
-		if locationName then
-			GetOrCreateLocation(locationName).recipes[self:SpellID()] = affiliation or true
-		end
+        if localizedLocationName then
+            local location = private.LocationsByLocalizedName[localizedLocationName]
+            if not location then
+                if not InvalidLocationRegistry[localizedLocationName] then
+                    addon:Debug("Invalid location: %s", localizedLocationName)
+                    InvalidLocationRegistry[localizedLocationName] = true
+                end
+            else
+                location:AssignRecipe(self, affiliation or true)
+            end
+        end
 	end
 	self:AddFilters(private.FILTER_IDS.REPUTATION)
 end

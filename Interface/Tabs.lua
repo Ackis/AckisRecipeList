@@ -347,26 +347,7 @@ local function InitializeLocationTab()
 	local MainPanel = addon.Frame
 
 	-- Used to hold tables for sorting the tab: The tables are only sorted once upon creation.
-	local sorted_locations
-
-	local function FactionTally(acquire_data, acquire_type_id, location)
-		local acquire_type = private.ACQUIRE_TYPES_BY_ID[acquire_type_id]
-		local good, bad = 0, 0
-
-		for id_num in pairs(acquire_data) do
-			local entity = acquire_type:GetEntity(id_num)
-			local entity_faction = entity.faction
-
-			if not location or entity.location == location then
-				if not entity_faction or entity_faction == private.Player.faction or entity_faction == "Neutral" then
-					good = good + 1
-				else
-					bad = bad + 1
-				end
-			end
-		end
-		return good, bad
-	end
+	local SortedLocations
 
 	LocationTab = CreateTab(2, L["Location"], "LEFT", AcquisitionTab, "RIGHT", -14, 0)
 
@@ -378,19 +359,19 @@ local function InitializeLocationTab()
 
 		table.wipe(recipe_registry)
 
-		if not sorted_locations then
+		if not SortedLocations then
 			-- Sorting function: Only used once and then thrown away.
-			local function Sort_Location(a, b)
-				local location_list = private.location_list
-				return location_list[a].name < location_list[b].name
+			local function SortLocationsByLocalizedName(locationA, locationB)
+				return locationA:LocalizedName() < locationB:LocalizedName()
 			end
 
-			sorted_locations = {}
+			SortedLocations = {}
 
-			for loc_name in pairs(private.location_list) do
-				table.insert(sorted_locations, loc_name)
+			for name, location in pairs(private.Locations) do
+				table.insert(SortedLocations, location)
 			end
-			table.sort(sorted_locations, Sort_Location)
+
+			table.sort(SortedLocations, SortLocationsByLocalizedName)
         end
         local currentProfession = private.CurrentProfession
         local localizedProfessionName = currentProfession:LocalizedName()
@@ -398,38 +379,51 @@ local function InitializeLocationTab()
 
 		self[localizedProfessionName .. " expanded"] = self[localizedProfessionName .. " expanded"] or {}
 
-		for index = 1, #sorted_locations do
-			local loc_name = sorted_locations[index]
+		for index = 1, #SortedLocations do
+            local location = SortedLocations[index]
+            local localizedLocationName = location:LocalizedName()
 			local count = 0
 
 			-- Check to see if any recipes for this location will be shown - otherwise, don't show the location in the list.
-			for spell_id, affiliation in pairs(private.location_list[loc_name].recipes) do
-				local recipe = professionRecipes[spell_id]
-
-				if recipe and recipe:HasState("VISIBLE") and search_box:MatchesRecipe(recipe) then
+            for recipe, affiliation in location:RecipePairs() do
+				if recipe:HasState("VISIBLE") and search_box:MatchesRecipe(recipe) then
 					local good_count, bad_count = 0, 0
-					local fac_toggle = addon.db.profile.filters.general.faction
+					local showOpposingFaction = addon.db.profile.filters.general.faction
 
-					if not fac_toggle then
+					if not showOpposingFaction then
 						local ACQUIRE_TYPES_BY_ID = private.ACQUIRE_TYPES_BY_ID
 
-						for acquire_type_id = 1, #ACQUIRE_TYPES_BY_ID do
-							local acquire_data = recipe.acquire_data[acquire_type_id]
+						for acquireTypeID = 1, #ACQUIRE_TYPES_BY_ID do
+							local acquireData = recipe.acquire_data[acquireTypeID]
+                            local acquireType = private.ACQUIRE_TYPES_BY_ID[acquireTypeID]
 
-							if acquire_data and ACQUIRE_TYPES_BY_ID[acquire_type_id]:HasCoordinates() then
-								local good, bad = FactionTally(acquire_data, acquire_type_id, loc_name)
+							if acquireData and acquireType:HasCoordinates() then
+                                local alignedCount = 0
+                                local opposingCount = 0
 
-								if good == 0 and bad > 0 then
+                                for identifier in pairs(acquireData) do
+                                    local entity = acquireType:GetEntity(identifier)
+                                    local entityFaction = entity.faction
+
+                                    if not location or entity.location == localizedLocationName then
+                                        if not entityFaction or entityFaction == private.Player.faction or entityFaction == "Neutral" then
+                                            alignedCount = alignedCount + 1
+                                        else
+                                            opposingCount = opposingCount + 1
+                                        end
+                                    end
+                                end
+
+                                if alignedCount == 0 and opposingCount > 0 then
 									bad_count = bad_count + 1
 								else
 									good_count = good_count + 1
 								end
 							end
 						end
-
 					end
 
-					if fac_toggle or not (good_count == 0 and bad_count > 0) then
+					if showOpposingFaction or not (good_count == 0 and bad_count > 0) then
 						count = count + 1
 
 						if not recipe_registry[recipe] then
@@ -438,41 +432,42 @@ local function InitializeLocationTab()
 						end
 					end
 				else
-					self[localizedProfessionName .. " expanded"][spell_id] = nil
+					self[localizedProfessionName .. " expanded"][recipe:SpellID()] = nil
 				end
 			end
 
 			if count > 0 then
 				local entry = CreateListEntry("header")
 
-				if loc_name == _G.GetRealZoneText() then
+				if localizedLocationName == _G.GetRealZoneText() then
 					entry:Emphasize(true)
 					entry:SetText("%s (%d)",
-						SetTextColor(private.DIFFICULTY_COLORS.optimal.hex, loc_name),
+						SetTextColor(private.DIFFICULTY_COLORS.optimal.hex, localizedLocationName),
 						count
 					)
 				else
 					entry:Emphasize(false)
 					entry:SetText("%s (%d)",
-						SetTextColor(private.CATEGORY_COLORS.location.hex, loc_name),
+						SetTextColor(private.CATEGORY_COLORS.location.hex, localizedLocationName),
 						count
 					)
 				end
-				entry:SetLocationID(loc_name)
+				entry:SetLocationID(localizedLocationName)
 
-				local is_expanded = self[localizedProfessionName .. " expanded"][loc_name]
+				local is_expanded = self[localizedProfessionName .. " expanded"][localizedLocationName]
 				insert_index = MainPanel.list_frame:InsertEntry(entry, insert_index, is_expanded or expand_mode, is_expanded or expand_mode)
 			else
-				self[localizedProfessionName .. " expanded"][loc_name] = nil
+				self[localizedProfessionName .. " expanded"][localizedLocationName] = nil
 			end
-		end
+        end
+
 		return recipe_count
 	end
 
 	function LocationTab:ExpandListEntry(entry, expand_mode)
 		local orig_index = entry.button and entry.button.entry_index or entry.index
 		local expand_all = expand_mode == "deep"
-		local location_id = entry:LocationID()
+		local localizedLocationName = entry:LocationID()
 
 		-- Entry_index is the position in self.entries that we want to expand. Since we are expanding the current entry, the return
 		-- value should be the index of the next button after the expansion occurs
@@ -481,31 +476,28 @@ local function InitializeLocationTab()
 		self:SaveListEntryState(entry, true)
 
 		if entry:IsHeader() then
-			local recipe_list = private.location_list[location_id].recipes
-			local sorted_recipes = addon.sorted_recipes
             local currentProfession = private.CurrentProfession
             local localizedProfessionName = currentProfession:LocalizedName()
 
-			private.SortRecipeList(recipe_list)
-
-			for index = 1, #sorted_recipes do
-				local recipeSpellID = sorted_recipes[index]
-				local recipe = currentProfession.Recipes[recipeSpellID]
+            local location = private.LocationsByLocalizedName[localizedLocationName]
+            local sortedRecipes = location:GetSortedRecipes()
+			for index = 1, #sortedRecipes do
+				local recipe = currentProfession.Recipes[sortedRecipes[index]]
 
 				if recipe and recipe:HasState("VISIBLE") and MainPanel.search_editbox:MatchesRecipe(recipe) then
 					local expand = false
 					local entry_type = "subheader"
 
 					-- Add World Drop entries as normal entries.
-					if recipe_list[recipeSpellID] == "world_drop" then
+					if location:GetRecipeAffiliation(recipe) == "world_drop" then
 						expand = true
 						entry_type = "entry"
 					end
-					local is_expanded = (self[localizedProfessionName .." expanded"][recipe] and self[localizedProfessionName .." expanded"][location_id])
+					local is_expanded = (self[localizedProfessionName .." expanded"][recipe] and self[localizedProfessionName .." expanded"][localizedLocationName])
 
 					local new_entry = CreateListEntry(entry_type, entry, recipe)
 					new_entry:SetText(recipe:GetDisplayName())
-					new_entry:SetLocationID(location_id)
+					new_entry:SetLocationID(localizedLocationName)
 
 					new_entry_index = MainPanel.list_frame:InsertEntry(new_entry, new_entry_index, expand or is_expanded, expand_all or is_expanded)
 				end
@@ -520,10 +512,10 @@ local function InitializeLocationTab()
 					local execute
 
 					if (acquire_type_id == private.ACQUIRE_TYPE_IDS.TRAINER or acquire_type_id == private.ACQUIRE_TYPE_IDS.VENDOR or acquire_type_id == private.ACQUIRE_TYPE_IDS.MOB_DROP or acquire_type_id == private.ACQUIRE_TYPE_IDS.QUEST)
-							and acquire_type:GetEntity(data_identifier).location == location_id then
+							and acquire_type:GetEntity(data_identifier).location == localizedLocationName then
 						execute = true
 					elseif (acquire_type_id == private.ACQUIRE_TYPE_IDS.WORLD_EVENT or acquire_type_id == private.ACQUIRE_TYPE_IDS.CUSTOM or acquire_type_id == private.ACQUIRE_TYPE_IDS.DISCOVERY)
-							and acquire_type:GetEntity(data_identifier).location == location_id then
+							and acquire_type:GetEntity(data_identifier).location == localizedLocationName then
 						hide_acquire_type = true
 						execute = true
 					elseif acquire_type_id == private.ACQUIRE_TYPE_IDS.REPUTATION then
