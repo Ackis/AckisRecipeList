@@ -378,37 +378,39 @@ function private.InitializeFrame()
 				end
 			end
 
-			if button_name == "LeftButton" then
-				currentProfessionIndex = currentProfessionIndex + 1
+            if currentProfessionIndex then
+                if button_name == "LeftButton" then
+                    currentProfessionIndex = currentProfessionIndex + 1
 
-				if currentProfessionIndex > #profession_registry then
-					currentProfessionIndex = 1
-				end
-			elseif button_name == "RightButton" then
-				currentProfessionIndex = currentProfessionIndex - 1
+                    if currentProfessionIndex > #profession_registry then
+                        currentProfessionIndex = 1
+                    end
+                elseif button_name == "RightButton" then
+                    currentProfessionIndex = currentProfessionIndex - 1
 
-				if currentProfessionIndex < 1 then
-					currentProfessionIndex = #profession_registry
-				end
-			end
+                    if currentProfessionIndex < 1 then
+                        currentProfessionIndex = #profession_registry
+                    end
+                end
 
-            _G.PlaySound("igCharacterNPCSelect")
+                _G.PlaySound("igCharacterNPCSelect")
 
-            -- If not shown, save the current sound effects setting then set it to 0.
-            local cVarSfx
-            local isPanelShown = addon.scan_button:GetParent():IsVisible()
-            if not isPanelShown then
-				cVarSfx = tonumber(_G.GetCVar("Sound_EnableSFX"))
-				_G.SetCVar("Sound_EnableSFX", 0)
-			end
+                -- If not shown, save the current sound effects setting then set it to 0.
+                local cVarSfx
+                local isPanelShown = addon.scan_button:GetParent():IsVisible()
+                if not isPanelShown then
+                    cVarSfx = tonumber(_G.GetCVar("Sound_EnableSFX"))
+                    _G.SetCVar("Sound_EnableSFX", 0)
+                end
 
-			_G.CastSpellByName(profession_registry[currentProfessionIndex])
-			addon:Scan()
+                _G.CastSpellByName(profession_registry[currentProfessionIndex])
+                addon:Scan()
 
-			if not isPanelShown then
-				_G.CloseTradeSkill()
-				_G.SetCVar("Sound_EnableSFX", cVarSfx)
-			end
+                if not isPanelShown then
+                    _G.CloseTradeSkill()
+                    _G.SetCVar("Sound_EnableSFX", cVarSfx)
+                end
+            end
 		end)
 	end -- do-block
 
