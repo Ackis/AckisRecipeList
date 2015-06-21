@@ -1468,8 +1468,7 @@ do
 		[A.QUEST] = F.QUEST,
 		[A.WORLD_EVENT] = F.WORLD_EVENT,
 		[A.WORLD_DROP] = F.WORLD_DROP,
-	}
-	local FILTER_TO_ACQUIRE_MAP
+    }
 
 	local OBTAIN_FILTERS = {
         ACHIEVEMENT = true,
@@ -1563,15 +1562,7 @@ do
 		end
 
 		-- Make sure the recipe's filter flags match with its acquire types.
-		if not FILTER_TO_ACQUIRE_MAP then
-			FILTER_TO_ACQUIRE_MAP = {}
-
-			for k, v in pairs(ACQUIRE_TO_FILTER_MAP) do
-				FILTER_TO_ACQUIRE_MAP[v] = k
-			end
-		end
-
-		for flag, acquire_type_id in pairs(FILTER_TO_ACQUIRE_MAP) do
+		for acquire_type_id, flag in pairs(ACQUIRE_TO_FILTER_MAP) do
 			if recipeAcquireData[acquire_type_id] and not recipe:HasFilter("common1", FilterStrings[flag]) then
 				local can_add = true
 
