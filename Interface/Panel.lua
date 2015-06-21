@@ -440,15 +440,11 @@ function private.InitializeFrame()
 			return false
 		end
 
-		local function SearchByAcquireType(recipe, search_pattern)
-			for acquire_type_label, acquire_type in pairs(private.AcquireTypes) do
-				if recipe.acquire_data[acquire_type:ID()] then
-					local acquire_name = acquire_type:Name():lower()
-
-					if acquire_name:find(search_pattern) then
-						return true
-					end
-				end
+		local function SearchByAcquireType(recipe, searchPattern)
+			for acquireTypeLabel, acquireType in pairs(private.AcquireTypes) do
+                if recipe:AcquireDataOfType(acquireType) and acquireType:Name():lower():find(searchPattern) then
+                    return true
+                end
 			end
 			return false
 		end
@@ -463,55 +459,54 @@ function private.InitializeFrame()
 			return false
 		end
 
-		local function SearchByQuality(recipe, search_pattern)
-			if private.ITEM_QUALITY_NAMES[recipe.quality]:lower():find(search_pattern) then
+		local function SearchByQuality(recipe, searchPattern)
+			if private.ITEM_QUALITY_NAMES[recipe.quality]:lower():find(searchPattern) then
 				return true
 			end
 			return false
 		end
 
-		local function SearchByList(recipe, search_pattern, acquire_type_id)
-			for id_num, unit in private.ACQUIRE_TYPES_BY_ID[acquire_type_id]:EntityPairs() do
-				if unit.item_list and unit.item_list[recipe:SpellID()] and unit.name and unit.name:lower():find(search_pattern) then
+		local function SearchByList(recipe, searchPattern, acquireType)
+			for id_num, unit in acquireType:EntityPairs() do
+				if unit.item_list and unit.item_list[recipe:SpellID()] and unit.name and unit.name:lower():find(searchPattern) then
 					return true
 				end
 			end
 		end
 
-		local function SearchByTrainer(recipe, search_pattern)
-			return SearchByList(recipe, search_pattern, private.ACQUIRE_TYPE_IDS.TRAINER)
+		local function SearchByTrainer(recipe, searchPattern)
+			return SearchByList(recipe, searchPattern, private.AcquireTypes.Trainer)
 		end
 
-		local function SearchByVendor(recipe, search_pattern)
-			return SearchByList(recipe, search_pattern, private.ACQUIRE_TYPE_IDS.VENDOR)
+		local function SearchByVendor(recipe, searchPattern)
+			return SearchByList(recipe, searchPattern, private.AcquireTypes.Vendor)
 		end
 
-		local function SearchByMobDrop(recipe, search_pattern)
-			return SearchByList(recipe, search_pattern, private.ACQUIRE_TYPE_IDS.MOB_DROP)
+		local function SearchByMobDrop(recipe, searchPattern)
+			return SearchByList(recipe, searchPattern, private.AcquireTypes.MobDrop)
 		end
 
-		local function SearchByCustom(recipe, search_pattern)
-			return SearchByList(recipe, search_pattern, private.ACQUIRE_TYPE_IDS.CUSTOM)
+		local function SearchByCustom(recipe, searchPattern)
+			return SearchByList(recipe, searchPattern, private.AcquireTypes.Custom)
 		end
 
-		local function SearchByDiscovery(recipe, search_pattern)
-			return SearchByList(recipe, search_pattern, private.ACQUIRE_TYPE_IDS.DISCOVERY)
+		local function SearchByDiscovery(recipe, searchPattern)
+			return SearchByList(recipe, searchPattern, private.AcquireTypes.Discovery)
 		end
 
-		local function SearchByReputation(recipe, search_pattern)
-			local reputation_acquire_type = private.AcquireTypes.Reputation
+		local function SearchByReputation(recipe, searchPattern)
+			local reputationAcquireType = private.AcquireTypes.Reputation
+            local reputationAcquireData = recipe:AcquireDataOfType(reputationAcquireType)
 
-			for acquire_type_id, acquire_data in pairs(recipe.acquire_data) do
-				if acquire_type_id == private.ACQUIRE_TYPE_IDS.REPUTATION then
-					for id_num, info in pairs(acquire_data) do
-						local name = reputation_acquire_type:GetEntity(id_num).name
+            if reputationAcquireData then
+                for sourceID, sourceData in pairs(reputationAcquireData) do
+                    local name = reputationAcquireType:GetEntity(sourceID).name
+                    if name and name:lower():find(searchPattern) then
+                        return true
+                    end
+                end
+            end
 
-						if name and name:lower():find(search_pattern) then
-							return true
-						end
-					end
-				end
-			end
 			return false
 		end
 
@@ -529,17 +524,17 @@ function private.InitializeFrame()
 		}
 
 		-- Scans through the recipe database and toggles the flag on if the item is in the search criteria
-		function SearchRecipes(search_pattern)
-			if not search_pattern then
+		function SearchRecipes(searchPattern)
+			if not searchPattern then
 				return
 			end
-			search_pattern = search_pattern:lower()
+			searchPattern = searchPattern:lower()
 
 			for _, recipe in pairs(private.CurrentProfession.Recipes) do
 				recipe:RemoveState("RELEVANT")
 
 				for search_index = 1, #SEARCH_FUNCTIONS do
-					if SEARCH_FUNCTIONS[search_index](recipe, search_pattern) then
+					if SEARCH_FUNCTIONS[search_index](recipe, searchPattern) then
 						recipe:AddState("RELEVANT")
 						break
 					end
