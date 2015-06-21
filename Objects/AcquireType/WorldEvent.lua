@@ -34,7 +34,7 @@ private.RegisterAcquireType({
 
         return private.list_frame:InsertEntry(entry, entry_index, true)
     end,
-    _func_insert_tooltip_text = function(self, recipe, identifier, location, acquire_info, addline_func)
+    _func_insert_tooltip_text = function(self, recipe, identifier, localizedLocationName, acquire_info, addline_func)
         local color_data = self:ColorData()
         addline_func(0, -1, 0, self:Name(), color_data, self:GetEntity(identifier).name, color_data)
     end,

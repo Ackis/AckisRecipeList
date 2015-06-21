@@ -886,7 +886,7 @@ do
 						("self:AddTrainer(%s, %s, Z.%s, %s, %s, \"%s\")"):format(
 							identifier,
 							trainer.spell_id,
-							private.ZONE_LABELS_FROM_NAME[trainer.location],
+							trainer.Location:Label(),
 							trainer.coord_x,
 							trainer.coord_y,
 							trainer.faction
@@ -897,7 +897,7 @@ do
 						("self:AddTrainer(%s, \"%s\", Z.%s, %s, %s, \"%s\")"):format(
 							identifier,
 							trainer.name:gsub("\"", "\\\""),
-							private.ZONE_LABELS_FROM_NAME[trainer.location],
+                            trainer.Location:Label(),
 							trainer.coord_x,
 							trainer.coord_y,
 							trainer.faction
@@ -905,7 +905,8 @@ do
 					)
 				end
 			end
-		end
+        end
+
 		output:Display()
 	end
 

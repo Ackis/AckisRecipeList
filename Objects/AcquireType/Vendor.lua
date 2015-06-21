@@ -68,15 +68,15 @@ private.RegisterAcquireType({
         entry:SetNPCID(identifier)
         entry:SetText("%s%s %s",
             self.EntryPadding:rep(2),
-            hide_location and "" or private.SetTextColor(CATEGORY_COLORS.location.hex, vendor.location),
+            hide_location and "" or private.SetTextColor(CATEGORY_COLORS.location.hex, vendor.Location:LocalizedName()),
             coord_text)
 
         return private.list_frame:InsertEntry(entry, entry_index, true)
     end,
-    _func_insert_tooltip_text = function(self, recipe, identifier, location, acquire_info, addline_func)
+    _func_insert_tooltip_text = function(self, recipe, identifier, localizedLocationName, acquire_info, addline_func)
         local vendor = self:GetEntity(identifier)
 
-        if not vendor or (location and vendor.location ~= location) then
+        if not vendor or (localizedLocationName and vendor.Location:LocalizedName() ~= localizedLocationName) then
             return
         end
         local display_tip, name_color = self.GetTipFactionInfo(vendor.faction)
@@ -87,9 +87,9 @@ private.RegisterAcquireType({
         addline_func(0, -1, false, L["Vendor"], self:ColorData(), vendor.name, name_color)
 
         if vendor.coord_x ~= 0 and vendor.coord_y ~= 0 then
-            addline_func(1, -2, true, vendor.location, CATEGORY_COLORS.location, COORDINATES_FORMAT:format(vendor.coord_x, vendor.coord_y), CATEGORY_COLORS.coords)
+            addline_func(1, -2, true, vendor.Location:LocalizedName(), CATEGORY_COLORS.location, COORDINATES_FORMAT:format(vendor.coord_x, vendor.coord_y), CATEGORY_COLORS.coords)
         else
-            addline_func(1, -2, true, vendor.location, CATEGORY_COLORS.location, "", CATEGORY_COLORS.coords)
+            addline_func(1, -2, true, vendor.Location:LocalizedName(), CATEGORY_COLORS.location, "", CATEGORY_COLORS.coords)
         end
         local quantity = vendor.item_list[recipe:SpellID()]
 

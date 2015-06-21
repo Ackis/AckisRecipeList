@@ -83,19 +83,19 @@ private.RegisterAcquireType({
                 entry:SetNPCID(vendor_id)
                 entry:SetText("%s%s %s",
                     self.EntryPadding:rep(3),
-                    hide_location and "" or private.SetTextColor(CATEGORY_COLORS.location.hex, rep_vendor.location),
+                    hide_location and "" or private.SetTextColor(CATEGORY_COLORS.location.hex, rep_vendor.Location:LocalizedName()),
                     coord_text)
 
                 return private.list_frame:InsertEntry(entry, entry_index, true)
             end
         end
     end,
-    _func_insert_tooltip_text = function(self, recipe, identifier, location, acquire_info, addline_func)
+    _func_insert_tooltip_text = function(self, recipe, identifier, localizedLocationName, acquire_info, addline_func)
         for rep_level, level_info in pairs(acquire_info) do
             for vendor_id in pairs(level_info) do
                 local rep_vendor = private.AcquireTypes.Vendor:GetEntity(vendor_id)
 
-                if rep_vendor and (not location or rep_vendor.location == location) then
+                if rep_vendor and (not localizedLocationName or rep_vendor.Location:LocalizedName() == localizedLocationName) then
                     local display_tip, name_color = self.GetTipFactionInfo(rep_vendor.faction)
 
                     if display_tip then
@@ -114,9 +114,9 @@ private.RegisterAcquireType({
                         end
 
                         if rep_vendor.coord_x ~= 0 and rep_vendor.coord_y ~= 0 then
-                            addline_func(2, -2, true, rep_vendor.location, CATEGORY_COLORS.location, COORDINATES_FORMAT:format(rep_vendor.coord_x, rep_vendor.coord_y), CATEGORY_COLORS.coords)
+                            addline_func(2, -2, true, rep_vendor.Location:LocalizedName(), CATEGORY_COLORS.location, COORDINATES_FORMAT:format(rep_vendor.coord_x, rep_vendor.coord_y), CATEGORY_COLORS.coords)
                         else
-                            addline_func(2, -2, true, rep_vendor.location, CATEGORY_COLORS.location, "", CATEGORY_COLORS.coords)
+                            addline_func(2, -2, true, rep_vendor.Location:LocalizedName(), CATEGORY_COLORS.location, "", CATEGORY_COLORS.coords)
                         end
                     end
                 end

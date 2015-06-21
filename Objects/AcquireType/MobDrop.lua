@@ -58,24 +58,24 @@ private.RegisterAcquireType({
         entry:SetNPCID(identifier)
         entry:SetText("%s%s %s",
             self.EntryPadding:rep(2),
-            hide_location and "" or private.SetTextColor(CATEGORY_COLORS.location.hex, mob.location),
+            hide_location and "" or private.SetTextColor(CATEGORY_COLORS.location.hex, mob.Location:LocalizedName()),
             coord_text)
 
         return private.list_frame:InsertEntry(entry, entry_index, true)
     end,
 
-    _func_insert_tooltip_text = function(self, recipe, identifier, location, acquire_info, addline_func)
+    _func_insert_tooltip_text = function(self, recipe, identifier, localizedLocationName, acquire_info, addline_func)
         local mob = self:GetEntity(identifier)
 
-        if not mob or (location and mob.location ~= location) then
+        if not mob or (localizedLocationName and mob.Location:LocalizedName() ~= localizedLocationName) then
             return
         end
         addline_func(0, -1, false, L["Mob Drop"], self:ColorData(), mob.name, private.REPUTATION_COLORS.hostile)
 
         if mob.coord_x ~= 0 and mob.coord_y ~= 0 then
-            addline_func(1, -2, true, mob.location, CATEGORY_COLORS.location, COORDINATES_FORMAT:format(mob.coord_x, mob.coord_y), CATEGORY_COLORS.coords)
+            addline_func(1, -2, true, mob.Location:LocalizedName(), CATEGORY_COLORS.location, COORDINATES_FORMAT:format(mob.coord_x, mob.coord_y), CATEGORY_COLORS.coords)
         else
-            addline_func(1, -2, true, mob.location, CATEGORY_COLORS.location, "", CATEGORY_COLORS.coords)
+            addline_func(1, -2, true, mob.Location:LocalizedName(), CATEGORY_COLORS.location, "", CATEGORY_COLORS.coords)
         end
     end,
 

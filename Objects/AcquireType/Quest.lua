@@ -58,19 +58,19 @@ private.RegisterAcquireType({
             return entry_index
         end
 
-        local entry = private.CreateListEntry(entry_type, parent_entry, recipe)
-        entry:SetText("%s%s %s",
+        local listEntry = private.CreateListEntry(entry_type, parent_entry, recipe)
+        listEntry:SetText("%s%s %s",
             self.EntryPadding:rep(2),
-            hide_location and "" or private.SetTextColor(CATEGORY_COLORS.location.hex, quest.location),
+            hide_location and "" or private.SetTextColor(CATEGORY_COLORS.location.hex, quest.Location:LocalizedName()),
             coord_text)
 
-        return private.list_frame:InsertEntry(entry, entry_index, true)
+        return private.list_frame:InsertEntry(listEntry, entry_index, true)
     end,
 
-    _func_insert_tooltip_text = function(self, recipe, identifier, location, acquire_info, addline_func)
+    _func_insert_tooltip_text = function(self, recipe, identifier, localizedLocationName, acquire_info, addline_func)
         local quest = self:GetEntity(identifier)
 
-        if not quest or (location and quest.location ~= location) then
+        if not quest or (localizedLocationName and quest.Location:LocalizedName() ~= localizedLocationName) then
             return
         end
         local display_tip, name_color = self.GetTipFactionInfo(quest.faction)
@@ -81,9 +81,9 @@ private.RegisterAcquireType({
         addline_func(0, -1, false, self:Name(), self:ColorData(), private.quest_names[identifier], name_color)
 
         if quest.coord_x ~= 0 and quest.coord_y ~= 0 then
-            addline_func(1, -2, true, quest.location, CATEGORY_COLORS.location, COORDINATES_FORMAT:format(quest.coord_x, quest.coord_y), CATEGORY_COLORS.coords)
+            addline_func(1, -2, true, quest.Location:LocalizedName(), CATEGORY_COLORS.location, COORDINATES_FORMAT:format(quest.coord_x, quest.coord_y), CATEGORY_COLORS.coords)
         else
-            addline_func(1, -2, true, quest.location, CATEGORY_COLORS.location, "", CATEGORY_COLORS.coords)
+            addline_func(1, -2, true, quest.Location:LocalizedName(), CATEGORY_COLORS.location, "", CATEGORY_COLORS.coords)
         end
     end,
 

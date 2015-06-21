@@ -62,9 +62,9 @@ private.RegisterAcquireType({
 
         return private.list_frame:InsertEntry(entry, entry_index, true)
     end,
-    _func_insert_tooltip_text = function(self, recipe, identifier, location, acquire_info, addline_func)
+    _func_insert_tooltip_text = function(self, recipe, identifier, localizedLocationName, acquire_info, addline_func)
         local drop_location = type(identifier) == "string" and identifier or _G.UNKNOWN
-        if location and drop_location ~= location then
+        if localizedLocationName and drop_location ~= localizedLocationName then
             return
         end
 

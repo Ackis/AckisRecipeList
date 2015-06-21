@@ -63,28 +63,28 @@ private.RegisterAcquireType({
         entry:SetNPCID(identifier)
         entry:SetText("%s%s %s",
             self.EntryPadding:rep(2),
-            hide_location and "" or private.SetTextColor(CATEGORY_COLORS.location.hex, trainer.location),
+            hide_location and "" or private.SetTextColor(CATEGORY_COLORS.location.hex, trainer.Location:LocalizedName()),
             coord_text)
 
         return private.list_frame:InsertEntry(entry, entry_index, true)
     end,
-    _func_insert_tooltip_text = function(self, recipe, identifier, location, acquire_info, addline_func)
+    _func_insert_tooltip_text = function(self, recipe, identifier, localizedLocationName, acquire_info, addline_func)
         local trainer = self:GetEntity(identifier)
 
-        if not trainer or (location and trainer.location ~= location) then
+        if not trainer or (localizedLocationName and trainer.Location:LocalizedName() ~= localizedLocationName) then
             return
         end
-        local display_tip, name_color = self.GetTipFactionInfo(trainer.faction)
 
+        local display_tip, name_color = self.GetTipFactionInfo(trainer.faction)
         if not display_tip then
             return
         end
         addline_func(0, -2, false, self:Name(), self:ColorData(), trainer.name, name_color)
 
         if trainer.coord_x ~= 0 and trainer.coord_y ~= 0 then
-            addline_func(1, -2, true, trainer.location, CATEGORY_COLORS.location, COORDINATES_FORMAT:format(trainer.coord_x, trainer.coord_y), CATEGORY_COLORS.coords)
+            addline_func(1, -2, true, trainer.Location:LocalizedName(), CATEGORY_COLORS.location, COORDINATES_FORMAT:format(trainer.coord_x, trainer.coord_y), CATEGORY_COLORS.coords)
         else
-            addline_func(1, -2, true, trainer.location, CATEGORY_COLORS.location, "", CATEGORY_COLORS.coords)
+            addline_func(1, -2, true, trainer.Location:LocalizedName(), CATEGORY_COLORS.location, "", CATEGORY_COLORS.coords)
         end
     end,
     _func_waypoint_target = function(self, id_num, recipe)

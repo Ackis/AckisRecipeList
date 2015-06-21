@@ -246,17 +246,17 @@ function private.InitializeListFrame()
 	end
 
 	local function ListItem_OnClick(self, button, down)
-		local clicked_index = self.entry_index
+		local clickedIndex = self.entry_index
 
-		if not clicked_index or clicked_index == 0 then
+		if not clickedIndex or clickedIndex == 0 then
 			return
 		end
-		local entry = ListFrame.entries[clicked_index]
-		local recipe = entry.recipe
+		local listEntry = ListFrame.entries[clickedIndex]
+		local recipe = listEntry.recipe
 
-		if button == "RightButton" and recipe and (not entry.parent or entry.parent.recipe ~= entry.recipe) then
+		if button == "RightButton" and recipe and (not listEntry.parent or listEntry.parent.recipe ~= listEntry.recipe) then
 			local old_selected = ListFrame.selected_entry
-			local entry_button = entry.button
+			local entry_button = listEntry.button
 
 			ListFrame.selected_entry = nil
 
@@ -266,18 +266,18 @@ function private.InitializeListFrame()
 			end
 			Bar_OnEnter(entry_button)
 
-			if old_selected ~= entry then
+			if old_selected ~= listEntry then
 				entry_button.selected_texture:Show()
-				ListFrame.selected_entry = entry
+				ListFrame.selected_entry = listEntry
 			end
 		elseif recipe and _G.IsModifierKeyDown() then
             local hyperLink
 
             if _G.IsControlKeyDown() then
 				if _G.IsShiftKeyDown() then
-					local entryAcquireType = entry:AcquireType()
+					local entryAcquireType = listEntry:AcquireType()
 
-					addon:AddWaypoint(recipe, entryAcquireType and entryAcquireType:ID() or nil, entry:LocationID(), entry:NPCID())
+					addon:AddWaypoint(recipe, entryAcquireType and entryAcquireType:ID() or nil, listEntry:Location(), listEntry:NPCID())
                 else
                     hyperLink = _G.GetSpellLink(recipe:SpellID())
 				end
@@ -307,18 +307,18 @@ function private.InitializeListFrame()
                 _G.ChatEdit_ActivateChat(editBox)
                 editBox:Insert(hyperLink)
             end
-		elseif entry:IsHeader() or entry:IsSubHeader() then
+		elseif listEntry:IsHeader() or listEntry:IsSubHeader() then
 			-- three possibilities here (all with no modifiers)
 			-- 1) We clicked on the recipe button on a closed recipe
 			-- 2) We clicked on the recipe button of an open recipe
 			-- 3) we clicked on the expanded text of an open recipe
 			local current_tab = MainPanel.current_tab
 
-			if entry.is_expanded then
-				local removal_index = clicked_index + 1
+			if listEntry.is_expanded then
+				local removal_index = clickedIndex + 1
 				local target_entry = ListFrame.entries[removal_index]
 
-				while target_entry and target_entry:Type() ~= entry:Type() do
+				while target_entry and target_entry:Type() ~= listEntry:Type() do
 					-- Headers are never removed.
 					if target_entry:IsHeader() then
 						break
@@ -327,21 +327,21 @@ function private.InitializeListFrame()
 					private.ReleaseTable(table.remove(ListFrame.entries, removal_index))
 					target_entry = ListFrame.entries[removal_index]
 				end
-				current_tab:SaveListEntryState(entry, false)
-				entry.is_expanded = false
+				current_tab:SaveListEntryState(listEntry, false)
+				listEntry.is_expanded = false
 			else
-				current_tab:ExpandListEntry(entry)
-				entry.is_expanded = true
+				current_tab:ExpandListEntry(listEntry)
+				listEntry.is_expanded = true
 			end
 		else
 			-- clicked_line is an expanded entry - remove all of the parent's child entries.
-			local parent = entry.parent
+			local parent = listEntry.parent
 
 			if parent then
 				local parent_index = parent.button.entry_index
 
 				if not parent_index then
-					addon:Debug("clicked_line (%s): parent wasn't found in ListFrame.entries", entry:Text())
+					addon:Debug("clicked_line (%s): parent wasn't found in ListFrame.entries", listEntry:Text())
 					return
 				end
 				local current_tab = MainPanel.current_tab
@@ -356,7 +356,7 @@ function private.InitializeListFrame()
 					private.ReleaseTable(table.remove(entries, child_index))
 				end
 			else
-				addon:Debug("Error: clicked_line (%s) has no parent.", entry:Type() or _G.UNKNOWN)
+				addon:Debug("Error: clicked_line (%s) has no parent.", listEntry:Type() or _G.UNKNOWN)
 			end
 		end
 		ListFrame:Update(nil, true)
@@ -828,23 +828,24 @@ do
 	-- * The addline_func paramater must be a function which accepts the same
 	-- * arguments as ARL's ttAdd function.
 	-------------------------------------------------------------------------------
-	function addon:DisplayAcquireData(recipe_spell_id, acquire_type_id, location, addline_func)
-		local recipe = private.recipe_list[recipe_spell_id]
+	function addon:DisplayAcquireData(recipeSpellID, acquireTypeID, localizedLocationName, addline_func)
+		local recipe = private.recipe_list[recipeSpellID]
 		if not recipe then
 			return
 		end
 
 		for recipe_acquire_type_id, acquire_data in pairs(recipe.acquire_data) do
-			if not acquire_type_id or recipe_acquire_type_id == acquire_type_id then
+			if not acquireTypeID or recipe_acquire_type_id == acquireTypeID then
+                local acquireType = private.ACQUIRE_TYPES_BY_ID[recipe_acquire_type_id]
 				local count = 0
 
 				for identifier, info in pairs(acquire_data) do
-					private.ACQUIRE_TYPES_BY_ID[recipe_acquire_type_id]:InsertTooltipText(recipe, identifier, location, info, addline_func)
+					acquireType:InsertTooltipText(recipe, identifier, localizedLocationName, info, addline_func)
 					count = count + 1
 				end
 
 				if count == 0 then
-					private.ACQUIRE_TYPES_BY_ID[recipe_acquire_type_id]:InsertTooltipText(recipe, nil, location, nil, addline_func)
+					acquireType:InsertTooltipText(recipe, nil, localizedLocationName, nil, addline_func)
 				end
 			end
 		end
@@ -940,11 +941,11 @@ do
 		BIND_ON_PICKUP = L["RecipeBOPFilter"],
 	}
 
-	function ListItem_ShowTooltip(list_entry)
-		if not list_entry then
+	function ListItem_ShowTooltip(listEntry)
+		if not listEntry then
 			return
 		end
-		local recipe = list_entry.recipe
+		local recipe = listEntry.recipe
 
 		if not recipe then
 			return
@@ -1012,8 +1013,9 @@ do
 		end
         ttAdd(0, -1, false, _G.SOURCES .. _G.HEADER_COLON, BASIC_COLORS.normal)
 
-		local entry_acquire_type = list_entry:AcquireType()
-		addon:DisplayAcquireData(recipe:SpellID(), entry_acquire_type and entry_acquire_type:ID(), list_entry:LocationID(), ttAdd)
+		local listEntryAcquireType = listEntry:AcquireType()
+        local listEntryLocation = listEntry:Location()
+		addon:DisplayAcquireData(recipe:SpellID(), listEntryAcquireType and listEntryAcquireType:ID() or nil, listEntryLocation and listEntryLocation:LocalizedName() or nil, ttAdd)
 
 		if not addon.db.profile.hide_tooltip_hint then
 			local hint_color = private.CATEGORY_COLORS.hint

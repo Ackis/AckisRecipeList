@@ -130,19 +130,21 @@ function tab_prototype:ToBack()
 	self:Enable()
 end
 
-function tab_prototype:SaveListEntryState(entry, expanded)
+function tab_prototype:SaveListEntryState(listEntry, expanded)
 	local field = private.CurrentProfession:LocalizedName() .. " expanded"
 
-	if entry.acquire_id then
-		self[field][private.ACQUIRE_TYPES_BY_ID[entry.acquire_id]:Name()] = expanded or nil
+    local listEntryAcquireType = listEntry:AcquireType()
+	if listEntryAcquireType then
+		self[field][listEntryAcquireType:Name()] = expanded or nil
 	end
 
-	if entry.location_id then
-		self[field][entry.location_id] = expanded or nil
+    local listEntryLocation = listEntry:Location()
+	if listEntryLocation then
+		self[field][listEntryLocation] = expanded or nil
 	end
 
-	if entry.recipe then
-		self[field][entry.recipe] = expanded or nil
+	if listEntry.recipe then
+		self[field][listEntry.recipe] = expanded or nil
 	end
 end
 
@@ -393,7 +395,7 @@ local function InitializeLocationTab()
                                     local entity = acquireType:GetEntity(identifier)
                                     local entityFaction = entity.faction
 
-                                    if not location or entity.location == localizedLocationName then
+                                    if not location or entity.Location == location then
                                         if not entityFaction or entityFaction == private.Player.faction or entityFaction == "Neutral" then
                                             alignedCount = alignedCount + 1
                                         else
@@ -426,6 +428,7 @@ local function InitializeLocationTab()
 
 			if count > 0 then
 				local listEntry = CreateListEntry("header")
+                listEntry:SetLocation(location)
 
 				if localizedLocationName == _G.GetRealZoneText() then
 					listEntry:Emphasize(true)
@@ -440,7 +443,6 @@ local function InitializeLocationTab()
 						count
 					)
 				end
-				listEntry:SetLocationID(localizedLocationName)
 
 				local isLocationExpanded = self[localizedProfessionName .. " expanded"][localizedLocationName]
 				insert_index = MainPanel.list_frame:InsertEntry(listEntry, insert_index, isLocationExpanded or expand_mode, isLocationExpanded or expand_mode)
@@ -455,7 +457,8 @@ local function InitializeLocationTab()
 	function LocationTab:ExpandListEntry(entry, expand_mode)
 		local orig_index = entry.button and entry.button.entry_index or entry.index
 		local expand_all = expand_mode == "deep"
-		local localizedLocationName = entry:LocationID()
+        local location = entry:Location()
+		local localizedLocationName = location:LocalizedName()
 
 		-- Entry_index is the position in self.entries that we want to expand. Since we are expanding the current entry, the return
 		-- value should be the index of the next button after the expansion occurs
@@ -467,7 +470,6 @@ local function InitializeLocationTab()
             local currentProfession = private.CurrentProfession
             local localizedProfessionName = currentProfession:LocalizedName()
 
-            local location = private.LocationsByLocalizedName[localizedLocationName]
             local sortedRecipes = location:GetSortedRecipes()
 			for index = 1, #sortedRecipes do
 				local recipe = currentProfession.Recipes[sortedRecipes[index]]
@@ -485,7 +487,7 @@ local function InitializeLocationTab()
 					local isLocationExpanded = (self[localizedProfessionName .." expanded"][recipe] and self[localizedProfessionName .." expanded"][localizedLocationName])
 					local listEntry = CreateListEntry(entry_type, entry, recipe)
 					listEntry:SetText(recipe:GetDisplayName())
-					listEntry:SetLocationID(localizedLocationName)
+					listEntry:SetLocation(location)
 
 					new_entry_index = MainPanel.list_frame:InsertEntry(listEntry, new_entry_index, expand or isLocationExpanded, expand_all or isLocationExpanded)
 				end
@@ -500,10 +502,10 @@ local function InitializeLocationTab()
 					local execute
 
 					if (acquire_type_id == private.ACQUIRE_TYPE_IDS.TRAINER or acquire_type_id == private.ACQUIRE_TYPE_IDS.VENDOR or acquire_type_id == private.ACQUIRE_TYPE_IDS.MOB_DROP or acquire_type_id == private.ACQUIRE_TYPE_IDS.QUEST)
-							and acquire_type:GetEntity(data_identifier).location == localizedLocationName then
+							and acquire_type:GetEntity(data_identifier).Location == location then
 						execute = true
 					elseif (acquire_type_id == private.ACQUIRE_TYPE_IDS.WORLD_EVENT or acquire_type_id == private.ACQUIRE_TYPE_IDS.CUSTOM or acquire_type_id == private.ACQUIRE_TYPE_IDS.DISCOVERY)
-							and acquire_type:GetEntity(data_identifier).location == localizedLocationName then
+							and acquire_type:GetEntity(data_identifier).Location == location then
 						hide_acquire_type = true
 						execute = true
 					elseif acquire_type_id == private.ACQUIRE_TYPE_IDS.REPUTATION then

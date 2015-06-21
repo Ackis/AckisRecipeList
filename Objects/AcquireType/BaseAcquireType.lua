@@ -57,15 +57,18 @@ function AcquireType:AddEntity(module, entity)
         return
     end
 
-    --@alpha@
-    if not entity.location and self:HasCoordinates() then
-        private:Debug("%s %s (%s) has an unknown location.", self:Name(), entity.name or _G.UNKNOWN, entity.identifier)
+    -- TODO: Rename "location" to "locationName" in all of the profession modules so the intent is clear.
+    if entity.location then
+        entity.Location = private.LocationsByLocalizedName[entity.location]
+        entity.location = nil
+    elseif self:HasCoordinates() then
+        private.Debug("%s %s (%s) has an unknown location.", self:Name(), entity.name or _G.UNKNOWN, entity.identifier)
     end
 
     if entity.faction and self:ID() == private.ACQUIRE_TYPE_IDS.MOB_DROP then
-        private:Debug("Mob %d (%s) has been assigned to faction %s.", entity.identifier, entity.name, entity.faction)
+        private.Debug("Mob %d (%s) has been assigned to faction %s.", entity.identifier, entity.name, entity.faction)
     end
-    --@end-alpha@
+
     self._entities[entity.identifier] = entity
     return entity
 end
@@ -110,8 +113,8 @@ function AcquireType:ID()
     return self._id
 end
 
-function AcquireType:InsertTooltipText(recipe, identifier, location, acquire_info, addline_func)
-    self._func_insert_tooltip_text(self, recipe, identifier, location, acquire_info, addline_func)
+function AcquireType:InsertTooltipText(recipe, identifier, localizedLocationName, acquireInfo, addlineFunc)
+    self._func_insert_tooltip_text(self, recipe, identifier, localizedLocationName, acquireInfo, addlineFunc)
 end
 
 function AcquireType:Label()

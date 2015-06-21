@@ -31,31 +31,31 @@ local VALID_LIST_ENTRY_TYPES = {
 	subheader = true,
 }
 
-function private.CreateListEntry(entry_type, parent_entry, recipe)
-	local entry = _G.setmetatable(private.AcquireTable(), list_entry_meta)
-	entry.recipe = recipe
+function private.CreateListEntry(listEntryType, parentListEntry, recipe)
+	local listEntry = _G.setmetatable(private.AcquireTable(), list_entry_meta)
+	listEntry.recipe = recipe
 
-	if entry_type and VALID_LIST_ENTRY_TYPES[entry_type] then
-		entry._type = entry_type
+	if listEntryType and VALID_LIST_ENTRY_TYPES[listEntryType] then
+		listEntry._type = listEntryType
 	else
-		addon:Debug("Attempting to set an entry's type to '%s'.", tostring(entry_type))
-		entry._type = "entry"
+		addon:Debug("Attempting to set an entry's type to '%s'.", tostring(listEntryType))
+		listEntry._type = "entry"
 	end
 
-	if parent_entry then
-		if parent_entry ~= entry then
-			entry.recipe = entry.recipe or parent_entry.recipe
-			entry.parent = parent_entry
-			entry:SetAcquireType(entry:AcquireType() or parent_entry:AcquireType())
-			entry:SetLocationID(entry:LocationID() or parent_entry:LocationID())
-			entry:SetNPCID(entry:NPCID() or parent_entry:NPCID())
+	if parentListEntry then
+		if parentListEntry ~= listEntry then
+			listEntry.recipe = listEntry.recipe or parentListEntry.recipe
+			listEntry.parent = parentListEntry
+			listEntry:SetAcquireType(listEntry:AcquireType() or parentListEntry:AcquireType())
+			listEntry:SetLocation(listEntry:Location() or parentListEntry:Location())
+			listEntry:SetNPCID(listEntry:NPCID() or parentListEntry:NPCID())
 		else
 			addon:Debug("Attempting to parent an entry to itself.")
 		end
-	elseif entry._type ~= "header" then
-		addon:Debug("Non-header entry without a parent: %s", entry._type)
+	elseif listEntry._type ~= "header" then
+		addon:Debug("Non-header entry without a parent: %s", listEntry._type)
 	end
-	return entry
+	return listEntry
 end
 
 -------------------------------------------------------------------------------
@@ -77,12 +77,12 @@ function list_entry_prototype:AcquireType()
 	return self._acquire_type
 end
 
-function list_entry_prototype:SetLocationID(location_id)
-	self._location_id = location_id
+function list_entry_prototype:SetLocation(location)
+	self._location = location
 end
 
-function list_entry_prototype:LocationID()
-	return self._location_id
+function list_entry_prototype:Location()
+	return self._location
 end
 
 function list_entry_prototype:SetNPCID(npc_id)

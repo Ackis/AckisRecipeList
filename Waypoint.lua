@@ -34,6 +34,8 @@ end
 local WAYPOINT_ENTITIES = {}
 
 local function AddRecipeWaypoints(recipe, targetAcquireTypeID, locationName, npcID)
+    local location = private.LocationsByLocalizedName[locationName]
+
 	for acquireTypeID, acquireTypeData in pairs(recipe.acquire_data) do
 		if not targetAcquireTypeID or acquireTypeID == targetAcquireTypeID then
 			local acquireType = private.ACQUIRE_TYPES_BY_ID[acquireTypeID]
@@ -44,9 +46,9 @@ local function AddRecipeWaypoints(recipe, targetAcquireTypeID, locationName, npc
 						for vendorID in pairs(level_info) do
 							local entity = acquireType:GetWaypointEntity(vendorID, recipe)
 
-							if entity and (not locationName or entity.location == locationName) then
+							if entity and (not location or entity.Location == location) then
 								entity.acquire_type = acquireType
-                                entity.location = entity.location or locationName
+                                entity.Location = entity.Location or location
 
                                 WAYPOINT_ENTITIES[entity] = recipe
 							end
@@ -57,9 +59,9 @@ local function AddRecipeWaypoints(recipe, targetAcquireTypeID, locationName, npc
                         local entity = acquireType:GetWaypointEntity(npcID or id_num, recipe)
 
                         if entity then
-                            if (not locationName or entity.location == locationName) then
+                            if (not location or entity.Location == location) then
                                 entity.acquire_type = acquireType
-                                entity.location = entity.location or locationName
+                                entity.Location = entity.Location or location
                                 entity.reference_id = id_num
 
                                 WAYPOINT_ENTITIES[entity] = recipe
@@ -159,12 +161,12 @@ function addon:AddWaypoint(recipe, acquireTypeID, localizedLocationName, npcID)
 	end
 
 	for entity, recipe in pairs(WAYPOINT_ENTITIES) do
-        local entityLocation = entity.location and private.LocationsByLocalizedName[entity.location]
+        local entityLocation = entity.Location
         if entityLocation then
             local acquireType = entity.acquire_type
             local entityName = entity.name or entity.acquire_type == private.AcquireTypes.Quest and private.quest_names[entity.reference_id] or _G.UNKNOWN
             local _, _, _, qualityColor = _G.GetItemQualityColor(recipe.quality)
-            local waypointName = ("%s: |cff%s%s|r (|c%s%s|r)%s"):format(acquireType:Name(), acquireType:ColorData().hex, entityName, qualityColor, recipe.name, entity.location and ("\n%s"):format(entity.location) or "")
+            local waypointName = ("%s: |cff%s%s|r (|c%s%s|r)%s"):format(acquireType:Name(), acquireType:ColorData().hex, entityName, qualityColor, recipe.name, ("\n%s"):format(entity.Location:LocalizedName()))
 
             -- Unset these - they're only needed for the waypoint system and shouldn't persist beyond.
             entity.acquire_type = nil
