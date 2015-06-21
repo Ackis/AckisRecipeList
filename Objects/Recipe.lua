@@ -53,6 +53,10 @@ function addon:AddRecipe(module, recipeData)
 	recipe.ProfessionModule = module
 	recipe:AddFilters(private.FILTER_IDS.ALLIANCE, private.FILTER_IDS.HORDE)
 
+    -- TODO: Remove the following two lines once acquire_data has been renamed in the profession module AddOns.
+    recipe._acquireTypeData = recipe.acquire_data
+    recipe.acquire_data = nil
+
 	if not recipe.name or recipe.name == "" then
 		recipe.name = ("%s: %d"):format(_G.UNKNOWN, tonumber(spellID))
 		self:Debug(L["SpellIDCache"]:format(spellID))
@@ -751,15 +755,15 @@ do
 end --do-block
 
 local DUMP_FUNCTION_FORMATS = {
-	[ACQUIRE_TYPE_IDS.ACHIEVEMENT] = "recipe:AddAchievement(%s)",
-	[ACQUIRE_TYPE_IDS.CUSTOM] = "recipe:AddCustom(%s)",
-	[ACQUIRE_TYPE_IDS.DISCOVERY] = "recipe:AddDiscovery(%s)",
-	[ACQUIRE_TYPE_IDS.WORLD_EVENT] = "recipe:AddWorldEvent(%s)",
-	[ACQUIRE_TYPE_IDS.TRAINER] = "recipe:AddTrainer(%s)",
-	[ACQUIRE_TYPE_IDS.MOB_DROP] = "recipe:AddMobDrop(%s)",
-	[ACQUIRE_TYPE_IDS.WORLD_DROP] = "recipe:AddWorldDrop(%s)",
-	[ACQUIRE_TYPE_IDS.QUEST] = "recipe:AddQuest(%s)",
-	[ACQUIRE_TYPE_IDS.RETIRED] = "recipe:Retire()",
+	[AcquireTypes.Achievement] = "recipe:AddAchievement(%s)",
+	[AcquireTypes.Custom] = "recipe:AddCustom(%s)",
+	[AcquireTypes.Discovery] = "recipe:AddDiscovery(%s)",
+	[AcquireTypes.WorldEvent] = "recipe:AddWorldEvent(%s)",
+	[AcquireTypes.Trainer] = "recipe:AddTrainer(%s)",
+	[AcquireTypes.MobDrop] = "recipe:AddMobDrop(%s)",
+	[AcquireTypes.WorldDrop] = "recipe:AddWorldDrop(%s)",
+	[AcquireTypes.Quest] = "recipe:AddQuest(%s)",
+	[AcquireTypes.Retired] = "recipe:Retire()",
 }
 
 local sortedData = {}
@@ -864,9 +868,9 @@ function Recipe:Dump(output, use_genesis)
 	end
 	filterOutputText = nil
 
-	for acquireTypeID, acquireInfo in pairs(self.acquire_data) do
-		if acquireTypeID == ACQUIRE_TYPE_IDS.REPUTATION then
-			for factionID, factionInfo in pairs(acquireInfo) do
+	for acquireType, acquireData in self:AcquirePairs() do
+		if acquireType == AcquireTypes.Reputation then
+			for factionID, factionData in pairs(acquireData) do
 				local factionLabel = private.FACTION_LABELS_FROM_ID[factionID]
 
 				if factionLabel then
@@ -876,14 +880,14 @@ function Recipe:Dump(output, use_genesis)
 					addon:Printf("Recipe %d (%s) - no string for faction %d", self:SpellID(), self.name, factionID)
 				end
 
-				for reputationLevel, reputationLevelInfo in pairs(factionInfo) do
-					local reputationLevelString = ("REP.%s"):format(private.REP_LEVEL_STRINGS[reputationLevel or 1])
+				for level, levelData in pairs(factionData) do
+					local reputationLevelString = ("REP.%s"):format(private.REP_LEVEL_STRINGS[level or 1])
 					local values
 
 					table.wipe(sortedData)
 					table.wipe(reverseMap)
 
-					for entityID in pairs(reputationLevelInfo) do
+					for entityID in pairs(levelData) do
 						table.insert(sortedData, entityID)
 					end
 					table.sort(sortedData)
@@ -898,40 +902,40 @@ function Recipe:Dump(output, use_genesis)
 					output:AddLine(("recipe:AddRepVendor(%s, %s, %s)"):format(factionLabel, reputationLevelString, values), genesis_val)
 				end
 			end
-		elseif acquireTypeID == ACQUIRE_TYPE_IDS.VENDOR then
+		elseif acquireType == AcquireTypes.Vendor then
 			local values
-			local limited_values
+			local limitedValues
 
 			table.wipe(sortedData)
 			table.wipe(reverseMap)
 
-			for id_num in pairs(acquireInfo) do
+			for id_num in pairs(acquireData) do
 				table.insert(sortedData, id_num)
 			end
 			table.sort(sortedData)
 
 			for index, identifier in ipairs(sortedData) do
-				local saved_id
+				local savedID
 
 				if type(identifier) == "string" then
-					saved_id = ("\"%s\""):format(identifier)
+					savedID = ("\"%s\""):format(identifier)
 				else
-					saved_id = identifier
+					savedID = identifier
 				end
-				local vendor = AcquireTypes.Vendor:GetEntity(identifier)
+				local vendor = acquireType:GetEntity(identifier)
 				local quantity = vendor.item_list[self:SpellID()]
 
 				if type(quantity) == "number" then
-					if limited_values then
-						limited_values = ("%s, %s, %d"):format(limited_values, saved_id, quantity)
+					if limitedValues then
+						limitedValues = ("%s, %s, %d"):format(limitedValues, savedID, quantity)
 					else
-						limited_values = ("%s, %d"):format(saved_id, quantity)
+						limitedValues = ("%s, %d"):format(savedID, quantity)
 					end
 				else
 					if values then
-						values = ("%s, %s"):format(values, saved_id)
+						values = ("%s, %s"):format(values, savedID)
 					else
-						values = saved_id
+						values = savedID
 					end
 				end
 			end
@@ -940,16 +944,16 @@ function Recipe:Dump(output, use_genesis)
 				output:AddLine(("recipe:AddVendor(%s)"):format(values), genesis_val)
 			end
 
-			if limited_values then
-				output:AddLine(("recipe:AddLimitedVendor(%s)"):format(limited_values), genesis_val)
+			if limitedValues then
+				output:AddLine(("recipe:AddLimitedVendor(%s)"):format(limitedValues), genesis_val)
 			end
-		elseif DUMP_FUNCTION_FORMATS[acquireTypeID] then
+		elseif DUMP_FUNCTION_FORMATS[acquireType] then
 			local values
 
 			table.wipe(sortedData)
 			table.wipe(reverseMap)
 
-			for id_num in pairs(acquireInfo) do
+			for id_num in pairs(acquireData) do
 				table.insert(sortedData, id_num)
 			end
 			table.sort(sortedData)
@@ -958,7 +962,7 @@ function Recipe:Dump(output, use_genesis)
 				local saved_id
 
 				if type(identifier) == "string" then
-					if acquireTypeID == ACQUIRE_TYPE_IDS.WORLD_DROP then
+					if acquireType == AcquireTypes.WorldDrop then
 						saved_id = ("Z.%s"):format(private.ZONE_LABELS_FROM_NAME[identifier])
 					else
 						saved_id = ("\"%s\""):format(identifier)
@@ -972,8 +976,9 @@ function Recipe:Dump(output, use_genesis)
 				else
 					values = saved_id
 				end
-			end
-			output:AddLine((DUMP_FUNCTION_FORMATS[acquireTypeID]):format(values), genesis_val)
+            end
+
+			output:AddLine((DUMP_FUNCTION_FORMATS[acquireType]):format(values), genesis_val)
 		end
 	end
 
