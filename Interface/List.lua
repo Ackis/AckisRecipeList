@@ -275,9 +275,7 @@ function private.InitializeListFrame()
 
             if _G.IsControlKeyDown() then
 				if _G.IsShiftKeyDown() then
-					local entryAcquireType = listEntry:AcquireType()
-
-					addon:AddWaypoint(recipe, entryAcquireType and entryAcquireType:ID() or nil, listEntry:Location(), listEntry:NPCID())
+					addon:AddWaypoint(recipe, listEntry:AcquireType(), listEntry:Location(), listEntry:NPCID())
                 else
                     hyperLink = _G.GetSpellLink(recipe:SpellID())
 				end

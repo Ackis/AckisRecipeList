@@ -33,51 +33,6 @@ end
 
 local WAYPOINT_ENTITIES = {}
 
-local function AddRecipeWaypoints(recipe, targetAcquireTypeID, locationName, npcID)
-    local location = private.LocationsByLocalizedName[locationName]
-
-	for acquireTypeID, acquireTypeData in pairs(recipe.acquire_data) do
-		if not targetAcquireTypeID or acquireTypeID == targetAcquireTypeID then
-			local acquireType = private.ACQUIRE_TYPES_BY_ID[acquireTypeID]
-
-			for id_num, id_info in pairs(acquireTypeData) do
-				if acquireType == private.AcquireTypes.Reputation then
-					for rep_level, level_info in pairs(id_info) do
-						for vendorID in pairs(level_info) do
-							local entity = acquireType:GetWaypointEntity(vendorID, recipe)
-
-							if entity and (not location or entity.Location == location) then
-								entity.acquire_type = acquireType
-                                entity.Location = entity.Location or location
-
-                                WAYPOINT_ENTITIES[entity] = recipe
-							end
-						end
-					end
-                else
-                    if not npcID or id_num == npcID then
-                        local entity = acquireType:GetWaypointEntity(npcID or id_num, recipe)
-
-                        if entity then
-                            if (not location or entity.Location == location) then
-                                entity.acquire_type = acquireType
-                                entity.Location = entity.Location or location
-                                entity.reference_id = id_num
-
-                                WAYPOINT_ENTITIES[entity] = recipe
-                            else
-                                addon:Debug("Failed location check.")
-                            end
-                        else
-                            addon:Debug("We have no entity")
-                        end
-                    end
-                end
-            end
-        end
-	end
-end
-
 local function AddAllWaypoints()
 	local recipe_list = private.recipe_list
 	local sorted_recipes = addon.sorted_recipes
@@ -141,7 +96,7 @@ end
 -- Expected result: Icons are added to the world map and mini-map.
 -- Input: An optional recipe ID, acquire ID, and location ID.
 -- Output: Points are added to the maps
-function addon:AddWaypoint(recipe, acquireTypeID, localizedLocationName, npcID)
+function addon:AddWaypoint(recipe, targetAcquireType, location, npcID)
 	if not _G.TomTom then
         addon:Debug("TomTom not loaded. Aborting waypoint addition.")
 		return
@@ -155,7 +110,47 @@ function addon:AddWaypoint(recipe, acquireTypeID, localizedLocationName, npcID)
 	table.wipe(WAYPOINT_ENTITIES)
 
 	if recipe then
-		AddRecipeWaypoints(recipe, acquireTypeID, localizedLocationName, npcID)
+        for acquireTypeID, acquireTypeData in pairs(recipe.acquire_data) do
+            if not targetAcquireType or acquireTypeID == targetAcquireType:ID() then
+                local acquireType = private.ACQUIRE_TYPES_BY_ID[acquireTypeID]
+                for dataID, data in pairs(acquireTypeData) do
+                    if acquireType == private.AcquireTypes.Reputation then
+                        for reputationLevel, levelData in pairs(data) do
+                            for vendorID in pairs(levelData) do
+                                local entity = acquireType:GetWaypointEntity(vendorID, recipe)
+                                if entity then
+                                    if not location or entity.Location == location then
+                                        entity.acquire_type = acquireType
+                                        entity.Location = entity.Location or location
+
+                                        WAYPOINT_ENTITIES[entity] = recipe
+                                    else
+                                        addon:Debug("Failed location check.")
+                                    end
+                                end
+                            end
+                        end
+                    else
+                        if not npcID or dataID == npcID then
+                            local entity = acquireType:GetWaypointEntity(npcID or dataID, recipe)
+                            if entity then
+                                if not location or entity.Location == location then
+                                    entity.acquire_type = acquireType
+                                    entity.Location = entity.Location or location
+                                    entity.reference_id = dataID
+
+                                    WAYPOINT_ENTITIES[entity] = recipe
+                                else
+                                    addon:Debug("Failed location check.")
+                                end
+                            else
+                                addon:Debug("We have no entity")
+                            end
+                        end
+                    end
+                end
+            end
+        end
 	elseif addon.db.profile.autoscanmap then
 		AddAllWaypoints()
 	end
