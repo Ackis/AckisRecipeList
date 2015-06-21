@@ -48,27 +48,23 @@ local function AddAllWaypoints()
         end
 
         if recipe:HasState("VISIBLE") and matches_search then
-            for acquire_type_id, acquire_info in pairs(recipe.acquire_data) do
-                local acquire_type = private.ACQUIRE_TYPES_BY_ID[acquire_type_id]
-
-                for id_num, id_info in pairs(acquire_info) do
-                    if acquire_type_id == private.ACQUIRE_TYPE_IDS.REPUTATION then
-                        for rep_level, level_info in pairs(id_info) do
-                            for vendor_id in pairs(level_info) do
-                                local entity = acquire_type:GetWaypointEntity(vendor_id, recipe)
-
+            for acquireType, acquireData in recipe:AcquirePairs() do
+                for sourceID, sourceData in pairs(acquireData) do
+                    if acquireType == private.AcquireTypes.Reputation then
+                        for level, levelData in pairs(sourceData) do
+                            for vendorID in pairs(levelData) do
+                                local entity = acquireType:GetWaypointEntity(vendorID, recipe)
                                 if entity then
-                                    entity.acquire_type = acquire_type
+                                    entity.acquire_type = acquireType
                                     WAYPOINT_ENTITIES[entity] = recipe
                                 end
                             end
                         end
                     else
-                        local entity = acquire_type:GetWaypointEntity(id_num, recipe)
-
+                        local entity = acquireType:GetWaypointEntity(sourceID, recipe)
                         if entity then
-                            entity.acquire_type = acquire_type
-                            entity.reference_id = id_num
+                            entity.acquire_type = acquireType
+                            entity.reference_id = sourceID
                             WAYPOINT_ENTITIES[entity] = recipe
                         end
                     end
@@ -110,12 +106,11 @@ function addon:AddWaypoint(recipe, targetAcquireType, location, npcID)
     table.wipe(WAYPOINT_ENTITIES)
 
     if recipe then
-        for acquireTypeID, acquireTypeData in pairs(recipe.acquire_data) do
-            if not targetAcquireType or acquireTypeID == targetAcquireType:ID() then
-                local acquireType = private.ACQUIRE_TYPES_BY_ID[acquireTypeID]
-                for dataID, data in pairs(acquireTypeData) do
+        for acquireType, acquireData in recipe:AcquirePairs() do
+            if not targetAcquireType or acquireType == targetAcquireType then
+                for sourceID, sourceData in pairs(acquireData) do
                     if acquireType == private.AcquireTypes.Reputation then
-                        for reputationLevel, levelData in pairs(data) do
+                        for level, levelData in pairs(sourceData) do
                             for vendorID in pairs(levelData) do
                                 local entity = acquireType:GetWaypointEntity(vendorID, recipe)
                                 if entity then
@@ -131,13 +126,13 @@ function addon:AddWaypoint(recipe, targetAcquireType, location, npcID)
                             end
                         end
                     else
-                        if not npcID or dataID == npcID then
-                            local entity = acquireType:GetWaypointEntity(npcID or dataID, recipe)
+                        if not npcID or sourceID == npcID then
+                            local entity = acquireType:GetWaypointEntity(npcID or sourceID, recipe)
                             if entity then
                                 if not location or entity.Location == location then
                                     entity.acquire_type = acquireType
                                     entity.Location = entity.Location or location
-                                    entity.reference_id = dataID
+                                    entity.reference_id = sourceID
 
                                     WAYPOINT_ENTITIES[entity] = recipe
                                 else
