@@ -5,15 +5,15 @@ local _G = getfenv(0)
 
 local table = _G.table
 
-local pairs= _G.pairs
+local pairs = _G.pairs
 
 -------------------------------------------------------------------------------
 -- AddOn namespace.
 -------------------------------------------------------------------------------
-local FOLDER_NAME, private	= ...
+local FOLDER_NAME, private = ...
 
 local LibStub = _G.LibStub
-local addon	= LibStub("AceAddon-3.0"):GetAddon(private.addon_name)
+local addon = LibStub("AceAddon-3.0"):GetAddon(private.addon_name)
 
 -------------------------------------------------------------------------------
 -- Constants.
@@ -22,74 +22,74 @@ local ActiveWaypoints = {}
 
 -- Clears all the icons from the world map and the mini-map
 function addon:ClearWaypoints()
-	if not _G.TomTom or not _G.TomTom.RemoveWaypoint then
-		return
-	end
+    if not _G.TomTom or not _G.TomTom.RemoveWaypoint then
+        return
+    end
 
-	while #ActiveWaypoints > 0 do
-		_G.TomTom:RemoveWaypoint(table.remove(ActiveWaypoints))
-	end
+    while #ActiveWaypoints > 0 do
+        _G.TomTom:RemoveWaypoint(table.remove(ActiveWaypoints))
+    end
 end
 
 local WAYPOINT_ENTITIES = {}
 
 local function AddAllWaypoints()
-	local recipe_list = private.recipe_list
-	local sorted_recipes = addon.sorted_recipes
-	local editbox_text = addon.Frame.search_editbox:GetText()
+    local recipe_list = private.recipe_list
+    local sorted_recipes = addon.sorted_recipes
+    local editbox_text = addon.Frame.search_editbox:GetText()
 
-	-- Scan through all recipes to display, and add the vendors to a list to get their acquire info
-	for index = 1, #sorted_recipes do
-		local recipe = recipe_list[sorted_recipes[index]]
-		local matches_search = true
+    -- Scan through all recipes to display, and add the vendors to a list to get their acquire info
+    for index = 1, #sorted_recipes do
+        local recipe = recipe_list[sorted_recipes[index]]
+        local matches_search = true
 
-		if editbox_text ~= "" and editbox_text ~= _G.SEARCH then
-			matches_search = recipe:HasState("RELEVANT")
-		end
+        if editbox_text ~= "" and editbox_text ~= _G.SEARCH then
+            matches_search = recipe:HasState("RELEVANT")
+        end
 
-		if recipe:HasState("VISIBLE") and matches_search then
-			for acquire_type_id, acquire_info in pairs(recipe.acquire_data) do
-				local acquire_type = private.ACQUIRE_TYPES_BY_ID[acquire_type_id]
+        if recipe:HasState("VISIBLE") and matches_search then
+            for acquire_type_id, acquire_info in pairs(recipe.acquire_data) do
+                local acquire_type = private.ACQUIRE_TYPES_BY_ID[acquire_type_id]
 
-				for id_num, id_info in pairs(acquire_info) do
-					if acquire_type_id == private.ACQUIRE_TYPE_IDS.REPUTATION then
-						for rep_level, level_info in pairs(id_info) do
-							for vendor_id in pairs(level_info) do
-								local entity = acquire_type:GetWaypointEntity(vendor_id, recipe)
+                for id_num, id_info in pairs(acquire_info) do
+                    if acquire_type_id == private.ACQUIRE_TYPE_IDS.REPUTATION then
+                        for rep_level, level_info in pairs(id_info) do
+                            for vendor_id in pairs(level_info) do
+                                local entity = acquire_type:GetWaypointEntity(vendor_id, recipe)
 
-								if entity then
-									entity.acquire_type = acquire_type
-									WAYPOINT_ENTITIES[entity] = recipe
-								end
-							end
-						end
-					else
-						local entity = acquire_type:GetWaypointEntity(id_num, recipe)
+                                if entity then
+                                    entity.acquire_type = acquire_type
+                                    WAYPOINT_ENTITIES[entity] = recipe
+                                end
+                            end
+                        end
+                    else
+                        local entity = acquire_type:GetWaypointEntity(id_num, recipe)
 
-						if entity then
-							entity.acquire_type = acquire_type
-							entity.reference_id = id_num
-							WAYPOINT_ENTITIES[entity] = recipe
-						end
-					end
-				end
-			end
-		end
-	end
+                        if entity then
+                            entity.acquire_type = acquire_type
+                            entity.reference_id = id_num
+                            WAYPOINT_ENTITIES[entity] = recipe
+                        end
+                    end
+                end
+            end
+        end
+    end
 end
 
 -- Replace the TomTom waypoint icon with the icon for the profession.
 local function SetWaypointIcon(uid, ...)
-	local map_children = {...}
+    local map_children = { ... }
 
-	for index = 1, #map_children do
-		local child = map_children[index]
+    for index = 1, #map_children do
+        local child = map_children[index]
 
-		if child.point and child.point.uid == uid then
-			child.icon:SetTexture(private.CurrentProfession:WaypointIconTexture())
-			break
-		end
-	end
+        if child.point and child.point.uid == uid then
+            child.icon:SetTexture(private.CurrentProfession:WaypointIconTexture())
+            break
+        end
+    end
 end
 
 -- Adds mini-map and world map icons with tomtom.
@@ -97,19 +97,19 @@ end
 -- Input: An optional recipe ID, acquire ID, and location ID.
 -- Output: Points are added to the maps
 function addon:AddWaypoint(recipe, targetAcquireType, location, npcID)
-	if not _G.TomTom then
+    if not _G.TomTom then
         addon:Debug("TomTom not loaded. Aborting waypoint addition.")
-		return
-	end
-	local useWorldmap = addon.db.profile.worldmap
-	local useMinimap = addon.db.profile.minimap
+        return
+    end
+    local useWorldmap = addon.db.profile.worldmap
+    local useMinimap = addon.db.profile.minimap
 
-	if not useWorldmap and not useMinimap then
-		return
-	end
-	table.wipe(WAYPOINT_ENTITIES)
+    if not useWorldmap and not useMinimap then
+        return
+    end
+    table.wipe(WAYPOINT_ENTITIES)
 
-	if recipe then
+    if recipe then
         for acquireTypeID, acquireTypeData in pairs(recipe.acquire_data) do
             if not targetAcquireType or acquireTypeID == targetAcquireType:ID() then
                 local acquireType = private.ACQUIRE_TYPES_BY_ID[acquireTypeID]
@@ -151,11 +151,11 @@ function addon:AddWaypoint(recipe, targetAcquireType, location, npcID)
                 end
             end
         end
-	elseif addon.db.profile.autoscanmap then
-		AddAllWaypoints()
-	end
+    elseif addon.db.profile.autoscanmap then
+        AddAllWaypoints()
+    end
 
-	for entity, recipe in pairs(WAYPOINT_ENTITIES) do
+    for entity, recipe in pairs(WAYPOINT_ENTITIES) do
         local entityLocation = entity.Location
         if entityLocation then
             local acquireType = entity.acquire_type
@@ -208,8 +208,8 @@ function addon:AddWaypoint(recipe, targetAcquireType, location, npcID)
             else
                 addon:Debug("No coordinates provided for recipe %s (ID %d).", recipe.name, recipe:SpellID())
             end
-		else
-			self:Debug("No location match for recipe %s (ID %d).", recipe.name, recipe:SpellID())
-		end
+        else
+            self:Debug("No location match for recipe %s (ID %d).", recipe.name, recipe:SpellID())
+        end
     end
 end
