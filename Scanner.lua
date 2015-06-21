@@ -1024,7 +1024,7 @@ do
 				coord_y = vendor_y,
 				faction = _G.UnitFactionGroup("target") or "Neutral",
 				identifier = vendor_id,
-				location = _G.GetRealZoneText(),
+				Location = private.LocationsByLocalizedName[_G.GetRealZoneText()],
 				name = L[vendor_name],
 			})
 		end
