@@ -72,6 +72,29 @@ end
 -------------------------------------------------------------------------------
 -- Recipe methods.
 -------------------------------------------------------------------------------
+function Recipe:GetOrCreateAcquireDataOfType(acquireType, ...)
+    local sourceData = self._acquireTypeData[acquireType]
+    if not sourceData then
+        self._acquireTypeData[acquireType] = {}
+        sourceData = self._acquireTypeData[acquireType]
+    end
+
+    if acquireType == private.AcquireTypes.Reputation then
+        local factionID, reputationLevel = ...
+        if factionID and reputationLevel then
+            if not sourceData[factionID] then
+                sourceData[factionID] = {
+                    [reputationLevel] = {}
+                }
+            elseif not sourceData[factionID][reputationLevel] then
+                sourceData[factionID][reputationLevel] = {}
+            end
+        end
+    end
+
+    return sourceData
+end
+
 function Recipe:SpellID()
 	return self._spell_id
 end
@@ -355,7 +378,7 @@ end
 local InvalidLocationRegistry = {}
 
 function Recipe:AddAcquireData(acquireType, typeLabel, hasEntityList, ...)
-	local acquireTypeData = self.ProfessionModule.GetOrCreateRecipeAcquireTypeTable(self, acquireType:ID())
+	local acquireData = self:GetOrCreateAcquireDataOfType(acquireType)
 	local isLimitedVendor = typeLabel == "Limited Vendor"
 
 	acquireType:AssignRecipe(self:SpellID())
@@ -374,7 +397,7 @@ function Recipe:AddAcquireData(acquireType, typeLabel, hasEntityList, ...)
 			quantity = select(currentVariableIndex, ...)
 			currentVariableIndex = currentVariableIndex + 1
 		end
-		acquireTypeData[identifier] = true
+		acquireData[identifier] = true
 
 		if hasEntityList then
 			local entity = acquireType:GetEntity(identifier)
@@ -474,10 +497,10 @@ function Recipe:AddWorldEvent(...)
 end
 
 function Recipe:AddRepVendor(factionID, reputationLevel, ...)
-	local acquireTypeData = self.ProfessionModule.GetOrCreateRecipeAcquireTypeTable(self, ACQUIRE_TYPE_IDS.REPUTATION, factionID, reputationLevel)
-	local faction = acquireTypeData[factionID]
-	local reputationAcquireType = AcquireTypes.Reputation
-	local vendorAcquireType = AcquireTypes.Vendor
+    local reputationAcquireType = AcquireTypes.Reputation
+    local vendorAcquireType = AcquireTypes.Vendor
+    local acquireData = self:GetOrCreateAcquireDataOfType(reputationAcquireType, factionID, reputationLevel)
+    local faction = acquireData[factionID]
 
 	local variablesCount = select('#', ...)
 	local currentVariableIndex = 1

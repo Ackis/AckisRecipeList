@@ -137,26 +137,6 @@ end
 -------------------------------------------------------------------------------
 -- Instantiation.
 -------------------------------------------------------------------------------
-local function GetOrCreateRecipeAcquireTypeTable(recipe, acquireTypeID, factionID, reputationLevel)
-    local acquireTypeData = recipe.acquire_data[acquireTypeID]
-    if not acquireTypeData then
-        recipe.acquire_data[acquireTypeID] = {}
-        acquireTypeData = recipe.acquire_data[acquireTypeID]
-    end
-
-    if factionID and reputationLevel and acquireTypeID == private.ACQUIRE_TYPE_IDS.REPUTATION then
-        if not acquireTypeData[factionID] then
-            acquireTypeData[factionID] = {
-                [reputationLevel] = {}
-            }
-        elseif not acquireTypeData[factionID][reputationLevel] then
-            acquireTypeData[factionID][reputationLevel] = {}
-        end
-    end
-
-    return acquireTypeData
-end
-
 function private.CreateProfessionFromModule(module)
     local moduleName = module:GetName()
     for localizedProfessionName, professionModuleName in pairs(private.LOCALIZED_PROFESSION_NAME_TO_MODULE_NAME_MAPPING) do
@@ -173,7 +153,6 @@ function private.CreateProfessionFromModule(module)
             private.Professions[professionModuleName] = profession
             private.Professions[localizedProfessionName] = profession
             module.Profession = profession
-            module.GetOrCreateRecipeAcquireTypeTable = GetOrCreateRecipeAcquireTypeTable
             break;
         end
     end
