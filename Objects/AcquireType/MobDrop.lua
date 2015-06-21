@@ -21,13 +21,8 @@ private.RegisterAcquireType({
     -------------------------------------------------------------------------------
     -- Data.
     -------------------------------------------------------------------------------
-    _color_data = {
-        hex = "962626",
-        r = 0.59,
-        g = 0.15,
-        b = 0.15
-    },
-    _has_coordinates = true,
+    _colorData = { hex = "962626", r = 0.59, g = 0.15, b = 0.15 },
+    _hasCoordinates = true,
     _hasEntities = true,
     _label = "MOB_DROP",
     _name = L["Mob Drop"],

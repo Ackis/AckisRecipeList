@@ -21,13 +21,8 @@ private.RegisterAcquireType({
     -------------------------------------------------------------------------------
     -- Data.
     -------------------------------------------------------------------------------
-    _color_data = {
-        hex = "dbdb2c",
-        r = 0.86,
-        g = 0.86,
-        b = 0.17
-    },
-    _has_coordinates = true,
+    _colorData = { hex = "dbdb2c", r = 0.86, g = 0.86, b = 0.17 },
+    _hasCoordinates = true,
     _hasEntities = true,
     _label = "QUEST",
     _name = L["Quest"],

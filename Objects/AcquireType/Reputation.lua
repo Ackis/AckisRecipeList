@@ -21,13 +21,8 @@ private.RegisterAcquireType({
     -------------------------------------------------------------------------------
     -- Data.
     -------------------------------------------------------------------------------
-    _color_data = {
-        hex = "855a99",
-        r = 0.52,
-        g = 0.35,
-        b = 0.6
-    },
-    _has_coordinates = false,
+    _colorData = { hex = "855a99", r = 0.52, g = 0.35, b = 0.6 },
+    _hasCoordinates = false,
     _hasEntities = true,
     _label = "REPUTATION",
     _name = _G.REPUTATION,

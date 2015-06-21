@@ -24,13 +24,8 @@ private.RegisterAcquireType({
     -------------------------------------------------------------------------------
     -- Data.
     -------------------------------------------------------------------------------
-    _color_data = {
-        hex = "aad372",
-        r = 0.67,
-        g = 0.83,
-        b = 0.45
-    },
-    _has_coordinates = true,
+    _colorData = { hex = "aad372", r = 0.67, g = 0.83, b = 0.45 },
+    _hasCoordinates = true,
     _hasEntities = true,
     _label = "VENDOR",
     _name = L["Vendor"],

@@ -17,13 +17,8 @@ private.RegisterAcquireType({
     -------------------------------------------------------------------------------
     -- Data.
     -------------------------------------------------------------------------------
-    _color_data = {
-        hex = "faeb98",
-        r = 0.98,
-        g = 0.92,
-        b = 0.59
-    },
-    _has_coordinates = false,
+    _colorData = { hex = "faeb98", r = 0.98, g = 0.92, b = 0.59 },
+    _hasCoordinates = false,
     _hasEntities = false,
     _label = "ACHIEVEMENT",
     _name = _G.ACHIEVEMENTS,

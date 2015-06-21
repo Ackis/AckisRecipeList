@@ -17,13 +17,8 @@ private.RegisterAcquireType({
     -------------------------------------------------------------------------------
     -- Data.
     -------------------------------------------------------------------------------
-    _color_data = {
-        hex = "bfb863",
-        r = 0.75,
-        g = 0.72,
-        b = 0.39
-    },
-    _has_coordinates = false,
+    _colorData = { hex = "bfb863", r = 0.75, g = 0.72, b = 0.39 },
+    _hasCoordinates = false,
     _hasEntities = false,
     _label = "RETIRED",
     _name = L["Retired"],

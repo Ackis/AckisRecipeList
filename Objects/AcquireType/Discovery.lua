@@ -15,13 +15,8 @@ private.RegisterAcquireType({
     -------------------------------------------------------------------------------
     -- Data.
     -------------------------------------------------------------------------------
-    _color_data = {
-        hex = "ff9500",
-        r = 1,
-        g = 0.58,
-        b = 0
-    },
-    _has_coordinates = false,
+    _colorData = { hex = "ff9500", r = 1, g = 0.58, b = 0 },
+    _hasCoordinates = false,
     _hasEntities = true,
     _label = "DISCOVERY",
     _name = L["Discovery"],

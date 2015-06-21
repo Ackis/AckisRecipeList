@@ -21,13 +21,8 @@ private.RegisterAcquireType({
     -------------------------------------------------------------------------------
     -- Data.
     -------------------------------------------------------------------------------
-    _color_data = {
-        hex = "c98e26",
-        r = 0.79,
-        g = 0.56,
-        b = 0.14
-    },
-    _has_coordinates = true,
+    _colorData = { hex = "c98e26", r = 0.79, g = 0.56, b = 0.14 },
+    _hasCoordinates = true,
     _hasEntities = true,
     _label = "TRAINER",
     _name = L["Trainer"],

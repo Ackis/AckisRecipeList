@@ -12,13 +12,8 @@ private.RegisterAcquireType({
     -------------------------------------------------------------------------------
     -- Data.
     -------------------------------------------------------------------------------
-    _color_data = {
-        hex = "80590e",
-        r = 0.50,
-        g = 0.35,
-        b = 0.05
-    },
-    _has_coordinates = true,
+    _colorData = { hex = "80590e", r = 0.50, g = 0.35, b = 0.05 },
+    _hasCoordinates = true,
     _hasEntities = true,
     _label = "WORLD_EVENT",
     _name = _G.GetCategoryInfo(155),

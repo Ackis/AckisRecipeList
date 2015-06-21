@@ -22,13 +22,8 @@ private.RegisterAcquireType({
     -------------------------------------------------------------------------------
     -- Data.
     -------------------------------------------------------------------------------
-    _color_data = {
-        hex = "ffffff",
-        r = 1,
-        g = 1,
-        b = 1
-    },
-    _has_coordinates = false,
+    _colorData = { hex = "ffffff", r = 1, g = 1, b = 1 },
+    _hasCoordinates = false,
     _hasEntities = false,
     _label = "WORLD_DROP",
     _name = L["World Drop"],

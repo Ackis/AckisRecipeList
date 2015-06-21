@@ -78,7 +78,7 @@ function AcquireType:AssignRecipe(spell_id, affiliation)
 end
 
 function AcquireType:ColorData()
-    return self._color_data
+    return self._colorData
 end
 
 function AcquireType:EntityPairs()
@@ -106,7 +106,7 @@ function AcquireType:GetWaypointEntity(id_num, recipe)
 end
 
 function AcquireType:HasCoordinates()
-    return self._has_coordinates
+    return self._hasCoordinates
 end
 
 function AcquireType:HasEntities()

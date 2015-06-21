@@ -14,13 +14,8 @@ private.RegisterAcquireType({
     -------------------------------------------------------------------------------
     -- Data.
     -------------------------------------------------------------------------------
-    _color_data = {
-        hex = "73b7ff",
-        r = 0.45,
-        g = 0.71,
-        b = 1
-    },
-    _has_coordinates = false,
+    _colorData = { hex = "73b7ff", r = 0.45, g = 0.71, b = 1 },
+    _hasCoordinates = false,
     _hasEntities = true,
     _label = "CUSTOM",
     _name = _G.MISCELLANEOUS,
