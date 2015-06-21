@@ -832,12 +832,11 @@ do
 			return
 		end
 
-		for recipe_acquire_type_id, acquire_data in pairs(recipe.acquire_data) do
-			if not acquireTypeID or recipe_acquire_type_id == acquireTypeID then
-                local acquireType = private.ACQUIRE_TYPES_BY_ID[recipe_acquire_type_id]
+        for acquireType, acquireData in recipe:AcquirePairs() do
+			if not acquireTypeID or acquireType:ID() == acquireTypeID then
 				local count = 0
 
-				for identifier, info in pairs(acquire_data) do
+				for identifier, info in pairs(acquireData) do
 					acquireType:InsertTooltipText(recipe, identifier, localizedLocationName, info, addline_func)
 					count = count + 1
 				end

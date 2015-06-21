@@ -168,12 +168,12 @@ local RecipesTab
 local recipe_registry = {}
 
 -- Recipes with these acquire types will never show as headers.
-local CHILDLESS_ACQUIRE_TYPES_BY_ID = {
-	[private.ACQUIRE_TYPE_IDS.ACHIEVEMENT] = true,
-	[private.ACQUIRE_TYPE_IDS.CUSTOM] = true,
-	[private.ACQUIRE_TYPE_IDS.DISCOVERY] = true,
-	[private.ACQUIRE_TYPE_IDS.RETIRED] = true,
-	[private.ACQUIRE_TYPE_IDS.WORLD_DROP] = true,
+local CHILDLESS_ACQUIRE_TYPES = {
+	[private.AcquireTypes.Achievement] = true,
+	[private.AcquireTypes.Custom] = true,
+	[private.AcquireTypes.Discovery] = true,
+	[private.AcquireTypes.Retired] = true,
+	[private.AcquireTypes.WorldDrop] = true,
 }
 
 local EXPANSION_PREDICATES = {
@@ -295,8 +295,7 @@ local function InitializeAcquisitionTab()
 	function AcquisitionTab:ExpandListEntry(entry, expand_mode)
 		local orig_index = entry.button and entry.button.entry_index or entry.index
 		local expand_all = expand_mode == "deep"
-		local entry_acquire_type = entry:AcquireType()
-        local entry_acquire_type_id = entry_acquire_type:ID()
+		local entryAcquireType = entry:AcquireType()
 
 		-- Entry_index is the position in self.entries that we want to expand. Since we are expanding the current entry, the return
 		-- value should be the index of the next button after the expansion occurs
@@ -305,7 +304,7 @@ local function InitializeAcquisitionTab()
 		self:SaveListEntryState(entry, true)
 
 		if entry:IsHeader() then
-			local sorted_recipes = entry_acquire_type:GetSortedRecipes()
+			local sorted_recipes = entryAcquireType:GetSortedRecipes()
             local currentProfession = private.CurrentProfession
             local localizedProfessionName = currentProfession:LocalizedName()
 
@@ -315,24 +314,23 @@ local function InitializeAcquisitionTab()
 					local expand = false
 					local entry_type = "subheader"
 
-					if CHILDLESS_ACQUIRE_TYPES_BY_ID[entry_acquire_type_id] then
+					if CHILDLESS_ACQUIRE_TYPES[entryAcquireType] then
 						expand = true
 						entry_type = "entry"
 					end
-					local is_expanded = (self[localizedProfessionName .." expanded"][recipe] and self[localizedProfessionName .." expanded"][entry_acquire_type:Name()])
+					local is_expanded = (self[localizedProfessionName .." expanded"][recipe] and self[localizedProfessionName .." expanded"][entryAcquireType:Name()])
 
 					local listEntry = CreateListEntry(entry_type, entry, recipe)
-					listEntry:SetAcquireType(entry_acquire_type)
+					listEntry:SetAcquireType(entryAcquireType)
 					listEntry:SetText(recipe:GetDisplayName())
 
 					new_entry_index = MainPanel.list_frame:InsertEntry(listEntry, new_entry_index, expand or is_expanded, expand_all or is_expanded)
 				end
 			end
 		elseif entry:IsSubHeader() then
-			for acquire_type_id, acquire_type_data in pairs(entry.recipe.acquire_data) do
-				if acquire_type_id == entry_acquire_type_id then
-					new_entry_index = ExpandAcquireData(new_entry_index, "subentry", entry, acquire_type_id, acquire_type_data, entry.recipe, false, true)
-				end
+            local recipeAcquireData = entry.recipe:AcquireDataOfType(entryAcquireType)
+            if recipeAcquireData then
+                new_entry_index = ExpandAcquireData(new_entry_index, "subentry", entry, entryAcquireType:ID(), recipeAcquireData, entry.recipe, false, true)
 			end
 		end
 		return new_entry_index
@@ -385,7 +383,7 @@ local function InitializeLocationTab()
 
 					if not showOpposingFaction then
                         for name, acquireType in pairs(private.AcquireTypes) do
-							local acquireData = recipe.acquire_data[acquireType:ID()]
+							local acquireData = recipe:AcquireDataOfType(acquireType)
 
 							if acquireData and acquireType:HasCoordinates() then
                                 local alignedCount = 0
@@ -494,27 +492,26 @@ local function InitializeLocationTab()
 			end
 		elseif entry:IsSubHeader() then
 			-- World Drops are not handled here because they are of type "entry".
-			for acquire_type_id, acquire_data in pairs(entry.recipe.acquire_data) do
-				-- Only expand an acquisition entry if it is from this location.
-				for data_identifier, data_info in pairs(acquire_data) do
-					local acquire_type = private.ACQUIRE_TYPES_BY_ID[acquire_type_id]
-					local hide_acquire_type
-					local execute
+            -- Only expand an acquisition entry if it is from this location.
+            for acquireType, acquireData in entry.recipe:AcquirePairs() do
+				for sourceID, sourceData in pairs(acquireData) do
+					local hideAcquireType
+					local shouldExecute
 
-					if (acquire_type_id == private.ACQUIRE_TYPE_IDS.TRAINER or acquire_type_id == private.ACQUIRE_TYPE_IDS.VENDOR or acquire_type_id == private.ACQUIRE_TYPE_IDS.MOB_DROP or acquire_type_id == private.ACQUIRE_TYPE_IDS.QUEST)
-							and acquire_type:GetEntity(data_identifier).Location == location then
-						execute = true
-					elseif (acquire_type_id == private.ACQUIRE_TYPE_IDS.WORLD_EVENT or acquire_type_id == private.ACQUIRE_TYPE_IDS.CUSTOM or acquire_type_id == private.ACQUIRE_TYPE_IDS.DISCOVERY)
-							and acquire_type:GetEntity(data_identifier).Location == location then
-						hide_acquire_type = true
-						execute = true
-					elseif acquire_type_id == private.ACQUIRE_TYPE_IDS.REPUTATION then
-						execute = true
+					if (acquireType == private.AcquireTypes.Trainer or acquireType == private.AcquireTypes.Vendor or acquireType == private.AcquireTypes.MobDrop or acquireType == private.AcquireTypes.Quest)
+							and acquireType:GetEntity(sourceID).Location == location then
+						shouldExecute = true
+					elseif (acquireType == private.AcquireTypes.WorldEvent or acquireType == private.AcquireTypes.Custom or acquireType == private.AcquireTypes.Discovery)
+							and acquireType:GetEntity(sourceID).Location == location then
+						hideAcquireType = true
+						shouldExecute = true
+					elseif acquireType == private.AcquireTypes.Reputation then
+						shouldExecute = true
 						break
 					end
 
-					if execute then
-						new_entry_index = acquire_type:ExpandListEntry(new_entry_index, "subentry", entry, data_identifier, data_info, entry.recipe, true, hide_acquire_type)
+					if shouldExecute then
+						new_entry_index = acquireType:ExpandListEntry(new_entry_index, "subentry", entry, sourceID, sourceData, entry.recipe, true, hideAcquireType)
 					end
 				end
 			end
@@ -566,12 +563,11 @@ local function InitializeRecipesTab()
 		-- Entry_index is the position in self.entries that we want to expand. Since we are expanding the current entry, the return
 		-- value should be the index of the next button after the expansion occurs
 		local new_entry_index = orig_index + 1
-		local recipe = entry.recipe
 
 		self:SaveListEntryState(entry, true)
 
-		for acquire_type_id, acquire_type_data in pairs(recipe.acquire_data) do
-			new_entry_index = ExpandAcquireData(new_entry_index, "entry", entry, acquire_type_id, acquire_type_data, recipe)
+        for acquireType, acquireData in entry.recipe:AcquirePairs() do
+			new_entry_index = ExpandAcquireData(new_entry_index, "entry", entry, acquireType:ID(), acquireData, entry.recipe)
 		end
 		return new_entry_index
 	end
