@@ -28,6 +28,7 @@ private.RegisterAcquireType({
         b = 0.6
     },
     _has_coordinates = false,
+    _hasEntities = true,
     _label = "REPUTATION",
     _name = _G.REPUTATION,
     -------------------------------------------------------------------------------

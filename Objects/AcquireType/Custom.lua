@@ -21,6 +21,7 @@ private.RegisterAcquireType({
         b = 1
     },
     _has_coordinates = false,
+    _hasEntities = true,
     _label = "CUSTOM",
     _name = _G.MISCELLANEOUS,
     __waypoint_checks = {

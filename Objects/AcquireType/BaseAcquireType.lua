@@ -109,6 +109,10 @@ function AcquireType:HasCoordinates()
     return self._has_coordinates
 end
 
+function AcquireType:HasEntities()
+    return self._hasEntities
+end
+
 function AcquireType:ID()
     return self._id
 end

@@ -29,6 +29,7 @@ private.RegisterAcquireType({
         b = 1
     },
     _has_coordinates = false,
+    _hasEntities = false,
     _label = "WORLD_DROP",
     _name = L["World Drop"],
     -------------------------------------------------------------------------------

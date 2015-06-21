@@ -28,6 +28,7 @@ private.RegisterAcquireType({
         b = 0.15
     },
     _has_coordinates = true,
+    _hasEntities = true,
     _label = "MOB_DROP",
     _name = L["Mob Drop"],
     -------------------------------------------------------------------------------

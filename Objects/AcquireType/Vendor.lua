@@ -31,6 +31,7 @@ private.RegisterAcquireType({
         b = 0.45
     },
     _has_coordinates = true,
+    _hasEntities = true,
     _label = "VENDOR",
     _name = L["Vendor"],
     -------------------------------------------------------------------------------

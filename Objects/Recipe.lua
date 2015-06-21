@@ -389,7 +389,7 @@ end
 
 local InvalidLocationRegistry = {}
 
-function Recipe:AddAcquireData(acquireType, typeLabel, hasEntityList, ...)
+function Recipe:AddAcquireData(acquireType, typeLabel, ...)
 	local acquireData = self:GetOrCreateAcquireDataOfType(acquireType)
 	local isLimitedVendor = typeLabel == "Limited Vendor"
 
@@ -411,7 +411,7 @@ function Recipe:AddAcquireData(acquireType, typeLabel, hasEntityList, ...)
 		end
 		acquireData[identifier] = true
 
-		if hasEntityList then
+		if acquireType:HasEntities() then
 			local entity = acquireType:GetEntity(identifier)
 			if entity then
 				affiliation = entity.faction
@@ -459,52 +459,52 @@ function Recipe:AddAcquireData(acquireType, typeLabel, hasEntityList, ...)
 end
 
 function Recipe:AddMobDrop(...)
-	self:AddAcquireData(AcquireTypes.MobDrop, "Mob", true, ...)
+	self:AddAcquireData(AcquireTypes.MobDrop, "Mob", ...)
 	self:AddFilters(private.FILTER_IDS.MOB_DROP)
 end
 
 function Recipe:AddTrainer(...)
-	self:AddAcquireData(AcquireTypes.Trainer, "Trainer", true, ...)
+	self:AddAcquireData(AcquireTypes.Trainer, "Trainer", ...)
 	self:AddFilters(private.FILTER_IDS.TRAINER)
 end
 
 function Recipe:AddVendor(...)
-	self:AddAcquireData(AcquireTypes.Vendor, "Vendor", true, ...)
+	self:AddAcquireData(AcquireTypes.Vendor, "Vendor", ...)
 	self:AddFilters(private.FILTER_IDS.VENDOR)
 end
 
 function Recipe:AddLimitedVendor(...)
-	self:AddAcquireData(AcquireTypes.Vendor, "Limited Vendor", true, ...)
+	self:AddAcquireData(AcquireTypes.Vendor, "Limited Vendor", ...)
 	self:AddFilters(private.FILTER_IDS.VENDOR)
 end
 
 function Recipe:AddWorldDrop(...)
-	self:AddAcquireData(AcquireTypes.WorldDrop, "World Drop", false, ...)
+	self:AddAcquireData(AcquireTypes.WorldDrop, "World Drop", ...)
 	self:AddFilters(private.FILTER_IDS.WORLD_DROP)
 end
 
 function Recipe:AddQuest(...)
-	self:AddAcquireData(AcquireTypes.Quest, "Quest", true, ...)
+	self:AddAcquireData(AcquireTypes.Quest, "Quest", ...)
 	self:AddFilters(private.FILTER_IDS.QUEST)
 end
 
 function Recipe:AddAchievement(...)
-	self:AddAcquireData(AcquireTypes.Achievement, "Achievement", false, ...)
+	self:AddAcquireData(AcquireTypes.Achievement, "Achievement", ...)
 	self:AddFilters(private.FILTER_IDS.ACHIEVEMENT)
 end
 
 function Recipe:AddCustom(...)
-	self:AddAcquireData(AcquireTypes.Custom, "Custom", true, ...)
+	self:AddAcquireData(AcquireTypes.Custom, "Custom", ...)
 	self:AddFilters(private.FILTER_IDS.CUSTOM)
 end
 
 function Recipe:AddDiscovery(...)
-	self:AddAcquireData(AcquireTypes.Discovery, "Discovery", true, ...)
+	self:AddAcquireData(AcquireTypes.Discovery, "Discovery", ...)
 	self:AddFilters(private.FILTER_IDS.DISC)
 end
 
 function Recipe:AddWorldEvent(...)
-	self:AddAcquireData(AcquireTypes.WorldEvent, "World Event", true, ...)
+	self:AddAcquireData(AcquireTypes.WorldEvent, "World Event", ...)
 	self:AddFilters(private.FILTER_IDS.WORLD_EVENT)
 end
 

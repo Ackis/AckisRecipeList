@@ -22,6 +22,7 @@ private.RegisterAcquireType({
         b = 0
     },
     _has_coordinates = false,
+    _hasEntities = true,
     _label = "DISCOVERY",
     _name = L["Discovery"],
     -------------------------------------------------------------------------------

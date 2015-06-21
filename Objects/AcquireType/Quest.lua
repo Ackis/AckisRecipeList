@@ -28,6 +28,7 @@ private.RegisterAcquireType({
         b = 0.17
     },
     _has_coordinates = true,
+    _hasEntities = true,
     _label = "QUEST",
     _name = L["Quest"],
     -------------------------------------------------------------------------------

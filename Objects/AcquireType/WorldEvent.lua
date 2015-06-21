@@ -19,6 +19,7 @@ private.RegisterAcquireType({
         b = 0.05
     },
     _has_coordinates = true,
+    _hasEntities = true,
     _label = "WORLD_EVENT",
     _name = _G.GetCategoryInfo(155),
     -------------------------------------------------------------------------------

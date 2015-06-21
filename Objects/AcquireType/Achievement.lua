@@ -24,6 +24,7 @@ private.RegisterAcquireType({
         b = 0.59
     },
     _has_coordinates = false,
+    _hasEntities = false,
     _label = "ACHIEVEMENT",
     _name = _G.ACHIEVEMENTS,
     -------------------------------------------------------------------------------

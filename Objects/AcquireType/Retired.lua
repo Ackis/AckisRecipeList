@@ -24,6 +24,7 @@ private.RegisterAcquireType({
         b = 0.39
     },
     _has_coordinates = false,
+    _hasEntities = false,
     _label = "RETIRED",
     _name = L["Retired"],
     -------------------------------------------------------------------------------
