@@ -72,6 +72,14 @@ end
 -------------------------------------------------------------------------------
 -- Recipe methods.
 -------------------------------------------------------------------------------
+function Recipe:AcquirePairs()
+    return pairs(self._acquireTypeData)
+end
+
+function Recipe:AcquireDataOfType(acquireType)
+    return self._acquireTypeData[acquireType]
+end
+
 function Recipe:GetOrCreateAcquireDataOfType(acquireType, ...)
     local sourceData = self._acquireTypeData[acquireType]
     if not sourceData then
