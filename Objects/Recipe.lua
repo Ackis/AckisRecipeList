@@ -112,8 +112,8 @@ function Recipe:SpellID()
 end
 
 function Recipe:HasCoordinates()
-	for acquire_type_id in pairs(self.acquire_data) do
-		if private.ACQUIRE_TYPES_BY_ID[acquire_type_id]:HasCoordinates() then
+    for acquireType in self:AcquirePairs() do
+		if acquireType:HasCoordinates() then
 			return true
 		end
 	end
@@ -273,7 +273,7 @@ do
 		if private.CurrentProfession:LocalizedName() == private.LOCALIZED_PROFESSION_NAMES.ENCHANTING then
 			recipe_name = recipe_name:gsub(_G.ENSCRIBE .. " ", "")
 		end
-		local has_faction = private.Player:HasProperRepLevel(self.acquire_data[ACQUIRE_TYPE_IDS.REPUTATION])
+		local has_faction = private.Player:HasProperRepLevel(self:AcquireDataOfType(private.AcquireTypes.Reputation))
 		local skill_level = private.current_profession_scanlevel
 		local recipe_level = self.skill_level
 
@@ -986,13 +986,12 @@ function Recipe:Dump(output, use_genesis)
 end
 
 function Recipe:DumpTrainers(registry)
-	local trainer_data = self.acquire_data[ACQUIRE_TYPE_IDS.TRAINER]
-
-	if not trainer_data then
+	local trainerData = self:AcquireDataOfType(AcquireTypes.Trainer)
+	if not trainerData then
 		return
 	end
 
-	for identifier in pairs(trainer_data) do
+	for identifier in pairs(trainerData) do
 		registry[identifier] = true
 	end
 end

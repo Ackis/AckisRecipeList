@@ -1203,11 +1203,10 @@ do
 			end
 
 			-- Find out which unique acquire methods we have
-			local acquire_data = recipe.acquire_data
 			table.wipe(acquire_list)
 
-			for acquire_type_id in pairs(acquire_data) do
-				acquire_list[private.ACQUIRE_TYPES_BY_ID[acquire_type_id]:Name()] = true
+			for acquireType in recipe:AcquirePairs() do
+				acquire_list[acquireType:Name()] = true
 			end
 
 			-- Add all the acquire methods in
