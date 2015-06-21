@@ -26,9 +26,6 @@ local L = LibStub("AceLocale-3.0"):GetLocale(private.addon_name)
 -------------------------------------------------------------------------------
 -- Constants
 -------------------------------------------------------------------------------
-local F = private.FILTER_IDS
-local A = private.ACQUIRE_TYPE_IDS
-
 local NO_ROLE_FLAG	-- Populated at the end of the file.
 
 -------------------------------------------------------------------------------
@@ -160,8 +157,8 @@ do
         for recipeSpellID, recipe in pairs(professionRecipes) do
             local scannedRecipeItemID = ScannedRecipeIDToItemIDMapping[recipeSpellID]
             local scannedRecipeSkillLevel = ScannedRecipeIDToSkillLevelMapping[recipeSpellID]
-            local recipeTrainerAcquireData = recipe.acquire_data[A.TRAINER]
-            local recipeMatchesTrainer = recipeTrainerAcquireData and recipeTrainerAcquireData[trainerID]
+            local recipeTrainerData = recipe:AcquireDataOfType(private.AcquireTypes.Trainer)
+            local recipeMatchesTrainer = recipeTrainerData and recipeTrainerData[trainerID]
 
             if recipeMatchesTrainer then
                 if not scannedRecipeSkillLevel then
@@ -176,7 +173,7 @@ do
                 recipe:AddTrainer(trainerID)
 
                 if not recipe:HasFilter("common1", "TRAINER") then
-                    recipe:AddFilters(F.TRAINER)
+                    recipe:AddFilters(private.FILTER_IDS.TRAINER)
                     output:AddLine(("    %s -- %d: Added trainer flag."):format(recipe.name, recipeSpellID))
                 end
             end
@@ -970,92 +967,99 @@ do
 	local output = private.TextDump
 	local RECIPE_ITEM_TO_SPELL_MAP
 
-	local function NormalizeVendorData(spell_id, supply, vendor_id, vendor_name)
-		local recipe = private.recipe_list[spell_id]
-		local acquire_data = recipe and recipe.acquire_data
-		local vendor_data = acquire_data and acquire_data[A.VENDOR]
-		local rep_data = acquire_data and acquire_data[A.REPUTATION]
-		local matching_vendor = false
+	local function NormalizeVendorData(recipeSpellID, supply, vendorID, vendorName)
+		local recipe = private.recipe_list[recipeSpellID]
+        local vendorAcquireType = private.AcquireTypes.Vendor
+        local sourceExistsInData = false
 
-		if vendor_data then
-			for id_num in pairs(vendor_data) do
-				if id_num == vendor_id then
-					matching_vendor = true
-					break
-				end
-			end
-		elseif rep_data then
-			for id_num, info in pairs(rep_data) do
-				if matching_vendor then
-					break
-				end
+        local vendorData = recipe:AcquireDataOfType(vendorAcquireType)
+        if vendorData then
+            for sourceID in pairs(vendorData) do
+                if sourceID == vendorID then
+                    sourceExistsInData = true
+                    break
+            end
+            end
+        else
+            local reputationData = recipe:AcquireDataOfType(private.AcquireTypes.Reputation)
+            if reputationData then
+                for id_num, info in pairs(reputationData) do
+                    if sourceExistsInData then
+                        break
+                    end
 
-				for rep_level, level_info in pairs(info) do
-					for rep_vendor_id in pairs(level_info) do
-						if rep_vendor_id == vendor_id then
-							matching_vendor = true
-						end
-					end
-				end
-			end
-		end
-		local vendor_acquire_type = private.AcquireTypes.Vendor
-		local vendor_entry = vendor_acquire_type:GetEntity(vendor_id)
-		local vendor_x, vendor_y = _G.GetPlayerMapPosition("player")
-		vendor_x = ("%.2f"):format(vendor_x * 100)
-		vendor_y = ("%.2f"):format(vendor_y * 100)
+                    for reputationLevel, dataForLevel in pairs(info) do
+                        if sourceExistsInData then
+                            break
+                        end
 
-		if vendor_entry then
-			if vendor_entry.coord_x ~= vendor_x or vendor_entry.coord_y ~= vendor_y then
-				output:AddLine(("%s appears to have different coordinates (%s, %s) than those in the database (%s, %s)."):format(vendor_name, vendor_entry.coord_x, vendor_entry.coord_y, vendor_x, vendor_y))
-				vendor_entry.coord_x = vendor_x
-				vendor_entry.coord_y = vendor_y
+                        for rep_vendor_id in pairs(dataForLevel) do
+                            if rep_vendor_id == vendorID then
+                                sourceExistsInData = true
+                                break
+                            end
+                        end
+                    end
+                end
+            end
+        end
+
+		local vendor = vendorAcquireType:GetEntity(vendorID)
+		local vendorX, vendorY = _G.GetPlayerMapPosition("player")
+		vendorX = ("%.2f"):format(vendorX * 100)
+		vendorY = ("%.2f"):format(vendorY * 100)
+
+		if vendor then
+			if vendor.coord_x ~= vendorX or vendor.coord_y ~= vendorY then
+				output:AddLine(("%s appears to have different coordinates (%s, %s) than those in the database (%s, %s)."):format(vendorName, vendor.coord_x, vendor.coord_y, vendorX, vendorY))
+				vendor.coord_x = vendorX
+				vendor.coord_y = vendorY
 			end
 		else
-			output:AddLine(("%s was not found in the vendor list"):format(vendor_name))
+			output:AddLine(("%s was not found in the vendor list"):format(vendorName))
 
-			if not L[vendor_name] then
-				L[vendor_name] = true
+			if not L[vendorName] then
+				L[vendorName] = true
 			end
 			_G.SetMapToCurrentZone() -- Make sure were are looking at the right zone
 
-			vendor_acquire_type:AddEntity(addon, {
-				coord_x = vendor_x,
-				coord_y = vendor_y,
+			vendorAcquireType:AddEntity(addon, {
+				coord_x = vendorX,
+				coord_y = vendorY,
 				faction = _G.UnitFactionGroup("target") or "Neutral",
-				identifier = vendor_id,
+				identifier = vendorID,
 				Location = private.LocationsByLocalizedName[_G.GetRealZoneText()],
-				name = L[vendor_name],
+				name = L[vendorName],
 			})
 		end
 
-		if matching_vendor and vendor_entry and vendor_entry.item_list then
-			local reported_supply = vendor_entry.item_list[spell_id]
+		if sourceExistsInData and vendor and vendor.item_list then
+			local recordedSupply = vendor.item_list[recipeSpellID]
 
-			if reported_supply == true and supply > -1 then
-				recipe:AddLimitedVendor(vendor_id, supply)
-				output:AddLine(("Limited quantity for \"%s\" (%d) found on vendor %d - listed as unlimited quantity."):format(recipe.name, spell_id, vendor_id))
-			elseif type(reported_supply) ~= "boolean" and supply == -1 then
-				recipe:AddVendor(vendor_id)
-				output:AddLine(("Unlimited quantity for \"%s\" (%d) found on vendor %d - listed as limited quantity."):format(recipe.name, spell_id, vendor_id))
+			if recordedSupply == true and supply > -1 then
+				recipe:AddLimitedVendor(vendorID, supply)
+				output:AddLine(("Limited quantity for \"%s\" (%d) found on vendor %d - listed as unlimited quantity."):format(recipe.name, recipeSpellID, vendorID))
+			elseif type(recordedSupply) ~= "boolean" and supply == -1 then
+				recipe:AddVendor(vendorID)
+				output:AddLine(("Unlimited quantity for \"%s\" (%d) found on vendor %d - listed as limited quantity."):format(recipe.name, recipeSpellID, vendorID))
 			end
 
 			if not recipe:HasFilter("common1", "VENDOR") and not recipe:HasFilter("common1", "WORLD_EVENT") then
-				recipe:AddFilters(F.VENDOR)
-				output:AddLine(("%d: Vendor flag was not set."):format(spell_id))
+				recipe:AddFilters(private.FILTER_IDS.VENDOR)
+				output:AddLine(("%d: Vendor flag was not set."):format(recipeSpellID))
 			end
-		elseif not matching_vendor then
+		elseif not sourceExistsInData then
 			if supply > -1 then
-				recipe:AddLimitedVendor(vendor_id, supply)
+				recipe:AddLimitedVendor(vendorID, supply)
 			else
-				recipe:AddVendor(vendor_id)
+				recipe:AddVendor(vendorID)
 			end
 
 			if not recipe:HasFilter("common1", "VENDOR") and not recipe:HasFilter("common1", "WORLD_EVENT") then
-				recipe:AddFilters(F.VENDOR)
-				output:AddLine(("%d: Vendor flag was not set."):format(spell_id))
+				recipe:AddFilters(private.FILTER_IDS.VENDOR)
+				output:AddLine(("%d: Vendor flag was not set."):format(recipeSpellID))
 			end
-			output:AddLine(("Vendor ID missing from \"%s\" %d."):format(recipe and recipe.name or _G.UNKNOWN, spell_id))
+			output:AddLine(("Vendor ID missing from \"%s\" %d."):format(recipe and recipe.name or _G.UNKNOWN, recipeSpellID))
 		end
 	end
 
@@ -1304,10 +1308,10 @@ do
 
 
 	local ROLE_FILTERS = {
-		dps = F.DPS,
-		tank = F.TANK,
-		healer = F.HEALER,
-		caster = F.CASTER
+		dps = private.FILTER_IDS.DPS,
+		tank = private.FILTER_IDS.TANK,
+		healer = private.FILTER_IDS.HEALER,
+		caster = private.FILTER_IDS.CASTER
 	}
 
 	local ROLE_TYPES = {
@@ -1457,6 +1461,7 @@ do
 	}
 
 	local FilterStrings = private.FILTER_STRINGS
+    local AcquireTypes = private.AcquireTypes
 
 	-- Flag data for printing. Wiped and re-used.
 	local missing_flags = {}
@@ -1464,10 +1469,10 @@ do
 	local general_issues = {}
 
 	local ACQUIRE_TO_FILTER_MAP = {
-		[A.MOB_DROP] = F.MOB_DROP,
-		[A.QUEST] = F.QUEST,
-		[A.WORLD_EVENT] = F.WORLD_EVENT,
-		[A.WORLD_DROP] = F.WORLD_DROP,
+		[AcquireTypes.MobDrop] = private.FILTER_IDS.MOB_DROP,
+		[AcquireTypes.Quest] = private.FILTER_IDS.QUEST,
+		[AcquireTypes.WorldEvent] = private.FILTER_IDS.WORLD_EVENT,
+		[AcquireTypes.WorldDrop] = private.FILTER_IDS.WORLD_DROP,
     }
 
 	local OBTAIN_FILTERS = {
@@ -1507,15 +1512,15 @@ do
 		-- If we're a vendor scan,  do some extra checks
 		if scan_data.is_vendor then
 			if not recipe:HasFilter("common1", "VENDOR") and not recipe:HasFilter("common1", "WORLD_EVENT") then
-				recipe:AddFilters(F.VENDOR)
-				table.insert(missing_flags, flag_format:format(FilterStrings[F.VENDOR]))
+				recipe:AddFilters(private.FILTER_IDS.VENDOR)
+				table.insert(missing_flags, flag_format:format(FilterStrings[private.FILTER_IDS.VENDOR]))
 			end
 			local subzone_text = _G.GetSubZoneText()
 
 			if (subzone_text == "Wintergrasp Fortress" or subzone_text == "Halaa") and not recipe:HasFilter("common1", "PVP") then
-				table.insert(missing_flags, flag_format:format(FilterStrings[F.PVP]))
+				table.insert(missing_flags, flag_format:format(FilterStrings[private.FILTER_IDS.PVP]))
 			elseif recipe:HasFilter("common1", "PVP") and not (subzone_text == "Wintergrasp Fortress" or subzone_text == "Halaa") then
-				table.insert(extra_flags, flag_format:format(FilterStrings[F.PVP]))
+				table.insert(extra_flags, flag_format:format(FilterStrings[private.FILTER_IDS.PVP]))
 			end
 		end
 
@@ -1542,18 +1547,17 @@ do
 			end
 		end
 
-		local recipeAcquireData = recipe.acquire_data
 		local repid = scan_data.repid
 		if repid then
 			if not recipe:HasFilter("reputation1", FilterStrings[repid]) and not recipe:HasFilter("reputation2", FilterStrings[repid]) then
 				table.insert(missing_flags, repid)
 			end
-			local rep_data = recipeAcquireData[A.REPUTATION]
 
-			if rep_data then
-				for rep_id, rep_info in pairs(rep_data) do
-					for rep_level, level_info in pairs(rep_info) do
-						if rep_level ~= scan_data.repidlevel then
+			local reputationAcquireData = recipe:AcquireDataByType(private.AcquireTypes.Reputation)
+			if reputationAcquireData then
+				for sourceID, sourceData in pairs(reputationAcquireData) do
+					for level, levelData in pairs(sourceData) do
+						if level ~= scan_data.repidlevel then
 							output:AddLine("    Wrong reputation level.")
 						end
 					end
@@ -1562,59 +1566,63 @@ do
 		end
 
 		-- Make sure the recipe's filter flags match with its acquire types.
-		for acquire_type_id, flag in pairs(ACQUIRE_TO_FILTER_MAP) do
-			if recipeAcquireData[acquire_type_id] and not recipe:HasFilter("common1", FilterStrings[flag]) then
-				local can_add = true
-
-				if (acquire_type_id == A.WORLD_DROP or acquire_type_id == A.MOB_DROP) and (recipe:HasFilter("common1", "INSTANCE") or recipe:HasFilter("common1", "RAID")) then
-					can_add = false
+		for acquireType, flag in pairs(ACQUIRE_TO_FILTER_MAP) do
+            local acquireData = recipe:AcquireDataByType(acquireType)
+            local hasFilter = recipe:HasFilter("common1", FilterStrings[flag])
+			if acquireData and not hasFilter then
+				local canAdd = true
+				if (acquireType == AcquireTypes.WorldDrop or acquireType == AcquireTypes.MobDrop) and (recipe:HasFilter("common1", "INSTANCE") or recipe:HasFilter("common1", "RAID")) then
+					canAdd = false
 				end
 
-				if can_add then
+				if canAdd then
 					recipe:AddFilters(flag)
 					table.insert(missing_flags, flag_format:format(FilterStrings[flag]))
 				end
-			elseif not recipeAcquireData[acquire_type_id] and recipe:HasFilter("common1", FilterStrings[flag]) then
-				local can_remove = true
-
-				if acquire_type_id == A.WORLD_DROP and (not recipe:HasFilter("common1", "INSTANCE") and not recipe:HasFilter("common1", "RAID")) then
-					can_remove = false
+			elseif not acquireData and hasFilter then
+				local canRemove = true
+				if acquireType == AcquireTypes.WorldDrop and (not recipe:HasFilter("common1", "INSTANCE") and not recipe:HasFilter("common1", "RAID")) then
+					canRemove = false
 				end
 
-				if can_remove then
+				if canRemove then
 					recipe:RemoveFilters(flag)
 					table.insert(extra_flags, flag_format:format(FilterStrings[flag]))
 				end
 			end
 		end
 
-		if recipeAcquireData[A.VENDOR] then
+        local vendorAcquireData = recipe:AcquireDataOfType(AcquireTypes.Vendor)
+        local reputationAcquireData = recipe:AcquireDataOfType(AcquireTypes.Reputation)
+
+		if vendorAcquireData then
 			if not recipe:HasFilter("common1", "VENDOR") and not recipe:HasFilter("common1", "WORLD_EVENT") and not recipe:HasFilter("common1", "REPUTATION") then
-				recipe:AddFilters(F.VENDOR)
-				table.insert(missing_flags, flag_format:format(FilterStrings[F.VENDOR]))
+				recipe:AddFilters(private.FILTER_IDS.VENDOR)
+				table.insert(missing_flags, flag_format:format(FilterStrings[private.FILTER_IDS.VENDOR]))
 			end
 		end
 
-		if recipeAcquireData[A.REPUTATION] then
+		if reputationAcquireData then
 			if not recipe:HasFilter("common1", "REPUTATION") then
-				recipe:AddFilters(F.REPUTATION)
-				table.insert(missing_flags, FilterStrings[F.REPUTATION])
+				recipe:AddFilters(private.FILTER_IDS.REPUTATION)
+				table.insert(missing_flags, FilterStrings[private.FILTER_IDS.REPUTATION])
 			end
 		end
 
-		if recipe:HasFilter("common1", "VENDOR") and not (recipeAcquireData[A.VENDOR] or recipeAcquireData[A.REPUTATION]) then
-			recipe:RemoveFilters(F.VENDOR)
-			table.insert(extra_flags, flag_format:format(FilterStrings[F.VENDOR]))
+		if recipe:HasFilter("common1", "VENDOR") and not (vendorAcquireData or reputationAcquireData) then
+			recipe:RemoveFilters(private.FILTER_IDS.VENDOR)
+			table.insert(extra_flags, flag_format:format(FilterStrings[private.FILTER_IDS.VENDOR]))
 		end
 
-		if recipeAcquireData[A.TRAINER] and not recipe:HasFilter("common1", "TRAINER") then
-			recipe:AddFilters(F.TRAINER)
-			table.insert(missing_flags, flag_format:format(FilterStrings[F.TRAINER]))
+        local trainerAcquireData = recipe:AcquireDataOfType(AcquireTypes.Trainer)
+		if trainerAcquireData and not recipe:HasFilter("common1", "TRAINER") then
+			recipe:AddFilters(private.FILTER_IDS.TRAINER)
+			table.insert(missing_flags, flag_format:format(FilterStrings[private.FILTER_IDS.TRAINER]))
 		end
 
-		if recipe:HasFilter("common1", "TRAINER") and not recipeAcquireData[A.TRAINER] and not recipeAcquireData[A.CUSTOM] then
-			recipe:RemoveFilters(F.TRAINER)
-			table.insert(extra_flags, flag_format:format(FilterStrings[F.TRAINER]))
+		if recipe:HasFilter("common1", "TRAINER") and not trainerAcquireData and not recipe:AcquireDataOfType(AcquireTypes.Custom) then
+			recipe:RemoveFilters(private.FILTER_IDS.TRAINER)
+			table.insert(extra_flags, flag_format:format(FilterStrings[private.FILTER_IDS.TRAINER]))
 		end
 
 		if scan_data.quality and scan_data.quality ~= recipe.quality then
