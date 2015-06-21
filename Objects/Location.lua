@@ -276,7 +276,7 @@ local COSMIC_MAP_LOCATION_PARENT_MAPPING = {
 local INSTANCE_ENTRANCE_COORDINATES = {
     AHNKAHET_THE_OLD_KINGDOM = "28.49:51.73",
     AHNQIRAJ_THE_FALLEN_KINGDOM = "0:0",
-    AUCHENAI_CRYPTS = "0:0",
+    AUCHENAI_CRYPTS = "34.32:65.62",
     AZJOL_NERUB = "26.01:50.83",
     BLACKROCK_DEPTHS = "20.72:36.94", -- TODO: Double check BLACKROCK_DEPTHS, BLACKROCK_SPIRE, and BLACKWING_LAIR - their coordinates are identical.
     BLACKROCK_SPIRE = "20.72:36.94",
@@ -286,31 +286,31 @@ local INSTANCE_ENTRANCE_COORDINATES = {
     GNOMEREGAN = "31.29:37.89",
     HALLS_OF_LIGHTNING = "45.40:21.37",
     HALLS_OF_STONE = "39.49:26.92",
-    KARAZHAN = "0:0",
+    KARAZHAN = "46.85:74.66",
     MAGISTERS_TERRACE = "61.20:30.89",
-    MANA_TOMBS = "0:0",
+    MANA_TOMBS = "39.64:57.65",
     OLD_HILLSBRAD_FOOTHILLS = "0:0",
     ONYXIAS_LAIR = "0:0",
     RUINS_OF_AHNQIRAJ = "0:0",
     SCHOLOMANCE = "0:0",
-    SETHEKK_HALLS = "0:0",
-    SHADOW_LABYRINTH = "0:0",
+    SETHEKK_HALLS = "44.95:65.61",
+    SHADOW_LABYRINTH = "39.64:73.58",
     STRATHOLME = "26.75:11.60",
-    THE_ARCATRAZ = "0:0",
+    THE_ARCATRAZ = "74.41:57.72",
     THE_BLACK_MORASS = "0:0",
-    THE_BOTANICA = "0:0",
-    THE_DEADMINES = "0:0",
-    THE_MECHANAR = "0:0",
+    THE_BOTANICA = "71.77:54.92",
+    THE_DEADMINES = "38.23:77.47",
+    THE_MECHANAR = "70.62:69.77",
     THE_NEXUS = "27.50:25.97",
     THE_OCULUS = "27.52:26.71",
-    THE_SHATTERED_HALLS = "0:0",
-    THE_SLAVE_PENS = "0:0",
-    THE_STEAMVAULT = "0:0",
-    THE_TEMPLE_OF_ATALHAKKAR = "0:0",
+    THE_SHATTERED_HALLS = "47.50:52.04",
+    THE_SLAVE_PENS = "48.95:35.70",
+    THE_STEAMVAULT = "50.29:33.32",
+    THE_TEMPLE_OF_ATALHAKKAR = "76.03:45.23",
     THE_VIOLET_HOLD = "66.78:68.19",
     UTGARDE_KEEP = "57.28:46.73",
     UTGARDE_PINNACLE = "57.26:46.67"
-}
+} --
 -------------------------------------------------------------------------------
 -- Objects.
 -------------------------------------------------------------------------------
@@ -324,6 +324,9 @@ private.Locations = Locations
 
 local LocationsByLocalizedName = {}
 private.LocationsByLocalizedName = LocationsByLocalizedName
+
+local LocationsByMapID = {}
+private.LocationsByMapID = LocationsByMapID
 
 -------------------------------------------------------------------------------
 -- Location Methods.
@@ -405,6 +408,7 @@ local function AddLocation(continentID, mapID, parentLocation)
 
         Locations[zoneName] = location
         LocationsByLocalizedName[localizedName] = location
+        LocationsByMapID[mapID] = location
 
         if parentLocation then
             parentLocation._childLocations = parentLocation._childLocations or {}
