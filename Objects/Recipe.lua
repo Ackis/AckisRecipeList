@@ -69,28 +69,6 @@ function addon:AddRecipe(module, recipeData)
 	return recipe
 end
 
--- Required for cases where ARL is acting as a profession "module"
-function addon:GetOrCreateRecipeAcquireTypeTable(recipe, acquireTypeID, factionID, reputationLevel)
-	local acquireTypeData = recipe.acquire_data[acquireTypeID]
-	if not acquireTypeData then
-		recipe.acquire_data[acquireTypeID] = {}
-		acquireTypeData = recipe.acquire_data[acquireTypeID]
-
-	end
-
-	if factionID and reputationLevel and acquireTypeID == ACQUIRE_TYPE_IDS.REPUTATION then
-		if not acquireTypeData[factionID] then
-			acquireTypeData[factionID] = {
-				[reputationLevel] = {}
-			}
-		elseif not acquireTypeData[factionID][reputationLevel] then
-			acquireTypeData[factionID][reputationLevel] = {}
-		end
-	end
-
-	return acquireTypeData
-end
-
 -------------------------------------------------------------------------------
 -- Recipe methods.
 -------------------------------------------------------------------------------
@@ -377,7 +355,7 @@ end
 local InvalidLocationRegistry = {}
 
 function Recipe:AddAcquireData(acquireType, typeLabel, hasEntityList, ...)
-	local acquireTypeData = self.ProfessionModule:GetOrCreateRecipeAcquireTypeTable(self, acquireType:ID())
+	local acquireTypeData = self.ProfessionModule.GetOrCreateRecipeAcquireTypeTable(self, acquireType:ID())
 	local isLimitedVendor = typeLabel == "Limited Vendor"
 
 	acquireType:AssignRecipe(self:SpellID())
@@ -496,7 +474,7 @@ function Recipe:AddWorldEvent(...)
 end
 
 function Recipe:AddRepVendor(factionID, reputationLevel, ...)
-	local acquireTypeData = self.ProfessionModule:GetOrCreateRecipeAcquireTypeTable(self, ACQUIRE_TYPE_IDS.REPUTATION, factionID, reputationLevel)
+	local acquireTypeData = self.ProfessionModule.GetOrCreateRecipeAcquireTypeTable(self, ACQUIRE_TYPE_IDS.REPUTATION, factionID, reputationLevel)
 	local faction = acquireTypeData[factionID]
 	local reputationAcquireType = AcquireTypes.Reputation
 	local vendorAcquireType = AcquireTypes.Vendor
