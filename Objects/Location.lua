@@ -18,6 +18,7 @@ local FOLDER_NAME, private = ...
 -- Location data.
 -------------------------------------------------------------------------------
 local ZONE_MAP_IDS = {
+    UNKNOWN = -1,
     DUROTAR = 4,
     MULGORE = 9,
     NORTHERN_BARRENS = 11,
@@ -229,7 +230,7 @@ local ZONE_MAP_IDS = {
 
 local ZONE_NAMES = {}
 for zoneLabel, mapID in pairs(ZONE_MAP_IDS) do
-    ZONE_NAMES[zoneLabel] = _G.GetMapNameByID(type(mapID) == "table" and mapID[1] or mapID)
+    ZONE_NAMES[zoneLabel] = _G.GetMapNameByID(type(mapID) == "table" and mapID[1] or mapID) or _G.UNKNOWN
 end
 private.ZONE_NAMES = ZONE_NAMES
 private.constants.ZONE_NAMES = ZONE_NAMES
@@ -457,7 +458,10 @@ for dataIndex = 1, #mapContinentData do
     end
 end
 
+local cosmicMap = AddLocation(_G.WORLDMAP_COSMIC_ID, _G.WORLDMAP_COSMIC_ID)
+ContinentLocationByID[_G.WORLDMAP_COSMIC_ID] = cosmicMap
+
 for label, mapID in pairs(COSMIC_MAP_IDS) do
-    local parentLocation = LocationsByLocalizedName[COSMIC_MAP_LOCATION_PARENT_MAPPING[label]]
-    AddLocation(parentLocation and parentLocation._continentID or -1, mapID, parentLocation)
+    local parentLocation = LocationsByLocalizedName[COSMIC_MAP_LOCATION_PARENT_MAPPING[label]] or cosmicMap
+    AddLocation(parentLocation._continentID, mapID, parentLocation)
 end
