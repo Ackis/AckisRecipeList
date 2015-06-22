@@ -318,7 +318,7 @@ function private.InitializeListFrame()
 
 				while target_entry and target_entry:Type() ~= listEntry:Type() do
 					-- Headers are never removed.
-					if target_entry:IsHeader() then
+					if target_entry:IsHeader() or target_entry:IsTitle() then
 						break
 					end
 					current_tab:SaveListEntryState(target_entry, false)
@@ -402,6 +402,12 @@ function private.InitializeListFrame()
 		emphasis_texture:SetPoint("TOPLEFT", 2, 0)
 		emphasis_texture:SetPoint("BOTTOMRIGHT", -2, 1)
 		cur_entry.emphasis_texture = emphasis_texture
+
+        local titleBackgroundTexture = cur_entry:CreateTexture(nil, "ARTWORK")
+        titleBackgroundTexture:SetAtlas("Objective-Header", false)
+        titleBackgroundTexture:SetPoint("TOPLEFT", -9, 5)
+        titleBackgroundTexture:SetPoint("BOTTOMRIGHT", 9, -23)
+        cur_entry.titleBackgroundTexture = titleBackgroundTexture
 
 		local label = cur_entry:CreateFontString(nil, "ARTWORK")
 		label:SetPoint("LEFT", cur_entry, "LEFT", 7, 0)
@@ -584,16 +590,18 @@ function private.InitializeListFrame()
 		for index = 1, NUM_RECIPE_LINES do
 			local entry = self.entry_buttons[index]
 			entry.text:SetFontObject(addon.db.profile.frameopts.small_list_font and "GameFontNormalSmall" or "GameFontNormal")
-			entry:SetText("")
-			entry:SetScript("OnEnter", nil)
-			entry:SetScript("OnLeave", nil)
-			entry:SetScript("OnClick", nil)
-			entry:SetWidth(LIST_ENTRY_WIDTH)
-			entry:Disable()
-			entry.emphasis_texture:Hide()
-			entry.selected_texture:Hide()
-			entry.button = nil
-			entry.entry_index = 0
+            entry.text:SetJustifyH("LEFT")
+            entry:SetText("")
+            entry:SetScript("OnEnter", nil)
+            entry:SetScript("OnLeave", nil)
+            entry:SetScript("OnClick", nil)
+            entry:SetWidth(LIST_ENTRY_WIDTH)
+            entry:Disable()
+            entry.emphasis_texture:Hide()
+            entry.selected_texture:Hide()
+            entry.titleBackgroundTexture:Hide()
+            entry.button = nil
+            entry.entry_index = 0
 
 			local state = self.state_buttons[index]
 			state.entry_index = 0
@@ -608,9 +616,9 @@ function private.InitializeListFrame()
 			self:Initialize(expand_mode)
 		end
 
-		local num_entries = #self.entries
+		local listEntryCount = #self.entries
 
-		if num_entries == 0 then
+		if listEntryCount == 0 then
 			self:ClearLines()
 
 			-- disable expand button, it's useless here and would spam the same error again
@@ -673,10 +681,10 @@ function private.InitializeListFrame()
 		MainPanel.expand_button:SetNormalFontObject("GameFontNormalSmall")
 		MainPanel.expand_button:Enable()
 
-		if num_entries <= NUM_RECIPE_LINES then
+		if listEntryCount <= NUM_RECIPE_LINES then
 			self.scroll_bar:Hide()
 		else
-			local max_val = num_entries - NUM_RECIPE_LINES
+			local max_val = listEntryCount - NUM_RECIPE_LINES
 			local current_tab = MainPanel.current_tab
 			local scroll_value = math.max(0, math.min(current_tab:ScrollValue(private.CurrentProfession) or 0, max_val))
 			offset = scroll_value
@@ -687,68 +695,75 @@ function private.InitializeListFrame()
 		end
 		self:ClearLines()
 
-		local button_index = 1
-		local entry_index = math.floor(button_index + offset)
+		local buttonIndex = 1
+		local listEntryIndex = math.floor(buttonIndex + offset)
 
 		-- Populate the buttons with new values
-		while button_index <= NUM_RECIPE_LINES and entry_index <= num_entries do
-			local state_button = self.state_buttons[button_index]
-			local list_entry = self.entries[entry_index]
-			local is_entry = list_entry:IsEntry()
-			local is_subentry = not is_entry and list_entry:IsSubEntry()
-			local is_header = not is_subentry and list_entry:IsHeader()
-			local is_subheader = not is_header and list_entry:IsSubHeader()
+		while buttonIndex <= NUM_RECIPE_LINES and listEntryIndex <= listEntryCount do
+			local stateButton = self.state_buttons[buttonIndex]
+			local listEntry = self.entries[listEntryIndex]
+			local isEntry = listEntry:IsEntry()
+			local isSubentry = not isEntry and listEntry:IsSubEntry()
+			local isHeader = not isSubentry and listEntry:IsHeader()
+			local isSubheader = not isHeader and listEntry:IsSubHeader()
+            local isTitle = not isSubheader and listEntry:IsTitle()
 
-			if is_header or is_subheader then
-				state_button:Show()
+			if isHeader or isSubheader then
+				stateButton:Show()
 
-				if list_entry.is_expanded then
-					state_button:SetNormalTexture([[Interface\MINIMAP\UI-Minimap-ZoomOutButton-Up]])
-					state_button:SetPushedTexture([[Interface\MINIMAP\UI-Minimap-ZoomOutButton-Down]])
+				if listEntry.is_expanded then
+					stateButton:SetNormalTexture([[Interface\MINIMAP\UI-Minimap-ZoomOutButton-Up]])
+					stateButton:SetPushedTexture([[Interface\MINIMAP\UI-Minimap-ZoomOutButton-Down]])
 				else
-					state_button:SetNormalTexture([[Interface\MINIMAP\UI-Minimap-ZoomInButton-Up]])
-					state_button:SetPushedTexture([[Interface\MINIMAP\UI-Minimap-ZoomInButton-Down]])
+					stateButton:SetNormalTexture([[Interface\MINIMAP\UI-Minimap-ZoomInButton-Up]])
+					stateButton:SetPushedTexture([[Interface\MINIMAP\UI-Minimap-ZoomInButton-Down]])
 				end
-				state_button:SetHighlightTexture([[Interface\MINIMAP\UI-Minimap-ZoomButton-Highlight]])
-				state_button.entry_index = entry_index
-				state_button:Enable()
+				stateButton:SetHighlightTexture([[Interface\MINIMAP\UI-Minimap-ZoomButton-Highlight]])
+				stateButton.entry_index = listEntryIndex
+				stateButton:Enable()
 			else
-				state_button:Hide()
-				state_button:Disable()
+				stateButton:Hide()
+				stateButton:Disable()
 			end
-			local line_button = self.entry_buttons[button_index]
+			local listEntryButton = self.entry_buttons[buttonIndex]
 
-			if list_entry == ListFrame.selected_entry then
-				line_button.selected_texture:Show()
-			end
-
-			if list_entry:IsEmphasized() then
-				line_button.emphasis_texture:Show()
+			if listEntry == ListFrame.selected_entry then
+				listEntryButton.selected_texture:Show()
 			end
 
-			if is_header or is_entry then
-				state_button:SetPoint("TOPLEFT", state_button.container, "TOPLEFT", 0, 0)
-			elseif is_subheader or is_subentry then
-				state_button:SetPoint("TOPLEFT", state_button.container, "TOPLEFT", 15, 0)
-				line_button:SetWidth(LIST_ENTRY_WIDTH - 15)
+            if isTitle then
+                listEntryButton.titleBackgroundTexture:Show()
+                listEntryButton.text:SetJustifyH("CENTER")
+                listEntryButton.text:SetFontObject("QuestFont")
+            elseif listEntry:IsEmphasized() then
+                listEntryButton.emphasis_texture:Show()
 			end
-			list_entry.button = line_button
-			line_button.entry_index = entry_index
 
-			line_button:SetText(list_entry:Text())
-			line_button:SetScript("OnEnter", Bar_OnEnter)
-			line_button:SetScript("OnLeave", Bar_OnLeave)
+			if isTitle or isHeader or isEntry then
+				stateButton:SetPoint("TOPLEFT", stateButton.container, "TOPLEFT", 0, 0)
+			elseif isSubheader or isSubentry then
+				stateButton:SetPoint("TOPLEFT", stateButton.container, "TOPLEFT", 15, 0)
+				listEntryButton:SetWidth(LIST_ENTRY_WIDTH - 15)
+			end
+			listEntry.button = listEntryButton
+			listEntryButton.entry_index = listEntryIndex
 
-			line_button:SetScript("OnClick", ListItem_OnClick)
-			line_button:Enable()
+			listEntryButton:SetText(listEntry:Text())
+			listEntryButton:SetScript("OnEnter", Bar_OnEnter)
+			listEntryButton:SetScript("OnLeave", Bar_OnLeave)
+
+            if not isTitle then
+                listEntryButton:SetScript("OnClick", ListItem_OnClick)
+                listEntryButton:Enable()
+            end
 
 			-- This function could possibly have been called from a mouse click or by scrolling. Since, in those cases, the list entries have
 			-- changed, the mouse is likely over a different entry - a tooltip should be generated for it.
-			if line_button:IsMouseOver() then
-				Bar_OnEnter(line_button)
+			if listEntryButton:IsMouseOver() then
+				Bar_OnEnter(listEntryButton)
 			end
-			button_index = button_index + 1
-			entry_index = entry_index + 1
+			buttonIndex = buttonIndex + 1
+			listEntryIndex = listEntryIndex + 1
 		end
 	end
 end	-- InitializeListFrame()

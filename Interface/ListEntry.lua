@@ -29,6 +29,7 @@ local VALID_LIST_ENTRY_TYPES = {
 	header = true,
 	subentry = true,
 	subheader = true,
+    title = true,
 }
 
 function private.CreateListEntry(listEntryType, parentListEntry, recipe)
@@ -52,8 +53,8 @@ function private.CreateListEntry(listEntryType, parentListEntry, recipe)
 		else
 			addon:Debug("Attempting to parent an entry to itself.")
 		end
-	elseif listEntry._type ~= "header" then
-		addon:Debug("Non-header entry without a parent: %s", listEntry._type)
+	elseif listEntry._type ~= "header" and listEntry._type ~= "title" then
+		addon:Debug("Non-header/title entry without a parent: %s", listEntry._type)
 	end
 	return listEntry
 end
@@ -119,4 +120,8 @@ end
 
 function list_entry_prototype:IsSubHeader()
 	return self._type == "subheader"
+end
+
+function list_entry_prototype:IsTitle()
+    return self._type == "title"
 end
