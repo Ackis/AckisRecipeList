@@ -363,7 +363,10 @@ local function InitializeLocationTab()
 			end
 
 			table.sort(SortedLocations, function(locationA, locationB)
-                return locationA:LocalizedName() < locationB:LocalizedName()
+                if locationA:ContinentID() == locationB:ContinentID() then
+                    return locationA:LocalizedName() < locationB:LocalizedName()
+                end
+                return locationA:ContinentID() < locationB:ContinentID()
             end)
         end
         local currentProfession = private.CurrentProfession
@@ -371,6 +374,8 @@ local function InitializeLocationTab()
 		local professionRecipes = currentProfession.Recipes
 
 		self[localizedProfessionName .. " expanded"] = self[localizedProfessionName .. " expanded"] or {}
+
+        local currentContinentID
 
 		for index = 1, #SortedLocations do
             local location = SortedLocations[index]
@@ -427,6 +432,15 @@ local function InitializeLocationTab()
 			end
 
 			if count > 0 then
+                local locationContinentID = location:ContinentID()
+                if locationContinentID ~= currentContinentID then
+                    currentContinentID = locationContinentID
+
+                    local listEntry = CreateListEntry("title")
+                    listEntry:SetText(SetTextColor(private.CATEGORY_COLORS.location.hex, private.ContinentLocationByID[locationContinentID]:LocalizedName()))
+                    insert_index = MainPanel.list_frame:InsertEntry(listEntry, insert_index)
+                end
+
 				local listEntry = CreateListEntry("header")
                 listEntry:SetLocation(location)
 
