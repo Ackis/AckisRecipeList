@@ -274,7 +274,7 @@ function private.InitializeListFrame()
             local hyperLink
 
             if _G.IsControlKeyDown() then
-				if _G.IsShiftKeyDown() then
+				if _G.IsShiftKeyDown() and recipe:HasCoordinates() then
 					addon:AddWaypoint(recipe, listEntry:AcquireType(), listEntry:Location(), listEntry:NPCID())
                 else
                     hyperLink = _G.GetSpellLink(recipe:SpellID())
