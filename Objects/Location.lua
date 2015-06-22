@@ -328,6 +328,9 @@ private.LocationsByLocalizedName = LocationsByLocalizedName
 local LocationsByMapID = {}
 private.LocationsByMapID = LocationsByMapID
 
+local ContinentLocationByID = {}
+private.ContinentLocationByID = ContinentLocationByID
+
 -------------------------------------------------------------------------------
 -- Location Methods.
 -------------------------------------------------------------------------------
@@ -441,6 +444,7 @@ for dataIndex = 1, #mapContinentData do
         local continentID = dataIndex / 2
         local continentMapID = mapContinentData[dataIndex - 1]
         local continent = AddLocation(continentID, continentMapID)
+        ContinentLocationByID[continentID] = continent
         AddSubzoneLocations(continent)
 
         local zoneData = { _G.GetMapZones(continentID) }
