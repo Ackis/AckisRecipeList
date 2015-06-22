@@ -28,7 +28,7 @@ local tab_meta = { __index = tab_prototype }
 -------------------------------------------------------------------------------
 local CreateListEntry = private.CreateListEntry
 local SetTextColor = private.SetTextColor
-
+local AcquireTypes = private.AcquireTypes
 
 -------------------------------------------------------------------------------
 -- Helpers.
@@ -176,52 +176,53 @@ local CHILDLESS_ACQUIRE_TYPES = {
 	[private.AcquireTypes.WorldDrop] = true,
 }
 
-local EXPANSION_PREDICATES = {
-	[private.ACQUIRE_TYPE_IDS.TRAINER] = function(obtain_filters, hide_type)
-		return obtain_filters.trainer
+local AcquireDataExpandPredicates = {
+	[AcquireTypes.Trainer] = function(obtainFilters, shouldHideType)
+		return obtainFilters.trainer
 	end,
-	[private.ACQUIRE_TYPE_IDS.VENDOR] = function(obtain_filters, hide_type)
-		return obtain_filters.vendor or obtain_filters.pvp
+	[AcquireTypes.Vendor] = function(obtainFilters, shouldHideType)
+		return obtainFilters.vendor or obtainFilters.pvp
 	end,
-	[private.ACQUIRE_TYPE_IDS.MOB_DROP] = function(obtain_filters, hide_type)
-		return obtain_filters.mobdrop or obtain_filters.instance or obtain_filters.raid
+	[AcquireTypes.MobDrop] = function(obtainFilters, shouldHideType)
+		return obtainFilters.mobdrop or obtainFilters.instance or obtainFilters.raid
 	end,
-	[private.ACQUIRE_TYPE_IDS.QUEST] = function(obtain_filters, hide_type)
-		return obtain_filters.quest
+	[AcquireTypes.Quest] = function(obtainFilters, shouldHideType)
+		return obtainFilters.quest
 	end,
-	[private.ACQUIRE_TYPE_IDS.WORLD_EVENT] = function(obtain_filters, hide_type)
-		return obtain_filters.worldevent
+	[AcquireTypes.WorldEvent] = function(obtainFilters, shouldHideType)
+		return obtainFilters.worldevent
 	end,
-	[private.ACQUIRE_TYPE_IDS.REPUTATION] = function(obtain_filters, hide_type)
+	[AcquireTypes.Reputation] = function(obtainFilters, shouldHideType)
 		return true
 	end,
-	[private.ACQUIRE_TYPE_IDS.WORLD_DROP] = function(obtain_filters, hide_type)
-		return obtain_filters.worlddrop and not hide_type
+	[AcquireTypes.WorldDrop] = function(obtainFilters, shouldHideType)
+		return obtainFilters.worlddrop and not shouldHideType
 	end,
-	[private.ACQUIRE_TYPE_IDS.CUSTOM] = function(obtain_filters, hide_type)
-		return not hide_type
+	[AcquireTypes.Custom] = function(obtainFilters, shouldHideType)
+		return not shouldHideType
 	end,
-	[private.ACQUIRE_TYPE_IDS.DISCOVERY] = function(obtain_filters, hide_type)
-		return not hide_type
+	[AcquireTypes.Discovery] = function(obtainFilters, shouldHideType)
+		return not shouldHideType
 	end,
-	[private.ACQUIRE_TYPE_IDS.RETIRED] = function(obtain_filters, hide_type)
-		return not hide_type
+	[AcquireTypes.Retired] = function(obtainFilters, shouldHideType)
+		return not shouldHideType
 	end,
-	[private.ACQUIRE_TYPE_IDS.ACHIEVEMENT] = function(obtain_filters, hide_type)
-		return obtain_filters.achievement
+	[AcquireTypes.Achievement] = function(obtainFilters, shouldHideType)
+		return obtainFilters.achievement
 	end,
 }
 
-local function ExpandAcquireData(entry_index, entry_type, parent_entry, acquire_type_id, acquire_type_data, recipe, hide_location, hide_type)
-	local obtain_filters = addon.db.profile.filters.obtain
-	for data_identifier, data_info in pairs(acquire_type_data) do
-		local predicateFunc = EXPANSION_PREDICATES[acquire_type_id]
-		if predicateFunc and predicateFunc(obtain_filters, hide_type) then
-			entry_index = private.ACQUIRE_TYPES_BY_ID[acquire_type_id]:ExpandListEntry(entry_index, entry_type, parent_entry, data_identifier, data_info, recipe, hide_location, hide_type)
+local function ExpandAcquireData(listEntryIndex, listEntryType, parentListEntry, acquireType, acquireTypeData, recipe, shouldHideLocation, shouldHideType)
+	local obtainFilters = addon.db.profile.filters.obtain
+
+	for sourceID, sourceData in pairs(acquireTypeData) do
+		local predicateFunc = AcquireDataExpandPredicates[acquireType]
+		if predicateFunc and predicateFunc(obtainFilters, shouldHideType) then
+			listEntryIndex = acquireType:ExpandListEntry(listEntryIndex, listEntryType, parentListEntry, sourceID, sourceData, recipe, shouldHideLocation, shouldHideType)
 		end
 	end
 
-	return entry_index
+	return listEntryIndex
 end
 
 local function InitializeAcquisitionTab()
@@ -299,7 +300,7 @@ local function InitializeAcquisitionTab()
 
 		-- Entry_index is the position in self.entries that we want to expand. Since we are expanding the current entry, the return
 		-- value should be the index of the next button after the expansion occurs
-		local new_entry_index = orig_index + 1
+		local newListEntryIndex = orig_index + 1
 
 		self:SaveListEntryState(entry, true)
 
@@ -324,16 +325,17 @@ local function InitializeAcquisitionTab()
 					listEntry:SetAcquireType(entryAcquireType)
 					listEntry:SetText(recipe:GetDisplayName())
 
-					new_entry_index = MainPanel.list_frame:InsertEntry(listEntry, new_entry_index, expand or is_expanded, expand_all or is_expanded)
+					newListEntryIndex = MainPanel.list_frame:InsertEntry(listEntry, newListEntryIndex, expand or is_expanded, expand_all or is_expanded)
 				end
 			end
 		elseif entry:IsSubHeader() then
             local recipeAcquireData = entry.recipe:AcquireDataOfType(entryAcquireType)
             if recipeAcquireData then
-                new_entry_index = ExpandAcquireData(new_entry_index, "subentry", entry, entryAcquireType:ID(), recipeAcquireData, entry.recipe, false, true)
+                newListEntryIndex = ExpandAcquireData(newListEntryIndex, "subentry", entry, entryAcquireType, recipeAcquireData, entry.recipe, false, true)
 			end
-		end
-		return new_entry_index
+        end
+
+		return newListEntryIndex
 	end
 end
 
@@ -567,7 +569,7 @@ local function InitializeRecipesTab()
 		self:SaveListEntryState(entry, true)
 
         for acquireType, acquireData in entry.recipe:AcquirePairs() do
-			new_entry_index = ExpandAcquireData(new_entry_index, "entry", entry, acquireType:ID(), acquireData, entry.recipe)
+			new_entry_index = ExpandAcquireData(new_entry_index, "entry", entry, acquireType, acquireData, entry.recipe)
 		end
 		return new_entry_index
 	end

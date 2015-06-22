@@ -23,7 +23,6 @@ local LibStub = _G.LibStub
 local addon = LibStub("AceAddon-3.0"):GetAddon(private.addon_name)
 local L = LibStub("AceLocale-3.0"):GetLocale(private.addon_name)
 
-local ACQUIRE_TYPE_IDS = private.ACQUIRE_TYPE_IDS
 local AcquireTypes = private.AcquireTypes
 
 private.recipe_list = {}
