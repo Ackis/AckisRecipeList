@@ -88,6 +88,8 @@ local function SetWaypointIcon(uid, ...)
     end
 end
 
+local HEXCOLOR_TEXT_FORMAT = "|cff%s%s|r"
+
 -- Adds mini-map and world map icons with tomtom.
 -- Expected result: Icons are added to the world map and mini-map.
 -- Input: An optional recipe ID, acquire ID, and location ID.
@@ -156,7 +158,10 @@ function addon:AddWaypoint(recipe, targetAcquireType, location, npcID)
             local acquireType = entity.acquire_type
             local entityName = entity.name or entity.acquire_type == private.AcquireTypes.Quest and private.quest_names[entity.reference_id] or _G.UNKNOWN
             local _, _, _, qualityColor = _G.GetItemQualityColor(recipe.quality)
-            local waypointName = ("%s: |cff%s%s|r (|c%s%s|r)%s"):format(acquireType:Name(), acquireType:ColorData().hex, entityName, qualityColor, recipe.name, ("\n%s"):format(entity.Location:LocalizedName()))
+            local coloredAcquireTypeName = HEXCOLOR_TEXT_FORMAT:format(acquireType:ColorData().hex, acquireType:Name())
+            local coloredEntityName = HEXCOLOR_TEXT_FORMAT:format(acquireType:ColorData().hex, entityName)
+            local coloredRecipeName = _G.PARENS_TEMPLATE:format(("|c%s%s|r"):format(qualityColor, recipe.name))
+            local waypointName = ("%s: %s %s\n%s"):format(coloredAcquireTypeName, coloredEntityName, coloredRecipeName, entity.Location:LocalizedName())
 
             -- Unset these - they're only needed for the waypoint system and shouldn't persist beyond.
             entity.acquire_type = nil
