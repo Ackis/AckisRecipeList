@@ -1,3 +1,27 @@
+## Author: Ackis, Torhal
+
+## Interface: 60200
+## Version: @project-version@
+## X-Revision: @project-abbreviated-hash@
+## X-Date: @file-date-iso@
+
+## X-Credits: Zhinjio, FGWarmonger, Kagaro, Speeddymon, Xinhuan, Aesir, BWMerlin, everyone who translated stuff and more!
+## X-Category: Tradeskill
+## X-Localizations: enUS, frFR, zhCN, zhTW, deDE, itIT, koKR, esES, esMX, ruRU, ptBR
+## X-Website: http://www.curse.com/addons/wow/arl
+## X-Feedback: http://www.wowace.com/addons/arl/forum/
+
+## OptionalDeps: Ace3, LibAboutPanel, LibBabble-Boss-3.0, LibSharedMedia-3.0, LibQTip-1.0, LibTextDump-1.0, LibToast-1.0, LibDialog-1.0, Skillet, TomTom, TipTac, Carbonite
+## DefaultState: Enabled
+
+## X-WoWI-ID: 5061
+## SavedVariables: ARLDB2
+
+## LoadManagers: AddonLoader
+## X-LoadOn-Slash: /arl
+## X-LoadOn-Events: TRADE_SKILL_SHOW
+## X-LoadOn-TRADE_SKILL_SHOW: AddonLoader:LoadAddOn("AckisRecipeList"); AckisRecipeList:TRADE_SKILL_SHOW()
+
 #@non-debug@
 ## Title: @localization(locale="enUS", key="Title", namespace="ToC")@
 ## Title-frFR: @localization(locale="frFR", key="Title", namespace="ToC")@
@@ -31,31 +55,6 @@
 #@debug@
 ## Notes: Latest alpha version of Ackis Recipe List
 #@end-debug@
-
-## Author: Ackis, Torhal
-
-## Interface: 60200
-## X-Compatible-With: 60200
-## Version: @project-version@
-## X-Revision: @project-abbreviated-hash@
-## X-Date: @file-date-iso@
-
-## X-Credits: Zhinjio, FGWarmonger, Kagaro, Speeddymon, Xinhuan, Aesir, BWMerlin, everyone who translated stuff and more!
-## X-Category: Tradeskill
-## X-Localizations: enUS, frFR, zhCN, zhTW, deDE, itIT, koKR, esES, esMX, ruRU, ptBR
-## X-Website: http://www.curse.com/addons/wow/arl
-## X-Feedback: http://www.wowace.com/addons/arl/forum/
-
-## OptionalDeps: Ace3, LibAboutPanel, LibBabble-Boss-3.0, LibSharedMedia-3.0, LibQTip-1.0, LibTextDump-1.0, LibToast-1.0, LibDialog-1.0, Skillet, TomTom, TipTac, Carbonite
-## DefaultState: Enabled
-
-## X-WoWI-ID: 5061
-## SavedVariables: ARLDB2
-
-## LoadManagers: AddonLoader
-## X-LoadOn-Slash: /arl
-## X-LoadOn-Events: TRADE_SKILL_SHOW
-## X-LoadOn-TRADE_SKILL_SHOW: AddonLoader:LoadAddOn("AckisRecipeList"); AckisRecipeList:TRADE_SKILL_SHOW()
 
 #@no-lib-strip@
 # Libraries
