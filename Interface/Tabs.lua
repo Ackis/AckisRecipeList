@@ -131,21 +131,40 @@ function tab_prototype:ToBack()
 end
 
 function tab_prototype:SaveListEntryState(listEntry, expanded)
-	local field = private.CurrentProfession:LocalizedName() .. " expanded"
+    local professionExpansionState = self.ProfessionState[private.CurrentProfession]
 
     local listEntryAcquireType = listEntry:AcquireType()
 	if listEntryAcquireType then
-		self[field][listEntryAcquireType:Name()] = expanded or nil
+		professionExpansionState[listEntryAcquireType] = expanded or nil
 	end
 
     local listEntryLocation = listEntry:Location()
 	if listEntryLocation then
-		self[field][listEntryLocation] = expanded or nil
+		professionExpansionState[listEntryLocation] = expanded or nil
 	end
 
 	if listEntry.recipe then
-		self[field][listEntry.recipe] = expanded or nil
+		professionExpansionState[listEntry.recipe] = expanded or nil
 	end
+end
+
+function tab_prototype:GetProfessionExpansionState(profession)
+    local professionState = self.ProfessionState
+    if not professionState then
+        professionState = {
+            [profession] = {}
+        }
+
+        self.ProfessionState = professionState
+    end
+
+    local professionExpansionState = self.ProfessionState[profession]
+    if not professionExpansionState then
+        professionExpansionState = {}
+        self.ProfessionState[profession] = professionExpansionState
+    end
+
+    return professionExpansionState
 end
 
 function tab_prototype:ScrollValue(profession)
@@ -249,11 +268,11 @@ local function InitializeAcquisitionTab()
 			table.sort(SortedAcquireTypes, function(acquireTypeA, acquireTypeB)
                 return acquireTypeA:Name() < acquireTypeB:Name()
             end)
-		end
-		local localizedProfessionName = private.CurrentProfession:LocalizedName()
-		local professionRecipes = private.Professions[localizedProfessionName].Recipes
-
-		self[localizedProfessionName .. " expanded"] = self[localizedProfessionName .. " expanded"] or {}
+        end
+        local currentProfession = private.CurrentProfession
+		local localizedProfessionName = currentProfession:LocalizedName()
+		local professionRecipes = currentProfession.Recipes
+        local professionExpansionState = self:GetProfessionExpansionState(currentProfession)
 
 		for index = 1, #SortedAcquireTypes do
 			local acquireType = SortedAcquireTypes[index]
@@ -271,22 +290,21 @@ local function InitializeAcquisitionTab()
 						recipe_count = recipe_count + 1
 					end
 				else
-					self[localizedProfessionName .. " expanded"][spell_id] = nil
+					professionExpansionState[recipe] = nil
 				end
 			end
 
 			if count > 0 then
-				local isAcquireTypeExpanded = self[localizedProfessionName .. " expanded"][acquireType:Name()]
+				local isAcquireTypeExpanded = professionExpansionState[acquireType]
 				local listEntry = CreateListEntry("header")
 				listEntry:SetAcquireType(acquireType)
-				listEntry:SetText("%s (%d)",
-					SetTextColor(acquireType:ColorData().hex, acquireType:Name()),
-					count
-				)
+                listEntry:SetText("%s (%d)",
+                    SetTextColor(acquireType:ColorData().hex, acquireType:Name()),
+                    count)
 
 				insert_index = MainPanel.list_frame:InsertEntry(listEntry, insert_index, isAcquireTypeExpanded or expand_mode, isAcquireTypeExpanded or expand_mode)
 			else
-				self[localizedProfessionName .. " expanded"][acquireType:Name()] = nil
+				professionExpansionState[acquireType] = nil
 			end
         end
 
@@ -308,6 +326,7 @@ local function InitializeAcquisitionTab()
 			local sorted_recipes = entryAcquireType:GetSortedRecipes()
             local currentProfession = private.CurrentProfession
             local localizedProfessionName = currentProfession:LocalizedName()
+            local professionExpansionState = self:GetProfessionExpansionState(currentProfession)
 
             for index = 1, #sorted_recipes do
 				local recipe = currentProfession.Recipes[sorted_recipes[index]]
@@ -319,7 +338,7 @@ local function InitializeAcquisitionTab()
 						expand = true
 						entry_type = "entry"
 					end
-					local is_expanded = (self[localizedProfessionName .." expanded"][recipe] and self[localizedProfessionName .." expanded"][entryAcquireType:Name()])
+					local is_expanded = (professionExpansionState[recipe] and professionExpansionState[entryAcquireType])
 
 					local listEntry = CreateListEntry(entry_type, entry, recipe)
 					listEntry:SetAcquireType(entryAcquireType)
@@ -350,9 +369,6 @@ local function InitializeLocationTab()
 	function LocationTab:Initialize(expand_mode)
 		local search_box = MainPanel.search_editbox
 
-		local recipe_count = 0
-		local insert_index = 1
-
 		table.wipe(recipe_registry)
 
 		if not SortedLocations then
@@ -372,10 +388,12 @@ local function InitializeLocationTab()
         local currentProfession = private.CurrentProfession
         local localizedProfessionName = currentProfession:LocalizedName()
 		local professionRecipes = currentProfession.Recipes
-
-		self[localizedProfessionName .. " expanded"] = self[localizedProfessionName .. " expanded"] or {}
+        local professionExpansionState = self:GetProfessionExpansionState(currentProfession)
 
         local currentContinentID
+
+        local recipe_count = 0
+        local insert_index = 1
 
 		for index = 1, #SortedLocations do
             local location = SortedLocations[index]
@@ -427,7 +445,7 @@ local function InitializeLocationTab()
 						end
 					end
 				else
-					self[localizedProfessionName .. " expanded"][recipe:SpellID()] = nil
+					professionExpansionState[recipe] = nil
 				end
 			end
 
@@ -458,10 +476,10 @@ local function InitializeLocationTab()
 					)
 				end
 
-				local isLocationExpanded = self[localizedProfessionName .. " expanded"][localizedLocationName]
+				local isLocationExpanded = professionExpansionState[location]
 				insert_index = MainPanel.list_frame:InsertEntry(listEntry, insert_index, isLocationExpanded or expand_mode, isLocationExpanded or expand_mode)
 			else
-				self[localizedProfessionName .. " expanded"][localizedLocationName] = nil
+				professionExpansionState[location] = nil
 			end
         end
 
@@ -472,7 +490,6 @@ local function InitializeLocationTab()
 		local orig_index = entry.button and entry.button.entry_index or entry.index
 		local expand_all = expand_mode == "deep"
         local location = entry:Location()
-		local localizedLocationName = location:LocalizedName()
 
 		-- Entry_index is the position in self.entries that we want to expand. Since we are expanding the current entry, the return
 		-- value should be the index of the next button after the expansion occurs
@@ -482,7 +499,7 @@ local function InitializeLocationTab()
 
 		if entry:IsHeader() then
             local currentProfession = private.CurrentProfession
-            local localizedProfessionName = currentProfession:LocalizedName()
+            local professionExpansionState = self:GetProfessionExpansionState(currentProfession)
 
             local sortedRecipes = location:GetSortedRecipes()
 			for index = 1, #sortedRecipes do
@@ -498,7 +515,7 @@ local function InitializeLocationTab()
 						entry_type = "entry"
 					end
 
-					local isLocationExpanded = (self[localizedProfessionName .." expanded"][recipe] and self[localizedProfessionName .." expanded"][localizedLocationName])
+					local isLocationExpanded = (professionExpansionState[recipe] and professionExpansionState[location])
 					local listEntry = CreateListEntry(entry_type, entry, recipe)
 					listEntry:SetText(recipe:GetDisplayName())
 					listEntry:SetLocation(location)
@@ -545,8 +562,7 @@ local function InitializeRecipesTab()
         local currentProfession = private.CurrentProfession
         local localizedProfessionName = currentProfession:LocalizedName()
 		local professionRecipes = currentProfession.Recipes
-
-		self[localizedProfessionName .. " expanded"] = self[localizedProfessionName .. " expanded"] or {}
+        local professionExpansionState = self:GetProfessionExpansionState(currentProfession)
 
 		private.SortRecipeList(professionRecipes)
 
@@ -563,10 +579,10 @@ local function InitializeRecipesTab()
 
 				recipe_count = recipe_count + 1
 
-				local isRecipeExpanded = self[localizedProfessionName .. " expanded"][recipe]
+				local isRecipeExpanded = professionExpansionState[recipe]
 				insert_index = MainPanel.list_frame:InsertEntry(listEntry, insert_index, isRecipeExpanded or expand_mode, isRecipeExpanded or expand_mode)
 			else
-				self[localizedProfessionName .. " expanded"][recipe] = nil
+				professionExpansionState[recipe] = nil
 			end
         end
 

@@ -749,12 +749,13 @@ function private.InitializeFrame()
 
 	expand_button:SetScript("OnClick", function(self, mouse_button, down)
 		local currentTab = MainPanel.current_tab
-        local localizedProfessionName = private.CurrentProfession:LocalizedName()
+        local currentProfession = private.CurrentProfession
+        local localizedProfessionName = currentProfession:LocalizedName()
 		local professionExpandButton = currentTab["expand_button_" .. localizedProfessionName]
 		local expandMode
 
-		if professionExpandButton then
-			table.wipe(currentTab[localizedProfessionName .. " expanded"])
+		if professionExpandButton and currentTab.ProfessionState and currentTab.ProfessionState[currentProfession] then
+			table.wipe(currentTab.ProfessionState[currentProfession])
 		else
 			if _G.IsShiftKeyDown() then
 				expandMode = "deep"
