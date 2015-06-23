@@ -43,11 +43,7 @@ local function AddAllWaypoints()
         local recipe = recipe_list[sorted_recipes[index]]
         local matches_search = true
 
-        if editbox_text ~= "" and editbox_text ~= _G.SEARCH then
-            matches_search = recipe:HasState("RELEVANT")
-        end
-
-        if recipe:HasState("VISIBLE") and matches_search then
+        if recipe:IsVisible() then
             for acquireType, acquireData in recipe:AcquirePairs() do
                 for sourceID, sourceData in pairs(acquireData) do
                     if acquireType == private.AcquireTypes.Reputation then

@@ -282,7 +282,7 @@ local function InitializeAcquisitionTab()
 			for spell_id, affiliation in acquireType:RecipePairs() do
 				local recipe = professionRecipes[spell_id]
 
-				if recipe and recipe:HasState("VISIBLE") and MainPanel.search_editbox:MatchesRecipe(recipe) then
+				if recipe and recipe:IsVisible() then
 					count = count + 1
 
 					if not recipe_registry[recipe] then
@@ -330,7 +330,7 @@ local function InitializeAcquisitionTab()
 
             for index = 1, #sorted_recipes do
 				local recipe = currentProfession.Recipes[sorted_recipes[index]]
-				if recipe and recipe:HasState("VISIBLE") and MainPanel.search_editbox:MatchesRecipe(recipe) then
+				if recipe and recipe:IsVisible() then
 					local expand = false
 					local entry_type = "subheader"
 
@@ -402,7 +402,7 @@ local function InitializeLocationTab()
 
 			-- Check to see if any recipes for this location will be shown - otherwise, don't show the location in the list.
             for recipe, affiliation in location:RecipePairs() do
-				if professionRecipes[recipe:SpellID()] and recipe:HasState("VISIBLE") and search_box:MatchesRecipe(recipe) then
+				if professionRecipes[recipe:SpellID()] and recipe:IsVisible() then
 					local good_count, bad_count = 0, 0
 					local showOpposingFaction = addon.db.profile.filters.general.faction
 
@@ -505,7 +505,7 @@ local function InitializeLocationTab()
 			for index = 1, #sortedRecipes do
 				local recipe = currentProfession.Recipes[sortedRecipes[index]]
 
-				if recipe and recipe:HasState("VISIBLE") and MainPanel.search_editbox:MatchesRecipe(recipe) then
+				if recipe and recipe:IsVisible() then
 					local expand = false
 					local entry_type = "subheader"
 
@@ -573,7 +573,7 @@ local function InitializeRecipesTab()
 		for i = 1, #sorted_recipes do
 			local recipe = professionRecipes[sorted_recipes[i]]
 
-			if recipe and recipe:HasState("VISIBLE") and MainPanel.search_editbox:MatchesRecipe(recipe) then
+			if recipe and recipe:IsVisible() then
 				local listEntry = CreateListEntry("header", nil, recipe)
 				listEntry:SetText(recipe:GetDisplayName())
 

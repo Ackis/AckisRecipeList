@@ -106,6 +106,10 @@ function Recipe:GetOrCreateAcquireDataOfType(acquireType, ...)
     return sourceData
 end
 
+function Recipe:IsVisible()
+    return self:HasState("VISIBLE") and not self:HasState("IGNORED") and addon.Frame.search_editbox:MatchesRecipe(self)
+end
+
 function Recipe:SpellID()
 	return self._spell_id
 end
