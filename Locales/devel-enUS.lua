@@ -581,6 +581,7 @@ L["GENERATE_LINKS_DESC"] = "Generate complete profession links."
 L["GREEN_GEM"] = "Green"
 L["GROUP_TOGGLE_FORMAT"] = "Left-click to select or Right-click to deselect all %s filters."
 L["Gagsprocket"] = true
+L["Galissa Sundew"] = true
 L["Gambarinka"] = true
 L["Game Commands"] = true
 L["Gan'arg Analyzer"] = true
