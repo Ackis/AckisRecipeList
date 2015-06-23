@@ -483,7 +483,7 @@ function private.InitializeListFrame()
 				local can_display = false
 				recipe:RemoveState("VISIBLE")
 
-				if not recipe.is_ignored then
+				if not recipe:HasState("IGNORED") then
 					recipes_total = recipes_total + 1
 
 					local is_known

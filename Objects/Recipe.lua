@@ -173,7 +173,7 @@ function Recipe:SetRequiredFaction(faction_name)
 		end
 
 		if private.Player.faction ~= faction_name then
-			self.is_ignored = true
+            self:AddState("IGNORED")
 		end
 	else
 		addon:Debuf("No faction name passed to SetRequiredFaction for recipe %d", self.SpellID())
@@ -211,6 +211,7 @@ do
 		RELEVANT = 0x00000002,
 		VISIBLE = 0x00000004,
 		LINKED = 0x00000008,
+        IGNORED = 0x00000010,
 	}
 
 	function Recipe:HasState(state_name)
