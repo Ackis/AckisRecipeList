@@ -363,78 +363,78 @@ function private.InitializeListFrame()
 	-------------------------------------------------------------------------------
 	-- The state and entry buttons and the container frames which hold them.
 	-------------------------------------------------------------------------------
-	ListFrame.entries = {}
-	ListFrame.button_containers = {}
-	ListFrame.state_buttons = {}
-	ListFrame.entry_buttons = {}
+    local ListEntryButtonContainers = {}
+    ListFrame.entries = {}
+	ListFrame.ListEntryButtons = {}
 
 	for index = 1, NUM_RECIPE_LINES do
-		local cur_container = _G.CreateFrame("Frame", nil, ListFrame)
-		cur_container:SetSize(LIST_ENTRY_WIDTH, 16)
+		local buttonContainer = _G.CreateFrame("Frame", nil, ListFrame)
+		buttonContainer:SetSize(LIST_ENTRY_WIDTH, 16)
 
-		local cur_state = _G.CreateFrame("Button", nil, ListFrame)
-		cur_state:SetSize(16, 16)
+        if index == 1 then
+            buttonContainer:SetPoint("TOPLEFT", ListFrame, "TOPLEFT", 0, -3)
+        else
+            buttonContainer:SetPoint("TOPLEFT", ListEntryButtonContainers[index - 1], "BOTTOMLEFT", 0, 3)
+        end
 
-		local cur_entry = _G.CreateFrame("Button", ("%s_ListEntryButton%d"):format(FOLDER_NAME, index), cur_container)
-		cur_entry:SetSize(LIST_ENTRY_WIDTH, 16)
-		cur_entry:RegisterForClicks("AnyUp")
+		local stateButton = _G.CreateFrame("Button", nil, ListFrame)
+		stateButton:SetSize(16, 16)
+        stateButton:SetPoint("LEFT", buttonContainer, "LEFT", 0, 0)
+        stateButton:SetScript("OnClick", ListItem_OnClick)
 
-		local highlight_texture = cur_entry:CreateTexture(nil, "BORDER")
-		highlight_texture:SetTexture([[Interface\ClassTrainerFrame\TrainerTextures]])
-		highlight_texture:SetTexCoord(0.00195313, 0.57421875, 0.75390625, 0.84570313)
-		highlight_texture:SetBlendMode("ADD")
-		highlight_texture:SetPoint("TOPLEFT", 2, 0)
-		highlight_texture:SetPoint("BOTTOMRIGHT", -2, 1)
-		cur_entry:SetHighlightTexture(highlight_texture)
+        stateButton.container = buttonContainer
 
-		local selected_texture = cur_entry:CreateTexture(nil, "BORDER")
-		selected_texture:SetTexture([[Interface\ClassTrainerFrame\TrainerTextures]])
-		selected_texture:SetTexCoord(0.00195313, 0.57421875, 0.84960938, 0.94140625)
-		selected_texture:SetBlendMode("ADD")
-		selected_texture:SetPoint("TOPLEFT", 2, 0)
-		selected_texture:SetPoint("BOTTOMRIGHT", -2, 1)
-		cur_entry.selected_texture = selected_texture
+        local listEntry = _G.CreateFrame("Button", ("%s_ListEntryButton%d"):format(FOLDER_NAME, index), buttonContainer)
+		listEntry:SetSize(LIST_ENTRY_WIDTH, 16)
+        listEntry:SetPoint("LEFT", stateButton, "RIGHT", -3, 0)
+        listEntry:RegisterForClicks("AnyUp")
 
-		local emphasis_texture = cur_entry:CreateTexture(nil, "BORDER")
-		emphasis_texture:SetTexture([[Interface\QUESTFRAME\Ui-QuestLogTitleHighlight]])
-		emphasis_texture:SetVertexColor(1, 0.61, 0)
-		emphasis_texture:SetBlendMode("ADD")
-		emphasis_texture:SetPoint("TOPLEFT", 2, 0)
-		emphasis_texture:SetPoint("BOTTOMRIGHT", -2, 1)
-		cur_entry.emphasis_texture = emphasis_texture
+        listEntry.stateButton = stateButton
+        stateButton.listEntry = listEntry
 
-        local titleBackgroundTexture = cur_entry:CreateTexture(nil, "ARTWORK")
+		local highlightTexture = listEntry:CreateTexture(nil, "BORDER")
+		highlightTexture:SetTexture([[Interface\ClassTrainerFrame\TrainerTextures]])
+		highlightTexture:SetTexCoord(0.00195313, 0.57421875, 0.75390625, 0.84570313)
+		highlightTexture:SetBlendMode("ADD")
+		highlightTexture:SetPoint("TOPLEFT", 2, 0)
+		highlightTexture:SetPoint("BOTTOMRIGHT", -2, 1)
+		listEntry:SetHighlightTexture(highlightTexture)
+
+		local selectedTexture = listEntry:CreateTexture(nil, "BORDER")
+		selectedTexture:SetTexture([[Interface\ClassTrainerFrame\TrainerTextures]])
+		selectedTexture:SetTexCoord(0.00195313, 0.57421875, 0.84960938, 0.94140625)
+		selectedTexture:SetBlendMode("ADD")
+		selectedTexture:SetPoint("TOPLEFT", 2, 0)
+		selectedTexture:SetPoint("BOTTOMRIGHT", -2, 1)
+		listEntry.selected_texture = selectedTexture
+
+		local emphasisTexture = listEntry:CreateTexture(nil, "BORDER")
+		emphasisTexture:SetTexture([[Interface\QUESTFRAME\Ui-QuestLogTitleHighlight]])
+		emphasisTexture:SetVertexColor(1, 0.61, 0)
+		emphasisTexture:SetBlendMode("ADD")
+		emphasisTexture:SetPoint("TOPLEFT", 2, 0)
+		emphasisTexture:SetPoint("BOTTOMRIGHT", -2, 1)
+		listEntry.emphasis_texture = emphasisTexture
+
+        local titleBackgroundTexture = listEntry:CreateTexture(nil, "ARTWORK")
         titleBackgroundTexture:SetAtlas("Objective-Header", false)
         titleBackgroundTexture:SetPoint("TOPLEFT", -9, 5)
         titleBackgroundTexture:SetPoint("BOTTOMRIGHT", 9, -23)
-        cur_entry.titleBackgroundTexture = titleBackgroundTexture
+        listEntry.titleBackgroundTexture = titleBackgroundTexture
 
-		local label = cur_entry:CreateFontString(nil, "ARTWORK")
-		label:SetPoint("LEFT", cur_entry, "LEFT", 7, 0)
-		label:SetPoint("RIGHT", cur_entry, "RIGHT", -7, 0)
+		local label = listEntry:CreateFontString(nil, "ARTWORK")
+		label:SetPoint("LEFT", listEntry, "LEFT", 7, 0)
+		label:SetPoint("RIGHT", listEntry, "RIGHT", -7, 0)
 		label:SetFontObject("GameFontNormalSmall")
 		label:SetJustifyH("LEFT")
 		label:SetJustifyV("CENTER")
 		label:SetWordWrap(false)
 
-		cur_entry:SetFontString(label)
-		cur_entry.text = label
+		listEntry:SetFontString(label)
+		listEntry.text = label
 
-		if index == 1 then
-			cur_container:SetPoint("TOPLEFT", ListFrame, "TOPLEFT", 0, -3)
-		else
-			cur_container:SetPoint("TOPLEFT", ListFrame.button_containers[index - 1], "BOTTOMLEFT", 0, 3)
-		end
-		cur_state:SetPoint("LEFT", cur_container, "LEFT", 0, 0)
-		cur_entry:SetPoint("LEFT", cur_state, "RIGHT", -3, 0)
-
-		cur_state.container = cur_container
-
-		cur_state:SetScript("OnClick", ListItem_OnClick)
-
-		ListFrame.button_containers[index] = cur_container
-		ListFrame.state_buttons[index] = cur_state
-		ListFrame.entry_buttons[index] = cur_entry
+		ListEntryButtonContainers[index] = buttonContainer
+		ListFrame.ListEntryButtons[index] = listEntry
 	end
 
 	function ListFrame:InsertEntry(entry, entry_index, entry_expanded, expand_mode)
@@ -588,7 +588,7 @@ function private.InitializeListFrame()
 	-- Reset the current buttons/lines
 	function ListFrame:ClearLines()
 		for index = 1, NUM_RECIPE_LINES do
-			local entry = self.entry_buttons[index]
+			local entry = self.ListEntryButtons[index]
 			entry.text:SetFontObject(addon.db.profile.frameopts.small_list_font and "GameFontNormalSmall" or "GameFontNormal")
             entry.text:SetJustifyH("LEFT")
             entry:SetText("")
@@ -603,11 +603,11 @@ function private.InitializeListFrame()
             entry.button = nil
             entry.entry_index = 0
 
-			local state = self.state_buttons[index]
-			state.entry_index = 0
-			state:Hide()
-			state:Disable()
-			state:ClearAllPoints()
+			local stateButton = entry.stateButton
+			stateButton.entry_index = 0
+			stateButton:Hide()
+			stateButton:Disable()
+			stateButton:ClearAllPoints()
 		end
 	end
 
@@ -684,13 +684,14 @@ function private.InitializeListFrame()
 		if listEntryCount <= NUM_RECIPE_LINES then
 			self.scroll_bar:Hide()
 		else
-			local max_val = listEntryCount - NUM_RECIPE_LINES
-			local current_tab = MainPanel.current_tab
-			local scroll_value = math.max(0, math.min(current_tab:ScrollValue(private.CurrentProfession) or 0, max_val))
-			offset = scroll_value
+            local maxScrollValue = listEntryCount - NUM_RECIPE_LINES
+            self.scroll_bar:SetMinMaxValues(0, math.max(0, maxScrollValue))
 
-			self.scroll_bar:SetMinMaxValues(0, math.max(0, max_val))
-			self.scroll_bar:SetValue(scroll_value)
+            local currentTab = MainPanel.current_tab
+            local scrollValue = math.max(0, math.min(currentTab:ScrollValue(private.CurrentProfession) or 0, maxScrollValue))
+            self.scroll_bar:SetValue(scrollValue)
+            offset = scrollValue
+
 			self.scroll_bar:Show()
 		end
 		self:ClearLines()
@@ -700,9 +701,10 @@ function private.InitializeListFrame()
 
 		-- Populate the buttons with new values
 		while buttonIndex <= NUM_RECIPE_LINES and listEntryIndex <= listEntryCount do
-			local stateButton = self.state_buttons[buttonIndex]
+            local listEntryButton = self.ListEntryButtons[buttonIndex]
 			local listEntry = self.entries[listEntryIndex]
-			local isEntry = listEntry:IsEntry()
+            local stateButton = listEntryButton.stateButton
+            local isEntry = listEntry:IsEntry()
 			local isSubentry = not isEntry and listEntry:IsSubEntry()
 			local isHeader = not isSubentry and listEntry:IsHeader()
 			local isSubheader = not isHeader and listEntry:IsSubHeader()
@@ -725,7 +727,6 @@ function private.InitializeListFrame()
 				stateButton:Hide()
 				stateButton:Disable()
 			end
-			local listEntryButton = self.entry_buttons[buttonIndex]
 
 			if listEntry == ListFrame.selected_entry then
 				listEntryButton.selected_texture:Show()
@@ -741,9 +742,9 @@ function private.InitializeListFrame()
 
 			if isTitle or isHeader or isEntry then
 				stateButton:SetPoint("TOPLEFT", stateButton.container, "TOPLEFT", 0, 0)
-			elseif isSubheader or isSubentry then
-				stateButton:SetPoint("TOPLEFT", stateButton.container, "TOPLEFT", 15, 0)
-				listEntryButton:SetWidth(LIST_ENTRY_WIDTH - 15)
+            elseif isSubheader or isSubentry then
+                stateButton:SetPoint("TOPLEFT", stateButton.container, "TOPLEFT", 15, 0)
+                listEntryButton:SetWidth(LIST_ENTRY_WIDTH - 15)
 			end
 			listEntry.button = listEntryButton
 			listEntryButton.entry_index = listEntryIndex
