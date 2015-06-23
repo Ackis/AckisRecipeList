@@ -402,7 +402,7 @@ local function InitializeLocationTab()
 
 			-- Check to see if any recipes for this location will be shown - otherwise, don't show the location in the list.
             for recipe, affiliation in location:RecipePairs() do
-				if recipe:HasState("VISIBLE") and search_box:MatchesRecipe(recipe) then
+				if professionRecipes[recipe:SpellID()] and recipe:HasState("VISIBLE") and search_box:MatchesRecipe(recipe) then
 					local good_count, bad_count = 0, 0
 					local showOpposingFaction = addon.db.profile.filters.general.faction
 
