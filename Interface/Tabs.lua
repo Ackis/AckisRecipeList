@@ -289,9 +289,9 @@ local function InitializeAcquisitionTab()
 						recipe_registry[recipe] = true
 						recipe_count = recipe_count + 1
 					end
-				else
-					professionExpansionState[recipe] = nil
-				end
+                elseif professionExpansionState[recipe] then
+                    professionExpansionState[recipe] = nil
+                end
 			end
 
 			if count > 0 then
@@ -303,9 +303,9 @@ local function InitializeAcquisitionTab()
                     count)
 
 				insert_index = MainPanel.list_frame:InsertEntry(listEntry, insert_index, isAcquireTypeExpanded or expand_mode, isAcquireTypeExpanded or expand_mode)
-			else
-				professionExpansionState[acquireType] = nil
-			end
+            elseif professionExpansionState[acquireType] then
+                professionExpansionState[acquireType] = nil
+            end
         end
 
 		return recipe_count
@@ -444,9 +444,9 @@ local function InitializeLocationTab()
 							recipe_count = recipe_count + 1
 						end
 					end
-				else
-					professionExpansionState[recipe] = nil
-				end
+                elseif professionExpansionState[recipe] then
+                    professionExpansionState[recipe] = nil
+                end
 			end
 
 			if count > 0 then
@@ -478,9 +478,9 @@ local function InitializeLocationTab()
 
 				local isLocationExpanded = professionExpansionState[location]
 				insert_index = MainPanel.list_frame:InsertEntry(listEntry, insert_index, isLocationExpanded or expand_mode, isLocationExpanded or expand_mode)
-			else
-				professionExpansionState[location] = nil
-			end
+            elseif professionExpansionState[location] then
+                professionExpansionState[location] = nil
+            end
         end
 
 		return recipe_count
@@ -581,7 +581,7 @@ local function InitializeRecipesTab()
 
 				local isRecipeExpanded = professionExpansionState[recipe]
 				insert_index = MainPanel.list_frame:InsertEntry(listEntry, insert_index, isRecipeExpanded or expand_mode, isRecipeExpanded or expand_mode)
-			else
+			elseif professionExpansionState[recipe] then
 				professionExpansionState[recipe] = nil
 			end
         end
