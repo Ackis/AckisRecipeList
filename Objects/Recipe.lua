@@ -40,11 +40,11 @@ local recipeMetatable = {
 -----------------------------------------------------------------------
 function addon:AddRecipe(module, recipeData)
 	local recipeList = private.recipe_list
-	local spellID = recipeData._spell_id
+	local spellID = recipeData._spellID
 
 	local existingRecipe = recipeList[spellID]
 	if existingRecipe then
-		self:Debug("Duplicate recipe from %s: %d - %s", module.Name, spellID, existingRecipe.name)
+		self:Debug("Duplicate recipe from %s: %d - %s", module.Name, spellID, existingRecipe:LocalizedName())
 		return
 	end
 
@@ -52,20 +52,19 @@ function addon:AddRecipe(module, recipeData)
 	recipe.ProfessionModule = module
 	recipe:AddFilters(private.FILTER_IDS.ALLIANCE, private.FILTER_IDS.HORDE)
 
-    -- TODO: Remove the following two lines once acquire_data has been renamed in the profession module AddOns.
-    recipe._acquireTypeData = recipe.acquire_data
-    recipe.acquire_data = nil
-
-	if not recipe.name or recipe.name == "" then
-		recipe.name = ("%s: %d"):format(_G.UNKNOWN, tonumber(spellID))
+	if not recipe:LocalizedName() or recipe:LocalizedName() == "" then
+		recipe:SetLocalizedName(("%s: %d"):format(_G.UNKNOWN, tonumber(spellID)))
 		self:Debug(L["SpellIDCache"]:format(spellID))
 	end
 	recipeList[spellID] = recipe
 
-    local professionRecipes = private.Professions[recipe.profession].Recipes
+    local profession = private.Professions[recipe._localizedProfessionName]
+    recipe.Profession = profession
+
+    local professionRecipes = profession.Recipes
     if not professionRecipes then
         professionRecipes = module.Recipes
-        private.Professions[recipe.profession].Recipes = professionRecipes
+        profession.Recipes = professionRecipes
     end
     professionRecipes[spellID] = recipe
 
@@ -106,12 +105,32 @@ function Recipe:GetOrCreateAcquireDataOfType(acquireType, ...)
     return sourceData
 end
 
-function Recipe:IsVisible()
-    return self:HasState("VISIBLE") and not self:HasState("IGNORED") and addon.Frame.search_editbox:MatchesRecipe(self)
+function Recipe:ExpansionID()
+    return self._expansionID
+end
+
+function Recipe:LocalizedName()
+    return self._localizedName
+end
+
+function Recipe:SetLocalizedName(localizedName)
+    self._localizedName = localizedName
+end
+
+function Recipe:QualityID()
+    return self._qualityID
+end
+
+function Recipe:SetQualityID(qualityID)
+    self._qualityID = qualityID
 end
 
 function Recipe:SpellID()
-	return self._spell_id
+    return self._spellID
+end
+
+function Recipe:IsVisible()
+    return self:HasState("VISIBLE") and not self:HasState("IGNORED") and addon.Frame.search_editbox:MatchesRecipe(self)
 end
 
 function Recipe:HasCoordinates()
@@ -189,12 +208,12 @@ function Recipe:RequiredFaction()
 end
 
 -- Sets the spell ID for the recipe this recipe replaces
-function Recipe:SetPreviousRankID(spell_id)
-	self.old_rank_spell_id = spell_id
+function Recipe:SetPreviousRankSpellID(spell_id)
+	self._previousRankSpellID = spell_id
 end
 
-function Recipe:PreviousRankID()
-	return self.old_rank_spell_id
+function Recipe:PreviousRankSpellID()
+	return self._previousRankSpellID
 end
 
 function Recipe:SetAsKnownOrLinked(is_linked)
@@ -259,7 +278,7 @@ do
 	end
 
 	function Recipe:HasFilter(field_name, flag_name)
-		local bitfield = self.flags[field_name]
+		local bitfield = self._bitflags[field_name]
 		local bitset = BITFIELD_MAP[field_name]
 		local value = bitset[flag_name]
 
@@ -271,11 +290,11 @@ do
 	local SKILL_LEVEL_FORMAT = "[%d]"
 
 	function Recipe:GetDisplayName()
-		local _, _, _, quality_color = _G.GetItemQualityColor(self.quality)
-		local recipe_name = self.name
+		local _, _, _, quality_color = _G.GetItemQualityColor(self:QualityID())
+		local recipeName = self:LocalizedName()
 
 		if private.CurrentProfession:LocalizedName() == private.LOCALIZED_PROFESSION_NAMES.ENCHANTING then
-			recipe_name = recipe_name:gsub(_G.ENSCRIBE .. " ", "")
+			recipeName = recipeName:gsub(_G.ENSCRIBE .. " ", "")
 		end
 		local has_faction = private.Player:HasProperRepLevel(self:AcquireDataOfType(private.AcquireTypes.Reputation))
 		local skill_level = private.current_profession_scanlevel
@@ -300,7 +319,7 @@ do
 		else
 			diff_color = "impossible"
 		end
-		local display_name = ("|c%s%s|r"):format(quality_color, recipe_name)
+		local display_name = ("|c%s%s|r"):format(quality_color, recipeName)
 		local level_text = private.SetTextColor(private.DIFFICULTY_COLORS[diff_color].hex, SKILL_LEVEL_FORMAT):format(recipe_level)
 
 		if addon.db.profile.skill_view then
@@ -318,7 +337,7 @@ end -- do-block
 
 function Recipe:SetItemFilterType(filter_type)
 	if not addon.constants.ITEM_FILTER_TYPES[filter_type:upper()] then
-		addon:Debug("Attempting to set invalid item filter type '%s' for '%s' (%d)", filter_type, self.name, self:SpellID())
+		addon:Debug("Attempting to set invalid item filter type '%s' for '%s' (%d)", filter_type, self:LocalizedName(), self:SpellID())
 		return
 	end
 	self.item_filter_type = filter_type:lower()
@@ -348,37 +367,37 @@ local function SetFilterState(recipe, turn_on, ...)
 			end
 
 			if not bitfield or not memberName then
-				addon:Debug("Recipe '%s' (spell ID %d): Attempting to assign non-existent filter flag %s.", recipe.name, recipe:SpellID(), filterName)
+				addon:Debug("Recipe '%s' (spell ID %d): Attempting to assign non-existent filter flag %s.", recipe:LocalizedName(), recipe:SpellID(), filterName)
 				return
 			end
 
-			if not recipe.flags[memberName] then
-				recipe.flags[memberName] = 0
+			if not recipe._bitflags[memberName] then
+				recipe._bitflags[memberName] = 0
 			end
 
             local flag = bitfield[filterName]
 			if turn_on then
-				if bit.band(recipe.flags[memberName], flag) == flag then
-					if recipe.flags[memberName] == 0 then
-						recipe.flags[memberName] = nil
+				if bit.band(recipe._bitflags[memberName], flag) == flag then
+					if recipe._bitflags[memberName] == 0 then
+						recipe._bitflags[memberName] = nil
 					end
 					return
 				end
 			else
-				if bit.band(recipe.flags[memberName], flag) ~= flag then
-					if recipe.flags[memberName] == 0 then
-						recipe.flags[memberName] = nil
+				if bit.band(recipe._bitflags[memberName], flag) ~= flag then
+					if recipe._bitflags[memberName] == 0 then
+						recipe._bitflags[memberName] = nil
 					end
 					return
 				end
 			end
-			recipe.flags[memberName] = bit.bxor(recipe.flags[memberName], flag)
+			recipe._bitflags[memberName] = bit.bxor(recipe._bitflags[memberName], flag)
 
-			if recipe.flags[memberName] == 0 then
-				recipe.flags[memberName] = nil
+			if recipe._bitflags[memberName] == 0 then
+				recipe._bitflags[memberName] = nil
 			end
 		else
-			addon:Debug("Recipe '%s' (spell ID %d): Attempting to %s non-existent filter flag.", recipe.name, recipe:SpellID(), turn_on and "assign" or "remove")
+			addon:Debug("Recipe '%s' (spell ID %d): Attempting to %s non-existent filter flag.", recipe:LocalizedName(), recipe:SpellID(), turn_on and "assign" or "remove")
 		end
 	end
 end
@@ -440,7 +459,7 @@ function Recipe:AddAcquireData(acquireType, typeLabel, ...)
 			if localizedLocationName then
 				affiliation = "world_drop"
 			elseif isStringID then
-				addon:Debug("%s with no location: %d %s", typeLabel, self:SpellID(), self.name)
+				addon:Debug("%s with no location: %d %s", typeLabel, self:SpellID(), self:LocalizedName())
 			end
 		end
 
@@ -548,12 +567,12 @@ function Recipe:AddRepVendor(factionID, reputationLevel, ...)
 				else
                     addon:Debug("Spell ID %d (%s): Reputation Vendor ID %s does not exist in the %s AcquireType Entity table.",
                         self:SpellID(),
-                        tostring(self.name),
+                        tostring(self:LocalizedName()),
                         tostring(vendorID),
                         vendorAcquireType:Label())
                 end
 			else
-				addon:Debug("Spell ID %d (%s): Nil Reputation Vendor ID passed.", self:SpellID(), tostring(self.name))
+				addon:Debug("Spell ID %d (%s): Nil Reputation Vendor ID passed.", self:SpellID(), tostring(self:LocalizedName()))
 			end
 		else
 			addon:Debug("Spell ID %d: Faction ID %d does not exist in the %s AcquireType Entity table.", self:SpellID(), factionID, reputationAcquireType:Label())
@@ -696,12 +715,12 @@ do
 		end
 
 		-- Expansion filters.
-		if not obtain_filters[private.EXPANSION_FILTERS[private.GAME_VERSIONS[self.genesis]]] then
+		if not obtain_filters[private.EXPANSION_FILTERS[self:ExpansionID()]] then
 			return false
 		end
 
 		-- Quality filters.
-		if not filter_db.quality[QUALITY_FILTERS[self.quality]] then
+		if not filter_db.quality[QUALITY_FILTERS[self:QualityID()]] then
 			return false
 		end
 
@@ -735,13 +754,13 @@ do
 
 		-- Check the reputation filter flags.
 		for index = 1, #REPUTATION_BITFLAG_FILTERS do
-			if not HasEnabledFlag(REPUTATION_BITFLAG_FILTERS[index], self.flags[("reputation%d"):format(index)], filter_db.rep) then
+			if not HasEnabledFlag(REPUTATION_BITFLAG_FILTERS[index], self._bitflags[("reputation%d"):format(index)], filter_db.rep) then
 				return false
 			end
 		end
 
 		-- Check the class filter flags
-		if not HasEnabledFlag(CLASS_BITFLAG_FILTERS, self.flags.class1, filter_db.classes) then
+		if not HasEnabledFlag(CLASS_BITFLAG_FILTERS, self._bitflags.class1, filter_db.classes) then
 			return false
 		end
 
@@ -797,45 +816,45 @@ for reputationIndex = 1, #private.REP_FLAGS do
 	end
 end
 
-function Recipe:Dump(output, use_genesis)
-	local genesis_val = (use_genesis and tonumber(private.GAME_VERSIONS[self.genesis]) or nil)
+function Recipe:Dump(output, useExpansionID)
+	local expansionID = (useExpansionID and self:ExpansionID() or nil)
 
-	if genesis_val and output:Lines(genesis_val) == 0 then
-		output:AddLine("-------------------------------------------------------------------------------", genesis_val)
-		output:AddLine(("-- %s."):format(_G["EXPANSION_NAME" .. genesis_val - 1]), genesis_val)
-		output:AddLine("-------------------------------------------------------------------------------", genesis_val)
+	if expansionID and output:Lines(expansionID) == 0 then
+		output:AddLine("-------------------------------------------------------------------------------", expansionID)
+		output:AddLine(("-- %s."):format(_G["EXPANSION_NAME" .. expansionID - 1]), expansionID)
+		output:AddLine("-------------------------------------------------------------------------------", expansionID)
 	end
 
-	output:AddLine(("-- %s -- %d"):format(self.name, self:SpellID()), genesis_val)
-	output:AddLine(("recipe = AddRecipe(%d, V.%s, Q.%s)"):format(self:SpellID(), self.genesis, private.ITEM_QUALITY_NAMES[self.quality]), genesis_val)
-	output:AddLine(("recipe:SetSkillLevels(%d, %d, %d, %d, %d)"):format(self.skill_level, self.optimal_level, self.medium_level, self.easy_level, self.trivial_level), genesis_val)
+	output:AddLine(("-- %s -- %d"):format(self:LocalizedName(), self:SpellID()), expansionID)
+	output:AddLine(("recipe = AddRecipe(%d, V.%s, Q.%s)"):format(self:SpellID(), private.GAME_VERSION_NAMES[self:ExpansionID()], private.ITEM_QUALITY_NAMES[self:QualityID()]), expansionID)
+	output:AddLine(("recipe:SetSkillLevels(%d, %d, %d, %d, %d)"):format(self.skill_level, self.optimal_level, self.medium_level, self.easy_level, self.trivial_level), expansionID)
 
 	if self.recipe_item_id then
-		output:AddLine(("recipe:SetRecipeItem(%d, \"%s\")"):format(self.recipe_item_id, self.recipe_item_binding), genesis_val)
+		output:AddLine(("recipe:SetRecipeItem(%d, \"%s\")"):format(self.recipe_item_id, self.recipe_item_binding), expansionID)
 	end
 
 	if self.crafted_item_id then
-		output:AddLine(("recipe:SetCraftedItem(%d, \"%s\")"):format(self.crafted_item_id, self.crafted_item_binding), genesis_val)
+		output:AddLine(("recipe:SetCraftedItem(%d, \"%s\")"):format(self.crafted_item_id, self.crafted_item_binding), expansionID)
 	end
-	local previous_rank_recipe = private.Professions[self.profession].Recipes[self:PreviousRankID()]
 
-	if previous_rank_recipe then
-		output:AddLine(("recipe:SetPreviousRankID(%d)"):format(previous_rank_recipe:SpellID()), genesis_val)
+	local previousRankRecipe = self.Profession.Recipes[self:PreviousRankSpellID()]
+	if previousRankRecipe then
+		output:AddLine(("recipe:SetPreviousRankSpellID(%d)"):format(previousRankRecipe:SpellID()), expansionID)
 	end
 
 	if self.specialty then
-		output:AddLine(("recipe:SetSpecialty(%d)"):format(self.specialty), genesis_val)
+		output:AddLine(("recipe:SetSpecialty(%d)"):format(self.specialty), expansionID)
 	end
 
 	if self.required_faction then
-		output:AddLine(("recipe:SetRequiredFaction(\"%s\")"):format(self.required_faction), genesis_val)
+		output:AddLine(("recipe:SetRequiredFaction(\"%s\")"):format(self.required_faction), expansionID)
 	end
 
 	if self.item_filter_type then
-		output:AddLine(("recipe:SetItemFilterType(\"%s\")"):format(self.item_filter_type:upper()), genesis_val)
+		output:AddLine(("recipe:SetItemFilterType(\"%s\")"):format(self.item_filter_type:upper()), expansionID)
 	end
-	local filterOutputText
 
+	local filterOutputText
 	for flagWordIndex = 1, #private.FLAG_WORDS do
 		table.wipe(sortedData)
 		table.wipe(reverseMap)
@@ -843,7 +862,7 @@ function Recipe:Dump(output, use_genesis)
 		local bitsTable = private.FLAG_WORDS[flagWordIndex]
 		for flagName, flagBit in pairs(bitsTable) do
 			if not IMPLICIT_FLAGS[flagName] then
-				local bitfield = self.flags[private.FLAG_MEMBERS[flagWordIndex]]
+				local bitfield = self._bitflags[private.FLAG_MEMBERS[flagWordIndex]]
 
 				if bitfield and bit.band(bitfield, flagBit) == flagBit then
 					table.insert(sortedData, flagBit)
@@ -855,7 +874,7 @@ function Recipe:Dump(output, use_genesis)
 
 		for flagIndex = 1, #sortedData do
 			local flagBit = sortedData[flagIndex]
-			local bitfield = self.flags[private.FLAG_MEMBERS[flagWordIndex]]
+			local bitfield = self._bitflags[private.FLAG_MEMBERS[flagWordIndex]]
 
 			if bitfield and bit.band(bitfield, flagBit) == flagBit then
 				if filterOutputText then
@@ -868,7 +887,7 @@ function Recipe:Dump(output, use_genesis)
 	end
 
 	if filterOutputText then
-		output:AddLine(("recipe:AddFilters(%s)"):format(filterOutputText), genesis_val)
+		output:AddLine(("recipe:AddFilters(%s)"):format(filterOutputText), expansionID)
 	end
 	filterOutputText = nil
 
@@ -881,7 +900,7 @@ function Recipe:Dump(output, use_genesis)
 					factionLabel = ("FAC.%s"):format(factionLabel)
 				else
 					factionLabel = factionID
-					addon:Printf("Recipe %d (%s) - no string for faction %d", self:SpellID(), self.name, factionID)
+					addon:Printf("Recipe %d (%s) - no string for faction %d", self:SpellID(), self:LocalizedName(), factionID)
 				end
 
 				for level, levelData in pairs(factionData) do
@@ -903,7 +922,7 @@ function Recipe:Dump(output, use_genesis)
 							values = vendorID
 						end
 					end
-					output:AddLine(("recipe:AddRepVendor(%s, %s, %s)"):format(factionLabel, reputationLevelString, values), genesis_val)
+					output:AddLine(("recipe:AddRepVendor(%s, %s, %s)"):format(factionLabel, reputationLevelString, values), expansionID)
 				end
 			end
 		elseif acquireType == AcquireTypes.Vendor then
@@ -945,11 +964,11 @@ function Recipe:Dump(output, use_genesis)
 			end
 
 			if values then
-				output:AddLine(("recipe:AddVendor(%s)"):format(values), genesis_val)
+				output:AddLine(("recipe:AddVendor(%s)"):format(values), expansionID)
 			end
 
 			if limitedValues then
-				output:AddLine(("recipe:AddLimitedVendor(%s)"):format(limitedValues), genesis_val)
+				output:AddLine(("recipe:AddLimitedVendor(%s)"):format(limitedValues), expansionID)
 			end
 		elseif DUMP_FUNCTION_FORMATS[acquireType] then
 			local values
@@ -982,11 +1001,11 @@ function Recipe:Dump(output, use_genesis)
 				end
             end
 
-			output:AddLine((DUMP_FUNCTION_FORMATS[acquireType]):format(values), genesis_val)
+			output:AddLine((DUMP_FUNCTION_FORMATS[acquireType]):format(values), expansionID)
 		end
 	end
 
-	output:AddLine(" ", genesis_val)
+	output:AddLine(" ", expansionID)
 end
 
 function Recipe:DumpTrainers(registry)

@@ -52,7 +52,7 @@ private.RegisterAcquireType({
         local entry = private.CreateListEntry(entry_type, parent_entry, recipe)
         entry:SetText("%s|c%s%s|r%s",
             self.EntryPadding,
-            self.RecipeQualityColors[recipe.quality],
+            self.RecipeQualityColors[recipe:QualityID()],
             L["World Drop"],
             drop_location)
 
@@ -71,7 +71,7 @@ private.RegisterAcquireType({
         end
 
         local location_text = recipe_item_level and ("%s (%d - %d)"):format(drop_location, recipe_item_level - 5, recipe_item_level + 5) or drop_location
-        addline_func(0, -1, false, self:Name(), self.RecipeQualityColors[recipe.quality], location_text, CATEGORY_COLORS.location)
+        addline_func(0, -1, false, self:Name(), self.RecipeQualityColors[recipe:QualityID()], location_text, CATEGORY_COLORS.location)
     end,
     _func_waypoint_target = function(self, id_num, recipe)
         -- Do nothing.

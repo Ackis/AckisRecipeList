@@ -373,6 +373,7 @@ function addon:OnInitialize()
 	-------------------------------------------------------------------------------
 	-- Hook GameTooltip so we can show information on mobs that drop/sell/train
 	-------------------------------------------------------------------------------
+    -- TODO: Rewrite this.
 	_G.GameTooltip:HookScript("OnTooltipSetUnit", function(self)
 		if not addon.db.profile.recipes_in_tooltips then
 			return
@@ -393,16 +394,15 @@ function addon:OnInitialize()
 
 		for spell_id in pairs(unit.item_list) do
 			local recipe = private.recipe_list[spell_id]
-			local recipe_prof = _G.GetSpellInfo(recipe.profession)
 
-			if player.scanned_professions[recipe_prof] then
-				local skill_level = player.professions[recipe_prof]
+			if player.scanned_professions[recipe.Profession:LocalizedName()] then
+				local skill_level = player.professions[recipe.Profession:LocalizedName()]
 				local has_level = skill_level and (type(skill_level) == "boolean" and true or skill_level >= recipe.skill_level)
 
 				if (_G.IsShiftKeyDown() or (not recipe:HasState("KNOWN") and has_level)) and player:HasRecipeFaction(recipe) then
-					local _, _, _, hex = _G.GetItemQualityColor(recipe.quality)
+					local _, _, _, hex = _G.GetItemQualityColor(recipe:QualityID())
 
-					self:AddLine(("%s: |c%s%s|r (%d)"):format(recipe.profession, hex, recipe.name, recipe.skill_level))
+					self:AddLine(("%s: |c%s%s|r (%d)"):format(recipe.Profession:LocalizedName(), hex, recipe:LocalizedName(), recipe.skill_level))
 					count = count + 1
 				end
 			end
@@ -802,10 +802,10 @@ do
 		if previous_rank_recipe then
 			previous_rank_recipe:SetAsKnownOrLinked(tradeskill_is_linked)
 		end
-		local nested_previous_rank_id = previous_rank_recipe:PreviousRankID()
+		local nestedPreviousRankSpellID = previous_rank_recipe:PreviousRankSpellID()
 
-		if nested_previous_rank_id then
-			SetPreviousRanksKnown(nested_previous_rank_id, profession_recipes, tradeskill_is_linked)
+		if nestedPreviousRankSpellID then
+			SetPreviousRanksKnown(nestedPreviousRankSpellID, profession_recipes, tradeskill_is_linked)
 		end
 	end
 
@@ -964,9 +964,9 @@ do
 
                 local recipe = professionRecipes[spellID]
                 if recipe then
-                    local recipePreviousRankID = recipe:PreviousRankID()
-                    if recipePreviousRankID then
-                        SetPreviousRanksKnown(recipePreviousRankID, professionRecipes, isTradesSkillLinked)
+                    local recipePreviousRankSpellID = recipe:PreviousRankSpellID()
+                    if recipePreviousRankSpellID then
+                        SetPreviousRanksKnown(recipePreviousRankSpellID, professionRecipes, isTradesSkillLinked)
                     end
 
                     recipe:SetAsKnownOrLinked(isTradesSkillLinked)
@@ -982,13 +982,13 @@ do
                     end
 
                     local recipe = self:AddRecipe(self, {
-                        acquire_data = {},
-                        flags = {},
-                        genesis = private.GAME_VERSION_NAMES[_G.GetExpansionLevel() + 1],
-                        name = _G.GetSpellInfo(spellID),
-                        profession = _G.GetSpellInfo(professionID),
-                        quality = private.ITEM_QUALITIES.COMMON,
-                        _spell_id = spellID,
+                        _acquireTypeData = {},
+                        _bitflags = {},
+                        _expansionID = private.GAME_VERSION_NAMES[_G.GetExpansionLevel() + 1],
+                        _localizedProfessionName = _G.GetSpellInfo(professionID),
+                        _localizedName = _G.GetSpellInfo(spellID),
+                        _qualityID = private.ITEM_QUALITIES.COMMON,
+                        _spellID = spellID,
                     })
 
                     recipe:SetSkillLevels(0, 0, 0, 0, 0)
@@ -1141,24 +1141,24 @@ do
 				-- Add Spell ID, Name and Skill Level to the list
 				output:AddLine(recipeSpellID)
 				output:AddLine(",")
-				output:AddLine(recipe.name)
+				output:AddLine(recipe:LocalizedName())
 				output:AddLine(",")
 				output:AddLine(recipe.skill_level)
 				output:AddLine(",\"")
 			elseif output_format == "BBCode" then
 				-- Make the entry red
-				output:AddLine(("\n%s[b]%d[/b] - %s (%d)%s\n"):format(recipeIsKnown and "" or "[color=red]", recipeSpellID, recipe.name, recipe.skill_level, recipeIsKnown and "" or "[/color]"))
+				output:AddLine(("\n%s[b]%d[/b] - %s (%d)%s\n"):format(recipeIsKnown and "" or "[color=red]", recipeSpellID, recipe:LocalizedName(), recipe.skill_level, recipeIsKnown and "" or "[/color]"))
 
 				output:AddLine("\nRecipe Flags:\n[list]\n")
 			elseif output_format == "XML" then
 				output:AddLine("\n<recipe>\n")
 				output:AddLine("  <id>" .. recipeSpellID .. "</id>\n")
-				output:AddLine("  <name>" .. recipe.name .. "</name>\n")
+				output:AddLine("  <name>" .. recipe:LocalizedName() .. "</name>\n")
 				output:AddLine("  <skilllevel>" .. recipe.skill_level .. "</skilllevel>\n")
 				output:AddLine("  <known>" .. tostring(recipeIsKnown) .. "</known>\n")
 				output:AddLine("  <flags>\n")
 			elseif output_format == "Name" then
-				output:AddLine(recipe.name)
+				output:AddLine(recipe:LocalizedName())
 			end
 
 			-- Add in all the filter flags
@@ -1168,7 +1168,8 @@ do
 			-- Find out which flags are set
 			for table_index, bits in ipairs(private.FLAG_WORDS) do
 				for flag_name, flag in pairs(bits) do
-					local bitfield = recipe.flags[private.FLAG_MEMBERS[table_index]]
+                    -- TODO: Rewrite to not access recipe._bitflags directly.
+					local bitfield = recipe._bitflags[private.FLAG_MEMBERS[table_index]]
 
 					if bitfield and bit.band(bitfield, flag) == flag then
 						local filter_name = filter_names[flag_name]

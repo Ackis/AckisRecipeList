@@ -174,7 +174,7 @@ do
 
                 if not recipe:HasFilter("common1", "TRAINER") then
                     recipe:AddFilters(private.FILTER_IDS.TRAINER)
-                    output:AddLine(("    %s -- %d: Added trainer flag."):format(recipe.name, recipeSpellID))
+                    output:AddLine(("    %s -- %d: Added trainer flag."):format(recipe:LocalizedName(), recipeSpellID))
                 end
             end
 
@@ -194,7 +194,7 @@ do
 
 			for index in ipairs(MissingSpellIDs) do
 				local recipeSpellID = MissingSpellIDs[index]
-                output:AddLine(("    %s -- %d"):format(professionRecipes[recipeSpellID].name, recipeSpellID))
+                output:AddLine(("    %s -- %d"):format(professionRecipes[recipeSpellID]:LocalizedName(), recipeSpellID))
 			end
 		end
 
@@ -204,7 +204,7 @@ do
 
 			for index in ipairs(ExtraSpellIDs) do
 				local recipeSpellID = ExtraSpellIDs[index]
-                output:AddLine(("    %s -- %s"):format(professionRecipes[recipeSpellID].name, recipeSpellID))
+                output:AddLine(("    %s -- %s"):format(professionRecipes[recipeSpellID]:LocalizedName(), recipeSpellID))
 			end
 		end
 
@@ -214,7 +214,7 @@ do
 
 			for index in ipairs(IncorrectItemIDs) do
 				local recipeSpellID = IncorrectItemIDs[index]
-				output:AddLine(("    %s -- %d"):format(professionRecipes[recipeSpellID].name, recipeSpellID))
+				output:AddLine(("    %s -- %d"):format(professionRecipes[recipeSpellID]:LocalizedName(), recipeSpellID))
 			end
 		end
 
@@ -227,7 +227,7 @@ do
 				local recipe = professionRecipes[spellID]
 				local recipeSkillLevel = recipe:SkillLevels()
 				local correctedSkillLevel = ScannedRecipeIDToSkillLevelMapping[spellID]
-                output:AddLine(("    %s -- %d:"):format(recipe.name, spellID))
+                output:AddLine(("    %s -- %d:"):format(recipe:LocalizedName(), spellID))
                 output:AddLine(("        %d => %d."):format(recipeSkillLevel, correctedSkillLevel))
 				recipe:SetSkillLevels(correctedSkillLevel)
 			end
@@ -623,7 +623,7 @@ do
 
 				progress_bar.fg:SetVertexColor(PercentColorGradient(current, max), 0.5)
 				progress_bar.fg:SetWidth(4.4 * percentage)
-				progress_bar.left_text:SetFormattedText("%s (%d)", private.recipe_list[spell_id].name, spell_id)
+				progress_bar.left_text:SetFormattedText("%s (%d)", private.recipe_list[spell_id]:LocalizedName(), spell_id)
 				progress_bar.right_text:SetFormattedText("%d/%d (%d%%)", current, max, percentage)
 			end
 		end
@@ -1038,10 +1038,10 @@ do
 
 			if recordedSupply == true and supply > -1 then
 				recipe:AddLimitedVendor(vendorID, supply)
-				output:AddLine(("Limited quantity for \"%s\" (%d) found on vendor %d - listed as unlimited quantity."):format(recipe.name, recipeSpellID, vendorID))
+				output:AddLine(("Limited quantity for \"%s\" (%d) found on vendor %d - listed as unlimited quantity."):format(recipe:LocalizedName(), recipeSpellID, vendorID))
 			elseif type(recordedSupply) ~= "boolean" and supply == -1 then
 				recipe:AddVendor(vendorID)
-				output:AddLine(("Unlimited quantity for \"%s\" (%d) found on vendor %d - listed as limited quantity."):format(recipe.name, recipeSpellID, vendorID))
+				output:AddLine(("Unlimited quantity for \"%s\" (%d) found on vendor %d - listed as limited quantity."):format(recipe:LocalizedName(), recipeSpellID, vendorID))
 			end
 
 			if not recipe:HasFilter("common1", "VENDOR") and not recipe:HasFilter("common1", "WORLD_EVENT") then
@@ -1059,7 +1059,7 @@ do
 				recipe:AddFilters(private.FILTER_IDS.VENDOR)
 				output:AddLine(("%d: Vendor flag was not set."):format(recipeSpellID))
 			end
-			output:AddLine(("Vendor ID missing from \"%s\" %d."):format(recipe and recipe.name or _G.UNKNOWN, recipeSpellID))
+			output:AddLine(("Vendor ID missing from \"%s\" %d."):format(recipe and recipe:LocalizedName() or _G.UNKNOWN, recipeSpellID))
 		end
 	end
 
@@ -1107,7 +1107,7 @@ do
 						for spell_id, recipe in pairs(private.recipe_list) do
 							local recipe_type, match_text = (":"):split(item_name, 2)
 
-							if recipe.name == match_text:trim() then
+							if recipe:LocalizedName() == match_text:trim() then
 								recipe:SetRecipeItem(item_id, "BIND_ON_EQUIP")
 								RECIPE_ITEM_TO_SPELL_MAP[item_id] = spell_id
 								NormalizeVendorData(spell_id, supply, vendor_id, vendor_name)
@@ -1625,10 +1625,10 @@ do
 			table.insert(extra_flags, flag_format:format(FilterStrings[private.FILTER_IDS.TRAINER]))
 		end
 
-		if scan_data.quality and scan_data.quality ~= recipe.quality then
+		if scan_data.quality and scan_data.quality ~= recipe:QualityID() then
 			local QS = private.ITEM_QUALITY_NAMES
-			table.insert(general_issues, ("    Wrong quality: Q.%s - should be Q.%s."):format(QS[recipe.quality], QS[scan_data.quality]))
-			recipe.quality = scan_data.quality
+			table.insert(general_issues, ("    Wrong quality: Q.%s - should be Q.%s."):format(QS[recipe:QualityID()], QS[scan_data.quality]))
+			recipe:SetQualityID(scan_data.quality)
 		end
 
 		-------------------------------------------------------------------------------
@@ -1706,7 +1706,7 @@ do
 		end
 
 		if output:Lines() > firstLineNumber then
-			output:InsertLine(firstLineNumber + 1, ("\n%s: <a href=\"http://www.wowhead.com/?spell=%d\">%d</a>"):format(recipe.name, spellID, spellID))
+			output:InsertLine(firstLineNumber + 1, ("\n%s: <a href=\"http://www.wowhead.com/?spell=%d\">%d</a>"):format(recipe:LocalizedName(), spellID, spellID))
 		end
 	end
 
@@ -1749,7 +1749,7 @@ do
 			-------------------------------------------------------------------------------
 			-- Do things the smart way and assign the filter type here. Uncomment when needed.
 			-------------------------------------------------------------------------------
-			if recipe.profession == "Inscription" then
+			if recipe.Profession == private.Professions.Inscription then
 				scan_data.filter_type = nil
 
 				if not text_l:match("Tools: (.+)") and not text_l:match("Reagents:") and not text_l:match("Requires") then
@@ -1820,12 +1820,12 @@ do
 			self:Debug("Spell ID %d does not exist in the database.", tonumber(spellID))
 			return
 		end
-		local recipeName = recipe.name
-		local game_vers = private.GAME_VERSIONS[recipe.genesis]
+		local recipeName = recipe:LocalizedName()
+		local expansionID = recipe:ExpansionID()
 
-		if not game_vers then
+		if not expansionID then
 			output:AddLine("No expansion information: " .. tostring(spellID) .. " " .. recipeName)
-		elseif game_vers > #private.GAME_VERSION_NAMES then
+		elseif expansionID > #private.GAME_VERSION_NAMES then
 			output:AddLine("Expansion information too high: " .. tostring(spellID) .. " " .. recipeName)
 		end
 		local optimal = recipe.optimal_level
@@ -1910,10 +1910,10 @@ do
 			-- Lets check the recipe flags to see if we have a data error and the item should exist
 			if recipe:HasFilter("common1", "VENDOR") or recipe:HasFilter("common1", "INSTANCE") or recipe:HasFilter("common1", "RAID") or recipe:HasFilter("common1", "MOB_DROP") or recipe:HasFilter("common1", "WORLD_DROP") then
 				output:AddLine(("    Missing a recipe item ID."))
-			elseif recipe:HasFilter("common1", "TRAINER") and recipe.quality ~= private.ITEM_QUALITIES["COMMON"] then
+			elseif recipe:HasFilter("common1", "TRAINER") and recipe:QualityID() ~= private.ITEM_QUALITIES["COMMON"] then
 				output:AddLine("    Issues which will be resolved with a profession dump:")
-				output:AddLine(("    Wrong quality: Q.%s - should be Q.COMMON."):format(private.ITEM_QUALITY_NAMES[recipe.quality]))
-				recipe.quality = private.ITEM_QUALITIES["COMMON"]
+				output:AddLine(("    Wrong quality: Q.%s - should be Q.COMMON."):format(private.ITEM_QUALITY_NAMES[recipe:QualityID()]))
+				recipe:SetQualityID(private.ITEM_QUALITIES.COMMON)
 			end
 		end
 		ARLDatamineTT:Hide()

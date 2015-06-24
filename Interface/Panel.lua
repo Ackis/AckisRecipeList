@@ -460,7 +460,7 @@ function private.InitializeFrame()
 		end
 
 		local function SearchByQuality(recipe, searchPattern)
-			if private.ITEM_QUALITY_NAMES[recipe.quality]:lower():find(searchPattern) then
+			if private.ITEM_QUALITY_NAMES[recipe:QualityID()]:lower():find(searchPattern) then
 				return true
 			end
 			return false

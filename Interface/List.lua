@@ -293,9 +293,9 @@ function private.InitializeListFrame()
 				end
 			elseif _G.IsAltKeyDown() then
 				local exclusion_list = addon.db.profile.exclusionlist
-				local recipe_spell_id = recipe:SpellID()
+				local recipeSpellID = recipe:SpellID()
 
-				exclusion_list[recipe_spell_id] = (not exclusion_list[recipe_spell_id] and true or nil)
+				exclusion_list[recipeSpellID] = (not exclusion_list[recipeSpellID] and true or nil)
 				ListFrame:Update(nil, false)
             end
 
@@ -969,8 +969,8 @@ do
 			return
 		end
 		acquire_tip:AddHeader()
-		acquire_tip:SetCell(1, 1, recipe.name, "CENTER", 2)
-		acquire_tip:SetCellTextColor(1, 1, _G.GetItemQualityColor(recipe.quality))
+		acquire_tip:SetCell(1, 1, recipe:LocalizedName(), "CENTER", 2)
+		acquire_tip:SetCellTextColor(1, 1, _G.GetItemQualityColor(recipe:QualityID()))
 
 		local recipe_item_texture = recipe.crafted_item_id and select(10, _G.GetItemInfo(recipe.crafted_item_id))
 

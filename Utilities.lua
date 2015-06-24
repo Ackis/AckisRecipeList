@@ -262,11 +262,12 @@ do
 		return a.identifier < b.identifier
 	end
 
+    -- TODO: Look at rewriting this.
 	local function GroupListByProfession(category_name, acquire_type)
 		for unit_id, unit in acquire_type:EntityPairs() do
 			if unit.item_list then
 				for recipe_id in pairs(unit.item_list) do
-					local profession = private.recipe_list[recipe_id].profession
+					local profession = private.recipe_list[recipe_id].Profession:LocalizedName()
 					local profession_table = profession_entries[profession]
 
 					if not profession_table then

@@ -153,10 +153,10 @@ function addon:AddWaypoint(recipe, targetAcquireType, location, npcID)
         if entityLocation then
             local acquireType = entity.acquire_type
             local entityName = entity.name or entity.acquire_type == private.AcquireTypes.Quest and private.quest_names[entity.reference_id] or _G.UNKNOWN
-            local _, _, _, qualityColor = _G.GetItemQualityColor(recipe.quality)
+            local _, _, _, qualityColor = _G.GetItemQualityColor(recipe:QualityID())
             local coloredAcquireTypeName = HEXCOLOR_TEXT_FORMAT:format(acquireType:ColorData().hex, acquireType:Name())
             local coloredEntityName = HEXCOLOR_TEXT_FORMAT:format(acquireType:ColorData().hex, entityName)
-            local coloredRecipeName = _G.PARENS_TEMPLATE:format(("|c%s%s|r"):format(qualityColor, recipe.name))
+            local coloredRecipeName = _G.PARENS_TEMPLATE:format(("|c%s%s|r"):format(qualityColor, recipe:LocalizedName()))
             local waypointName = ("%s: %s %s\n%s"):format(coloredAcquireTypeName, coloredEntityName, coloredRecipeName, entity.Location:LocalizedName())
 
             -- Unset these - they're only needed for the waypoint system and shouldn't persist beyond.
@@ -177,9 +177,9 @@ function addon:AddWaypoint(recipe, targetAcquireType, location, npcID)
             if coordX and coordY then
                 --@debug@
                 if coordX == 0 and coordY == 0 then
-                    self:Debug("Location is \"0, 0\" for recipe %s (ID %d). Location: %s.", recipe.name, recipe:SpellID(), entityLocation:Name())
+                    self:Debug("Location is \"0, 0\" for recipe %s (ID %d). Location: %s.", recipe:LocalizedName(), recipe:SpellID(), entityLocation:Name())
                 elseif ((coordX < -100) or (coordX > 100)) or ((coordY < -100) or (coordY > 100)) then
-                    self:Debug("Invalid location coordinates (%s, %s) for recipe %s (ID %d). Location: %s.", coordX, coordY, recipe.name, recipe:SpellID(), entityLocation:Name())
+                    self:Debug("Invalid location coordinates (%s, %s) for recipe %s (ID %d). Location: %s.", coordX, coordY, recipe:LocalizedName(), recipe:SpellID(), entityLocation:Name())
                     coordX = nil
                     coordY = nil
                 end
@@ -202,10 +202,10 @@ function addon:AddWaypoint(recipe, targetAcquireType, location, npcID)
                     self:Debug("No waypoint provided by TomTom.")
                 end
             else
-                addon:Debug("No coordinates provided for recipe %s (ID %d).", recipe.name, recipe:SpellID())
+                addon:Debug("No coordinates provided for recipe %s (ID %d).", recipe:LocalizedName(), recipe:SpellID())
             end
         else
-            self:Debug("No location match for recipe %s (ID %d).", recipe.name, recipe:SpellID())
+            self:Debug("No location match for recipe %s (ID %d).", recipe:LocalizedName(), recipe:SpellID())
         end
     end
 end
