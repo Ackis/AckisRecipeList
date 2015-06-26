@@ -50,13 +50,32 @@ function private.CreateListEntry(listEntryType, parentListEntry, recipe)
 			listEntry:SetAcquireType(listEntry:AcquireType() or parentListEntry:AcquireType())
 			listEntry:SetLocation(listEntry:Location() or parentListEntry:Location())
 			listEntry:SetNPCID(listEntry:NPCID() or parentListEntry:NPCID())
+
+			parentListEntry.children = parentListEntry.children or private.AcquireTable()
+			parentListEntry.children[#parentListEntry.children + 1] = listEntry
 		else
 			addon:Debug("Attempting to parent an entry to itself.")
 		end
 	elseif listEntry._type ~= "header" and listEntry._type ~= "title" then
 		addon:Debug("Non-header/title entry without a parent: %s", listEntry._type)
 	end
+
 	return listEntry
+end
+
+function list_entry_prototype:CollapseChildren()
+    if self.children then
+        local currentTab = addon.Frame.current_tab
+
+        for index = 1, #self.children do
+            local childEntry = self.children[index]
+            currentTab:SaveListEntryState(childEntry, false)
+            childEntry:CollapseChildren()
+            childEntry._discard = true
+        end
+        private.ReleaseTable(self.children)
+        self.children = nil
+    end
 end
 
 -------------------------------------------------------------------------------
