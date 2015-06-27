@@ -424,7 +424,7 @@ function private.InitializeFrame()
 	local SearchRecipes
 	do
 		local recipe_fields = {
-			"name",
+			"_localizedName",
 			"skill_level",
 			"specialty",
 		}

@@ -305,58 +305,18 @@ function private.InitializeListFrame()
                 _G.ChatEdit_ActivateChat(editBox)
                 editBox:Insert(hyperLink)
             end
-		elseif listEntry:IsHeader() or listEntry:IsSubHeader() then
-			-- three possibilities here (all with no modifiers)
-			-- 1) We clicked on the recipe button on a closed recipe
-			-- 2) We clicked on the recipe button of an open recipe
-			-- 3) we clicked on the expanded text of an open recipe
-			local current_tab = MainPanel.current_tab
-
-			if listEntry.is_expanded then
-				local removal_index = clickedIndex + 1
-				local target_entry = ListFrame.entries[removal_index]
-
-				while target_entry and target_entry:Type() ~= listEntry:Type() do
-					-- Headers are never removed.
-					if target_entry:IsHeader() or target_entry:IsTitle() then
-						break
-					end
-					current_tab:SaveListEntryState(target_entry, false)
-					private.ReleaseTable(table.remove(ListFrame.entries, removal_index))
-					target_entry = ListFrame.entries[removal_index]
-				end
-				current_tab:SaveListEntryState(listEntry, false)
-				listEntry.is_expanded = false
-			else
-				current_tab:ExpandListEntry(listEntry)
-				listEntry.is_expanded = true
-			end
-		else
-			-- clicked_line is an expanded entry - remove all of the parent's child entries.
-			local parent = listEntry.parent
-
-			if parent then
-				local parent_index = parent.button.entry_index
-
-				if not parent_index then
-					addon:Debug("clicked_line (%s): parent wasn't found in ListFrame.entries", listEntry:Text())
-					return
-				end
-				local current_tab = MainPanel.current_tab
-
-				parent.is_expanded = false
-				current_tab:SaveListEntryState(parent, false)
-
-				local child_index = parent_index + 1
-				local entries = ListFrame.entries
-
-				while entries[child_index] and entries[child_index].parent == parent do
-					private.ReleaseTable(table.remove(entries, child_index))
-				end
-			else
-				addon:Debug("Error: clicked_line (%s) has no parent.", listEntry:Type() or _G.UNKNOWN)
-			end
+        else
+            local currentTab = MainPanel.current_tab
+            if listEntry.is_expanded then
+                listEntry:CollapseChildren()
+                currentTab:SaveListEntryState(listEntry, false)
+                listEntry.is_expanded = false
+            else
+                currentTab:ExpandListEntry(listEntry)
+                listEntry.is_expanded = true
+            end
 		end
+
 		ListFrame:Update(nil, true)
 	end
 
@@ -612,9 +572,21 @@ function private.InitializeListFrame()
 	end
 
 	function ListFrame:Update(expand_mode, refresh)
-		if not refresh then
-			self:Initialize(expand_mode)
-		end
+        if refresh then
+            local newEntries = {}
+            for index = 1, #self.entries do
+                local entry = self.entries[index]
+                if entry._discard then
+                    private.ReleaseTable(entry)
+                else
+                    newEntries[#newEntries + 1] = entry
+                end
+            end
+
+            self.entries = newEntries
+        else
+            self:Initialize(expand_mode)
+        end
 
 		local listEntryCount = #self.entries
 

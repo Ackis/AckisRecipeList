@@ -52,7 +52,7 @@ private.RegisterAcquireType({
         local entry = private.CreateListEntry(entry_type, parent_entry, recipe)
         entry:SetText("%s|c%s%s|r%s",
             self.EntryPadding,
-            self.RecipeQualityColors[recipe:QualityID()],
+            self.RecipeQualityColors[recipe:QualityID()].hex,
             L["World Drop"],
             drop_location)
 
