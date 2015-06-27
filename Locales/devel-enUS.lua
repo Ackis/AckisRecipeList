@@ -1234,6 +1234,7 @@ L["Soraka"] = true
 L["Sort"] = true
 L["Sorting"] = true
 L["Sorting Options"] = true
+L["Soulslicer"] = true
 L["Southsea Plunderer"] = true
 L["Sovik"] = true
 L["Specialties"] = true
