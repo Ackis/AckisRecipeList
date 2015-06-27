@@ -239,6 +239,7 @@ private.FACTION_LABELS_FROM_ID = {
 	-------------------------------------------------------------------------------
 	-- Warlords of Draenor
 	-------------------------------------------------------------------------------
+	[1849]	= "ORDER_OF_THE_AWAKENED"
 }
 
 -- The expansionX_reputations tables are ordered alphabetically (ignoring leading "THE"). These are used for
@@ -295,7 +296,9 @@ private.EXPANSION4_REPUTATIONS = {
 	"THE_TILLERS",
 }
 
-private.EXPANSION5_REPUTATIONS = {}
+private.EXPANSION5_REPUTATIONS = {
+	"ORDER_OF_THE_AWAKENED"
+}
 
 private.LOCALIZED_FACTION_STRINGS_FROM_LABEL = {
 	NEUTRAL	= _G.FACTION_STANDING_LABEL4,
@@ -437,6 +440,9 @@ private.BOSS_NAMES = {
 	KING_YMIRON = _G.EJ_GetEncounterInfo(644),
 	JANDICE_BAROV = _G.EJ_GetEncounterInfo(663),
 	DARKMASTER_GANDLING = _G.EJ_GetEncounterInfo(684),
+	HIGH_SAGE_VIRYX = _G.EJ_GetEncounterInfo(968),
+	RUKHMAR = _G.EJ_GetEncounterInfo(1262),
+	SHADOW_LORD_ISKAR = _G.EJ_GetEncounterInfo(1433),
 }
 
 constants.BOSS_NAMES = private.BOSS_NAMES
