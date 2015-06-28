@@ -1553,7 +1553,7 @@ do
 				table.insert(missing_flags, repid)
 			end
 
-			local reputationAcquireData = recipe:AcquireDataByType(private.AcquireTypes.Reputation)
+			local reputationAcquireData = recipe:AcquireDataOfType(private.AcquireTypes.Reputation)
 			if reputationAcquireData then
 				for sourceID, sourceData in pairs(reputationAcquireData) do
 					for level, levelData in pairs(sourceData) do
@@ -1567,7 +1567,7 @@ do
 
 		-- Make sure the recipe's filter flags match with its acquire types.
 		for acquireType, flag in pairs(ACQUIRE_TO_FILTER_MAP) do
-            local acquireData = recipe:AcquireDataByType(acquireType)
+            local acquireData = recipe:AcquireDataOfType(acquireType)
             local hasFilter = recipe:HasFilter("common1", FilterStrings[flag])
 			if acquireData and not hasFilter then
 				local canAdd = true
