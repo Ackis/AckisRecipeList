@@ -1140,6 +1140,7 @@ L["Rollick MacKreel"] = true
 L["Ronald Burch"] = true
 L["Rosemary Bovard"] = true
 L["Rosina Rivet"] = true
+L["Rott Bonefinger"] = true
 L["Roxxik"] = true
 L["Royce Bigbeard"] = true
 L["Runda"] = true
