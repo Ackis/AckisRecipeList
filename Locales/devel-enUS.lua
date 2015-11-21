@@ -365,6 +365,7 @@ L["Danwe"] = true
 L["Darian Singh"] = true
 L["Darin Goodstitch"] = true
 L["Dark Conclave Shadowmancer"] = true
+L["Dark Iron Entrepreneur"] = true
 L["Dark Strand Voidcaller"] = true
 L["Darkmoon Faire"] = true
 L["Darmari"] = true
