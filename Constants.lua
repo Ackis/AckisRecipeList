@@ -413,6 +413,7 @@ private.BOSS_NAMES = {
 	GENERAL_DRAKKISATH = _G.EJ_GetEncounterInfo(401),
 	MAGISTER_KALENDRIS = _G.EJ_GetEncounterInfo(408),
 	MEKGINEER_THERMAPLUGG = _G.EJ_GetEncounterInfo(422),
+	WILLEY_HOPEBREAKER = _G.EJ_GetEncounterInfo(446),
 	BALNAZZAR = _G.EJ_GetEncounterInfo(449),
 	MALEKI_THE_PALLID = _G.EJ_GetEncounterInfo(453),
 	PRIESTESS_DELRISSA = _G.EJ_GetEncounterInfo(532),
