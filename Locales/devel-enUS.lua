@@ -1131,6 +1131,7 @@ L["Rekka the Hammer"] = true
 L["Reporting Bugs"] = true
 L["Research"] = true
 L["Reset Window Position"] = true
+L["Reshad"] = true
 L["Retired"] = true
 L["Ribbly's Crony"] = true
 L["Rift Keeper"] = true
