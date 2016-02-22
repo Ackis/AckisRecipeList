@@ -171,7 +171,6 @@ L["Bethany Cromwell"] = true
 L["Bil Sparktonic"] = true
 L["Binding"] = true
 L["Binkie Brightgear"] = true
-L["Blackhand Assassin"] = true
 L["Blackhand Elite"] = true
 L["Blacksmith Calypso"] = true
 L["Blacksmithing"] = true
