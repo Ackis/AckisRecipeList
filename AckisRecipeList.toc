@@ -1,6 +1,6 @@
 ## Author: Ackis, Torhal
 
-## Interface: 60200
+## Interface: 70000
 ## Version: @project-version@
 ## X-Revision: @project-abbreviated-hash@
 ## X-Date: @file-date-iso@
