@@ -1266,7 +1266,6 @@ L["Sovik"] = true
 L["Specialties"] = true
 L["Spectral Brewmaster"] = true
 L["Spectral Mistweaver"] = true
-L["Spectral Researcher"] = true
 L["Spectral Windwalker"] = true
 L["SpellIDCache"] = "Spell ID: %s is not in your local cache.  Please submit a ticket at http://www.wowace.com/addons/arl/tickets/ and include the spell ID and the profession in which you were scanning."
 L["Spirestone Warlord"] = true
