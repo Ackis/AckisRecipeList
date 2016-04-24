@@ -17,6 +17,9 @@ local CATEGORY_COLORS = private.CATEGORY_COLORS
 local COORDINATES_FORMAT = private.COORDINATES_FORMAT
 local LFAC = private.LOCALIZED_FACTION_STRINGS_FROM_LABEL
 
+
+local REPUTATION_VENDOR_LABEL = private.VENDOR_TYPE_FORMAT:format(_G.REPUTATION)
+
 private.RegisterAcquireType({
     -------------------------------------------------------------------------------
     -- Data.
@@ -25,7 +28,7 @@ private.RegisterAcquireType({
     _hasCoordinates = false,
     _hasEntities = true,
     _label = "REPUTATION",
-    _name = _G.REPUTATION,
+    _name = REPUTATION_VENDOR_LABEL,
     -------------------------------------------------------------------------------
     -- Methods.
     -------------------------------------------------------------------------------
@@ -54,7 +57,7 @@ private.RegisterAcquireType({
                 entry:SetNPCID(vendor_id)
                 entry:SetText("%s%s %s",
                     self.EntryPadding,
-                    hide_type and "" or private.SetTextColor(self:ColorData().hex, _G.REPUTATION) .. ":",
+                    hide_type and "" or private.SetTextColor(self:ColorData().hex, REPUTATION_VENDOR_LABEL) .. ":",
                     private.SetTextColor(CATEGORY_COLORS.repname.hex, self:GetEntity(identifier).name))
 
                 entry_index = private.list_frame:InsertEntry(entry, entry_index, true)
@@ -95,7 +98,7 @@ private.RegisterAcquireType({
                     local display_tip, name_color = self.GetTipFactionInfo(rep_vendor.faction)
 
                     if display_tip then
-                        addline_func(0, -1, false, _G.REPUTATION, self:ColorData(), self:GetEntity(identifier).name, CATEGORY_COLORS.repname)
+                        addline_func(0, -1, false, REPUTATION_VENDOR_LABEL, self:ColorData(), self:GetEntity(identifier).name, CATEGORY_COLORS.repname)
 
                         if rep_level == 0 then
                             addline_func(1, -2, false, LFAC.NEUTRAL, private.REPUTATION_COLORS.neutral, rep_vendor.name, name_color)
