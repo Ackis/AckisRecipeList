@@ -51,6 +51,8 @@ private.REALM_NAME = _G.GetRealmName()
 
 private.COORDINATES_FORMAT = "(%.2f, %.2f)"
 
+private.VENDOR_TYPE_FORMAT = _G.BATTLE_PET_SOURCE_3 .. " " .. _G.PARENS_TEMPLATE
+
 -------------------------------------------------------------------------------
 -- Item qualities.
 -------------------------------------------------------------------------------
