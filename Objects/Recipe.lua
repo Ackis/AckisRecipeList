@@ -581,7 +581,6 @@ function Recipe:AddRepVendor(factionID, reputationLevel, ...)
         reputationAcquireType:AssignRecipe(self:SpellID(), affiliation)
 	end
 
-	self:AddFilters(private.FILTER_IDS.VENDOR)
 	self:AddFilters(private.FILTER_IDS.REPUTATION)
 end
 
