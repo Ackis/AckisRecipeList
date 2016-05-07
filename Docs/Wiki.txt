@@ -1,7 +1,7 @@
 ﻿{{Addon Infobox
  | Name = Ackis Recipe List
- | Summary = An addon which will scan your trade skills and provide information on how to obtain recipes.  It works for all tradeskills including Runeforging.
- | TOC = 40000
+ | Summary = An addon which will scan your trade skills and provide information on how to obtain recipes.
+ | TOC = 70000
  | Category = Tradeskill
  | Author = Ackis
  | WoWI = 8512
