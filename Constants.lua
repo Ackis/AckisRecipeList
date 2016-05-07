@@ -82,6 +82,7 @@ private.GAME_VERSION_NAMES = {
 	"CATA",
 	"MOP",
 	"WOD",
+	"LEGION",
 }
 
 constants.GAME_VERSION_NAMES = private.GAME_VERSION_NAMES
@@ -106,6 +107,7 @@ private.EXPANSION_LOGO_TEXTURES = {
 	[[Interface\Glues\Common\Glues-WOW-CCLogo]],
 	[[Interface\Glues\Common\Glues-WOW-MPLogo]],
 	[[Interface\Glues\Common\Glues-WOW-WoDLogo]],
+	[[Interface\Glues\Common\Glues-WoW-LegionLogo]]
 }
 
 -------------------------------------------------------------------------------
@@ -116,13 +118,13 @@ private.COMMON_FLAGS_WORD1 = {
 	ACHIEVEMENT		= 0x00000002,	-- 2
 	CASTER			= 0x00000004,	-- 3
 	DISC			= 0x00000008,	-- 4
-	DPS				= 0x00000010,	-- 5
+	DPS			= 0x00000010,	-- 5
 	HEALER			= 0x00000020,	-- 6
 	HORDE			= 0x00000040,	-- 7
 	INSTANCE		= 0x00000080,	-- 8
 	CUSTOM			= 0x00000100,	-- 9
 	MOB_DROP		= 0x00000200,	-- 10
-	PVP				= 0x00000400,	-- 11
+	PVP			= 0x00000400,	-- 11
 	QUEST			= 0x00000800,	-- 12
 	RAID			= 0x00001000,	-- 13
 	REPUTATION		= 0x00002000,	-- 14
@@ -138,7 +140,7 @@ private.COMMON_FLAGS_WORD1 = {
 -- Class filter bitfield word 1.
 -------------------------------------------------------------------------------
 private.CLASS_FLAGS_WORD1 = {
-	DK		= 0x00000001,	-- 1
+	DK	= 0x00000001,	-- 1
 	DRUID	= 0x00000002,	-- 2
 	HUNTER	= 0x00000004,	-- 3
 	MAGE	= 0x00000008,	-- 4
@@ -241,7 +243,11 @@ private.FACTION_LABELS_FROM_ID = {
 	-------------------------------------------------------------------------------
 	-- Warlords of Draenor
 	-------------------------------------------------------------------------------
-	[1849]	= "ORDER_OF_THE_AWAKENED"
+	[1849]	= "ORDER_OF_THE_AWAKENED",
+	-------------------------------------------------------------------------------
+	-- Legion
+	-------------------------------------------------------------------------------
+
 }
 
 -- The expansionX_reputations tables are ordered alphabetically (ignoring leading "THE"). These are used for
@@ -446,6 +452,13 @@ private.BOSS_NAMES = {
 	HIGH_SAGE_VIRYX = _G.EJ_GetEncounterInfo(968),
 	RUKHMAR = _G.EJ_GetEncounterInfo(1262),
 	SHADOW_LORD_ISKAR = _G.EJ_GetEncounterInfo(1433),
+	MOAM = _G.EJ_GetEncounterInfo(1539),
+	THE_PROPHET_SKERAM = _G.EJ_GetEncounterInfo(1543),
+	THE_TWIN_EMPERORS = _G.EJ_GetEncounterInfo(1549),
+	ATTUMEN_THE_HUNTSMAN = _G.EJ_GetEncounterInfo(1553),
+	MOROES = _G.EJ_GetEncounterInfo(1554),
+	SHADE_OF_ARAN = _G.EJ_GetEncounterInfo(1559),
+	TERESTIAN_ILLHOOF = _G.EJ_GetEncounterInfo(1560),
 }
 
 constants.BOSS_NAMES = private.BOSS_NAMES
