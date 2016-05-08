@@ -121,10 +121,10 @@ function addon:InitVendor()
 	AddVendor(27030,	L["Bradley Towns"],			Z.DRAGONBLIGHT,			76.9,	62.2,	"Horde") -- Enchanting, Tailoring
 	AddVendor(27054,	L["Modoru"],				Z.DRAGONBLIGHT,			28.9,	55.9,	"Alliance") -- Enchanting, Tailoring
 	AddVendor(27147,	L["Librarian Erickson"],		Z.BOREAN_TUNDRA,		46.7,	32.5,	"Neutral") -- Enchanting, Tailoring
-	AddVendor(28714,	L["Ildine Sorrowspear"],		Z.DALARAN,			39.1,	41.5,	"Neutral") -- Enchanting, Tailoring
+	AddVendor(28714,	L["Ildine Sorrowspear"],		Z.DALARAN_NORTHREND,		39.1,	41.5,	"Neutral") -- Enchanting, Tailoring
 	AddVendor(30431,	L["Veteran Crusader Aliocha Segard"],	Z.ICECROWN,			87.6,	75.6,	"Neutral") -- Jewelcrafting, Tailoring
 	AddVendor(31916,	L["Tanaika"],				Z.HOWLING_FJORD,		25.5,	58.7,	"Neutral") -- Jewelcrafting, Leatherworking, Tailoring
-	AddVendor(32287,	L["Archmage Alvareaux"],		Z.DALARAN,			25.5,	47.4,	"Neutral") -- Jewelcrafting, Tailoring
+	AddVendor(32287,	L["Archmage Alvareaux"],		Z.DALARAN_NORTHREND,		25.5,	47.4,	"Neutral") -- Jewelcrafting, Tailoring
 	AddVendor(32533,	L["Cielstrasza"],			Z.DRAGONBLIGHT,			59.9,	53.1,	"Neutral") -- Jewelcrafting, Tailoring
 	AddVendor(32538,	L["Duchess Mynx"],			Z.ICECROWN,			43.5,	20.6,	"Neutral") -- Jewelcrafting, Tailoring
 	AddVendor(32540,	L["Lillehoff"],				Z.THE_STORM_PEAKS,		66.2,	61.4,	"Neutral") -- Jewelcrafting, Leatherworking, Tailoring
@@ -137,7 +137,7 @@ function addon:InitVendor()
 	AddVendor(46572,	L["Goram"],				Z.ORGRIMMAR,			48.2,	75.6,	"Horde") -- Alchemy, Cooking
 	AddVendor(46602,	L["Shay Pressler"],			Z.STORMWIND_CITY,		64.6,	76.8,	"Alliance") -- Alchemy, Cooking
 	AddVendor(51495,	L["Steeg Haskell"],			Z.IRONFORGE,			36.3,	85.8,	"Alliance") -- Alchemy, Cooking
-	AddVendor(51512,	L["Mirla Silverblaze"],			Z.DALARAN,			52.6,	56.6,	"Neutral") -- Alchemy, Cooking
+	AddVendor(51512,	L["Mirla Silverblaze"],			Z.DALARAN_NORTHREND,		52.6,	56.6,	"Neutral") -- Alchemy, Cooking
 	AddVendor(53214,	L["Damek Bloombeard"],			Z.MOLTEN_FRONT,			47.0,	90.6,	"Neutral") -- Blacksmithing, Engineering
 	AddVendor(53410,	L["Lissah Spellwick"],			Z.DUSTWALLOW_MARSH,		66.0,	49.7,	"Alliance") -- Enchanting, Tailoring
 	AddVendor(53881,	L["Ayla Shadowstorm"],			Z.MOLTEN_FRONT,			44.8,	86.6,	"Neutral") -- Leatherworking, Tailoring
@@ -147,6 +147,9 @@ function addon:InitVendor()
 	AddVendor(91030,	L["Trixxy Volt"],			Z.FROSTWALL,			40.8,	54.8,	"Horde") -- Blacksmithing, Engineering, Jewelcrafting
 	AddVendor(91031,	L["Nicholas Mitrik"],			Z.FROSTWALL,			40.8,	54.8,	"Horde") -- Alchemy, Inscription
 	AddVendor(91404,	L["Samantha Scarlet"],			Z.LUNARFALL,			34.6,	33.0,	"Alliance") -- Alchemy, Inscription
+	AddVendor(93530,	L["Ildine Sorrowspear"],		Z.DALARAN_BROKENISLES,		38.2,	41.9,	"Neutral") -- Enchanting, Tailoring
+	AddVendor(97362,	L["Dazzik \"Proudmoore\""],		Z.DALARAN_BROKENISLES,		66.2,	74.1,	"Neutral")
+	AddVendor(107109,	L["Xur'ios"],				Z.DALARAN_BROKENISLES,		48.8,	13.5,	"Neutral")
 
 	self.InitVendor = nil
 end
