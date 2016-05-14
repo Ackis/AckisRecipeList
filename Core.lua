@@ -502,9 +502,9 @@ function addon:TRADE_SKILL_SHOW()
     local realm_name = private.REALM_NAME
 
     if not _G.C_TradeSkillUI.IsTradeSkillLinked() and not _G.C_TradeSkillUI.IsTradeSkillGuild() then
-        self.db.global.tradeskill[realm_name][player_name][_G.GetTradeSkillLine()] = _G.GetTradeSkillListLink()
+        self.db.global.tradeskill[realm_name][player_name][_G.C_TradeSkillUI.GetTradeSkillLine()] = _G.C_TradeSkillUI.GetTradeSkillListLink()
     else
-        self.db.global.tradeskill[realm_name][player_name][_G.GetTradeSkillLine()] = nil
+        self.db.global.tradeskill[realm_name][player_name][_G.C_TradeSkillUI.GetTradeSkillLine()] = nil
     end
 
     local scan_button = self.scan_button
@@ -525,7 +525,7 @@ function addon:TRADE_SKILL_SHOW()
                 addon:ClearWaypoints()
                 --@debug@
             elseif isControlKeyDown then
-                local localizedProfessionName = _G.GetTradeSkillLine()
+                local localizedProfessionName = _G.C_TradeSkillUI.GetTradeSkillLine()
 
                 if not isAltKeyDown then
                     if isShiftKeyDown then
@@ -537,7 +537,7 @@ function addon:TRADE_SKILL_SHOW()
                 --@end-debug@
             elseif not isShiftKeyDown and not isAltKeyDown and not isControlKeyDown then
                 local mainPanel = addon.Frame
-                if mainPanel and mainPanel:IsVisible() and private.CurrentProfession:LocalizedName() == _G.GetTradeSkillLine() then
+                if mainPanel and mainPanel:IsVisible() and private.CurrentProfession:LocalizedName() == _G.C_TradeSkillUI.GetTradeSkillLine() then
                     mainPanel:Hide()
                 else
                     addon:Scan()
@@ -592,7 +592,7 @@ function addon:TRADE_SKILL_SHOW()
         scan_button:SetWidth(scan_button:GetTextWidth() + 10)
     end
 
-    if private.LOCALIZED_PROFESSION_NAME_TO_MODULE_NAME_MAPPING[_G.GetTradeSkillLine()] then
+    if private.LOCALIZED_PROFESSION_NAME_TO_MODULE_NAME_MAPPING[_G.C_TradeSkillUI.GetTradeSkillLine()] then
         scan_button:Show()
     else
         scan_button:Hide()
@@ -614,7 +614,7 @@ do
 		last_update = last_update + elapsed
 
 		if last_update >= 0.5 then
-			local profession = _G.GetTradeSkillLine()
+			local profession = _G.C_TradeSkillUI.GetTradeSkillLine()
 
 			if profession ~= "UNKNOWN" then
 				addon:Scan(false, true)
@@ -815,7 +815,7 @@ do
 	-- @param isTextDump Boolean indicating if we want the output to be a text dump, or if we want to use the ARL GUI
 	-- @return A frame with either the text dump, or the ARL frame
     function addon:Scan(isTextDump, isRefresh)
-        local localizedProfessionName, professionRank = _G.GetTradeSkillLine()
+        local localizedProfessionName, professionRank = _G.C_TradeSkillUI.GetTradeSkillLine()
         if localizedProfessionName == _G.UNKNOWN then
             self:Print(L["OpenTradeSkillWindow"])
             return
