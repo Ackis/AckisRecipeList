@@ -501,7 +501,7 @@ function addon:TRADE_SKILL_SHOW()
     local player_name = private.PLAYER_NAME
     local realm_name = private.REALM_NAME
 
-    if not _G.IsTradeSkillLinked() and not _G.IsTradeSkillGuild() then
+    if not _G.C_TradeSkillUI.IsTradeSkillLinked() and not _G.C_TradeSkillUI.IsTradeSkillGuild() then
         self.db.global.tradeskill[realm_name][player_name][_G.GetTradeSkillLine()] = _G.GetTradeSkillListLink()
     else
         self.db.global.tradeskill[realm_name][player_name][_G.GetTradeSkillLine()] = nil
@@ -877,7 +877,7 @@ do
         end
 
         -- Make sure we're only updating a profession the character actually knows - this could be a scan from a tradeskill link.
-        local isTradesSkillLinked = _G.IsTradeSkillLinked() or _G.IsTradeSkillGuild()
+        local isTradesSkillLinked = _G.C_TradeSkillUI.IsTradeSkillLinked() or _G.C_TradeSkillUI.IsTradeSkillGuild()
         if not isTradesSkillLinked then
             player.scanned_professions[localizedProfessionName] = true
         end
