@@ -453,14 +453,17 @@ for dataIndex = 1, #mapContinentData do
         local continentID = dataIndex / 2
         local continentMapID = mapContinentData[dataIndex - 1]
         local continent = AddLocation(continentID, continentMapID)
-        ContinentLocationByID[continentID] = continent
-        AddSubzoneLocations(continent)
 
-        local zoneData = { _G.GetMapZones(continentID) }
-        for zoneDataIndex = 1, #zoneData, 2 do
-            local zone = AddLocation(continentID, zoneData[zoneDataIndex], continent)
-            if zone then
-                AddSubzoneLocations(zone)
+        if continent then
+            ContinentLocationByID[continentID] = continent
+            AddSubzoneLocations(continent)
+
+            local zoneData = { _G.GetMapZones(continentID) }
+            for zoneDataIndex = 1, #zoneData, 2 do
+                local zone = AddLocation(continentID, zoneData[zoneDataIndex], continent)
+                if zone then
+                    AddSubzoneLocations(zone)
+                end
             end
         end
     end
