@@ -107,7 +107,7 @@ private.EXPANSION_LOGO_TEXTURES = {
 	[[Interface\Glues\Common\Glues-WOW-CCLogo]],
 	[[Interface\Glues\Common\Glues-WOW-MPLogo]],
 	[[Interface\Glues\Common\Glues-WOW-WoDLogo]],
-	[[Interface\Glues\Common\Glues-WoW-LegionLogo]]
+	[[Interface\Glues\Common\Glues-WoW-LegionLogo]],
 }
 
 -------------------------------------------------------------------------------
@@ -307,6 +307,8 @@ private.EXPANSION4_REPUTATIONS = {
 private.EXPANSION5_REPUTATIONS = {
 	"ORDER_OF_THE_AWAKENED"
 }
+
+private.EXPANSION6_REPUTATIONS = {}
 
 private.LOCALIZED_FACTION_STRINGS_FROM_LABEL = {
 	NEUTRAL	= _G.FACTION_STANDING_LABEL4,
