@@ -409,6 +409,7 @@ function private.InitializeFilterPanel()
 		shaman		= { tt = L["CLASS_DESC"],	text = _G.LOCALIZED_CLASS_NAMES_MALE["SHAMAN"],		row = 5, col = 1 },
 		warlock		= { tt = L["CLASS_DESC"],	text = _G.LOCALIZED_CLASS_NAMES_MALE["WARLOCK"],	row = 5, col = 2 },
 		warrior		= { tt = L["CLASS_DESC"],	text = _G.LOCALIZED_CLASS_NAMES_MALE["WARRIOR"],	row = 6, col = 1 },
+		demonhunter	= { tt = L["CLASS_DESC"],	text = _G.LOCALIZED_CLASS_NAMES_MALE["DEMONHUNTER"],	row = 6, col = 2 },
 	}
 
 	local class_panel = _G.CreateFrame("Frame", nil, general_frame)
@@ -914,12 +915,13 @@ function private.InitializeFilterPanel()
 		shaman			= { cb = FilterPanel.general.shaman,			svroot = filterdb.classes },
 		warlock			= { cb = FilterPanel.general.warlock,			svroot = filterdb.classes },
 		warrior			= { cb = FilterPanel.general.warrior,			svroot = filterdb.classes },
+		demonhunter		= { cb = FilterPanel.general.demonhunter,		svroot = filterdb.classes },
 		------------------------------------------------------------------------------------------------
 		-- Obtain Options
 		------------------------------------------------------------------------------------------------
-        instance		= { cb = FilterPanel.obtain.instance,			svroot = filterdb.obtain },
-        pvp			= { cb = FilterPanel.obtain.pvp,			svroot = filterdb.obtain },
-        raid			= { cb = FilterPanel.obtain.raid,			svroot = filterdb.obtain },
+        	instance		= { cb = FilterPanel.obtain.instance,			svroot = filterdb.obtain },
+        	pvp			= { cb = FilterPanel.obtain.pvp,			svroot = filterdb.obtain },
+        	raid			= { cb = FilterPanel.obtain.raid,			svroot = filterdb.obtain },
 		------------------------------------------------------------------------------------------------
 		-- Binding Options
 		------------------------------------------------------------------------------------------------
