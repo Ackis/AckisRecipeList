@@ -323,6 +323,7 @@ L["DISCOVERY_BS_INGOT_PANDARIA"] = "Discovered by crafting Balanced Trillium Ing
 L["DISCOVERY_BS_PANDARIA"] = "Discovered by crafting Lightning Steel Ingots."
 L["DISCOVERY_BS_WEAP_PANDARIA"] = "Discovered by crafting Pandaria weapons with a similar name."
 L["DISCOVERY_COOK_DRAENOR"] = "Discover recipe item randomly by creating any Warlords of Draenor cooking recipe, or by buying the item the recipe creates off Auction House, and eating it."
+L["DISCOVERY_COOK_LEGION"] = "Discovered randomly via Nomi's Test Kitchen."
 L["DISCOVERY_DESC"] = "Recipes obtained through Discovery should be included in the scan."
 L["DISCOVERY_INSC_AUTOLEARN"] = "Automatically learned at the appropriate skill level."
 L["DISCOVERY_INSC_BLACKFALLOW"] = "Obtained randomly via Research: Blackfallow Ink, or from Research: Warbinder's Ink if you have all Glyphs made from Warbinder's Ink."
