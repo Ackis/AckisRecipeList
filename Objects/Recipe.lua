@@ -663,6 +663,7 @@ do
 		[CLASS_FLAGS_WORD1.WARLOCK]		= "warlock",
 		[CLASS_FLAGS_WORD1.WARRIOR]		= "warrior",
 		[CLASS_FLAGS_WORD1.MONK]		= "monk",
+		[CLASS_FLAGS_WORD1.DEMONHUNTER]		= "demonhunter",
 	}
 
 	-- Returns true if any of the filter flags are turned on.

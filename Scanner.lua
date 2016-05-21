@@ -1290,6 +1290,7 @@ do
 		["Warlock"] = "WARLOCK",
 		["Warrior"] = "WARRIOR",
 		["Monk"] = "MONK",
+		["Demon Hunter"] = "DEMONHUNTER",
 	}
 
 	local ORDERED_CLASS_TYPES = {
@@ -1304,6 +1305,7 @@ do
 		"Warlock",
 		"Warrior",
 		"Monk",
+		"Demon Hunter"
 	}
 
 
