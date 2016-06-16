@@ -147,7 +147,6 @@ function addon:InitVendor()
 	AddVendor(91030,	L["Trixxy Volt"],			Z.FROSTWALL,			40.8,	54.8,	"Horde") -- Blacksmithing, Engineering, Jewelcrafting
 	AddVendor(91031,	L["Nicholas Mitrik"],			Z.FROSTWALL,			40.8,	54.8,	"Horde") -- Alchemy, Inscription
 	AddVendor(91404,	L["Samantha Scarlet"],			Z.LUNARFALL,			34.6,	33.0,	"Alliance") -- Alchemy, Inscription
-	AddVendor(93530,	L["Ildine Sorrowspear"],		Z.DALARAN_BROKENISLES,		38.2,	41.9,	"Neutral") -- Enchanting, Tailoring
 	AddVendor(97362,	L["Dazzik \"Proudmoore\""],		Z.DALARAN_BROKENISLES,		66.2,	74.1,	"Neutral")
 	AddVendor(107109,	L["Xur'ios"],				Z.DALARAN_BROKENISLES,		48.8,	13.5,	"Neutral")
 
