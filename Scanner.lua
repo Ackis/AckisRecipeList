@@ -548,7 +548,7 @@ do
 	local ORDERED_LOCALIZED_PROFESSION_NAMES = private.ORDERED_LOCALIZED_PROFESSION_NAMES
 
 	local intermediary_recipe_list = {}
-	local progress_bar
+	local progressBar
 
 	local PROGRESSBAR_TEXTURES = {
 		[[Interface\BlackMarket\BlackMarketBackground-BottomShadow]],
@@ -562,16 +562,16 @@ do
 	}
 
 	local function ProgressBar()
-		if not progress_bar then
-			progress_bar = _G.CreateFrame("Frame", "ARL_DatamineProgressBar", _G.UIParent)
-			progress_bar:SetSize(450, 30)
-			progress_bar:SetPoint("CENTER", 0, -250)
-			progress_bar:SetFrameStrata("DIALOG")
-			progress_bar:SetClampedToScreen(true)
-			progress_bar:EnableMouse()
-			progress_bar:SetMovable(true)
+		if not progressBar then
+			progressBar = _G.CreateFrame("Frame", "ARL_DatamineProgressBar", _G.UIParent)
+			progressBar:SetSize(450, 30)
+			progressBar:SetPoint("CENTER", 0, -250)
+			progressBar:SetFrameStrata("DIALOG")
+			progressBar:SetClampedToScreen(true)
+			progressBar:EnableMouse()
+			progressBar:SetMovable(true)
 
-			progress_bar:SetBackdrop({
+			progressBar:SetBackdrop({
 				bgFile = [[Interface\Tooltips\UI-Tooltip-Background]],
 				edgeFile = [[Interface\Tooltips\UI-Tooltip-Border]],
 				tile = true,
@@ -584,20 +584,20 @@ do
 					bottom = 4
 				}
 			})
-			progress_bar:SetBackdropColor(0, 0, 0, 1)
+			progressBar:SetBackdropColor(0, 0, 0, 1)
 
-			progress_bar.fg = progress_bar:CreateTexture()
-			progress_bar.fg:SetPoint("LEFT", progress_bar, "LEFT", 5, 0)
-			progress_bar.fg:SetSize(300, 20)
+			progressBar.fg = progressBar:CreateTexture()
+			progressBar.fg:SetPoint("LEFT", progressBar, "LEFT", 5, 0)
+			progressBar.fg:SetSize(300, 20)
 
-			progress_bar.left_text = progress_bar:CreateFontString(nil, "ARTWORK", "GameFontWhiteSmall")
-			progress_bar.left_text:SetPoint("LEFT", 10, 0)
+			progressBar.left_text = progressBar:CreateFontString(nil, "ARTWORK", "GameFontWhiteSmall")
+			progressBar.left_text:SetPoint("LEFT", 10, 0)
 
-			progress_bar.right_text = progress_bar:CreateFontString(nil, "ARTWORK", "GameFontWhiteSmall")
-			progress_bar.right_text:SetPoint("RIGHT", -10, 0)
+			progressBar.right_text = progressBar:CreateFontString(nil, "ARTWORK", "GameFontWhiteSmall")
+			progressBar.right_text:SetPoint("RIGHT", -10, 0)
 
-			progress_bar:SetScript("OnMouseDown", progress_bar.StartMoving)
-			progress_bar:SetScript("OnMouseUp", progress_bar.StopMovingOrSizing)
+			progressBar:SetScript("OnMouseDown", progressBar.StartMoving)
+			progressBar:SetScript("OnMouseUp", progressBar.StopMovingOrSizing)
 
 			local function PercentColorGradient(min, max)
 				local red_low, green_low, blue_low = 1, 0.10, 0.10
@@ -610,48 +610,50 @@ do
 				elseif percentage <= 0 then
 					return red_low, green_low, blue_low
 				end
-				local integral, fractional = math.modf(percentage * 2)
 
+				local integral, fractional = math.modf(percentage * 2)
 				if integral == 1 then
 					red_low, green_low, blue_low, red_mid, green_mid, blue_mid = red_mid, green_mid, blue_mid, red_high, green_high, blue_high
 				end
+
 				return red_low + (red_mid - red_low) * fractional, green_low + (green_mid - green_low) * fractional, blue_low + (blue_mid - blue_low) * fractional
 			end
 
-			function progress_bar:Update(current, max, spell_id)
+			function progressBar:Update(current, max, spellID)
 				local percentage = math.floor(current / max * 100)
 
-				progress_bar.fg:SetVertexColor(PercentColorGradient(current, max), 0.5)
-				progress_bar.fg:SetWidth(4.4 * percentage)
+				self.fg:SetVertexColor(PercentColorGradient(current, max), 0.5)
+				self.fg:SetWidth(4.4 * percentage)
 
-				if spell_id then
-					progress_bar.left_text:SetFormattedText("%s (%d)", private.recipe_list[spell_id]:LocalizedName(), spell_id)
+				if spellID then
+					self.left_text:SetFormattedText("%s (%d)", private.recipe_list[spellID]:LocalizedName(), spellID)
 				else
-					progress_bar.left_text:SetText("UNKNOWN")
+					self.left_text:SetText("UNKNOWN")
 				end
-				progress_bar.right_text:SetFormattedText("%d/%d (%d%%)", current, max, percentage)
+
+				self.right_text:SetFormattedText("%d/%d (%d%%)", current, max, percentage)
 			end
 		end
 
-		progress_bar.fg:SetTexture(PROGRESSBAR_TEXTURES[math.random(1, #PROGRESSBAR_TEXTURES)])
-		progress_bar.fg:SetWidth(0)
+		progressBar.fg:SetTexture(PROGRESSBAR_TEXTURES[math.random(1, #PROGRESSBAR_TEXTURES)])
+		progressBar.fg:SetWidth(0)
 
-		return progress_bar
+		return progressBar
 	end
 
 	local ScannerUpdateFrame = _G.CreateFrame("Frame")
 
 	function ScannerUpdateFrame:Cleanup()
 		self:SetScript("OnUpdate", nil)
-		self.is_running = nil
+		self.isRunning = nil
 		self.profession = nil
 		self.scanner = nil
 	end
 
 	function ScannerUpdateFrame:OnUpdate(elapsed)
-		local is_finished = coroutine.resume(self.scanner)
+		local isFinished = coroutine.resume(self.scanner)
 
-		if is_finished then
+		if isFinished then
 			if coroutine.status(self.scanner) == "dead" then
 				self:Cleanup()
 			end
@@ -670,8 +672,8 @@ do
 		local sorted_recipes = addon.sorted_recipes
 		table.wipe(sorted_recipes)
 
-		for spell_id in pairs(intermediary_recipe_list) do
-			table.insert(sorted_recipes, spell_id)
+		for spellID in pairs(intermediary_recipe_list) do
+			table.insert(sorted_recipes, spellID)
 		end
 		table.sort(sorted_recipes, Sort_AscID)
 	end
@@ -696,9 +698,9 @@ do
 		local progress_bar = ProgressBar()
 		progress_bar:Show()
 
-		for index, spell_id in ipairs(addon.sorted_recipes) do
-			progress_bar:Update(index, num_recipes, spell_id)
-			addon:ScanTooltipRecipe(spell_id, false, true)
+		for index, spellID in ipairs(addon.sorted_recipes) do
+			progress_bar:Update(index, num_recipes, spellID)
+			addon:ScanTooltipRecipe(spellID, false, true)
 			coroutine.yield()
 		end
 
@@ -711,12 +713,12 @@ do
 	end
 
 	local function ProfessionScan(profession_name)
-		if ScannerUpdateFrame.is_running then
+		if ScannerUpdateFrame.isRunning then
 			return
 		end
 		ScannerUpdateFrame.scanner = coroutine.create(CoroutineProfessionScan)
 		ScannerUpdateFrame:SetScript("OnUpdate", ScannerUpdateFrame.OnUpdate)
-		ScannerUpdateFrame.is_running = true
+		ScannerUpdateFrame.isRunning = true
 
 		local status = coroutine.resume(ScannerUpdateFrame.scanner, profession_name)
 		if not status then
@@ -795,9 +797,9 @@ do
 		local progress_bar = ProgressBar()
 		progress_bar:Show()
 
-		for index, spell_id in ipairs(addon.sorted_recipes) do
-			progress_bar:Update(index, num_recipes, spell_id)
-			RecipeDump(spell_id, output, true)
+		for index, spellID in ipairs(addon.sorted_recipes) do
+			progress_bar:Update(index, num_recipes, spellID)
+			RecipeDump(spellID, output, true)
 			coroutine.yield()
 		end
 		progress_bar:Hide()
@@ -805,12 +807,12 @@ do
 	end
 
 	local function ProfessionDump(profession_name)
-		if ScannerUpdateFrame.is_running then
+		if ScannerUpdateFrame.isRunning then
 			return
 		end
 		ScannerUpdateFrame.scanner = coroutine.create(CoroutineProfessionDump)
 		ScannerUpdateFrame:SetScript("OnUpdate", ScannerUpdateFrame.OnUpdate)
-		ScannerUpdateFrame.is_running = true
+		ScannerUpdateFrame.isRunning = true
 
 		local status = coroutine.resume(ScannerUpdateFrame.scanner, profession_name)
 		if not status then
@@ -869,8 +871,8 @@ do
 		table.wipe(source_registry)
 		table.wipe(sorted_data)
 
-		for index, spell_id in ipairs(addon.sorted_recipes) do
-			private.recipe_list[spell_id]:DumpTrainers(source_registry)
+		for index, spellID in ipairs(addon.sorted_recipes) do
+			private.recipe_list[spellID]:DumpTrainers(source_registry)
 		end
 
 		for identifier in pairs(source_registry) do
