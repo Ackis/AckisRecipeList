@@ -786,9 +786,6 @@ end
 do
 	local current_recipe_count, previous_recipe_count = 0, 0
 
-	-- List of tradeskill headers, used in addon:Scan()
-	local header_list = {}
-
 	-- Indices of the spells in the spell book which may contain a speciality
 	local specialtices_indices = {}
 
@@ -798,19 +795,6 @@ do
 		_G.PrimaryProfession2SpellButtonTop,
 		_G.PrimaryProfession2SpellButtonBottom,
 	}
-
-	local function SetPreviousRanksKnown(previous_rank_id, profession_recipes, tradeskill_is_linked)
-		local previous_rank_recipe = profession_recipes[previous_rank_id]
-
-		if previous_rank_recipe then
-			previous_rank_recipe:SetAsKnownOrLinked(tradeskill_is_linked)
-		end
-		local nestedPreviousRankSpellID = previous_rank_recipe:PreviousRankSpellID()
-
-		if nestedPreviousRankSpellID then
-			SetPreviousRanksKnown(nestedPreviousRankSpellID, profession_recipes, tradeskill_is_linked)
-		end
-	end
 
 	--- Causes a scan of the tradeskill to be conducted. Function called when the scan button is clicked.   Parses recipes and displays output
 	-- @name AckisRecipeList:Scan
@@ -914,115 +898,62 @@ do
         -------------------------------------------------------------------------------
         -- Scan all recipes and mark the ones we know
         -------------------------------------------------------------------------------
-        table.wipe(header_list)
-
-        -- Save the current state of the TradeSkillFrame so it can be restored after we muck with it.
-        local hasMaterials = _G.TradeSkillFrame.filterTbl.hasMaterials
-        local hasSkillup = _G.TradeSkillFrame.filterTbl.hasSkillUp
-
-        if _G.MRTAPI then
-            _G.MRTAPI:PushFilterSelection()
-        else
-            if not _G.Skillet then
-                if hasMaterials then
-                    _G.TradeSkillFrame.filterTbl.hasMaterials = false
-                    _G.TradeSkillOnlyShowMakeable(false)
-                end
-
-                if hasSkillup then
-                    _G.TradeSkillFrame.filterTbl.hasSkillUp = false
-                    _G.TradeSkillOnlyShowSkillUps(false)
-                end
-            end
-            _G.SetTradeSkillInvSlotFilter(0, 1, 1)
-            _G.TradeSkillUpdateFilterBar()
-            _G.TradeSkillFrame_Update()
-
-            -- Expand all headers so we can see all the recipes there are
-            for tradeSkillIndex = _G.GetNumTradeSkills(), 1, -1 do
-                local entryName, entryType, _, isExpanded = _G.GetTradeSkillInfo(tradeSkillIndex)
-
-                if (entryType == "header" or entryType == "subheader") and not isExpanded then
-                    header_list[entryName] = true
-                    _G.ExpandTradeSkillSubClass(tradeSkillIndex)
-                end
-            end
-        end
         local professionRecipes = private.Professions[localizedProfessionName].Recipes
         local foundRecipeCount = 0
 
-        for _, recipe in pairs(professionRecipes) do
-            recipe:RemoveState("KNOWN")
-            recipe:RemoveState("RELEVANT")
-            recipe:RemoveState("VISIBLE")
-            recipe:RemoveState("LINKED")
-        end
+		local recipeIDs = _G.C_TradeSkillUI.GetAllRecipeIDs()
+		for recipeIndex = 1, #recipeIDs do
+			local recipeID = recipeIDs[recipeIndex]
+			local recipe = professionRecipes[recipeID]
+			local recipeInfo = _G.C_TradeSkillUI.GetRecipeInfo(recipeIDs[recipeIndex])
 
-        for tradeSkillIndex = 1, _G.GetNumTradeSkills() do
-            local entryName, entryType = _G.GetTradeSkillInfo(tradeSkillIndex)
+			if recipe then
+				recipe:RemoveState("KNOWN")
+				recipe:RemoveState("RELEVANT")
+				recipe:RemoveState("VISIBLE")
+				recipe:RemoveState("LINKED")
 
-            if entryType ~= "header" and entryType ~= "subheader" then
-                local spellID = tonumber(_G.GetTradeSkillRecipeLink(tradeSkillIndex):match("^|c%x%x%x%x%x%x%x%x|H%w+:(%d+)"))
+				if recipeInfo.learned then
+					recipe:SetAsKnownOrLinked(isTradesSkillLinked)
 
-                local recipe = professionRecipes[spellID]
-                if recipe then
-                    local recipePreviousRankSpellID = recipe:PreviousRankSpellID()
-                    if recipePreviousRankSpellID then
-                        SetPreviousRanksKnown(recipePreviousRankSpellID, professionRecipes, isTradesSkillLinked)
-                    end
+					foundRecipeCount = foundRecipeCount + 1
 
-                    recipe:SetAsKnownOrLinked(isTradesSkillLinked)
-                    foundRecipeCount = foundRecipeCount + 1
-                else
-                    --@debug@
-                    local professionID
-                    for _, professionSpellID in pairs(private.PROFESSION_SPELL_IDS) do
-                        if localizedProfessionName == _G.GetSpellInfo(professionSpellID) then
-                            professionID = professionSpellID
-                            break
-                        end
-                    end
+					local previousRankRecipe = professionRecipes[recipe:PreviousRankSpellID()]
+					if previousRankRecipe then
+						previousRankRecipe:SetAsKnownOrLinked(isTradesSkillLinked)
+					end
+				end
+			else
+				--@debug@
+				local professionID
+				for _, professionSpellID in pairs(private.PROFESSION_SPELL_IDS) do
+					if localizedProfessionName == _G.GetSpellInfo(professionSpellID) then
+						professionID = professionSpellID
+						break
+					end
+				end
 
-                    local recipe = self:AddRecipe(self, {
-                        _acquireTypeData = {},
-                        _bitflags = {},
-                        _expansionID = private.GAME_VERSION_NAMES[_G.GetExpansionLevel() + 1],
-                        _localizedProfessionName = _G.GetSpellInfo(professionID),
-                        _localizedName = _G.GetSpellInfo(spellID),
-                        _qualityID = private.ITEM_QUALITIES.COMMON,
-                        _spellID = spellID,
-                    })
+				local recipe = self:AddRecipe(self, {
+					_acquireTypeData = {},
+					_bitflags = {},
+					_expansionID = private.GAME_VERSION_NAMES[_G.GetExpansionLevel() + 1],
+					_localizedProfessionName = _G.GetSpellInfo(professionID),
+					_localizedName = _G.GetSpellInfo(recipeID),
+					_qualityID = private.ITEM_QUALITIES.COMMON,
+					_spellID = recipeID,
+				})
 
-                    recipe:SetSkillLevels(0, 0, 0, 0, 0)
-                    recipe:AddFilters(private.FILTER_IDS.ALLIANCE, private.FILTER_IDS.HORDE, private.FILTER_IDS.TRAINER)
-                    addon:Printf("Added '%s (%d)' to %s. Do a profession dump.", entryName, spellID, localizedProfessionName)
-                    --@end-debug@
+				recipe:SetSkillLevels(0, 0, 0, 0, 0)
+				recipe:AddFilters(private.FILTER_IDS.ALLIANCE, private.FILTER_IDS.HORDE, private.FILTER_IDS.TRAINER)
+				addon:Printf("Added '%s (%d)' to %s. Do a profession dump.", recipeInfo.name, recipeID, localizedProfessionName)
+				--@end-debug@
 
-                    if not self.is_development_version then
-                        self:Debug("%s (%d): %s", entryName, spellID, L["MissingFromDB"])
-                    end
-                end
-            end
-        end
+				if not self.is_development_version then
+					self:Debug("%s (%d): %s", recipeInfo.name, recipeID, L["MissingFromDB"])
+				end
+			end
+		end
 
-        -- Restore the state of the things we changed.
-        if _G.MRTAPI then
-            _G.MRTAPI:PopFilterSelection()
-        else
-            for tradeSkillIndex = _G.GetNumTradeSkills(), 1, -1 do
-                local entryName = _G.GetTradeSkillInfo(tradeSkillIndex)
-                if header_list[entryName] then
-                    _G.CollapseTradeSkillSubClass(tradeSkillIndex)
-                end
-            end
-            _G.TradeSkillFrame.filterTbl.hasMaterials = hasMaterials
-            _G.TradeSkillOnlyShowMakeable(hasMaterials)
-            _G.TradeSkillFrame.filterTbl.hasSkillUp = hasSkillup
-            _G.TradeSkillOnlyShowSkillUps(hasSkillup)
-
-            _G.TradeSkillUpdateFilterBar()
-            _G.TradeSkillFrame_Update()
-        end
         previous_recipe_count = current_recipe_count
         current_recipe_count = foundRecipeCount
 
