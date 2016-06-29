@@ -357,6 +357,11 @@ function private.InitializeFrame()
 	-- ProfCycle scripts/functions.
 	-------------------------------------------------------------------------------
 	do
+		-- Changes to the TradeSkill handling in Legion necessitate a 0.1 second timer to run this function.
+		local function ScanCurrentProfession()
+			addon:Scan()
+		end
+
 		local profession_registry = {}
 
 		profession_cycler:SetScript("OnClick", function(self, button_name, down)
@@ -404,12 +409,12 @@ function private.InitializeFrame()
                 end
 
                 _G.CastSpellByName(profession_registry[currentProfessionIndex])
-                addon:Scan()
+				_G.C_Timer.After(0.1, ScanCurrentProfession)
 
                 if not isPanelShown then
                     _G.CloseTradeSkill()
                     _G.SetCVar("Sound_EnableSFX", cVarSfx)
-                end
+				end
             end
 		end)
 	end -- do-block
