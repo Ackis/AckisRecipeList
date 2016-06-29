@@ -623,12 +623,19 @@ do
 
 				progress_bar.fg:SetVertexColor(PercentColorGradient(current, max), 0.5)
 				progress_bar.fg:SetWidth(4.4 * percentage)
-				progress_bar.left_text:SetFormattedText("%s (%d)", private.recipe_list[spell_id]:LocalizedName(), spell_id)
+
+				if spell_id then
+					progress_bar.left_text:SetFormattedText("%s (%d)", private.recipe_list[spell_id]:LocalizedName(), spell_id)
+				else
+					progress_bar.left_text:SetText("UNKNOWN")
+				end
 				progress_bar.right_text:SetFormattedText("%d/%d (%d%%)", current, max, percentage)
 			end
 		end
+
 		progress_bar.fg:SetTexture(PROGRESSBAR_TEXTURES[math.random(1, #PROGRESSBAR_TEXTURES)])
 		progress_bar.fg:SetWidth(0)
+
 		return progress_bar
 	end
 
