@@ -374,8 +374,8 @@ do
 	copy_frame.buttons = {}
 	copy_frame.output = {}
 
-	for index = 1, #private.GAME_VERSION_NAMES do
-		local scroll_area = _G.CreateFrame("ScrollFrame", "ARL_DatamineCopyScroll" .. index, copy_frame, "UIPanelScrollFrameTemplate")
+	for expansionIndex = 1, #private.GAME_VERSION_NAMES do
+		local scroll_area = _G.CreateFrame("ScrollFrame", "ARL_DatamineCopyScroll" .. expansionIndex, copy_frame, "UIPanelScrollFrameTemplate")
 		scroll_area:SetPoint("TOPLEFT", copy_frame, "TOPLEFT", 10, -28)
 		scroll_area:SetPoint("BOTTOMRIGHT", copy_frame, "BOTTOMRIGHT", -28, 31)
 
@@ -387,7 +387,7 @@ do
 			_G.ScrollFrameTemplate_OnMouseWheel(self, delta, self)
 		end)
 
-		copy_frame.scroll_areas[index] = scroll_area
+		copy_frame.scroll_areas[expansionIndex] = scroll_area
 
 		local edit_box = _G.CreateFrame("EditBox", nil, copy_frame)
 		edit_box:SetMultiLine(true)
@@ -403,19 +403,19 @@ do
 
 		edit_box.copy_frame = copy_frame
 		scroll_area:SetScrollChild(edit_box)
-		copy_frame.edit_boxes[index] = edit_box
+		copy_frame.edit_boxes[expansionIndex] = edit_box
 
 		local button_width = 121
 		local button_height = 55
-		local button = _G.CreateFrame("CheckButton", "ARL_DatamineCopyExpansionButton" .. index, footer_frame)
+		local button = _G.CreateFrame("CheckButton", "ARL_DatamineCopyExpansionButton" .. expansionIndex, footer_frame)
 		button:SetSize(button_width, button_height)
 		button:SetMotionScriptsWhileDisabled(true)
 
-		button.index = index
+		button.index = expansionIndex
 		button.edit_box = edit_box
 		button.scroll_area = scroll_area
 
-		copy_frame.buttons[index] = button
+		copy_frame.buttons[expansionIndex] = button
 
 		-- The button must be unchecked for ToggleFilterMenu() to work correctly.
 		button:SetScript("OnClick", ExpansionButton_OnClick)
@@ -430,7 +430,8 @@ do
 
 		local icon_texture = button:CreateTexture(nil, "BORDER")
 		button.icon_texture = icon_texture
-		icon_texture:SetTexture(private.EXPANSION_LOGO_TEXTURES[index])
+
+		private.SetExpansionLogo(icon_texture, expansionIndex - 1)
 		icon_texture:SetAllPoints(button)
 
 		local pushed_texture = button:CreateTexture(nil, "ARTWORK")
@@ -450,13 +451,13 @@ do
 		checked_texture:SetBlendMode("ADD")
 		button:SetCheckedTexture(checked_texture)
 
-		if index == 1 then
+		if expansionIndex == 1 then
 			button:SetPoint("TOPRIGHT", copy_frame, "TOPLEFT", 5, -7)
 			button:SetChecked(true)
 			copy_frame.current_edit_box = edit_box
 			copy_frame.current_scroll_area = scroll_area
 		else
-			button:SetPoint("TOP", copy_frame.buttons[index - 1], "BOTTOM", 0, -7)
+			button:SetPoint("TOP", copy_frame.buttons[expansionIndex - 1], "BOTTOM", 0, -7)
 		end
 	end
 

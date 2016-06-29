@@ -747,17 +747,19 @@ function private.InitializeFilterPanel()
 		-------------------------------------------------------------------------------
 		-- Generic function to create expansion buttons.
 		-------------------------------------------------------------------------------
-		function rep_frame:CreateExpansionButton(texture, expansion_num)
+		function rep_frame:CreateExpansionButton(expansionIndex)
+			local expansionString = ("expansion%d"):format(expansionIndex)
 			local cButton = _G.CreateFrame("CheckButton", nil, self)
 			cButton:SetWidth(110)
 			cButton:SetHeight(50)
 			cButton:SetChecked(false)
 			cButton:SetScript("OnClick", function(self, button, down)
-				ToggleExpansionMenu(expansion_num)
+				ToggleExpansionMenu(expansionString)
 			end)
 
 			local iconTex = cButton:CreateTexture(nil, "BORDER")
-			iconTex:SetTexture(texture)
+			private.SetExpansionLogo(iconTex, expansionIndex)
+
 			iconTex:SetWidth(110)
 			iconTex:SetHeight(50)
 			iconTex:SetAllPoints(cButton)
@@ -780,7 +782,7 @@ function private.InitializeFilterPanel()
 			cButton:SetCheckedTexture(checkedTexture)
 
 			-- And throw up a tooltip
-			SetTooltipScripts(cButton, EXPANSION_TOOLTIPS[expansion_num])
+			SetTooltipScripts(cButton, EXPANSION_TOOLTIPS[expansionString])
 
 			return cButton
 		end
@@ -789,17 +791,17 @@ function private.InitializeFilterPanel()
 		-- Create the expansion toggles.
 		-------------------------------------------------------------------------------
 		local expansion_buttons = {}
-		for index = 1, #private.GAME_VERSION_NAMES do
-			local expansion_button = rep_frame:CreateExpansionButton(private.EXPANSION_LOGO_TEXTURES[index], ("expansion%d"):format(index - 1))
+		for expansionIndex = 1, #private.GAME_VERSION_NAMES do
+			local expansion_button = rep_frame:CreateExpansionButton(expansionIndex - 1)
 			expansion_buttons[#expansion_buttons + 1] = expansion_button
 
-			if index == 1 then
+			if expansionIndex == 1 then
 				expansion_button:SetPoint("TOPLEFT", FilterPanel.rep, "TOPLEFT", 2, -10)
 			else
-				expansion_button:SetPoint("TOP", expansion_buttons[index - 1], "BOTTOM", 0, 0)
+				expansion_button:SetPoint("TOP", expansion_buttons[expansionIndex - 1], "BOTTOM", 0, 0)
 			end
 
-			rep_frame["toggle_expansion" .. index - 1] = expansion_button
+			rep_frame["toggle_expansion" .. expansionIndex - 1] = expansion_button
 		end
 	end	-- do
 
