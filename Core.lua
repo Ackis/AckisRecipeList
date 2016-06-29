@@ -579,17 +579,18 @@ function addon:TRADE_SKILL_SHOW()
     if scan_button:GetParent() == _G.TradeSkillFrame then
         scan_button:ClearAllPoints()
 
-        local loc = addon.db.profile.scanbuttonlocation
+        local scanButtonLocation = addon.db.profile.scanbuttonlocation
 
-        if loc == "TR" then
+        if scanButtonLocation == "TR" then
             scan_button:SetPoint("RIGHT", _G.TradeSkillFrameCloseButton, "LEFT", 4, 0)
-        elseif loc == "TL" then
+        elseif scanButtonLocation == "TL" then
             scan_button:SetPoint("LEFT", _G.TradeSkillFramePortrait, "RIGHT", 2, 12)
-        elseif loc == "BR" then
+        elseif scanButtonLocation == "BR" then
             scan_button:SetPoint("TOP", _G.TradeSkillCancelButton, "BOTTOM", 0, -5)
-        elseif loc == "BL" then
+        elseif scanButtonLocation == "BL" then
             scan_button:SetPoint("TOP", _G.TradeSkillCreateAllButton, "BOTTOM", 0, -5)
         end
+
         scan_button:SetWidth(scan_button:GetTextWidth() + 10)
     end
 
