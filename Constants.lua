@@ -100,14 +100,14 @@ for index = 1, #private.GAME_VERSION_NAMES do
 	private.EXPANSION_FILTERS[index] = ("expansion%d"):format(index - 1)
 end
 
-private.EXPANSION_LOGO_TEXTURES = {
-	[[Interface\Glues\Common\Glues-WoW-Logo]],
-	[[Interface\Glues\Common\GLUES-WOW-BCLOGO]],
-	[[Interface\Glues\Common\Glues-WOW-WotlkLogo]],
-	[[Interface\Glues\Common\Glues-WOW-CCLogo]],
-	[[Interface\Glues\Common\Glues-WOW-MPLogo]],
-	[[Interface\Glues\Common\Glues-WOW-WoDLogo]],
-	[[Interface\Glues\Common\Glues-WoW-LegionLogo]],
+private.EXPANSION_LOGOS = {
+	[_G.LE_EXPANSION_CLASSIC] = { texture = [[Interface\Glues\Common\Glues-WoW-ClassicLogo]] },
+	[_G.LE_EXPANSION_BURNING_CRUSADE] = { texture = [[Interface\Glues\Common\Glues-WoW-BCLogo]] },
+	[_G.LE_EXPANSION_WRATH_OF_THE_LICH_KING] = { texture = [[Interface\Glues\Common\Glues-WoW-WotLKLogo]] },
+	[_G.LE_EXPANSION_CATACLYSM] = { texture = [[Interface\Glues\Common\Glues-WoW-CCLogo]] },
+	[_G.LE_EXPANSION_MISTS_OF_PANDARIA] = { texture = [[Interface\Glues\Common\Glues-WoW-MPLogo]] },
+	[_G.LE_EXPANSION_WARLORDS_OF_DRAENOR] = { texture = [[Interface\Glues\Common\GLUES-WOW-WODLOGO]] },
+	[_G.LE_EXPANSION_LEGION] = { atlas = "Glues-WoW-LegionLogo" },
 }
 
 -------------------------------------------------------------------------------

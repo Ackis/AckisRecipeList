@@ -23,6 +23,18 @@ local addon = LibStub("AceAddon-3.0"):GetAddon(private.addon_name)
 -----------------------------------------------------------------------
 -- Methods.
 -----------------------------------------------------------------------
+function private.SetExpansionLogo(texture, expansionLevel)
+	if private.EXPANSION_LOGOS[expansionLevel].texture then
+		texture:SetTexture(private.EXPANSION_LOGOS[expansionLevel].texture);
+		texture:Show();
+	elseif private.EXPANSION_LOGOS[expansionLevel].atlas then
+		texture:SetAtlas(private.EXPANSION_LOGOS[expansionLevel].atlas);
+		texture:Show();
+	else
+		texture:Hide();
+	end
+end
+
 function private.SetTextColor(color_code, text)
 	return ("|cff%s%s|r"):format(color_code or "ffffff", text)
 end
