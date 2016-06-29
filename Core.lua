@@ -872,11 +872,10 @@ do
 
         -- Clear the search box and its focus so the scan will have correct results.
         if _G.TradeSkillFrame and _G.TradeSkillFrame:IsVisible() then
-            local search_box = _G.TradeSkillFrameSearchBox
+            local search_box = _G.TradeSkillFrame.SearchBox
             search_box:ClearFocus()
             search_box:GetScript("OnEditFocusLost")(search_box)
             search_box:SetText("")
-            _G.TradeSkillSearch_OnTextChanged(search_box)
         end
 
         -- Make sure we're only updating a profession the character actually knows - this could be a scan from a tradeskill link.
