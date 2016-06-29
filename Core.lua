@@ -571,14 +571,9 @@ function addon:TRADE_SKILL_SHOW()
             break
         end
     end
-    local scan_parent = scan_button:GetParent()
-    scan_button:SetFrameLevel(scan_parent:GetFrameLevel() + 1)
-    scan_button:SetFrameStrata(scan_parent:GetFrameStrata())
     scan_button:Enable()
 
     if scan_button:GetParent() == _G.TradeSkillFrame then
-        scan_button:ClearAllPoints()
-
         local scanButtonLocation = addon.db.profile.scanbuttonlocation
 
         if scanButtonLocation == "TR" then
