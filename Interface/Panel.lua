@@ -415,7 +415,7 @@ function private.InitializeFrame()
 	end -- do-block
 
 	function profession_cycler:SetTexture()
-		_G.SetPortraitToTexture("ARL_ProfessionButtonPortrait", _G.GetTradeSkillTexture())
+		_G.SetPortraitToTexture("ARL_ProfessionButtonPortrait", _G.C_TradeSkillUI.GetTradeSkillTexture(_G.C_TradeSkillUI.GetTradeSkillLine()))
 	end
 
 	-------------------------------------------------------------------------------
