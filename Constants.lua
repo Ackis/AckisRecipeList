@@ -118,13 +118,13 @@ private.COMMON_FLAGS_WORD1 = {
 	ACHIEVEMENT		= 0x00000002,	-- 2
 	CASTER			= 0x00000004,	-- 3
 	DISC			= 0x00000008,	-- 4
-	DPS			= 0x00000010,	-- 5
+	DPS				= 0x00000010,	-- 5
 	HEALER			= 0x00000020,	-- 6
 	HORDE			= 0x00000040,	-- 7
 	INSTANCE		= 0x00000080,	-- 8
 	CUSTOM			= 0x00000100,	-- 9
 	MOB_DROP		= 0x00000200,	-- 10
-	PVP			= 0x00000400,	-- 11
+	PVP				= 0x00000400,	-- 11
 	QUEST			= 0x00000800,	-- 12
 	RAID			= 0x00001000,	-- 13
 	REPUTATION		= 0x00002000,	-- 14
@@ -140,18 +140,18 @@ private.COMMON_FLAGS_WORD1 = {
 -- Class filter bitfield word 1.
 -------------------------------------------------------------------------------
 private.CLASS_FLAGS_WORD1 = {
-	DK		= 0x00000001,	-- 1
-	DRUID		= 0x00000002,	-- 2
-	HUNTER		= 0x00000004,	-- 3
-	MAGE		= 0x00000008,	-- 4
-	PALADIN		= 0x00000010,	-- 5
-	PRIEST		= 0x00000020,	-- 6
-	SHAMAN		= 0x00000040,	-- 7
-	ROGUE		= 0x00000080,	-- 8
-	WARLOCK		= 0x00000100,	-- 9
-	WARRIOR		= 0x00000200,	-- 10
-	MONK		= 0x00000400,	-- 11
-	DEMONHUNTER 	= 0x00000800,	-- 12
+	DK				= 0x00000001,	-- 1
+	DRUID			= 0x00000002,	-- 2
+	HUNTER			= 0x00000004,	-- 3
+	MAGE			= 0x00000008,	-- 4
+	PALADIN			= 0x00000010,	-- 5
+	PRIEST			= 0x00000020,	-- 6
+	SHAMAN			= 0x00000040,	-- 7
+	ROGUE			= 0x00000080,	-- 8
+	WARLOCK			= 0x00000100,	-- 9
+	WARRIOR			= 0x00000200,	-- 10
+	MONK			= 0x00000400,	-- 11
+	DEMONHUNTER		= 0x00000800,	-- 12
 }
 
 private.FLAG_WORDS = {
