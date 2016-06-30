@@ -893,14 +893,14 @@ do
         -------------------------------------------------------------------------------
         -- Scan all recipes and mark the ones we know
         -------------------------------------------------------------------------------
-        local professionRecipes = private.Professions[localizedProfessionName].Recipes
         local foundRecipeCount = 0
-
+        local professionRecipes = private.Professions[localizedProfessionName].Recipes
 		local recipeIDs = _G.C_TradeSkillUI.GetAllRecipeIDs()
+
 		for recipeIndex = 1, #recipeIDs do
 			local recipeID = recipeIDs[recipeIndex]
 			local recipe = professionRecipes[recipeID]
-			local recipeInfo = _G.C_TradeSkillUI.GetRecipeInfo(recipeIDs[recipeIndex])
+			local recipeInfo = _G.C_TradeSkillUI.GetRecipeInfo(recipeID)
 
 			if recipe then
 				recipe:RemoveState("KNOWN")
@@ -918,7 +918,7 @@ do
 						previousRankRecipe:SetAsKnownOrLinked(isTradesSkillLinked)
 					end
 				end
-			else
+			elseif _G.C_TradeSkillUI.GetRecipeDescription(recipeID) then
 				--@debug@
 				local professionID
 				for _, professionSpellID in pairs(private.PROFESSION_SPELL_IDS) do
