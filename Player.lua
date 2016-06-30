@@ -164,9 +164,6 @@ do
 		for profession, index in pairs(known) do
 			local name, icon, rank, maxrank, numspells, spelloffset, skillline = _G.GetProfessionInfo(index)
 
-			if name == private.MINING_PROFESSION_NAME then
-				name = private.LOCALIZED_PROFESSION_NAMES.SMELTING
-			end
 			self.professions[name] = rank
 		end
 		addon.db.global.tradeskill[private.REALM_NAME] = addon.db.global.tradeskill[private.REALM_NAME] or {}
