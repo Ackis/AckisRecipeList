@@ -936,7 +936,7 @@ do
 				local recipe = self:AddRecipe(self, {
 					_acquireTypeData = {},
 					_bitflags = {},
-					_expansionID = private.GAME_VERSION_NAMES[_G.GetExpansionLevel() + 1],
+					_expansionID = _G.GetExpansionLevel() + 1,
 					_localizedProfessionName = _G.GetSpellInfo(professionID),
 					_localizedName = _G.GetSpellInfo(recipeID),
 					_qualityID = private.ITEM_QUALITIES.COMMON,
