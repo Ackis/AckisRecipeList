@@ -621,15 +621,20 @@ do
 			end
 
 			function progressBar:Update(current, max, spellID)
+				current = current or 1
+				max = max or 1
+
 				local percentage = math.floor(current / max * 100)
 
 				self.fg:SetVertexColor(PercentColorGradient(current, max), 0.5)
 				self.fg:SetWidth(4.4 * percentage)
 
 				if spellID then
-					self.left_text:SetFormattedText("%s (%d)", private.recipe_list[spellID]:LocalizedName(), spellID)
+					local recipe = private.recipe_list[spellID]
+
+					self.left_text:SetFormattedText("%s (%d)", recipe and recipe:LocalizedName() or _G.UNKNOWN, spellID)
 				else
-					self.left_text:SetText("UNKNOWN")
+					self.left_text:SetText(_G.UNKNOWN)
 				end
 
 				self.right_text:SetFormattedText("%d/%d (%d%%)", current, max, percentage)
