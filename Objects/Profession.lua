@@ -13,9 +13,6 @@ local FOLDER_NAME, private = ...
 -------------------------------------------------------------------------------
 -- Profession data.
 -------------------------------------------------------------------------------
--- Needed for Smelting kludge.
-private.MINING_PROFESSION_NAME = _G.GetSpellInfo(2575)
-
 private.PROFESSION_SPELL_IDS = {
     ALCHEMY = 2259,
     BLACKSMITHING = 2018,
@@ -26,7 +23,7 @@ private.PROFESSION_SPELL_IDS = {
     INSCRIPTION = 45357,
     JEWELCRAFTING = 25229,
     LEATHERWORKING = 2108,
-    SMELTING = 2656,
+    MINING = 2575,
     TAILORING = 3908,
 }
 private.constants.PROFESSION_SPELL_IDS = private.PROFESSION_SPELL_IDS
@@ -44,7 +41,6 @@ private.LOCALIZED_SPELL_NAME_TO_LOCALIZED_PROFESSION_NAME_MAPPING = {
     [_G.GetSpellInfo(125587)] = private.LOCALIZED_PROFESSION_NAMES.COOKING, -- Way of the Steamer
     [_G.GetSpellInfo(125588)] = private.LOCALIZED_PROFESSION_NAMES.COOKING, -- Way of the Oven
     [_G.GetSpellInfo(125589)] = private.LOCALIZED_PROFESSION_NAMES.COOKING, -- Way of the Brew
-    [_G.GetSpellInfo(2575)] = private.LOCALIZED_PROFESSION_NAMES.SMELTING, -- Mining
 }
 
 for name, localized_name in pairs(private.LOCALIZED_PROFESSION_NAMES) do
@@ -61,7 +57,7 @@ private.ORDERED_LOCALIZED_PROFESSION_NAMES = {
     private.LOCALIZED_PROFESSION_NAMES.INSCRIPTION,		-- 7
     private.LOCALIZED_PROFESSION_NAMES.JEWELCRAFTING, 	-- 8
     private.LOCALIZED_PROFESSION_NAMES.LEATHERWORKING, 	-- 9
-    private.LOCALIZED_PROFESSION_NAMES.SMELTING,		-- 10
+    private.LOCALIZED_PROFESSION_NAMES.MINING,			-- 10
     private.LOCALIZED_PROFESSION_NAMES.TAILORING,		-- 11
 }
 
@@ -76,8 +72,7 @@ private.LOCALIZED_PROFESSION_NAME_TO_MODULE_NAME_MAPPING = {
     [private.LOCALIZED_PROFESSION_NAMES.INSCRIPTION] = "Inscription",
     [private.LOCALIZED_PROFESSION_NAMES.JEWELCRAFTING] = "Jewelcrafting",
     [private.LOCALIZED_PROFESSION_NAMES.LEATHERWORKING] = "Leatherworking",
-    [private.LOCALIZED_PROFESSION_NAMES.SMELTING] = "Smelting",
-    [private.MINING_PROFESSION_NAME] = "Smelting",
+    [private.LOCALIZED_PROFESSION_NAMES.MINING] = "Mining",
     [private.LOCALIZED_PROFESSION_NAMES.TAILORING] = "Tailoring",
 }
 

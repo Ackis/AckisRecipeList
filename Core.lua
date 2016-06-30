@@ -809,11 +809,6 @@ do
         end
         private.current_profession_specialty = nil
 
-        -- This isn't needed for the module name lookup, but it is needed for other things further down the path.
-        if localizedProfessionName == private.MINING_PROFESSION_NAME then
-            localizedProfessionName = private.LOCALIZED_PROFESSION_NAMES.SMELTING
-        end
-
         local professionModuleName = private.LOCALIZED_PROFESSION_NAME_TO_MODULE_NAME_MAPPING[localizedProfessionName]
         if not professionModuleName then
             return
