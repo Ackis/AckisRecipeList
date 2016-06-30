@@ -90,7 +90,6 @@ function addon:InitVendor()
 	AddVendor(15909,	L["Fariel Starsong"],			Z.MOONGLADE,			54.0,	35.4,	"Neutral") -- Engineering, Tailoring
 	AddVendor(16635,	L["Lyna"],				Z.SILVERMOON_CITY,		70.3,	24.9,	"Horde") -- Enchanting, Tailoring
 	AddVendor(16722,	L["Egomis"],				Z.THE_EXODAR,			39.9,	40.2,	"Alliance") -- Enchanting, Tailoring
-	AddVendor(17518,	L["Ythyar"],				Z.KARAZHAN,			0,	0,	"Neutral") -- Enchanting, Jewelcrafting
 	AddVendor(17585,	L["Quartermaster Urgronn"],		Z.HELLFIRE_PENINSULA,		54.9,	37.9,	"Horde") -- Alchemy, Blacksmithing, Enchanting, Jewelcrafting, Leatherworking
 	AddVendor(17657,	L["Logistics Officer Ulrike"],		Z.HELLFIRE_PENINSULA,		56.7,	62.6,	"Alliance") -- Alchemy, Blacksmithing, Enchanting, Jewelcrafting, Leatherworking
 	AddVendor(17904,	L["Fedryen Swiftspear"],		Z.ZANGARMARSH,			79.3,	63.8,	"Neutral") -- Alchemy, Blacksmithing, Enchanting, Engineering, Jewelcrafting, Leatherworking
