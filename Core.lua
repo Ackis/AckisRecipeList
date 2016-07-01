@@ -918,7 +918,7 @@ do
 						previousRankRecipe:SetAsKnownOrLinked(isTradesSkillLinked)
 					end
 				end
-			elseif _G.C_TradeSkillUI.GetRecipeDescription(recipeID) then
+			else
 				--@debug@
 				local professionID
 				for _, professionSpellID in pairs(private.PROFESSION_SPELL_IDS) do
@@ -938,9 +938,11 @@ do
 					_spellID = recipeID,
 				})
 
-				recipe:SetSkillLevels(0, 0, 0, 0, 0)
-				recipe:AddFilters(private.FILTER_IDS.ALLIANCE, private.FILTER_IDS.HORDE, private.FILTER_IDS.TRAINER)
-				addon:Printf("Added '%s (%d)' to %s. Do a profession dump.", recipeInfo.name, recipeID, localizedProfessionName)
+				if recipe then
+					recipe:SetSkillLevels(0, 0, 0, 0, 0)
+					recipe:AddFilters(private.FILTER_IDS.ALLIANCE, private.FILTER_IDS.HORDE, private.FILTER_IDS.TRAINER)
+					addon:Printf("Added '%s (%d)' to %s. Do a profession dump.", recipeInfo.name, recipeID, localizedProfessionName)
+				end
 				--@end-debug@
 
 				if not self.is_development_version then
