@@ -35,14 +35,22 @@ local recipeMetatable = {
 	__index = Recipe
 }
 
+-- Defined at the bottom of the file.
+local BLACKLISTED_RECIPE_IDS
+
 -----------------------------------------------------------------------
 -- Helpers.
 -----------------------------------------------------------------------
 function addon:AddRecipe(module, recipeData)
-	local recipeList = private.recipe_list
 	local spellID = recipeData._spellID
 
+	if BLACKLISTED_RECIPE_IDS[spellID] then
+		return nil
+	end
+
+	local recipeList = private.recipe_list
 	local existingRecipe = recipeList[spellID]
+
 	if existingRecipe then
 		self:Debug("Duplicate recipe from %s: %d - %s", module.Name, spellID, existingRecipe:LocalizedName())
 		return
@@ -1031,3 +1039,7 @@ function addon:GetRecipeData(spell_id, data)
 	return recipe and recipe[data] or nil
 end
 
+-- List of recipe IDs which never made it into the game, so should never be automatically added via a profession scan.
+BLACKLISTED_RECIPE_IDS = {
+	[17579] = true, -- Greater Holy Protection Potion
+}
