@@ -237,6 +237,8 @@ local ZONE_MAP_IDS = {
     HIGHMOUNTAIN = 1024,
     HELLFIRE_CITADEL = 1026,
     SURAMAR = { 1033, 1055, },
+    HALLS_OF_VALOR = 1041,
+    HELMOUTH_CLIFFS = 1042,
     FIRELANDS = 1071,  -- get rid of debug
 
 }
