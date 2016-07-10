@@ -70,6 +70,10 @@ function addon:InitCustom()
 	AddCustom("TIMELESS_ISLE_COOKING", 	Z.TIMELESS_ISLE, 		52.1, 46.1)
 	AddCustom("ANCIENT_GUO-LAI_CACHE", 	Z.VALE_OF_ETERNAL_BLOSSOMS)
 	AddCustom("DRAENOR_DEFAULT", 		Z.DRAENOR)
+	AddCustom("WORLD_QUEST")
+	AddCustom("RATED_PVP")
+	AddCustom("WATERLOGGED_CACHE", 		Z.HELMOUTH_CLIFFS)
+	AddCustom("SPOILS_OF_THE_WORTHY",	Z.HALLS_OF_VALOR)
 
 	self.InitCustom = nil
 end
