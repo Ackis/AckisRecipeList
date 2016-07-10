@@ -248,6 +248,8 @@ private.FACTION_LABELS_FROM_ID = {
 	-------------------------------------------------------------------------------
 	-- Legion
 	-------------------------------------------------------------------------------
+	[1828]	= "HIGHMOUNTAIN_TRIBE",
+	[1948]	= "VALARJAR",
 
 }
 
@@ -306,10 +308,13 @@ private.EXPANSION4_REPUTATIONS = {
 }
 
 private.EXPANSION5_REPUTATIONS = {
-	"ORDER_OF_THE_AWAKENED"
+	"ORDER_OF_THE_AWAKENED",
 }
 
-private.EXPANSION6_REPUTATIONS = {}
+private.EXPANSION6_REPUTATIONS = {
+	"HIGHMOUNTAIN_TRIBE",
+	"VALARJAR",
+}
 
 private.LOCALIZED_FACTION_STRINGS_FROM_LABEL = {
 	NEUTRAL	= _G.FACTION_STANDING_LABEL4,
