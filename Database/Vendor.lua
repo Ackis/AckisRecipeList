@@ -146,8 +146,17 @@ function addon:InitVendor()
 	AddVendor(91030,	L["Trixxy Volt"],			Z.FROSTWALL,			40.8,	54.8,	"Horde") -- Blacksmithing, Engineering, Jewelcrafting
 	AddVendor(91031,	L["Nicholas Mitrik"],			Z.FROSTWALL,			40.8,	54.8,	"Horde") -- Alchemy, Inscription
 	AddVendor(91404,	L["Samantha Scarlet"],			Z.LUNARFALL,			34.6,	33.0,	"Alliance") -- Alchemy, Inscription
-	AddVendor(97362,	L["Dazzik \"Proudmoore\""],		Z.DALARAN_BROKENISLES,		66.2,	74.1,	"Neutral")
-	AddVendor(107109,	L["Xur'ios"],				Z.DALARAN_BROKENISLES,		48.8,	13.5,	"Neutral")
+	AddVendor(93530,	L["Ildine Sorrowspear"],		Z.DALARAN_BROKENISLES,		38.3,	41.5,	"Neutral") -- Enchanting, Tailoring
+	AddVendor(97360,	L["Matthew Rabis"],			Z.DALARAN_BROKENISLES,		46.,	56.4,	"Neutral") -- Jewelcrafting, Skinning, Inscription
+	AddVendor(97361,	L["Oxana Demonslay"],			Z.DALARAN_BROKENISLES,		67.0,	17.7,	"Neutral") -- Jewelcrafting, Inscription
+	AddVendor(97362,	L["Dazzik \"Proudmoore\""],		Z.DALARAN_BROKENISLES,		66.2,	74.1,	"Neutral") -- Jewelcrafting, Tailoring
+	AddVendor(97363,	L["K'huta"],				Z.DALARAN_BROKENISLES,		65.7,	80.3,	"Neutral") -- Enchanting, Inscription
+	AddVendor(97366,	L["The Widow"],				Z.DALARAN_BROKENISLES,		71.8,	73.8,	"Neutral") -- Jewelcrafting, Engineering, Inscription
+	AddVendor(106902,	L["Ransa Greyfeather"],			Z.HIGHMOUNTAIN,			0.0,	0.0,	"Neutral") -- Jewelcrafting, Blacksmithing
+	AddVendor(106904,	L["Valdemar Stormseeker"],		Z.STORMHEIM,			0.0,	0.0,	"Neutral") -- Leatherworking, Blacksmithing
+	AddVendor(107109,	L["Xur'ios"],				Z.DALARAN_BROKENISLES,		48.8,	13.5,	"Neutral") -- Leatherworking, Engineering, Blacksmithing, Enchanting, Inscription
+	AddVendor(107760,	L["Strap Bucklebolt"],			Z.DALARAN_BROKENISLES,		66.4,	81.4,	"Neutral") -- Blacksmithing, Leatherworking, Tailoring
+
 
 	self.InitVendor = nil
 end
