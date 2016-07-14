@@ -155,6 +155,7 @@ function addon:InitVendor()
 	AddVendor(106902,	L["Ransa Greyfeather"],			Z.HIGHMOUNTAIN,			0.0,	0.0,	"Neutral") -- Jewelcrafting, Blacksmithing
 	AddVendor(106904,	L["Valdemar Stormseeker"],		Z.STORMHEIM,			0.0,	0.0,	"Neutral") -- Leatherworking, Blacksmithing
 	AddVendor(107109,	L["Xur'ios"],				Z.DALARAN_BROKENISLES,		48.8,	13.5,	"Neutral") -- Leatherworking, Engineering, Blacksmithing, Enchanting, Inscription
+	AddVendor(107376,	L["Veridis Fallon"],			Z.AZSUNA,			46.9,	41.4,	"Neutral") -- Inscriptions, Tailoring
 	AddVendor(107760,	L["Strap Bucklebolt"],			Z.DALARAN_BROKENISLES,		66.4,	81.4,	"Neutral") -- Blacksmithing, Leatherworking, Tailoring
 
 
