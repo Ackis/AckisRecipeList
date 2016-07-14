@@ -86,7 +86,7 @@ local WAYPOINT_ICON_TEXTURES = {
     [[Trade_Alchemy]],					-- 01 (Alchemy)
     [[Trade_BlackSmithing]],			-- 02 (Blacksmithing)
     [[INV_Misc_Food_15]],				-- 03 (Cooking)
-    [[Trade_Engraving]],				-- 04 (Enchinting)
+    [[Trade_Engraving]],				-- 04 (Enchanting)
     [[Trade_Engineering]],				-- 05 (Engineering)
     [[Spell_Holy_SealOfSacrifice]],		-- 06 (First Aid)
     [[INV_Inscription_Tradeskill01]],	-- 07 (Inscription)
