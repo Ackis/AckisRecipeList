@@ -189,6 +189,10 @@ do
 				end
 			end
 		end
+
+		if output:Lines() == 0 then
+			output:AddLine("Nothing to display.")
+		end
 		output:Display()
 	end
 
