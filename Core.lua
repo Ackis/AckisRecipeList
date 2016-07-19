@@ -457,10 +457,6 @@ function addon:OnDisable()
 	end
 end
 
-function addon:OnModuleCreated(module)
-    private.CreateProfessionFromModule(module)
-end
-
 -------------------------------------------------------------------------------
 -- Event handling functions
 -------------------------------------------------------------------------------
@@ -671,10 +667,28 @@ do
             return true
         end
 
-		local moduleName = FOLDER_NAME .. "_" .. professionModuleName or ""
-		local _, _, _, _, reason = _G.GetAddOnInfo(moduleName)
-		if reason ~= "DISABLED" then
-			return _G.LoadAddOn(moduleName) and true or false
+		local professionModule = self:GetModule(professionModuleName, true)
+		if not professionModule then
+			local foundModule
+			local moduleName = FOLDER_NAME .. "_" .. professionModuleName or ""
+			local _, _, _, _, reason = _G.GetAddOnInfo(moduleName)
+
+			if reason == "DISABLED" then
+				Dialog:Spawn("ARL_ModuleErrorDialog", professionModuleName)
+				return false
+			elseif not _G.LoadAddOn(moduleName) then
+				Dialog:Spawn("ARL_NoModulesErrorDialog")
+				return false
+			end
+
+			return true
+		elseif professionModule.Version ~= SUPPORTED_MODULE_VERSION then
+			Dialog:Spawn("ARL_ModuleWrongVersionDialog", {
+				moduleName = professionModuleName,
+				moduleVersion = professionModule.Version
+			})
+
+			return false
 		end
 
 		return false
@@ -700,21 +714,23 @@ local SUBCOMMAND_FUNCS = {
 			addon:Print(L["COMMAND_LINE_SCAN"])
 			return
 		end
-		local found
-		input = input:lower()
-
-		for localizedSpellName in pairs(private.LOCALIZED_SPELL_NAME_TO_LOCALIZED_PROFESSION_NAME_MAPPING) do
-			if input == localizedSpellName:lower() then
-				found = true
-				break
-			end
-		end
-
-		if not found then
+		local localizedProfessionName = private.MODULE_NAME_TO_LOCALIZED_PROFESSION_NAME_MAPPING[input:lower()]
+		if not localizedProfessionName then
 			addon:Print(L["COMMAND_LINE_SCAN"])
 			return
 		end
-		_G.CastSpellByName(input)
+
+		local profession = private.Professions[localizedProfessionName]
+		if not profession and addon:InitializeProfession(localizedProfessionName) then
+			profession = private.Professions[localizedProfessionName]
+		end
+
+		if not profession then
+			addon:Print(L["COMMAND_LINE_SCAN"])
+			return
+		end
+
+		_G.CastSpellByName(profession:ActivationSpellName())
 
 		if addon.Frame and addon.Frame:IsVisible() then
 			addon.Frame:Hide()
@@ -810,39 +826,9 @@ do
         private.current_profession_specialty = nil
 
         local professionModuleName = private.LOCALIZED_PROFESSION_NAME_TO_MODULE_NAME_MAPPING[localizedProfessionName]
-        if not professionModuleName then
+        if not professionModuleName or not self:InitializeProfession(localizedProfessionName) then
             return
-        end
-        self:InitializeProfession(localizedProfessionName)
-
-        local professionModule = self:GetModule(professionModuleName, true)
-        if not professionModule then
-            local foundModule
-
-            for _, moduleName in pairs(private.LOCALIZED_PROFESSION_NAME_TO_MODULE_NAME_MAPPING) do
-                local _, _, _, _, reason = _G.GetAddOnInfo(FOLDER_NAME .. "_" .. moduleName or "")
-                if not reason or reason == "DISABLED" then
-                    -- The assumption here is that if a module is disabled, the user is aware that modules exist.
-                    foundModule = true
-                    break
-                end
-            end
-
-            if foundModule then
-                Dialog:Spawn("ARL_ModuleErrorDialog", professionModuleName)
-            else
-                Dialog:Spawn("ARL_NoModulesErrorDialog")
-            end
-
-            return false
-        elseif professionModule.Version ~= SUPPORTED_MODULE_VERSION then
-            Dialog:Spawn("ARL_ModuleWrongVersionDialog", {
-                moduleName = professionModuleName,
-                moduleVersion = 0
-            })
-
-            return false
-        end
+		end
 
         local player = private.Player
         player:UpdateProfessions()
