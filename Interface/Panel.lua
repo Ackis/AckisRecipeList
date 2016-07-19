@@ -362,22 +362,27 @@ function private.InitializeFrame()
 			addon:Scan()
 		end
 
-		local profession_registry = {}
+		local availableProfessions = {}
 
 		profession_cycler:SetScript("OnClick", function(self, button_name, down)
 			local player = private.Player
-			table.wipe(profession_registry)
+			table.wipe(availableProfessions)
 
 			for index = 1, #private.ORDERED_LOCALIZED_PROFESSION_NAMES do
                 local localizedProfessionName = private.ORDERED_LOCALIZED_PROFESSION_NAMES[index]
+
 				if player.professions[localizedProfessionName] then
-					profession_registry[#profession_registry + 1] = localizedProfessionName
+					if not private.Professions[localizedProfessionName] then
+						addon:InitializeProfession(localizedProfessionName)
+					end
+
+					availableProfessions[#availableProfessions + 1] = private.Professions[localizedProfessionName]
 				end
 			end
 
 			local currentProfessionIndex
-			for index = 1, #profession_registry do
-				if profession_registry[index] == private.CurrentProfession:LocalizedName() then
+			for index = 1, #availableProfessions do
+				if availableProfessions[index] == private.CurrentProfession then
 					currentProfessionIndex = index
 					break
 				end
@@ -387,14 +392,14 @@ function private.InitializeFrame()
                 if button_name == "LeftButton" then
                     currentProfessionIndex = currentProfessionIndex + 1
 
-                    if currentProfessionIndex > #profession_registry then
+                    if currentProfessionIndex > #availableProfessions then
                         currentProfessionIndex = 1
                     end
                 elseif button_name == "RightButton" then
                     currentProfessionIndex = currentProfessionIndex - 1
 
                     if currentProfessionIndex < 1 then
-                        currentProfessionIndex = #profession_registry
+                        currentProfessionIndex = #availableProfessions
                     end
                 end
 
@@ -408,7 +413,9 @@ function private.InitializeFrame()
                     _G.SetCVar("Sound_EnableSFX", 0)
                 end
 
-                _G.CastSpellByName(profession_registry[currentProfessionIndex])
+				local activationSpellName = availableProfessions[currentProfessionIndex]:ActivationSpellName()
+
+                _G.CastSpellByName(activationSpellName)
 				_G.C_Timer.After(0.1, ScanCurrentProfession)
 
                 if not isPanelShown then
