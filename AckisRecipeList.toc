@@ -82,15 +82,16 @@ Objects\AcquireType\WorldDrop.lua
 Objects\AcquireType\WorldEvent.lua
 
 Objects\Location.lua
-Objects\Profession.lua
 
 Core.lua
 Utilities.lua
-Objects\Recipe.lua
 Config.lua
 Waypoint.lua
 Scanner.lua
 Player.lua
+
+Objects\Profession.lua
+Objects\Recipe.lua
 
 # User Interface files
 interface.xml
