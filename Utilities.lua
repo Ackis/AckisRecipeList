@@ -17,7 +17,6 @@ local table = _G.table
 local FOLDER_NAME, private = ...
 
 local LibStub = _G.LibStub
-
 local addon = LibStub("AceAddon-3.0"):GetAddon(private.addon_name)
 
 -----------------------------------------------------------------------
