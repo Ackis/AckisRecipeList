@@ -419,6 +419,7 @@ end
 -- Boss names.
 -------------------------------------------------------------------------------
 private.BOSS_NAMES = {
+	RAGNAROS = _G.EJ_GetEncounterInfo(198),
 	LORD_ROCCOR = _G.EJ_GetEncounterInfo(370),
 	PYROMANCER_LOREGRAIN = _G.EJ_GetEncounterInfo(373),
 	GOLEM_LORD_ARGELMACH = _G.EJ_GetEncounterInfo(379),
@@ -460,6 +461,7 @@ private.BOSS_NAMES = {
 	HIGH_SAGE_VIRYX = _G.EJ_GetEncounterInfo(968),
 	RUKHMAR = _G.EJ_GetEncounterInfo(1262),
 	SHADOW_LORD_ISKAR = _G.EJ_GetEncounterInfo(1433),
+	GARR = _G.EJ_GetEncounterInfo(1522),
 	MOAM = _G.EJ_GetEncounterInfo(1539),
 	THE_PROPHET_SKERAM = _G.EJ_GetEncounterInfo(1543),
 	THE_TWIN_EMPERORS = _G.EJ_GetEncounterInfo(1549),
@@ -467,6 +469,7 @@ private.BOSS_NAMES = {
 	MOROES = _G.EJ_GetEncounterInfo(1554),
 	SHADE_OF_ARAN = _G.EJ_GetEncounterInfo(1559),
 	TERESTIAN_ILLHOOF = _G.EJ_GetEncounterInfo(1560),
+	OPERA_HALL = _G.EJ_GetEncounterInfo(1556),
 }
 
 constants.BOSS_NAMES = private.BOSS_NAMES
