@@ -1375,6 +1375,7 @@ L["Thrown"] = true
 L["Thurgrum Deepforge"] = true
 L["Thuzadin Shadowcaster"] = true
 L["Tiffany Cartier"] = true
+L["Tigrid the Charmer"] = true
 L["Tilli Thistlefuzz"] = true
 L["Timofey Oshenko"] = true
 L["Timothy Jones"] = true
