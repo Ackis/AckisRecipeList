@@ -921,6 +921,8 @@ do
 			local recipeInfo = _G.C_TradeSkillUI.GetRecipeInfo(recipeID)
 
 			if recipe then
+				recipe.isValidated = true
+
 				if recipeInfo.learned then
 					recipe:RemoveState("IGNORED")
 
@@ -951,8 +953,10 @@ do
 				})
 
 				if recipe then
+					recipe.isValidated = true
 					recipe:SetSkillLevels(0, 0, 0, 0, 0)
 					recipe:AddFilters(private.FILTER_IDS.ALLIANCE, private.FILTER_IDS.HORDE, private.FILTER_IDS.TRAINER)
+
 					addon:Printf("Added '%s (%d)' to %s. Do a profession dump.", recipeInfo.name, recipeID, localizedProfessionName)
 				end
 				--@end-debug@
@@ -962,6 +966,33 @@ do
 				end
 			end
 		end
+
+		--@debug@
+
+		local invalidRecipesList
+		local invalisRecipesCount = 0
+
+		for recipeID, recipe in pairs(professionRecipes) do
+			if not recipe.isValidated then
+				invalidRecipesList = invalidRecipesList or {}
+				invalidRecipesList[recipeID] = true
+
+				self:Printf("Invalid recipeID %d in %s DB (%s)", recipeID, localizedProfessionName, recipe:LocalizedName())
+
+				invalisRecipesCount = invalisRecipesCount + 1
+			end
+		end
+
+		if invalidRecipesList then
+			for recipeID in pairs(invalidRecipesList) do
+				professionRecipes[recipeID] = nil
+				private.recipe_list[recipeID] = nil
+			end
+
+			self:Printf("Removed %d invalid recipes from %s. Do a profession dump.", invalisRecipesCount, localizedProfessionName)
+		end
+
+		--@end-debug@
 
         previous_recipe_count = current_recipe_count
         current_recipe_count = foundRecipeCount
