@@ -812,6 +812,38 @@ do
 		_G.PrimaryProfession2SpellButtonBottom,
 	}
 
+	local function IsRecipeInfoLearnedByDescendant(recipeInfo)
+		local nextRecipeID = recipeInfo.nextRecipeID
+
+		while nextRecipeID do
+			local nextRecipeInfo = _G.C_TradeSkillUI.GetRecipeInfo(nextRecipeID)
+
+			if nextRecipeInfo.learned then
+				return true
+			end
+
+			nextRecipeID = nextRecipeInfo.nextRecipeID
+		end
+
+		return false
+	end
+
+	local function IsRecipeInfoUnlearnedByAncestor(recipeInfo)
+		local previousRecipeID = recipeInfo.previousRecipeID
+
+		while previousRecipeID do
+			local previousRecipeInfo = _G.C_TradeSkillUI.GetRecipeInfo(previousRecipeID)
+
+			if not previousRecipeInfo.learned then
+				return true
+			end
+
+			previousRecipeID = previousRecipeInfo.previousRecipeID
+		end
+
+		return false
+	end
+
 	--- Causes a scan of the tradeskill to be conducted. Function called when the scan button is clicked.   Parses recipes and displays output
 	-- @name AckisRecipeList:Scan
 	-- @usage AckisRecipeList:Scan(true)
@@ -889,12 +921,9 @@ do
 			local recipeInfo = _G.C_TradeSkillUI.GetRecipeInfo(recipeID)
 
 			if recipe then
-				recipe:RemoveState("KNOWN")
-				recipe:RemoveState("RELEVANT")
-				recipe:RemoveState("VISIBLE")
-				recipe:RemoveState("LINKED")
-
 				if recipeInfo.learned then
+					recipe:RemoveState("IGNORED")
+
 					if isTradesSkillLinked then
 						recipe:AddState("LINKED")
 					else
@@ -903,11 +932,11 @@ do
 					end
 
 					foundRecipeCount = foundRecipeCount + 1
-
-					local previousRankRecipe = professionRecipes[recipe:PreviousRankSpellID()]
-					if previousRankRecipe then
-						previousRankRecipe:SetAsKnownOrLinked(isTradesSkillLinked)
-					end
+				elseif IsRecipeInfoLearnedByDescendant(recipeInfo) or IsRecipeInfoUnlearnedByAncestor(recipeInfo) then
+					recipe:AddState("IGNORED")
+				else
+					recipe:RemoveState("KNOWN")
+					recipe:RemoveState("LINKED")
 				end
 			else
 				--@debug@
