@@ -249,6 +249,8 @@ private.FACTION_LABELS_FROM_ID = {
 	-- Legion
 	-------------------------------------------------------------------------------
 	[1828]	= "HIGHMOUNTAIN_TRIBE",
+	[1859]	= "THE_NIGHTFALLEN",
+	[1883]	= "DREAMWEAVERS",
 	[1948]	= "VALARJAR",
 
 }
@@ -313,6 +315,8 @@ private.EXPANSION5_REPUTATIONS = {
 
 private.EXPANSION6_REPUTATIONS = {
 	"HIGHMOUNTAIN_TRIBE",
+	"THE_NIGHTFALLEN",
+	"DREAMWEAVERS",
 	"VALARJAR",
 }
 
@@ -461,6 +465,7 @@ private.BOSS_NAMES = {
 	HIGH_SAGE_VIRYX = _G.EJ_GetEncounterInfo(968),
 	RUKHMAR = _G.EJ_GetEncounterInfo(1262),
 	SHADOW_LORD_ISKAR = _G.EJ_GetEncounterInfo(1433),
+	CORDANA_FELSONG = _G.EJ_GetEncounterInfo(1470),
 	GARR = _G.EJ_GetEncounterInfo(1522),
 	MOAM = _G.EJ_GetEncounterInfo(1539),
 	THE_PROPHET_SKERAM = _G.EJ_GetEncounterInfo(1543),
