@@ -895,7 +895,12 @@ do
 				recipe:RemoveState("LINKED")
 
 				if recipeInfo.learned then
-					recipe:SetAsKnownOrLinked(isTradesSkillLinked)
+					if isTradesSkillLinked then
+						recipe:AddState("LINKED")
+					else
+						recipe:AddState("KNOWN")
+						recipe:RemoveState("LINKED")
+					end
 
 					foundRecipeCount = foundRecipeCount + 1
 

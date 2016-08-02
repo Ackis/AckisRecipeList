@@ -224,15 +224,6 @@ function Recipe:PreviousRankSpellID()
 	return self._previousRankSpellID
 end
 
-function Recipe:SetAsKnownOrLinked(is_linked)
-	if is_linked then
-		self:AddState("LINKED")
-	else
-		self:AddState("KNOWN")
-		self:RemoveState("LINKED")
-	end
-end
-
 -------------------------------------------------------------------------------
 -- Recipe state flags.
 -------------------------------------------------------------------------------
