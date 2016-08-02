@@ -292,9 +292,6 @@ do
 		local _, _, _, quality_color = _G.GetItemQualityColor(self:QualityID())
 		local recipeName = self:LocalizedName()
 
-		if private.CurrentProfession:LocalizedName() == private.LOCALIZED_PROFESSION_NAMES.ENCHANTING then
-			recipeName = recipeName:gsub(_G.ENSCRIBE .. " ", "")
-		end
 		local has_faction = private.Player:HasProperRepLevel(self:AcquireDataOfType(private.AcquireTypes.Reputation))
 		local skill_level = private.current_profession_scanlevel
 		local recipe_level = self.skill_level
