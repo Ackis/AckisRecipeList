@@ -224,15 +224,6 @@ function Recipe:PreviousRankSpellID()
 	return self._previousRankSpellID
 end
 
-function Recipe:SetAsKnownOrLinked(is_linked)
-	if is_linked then
-		self:AddState("LINKED")
-	else
-		self:AddState("KNOWN")
-		self:RemoveState("LINKED")
-	end
-end
-
 -------------------------------------------------------------------------------
 -- Recipe state flags.
 -------------------------------------------------------------------------------
@@ -300,46 +291,44 @@ do
 	function Recipe:GetDisplayName()
 		local _, _, _, quality_color = _G.GetItemQualityColor(self:QualityID())
 		local recipeName = self:LocalizedName()
+		local hasFaction = private.Player:HasProperRepLevel(self:AcquireDataOfType(private.AcquireTypes.Reputation))
+		local skillLevel = private.current_profession_scanlevel
+		local recipeLevel = self.skill_level
 
-		if private.CurrentProfession:LocalizedName() == private.LOCALIZED_PROFESSION_NAMES.ENCHANTING then
-			recipeName = recipeName:gsub(_G.ENSCRIBE .. " ", "")
-		end
-		local has_faction = private.Player:HasProperRepLevel(self:AcquireDataOfType(private.AcquireTypes.Reputation))
-		local skill_level = private.current_profession_scanlevel
-		local recipe_level = self.skill_level
+		local diffColor
 
-		local diff_color
-
-		if has_faction then
-			if recipe_level > skill_level then
-				diff_color = "impossible"
-			elseif skill_level >= self.trivial_level then
-				diff_color = "trivial"
-			elseif skill_level >= self.easy_level then
-				diff_color = "easy"
-			elseif skill_level >= self.medium_level then
-				diff_color = "medium"
-			elseif skill_level >= self.optimal_level then
-				diff_color = "optimal"
+		if hasFaction then
+			if recipeLevel > skillLevel then
+				diffColor = "impossible"
+			elseif skillLevel >= self.trivial_level then
+				diffColor = "trivial"
+			elseif skillLevel >= self.easy_level then
+				diffColor = "easy"
+			elseif skillLevel >= self.medium_level then
+				diffColor = "medium"
+			elseif skillLevel >= self.optimal_level then
+				diffColor = "optimal"
 			else
-				diff_color = "trivial"
+				diffColor = "trivial"
 			end
 		else
-			diff_color = "impossible"
-		end
-		local display_name = ("|c%s%s|r"):format(quality_color, recipeName)
-		local level_text = private.SetTextColor(private.DIFFICULTY_COLORS[diff_color].hex, SKILL_LEVEL_FORMAT):format(recipe_level)
+			diffColor = "impossible"
+        end
+
+		local displayName = ("|c%s%s|r"):format(quality_color, recipeName)
+		local levelText = private.SetTextColor(private.DIFFICULTY_COLORS[diffColor].hex, SKILL_LEVEL_FORMAT):format(recipeLevel)
 
 		if addon.db.profile.skill_view then
-			display_name = ("%s - %s"):format(level_text, display_name)
+			displayName = ("%s - %s"):format(levelText, displayName)
 		else
-			display_name = ("%s - %s"):format(display_name, level_text)
+			displayName = ("%s - %s"):format(displayName, levelText)
 		end
 
 		if addon.db.profile.exclusionlist[self:SpellID()] then
-			display_name = ("** %s **"):format(display_name)
-		end
-		return display_name
+			displayName = ("** %s **"):format(displayName)
+        end
+
+		return displayName
 	end
 end -- do-block
 

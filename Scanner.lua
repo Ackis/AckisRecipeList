@@ -546,8 +546,6 @@ end -- do-block
 -- Recipe/Profession scanning and dumping routines.
 -------------------------------------------------------------------------------
 do
-	local ORDERED_LOCALIZED_PROFESSION_NAMES = private.ORDERED_LOCALIZED_PROFESSION_NAMES
-
 	local intermediary_recipe_list = {}
 	local progressBar
 
@@ -758,13 +756,13 @@ do
 		input_text = input_text:lower()
 
 		if input_text == "all" then
-			for index, professionName in ipairs(ORDERED_LOCALIZED_PROFESSION_NAMES) do
+			for index, professionName in ipairs(private.ORDERED_LOCALIZED_PROFESSION_NAMES) do
 				ScheduleProfessionScan(professionName)
 			end
 			return
 		end
 
-		for index, professionName in ipairs(ORDERED_LOCALIZED_PROFESSION_NAMES) do
+		for index, professionName in ipairs(private.ORDERED_LOCALIZED_PROFESSION_NAMES) do
 			if input_text == professionName:lower() then
 				ScheduleProfessionScan(professionName)
 				return
@@ -845,12 +843,12 @@ do
 		input_text = input_text:lower()
 
 		if input_text == "all" then
-			for index, professionName in ipairs(ORDERED_LOCALIZED_PROFESSION_NAMES) do
+			for index, professionName in ipairs(private.ORDERED_LOCALIZED_PROFESSION_NAMES) do
 				ProfessionDump(professionName)
 			end
 		end
 
-		for index, professionName in ipairs(ORDERED_LOCALIZED_PROFESSION_NAMES) do
+		for index, professionName in ipairs(private.ORDERED_LOCALIZED_PROFESSION_NAMES) do
 			if input_text == professionName:lower() then
 				ProfessionDump(professionName)
 				return
@@ -929,12 +927,12 @@ do
 		input_text = input_text:lower()
 
 		if input_text == "all" then
-			for index, professionName in ipairs(ORDERED_LOCALIZED_PROFESSION_NAMES) do
+			for index, professionName in ipairs(private.ORDERED_LOCALIZED_PROFESSION_NAMES) do
 				ProfessionTrainerDump(professionName)
 			end
 		end
 
-		for index, professionName in ipairs(ORDERED_LOCALIZED_PROFESSION_NAMES) do
+		for index, professionName in ipairs(private.ORDERED_LOCALIZED_PROFESSION_NAMES) do
 			if input_text == professionName:lower() then
 				ProfessionTrainerDump(professionName)
 				return

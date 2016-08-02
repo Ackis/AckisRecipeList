@@ -812,6 +812,38 @@ do
 		_G.PrimaryProfession2SpellButtonBottom,
 	}
 
+	local function IsRecipeInfoLearnedByDescendant(recipeInfo)
+		local nextRecipeID = recipeInfo.nextRecipeID
+
+		while nextRecipeID do
+			local nextRecipeInfo = _G.C_TradeSkillUI.GetRecipeInfo(nextRecipeID)
+
+			if nextRecipeInfo.learned then
+				return true
+			end
+
+			nextRecipeID = nextRecipeInfo.nextRecipeID
+		end
+
+		return false
+	end
+
+	local function IsRecipeInfoUnlearnedByAncestor(recipeInfo)
+		local previousRecipeID = recipeInfo.previousRecipeID
+
+		while previousRecipeID do
+			local previousRecipeInfo = _G.C_TradeSkillUI.GetRecipeInfo(previousRecipeID)
+
+			if not previousRecipeInfo.learned then
+				return true
+			end
+
+			previousRecipeID = previousRecipeInfo.previousRecipeID
+		end
+
+		return false
+	end
+
 	--- Causes a scan of the tradeskill to be conducted. Function called when the scan button is clicked.   Parses recipes and displays output
 	-- @name AckisRecipeList:Scan
 	-- @usage AckisRecipeList:Scan(true)
@@ -889,44 +921,42 @@ do
 			local recipeInfo = _G.C_TradeSkillUI.GetRecipeInfo(recipeID)
 
 			if recipe then
-				recipe:RemoveState("KNOWN")
-				recipe:RemoveState("RELEVANT")
-				recipe:RemoveState("VISIBLE")
-				recipe:RemoveState("LINKED")
+				recipe.isValidated = true
 
 				if recipeInfo.learned then
-					recipe:SetAsKnownOrLinked(isTradesSkillLinked)
+					recipe:RemoveState("IGNORED")
+
+					if isTradesSkillLinked then
+						recipe:AddState("LINKED")
+					else
+						recipe:AddState("KNOWN")
+						recipe:RemoveState("LINKED")
+					end
 
 					foundRecipeCount = foundRecipeCount + 1
-
-					local previousRankRecipe = professionRecipes[recipe:PreviousRankSpellID()]
-					if previousRankRecipe then
-						previousRankRecipe:SetAsKnownOrLinked(isTradesSkillLinked)
-					end
+				elseif IsRecipeInfoLearnedByDescendant(recipeInfo) or IsRecipeInfoUnlearnedByAncestor(recipeInfo) then
+					recipe:AddState("IGNORED")
+				else
+					recipe:RemoveState("KNOWN")
+					recipe:RemoveState("LINKED")
 				end
 			else
 				--@debug@
-				local professionID
-				for _, professionSpellID in pairs(private.PROFESSION_SPELL_IDS) do
-					if localizedProfessionName == _G.GetSpellInfo(professionSpellID) then
-						professionID = professionSpellID
-						break
-					end
-				end
-
 				local recipe = self:AddRecipe(self, {
 					_acquireTypeData = {},
 					_bitflags = {},
 					_expansionID = _G.GetExpansionLevel() + 1,
-					_localizedProfessionName = _G.GetSpellInfo(professionID),
+					_localizedProfessionName = localizedProfessionName,
 					_localizedName = _G.GetSpellInfo(recipeID),
 					_qualityID = private.ITEM_QUALITIES.COMMON,
 					_spellID = recipeID,
 				})
 
 				if recipe then
+					recipe.isValidated = true
 					recipe:SetSkillLevels(0, 0, 0, 0, 0)
 					recipe:AddFilters(private.FILTER_IDS.ALLIANCE, private.FILTER_IDS.HORDE, private.FILTER_IDS.TRAINER)
+
 					addon:Printf("Added '%s (%d)' to %s. Do a profession dump.", recipeInfo.name, recipeID, localizedProfessionName)
 				end
 				--@end-debug@
@@ -936,6 +966,33 @@ do
 				end
 			end
 		end
+
+		--@debug@
+
+		local invalidRecipesList
+		local invalisRecipesCount = 0
+
+		for recipeID, recipe in pairs(professionRecipes) do
+			if not recipe.isValidated then
+				invalidRecipesList = invalidRecipesList or {}
+				invalidRecipesList[recipeID] = true
+
+				self:Printf("Invalid recipeID %d in %s DB (%s)", recipeID, localizedProfessionName, recipe:LocalizedName())
+
+				invalisRecipesCount = invalisRecipesCount + 1
+			end
+		end
+
+		if invalidRecipesList then
+			for recipeID in pairs(invalidRecipesList) do
+				professionRecipes[recipeID] = nil
+				private.recipe_list[recipeID] = nil
+			end
+
+			self:Printf("Removed %d invalid recipes from %s. Do a profession dump.", invalisRecipesCount, localizedProfessionName)
+		end
+
+		--@end-debug@
 
         previous_recipe_count = current_recipe_count
         current_recipe_count = foundRecipeCount
