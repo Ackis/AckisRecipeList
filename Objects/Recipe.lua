@@ -207,13 +207,8 @@ function Recipe:RequiredFaction()
 	return self.required_faction
 end
 
--- Sets the spell ID for the recipe this recipe replaces
 function Recipe:SetPreviousRankSpellID(spell_id)
-	self._previousRankSpellID = spell_id
-end
-
-function Recipe:PreviousRankSpellID()
-	return self._previousRankSpellID
+	-- Do nothing: Slated for removal, but profession modules currently call it.
 end
 
 -------------------------------------------------------------------------------
@@ -825,11 +820,6 @@ function Recipe:Dump(output, useExpansionID)
 
 	if self.crafted_item_id then
 		output:AddLine(("recipe:SetCraftedItem(%d, \"%s\")"):format(self.crafted_item_id, self.crafted_item_binding), expansionID)
-	end
-
-	local previousRankRecipe = self.Profession.Recipes[self:PreviousRankSpellID()]
-	if previousRankRecipe then
-		output:AddLine(("recipe:SetPreviousRankSpellID(%d)"):format(previousRankRecipe:SpellID()), expansionID)
 	end
 
 	if self.specialty then
