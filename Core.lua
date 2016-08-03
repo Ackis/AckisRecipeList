@@ -945,7 +945,7 @@ do
 				local recipe = self:AddRecipe(profession:Module(), {
 					_acquireTypeData = {},
 					_bitflags = {},
-					_expansionID = _G.GetExpansionLevel() + 1,
+                    _expansionID = private.GetEffectiveExpansionID(),
 					_localizedName = _G.GetSpellInfo(recipeID),
 					_qualityID = private.ITEM_QUALITIES.COMMON,
 					_spellID = recipeID,

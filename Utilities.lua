@@ -22,6 +22,13 @@ local addon = LibStub("AceAddon-3.0"):GetAddon(private.addon_name)
 -----------------------------------------------------------------------
 -- Methods.
 -----------------------------------------------------------------------
+
+-- Since GetExpansionLevel during pre-expansion patches will return the previous expansion's ID even though the new data is in...
+local function GetEffectiveExpansionID()
+    return tonumber(_G.GetBuildInfo():sub(1, 1))
+end
+private.GetEffectiveExpansionID = GetEffectiveExpansionID
+
 function private.SetExpansionLogo(texture, expansionLevel)
 	if private.EXPANSION_LOGOS[expansionLevel].texture then
 		texture:SetTexture(private.EXPANSION_LOGOS[expansionLevel].texture)
