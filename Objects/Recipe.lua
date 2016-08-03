@@ -199,7 +199,7 @@ function Recipe:SetRequiredFaction(faction_name)
             self:AddState("IGNORED")
 		end
 	else
-		addon:Debuf("No faction name passed to SetRequiredFaction for recipe %d", self.SpellID())
+		addon:Debug("No faction name passed to SetRequiredFaction for recipe %d", self.SpellID())
 	end
 end
 
