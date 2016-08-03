@@ -57,7 +57,6 @@ function addon:AddRecipe(module, recipeData)
 	end
 
 	local recipe = _G.setmetatable(recipeData, recipeMetatable)
-	recipe.ProfessionModule = module
 	recipe:AddFilters(private.FILTER_IDS.ALLIANCE, private.FILTER_IDS.HORDE)
 
 	if not recipe:LocalizedName() or recipe:LocalizedName() == "" then
