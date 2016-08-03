@@ -912,12 +912,12 @@ do
         -- Scan all recipes and mark the ones we know
         -------------------------------------------------------------------------------
         local foundRecipeCount = 0
-        local professionRecipes = private.Professions[localizedProfessionName].Recipes
+        local profession = private.Professions[localizedProfessionName]
 		local recipeIDs = _G.C_TradeSkillUI.GetAllRecipeIDs()
 
 		for recipeIndex = 1, #recipeIDs do
 			local recipeID = recipeIDs[recipeIndex]
-			local recipe = professionRecipes[recipeID]
+			local recipe = profession.Recipes[recipeID]
 			local recipeInfo = _G.C_TradeSkillUI.GetRecipeInfo(recipeID)
 
 			if recipe then
@@ -942,7 +942,7 @@ do
 				end
 			else
 				--@debug@
-				local recipe = self:AddRecipe(self, {
+				local recipe = self:AddRecipe(profession:Module(), {
 					_acquireTypeData = {},
 					_bitflags = {},
 					_expansionID = _G.GetExpansionLevel() + 1,
@@ -972,7 +972,7 @@ do
 		local invalidRecipesList
 		local invalisRecipesCount = 0
 
-		for recipeID, recipe in pairs(professionRecipes) do
+		for recipeID, recipe in pairs(profession.Recipes) do
 			if not recipe.isValidated then
 				invalidRecipesList = invalidRecipesList or {}
 				invalidRecipesList[recipeID] = true
@@ -985,7 +985,7 @@ do
 
 		if invalidRecipesList then
 			for recipeID in pairs(invalidRecipesList) do
-				professionRecipes[recipeID] = nil
+                profession.Recipes[recipeID] = nil
 				private.recipe_list[recipeID] = nil
 			end
 
