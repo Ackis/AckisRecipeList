@@ -65,15 +65,8 @@ function addon:AddRecipe(module, recipeData)
 	end
 	recipeList[spellID] = recipe
 
-    local profession = private.Professions[recipe._localizedProfessionName]
-    recipe.Profession = profession
-
-    local professionRecipes = profession.Recipes
-    if not professionRecipes then
-        professionRecipes = module.Recipes
-        profession.Recipes = professionRecipes
-    end
-    professionRecipes[spellID] = recipe
+    recipe.Profession = module.Profession
+	recipe.Profession.Recipes[spellID] = recipe
 
 	return recipe
 end
