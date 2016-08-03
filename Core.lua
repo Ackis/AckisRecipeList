@@ -946,7 +946,6 @@ do
 					_acquireTypeData = {},
 					_bitflags = {},
 					_expansionID = _G.GetExpansionLevel() + 1,
-					_localizedProfessionName = localizedProfessionName,
 					_localizedName = _G.GetSpellInfo(recipeID),
 					_qualityID = private.ITEM_QUALITIES.COMMON,
 					_spellID = recipeID,
