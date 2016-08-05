@@ -466,6 +466,7 @@ private.BOSS_NAMES = {
 	RUKHMAR = _G.EJ_GetEncounterInfo(1262),
 	SHADOW_LORD_ISKAR = _G.EJ_GetEncounterInfo(1433),
 	CORDANA_FELSONG = _G.EJ_GetEncounterInfo(1470),
+	WRATH_OF_AZSHARA = _G.EJ_GetEncounterInfo(1492),
 	GARR = _G.EJ_GetEncounterInfo(1522),
 	MOAM = _G.EJ_GetEncounterInfo(1539),
 	THE_PROPHET_SKERAM = _G.EJ_GetEncounterInfo(1543),
@@ -475,6 +476,11 @@ private.BOSS_NAMES = {
 	SHADE_OF_ARAN = _G.EJ_GetEncounterInfo(1559),
 	TERESTIAN_ILLHOOF = _G.EJ_GetEncounterInfo(1560),
 	OPERA_HALL = _G.EJ_GetEncounterInfo(1556),
+	SHADE_OF_XAVIUS = _G.EJ_GetEncounterInfo(1657),
+	URSOC = _G.EJ_GetEncounterInfo(1667),
+	ADVISOR_MELANDRUS = _G.EJ_GetEncounterInfo(1720),
+	XAVIUS = _G.EJ_GetEncounterInfo(1726),
+	ELERETHE_RENFERAL = _G.EJ_GetEncounterInfo(1744),
 }
 
 constants.BOSS_NAMES = private.BOSS_NAMES
