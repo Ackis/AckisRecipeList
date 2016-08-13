@@ -166,7 +166,10 @@ do
 			if not npcName then
 				DatamineTooltip:SetHyperlink(("unit:Creature-0-0-0-0-%d"):format(npcID))
 				npcName = _G['ARLDatamineTooltipTextLeft1']:GetText()
-				temporaryStorageTable[npcID] = npcName
+
+				if npcName and npcName ~= "" then
+					temporaryStorageTable[npcID] = npcName
+				end
 			end
 
 			return npcName
@@ -177,9 +180,11 @@ do
 		output:Clear()
 		if not npcID or not tonumber(npcID) then
 			output:AddLine("Use a real NPC ID, silly.")
+			output:Display()
+			return
 		end
 
-		output:AddLine(self:GetNPCNameFromID(npcID))
+		output:AddLine(self:GetNPCNameFromID(npcID) or _G.UNKNOWN)
 		output:Display()
 	end
 
