@@ -85,6 +85,9 @@ do
 		lists = function(input)
 			addon:DumpProfessionLists(input)
 		end,
+		npcname = function(input)
+			addon:DumpNPCName(input)
+		end,
 		phrases = function()
 			addon:DumpPhrases()
 		end,
@@ -148,6 +151,35 @@ do
 				output:AddLine(("L[\"%s\"] = \"%s\""):format(phrase:gsub("\"", "\\\""), translation:gsub('\"', '\\"')))
 			end
 		end
+		output:Display()
+	end
+
+	do
+		local temporaryStorageTable = {}
+
+		local DatamineTooltip = _G.CreateFrame("GameTooltip", "ARLDatamineTooltip", _G.UIParent, "GameTooltipTemplate")
+		DatamineTooltip:SetOwner(_G.WorldFrame, "ANCHOR_NONE")
+
+		function addon:GetNPCNameFromID(npcID)
+			local npcName = temporaryStorageTable[npcID]
+
+			if not npcName then
+				DatamineTooltip:SetHyperlink(("unit:Creature-0-0-0-0-%d"):format(npcID))
+				npcName = _G['ARLDatamineTooltipTextLeft1']:GetText()
+				temporaryStorageTable[npcID] = npcName
+			end
+
+			return npcName
+		end
+	end
+
+	function addon:DumpNPCName(npcID)
+		output:Clear()
+		if not npcID or not tonumber(npcID) then
+			output:AddLine("Use a real NPC ID, silly.")
+		end
+
+		output:AddLine(self:GetNPCNameFromID(npcID))
 		output:Display()
 	end
 
