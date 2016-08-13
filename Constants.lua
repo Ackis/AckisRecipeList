@@ -469,6 +469,7 @@ private.BOSS_NAMES = {
 	SHADOW_LORD_ISKAR = _G.EJ_GetEncounterInfo(1433),
 	CORDANA_FELSONG = _G.EJ_GetEncounterInfo(1470),
 	WRATH_OF_AZSHARA = _G.EJ_GetEncounterInfo(1492),
+	ADVISOR_VANDROS = _G.EJ_GetEncounterInfo(1501),
 	GARR = _G.EJ_GetEncounterInfo(1522),
 	MOAM = _G.EJ_GetEncounterInfo(1539),
 	THE_PROPHET_SKERAM = _G.EJ_GetEncounterInfo(1543),
