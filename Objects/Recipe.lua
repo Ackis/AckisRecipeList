@@ -207,10 +207,6 @@ function Recipe:RequiredFaction()
 	return self.required_faction
 end
 
-function Recipe:SetPreviousRankSpellID(spell_id)
-	-- Do nothing: Slated for removal, but profession modules currently call it.
-end
-
 -------------------------------------------------------------------------------
 -- Recipe state flags.
 -------------------------------------------------------------------------------
