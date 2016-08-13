@@ -244,6 +244,7 @@ local ZONE_MAP_IDS = {
     EYE_OF_AZSHARA = { 1046, 1096, },
     DARKHEART_THICKET = 1067,
     FIRELANDS = 1071,  -- get rid of debug
+    THE_ARCWAY = { 1079, 1102, },
     COURT_OF_STARS = 1087,
     THE_EMERALD_NIGHTMARE = 1094,
 
