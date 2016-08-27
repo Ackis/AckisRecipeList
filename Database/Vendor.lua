@@ -152,7 +152,8 @@ function addon:InitVendor()
 	AddVendor(97362,	L["Dazzik \"Proudmoore\""],		Z.DALARAN_BROKENISLES,		66.2,	74.1,	"Neutral") -- Jewelcrafting, Tailoring
 	AddVendor(97363,	L["K'huta"],				Z.DALARAN_BROKENISLES,		65.7,	80.3,	"Neutral") -- Enchanting, Inscription
 	AddVendor(97366,	L["The Widow"],				Z.DALARAN_BROKENISLES,		71.8,	73.8,	"Neutral") -- Jewelcrafting, Engineering, Inscription
-	AddVendor(106902,	L["Ransa Greyfeather"],			Z.HIGHMOUNTAIN,			0.0,	0.0,	"Neutral") -- Jewelcrafting, Blacksmithing
+	AddVendor(97140,	L["First Arcanist Thalyssra"],		Z.SURAMAR,			36.8,	46.6,	"Neutral") -- Enchanting, Tailoring
+	AddVendor(106902,	L["Ransa Greyfeather"],			Z.THUNDER_TOTEM,		38.8,	45.4,	"Neutral") -- Jewelcrafting, Blacksmithing
 	AddVendor(106904,	L["Valdemar Stormseeker"],		Z.STORMHEIM,			0.0,	0.0,	"Neutral") -- Leatherworking, Blacksmithing
 	AddVendor(107109,	L["Xur'ios"],				Z.DALARAN_BROKENISLES,		48.8,	13.5,	"Neutral") -- Leatherworking, Engineering, Blacksmithing, Enchanting, Inscription
 	AddVendor(107376,	L["Veridis Fallon"],			Z.AZSUNA,			46.9,	41.4,	"Neutral") -- Inscriptions, Tailoring
