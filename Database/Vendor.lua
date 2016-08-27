@@ -147,14 +147,14 @@ function addon:InitVendor()
 	AddVendor(91031,	L["Nicholas Mitrik"],			Z.FROSTWALL,			40.8,	54.8,	"Horde") -- Alchemy, Inscription
 	AddVendor(91404,	L["Samantha Scarlet"],			Z.LUNARFALL,			34.6,	33.0,	"Alliance") -- Alchemy, Inscription
 	AddVendor(93530,	L["Ildine Sorrowspear"],		Z.DALARAN_BROKENISLES,		38.3,	41.5,	"Neutral") -- Enchanting, Tailoring
-	AddVendor(97360,	L["Matthew Rabis"],			Z.DALARAN_BROKENISLES,		46.,	56.4,	"Neutral") -- Jewelcrafting, Skinning, Inscription
+	AddVendor(97360,	L["Matthew Rabis"],			Z.DALARAN_BROKENISLES,		46.0,	56.4,	"Neutral") -- Jewelcrafting, Skinning, Inscription
 	AddVendor(97361,	L["Oxana Demonslay"],			Z.DALARAN_BROKENISLES,		67.0,	17.7,	"Neutral") -- Jewelcrafting, Inscription
 	AddVendor(97362,	L["Dazzik \"Proudmoore\""],		Z.DALARAN_BROKENISLES,		66.2,	74.1,	"Neutral") -- Jewelcrafting, Tailoring
 	AddVendor(97363,	L["K'huta"],				Z.DALARAN_BROKENISLES,		65.7,	80.3,	"Neutral") -- Enchanting, Inscription
 	AddVendor(97366,	L["The Widow"],				Z.DALARAN_BROKENISLES,		71.8,	73.8,	"Neutral") -- Jewelcrafting, Engineering, Inscription
 	AddVendor(97140,	L["First Arcanist Thalyssra"],		Z.SURAMAR,			36.8,	46.6,	"Neutral") -- Enchanting, Tailoring
 	AddVendor(106902,	L["Ransa Greyfeather"],			Z.THUNDER_TOTEM,		38.8,	45.4,	"Neutral") -- Jewelcrafting, Blacksmithing
-	AddVendor(106904,	L["Valdemar Stormseeker"],		Z.STORMHEIM,			0.0,	0.0,	"Neutral") -- Leatherworking, Blacksmithing
+	AddVendor(106904,	L["Valdemar Stormseeker"],		Z.STORMHEIM,			60.2,	51.2,	"Neutral") -- Leatherworking, Blacksmithing
 	AddVendor(107109,	L["Xur'ios"],				Z.DALARAN_BROKENISLES,		48.8,	13.5,	"Neutral") -- Leatherworking, Engineering, Blacksmithing, Enchanting, Inscription
 	AddVendor(107376,	L["Veridis Fallon"],			Z.AZSUNA,			46.9,	41.4,	"Neutral") -- Inscriptions, Tailoring
 	AddVendor(107379,	L["Marin Bladewing"],			Z.AZSUNA,			48.2,	73.8,	"Neutral") -- Inscription, Jewelcrafting, Engineering
