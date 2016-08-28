@@ -483,9 +483,23 @@ private.BOSS_NAMES = {
 	OPERA_HALL = _G.EJ_GetEncounterInfo(1556),
 	SHADE_OF_XAVIUS = _G.EJ_GetEncounterInfo(1657),
 	URSOC = _G.EJ_GetEncounterInfo(1667),
+	NYTHENDRA = _G.EJ_GetEncounterInfo(1703),
+	DRAGONS_OF_NIGHTMARE = _G.EJ_GetEncounterInfo(1704),
+	SKORPYRON = _G.EJ_GetEncounterInfo(1706),
+	KROSUS = _G.EJ_GetEncounterInfo(1713),
 	ADVISOR_MELANDRUS = _G.EJ_GetEncounterInfo(1720),
+	CHRONOMATIC_ANOMALY = _G.EJ_GetEncounterInfo(1725),
 	XAVIUS = _G.EJ_GetEncounterInfo(1726),
+	TRILLIAX = _G.EJ_GetEncounterInfo(1731),
+	STAR_AUGUR_ETRAEUS = _G.EJ_GetEncounterInfo(1732),
+	GULDAN = _G.EJ_GetEncounterInfo(1737),
+	ILGYNOTH__HEART_OF_CORRUPTION = _G.EJ_GetEncounterInfo(1738),
+	GRAND_MAGISTRIX_ELISANDE = _G.EJ_GetEncounterInfo(1743),
 	ELERETHE_RENFERAL = _G.EJ_GetEncounterInfo(1744),
+	CENARIUS = _G.EJ_GetEncounterInfo(1750),
+	SPELLBLADE_ALURIEL = _G.EJ_GetEncounterInfo(1751),
+	HIGH_BOTANIST_TELARN = _G.EJ_GetEncounterInfo(1761),
+	TICHONDRIUS = _G.EJ_GetEncounterInfo(1762),
 }
 
 constants.BOSS_NAMES = private.BOSS_NAMES
