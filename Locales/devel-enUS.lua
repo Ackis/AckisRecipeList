@@ -1443,6 +1443,7 @@ L["Valdemar Stormseeker"] = true
 L["Valn"] = true
 L["Vance Undergloom"] = true
 L["Vanessa Sellers"] = true
+L["Vantus Rune"] = true
 L["Vargus"] = true
 L["Vazario Linkgrease"] = true
 L["Vekh'nir Dreadhawk"] = true
