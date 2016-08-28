@@ -60,6 +60,10 @@ function addon:InitMob()
 	AddMob(50061,	L["Xariona"],				Z.DEEPHOLM,			57.3, 62.6) -- Tailoring, Jewelcrafting
 	AddMob(50063,	L["Akma'hat"],				Z.ULDUM,			38.0, 60.2) -- Tailoring, Jewelcrafting
 	AddMob(50089,	L["Julak-Doom"],			Z.TWILIGHT_HIGHLANDS,		55.0, 11.4) -- Tailoring, Jewelcrafting
+	AddMob(100497,	BN.URSOC,				Z.THE_EMERALD_NIGHTMARE,	0, 0) -- Enchanting, Inscription
+	AddMob(103769,	BN.XAVIUS,				Z.THE_EMERALD_NIGHTMARE,	0, 0) -- Enchanting, Inscription
+	AddMob(111000,	BN.ELERETHE_RENFERAL,			Z.THE_EMERALD_NIGHTMARE,	0, 0) -- Enchanting, Inscription
+
 
 	self.InitMob = nil
 end
