@@ -159,7 +159,7 @@ local ZONE_MAP_IDS = {
     OLD_HILLSBRAD_FOOTHILLS = 734,
     LOST_CITY_OF_THE_TOLVIR = 747,
     WAILING_CAVERNS = 749,
-    THE_MAELSTROM = { 737, 751 },
+    THE_MAELSTROM = { 737, 751, 1057 },
     BLACKWING_LAIR = 755,
     THE_DEADMINES = 756,
     RAZORFEN_DOWNS = 760,
@@ -206,7 +206,6 @@ local ZONE_MAP_IDS = {
     SHRINE_OF_TWO_MOONS = 903,
     SHRINE_OF_SEVEN_STARS = 905,
     DEEPRUN_TRAM = 922,
-    DALARAN_BROKENISLES = 1014,
     BRAWLGAR_ARENA = 925,
     ISLE_OF_THUNDER = 928,
     ISLE_OF_GIANTS = 929,
@@ -232,6 +231,7 @@ local ZONE_MAP_IDS = {
     BROKEN_ISLES = 1007,
     STORMSHIELD = 1009,
     WARSPEAR = 1011,
+    DALARAN_BROKENISLES = 1014,
     AZSUNA = { 1015, 1053, },
     STORMHEIM = {1017, 1037, },
     VALSHARAH = 1018,
@@ -454,8 +454,8 @@ local function AddLocation(continentID, mapID, parentLocation)
 
         return location
             -- Uncomment for debugging purposes when adding new map IDs
-        --                else
-        --                    private.Debug("No entry in ZONE_LABELS_FROM_MAP_ID for mapID %s (%s) - continentID %s.", mapID or "nil", _G.GetMapNameByID(mapID), continentID)
+                        else
+                            private.Debug("No entry in ZONE_LABELS_FROM_MAP_ID for mapID %s (%s) - continentID %s.", mapID or "nil", _G.GetMapNameByID(mapID), continentID)
     end
 end
 
