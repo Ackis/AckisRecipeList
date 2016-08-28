@@ -1006,7 +1006,8 @@ function addon:GetRecipeData(spell_id, data)
 	return recipe and recipe[data] or nil
 end
 
--- List of recipe IDs which never made it into the game, so should never be automatically added via a profession scan.
+-- List of recipe IDs which never made it into the game, or are only learned temporarily for a quest, then unlearned,
+-- so should never be automatically added via a profession scan.
 BLACKLISTED_RECIPE_IDS = {
 	---------------------------------------------------------------------------------------
 	-----ALCHEMY
@@ -1085,8 +1086,9 @@ BLACKLISTED_RECIPE_IDS = {
 	---------------------------------------------------------------------------------------
 	----INSCRIPTION
 	---------------------------------------------------------------------------------------
-	[130407] = true,	[178240] = true,	[178550] = true,	[227561] = true,
-	[227562] = true,
+	[127391] = true,	[127475] = true,	[127481] = true,	[128922] = true,
+	[130407] = true,	[176513] = true,	[178240] = true,	[178550] = true,
+	[227561] = true,	[227562] = true,
 
 	-----------------------------------------------------------------------------------------
 	---JEWELCRAFTING
