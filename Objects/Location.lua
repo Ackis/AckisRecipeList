@@ -454,8 +454,8 @@ local function AddLocation(continentID, mapID, parentLocation)
 
         return location
             -- Uncomment for debugging purposes when adding new map IDs
-                        else
-                            private.Debug("No entry in ZONE_LABELS_FROM_MAP_ID for mapID %s (%s) - continentID %s.", mapID or "nil", _G.GetMapNameByID(mapID), continentID)
+        --              else
+        --                    private.Debug("No entry in ZONE_LABELS_FROM_MAP_ID for mapID %s (%s) - continentID %s.", mapID or "nil", _G.GetMapNameByID(mapID), continentID)
     end
 end
 

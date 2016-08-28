@@ -1097,6 +1097,7 @@ L["Pratt McGrubben"] = true
 L["Primal Ooze"] = true
 L["Primal Stalker"] = true
 L["Professor Pallin"] = true
+L["Professor Thaddeus Paleo"] = true
 L["Profile"] = true
 L["Profile Options"] = true
 L["Prospector Nachlan"] = true
