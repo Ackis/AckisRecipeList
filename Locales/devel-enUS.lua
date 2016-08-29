@@ -340,6 +340,7 @@ L["DISCOVERY_INSC_MOONGLOW"] = "Obtained randomly via Research: Moonglow Ink, or
 L["DISCOVERY_INSC_SEA"] = "Obtained randomly via Research: Ink of the Sea, or from Research: Warbinder's Ink if you have all Glyphs made from Warbinder's Ink."
 L["DISCOVERY_INSC_SHIMMERING"] = "Obtained randomly via Research: Shimmering Ink, or from Research: Warbinder's Ink if you have all Glyphs made from Warbinder's Ink."
 L["DISCOVERY_JC_PANDARIA"] = "Obtained randomly via the daily Facet of Research."
+L["DISCOVERY_JC_LEGION"] = "Obtained randomly via prospecting."
 L["DISCOVERY_JC_WOD"] = "Obtained via the drop, or randomly via creating other epic gems."
 L["DISCOVERY_LW_HARDENED_PANDARIA"] = "Discovered by crafting Hardened Magnificent Hide, or via the pattern for the Hardened Magnificent Hide."
 L["DISCOVERY_LW_PANDARIA"] = "Obtained randomly via the daily Magnificence of Leather and Magnificence of Scales."
