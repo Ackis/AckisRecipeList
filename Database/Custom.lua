@@ -74,6 +74,8 @@ function addon:InitCustom()
 	AddCustom("RATED_PVP")
 	AddCustom("WATERLOGGED_CACHE", 		Z.HELMOUTH_CLIFFS)
 	AddCustom("SPOILS_OF_THE_WORTHY",	Z.HALLS_OF_VALOR)
+	AddCustom("TRANQUIL_MIND",		Z.DALARAN_BROKENISLES,		41.1, 35.8)
+	AddCustom("LEGION_BOSSES",		Z.BROKEN_ISLES)
 
 	self.InitCustom = nil
 end
