@@ -471,6 +471,7 @@ private.BOSS_NAMES = {
 	RUKHMAR = _G.EJ_GetEncounterInfo(1262),
 	SHADOW_LORD_ISKAR = _G.EJ_GetEncounterInfo(1433),
 	CORDANA_FELSONG = _G.EJ_GetEncounterInfo(1470),
+	ODYN = _G.EJ_GetEncounterInfo(1489),
 	WRATH_OF_AZSHARA = _G.EJ_GetEncounterInfo(1492),
 	ADVISOR_VANDROS = _G.EJ_GetEncounterInfo(1501),
 	GARR = _G.EJ_GetEncounterInfo(1522),
@@ -484,6 +485,7 @@ private.BOSS_NAMES = {
 	OPERA_HALL = _G.EJ_GetEncounterInfo(1556),
 	SHADE_OF_XAVIUS = _G.EJ_GetEncounterInfo(1657),
 	URSOC = _G.EJ_GetEncounterInfo(1667),
+	DARGRUL_THE_UNDERKING = _G.EJ_GetEncounterInfo(1687),
 	SAELORN = _G.EJ_GetEncounterInfo(1697),
 	NYTHENDRA = _G.EJ_GetEncounterInfo(1703),
 	DRAGONS_OF_NIGHTMARE = _G.EJ_GetEncounterInfo(1704),
@@ -502,6 +504,7 @@ private.BOSS_NAMES = {
 	SPELLBLADE_ALURIEL = _G.EJ_GetEncounterInfo(1751),
 	HIGH_BOTANIST_TELARN = _G.EJ_GetEncounterInfo(1761),
 	TICHONDRIUS = _G.EJ_GetEncounterInfo(1762),
+	CALAMIR = _G.EJ_GetEncounterInfo(1774),
 	ANA_MOUZ = _G.EJ_GetEncounterInfo(1790),
 }
 
