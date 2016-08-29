@@ -147,6 +147,7 @@ function addon:InitVendor()
 	AddVendor(91031,	L["Nicholas Mitrik"],			Z.FROSTWALL,			40.8,	54.8,	"Horde") -- Alchemy, Inscription
 	AddVendor(91404,	L["Samantha Scarlet"],			Z.LUNARFALL,			34.6,	33.0,	"Alliance") -- Alchemy, Inscription
 	AddVendor(93530,	L["Ildine Sorrowspear"],		Z.DALARAN_BROKENISLES,		38.3,	41.5,	"Neutral") -- Enchanting, Tailoring
+	AddVendor(93539,	L["Hobart Grapplehammer"],		Z.DALARAN_BROKENISLES,		38.6,	25.2,	"Neutral") -- Jewelcrafting, Engineering, Inscription
 	AddVendor(97360,	L["Matthew Rabis"],			Z.DALARAN_BROKENISLES,		46.0,	56.4,	"Neutral") -- Jewelcrafting, Skinning, Inscription
 	AddVendor(97361,	L["Oxana Demonslay"],			Z.DALARAN_BROKENISLES,		67.0,	17.7,	"Neutral") -- Jewelcrafting, Inscription
 	AddVendor(97362,	L["Dazzik \"Proudmoore\""],		Z.DALARAN_BROKENISLES,		66.2,	74.1,	"Neutral") -- Jewelcrafting, Tailoring
