@@ -450,6 +450,7 @@ private.BOSS_NAMES = {
 	BLACKHEART_THE_INCITER = _G.EJ_GetEncounterInfo(545),
 	MURMUR = _G.EJ_GetEncounterInfo(547),
 	DALLIAH_THE_DOOMSAYER = _G.EJ_GetEncounterInfo(549),
+	BROGGOK = _G.EJ_GetEncounterInfo(556),
 	HIGH_BOTANIST_FREYWINN = _G.EJ_GetEncounterInfo(559),
 	THORNGRIN_THE_TENDER = _G.EJ_GetEncounterInfo(560),
 	WARP_SPLINTER = _G.EJ_GetEncounterInfo(562),
@@ -483,6 +484,7 @@ private.BOSS_NAMES = {
 	OPERA_HALL = _G.EJ_GetEncounterInfo(1556),
 	SHADE_OF_XAVIUS = _G.EJ_GetEncounterInfo(1657),
 	URSOC = _G.EJ_GetEncounterInfo(1667),
+	SAELORN = _G.EJ_GetEncounterInfo(1697),
 	NYTHENDRA = _G.EJ_GetEncounterInfo(1703),
 	DRAGONS_OF_NIGHTMARE = _G.EJ_GetEncounterInfo(1704),
 	SKORPYRON = _G.EJ_GetEncounterInfo(1706),
@@ -500,6 +502,7 @@ private.BOSS_NAMES = {
 	SPELLBLADE_ALURIEL = _G.EJ_GetEncounterInfo(1751),
 	HIGH_BOTANIST_TELARN = _G.EJ_GetEncounterInfo(1761),
 	TICHONDRIUS = _G.EJ_GetEncounterInfo(1762),
+	ANA_MOUZ = _G.EJ_GetEncounterInfo(1790),
 }
 
 constants.BOSS_NAMES = private.BOSS_NAMES
