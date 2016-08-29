@@ -724,6 +724,7 @@ L["Isabel Jones"] = true
 L["Item"] = true
 L["Item Enhancement"] = true
 L["Itoka"] = true
+L["Jabrul"] = true
 L["Jack \"All-Trades\" Derrington"] = true
 L["Jack Trapper"] = true
 L["Jadefire Rogue"] = true
