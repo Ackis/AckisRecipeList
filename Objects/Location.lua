@@ -251,7 +251,6 @@ local ZONE_MAP_IDS = {
     COURT_OF_STARS = 1087,
     THE_NIGHTHOLD = 1088,
     THE_EMERALD_NIGHTMARE = 1094,
-
 }
 
 local ZONE_NAMES = {}
@@ -288,12 +287,15 @@ for label, name in pairs(ZONE_NAMES) do
 end
 
 -- These map IDs aren't tied to a continent, for whatever reason, so need to be added as special cases.
+-- Instanced dungeons typically need to be added here.
 local COSMIC_MAP_IDS = {
     THE_BLACK_MORASS = 733,
     OLD_HILLSBRAD_FOOTHILLS = 734,
     HYJAL_SUMMIT = 775,
     THE_WANDERING_ISLE = 808,
     DARKMOON_ISLAND = 823,
+    THE_NIGHTHOLD = 1088,
+    THE_EMERALD_NIGHTMARE = 1094,
 }
 
 local COSMIC_MAP_LOCATION_PARENT_MAPPING = {
