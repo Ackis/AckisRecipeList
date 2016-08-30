@@ -1310,6 +1310,7 @@ L["Spirestone Warlord"] = true
 L["Spirit of Jadefire"] = true
 L["Springspindle Fizzlegear"] = true
 L["Staff"] = true
+L["Stalriss Dawnrunner"] = true
 L["Steeg Haskell"] = true
 L["Stephen Ryback"] = true
 L["Steven Cochrane"] = true
