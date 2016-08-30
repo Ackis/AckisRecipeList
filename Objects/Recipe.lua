@@ -89,20 +89,7 @@ function Recipe:GetOrCreateAcquireDataOfType(acquireType, ...)
         sourceData = self._acquireTypeData[acquireType]
     end
 
-    if acquireType == private.AcquireTypes.Reputation then
-        local factionID, reputationLevel = ...
-        if factionID and reputationLevel then
-            if not sourceData[factionID] then
-                sourceData[factionID] = {
-                    [reputationLevel] = {}
-                }
-            elseif not sourceData[factionID][reputationLevel] then
-                sourceData[factionID][reputationLevel] = {}
-            end
-        end
-    end
-
-    return sourceData
+    return acquireType:GetOrCreateRecipeData(sourceData, ...)
 end
 
 function Recipe:ExpansionID()

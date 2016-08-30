@@ -93,6 +93,10 @@ function AcquireType:GetEntity(identifier)
     return self._entities[identifier]
 end
 
+function AcquireType:GetOrCreateRecipeData(sourceData, ...)
+    return self._GetOrCreateRecipeData and self._GetOrCreateRecipeData(sourceData, ...) or sourceData
+end
+
 function AcquireType:GetRecipe(spell_id)
     return self._recipes[spell_id]
 end

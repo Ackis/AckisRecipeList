@@ -132,4 +132,17 @@ private.RegisterAcquireType({
             return vendor
         end
     end,
+    _GetOrCreateRecipeData = function(sourceData, ...)
+        local factionID, reputationLevel = ...
+
+        if factionID and reputationLevel then
+            if not sourceData[factionID] then
+                sourceData[factionID] = {
+                    [reputationLevel] = {}
+                }
+            elseif not sourceData[factionID][reputationLevel] then
+                sourceData[factionID][reputationLevel] = {}
+            end
+        end
+    end
 })
