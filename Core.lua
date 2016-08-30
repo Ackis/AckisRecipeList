@@ -99,7 +99,7 @@ Dialog:Register("ARL_NoModulesErrorDialog", {
 	text_justify_h = "LEFT",
 	width = 400,
 	on_show = function(self)
-	-- TODO: Localize this.
+		-- TODO: Localize this.
 		self.text:SetFormattedText("No profession module AddOns were found.\n\nAs of version 3.0, all professions were split into individual module AddOns. These can be obtained either from Curse, from the Curse Client, or from WoWInterface.\n\nThe main %s page on either site contains URLs for all of the module AddOns; download only those you need.", private.addon_name, private.addon_name)
 	end
 })
@@ -117,7 +117,7 @@ addon.optionsFrame = {}
 -- Debugger.
 -------------------------------------------------------------------------------
 function addon:Debug(...)
-    local text = private.Debug(...)
+	local text = private.Debug(...)
 	--@debug@
 	Toast:Spawn("ARL_DebugToast", text)
 	--@end-debug@
@@ -264,12 +264,12 @@ function addon:OnInitialize()
 					vendor = true,
 					worlddrop = true,
 					worldevent = true,
+					tradeskill = true,
 				},
 				-------------------------------------------------------------------------------
 				-- Profession Item Filters
 				-------------------------------------------------------------------------------
-				item = {
-					-- These are populated from the item flags defined in profession modules.
+				item = {-- These are populated from the item flags defined in profession modules.
 				},
 				-------------------------------------------------------------------------------
 				-- Quality Filters
@@ -301,8 +301,7 @@ function addon:OnInitialize()
 				-------------------------------------------------------------------------------
 				-- Reputation Filters
 				-------------------------------------------------------------------------------
-				rep = {
-					-- These are populated from the reputations defined in Constants.lua
+				rep = {-- These are populated from the reputations defined in Constants.lua
 				},
 				-------------------------------------------------------------------------------
 				-- Class Filters
@@ -374,7 +373,7 @@ function addon:OnInitialize()
 	-------------------------------------------------------------------------------
 	-- Hook GameTooltip so we can show information on mobs that drop/sell/train
 	-------------------------------------------------------------------------------
-    -- TODO: Rewrite this.
+	-- TODO: Rewrite this.
 	_G.GameTooltip:HookScript("OnTooltipSetUnit", function(self)
 		if not addon.db.profile.recipes_in_tooltips then
 			return
@@ -495,107 +494,107 @@ local TRADESKILL_ADDON_INITS = {
 }
 
 function addon:TRADE_SKILL_SHOW()
-    local player_name = private.PLAYER_NAME
-    local realm_name = private.REALM_NAME
+	local player_name = private.PLAYER_NAME
+	local realm_name = private.REALM_NAME
 
 	local professionID, localizedProfessionName = _G.C_TradeSkillUI.GetTradeSkillLine()
 
-    if not _G.C_TradeSkillUI.IsTradeSkillLinked() and not _G.C_TradeSkillUI.IsTradeSkillGuild() then
-        self.db.global.tradeskill[realm_name][player_name][localizedProfessionName] = _G.C_TradeSkillUI.GetTradeSkillListLink()
-    else
-        self.db.global.tradeskill[realm_name][player_name][localizedProfessionName] = nil
-    end
+	if not _G.C_TradeSkillUI.IsTradeSkillLinked() and not _G.C_TradeSkillUI.IsTradeSkillGuild() then
+		self.db.global.tradeskill[realm_name][player_name][localizedProfessionName] = _G.C_TradeSkillUI.GetTradeSkillListLink()
+	else
+		self.db.global.tradeskill[realm_name][player_name][localizedProfessionName] = nil
+	end
 
-    local scan_button = self.scan_button
-    if not scan_button then
-        scan_button = _G.CreateFrame("Button", nil, _G.TradeSkillFrame, "UIPanelButtonTemplate")
-        scan_button:SetHeight(20)
-        scan_button:RegisterForClicks("LeftButtonUp")
-        scan_button:SetText(L["Scan"])
+	local scan_button = self.scan_button
+	if not scan_button then
+		scan_button = _G.CreateFrame("Button", nil, _G.TradeSkillFrame, "UIPanelButtonTemplate")
+		scan_button:SetHeight(20)
+		scan_button:RegisterForClicks("LeftButtonUp")
+		scan_button:SetText(L["Scan"])
 
-        scan_button:SetScript("OnClick", function(self, _, _)
-            local isShiftKeyDown = _G.IsShiftKeyDown()
-            local isAltKeyDown = _G.IsAltKeyDown()
-            local isControlKeyDown = _G.IsControlKeyDown()
+		scan_button:SetScript("OnClick", function(self, _, _)
+			local isShiftKeyDown = _G.IsShiftKeyDown()
+			local isAltKeyDown = _G.IsAltKeyDown()
+			local isControlKeyDown = _G.IsControlKeyDown()
 
-            if isShiftKeyDown and not isAltKeyDown and not isControlKeyDown then
-                addon:Scan(true)
-            elseif isAltKeyDown and not isShiftKeyDown and not isControlKeyDown then
-                addon:ClearWaypoints()
-                --@debug@
-            elseif isControlKeyDown then
+			if isShiftKeyDown and not isAltKeyDown and not isControlKeyDown then
+				addon:Scan(true)
+			elseif isAltKeyDown and not isShiftKeyDown and not isControlKeyDown then
+				addon:ClearWaypoints()
+				--@debug@
+			elseif isControlKeyDown then
 				local professionID, localizedProfessionName = _G.C_TradeSkillUI.GetTradeSkillLine()
 
-                if not isAltKeyDown then
-                    if isShiftKeyDown then
-                        addon:ScanProfession(localizedProfessionName)
-                    else
-                        addon:DumpProfession(localizedProfessionName)
-                    end
-                end
-                --@end-debug@
-            elseif not isShiftKeyDown and not isAltKeyDown and not isControlKeyDown then
-                local mainPanel = addon.Frame
+				if not isAltKeyDown then
+					if isShiftKeyDown then
+						addon:ScanProfession(localizedProfessionName)
+					else
+						addon:DumpProfession(localizedProfessionName)
+					end
+				end
+				--@end-debug@
+			elseif not isShiftKeyDown and not isAltKeyDown and not isControlKeyDown then
+				local mainPanel = addon.Frame
 				local professionID, localizedProfessionName = _G.C_TradeSkillUI.GetTradeSkillLine()
 
-                if mainPanel and mainPanel:IsVisible() and private.CurrentProfession:LocalizedName() == localizedProfessionName then
-                    mainPanel:Hide()
-                else
-                    addon:Scan()
-                    addon:AddWaypoint()
-                end
-            end
-        end)
+				if mainPanel and mainPanel:IsVisible() and private.CurrentProfession:LocalizedName() == localizedProfessionName then
+					mainPanel:Hide()
+				else
+					addon:Scan()
+					addon:AddWaypoint()
+				end
+			end
+		end)
 
-        scan_button:SetScript("OnEnter", function(self)
-            local tooltip = _G.GameTooltip
+		scan_button:SetScript("OnEnter", function(self)
+			local tooltip = _G.GameTooltip
 
-            _G.GameTooltip_SetDefaultAnchor(tooltip, self)
-            tooltip:SetText(L["SCAN_RECIPES_DESC"])
-            --@debug@
-            tooltip:AddLine("Control-click to generate a Lua code dump.")
-            tooltip:AddLine("Control-Shift-click to scan for issues.")
-            --@end-debug@
-            tooltip:Show()
-        end)
-        scan_button:SetScript("OnLeave", function() _G.GameTooltip:Hide() end)
+			_G.GameTooltip_SetDefaultAnchor(tooltip, self)
+			tooltip:SetText(L["SCAN_RECIPES_DESC"])
+			--@debug@
+			tooltip:AddLine("Control-click to generate a Lua code dump.")
+			tooltip:AddLine("Control-Shift-click to scan for issues.")
+			--@end-debug@
+			tooltip:Show()
+		end)
+		scan_button:SetScript("OnLeave", function() _G.GameTooltip:Hide() end)
 
-        self.scan_button = scan_button
-    end
+		self.scan_button = scan_button
+	end
 
-    -- Grab the first lucky Trade Skill AddOn that exists and hand the scan button to it.
-    for entity, init_func in pairs(TRADESKILL_ADDON_INITS) do
-        if _G[entity] then
-            scan_button:ClearAllPoints()
-            init_func(scan_button)
-            break
-        end
-    end
-    scan_button:Enable()
+	-- Grab the first lucky Trade Skill AddOn that exists and hand the scan button to it.
+	for entity, init_func in pairs(TRADESKILL_ADDON_INITS) do
+		if _G[entity] then
+			scan_button:ClearAllPoints()
+			init_func(scan_button)
+			break
+		end
+	end
+	scan_button:Enable()
 
-    if scan_button:GetParent() == _G.TradeSkillFrame then
-        local scanButtonLocation = addon.db.profile.scanbuttonlocation
+	if scan_button:GetParent() == _G.TradeSkillFrame then
+		local scanButtonLocation = addon.db.profile.scanbuttonlocation
 
-        if scanButtonLocation == "TR" then
-            scan_button:SetPoint("RIGHT", _G.TradeSkillFrameCloseButton, "LEFT", 4, 0)
-        elseif scanButtonLocation == "TL" then
-            scan_button:SetPoint("LEFT", _G.TradeSkillFramePortrait, "RIGHT", 2, 12)
-        elseif scanButtonLocation == "BR" then
-            scan_button:SetPoint("TOP", _G.TradeSkillCancelButton, "BOTTOM", 0, -5)
-        elseif scanButtonLocation == "BL" then
-            scan_button:SetPoint("TOP", _G.TradeSkillCreateAllButton, "BOTTOM", 0, -5)
-        end
+		if scanButtonLocation == "TR" then
+			scan_button:SetPoint("RIGHT", _G.TradeSkillFrameCloseButton, "LEFT", 4, 0)
+		elseif scanButtonLocation == "TL" then
+			scan_button:SetPoint("LEFT", _G.TradeSkillFramePortrait, "RIGHT", 2, 12)
+		elseif scanButtonLocation == "BR" then
+			scan_button:SetPoint("TOP", _G.TradeSkillCancelButton, "BOTTOM", 0, -5)
+		elseif scanButtonLocation == "BL" then
+			scan_button:SetPoint("TOP", _G.TradeSkillCreateAllButton, "BOTTOM", 0, -5)
+		end
 
-        scan_button:SetWidth(scan_button:GetTextWidth() + 10)
-    end
+		scan_button:SetWidth(scan_button:GetTextWidth() + 10)
+	end
 
 	local professionID, localizedProfessionName = _G.C_TradeSkillUI.GetTradeSkillLine()
 
 	if private.LOCALIZED_PROFESSION_NAME_TO_MODULE_NAME_MAPPING[localizedProfessionName] then
-        scan_button:Show()
-    else
-        scan_button:Hide()
-    end
+		scan_button:Show()
+	else
+		scan_button:Hide()
+	end
 end
 
 function addon:TRADE_SKILL_CLOSE()
@@ -639,8 +638,8 @@ end
 -------------------------------------------------------------------------------
 do
 	local function InitializeLookups()
-        addon:InitCustom()
-        addon:InitDiscoveries()
+		addon:InitCustom()
+		addon:InitDiscoveries()
 		addon:InitMob()
 		addon:InitQuest()
 		addon:InitReputation()
@@ -653,7 +652,7 @@ do
 
 	-- Returns true if a profession was initialized.
 	function addon:InitializeProfession(localizedProfessionName)
-        local professionModuleName = localizedProfessionName and private.LOCALIZED_PROFESSION_NAME_TO_MODULE_NAME_MAPPING[localizedProfessionName] or nil
+		local professionModuleName = localizedProfessionName and private.LOCALIZED_PROFESSION_NAME_TO_MODULE_NAME_MAPPING[localizedProfessionName] or nil
 		if not professionModuleName then
 			addon:Debug("Invalid profession name (%s) passed to InitializeProfession()", tostring(localizedProfessionName))
 			return false
@@ -663,9 +662,9 @@ do
 			InitializeLookups()
 		end
 
-        if private.Professions[professionModuleName] then
-            return true
-        end
+		if private.Professions[professionModuleName] then
+			return true
+		end
 
 		local professionModule = self:GetModule(professionModuleName, true)
 		if not professionModule then
@@ -742,10 +741,10 @@ local SUBCOMMAND_FUNCS = {
 		end
 	end,
 	debug = function()
-        local DebugFrame = private.DebugFrame
+		local DebugFrame = private.DebugFrame
 		if not DebugFrame then
 			private.CreateDebugFrame()
-            DebugFrame = private.DebugFrame
+			DebugFrame = private.DebugFrame
 		end
 
 		if DebugFrame:Lines() == 0 then
@@ -849,70 +848,70 @@ do
 	-- @usage AckisRecipeList:Scan(true)
 	-- @param isTextDump Boolean indicating if we want the output to be a text dump, or if we want to use the ARL GUI
 	-- @return A frame with either the text dump, or the ARL frame
-    function addon:Scan(isTextDump, isRefresh)
-        local professionID, localizedProfessionName, professionRank = _G.C_TradeSkillUI.GetTradeSkillLine()
-        if localizedProfessionName == _G.UNKNOWN then
-            self:Print(L["OpenTradeSkillWindow"])
-            return
-        end
-        private.current_profession_specialty = nil
+	function addon:Scan(isTextDump, isRefresh)
+		local professionID, localizedProfessionName, professionRank = _G.C_TradeSkillUI.GetTradeSkillLine()
+		if localizedProfessionName == _G.UNKNOWN then
+			self:Print(L["OpenTradeSkillWindow"])
+			return
+		end
+		private.current_profession_specialty = nil
 
-        local professionModuleName = private.LOCALIZED_PROFESSION_NAME_TO_MODULE_NAME_MAPPING[localizedProfessionName]
-        if not professionModuleName or not self:InitializeProfession(localizedProfessionName) then
-            return
+		local professionModuleName = private.LOCALIZED_PROFESSION_NAME_TO_MODULE_NAME_MAPPING[localizedProfessionName]
+		if not professionModuleName or not self:InitializeProfession(localizedProfessionName) then
+			return
 		end
 
-        local player = private.Player
-        player:UpdateProfessions()
+		local player = private.Player
+		player:UpdateProfessions()
 
-        private.current_profession_scanlevel = professionRank
+		private.current_profession_scanlevel = professionRank
 
-        -- Clear the search box and its focus so the scan will have correct results.
-        if _G.TradeSkillFrame and _G.TradeSkillFrame:IsVisible() then
-            local search_box = _G.TradeSkillFrame.SearchBox
-            search_box:ClearFocus()
-            search_box:GetScript("OnEditFocusLost")(search_box)
-            search_box:SetText("")
-        end
+		-- Clear the search box and its focus so the scan will have correct results.
+		if _G.TradeSkillFrame and _G.TradeSkillFrame:IsVisible() then
+			local search_box = _G.TradeSkillFrame.SearchBox
+			search_box:ClearFocus()
+			search_box:GetScript("OnEditFocusLost")(search_box)
+			search_box:SetText("")
+		end
 
-        -- Make sure we're only updating a profession the character actually knows - this could be a scan from a tradeskill link.
-        local isTradesSkillLinked = _G.C_TradeSkillUI.IsTradeSkillLinked() or _G.C_TradeSkillUI.IsTradeSkillGuild()
-        if not isTradesSkillLinked then
-            player.scanned_professions[localizedProfessionName] = true
-        end
+		-- Make sure we're only updating a profession the character actually knows - this could be a scan from a tradeskill link.
+		local isTradesSkillLinked = _G.C_TradeSkillUI.IsTradeSkillLinked() or _G.C_TradeSkillUI.IsTradeSkillGuild()
+		if not isTradesSkillLinked then
+			player.scanned_professions[localizedProfessionName] = true
+		end
 
-        table.wipe(specialtices_indices)
+		table.wipe(specialtices_indices)
 
-        local insertIndex = 1
-        for index = 1, #PROFESSION_BUTTONS do
-            local button = PROFESSION_BUTTONS[index]
-            local spellOffset = button:GetParent().spellOffset
-            local specializationOffset = button:GetParent().specializationOffset
+		local insertIndex = 1
+		for index = 1, #PROFESSION_BUTTONS do
+			local button = PROFESSION_BUTTONS[index]
+			local spellOffset = button:GetParent().spellOffset
+			local specializationOffset = button:GetParent().specializationOffset
 
-            if spellOffset then
-                specialtices_indices[insertIndex] = specializationOffset + spellOffset
-                insertIndex = insertIndex + 1
-            end
-        end
+			if spellOffset then
+				specialtices_indices[insertIndex] = specializationOffset + spellOffset
+				insertIndex = insertIndex + 1
+			end
+		end
 
-        local professionSpecialties = SpecialtyTable[localizedProfessionName]
-        if professionSpecialties then
-            for _, bookIndex in ipairs(specialtices_indices) do
-                local spellName = _G.GetSpellBookItemName(bookIndex, _G.BOOKTYPE_PROFESSION)
-                if not spellName then
-                    break
-                elseif professionSpecialties[spellName] then
-                    private.current_profession_specialty = professionSpecialties[spellName]
-                    break
-                end
-            end
-        end
+		local professionSpecialties = SpecialtyTable[localizedProfessionName]
+		if professionSpecialties then
+			for _, bookIndex in ipairs(specialtices_indices) do
+				local spellName = _G.GetSpellBookItemName(bookIndex, _G.BOOKTYPE_PROFESSION)
+				if not spellName then
+					break
+				elseif professionSpecialties[spellName] then
+					private.current_profession_specialty = professionSpecialties[spellName]
+					break
+				end
+			end
+		end
 
-        -------------------------------------------------------------------------------
-        -- Scan all recipes and mark the ones we know
-        -------------------------------------------------------------------------------
-        local foundRecipeCount = 0
-        local profession = private.Professions[localizedProfessionName]
+		-------------------------------------------------------------------------------
+		-- Scan all recipes and mark the ones we know
+		-------------------------------------------------------------------------------
+		local foundRecipeCount = 0
+		local profession = private.Professions[localizedProfessionName]
 		local recipeIDs = _G.C_TradeSkillUI.GetAllRecipeIDs()
 
 		for recipeIndex = 1, #recipeIDs do
@@ -945,7 +944,7 @@ do
 				local recipe = self:AddRecipe(profession:Module(), {
 					_acquireTypeData = {},
 					_bitflags = {},
-                    _expansionID = private.GetEffectiveExpansionID(),
+					_expansionID = private.GetEffectiveExpansionID(),
 					_localizedName = _G.GetSpellInfo(recipeID),
 					_qualityID = private.ITEM_QUALITIES.COMMON,
 					_spellID = recipeID,
@@ -984,7 +983,7 @@ do
 
 		if invalidRecipesList then
 			for recipeID in pairs(invalidRecipesList) do
-                profession.Recipes[recipeID] = nil
+				profession.Recipes[recipeID] = nil
 				private.recipe_list[recipeID] = nil
 			end
 
@@ -993,30 +992,30 @@ do
 
 		--@end-debug@
 
-        previous_recipe_count = current_recipe_count
-        current_recipe_count = foundRecipeCount
+		previous_recipe_count = current_recipe_count
+		current_recipe_count = foundRecipeCount
 
-        if isRefresh and previous_recipe_count == foundRecipeCount then
-            return
-        end
-        player:UpdateReputations()
+		if isRefresh and previous_recipe_count == foundRecipeCount then
+			return
+		end
+		player:UpdateReputations()
 
-        -------------------------------------------------------------------------------
-        -- Everything is ready - display the GUI or dump the list to text.
-        -------------------------------------------------------------------------------
-        if isTextDump then
-            self:GetTextDump(localizedProfessionName)
-        else
-            private.PreviousProfession = private.CurrentProfession
-            private.CurrentProfession = private.Professions[localizedProfessionName]
+		-------------------------------------------------------------------------------
+		-- Everything is ready - display the GUI or dump the list to text.
+		-------------------------------------------------------------------------------
+		if isTextDump then
+			self:GetTextDump(localizedProfessionName)
+		else
+			private.PreviousProfession = private.CurrentProfession
+			private.CurrentProfession = private.Professions[localizedProfessionName]
 
-            if private.InitializeFrame then
-                private.InitializeFrame()
-            end
+			if private.InitializeFrame then
+				private.InitializeFrame()
+			end
 
-            self.Frame:Display(isTradesSkillLinked)
-        end
-    end
+			self.Frame:Display(isTradesSkillLinked)
+		end
+	end
 end
 
 do
@@ -1141,7 +1140,7 @@ do
 			-- Find out which flags are set
 			for table_index, bits in ipairs(private.FLAG_WORDS) do
 				for flag_name, flag in pairs(bits) do
-                    -- TODO: Rewrite to not access recipe._bitflags directly.
+					-- TODO: Rewrite to not access recipe._bitflags directly.
 					local bitfield = recipe._bitflags[private.FLAG_MEMBERS[table_index]]
 
 					if bitfield and bit.band(bitfield, flag) == flag then
