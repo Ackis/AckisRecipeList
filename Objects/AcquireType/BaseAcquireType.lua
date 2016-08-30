@@ -106,7 +106,7 @@ function AcquireType:GetSortedRecipes()
 end
 
 function AcquireType:GetWaypointEntity(id_num, recipe)
-    return self._func_waypoint_target(self, id_num, recipe)
+    return self._func_waypoint_target and self._func_waypoint_target(self, id_num, recipe) or nil
 end
 
 function AcquireType:HasCoordinates()
