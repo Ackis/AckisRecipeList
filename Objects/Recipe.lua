@@ -403,7 +403,7 @@ function Recipe:AddAcquireData(acquireType, typeLabel, ...)
 	while currentVariableIndex <= variablesCount do
 		-- A quantity of true means unlimited - normal vendor item.
 		local quantity = true
-        local affiliation
+		local affiliation
 		local localizedLocationName
 		local identifier = select(currentVariableIndex, ...)
 		currentVariableIndex = currentVariableIndex + 1
@@ -419,18 +419,18 @@ function Recipe:AddAcquireData(acquireType, typeLabel, ...)
 			if entity then
 				affiliation = entity.faction
 
-                if entity.Location then
-                    entity.Location:AssignRecipe(self, affiliation or true)
-                end
+				if entity.Location then
+					entity.Location:AssignRecipe(self, affiliation or true)
+				end
 
 				entity.item_list[self:SpellID()] = quantity
-            else
-                addon:Debug("Spell ID %d: %s ID %s does not exist in the %s AcquireType's Entity table.",
-                    self:SpellID(),
-                    typeLabel,
-                    identifier,
-                    acquireType:Label())
-            end
+			else
+				addon:Debug("Spell ID %d: %s ID %s does not exist in the %s AcquireType's Entity table.",
+					self:SpellID(),
+					typeLabel,
+					identifier,
+					acquireType:Label())
+			end
 		else
 			local isStringID = type(identifier) == "string"
 
@@ -448,16 +448,16 @@ function Recipe:AddAcquireData(acquireType, typeLabel, ...)
 		end
 
 		if localizedLocationName then
-            local location = private.LocationsByLocalizedName[localizedLocationName]
-            if location then
-                location:AssignRecipe(self, affiliation or true)
-            else
-                if not InvalidLocationRegistry[localizedLocationName] then
-                    addon:Debug("Invalid location: %s", localizedLocationName)
-                    InvalidLocationRegistry[localizedLocationName] = true
-                end
-            end
-        end
+			local location = private.LocationsByLocalizedName[localizedLocationName]
+			if location then
+				location:AssignRecipe(self, affiliation or true)
+			else
+				if not InvalidLocationRegistry[localizedLocationName] then
+					addon:Debug("Invalid location: %s", localizedLocationName)
+					InvalidLocationRegistry[localizedLocationName] = true
+				end
+			end
+		end
 	end
 end
 
