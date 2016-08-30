@@ -512,10 +512,10 @@ function Recipe:AddWorldEvent(...)
 end
 
 function Recipe:AddRepVendor(factionID, reputationLevel, ...)
-    local reputationAcquireType = AcquireTypes.Reputation
-    local vendorAcquireType = AcquireTypes.Vendor
-    local acquireData = self:GetOrCreateAcquireDataOfType(reputationAcquireType, factionID, reputationLevel)
-    local faction = acquireData[factionID]
+	local reputationAcquireType = AcquireTypes.Reputation
+	local vendorAcquireType = AcquireTypes.Vendor
+	local acquireData = self:GetOrCreateAcquireDataOfType(reputationAcquireType, factionID, reputationLevel)
+	local faction = acquireData[factionID]
 
 	local variablesCount = select('#', ...)
 	local currentVariableIndex = 1
@@ -534,9 +534,9 @@ function Recipe:AddRepVendor(factionID, reputationLevel, ...)
 
 					affiliation = reputationVendor.faction
 
-                    if reputationVendor.Location then
-                        reputationVendor.Location:AssignRecipe(self, affiliation or true)
-                    end
+					if reputationVendor.Location then
+						reputationVendor.Location:AssignRecipe(self, affiliation or true)
+					end
 
 					reputationVendor.reputation_id = factionID
 					reputationVendor.item_list[self:SpellID()] = true
@@ -545,12 +545,12 @@ function Recipe:AddRepVendor(factionID, reputationLevel, ...)
 
 					self:AddFilters(private.FILTER_IDS[private.FACTION_LABELS_FROM_ID[factionID]])
 				else
-                    addon:Debug("Spell ID %d (%s): Reputation Vendor ID %s does not exist in the %s AcquireType Entity table.",
-                        self:SpellID(),
-                        tostring(self:LocalizedName()),
-                        tostring(vendorID),
-                        vendorAcquireType:Label())
-                end
+					addon:Debug("Spell ID %d (%s): Reputation Vendor ID %s does not exist in the %s AcquireType Entity table.",
+						self:SpellID(),
+						tostring(self:LocalizedName()),
+						tostring(vendorID),
+						vendorAcquireType:Label())
+				end
 			else
 				addon:Debug("Spell ID %d (%s): Nil Reputation Vendor ID passed.", self:SpellID(), tostring(self:LocalizedName()))
 			end
@@ -558,7 +558,7 @@ function Recipe:AddRepVendor(factionID, reputationLevel, ...)
 			addon:Debug("Spell ID %d: Faction ID %d does not exist in the %s AcquireType Entity table.", self:SpellID(), factionID, reputationAcquireType:Label())
 		end
 
-        reputationAcquireType:AssignRecipe(self:SpellID(), affiliation)
+		reputationAcquireType:AssignRecipe(self:SpellID(), affiliation)
 	end
 
 	self:AddFilters(private.FILTER_IDS.REPUTATION)
@@ -594,19 +594,19 @@ do
 
 		SOFT_FILTERS = {
 			achievement	= { flagName = "ACHIEVEMENT",	field = "common1",	sv_root = obtain_filters },
-			discovery	= { flagName = "DISC",			field = "common1",	sv_root = obtain_filters },
-			instance	= { flagName = "INSTANCE",		field = "common1",	sv_root = obtain_filters },
-			mobdrop		= { flagName = "MOB_DROP",		field = "common1",	sv_root = obtain_filters },
-			pvp			= { flagName = "PVP",			field = "common1",	sv_root = obtain_filters },
-			quest		= { flagName = "QUEST",			field = "common1",	sv_root = obtain_filters },
-			raid		= { flagName = "RAID",			field = "common1",	sv_root = obtain_filters },
-			retired		= { flagName = "RETIRED",		field = "common1",	sv_root = obtain_filters },
+			discovery	= { flagName = "DISC",		field = "common1",	sv_root = obtain_filters },
+			instance	= { flagName = "INSTANCE",	field = "common1",	sv_root = obtain_filters },
+			mobdrop		= { flagName = "MOB_DROP",	field = "common1",	sv_root = obtain_filters },
+			pvp		= { flagName = "PVP",		field = "common1",	sv_root = obtain_filters },
+			quest		= { flagName = "QUEST",		field = "common1",	sv_root = obtain_filters },
+			raid		= { flagName = "RAID",		field = "common1",	sv_root = obtain_filters },
+			retired		= { flagName = "RETIRED",	field = "common1",	sv_root = obtain_filters },
 			reputation	= { flagName = "REPUTATION",	field = "common1",	sv_root = obtain_filters },
 			worldevent	= { flagName = "WORLD_EVENT",	field = "common1",	sv_root = obtain_filters },
-			trainer		= { flagName = "TRAINER",		field = "common1",	sv_root = obtain_filters },
-			vendor		= { flagName = "VENDOR",		field = "common1",	sv_root = obtain_filters },
+			trainer		= { flagName = "TRAINER",	field = "common1",	sv_root = obtain_filters },
+			vendor		= { flagName = "VENDOR",	field = "common1",	sv_root = obtain_filters },
 			worlddrop	= { flagName = "WORLD_DROP",	field = "common1",	sv_root = obtain_filters },
-			custom		= { flagName = "CUSTOM",		field = "common1",	sv_root = obtain_filters },
+			custom		= { flagName = "CUSTOM",	field = "common1",	sv_root = obtain_filters },
 		}
 
 		InitializeFilters = nil
@@ -706,12 +706,12 @@ do
 		end
 
 		local itemFilterType = self:ItemFilterType()
-        if itemFilterType then
-            local professionModule = private.CurrentProfession:Module()
-            if not professionModule or not professionModule.db.profile.filters.item[itemFilterType] then
-                return false
-            end
-        end
+		if itemFilterType then
+			local professionModule = private.CurrentProfession:Module()
+			if not professionModule or not professionModule.db.profile.filters.item[itemFilterType] then
+				return false
+			end
+		end
 
 		-- Assume that recipes without a recipe item are obtained via trainers, and treat them as bind on pickup.
 		local _, recipe_item_binding = self:RecipeItem()
