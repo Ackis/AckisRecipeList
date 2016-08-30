@@ -41,6 +41,27 @@ local BLACKLISTED_RECIPE_IDS
 -----------------------------------------------------------------------
 -- Helpers.
 -----------------------------------------------------------------------
+local AddRecipeToLocation
+do
+	local InvalidLocationRegistry = {}
+
+	function AddRecipeToLocation(recipe, localizedLocationName, affiliation)
+		if not localizedLocationName then
+			return
+		end
+
+		local location = private.LocationsByLocalizedName[localizedLocationName]
+		if location then
+			location:AssignRecipe(recipe, affiliation or true)
+		else
+			if not InvalidLocationRegistry[localizedLocationName] then
+				addon:Debug("Invalid location: %s", localizedLocationName)
+				InvalidLocationRegistry[localizedLocationName] = true
+			end
+		end
+	end
+end
+
 function addon:AddRecipe(module, recipeData)
 	local spellID = recipeData._spellID
 
@@ -65,7 +86,7 @@ function addon:AddRecipe(module, recipeData)
 	end
 	recipeList[spellID] = recipe
 
-    recipe.Profession = module.Profession
+	recipe.Profession = module.Profession
 	recipe.Profession.Recipes[spellID] = recipe
 
 	return recipe
@@ -377,8 +398,6 @@ function Recipe:RemoveFilters(...)
 	SetFilterState(self, false, ...)
 end
 
-local InvalidLocationRegistry = {}
-
 function Recipe:AddAcquireData(acquireType, typeLabel, ...)
 	local acquireData = self:GetOrCreateAcquireDataOfType(acquireType)
 	local isLimitedVendor = typeLabel == "Limited Vendor"
@@ -434,17 +453,7 @@ function Recipe:AddAcquireData(acquireType, typeLabel, ...)
 			acquireType:AssignRecipe(self:SpellID(), affiliation)
 		end
 
-		if localizedLocationName then
-			local location = private.LocationsByLocalizedName[localizedLocationName]
-			if location then
-				location:AssignRecipe(self, affiliation or true)
-			else
-				if not InvalidLocationRegistry[localizedLocationName] then
-					addon:Debug("Invalid location: %s", localizedLocationName)
-					InvalidLocationRegistry[localizedLocationName] = true
-				end
-			end
-		end
+		AddRecipeToLocation(self, localizedLocationName, affiliation)
 	end
 end
 
@@ -456,6 +465,16 @@ end
 function Recipe:AddTrainer(...)
 	self:AddAcquireData(AcquireTypes.Trainer, "Trainer", ...)
 	self:AddFilters(private.FILTER_IDS.TRAINER)
+end
+
+function Recipe:AddTradeSkill(professionID, localizedLocationName)
+	local acquireType = AcquireTypes.TradeSkill
+	local acquireData = self:GetOrCreateAcquireDataOfType(acquireType, professionID, localizedLocationName)
+
+	acquireType:AssignRecipe(self:SpellID())
+
+	AddRecipeToLocation(self, localizedLocationName)
+	self:AddFilters(private.FILTER_IDS.TRADE_SKILL)
 end
 
 function Recipe:AddVendor(...)
@@ -932,6 +951,13 @@ function Recipe:Dump(output, useExpansionID)
 
 			if limitedValues then
 				output:AddLine(("recipe:AddLimitedVendor(%s)"):format(limitedValues), expansionID)
+			end
+		elseif acquireType == AcquireTypes.TradeSkill then
+			for professionID, localizedLocationName in pairs(acquireData) do
+				local professionLabel = private.LOCALIZED_PROFESSION_NAME_TO_LABEL[private.PROFESSION_ID_TO_LOCALIZED_NAME[professionID]]
+				local zoneLabel = private.ZONE_LABELS_FROM_NAME[localizedLocationName]
+
+				output:AddLine(("recipe:AddTradeSkill(PROF.%s, Z.%s)"):format(professionLabel, zoneLabel), expansionID)
 			end
 		elseif DUMP_FUNCTION_FORMATS[acquireType] then
 			local values

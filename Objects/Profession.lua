@@ -18,11 +18,13 @@ local addon = LibStub("AceAddon-3.0"):GetAddon(private.addon_name)
 -------------------------------------------------------------------------------
 local PROFESSION_SPELL_IDS = {
 	ALCHEMY = 2259,
+	ARCHAEOLOGY = 78670, -- Only used for AcquireType.TradeSkill
 	BLACKSMITHING = 2018,
 	COOKING = 2550,
 	ENCHANTING = 7411,
 	ENGINEERING = 4036,
 	FIRSTAID = 3273,
+	FISHING = 7731, -- Only used for AcquireType.TradeSkill
 	INSCRIPTION = 45357,
 	JEWELCRAFTING = 25229,
 	LEATHERWORKING = 2108,
@@ -36,10 +38,18 @@ private.constants.PROFESSION_SPELL_IDS = PROFESSION_SPELL_IDS
 local LOCALIZED_PROFESSION_NAMES = {}
 private.LOCALIZED_PROFESSION_NAMES = LOCALIZED_PROFESSION_NAMES
 
+local LOCALIZED_PROFESSION_NAME_TO_LABEL = {}
+private.LOCALIZED_PROFESSION_NAME_TO_LABEL = LOCALIZED_PROFESSION_NAME_TO_LABEL
+
+local PROFESSION_ID_TO_LOCALIZED_NAME = {}
+private.PROFESSION_ID_TO_LOCALIZED_NAME = PROFESSION_ID_TO_LOCALIZED_NAME
+
 for label, spellID in pairs(PROFESSION_SPELL_IDS) do
 	local professionName = _G.GetSpellInfo(spellID)
 
+	LOCALIZED_PROFESSION_NAME_TO_LABEL[professionName] = label
 	LOCALIZED_PROFESSION_NAMES[label] = professionName
+	PROFESSION_ID_TO_LOCALIZED_NAME[spellID] = professionName
 end
 
 -- This is needed due to Pandaren cooking spells.

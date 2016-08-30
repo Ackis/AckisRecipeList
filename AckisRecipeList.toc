@@ -76,6 +76,7 @@ Objects\AcquireType\MobDrop.lua
 Objects\AcquireType\Quest.lua
 Objects\AcquireType\Reputation.lua
 Objects\AcquireType\Retired.lua
+Objects\AcquireType\TradeSkill.lua
 Objects\AcquireType\Trainer.lua
 Objects\AcquireType\Vendor.lua
 Objects\AcquireType\WorldDrop.lua

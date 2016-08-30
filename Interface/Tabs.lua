@@ -229,6 +229,9 @@ local AcquireDataExpandPredicates = {
 	[AcquireTypes.Achievement] = function(obtainFilters, shouldHideType)
 		return obtainFilters.achievement
 	end,
+	[AcquireTypes.TradeSkill] = function(obtainFilters, shouldHideType)
+		return obtainFilters.tradeskill
+	end,
 }
 
 local function ExpandAcquireData(listEntryIndex, listEntryType, parentListEntry, acquireType, acquireTypeData, recipe, shouldHideLocation, shouldHideType)
