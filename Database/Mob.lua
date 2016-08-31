@@ -63,6 +63,7 @@ function addon:InitMob()
 	AddMob(80927,	BN.CORDANA_FELSONG,		Z.VAULT_OF_THE_WARDENS,				0, 0) -- Enchanting, Jewelcrafting
 	AddMob(96028,	BN.WRATH_OF_AZSHARA,		Z.EYE_OF_AZSHARA,				57.7, 53.6) -- Alchemy, Inscription
 	AddMob(98208,	BN.ADVISOR_VANDROS,		Z.THE_ARCWAY,					0, 0) -- Engineering, Jewelcrafting
+	AddMob(99611,	BN.THE_AMALGAM_OF_SOULS,	Z.BLACK_ROOK_HOLD,				0, 0) -- Jewelcrafting, Leatherworking
 	AddMob(100497,	BN.URSOC,			Z.THE_EMERALD_NIGHTMARE,			0, 0) -- Enchanting, Inscription
 	AddMob(101403,	BN.SHADE_OF_XAVIUS,		Z.DARKHEART_THICKET,				0, 0) -- Enchanting, Jewelcrafting
 	AddMob(102387,	BN.SAELORN,			Z.VIOLET_HOLD,					0, 0) -- Engineering, Inscription, Leatherworking, Jewelcrafting
