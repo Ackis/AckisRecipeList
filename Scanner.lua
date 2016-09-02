@@ -98,7 +98,12 @@ do
 
 		addon:InitializeProfession(trainerProfession)
 
-		local professionRecipes = private.Professions[trainerProfession].Recipes
+		local profession = private.Professions[trainerProfession]
+		if not profession then
+			return
+		end
+
+		local professionRecipes = profession.Recipes
 		if not professionRecipes then
 			self:Debug(L["DATAMINER_NODB_ERROR"])
 			return
