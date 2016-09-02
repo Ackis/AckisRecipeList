@@ -26,7 +26,7 @@ local L = LibStub("AceLocale-3.0"):GetLocale(private.addon_name)
 -------------------------------------------------------------------------------
 -- Constants
 -------------------------------------------------------------------------------
-local NO_ROLE_FLAG	-- Populated at the end of the file.
+local NO_ROLE_FLAG -- Populated at the end of the file.
 
 -------------------------------------------------------------------------------
 -- Functions/methods
@@ -48,12 +48,12 @@ end
 local ARLDatamineTT = _G.CreateFrame("GameTooltip", "ARLDatamineTT", _G.UIParent, "GameTooltipTemplate")
 do
 	-- Tables used in addon:ScanTrainerData
-    local ExtraSpellIDs = {}
-    local IncorrectItemIDs = {}
-    local MismatchedRecipeLevels = {}
-    local MissingSpellIDs = {}
-    local ScannedRecipeIDToItemIDMapping = {}
-    local ScannedRecipeIDToSkillLevelMapping = {}
+	local ExtraSpellIDs = {}
+	local IncorrectItemIDs = {}
+	local MismatchedRecipeLevels = {}
+	local MissingSpellIDs = {}
+	local ScannedRecipeIDToItemIDMapping = {}
+	local ScannedRecipeIDToSkillLevelMapping = {}
 
 	--- Function to compare which recipes are available from a trainer and compare with the internal ARL database.
 	-- @name AckisRecipeList:ScanTrainerData
@@ -119,7 +119,7 @@ do
 			ScannedRecipeIDToSkillLevelMapping[spellID] = skillLevel
 
 			if itemID then
-                ScannedRecipeIDToItemIDMapping[spellID] = itemID
+				ScannedRecipeIDToItemIDMapping[spellID] = itemID
 			end
 		end
 		ARLDatamineTT:Hide()
@@ -149,44 +149,44 @@ do
 			addon:AddTrainer(trainerID, trainerName, _G.GetRealZoneText(), trainer_x, trainer_y, private.Player.faction)
 		end
 
-        table.wipe(MissingSpellIDs)
-        table.wipe(ExtraSpellIDs)
-        table.wipe(IncorrectItemIDs)
-        table.wipe(MismatchedRecipeLevels)
+		table.wipe(MissingSpellIDs)
+		table.wipe(ExtraSpellIDs)
+		table.wipe(IncorrectItemIDs)
+		table.wipe(MismatchedRecipeLevels)
 
-        for recipeSpellID, recipe in pairs(professionRecipes) do
-            local scannedRecipeItemID = ScannedRecipeIDToItemIDMapping[recipeSpellID]
-            local scannedRecipeSkillLevel = ScannedRecipeIDToSkillLevelMapping[recipeSpellID]
-            local recipeTrainerData = recipe:AcquireDataOfType(private.AcquireTypes.Trainer)
-            local recipeMatchesTrainer = recipeTrainerData and recipeTrainerData[trainerID]
+		for recipeSpellID, recipe in pairs(professionRecipes) do
+			local scannedRecipeItemID = ScannedRecipeIDToItemIDMapping[recipeSpellID]
+			local scannedRecipeSkillLevel = ScannedRecipeIDToSkillLevelMapping[recipeSpellID]
+			local recipeTrainerData = recipe:AcquireDataOfType(private.AcquireTypes.Trainer)
+			local recipeMatchesTrainer = recipeTrainerData and recipeTrainerData[trainerID]
 
-            if recipeMatchesTrainer then
-                if not scannedRecipeSkillLevel then
-                    table.insert(ExtraSpellIDs, recipeSpellID)
-                end
-            elseif scannedRecipeSkillLevel then
-                table.insert(MissingSpellIDs, recipeSpellID)
+			if recipeMatchesTrainer then
+				if not scannedRecipeSkillLevel then
+					table.insert(ExtraSpellIDs, recipeSpellID)
+				end
+			elseif scannedRecipeSkillLevel then
+				table.insert(MissingSpellIDs, recipeSpellID)
 
-                if not tonumber(trainerName) and not L[trainerName] then
-                        L[trainerName] = true
-                end
-                recipe:AddTrainer(trainerID)
+				if not tonumber(trainerName) and not L[trainerName] then
+					L[trainerName] = true
+				end
+				recipe:AddTrainer(trainerID)
 
-                if not recipe:HasFilter("common1", "TRAINER") then
-                    recipe:AddFilters(private.FILTER_IDS.TRAINER)
-                    output:AddLine(("    %s -- %d: Added trainer flag."):format(recipe:LocalizedName(), recipeSpellID))
-                end
-            end
+				if not recipe:HasFilter("common1", "TRAINER") then
+					recipe:AddFilters(private.FILTER_IDS.TRAINER)
+					output:AddLine(("    %s -- %d: Added trainer flag."):format(recipe:LocalizedName(), recipeSpellID))
+				end
+			end
 
-            if scannedRecipeSkillLevel and scannedRecipeSkillLevel ~= recipe:SkillLevels() then
-                table.insert(MismatchedRecipeLevels, recipeSpellID)
-            end
+			if scannedRecipeSkillLevel and scannedRecipeSkillLevel ~= recipe:SkillLevels() then
+				table.insert(MismatchedRecipeLevels, recipeSpellID)
+			end
 
-            if scannedRecipeItemID and scannedRecipeItemID ~= recipe:CraftedItem() then
-                recipe:SetCraftedItem(scannedRecipeItemID, "BIND_ON_EQUIP")
-                table.insert(IncorrectItemIDs, recipeSpellID)
-            end
-        end
+			if scannedRecipeItemID and scannedRecipeItemID ~= recipe:CraftedItem() then
+				recipe:SetCraftedItem(scannedRecipeItemID, "BIND_ON_EQUIP")
+				table.insert(IncorrectItemIDs, recipeSpellID)
+			end
+		end
 
 		if #MissingSpellIDs > 0 then
 			output:AddLine("\nTrainer is missing from the following entries:")
@@ -194,7 +194,7 @@ do
 
 			for index in ipairs(MissingSpellIDs) do
 				local recipeSpellID = MissingSpellIDs[index]
-                output:AddLine(("    %s -- %d"):format(professionRecipes[recipeSpellID]:LocalizedName(), recipeSpellID))
+				output:AddLine(("    %s -- %d"):format(professionRecipes[recipeSpellID]:LocalizedName(), recipeSpellID))
 			end
 		end
 
@@ -204,7 +204,7 @@ do
 
 			for index in ipairs(ExtraSpellIDs) do
 				local recipeSpellID = ExtraSpellIDs[index]
-                output:AddLine(("    %s -- %s"):format(professionRecipes[recipeSpellID]:LocalizedName(), recipeSpellID))
+				output:AddLine(("    %s -- %s"):format(professionRecipes[recipeSpellID]:LocalizedName(), recipeSpellID))
 			end
 		end
 
@@ -227,8 +227,8 @@ do
 				local recipe = professionRecipes[spellID]
 				local recipeSkillLevel = recipe:SkillLevels()
 				local correctedSkillLevel = ScannedRecipeIDToSkillLevelMapping[spellID]
-                output:AddLine(("    %s -- %d:"):format(recipe:LocalizedName(), spellID))
-                output:AddLine(("        %d => %d."):format(recipeSkillLevel, correctedSkillLevel))
+				output:AddLine(("    %s -- %d:"):format(recipe:LocalizedName(), spellID))
+				output:AddLine(("        %d => %d."):format(recipeSkillLevel, correctedSkillLevel))
 				recipe:SetSkillLevels(correctedSkillLevel)
 			end
 		end
@@ -248,7 +248,7 @@ do
 		_G.SetTrainerServiceTypeFilter("unavailable", unavailable or 0)
 		_G.SetTrainerServiceTypeFilter("used", used or 0)
 	end
-end	-- do
+end -- do
 
 -------------------------------------------------------------------------------
 -- Datamining copy frame.
@@ -425,7 +425,7 @@ do
 		bg_texture:SetTexture("Interface/SpellBook/UI-Spellbook-SpellBackground")
 		bg_texture:SetWidth(button_width + 4)
 		bg_texture:SetHeight(button_height + 6)
-		bg_texture:SetTexCoord(0, (43/64), 0, (43/64))
+		bg_texture:SetTexCoord(0, (43 / 64), 0, (43 / 64))
 		bg_texture:SetPoint("CENTER", button, "CENTER", 0, 0)
 
 		local icon_texture = button:CreateTexture(nil, "BORDER")
@@ -669,7 +669,7 @@ do
 	local function Sort_AscID(a, b)
 		local reca, recb = private.recipe_list[a], private.recipe_list[b]
 
-		return reca:SpellID()< recb:SpellID()
+		return reca:SpellID() < recb:SpellID()
 	end
 
 	local function SortRecipesByID()
@@ -892,30 +892,22 @@ do
 
 			if trainer then
 				if trainer.spell_id then
-					output:AddLine(
-						("self:AddTrainer(%s, %s, Z.%s, %s, %s, \"%s\")"):format(
-							identifier,
-							trainer.spell_id,
-							trainer.Location:Label(),
-							trainer.coord_x,
-							trainer.coord_y,
-							trainer.faction
-						)
-					)
+					output:AddLine(("self:AddTrainer(%s, %s, Z.%s, %s, %s, \"%s\")"):format(identifier,
+						trainer.spell_id,
+						trainer.Location:Label(),
+						trainer.coord_x,
+						trainer.coord_y,
+						trainer.faction))
 				else
-					output:AddLine(
-						("self:AddTrainer(%s, \"%s\", Z.%s, %s, %s, \"%s\")"):format(
-							identifier,
-							trainer.name:gsub("\"", "\\\""),
-                            trainer.Location:Label(),
-							trainer.coord_x,
-							trainer.coord_y,
-							trainer.faction
-						)
-					)
+					output:AddLine(("self:AddTrainer(%s, \"%s\", Z.%s, %s, %s, \"%s\")"):format(identifier,
+						trainer.name:gsub("\"", "\\\""),
+						trainer.Location:Label(),
+						trainer.coord_x,
+						trainer.coord_y,
+						trainer.faction))
 				end
 			end
-        end
+		end
 
 		output:Display()
 	end
@@ -940,7 +932,7 @@ do
 		end
 		self:Debug(L["DATAMINER_NODB_ERROR"])
 	end
-end	-- do
+end -- do
 
 local RECIPE_TYPES = {
 	-- JC
@@ -959,7 +951,6 @@ local RECIPE_TYPES = {
 	["manual: "] = true,
 	-- Inscription
 	["technique: "] = true,
-
 	["alchemy: "] = true,
 	["blacksmithing: "] = true,
 	["cooking: "] = true,
@@ -982,40 +973,40 @@ do
 
 	local function NormalizeVendorData(recipeSpellID, supply, vendorID, vendorName)
 		local recipe = private.recipe_list[recipeSpellID]
-        local vendorAcquireType = private.AcquireTypes.Vendor
-        local sourceExistsInData = false
+		local vendorAcquireType = private.AcquireTypes.Vendor
+		local sourceExistsInData = false
 
-        local vendorData = recipe:AcquireDataOfType(vendorAcquireType)
-        if vendorData then
-            for sourceID in pairs(vendorData) do
-                if sourceID == vendorID then
-                    sourceExistsInData = true
-                    break
-            end
-            end
-        else
-            local reputationData = recipe:AcquireDataOfType(private.AcquireTypes.Reputation)
-            if reputationData then
-                for id_num, info in pairs(reputationData) do
-                    if sourceExistsInData then
-                        break
-                    end
+		local vendorData = recipe:AcquireDataOfType(vendorAcquireType)
+		if vendorData then
+			for sourceID in pairs(vendorData) do
+				if sourceID == vendorID then
+					sourceExistsInData = true
+					break
+				end
+			end
+		else
+			local reputationData = recipe:AcquireDataOfType(private.AcquireTypes.Reputation)
+			if reputationData then
+				for id_num, info in pairs(reputationData) do
+					if sourceExistsInData then
+						break
+					end
 
-                    for reputationLevel, dataForLevel in pairs(info) do
-                        if sourceExistsInData then
-                            break
-                        end
+					for reputationLevel, dataForLevel in pairs(info) do
+						if sourceExistsInData then
+							break
+						end
 
-                        for rep_vendor_id in pairs(dataForLevel) do
-                            if rep_vendor_id == vendorID then
-                                sourceExistsInData = true
-                                break
-                            end
-                        end
-                    end
-                end
-            end
-        end
+						for rep_vendor_id in pairs(dataForLevel) do
+							if rep_vendor_id == vendorID then
+								sourceExistsInData = true
+								break
+							end
+						end
+					end
+				end
+			end
+		end
 
 		local vendor = vendorAcquireType:GetEntity(vendorID)
 		local vendorX, vendorY = _G.GetPlayerMapPosition("player")
@@ -1081,7 +1072,7 @@ do
 			self:Debug(L["DATAMINER_VENDOR_NOTTARGETTED"])
 			return
 		end
-		local recipe_list = private.LoadAllRecipes()		-- Get internal database
+		local recipe_list = private.LoadAllRecipes() -- Get internal database
 
 		if not recipe_list then
 			self:Debug(L["DATAMINER_NODB_ERROR"])
@@ -1141,7 +1132,7 @@ do
 		end
 		ARLDatamineTT:Hide()
 	end
-end	-- do
+end -- do
 
 --- Parses all the recipes in the database, and scanning their tooltips.
 -- @name AckisRecipeList:TooltipScanDatabase
