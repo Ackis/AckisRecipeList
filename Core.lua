@@ -741,19 +741,16 @@ local SUBCOMMAND_FUNCS = {
 		end
 	end,
 	debug = function()
-		local DebugFrame = private.DebugFrame
-		if not DebugFrame then
-			private.CreateDebugFrame()
-			DebugFrame = private.DebugFrame
-		end
+		local debugger = private.GetDebugger()
 
-		if DebugFrame:Lines() == 0 then
-			DebugFrame:AddLine("Nothing to report.")
-			DebugFrame:Display()
-			DebugFrame:Clear()
+		if debugger:Lines() == 0 then
+			debugger:AddLine("Nothing to report.")
+			debugger:Display()
+			debugger:Clear()
 			return
 		end
-		DebugFrame:Display()
+
+		debugger:Display()
 	end,
 	--@debug@
 	dump = function(arg1, arg2)
