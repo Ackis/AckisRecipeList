@@ -3,9 +3,12 @@
 -------------------------------------------------------------------------------
 local _G = getfenv(0)
 
-local string = _G.string
-
+-- Functions
 local pairs = _G.pairs
+local tostring = _G.tostring
+
+-- Functions
+local string = _G.string
 
 -------------------------------------------------------------------------------
 -- AddOn namespace.
@@ -53,7 +56,7 @@ private.AcquireTypes = {}
 -------------------------------------------------------------------------------
 function AcquireType:AddEntity(module, entity)
     if self._entities[entity.identifier] then
-        private:Debug("Duplicate %s entity from %s: %s - %s.", self:Name(), module.Name, entity.identifier, entity.name)
+        private.Debug("Duplicate %s entity from %s: %s - %s.", self:Name(), module.Name, entity.identifier, tostring(entity.name))
         return
     end
 
