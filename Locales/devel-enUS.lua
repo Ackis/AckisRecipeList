@@ -526,6 +526,7 @@ L["Feera"] = true
 L["Felannia"] = true
 L["Felicia Doan"] = true
 L["Felika"] = true
+L["Felsmith Nal'ryssa"] = true
 L["Fendrig Redbeard"] = true
 L["Fera Palerunner"] = true
 L["Festive Recipes"] = true
