@@ -21,27 +21,34 @@ private.constants = constants
 -------------------------------------------------------------------------------
 -- Debugger.
 -------------------------------------------------------------------------------
-local DebugFrame -- Only defined if needed.
+do
+	local TextDump = LibStub("LibTextDump-1.0")
 
-local function CreateDebugFrame()
-    if DebugFrame then
-        return
-    end
-    DebugFrame = LibStub("LibTextDump-1.0"):New(("%s Debug Output"):format(private.addon_name), 640, 480)
-    private.DebugFrame = DebugFrame
+	local DEBUGGER_WIDTH = 750
+	local DEBUGGER_HEIGHT = 800
+
+	local debugger
+
+	function private.Debug(...)
+		if not debugger then
+			debugger = TextDump:New(("%s Debug Output"):format(FOLDER_NAME), DEBUGGER_WIDTH, DEBUGGER_HEIGHT)
+		end
+
+		local message = string.format(...)
+		debugger:AddLine(message, "%X")
+
+		return message
+	end
+
+	function private.GetDebugger()
+		if not debugger then
+			debugger = TextDump:New(("%s Debug Output"):format(FOLDER_NAME), DEBUGGER_WIDTH, DEBUGGER_HEIGHT)
+		end
+
+		return debugger
+	end
 end
-private.CreateDebugFrame = CreateDebugFrame
 
-function private.Debug(...)
-    if not DebugFrame then
-        CreateDebugFrame()
-    end
-
-    local text = string.format(...)
-    DebugFrame:AddLine(text)
-
-    return text
-end
 
 -------------------------------------------------------------------------------
 -- General constants.
