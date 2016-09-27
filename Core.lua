@@ -494,16 +494,7 @@ local TRADESKILL_ADDON_INITS = {
 }
 
 function addon:TRADE_SKILL_SHOW()
-	local player_name = private.PLAYER_NAME
-	local realm_name = private.REALM_NAME
-
 	local professionID, localizedProfessionName = _G.C_TradeSkillUI.GetTradeSkillLine()
-
-	if not _G.C_TradeSkillUI.IsTradeSkillLinked() and not _G.C_TradeSkillUI.IsTradeSkillGuild() then
-		self.db.global.tradeskill[realm_name][player_name][localizedProfessionName] = _G.C_TradeSkillUI.GetTradeSkillListLink()
-	else
-		self.db.global.tradeskill[realm_name][player_name][localizedProfessionName] = nil
-	end
 
 	local scan_button = self.scan_button
 	if not scan_button then
