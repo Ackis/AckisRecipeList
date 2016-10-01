@@ -471,48 +471,38 @@ end
 -- Create the scan button
 -------------------------------------------------------------------------------
 local TRADESKILL_ADDON_INITS = {
-	BPM_ShowTrainerFrame = function(scan_button)
-		scan_button:SetParent(_G.BPM_ShowTrainerFrame)
-		scan_button:SetPoint("RIGHT", _G.BPM_ShowTrainerFrame, "LEFT", 4, 0)
-		scan_button:SetWidth(scan_button:GetTextWidth() + 10)
-		scan_button:Show()
+	BPM_ShowTrainerFrame = function(scanButton)
+		scanButton:SetParent(_G.BPM_ShowTrainerFrame)
+		scanButton:SetPoint("RIGHT", _G.BPM_ShowTrainerFrame, "LEFT", 4, 0)
+		scanButton:SetWidth(scanButton:GetTextWidth() + 10)
+		scanButton:Show()
 	end,
-	Skillet = function(scan_button)
+	Skillet = function(scanButton)
 		if not _G.Skillet:IsActive() then
 			return
 		end
-		scan_button:SetParent(_G.SkilletFrame)
-		scan_button:SetWidth(80)
-		_G.Skillet:AddButtonToTradeskillWindow(scan_button)
+		scanButton:SetParent(_G.SkilletFrame)
+		scanButton:SetWidth(80)
+		_G.Skillet:AddButtonToTradeskillWindow(scanButton)
 	end,
-	TSMCraftingTradeSkillFrame = function(scan_button)
+	TSMCraftingTradeSkillFrame = function(scanButton)
 		local anchor = _G.TSMCraftingTradeSkillFrame
-		scan_button:SetParent(anchor)
-		scan_button:SetPoint("TOPRIGHT", anchor, "TOPRIGHT", -30, -3)
-		scan_button:Show()
+		scanButton:SetParent(anchor)
+		scanButton:SetPoint("TOPRIGHT", anchor, "TOPRIGHT", -30, -3)
+		scanButton:Show()
 	end,
 }
 
 function addon:TRADE_SKILL_SHOW()
-	local player_name = private.PLAYER_NAME
-	local realm_name = private.REALM_NAME
+	local scanButton = self.scan_button
 
-	local professionID, localizedProfessionName = _G.C_TradeSkillUI.GetTradeSkillLine()
+	if not scanButton then
+		scanButton = _G.CreateFrame("Button", nil, _G.TradeSkillFrame, "UIPanelButtonTemplate")
+		scanButton:SetHeight(20)
+		scanButton:RegisterForClicks("LeftButtonUp")
+		scanButton:SetText(L["Scan"])
 
-	if not _G.C_TradeSkillUI.IsTradeSkillLinked() and not _G.C_TradeSkillUI.IsTradeSkillGuild() then
-		self.db.global.tradeskill[realm_name][player_name][localizedProfessionName] = _G.C_TradeSkillUI.GetTradeSkillListLink()
-	else
-		self.db.global.tradeskill[realm_name][player_name][localizedProfessionName] = nil
-	end
-
-	local scan_button = self.scan_button
-	if not scan_button then
-		scan_button = _G.CreateFrame("Button", nil, _G.TradeSkillFrame, "UIPanelButtonTemplate")
-		scan_button:SetHeight(20)
-		scan_button:RegisterForClicks("LeftButtonUp")
-		scan_button:SetText(L["Scan"])
-
-		scan_button:SetScript("OnClick", function(self, _, _)
+		scanButton:SetScript("OnClick", function(self, mouseButton, isDown)
 			local isShiftKeyDown = _G.IsShiftKeyDown()
 			local isAltKeyDown = _G.IsAltKeyDown()
 			local isControlKeyDown = _G.IsControlKeyDown()
@@ -546,7 +536,7 @@ function addon:TRADE_SKILL_SHOW()
 			end
 		end)
 
-		scan_button:SetScript("OnEnter", function(self)
+		scanButton:SetScript("OnEnter", function(self)
 			local tooltip = _G.GameTooltip
 
 			_G.GameTooltip_SetDefaultAnchor(tooltip, self)
@@ -557,43 +547,45 @@ function addon:TRADE_SKILL_SHOW()
 			--@end-debug@
 			tooltip:Show()
 		end)
-		scan_button:SetScript("OnLeave", function() _G.GameTooltip:Hide() end)
 
-		self.scan_button = scan_button
+		scanButton:SetScript("OnLeave", _G.GameTooltip_Hide)
+
+		self.scan_button = scanButton
 	end
 
-	-- Grab the first lucky Trade Skill AddOn that exists and hand the scan button to it.
-	for entity, init_func in pairs(TRADESKILL_ADDON_INITS) do
+	-- Grab the first lucky TradeSkill AddOn that exists and hand the scan button to it.
+	for entity, initFunction in pairs(TRADESKILL_ADDON_INITS) do
 		if _G[entity] then
-			scan_button:ClearAllPoints()
-			init_func(scan_button)
+			scanButton:ClearAllPoints()
+			initFunction(scanButton)
 			break
 		end
 	end
-	scan_button:Enable()
 
-	if scan_button:GetParent() == _G.TradeSkillFrame then
+	scanButton:Enable()
+
+	if scanButton:GetParent() == _G.TradeSkillFrame then
 		local scanButtonLocation = addon.db.profile.scanbuttonlocation
 
 		if scanButtonLocation == "TR" then
-			scan_button:SetPoint("RIGHT", _G.TradeSkillFrameCloseButton, "LEFT", 4, 0)
+			scanButton:SetPoint("RIGHT", _G.TradeSkillFrameCloseButton, "LEFT", 4, 0)
 		elseif scanButtonLocation == "TL" then
-			scan_button:SetPoint("LEFT", _G.TradeSkillFramePortrait, "RIGHT", 2, 12)
+			scanButton:SetPoint("LEFT", _G.TradeSkillFramePortrait, "RIGHT", 2, 12)
 		elseif scanButtonLocation == "BR" then
-			scan_button:SetPoint("TOP", _G.TradeSkillCancelButton, "BOTTOM", 0, -5)
+			scanButton:SetPoint("TOP", _G.TradeSkillCancelButton, "BOTTOM", 0, -5)
 		elseif scanButtonLocation == "BL" then
-			scan_button:SetPoint("TOP", _G.TradeSkillCreateAllButton, "BOTTOM", 0, -5)
+			scanButton:SetPoint("TOP", _G.TradeSkillCreateAllButton, "BOTTOM", 0, -5)
 		end
 
-		scan_button:SetWidth(scan_button:GetTextWidth() + 10)
+		scanButton:SetWidth(scanButton:GetTextWidth() + 10)
 	end
 
 	local professionID, localizedProfessionName = _G.C_TradeSkillUI.GetTradeSkillLine()
 
 	if private.LOCALIZED_PROFESSION_NAME_TO_MODULE_NAME_MAPPING[localizedProfessionName] then
-		scan_button:Show()
+		scanButton:Show()
 	else
-		scan_button:Hide()
+		scanButton:Hide()
 	end
 end
 
