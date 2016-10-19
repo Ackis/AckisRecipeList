@@ -77,6 +77,7 @@ function addon:InitCustom()
 	AddCustom("TRANQUIL_MIND",		Z.DALARAN_BROKENISLES,		41.1, 35.8)
 	AddCustom("LEGION_BOSSES",		Z.BROKEN_ISLES)
 	AddCustom("ARCHAEOLOGY_HIGHBORNE")
+	AddCustom("WITHERED_ARMY")
 
 	self.InitCustom = nil
 end

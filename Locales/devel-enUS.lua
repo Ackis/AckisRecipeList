@@ -1488,6 +1488,7 @@ L["Vosur Brakthel"] = true
 L["WATERLOGGED_CACHE"] = "Available from Waterlogged Cache of Ancient Relics in Helmouth Cliffs (Heroic)."
 L["WAYPOINT_MAP_FORMAT"] = "Create waypoints for missing recipes on the %s."
 L["WAYPOINT_TOGGLE_FORMAT"] = "Create waypoints for %s recipes."
+L["WITHERED_ARMY"] = "Available from a small chest in the Withered Army Scenario."
 L["WORLD_DROP_DESC"] = "Recipes that are World Drops should be included in the scan."
 L["WORLD_QUEST"] = "Available via a World Quest."
 L["Waldor"] = true
