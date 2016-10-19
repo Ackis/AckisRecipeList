@@ -61,6 +61,7 @@ function addon:InitMob()
 	AddMob(50063,	L["Akma'hat"],			Z.ULDUM,					38.0, 60.2) -- Tailoring, Jewelcrafting
 	AddMob(50089,	L["Julak-Doom"],		Z.TWILIGHT_HIGHLANDS,				55.0, 11.4) -- Tailoring, Jewelcrafting
 	AddMob(80927,	BN.CORDANA_FELSONG,		Z.VAULT_OF_THE_WARDENS,				0, 0) -- Enchanting, Jewelcrafting
+	AddMob(94923,	BN.LORD_KURTALOS_RAVENCREST,	Z.BLACK_ROOK_HOLD,				0, 0) -- Alchemy, Jewelcrafting
 	AddMob(96028,	BN.WRATH_OF_AZSHARA,		Z.EYE_OF_AZSHARA,				57.7, 53.6) -- Alchemy, Inscription
 	AddMob(98208,	BN.ADVISOR_VANDROS,		Z.THE_ARCWAY,					0, 0) -- Engineering, Leatherworking, Jewelcrafting
 	AddMob(99611,	BN.THE_AMALGAM_OF_SOULS,	Z.BLACK_ROOK_HOLD,				0, 0) -- Jewelcrafting, Leatherworking
