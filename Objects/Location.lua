@@ -247,9 +247,9 @@ local ZONE_MAP_IDS = {
 	VIOLET_HOLD = 1066,
 	DARKHEART_THICKET = 1067,
 	FIRELANDS = 1071, -- get rid of debug
-	THE_ARCWAY = { 1079, 1102, },
+	THE_ARCWAY = 1079,
 	THUNDER_TOTEM = 1080,
-	BLACK_ROOK_HOLD = { 1081, 1099, },
+	BLACK_ROOK_HOLD = 1081,
 	COURT_OF_STARS = 1087,
 	THE_NIGHTHOLD = 1088,
 	THE_EMERALD_NIGHTMARE = 1094,
@@ -296,10 +296,21 @@ local COSMIC_MAP_IDS = {
 	HYJAL_SUMMIT = 775,
 	THE_WANDERING_ISLE = 808,
 	DARKMOON_ISLAND = 823,
+	IRON_DOCKS = 987,
+	BLACKROCK_FOUNDRY = 988,
+	SKYREACH = 989,
+	UPPER_BLACKROCK_SPIRE = 995,
+	VAULT_OF_THE_WARDENS = 1032,
 	HALLS_OF_VALOR = 1041,
+	HELMOUTH_CLIFFS = 1042,
+	EYE_OF_AZSHARA = 1046,
 	VIOLET_HOLD = 1066,
+	THE_ARCWAY = 1079,
+	BLACK_ROOK_HOLD = 1081,
+	COURT_OF_STARS = 1087,
 	THE_NIGHTHOLD = 1088,
 	THE_EMERALD_NIGHTMARE = 1094,
+
 }
 
 local COSMIC_MAP_LOCATION_PARENT_MAPPING = {
@@ -464,8 +475,8 @@ local function AddLocation(continentID, mapID, parentLocation)
 
 		return location
 		-- Uncomment for debugging purposes when adding new map IDs
-		--              else
-		--                    private.Debug("No entry in ZONE_LABELS_FROM_MAP_ID for mapID %s (%s) - continentID %s.", mapID or "nil", _G.GetMapNameByID(mapID), continentID)
+		              else
+		                    private.Debug("No entry in ZONE_LABELS_FROM_MAP_ID for mapID %s (%s) - continentID %s.", mapID or "nil", _G.GetMapNameByID(mapID), continentID)
 	end
 end
 
