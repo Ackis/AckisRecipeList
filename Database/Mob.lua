@@ -69,7 +69,7 @@ function addon:InitMob()
 	AddMob(101403,	BN.SHADE_OF_XAVIUS,		Z.DARKHEART_THICKET,				0, 0) -- Enchanting, Jewelcrafting
 	AddMob(102387,	BN.SAELORN,			Z.VIOLET_HOLD,					0, 0) -- Engineering, Inscription, Leatherworking, Jewelcrafting
 	AddMob(103769,	BN.XAVIUS,			Z.THE_EMERALD_NIGHTMARE,			0, 0) -- Enchanting, Inscription
-	AddMob(106576,	BN.ADVISOR_MELANDRUS,		Z.COURT_OF_STARS,				0, 0) -- Enchanting, Jewelcrafting
+	AddMob(104218,	BN.ADVISOR_MELANDRUS,		Z.COURT_OF_STARS,				0, 0) -- Alchemy, Enchanting, Jewelcrafting, Leatherworking
 	AddMob(107704,	BN.DARGRUL_THE_UNDERKING,	Z.NELTHARIONS_LAIR,				17.0, 70.0) -- Jewelcrafting, Leatherworking
 	AddMob(110962,	BN.ODYN,			Z.HALLS_OF_VALOR,				0.0,  0.0) -- Jewelcrafting, Leatherworking
 	AddMob(111000,	BN.ELERETHE_RENFERAL,		Z.THE_EMERALD_NIGHTMARE,			0, 0) -- Enchanting, Inscription
