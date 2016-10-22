@@ -71,9 +71,9 @@ function addon:InitMob()
 	AddMob(102387,	BN.SAELORN,			Z.VIOLET_HOLD,					0, 0) -- Engineering, Inscription, Leatherworking, Jewelcrafting
 	AddMob(103769,	BN.XAVIUS,			Z.THE_EMERALD_NIGHTMARE,			0, 0) -- Enchanting, Inscription
 	AddMob(104218,	BN.ADVISOR_MELANDRUS,		Z.COURT_OF_STARS,				0, 0) -- Alchemy, Enchanting, Jewelcrafting, Leatherworking
+	AddMob(104636,	BN.CENARIUS,			Z.THE_EMERALD_NIGHTMARE,			0.0, 0.0) -- Alchemy, Inscription
 	AddMob(110962,	BN.ODYN,			Z.HALLS_OF_VALOR,				0.0,  0.0) -- Jewelcrafting, Leatherworking
 	AddMob(111000,	BN.ELERETHE_RENFERAL,		Z.THE_EMERALD_NIGHTMARE,			0, 0) -- Enchanting, Inscription
-
 
 	self.InitMob = nil
 end
