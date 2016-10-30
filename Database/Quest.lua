@@ -64,6 +64,7 @@ function addon:InitQuest()
 	end
 
 	AddQuest(8323,	Z.SILITHUS,			67.1,	69.7,	"Neutral") -- Blacksmithing, Tailoring
+	AddQuest(43943,	Z.SURAMAR,			36.5,	46.8,	"Neutral") -- Jewelcrafting, Leatherworking
 
 	self.InitQuest = nil
 end
