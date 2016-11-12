@@ -138,7 +138,7 @@ function addon:InitVendor()
 	AddVendor(97362,	L["Dazzik \"Proudmoore\""],		Z.DALARAN_BROKENISLES,		66.2,	74.1,	"Neutral") -- Jewelcrafting, Tailoring
 	AddVendor(97363,	L["K'huta"],				Z.DALARAN_BROKENISLES,		65.7,	80.3,	"Neutral") -- Enchanting, Inscription
 	AddVendor(97366,	L["The Widow"],				Z.DALARAN_BROKENISLES,		71.8,	73.8,	"Neutral") -- Jewelcrafting, Engineering, Inscription
-	AddVendor(97140,	L["First Arcanist Thalyssra"],		Z.SURAMAR,			36.8,	46.6,	"Neutral") -- Enchanting, Tailoring
+	AddVendor(97140,	L["First Arcanist Thalyssra"],		Z.SURAMAR,			36.8,	46.6,	"Neutral") -- Enchanting, Tailoring, Alchemy
 	AddVendor(106901,	L["Sylvia Hartshorn"],			Z.VALSHARAH,			54.7,	73.2,	"Neutral") -- Enchanting, Leatherworking
 	AddVendor(106902,	L["Ransa Greyfeather"],			Z.THUNDER_TOTEM,		38.8,	45.4,	"Neutral") -- Jewelcrafting, Blacksmithing
 	AddVendor(106904,	L["Valdemar Stormseeker"],		Z.STORMHEIM,			60.2,	51.2,	"Neutral") -- Leatherworking, Blacksmithing
@@ -146,7 +146,7 @@ function addon:InitVendor()
 	AddVendor(107376,	L["Veridis Fallon"],			Z.AZSUNA,			46.9,	41.4,	"Neutral") -- Inscriptions, Tailoring
 	AddVendor(107379,	L["Marin Bladewing"],			Z.AZSUNA,			48.2,	73.8,	"Neutral") -- Inscription, Jewelcrafting, Engineering
 	AddVendor(107760,	L["Strap Bucklebolt"],			Z.DALARAN_BROKENISLES,		66.4,	81.4,	"Neutral") -- Blacksmithing, Leatherworking, Tailoring
-
+	AddVendor(115736,	L["First Arcanist Thalyssra"],		Z.SURAMAR,			36.8,	46.6,	"Neutral") -- Enchanting, Tailoring, Alchemy
 
 	self.InitVendor = nil
 end
