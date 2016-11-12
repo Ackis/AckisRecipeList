@@ -515,6 +515,7 @@ private.BOSS_NAMES = {
 	HIGH_BOTANIST_TELARN = _G.EJ_GetEncounterInfo(1761),
 	TICHONDRIUS = _G.EJ_GetEncounterInfo(1762),
 	CALAMIR = _G.EJ_GetEncounterInfo(1774),
+	NAZAK_THE_FIEND = _G.EJ_GetEncounterInfo(1783),
 	ANA_MOUZ = _G.EJ_GetEncounterInfo(1790),
 }
 
