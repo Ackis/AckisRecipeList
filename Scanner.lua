@@ -1,8 +1,6 @@
 -- ----------------------------------------------------------------------------
 -- Upvalued Lua API.
 -- ----------------------------------------------------------------------------
-local _G = getfenv(0)
-
 -- Functions
 local ipairs, pairs = _G.ipairs, _G.pairs
 local tonumber, tostring = _G.tonumber, _G.tostring

@@ -1,8 +1,6 @@
 -- ----------------------------------------------------------------------------
 -- Localized Lua globals.
 -- ----------------------------------------------------------------------------
-local _G = getfenv(0)
-
 -- Functions
 local pairs, ipairs = _G.pairs, _G.ipairs
 local select = _G.select

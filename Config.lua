@@ -1,8 +1,6 @@
 -- ----------------------------------------------------------------------------
 -- Upvalued Lua API
 -- ----------------------------------------------------------------------------
-local _G = getfenv(0)
-
 -- Functions
 local pairs = _G.pairs
 local type = _G.type
@@ -14,15 +12,15 @@ local table = _G.table
 -- ----------------------------------------------------------------------------
 -- AddOn namespace.
 -- ----------------------------------------------------------------------------
-local FOLDER_NAME, private	= ...
+local FOLDER_NAME, private = ...
 
 local LibStub = _G.LibStub
 
-local addon		= LibStub("AceAddon-3.0"):GetAddon(private.addon_name)
-local L			= LibStub("AceLocale-3.0"):GetLocale(private.addon_name)
+local addon = LibStub("AceAddon-3.0"):GetAddon(private.addon_name)
+local L = LibStub("AceLocale-3.0"):GetLocale(private.addon_name)
 
-local AceConfigReg 	= LibStub("AceConfigRegistry-3.0")
-local AceConfigDialog 	= LibStub("AceConfigDialog-3.0")
+local AceConfigReg = LibStub("AceConfigRegistry-3.0")
+local AceConfigDialog = LibStub("AceConfigDialog-3.0")
 
 -- ----------------------------------------------------------------------------
 -- Constants
