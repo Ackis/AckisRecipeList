@@ -20,7 +20,7 @@ function addon:InitCustom()
 			faction = faction,
 			identifier = identifier,
 			item_list = {},
-			location = zoneName,
+			locationName = zoneName,
 			name = L[identifier],
 		})
 	end

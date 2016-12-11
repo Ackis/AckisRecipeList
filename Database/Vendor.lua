@@ -22,7 +22,7 @@ function addon:InitVendor()
 			faction = faction,
 			identifier = identifier,
 			item_list = {},
-			location = location,
+			locationName = location,
 			name = name,
 		})
 	end

@@ -14,7 +14,7 @@ function addon:InitWorldEvents()
 			identifier = identifier,
 			item_list = {},
 			name = name,
-			location = _G.GetCategoryInfo(155)
+			locationName = _G.GetCategoryInfo(155)
 		})
 	end
 

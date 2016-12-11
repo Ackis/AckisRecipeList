@@ -31,7 +31,7 @@ function addon:InitTrainer()
 			faction = faction,
 			identifier = trainerID,
 			item_list = {},
-			location = zoneName,
+			locationName = zoneName,
 			name = trainerName,
 		})
 	end
