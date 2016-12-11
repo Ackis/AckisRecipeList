@@ -60,10 +60,9 @@ function AcquireType:AddEntity(module, entity)
 		return
 	end
 
-	-- TODO: Rename "location" to "locationName" in all of the profession modules so the intent is clear.
-	if entity.location then
-		entity.Location = private.LocationsByLocalizedName[entity.location]
-		entity.location = nil
+	if entity.locationName then
+		entity.Location = private.LocationsByLocalizedName[entity.locationName]
+		entity.locationName = nil
 	elseif self:HasCoordinates() then
 		private.Debug("%s %s (%s) has an unknown location.", self:Name(), entity.name or _G.UNKNOWN, entity.identifier)
 	end
