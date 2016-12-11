@@ -1,7 +1,6 @@
--------------------------------------------------------------------------------
+-- ----------------------------------------------------------------------------
 -- Localized Lua globals.
--------------------------------------------------------------------------------
-local _G = getfenv(0)
+-- ----------------------------------------------------------------------------
 
 -- Functions
 local pairs = _G.pairs
@@ -10,19 +9,19 @@ local tostring = _G.tostring
 -- Functions
 local string = _G.string
 
--------------------------------------------------------------------------------
+-- ----------------------------------------------------------------------------
 -- AddOn namespace.
--------------------------------------------------------------------------------
+-- ----------------------------------------------------------------------------
 local FOLDER_NAME, private = ...
 
--------------------------------------------------------------------------------
+-- ----------------------------------------------------------------------------
 -- Imports.
--------------------------------------------------------------------------------
+-- ----------------------------------------------------------------------------
 local REPUTATION_COLORS = private.REPUTATION_COLORS
 
--------------------------------------------------------------------------------
+-- ----------------------------------------------------------------------------
 -- Objects.
--------------------------------------------------------------------------------
+-- ----------------------------------------------------------------------------
 local AcquireType = {
 	EntryPadding = "    ",
 	RecipeQualityColors = _G.setmetatable({}, {
@@ -51,19 +50,18 @@ private.constants.ACQUIRE_TYPE_IDS = private.ACQUIRE_TYPE_IDS
 
 private.AcquireTypes = {}
 
--------------------------------------------------------------------------------
+-- ----------------------------------------------------------------------------
 -- AcquireType Methods.
--------------------------------------------------------------------------------
+-- ----------------------------------------------------------------------------
 function AcquireType:AddEntity(module, entity)
 	if self._entities[entity.identifier] then
 		private.Debug("Duplicate %s entity from %s: %s - %s.", self:Name(), module.Name, entity.identifier, tostring(entity.name))
 		return
 	end
 
-	-- TODO: Rename "location" to "locationName" in all of the profession modules so the intent is clear.
-	if entity.location then
-		entity.Location = private.LocationsByLocalizedName[entity.location]
-		entity.location = nil
+	if entity.locationName then
+		entity.Location = private.LocationsByLocalizedName[entity.locationName]
+		entity.locationName = nil
 	elseif self:HasCoordinates() then
 		private.Debug("%s %s (%s) has an unknown location.", self:Name(), entity.name or _G.UNKNOWN, entity.identifier)
 	end
@@ -140,9 +138,9 @@ function AcquireType:RecipePairs()
 	return pairs(self._recipes)
 end
 
--------------------------------------------------------------------------------
+-- ----------------------------------------------------------------------------
 -- AcquireType Functions.
--------------------------------------------------------------------------------
+-- ----------------------------------------------------------------------------
 function AcquireType.GetTipFactionInfo(comp_faction)
 	local display_tip = true
 	local color_table
@@ -176,9 +174,9 @@ function AcquireType.ColorNameByFaction(name, faction)
 	return name
 end
 
--------------------------------------------------------------------------------
+-- ----------------------------------------------------------------------------
 -- Instantiation.
--------------------------------------------------------------------------------
+-- ----------------------------------------------------------------------------
 function private.RegisterAcquireType(acquireType)
 	local index = #private.ACQUIRE_TYPES_BY_ID + 1
 	acquireType._id = index

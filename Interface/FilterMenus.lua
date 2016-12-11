@@ -1,28 +1,26 @@
--------------------------------------------------------------------------------
+-- ----------------------------------------------------------------------------
 -- Localized Lua globals.
--------------------------------------------------------------------------------
-local _G = getfenv(0)
-
+-- ----------------------------------------------------------------------------
 -- Functions
 local pairs = _G.pairs
 
--------------------------------------------------------------------------------
+-- ----------------------------------------------------------------------------
 -- AddOn namespace.
--------------------------------------------------------------------------------
+-- ----------------------------------------------------------------------------
 local FOLDER_NAME, private = ...
 
 local LibStub = _G.LibStub
 local addon	= LibStub("AceAddon-3.0"):GetAddon(private.addon_name)
 local L		= LibStub("AceLocale-3.0"):GetLocale(private.addon_name)
 
--------------------------------------------------------------------------------
+-- ----------------------------------------------------------------------------
 -- Upvalues
--------------------------------------------------------------------------------
+-- ----------------------------------------------------------------------------
 local SetTooltipScripts = private.SetTooltipScripts
 
--------------------------------------------------------------------------------
+-- ----------------------------------------------------------------------------
 -- Constants
--------------------------------------------------------------------------------
+-- ----------------------------------------------------------------------------
 local FILTERMENU_WIDTH		= 306
 local FILTERMENU_HEIGHT		= 343
 
@@ -44,10 +42,10 @@ local CATEGORY_TOOLTIP = {
 
 local LFAC = private.LOCALIZED_FACTION_STRINGS_FROM_LABEL
 
--------------------------------------------------------------------------------
+-- ----------------------------------------------------------------------------
 -- Function to create and initialize a check-button with the given values.
 -- Used in all of the sub-menus of MainPanel.filter_menu
--------------------------------------------------------------------------------
+-- ----------------------------------------------------------------------------
 do
 	local function CheckButton_OnClick(self, button, down)
 		local value = addon.Frame.filter_menu.value_map[self.script_val]
@@ -88,9 +86,9 @@ do
 	addon.GenerateCheckBoxes = private.GenerateCheckBoxes -- TODO: Move this somewhere more sensical.
 end	-- do
 
--------------------------------------------------------------------------------
+-- ----------------------------------------------------------------------------
 -- Functions for initializing specific filter menu panels.
--------------------------------------------------------------------------------
+-- ----------------------------------------------------------------------------
 -- Set all the current options in the filter menu to make sure they are consistent with the SV options.
 function private.UpdateFilterMarks()
 	for filter, info in pairs(addon.Frame.filter_menu.value_map) do
@@ -108,9 +106,9 @@ end
 function private.InitializeFilterPanel()
 	local MainPanel = addon.Frame
 
-	-------------------------------------------------------------------------------
+	-- ----------------------------------------------------------------------------
 	-- The filter_reset button
-	-------------------------------------------------------------------------------
+	-- ----------------------------------------------------------------------------
 	local filter_reset_name = ("%s_FilterMenuResetButton"):format(FOLDER_NAME)
 	local filter_reset = _G.CreateFrame("Button", filter_reset_name, MainPanel, "UIPanelButtonTemplate")
 	filter_reset:SetWidth(78)
@@ -161,10 +159,10 @@ function private.InitializeFilterPanel()
 		end)
 	end	-- do
 
-	-------------------------------------------------------------------------------
+	-- ----------------------------------------------------------------------------
 	-- This manages the filter menu panel, as well as checking or unchecking the
 	-- buttons that got us here in the first place
-	-------------------------------------------------------------------------------
+	-- ----------------------------------------------------------------------------
 	local function ToggleFilterMenu(panel)
 		local rep_menu = MainPanel.filter_menu.rep
 
@@ -194,9 +192,9 @@ function private.InitializeFilterPanel()
 		end
 	end
 
-	-------------------------------------------------------------------------------
+	-- ----------------------------------------------------------------------------
 	-- Main filter_menu frame.
-	-------------------------------------------------------------------------------
+	-- ----------------------------------------------------------------------------
 	local FilterPanel = _G.CreateFrame("Frame", nil, MainPanel)
 	FilterPanel:SetWidth(FILTERMENU_WIDTH)
 	FilterPanel:SetHeight(FILTERMENU_HEIGHT)
@@ -221,9 +219,9 @@ function private.InitializeFilterPanel()
 	end
 	MainPanel.filter_menu = FilterPanel
 
-	-------------------------------------------------------------------------------
+	-- ----------------------------------------------------------------------------
 	-- Create the seven buttons for opening/closing the filter menus
-	-------------------------------------------------------------------------------
+	-- ----------------------------------------------------------------------------
 	local toggle_container = _G.CreateFrame("Frame", nil, MainPanel)
 	toggle_container:SetSize(283, 22)
 	toggle_container:SetPoint("BOTTOM", MainPanel.filter_menu, "TOP", 0, 5)
@@ -311,14 +309,14 @@ function private.InitializeFilterPanel()
 	MainPanel.menu_toggle_rep = rep
 	MainPanel.menu_toggle_misc = misc
 
-	-------------------------------------------------------------------------------
+	-- ----------------------------------------------------------------------------
 	-- Create FilterPanel.general, and set its scripts.
-	-------------------------------------------------------------------------------
+	-- ----------------------------------------------------------------------------
 	local general_frame = FilterPanel:CreateSubMenu("general")
 
-	-------------------------------------------------------------------------------
+	-- ----------------------------------------------------------------------------
 	-- Create the General toggle and CheckButtons.
-	-------------------------------------------------------------------------------
+	-- ----------------------------------------------------------------------------
 	local general_toggle = _G.CreateFrame("Button", nil, general_frame)
 	general_toggle:SetWidth(105)
 	general_toggle:SetHeight(20)
@@ -363,9 +361,9 @@ function private.InitializeFilterPanel()
 
 	private.GenerateCheckBoxes(general_frame, general_buttons, general_panel)
 
-	-------------------------------------------------------------------------------
+	-- ----------------------------------------------------------------------------
 	-- Create the Class toggle and CheckButtons.
-	-------------------------------------------------------------------------------
+	-- ----------------------------------------------------------------------------
 	local class_toggle = _G.CreateFrame("Button", nil, general_frame)
 	class_toggle:SetWidth(105)
 	class_toggle:SetHeight(20)
@@ -420,15 +418,15 @@ function private.InitializeFilterPanel()
 
 	private.GenerateCheckBoxes(general_frame, class_buttons, class_panel)
 
-	-------------------------------------------------------------------------------
+	-- ----------------------------------------------------------------------------
 	-- Create FilterPanel.obtain, and set its scripts.
-	-------------------------------------------------------------------------------
+	-- ----------------------------------------------------------------------------
 	do
 		local obtain_frame = FilterPanel:CreateSubMenu("obtain")
 
-		-------------------------------------------------------------------------------
+		-- ----------------------------------------------------------------------------
 		-- Create the Acquisition toggle and CheckButtons
-		-------------------------------------------------------------------------------
+		-- ----------------------------------------------------------------------------
 		local acquire_toggle = _G.CreateFrame("Button", nil, obtain_frame)
 		acquire_toggle:SetWidth(105)
 		acquire_toggle:SetHeight(20)
@@ -482,9 +480,9 @@ function private.InitializeFilterPanel()
 
 		private.GenerateCheckBoxes(obtain_frame, acquire_buttons, acquire_panel)
 
-		-------------------------------------------------------------------------------
+		-- ----------------------------------------------------------------------------
 		-- Create the Version toggle and CheckButtons
-		-------------------------------------------------------------------------------
+		-- ----------------------------------------------------------------------------
 		local version_toggle = _G.CreateFrame("Button", nil, obtain_frame)
 		version_toggle:SetWidth(105)
 		version_toggle:SetHeight(20)
@@ -531,15 +529,15 @@ function private.InitializeFilterPanel()
 		ExpansionDesc = nil
 	end	-- do-block
 
-	-------------------------------------------------------------------------------
+	-- ----------------------------------------------------------------------------
 	-- Create FilterPanel.binding, and set its scripts.
-	-------------------------------------------------------------------------------
+	-- ----------------------------------------------------------------------------
 	do
 		local binding_frame = FilterPanel:CreateSubMenu("binding")
 
-		-------------------------------------------------------------------------------
+		-- ----------------------------------------------------------------------------
 		-- Create the toggle and CheckButtons
-		-------------------------------------------------------------------------------
+		-- ----------------------------------------------------------------------------
 		local binding_toggle = _G.CreateFrame("Button", nil, binding_frame)
 		binding_toggle:SetWidth(105)
 		binding_toggle:SetHeight(20)
@@ -581,9 +579,9 @@ function private.InitializeFilterPanel()
 		private.GenerateCheckBoxes(binding_frame, binding_buttons, binding_panel)
 	end	-- do-block
 
-	-------------------------------------------------------------------------------
+	-- ----------------------------------------------------------------------------
 	-- Create FilterPanel.item, and set its scripts.
-	-------------------------------------------------------------------------------
+	-- ----------------------------------------------------------------------------
 	do
 		local item_frame = FilterPanel:CreateSubMenu("item")
 		item_frame:SetScript("OnHide", function(self)
@@ -602,15 +600,15 @@ function private.InitializeFilterPanel()
 		end)
 	end	-- do-block
 
-	-------------------------------------------------------------------------------
+	-- ----------------------------------------------------------------------------
 	-- Create FilterPanel.quality, and set its scripts.
-	-------------------------------------------------------------------------------
+	-- ----------------------------------------------------------------------------
 	do
 		local quality_frame = FilterPanel:CreateSubMenu("quality")
 
-		-------------------------------------------------------------------------------
+		-- ----------------------------------------------------------------------------
 		-- Create the toggle and CheckButtons
-		-------------------------------------------------------------------------------
+		-- ----------------------------------------------------------------------------
 		local quality_toggle = _G.CreateFrame("Button", nil, quality_frame)
 		quality_toggle:SetWidth(105)
 		quality_toggle:SetHeight(20)
@@ -656,15 +654,15 @@ function private.InitializeFilterPanel()
 		private.GenerateCheckBoxes(quality_frame, quality_buttons, quality_panel)
 	end	-- do-block
 
-	-------------------------------------------------------------------------------
+	-- ----------------------------------------------------------------------------
 	-- Create FilterPanel.player, and set its scripts.
-	-------------------------------------------------------------------------------
+	-- ----------------------------------------------------------------------------
 	do
 		local player_frame = FilterPanel:CreateSubMenu("player")
 
-		-------------------------------------------------------------------------------
+		-- ----------------------------------------------------------------------------
 		-- Create the toggle and CheckButtons
-		-------------------------------------------------------------------------------
+		-- ----------------------------------------------------------------------------
 		local role_toggle = _G.CreateFrame("Button", nil, player_frame)
 		role_toggle:SetWidth(105)
 		role_toggle:SetHeight(20)
@@ -706,9 +704,9 @@ function private.InitializeFilterPanel()
 		private.GenerateCheckBoxes(player_frame, role_buttons, role_panel)
 	end	-- do-block
 
-	-------------------------------------------------------------------------------
+	-- ----------------------------------------------------------------------------
 	-- Create FilterPanel.rep, and set its scripts.
-	-------------------------------------------------------------------------------
+	-- ----------------------------------------------------------------------------
 	do
 		local rep_frame = FilterPanel:CreateSubMenu("rep")
 
@@ -717,9 +715,9 @@ function private.InitializeFilterPanel()
 			EXPANSION_TOOLTIPS[("expansion%d"):format(index - 1)] = L["EXPANSION_FILTER_FORMAT"]:format(_G[("EXPANSION_NAME%d"):format(index - 1)])
 		end
 
-		-------------------------------------------------------------------------------
+		-- ----------------------------------------------------------------------------
 		-- This manages the WoW expansion reputation filter menu panel
-		-------------------------------------------------------------------------------
+		-- ----------------------------------------------------------------------------
 		local function ToggleExpansionMenu(panel)
 			local toggle = "toggle_" .. panel
 			local button = rep_frame[toggle]
@@ -745,9 +743,9 @@ function private.InitializeFilterPanel()
 			end
 		end
 
-		-------------------------------------------------------------------------------
+		-- ----------------------------------------------------------------------------
 		-- Generic function to create expansion buttons.
-		-------------------------------------------------------------------------------
+		-- ----------------------------------------------------------------------------
 		function rep_frame:CreateExpansionButton(expansionIndex)
 			local expansionString = ("expansion%d"):format(expansionIndex)
 			local cButton = _G.CreateFrame("CheckButton", nil, self)
@@ -787,9 +785,9 @@ function private.InitializeFilterPanel()
 			return cButton
 		end
 
-		-------------------------------------------------------------------------------
+		-- ----------------------------------------------------------------------------
 		-- Create the expansion toggles.
-		-------------------------------------------------------------------------------
+		-- ----------------------------------------------------------------------------
 		local expansion_buttons = {}
 		for expansionIndex = 1, #private.GAME_VERSION_NAMES do
 			local expansion_button = rep_frame:CreateExpansionButton(expansionIndex - 1)
@@ -827,9 +825,9 @@ function private.InitializeFilterPanel()
 		MainPanel.list_frame:Update(nil, false)
 	end
 
-	-------------------------------------------------------------------------------
+	-- ----------------------------------------------------------------------------
 	-- Create FilterPanel.rep.expansionX, and set its scripts.
-	-------------------------------------------------------------------------------
+	-- ----------------------------------------------------------------------------
 	local function CreateExpansionFrame(expansion_num)
 		local expansion_frame = _G.CreateFrame("Frame", nil, FilterPanel.rep)
 		expansion_frame:SetWidth(200)
@@ -842,9 +840,9 @@ function private.InitializeFilterPanel()
 
 		FilterPanel.rep[("expansion%d"):format(expansion_num)] = expansion_frame
 
-		-------------------------------------------------------------------------------
+		-- ----------------------------------------------------------------------------
 		-- Create the Reputation toggle and CheckButtons
-		-------------------------------------------------------------------------------
+		-- ----------------------------------------------------------------------------
 		local expansion_buttons = {}
 		local reputations = private[("EXPANSION%d_REPUTATIONS"):format(expansion_num)]
 
@@ -875,9 +873,9 @@ function private.InitializeFilterPanel()
 		CreateExpansionFrame(index - 1)
 	end
 
-	-------------------------------------------------------------------------------
+	-- ----------------------------------------------------------------------------
 	-- Miscellaneous Filter Menu
-	-------------------------------------------------------------------------------
+	-- ----------------------------------------------------------------------------
 	FilterPanel.misc = _G.CreateFrame("Frame", "ARL_FilterMenu_Misc", FilterPanel)
 	FilterPanel.misc:SetWidth(FILTERMENU_WIDTH)
 	FilterPanel.misc:SetHeight(280)
@@ -889,23 +887,23 @@ function private.InitializeFilterPanel()
 
 	-- TODO: Add something here, since the Alt-Tradeskills code has been excised.
 
-	-------------------------------------------------------------------------------
+	-- ----------------------------------------------------------------------------
 	-- Now that everything exists, populate the global filter table
-	-------------------------------------------------------------------------------
+	-- ----------------------------------------------------------------------------
 	local filterdb = addon.db.profile.filters
 
 	FilterPanel.value_map = {
-		------------------------------------------------------------------------------------------------
+		-- ---------------------------------------------------------------------------------------------
 		-- General Options
-		------------------------------------------------------------------------------------------------
+		-- ---------------------------------------------------------------------------------------------
 		specialty		= { cb = FilterPanel.general.specialty,			svroot = filterdb.general },
 		skill			= { cb = FilterPanel.general.skill,			svroot = filterdb.general },
 		faction			= { cb = FilterPanel.general.faction,			svroot = filterdb.general },
 		known			= { cb = FilterPanel.general.known,			svroot = filterdb.general },
 		unknown			= { cb = FilterPanel.general.unknown,			svroot = filterdb.general },
-		------------------------------------------------------------------------------------------------
+		-- ---------------------------------------------------------------------------------------------
 		-- Classes
-		------------------------------------------------------------------------------------------------
+		-- ---------------------------------------------------------------------------------------------
 		deathknight		= { cb = FilterPanel.general.deathknight,		svroot = filterdb.classes },
 		druid			= { cb = FilterPanel.general.druid,			svroot = filterdb.classes },
 		hunter			= { cb = FilterPanel.general.hunter,			svroot = filterdb.classes },
@@ -918,47 +916,47 @@ function private.InitializeFilterPanel()
 		warlock			= { cb = FilterPanel.general.warlock,			svroot = filterdb.classes },
 		warrior			= { cb = FilterPanel.general.warrior,			svroot = filterdb.classes },
 		demonhunter		= { cb = FilterPanel.general.demonhunter,		svroot = filterdb.classes },
-		------------------------------------------------------------------------------------------------
+		-- ---------------------------------------------------------------------------------------------
 		-- Obtain Options
-		------------------------------------------------------------------------------------------------
+		-- ---------------------------------------------------------------------------------------------
         	instance		= { cb = FilterPanel.obtain.instance,			svroot = filterdb.obtain },
         	pvp			= { cb = FilterPanel.obtain.pvp,			svroot = filterdb.obtain },
         	raid			= { cb = FilterPanel.obtain.raid,			svroot = filterdb.obtain },
-		------------------------------------------------------------------------------------------------
+		-- ---------------------------------------------------------------------------------------------
 		-- Binding Options
-		------------------------------------------------------------------------------------------------
+		-- ---------------------------------------------------------------------------------------------
 		item_bind_on_equip	= { cb = FilterPanel.binding.item_bind_on_equip,	svroot = filterdb.binding },
 		item_bind_on_pickup	= { cb = FilterPanel.binding.item_bind_on_pickup,	svroot = filterdb.binding },
 		recipe_bind_on_equip	= { cb = FilterPanel.binding.recipe_bind_on_equip,	svroot = filterdb.binding },
 		recipe_bind_on_pickup	= { cb = FilterPanel.binding.recipe_bind_on_pickup,	svroot = filterdb.binding },
-		------------------------------------------------------------------------------------------------
+		-- ---------------------------------------------------------------------------------------------
 		-- Role Options
-		------------------------------------------------------------------------------------------------
+		-- ---------------------------------------------------------------------------------------------
 		tank			= { cb = FilterPanel.player.tank,			svroot = filterdb.player },
 		melee			= { cb = FilterPanel.player.melee,			svroot = filterdb.player },
 		healer			= { cb = FilterPanel.player.healer,			svroot = filterdb.player },
 		caster			= { cb = FilterPanel.player.caster,			svroot = filterdb.player },
 	}
 
-    ------------------------------------------------------------------------------------------------
+    -- ---------------------------------------------------------------------------------------------
     -- Quality Options
-    ------------------------------------------------------------------------------------------------
+    -- ---------------------------------------------------------------------------------------------
     for index = 1, #private.ITEM_QUALITY_NAMES - 2 do
         local filterName = private.ITEM_QUALITY_NAMES[index]:lower()
         FilterPanel.value_map[filterName] = { cb = FilterPanel.quality[filterName], svroot = filterdb.quality }
     end
 
-    ------------------------------------------------------------------------------------------------
+    -- ---------------------------------------------------------------------------------------------
     -- Obtain Options
-    ------------------------------------------------------------------------------------------------
+    -- ---------------------------------------------------------------------------------------------
     for acquireTypeLabel, acquireType in pairs(private.AcquireTypes) do
         local filterName = acquireTypeLabel:lower()
         FilterPanel.value_map[filterName] = { cb = FilterPanel.obtain[filterName], svroot = filterdb.obtain }
     end
 
-    ------------------------------------------------------------------------------------------------
+    -- ---------------------------------------------------------------------------------------------
 	-- Expansion and Reputation Options
-	------------------------------------------------------------------------------------------------
+	-- ---------------------------------------------------------------------------------------------
 	for expansionIndex = 1, #private.GAME_VERSION_NAMES do
 		local expansionName = ("expansion%d"):format(expansionIndex - 1)
 		FilterPanel.value_map[expansionName] = { cb = FilterPanel.obtain[expansionName], svroot = filterdb.obtain }

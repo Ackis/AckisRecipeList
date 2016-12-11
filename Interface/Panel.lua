@@ -1,8 +1,6 @@
--------------------------------------------------------------------------------
+-- ----------------------------------------------------------------------------
 -- Localized Lua globals.
--------------------------------------------------------------------------------
-local _G = getfenv(0)
-
+-- ----------------------------------------------------------------------------
 local select = _G.select
 
 local math = _G.math
@@ -13,9 +11,9 @@ local ipairs, pairs = _G.ipairs, _G.pairs
 local tonumber = _G.tonumber
 local tostring = _G.tostring
 
--------------------------------------------------------------------------------
+-- ----------------------------------------------------------------------------
 -- AddOn namespace.
--------------------------------------------------------------------------------
+-- ----------------------------------------------------------------------------
 local FOLDER_NAME, private	= ...
 
 local LibStub = _G.LibStub
@@ -23,9 +21,9 @@ local addon	= LibStub("AceAddon-3.0"):GetAddon(private.addon_name)
 local L		= LibStub("AceLocale-3.0"):GetLocale(private.addon_name)
 
 function private.InitializeFrame()
-	-------------------------------------------------------------------------------
+	-- ----------------------------------------------------------------------------
 	-- Create the MainPanel and set its values
-	-------------------------------------------------------------------------------
+	-- ----------------------------------------------------------------------------
 	local MainPanel = _G.CreateFrame("Frame", "ARL_MainPanel", _G.UIParent)
 
 	-- The panel width changes when contracting and expanding - store it for later use.
@@ -81,9 +79,9 @@ function private.InitializeFrame()
 		MainPanel:Hide()
 	end	-- do block
 
-	-------------------------------------------------------------------------------
+	-- ----------------------------------------------------------------------------
 	-- MainPanel scripts/functions.
-	-------------------------------------------------------------------------------
+	-- ----------------------------------------------------------------------------
 	MainPanel:SetScript("OnHide", function(self)
 		private.DismissDialogs()
 	end)
@@ -113,9 +111,9 @@ function private.InitializeFrame()
 		opts.offsety = y
 	end)
 
-	-------------------------------------------------------------------------------
+	-- ----------------------------------------------------------------------------
 	-- Displays the main GUI frame.
-	-------------------------------------------------------------------------------
+	-- ----------------------------------------------------------------------------
 	function MainPanel:Display(isTradeSkillLinked)
 		self.is_linked = isTradeSkillLinked
 		self.prof_button:SetTexture()
@@ -193,9 +191,9 @@ function private.InitializeFrame()
 	end
 
 	do
-		-------------------------------------------------------------------------------
+		-- ----------------------------------------------------------------------------
 		-- Restore the panel's position on the screen.
-		-------------------------------------------------------------------------------
+		-- ----------------------------------------------------------------------------
 		local function Reset_Position(self)
 			local opts = addon.db.profile.frameopts
 			local FixedOffsetX = opts.offsetx
@@ -337,9 +335,9 @@ function private.InitializeFrame()
 		self.title_bar:SetFormattedText(private.SetTextColor(private.BASIC_COLORS.normal.hex, "ARL (%s) - %s (%d/%d %s)"), addon.version, localizedProfessionName, active, total, _G.FILTERS)
 	end
 
-	-------------------------------------------------------------------------------
+	-- ----------------------------------------------------------------------------
 	-- Create the profession-cycling button and assign its values.
-	-------------------------------------------------------------------------------
+	-- ----------------------------------------------------------------------------
 	local profession_cycler = _G.CreateFrame("Button", nil, MainPanel)
 	profession_cycler:SetSize(60, 60)
 	profession_cycler:SetPoint("TOPLEFT", 7, -6)
@@ -353,9 +351,9 @@ function private.InitializeFrame()
 	MainPanel.profession_texture = profession_texture
 
 
-	-------------------------------------------------------------------------------
+	-- ----------------------------------------------------------------------------
 	-- ProfCycle scripts/functions.
-	-------------------------------------------------------------------------------
+	-- ----------------------------------------------------------------------------
 	do
 		-- Changes to the TradeSkill handling in Legion necessitate a 0.1 second timer to run this function.
 		local function ScanCurrentProfession()
@@ -430,9 +428,9 @@ function private.InitializeFrame()
 		_G.SetPortraitToTexture("ARL_ProfessionButtonPortrait", _G.C_TradeSkillUI.GetTradeSkillTexture(_G.C_TradeSkillUI.GetTradeSkillLine()))
 	end
 
-	-------------------------------------------------------------------------------
+	-- ----------------------------------------------------------------------------
 	-- The search entry box and associated methods.
-	-------------------------------------------------------------------------------
+	-- ----------------------------------------------------------------------------
 	local SearchRecipes
 	do
 		local recipe_fields = {
@@ -555,9 +553,9 @@ function private.InitializeFrame()
 		end
 	end	-- do-block
 
-	-------------------------------------------------------------------------------
+	-- ----------------------------------------------------------------------------
 	-- Search EditBox
-	-------------------------------------------------------------------------------
+	-- ----------------------------------------------------------------------------
 	local SearchBox = _G.CreateFrame("EditBox", "ARL_SearchBox", MainPanel, "SearchBoxTemplate")
 
 	SearchBox:EnableMouse(true)
@@ -713,9 +711,9 @@ function private.InitializeFrame()
 		end)
 	end	-- do
 
-	-------------------------------------------------------------------------------
+	-- ----------------------------------------------------------------------------
 	-- Create the expand button and set its scripts.
-	-------------------------------------------------------------------------------
+	-- ----------------------------------------------------------------------------
 	local expand_button_frame = _G.CreateFrame("Frame", nil, MainPanel)
 
 	expand_button_frame:SetHeight(20)
@@ -809,9 +807,9 @@ function private.InitializeFrame()
 		private.SetTooltipScripts(self, L["EXPANDALL_DESC"])
 	end
 
-	-------------------------------------------------------------------------------
+	-- ----------------------------------------------------------------------------
 	-- "Display Exclusions" checkbox.
-	-------------------------------------------------------------------------------
+	-- ----------------------------------------------------------------------------
 	local ExcludeToggle = _G.CreateFrame("CheckButton", nil, MainPanel, "UICheckButtonTemplate")
 	ExcludeToggle:SetPoint("TOPLEFT", SearchBox, "TOPRIGHT", 0, 0)
 	ExcludeToggle:SetSize(16, 16)
@@ -831,9 +829,9 @@ function private.InitializeFrame()
 	ExcludeToggle.text:SetText(L["Display Exclusions"])
 	private.SetTooltipScripts(ExcludeToggle, L["DISPLAY_EXCLUSION_DESC"], 1)
 
-	-------------------------------------------------------------------------------
+	-- ----------------------------------------------------------------------------
 	-- Create the X-close button, and set its scripts.
-	-------------------------------------------------------------------------------
+	-- ----------------------------------------------------------------------------
 	MainPanel.xclose_button = _G.CreateFrame("Button", nil, MainPanel, "UIPanelCloseButton")
 	MainPanel.xclose_button:SetPoint("TOPRIGHT", MainPanel, "TOPRIGHT", -30, -8)
 
@@ -841,9 +839,9 @@ function private.InitializeFrame()
 		MainPanel:Hide()
 	end)
 
-	-------------------------------------------------------------------------------
+	-- ----------------------------------------------------------------------------
 	-- Create MainPanel.filter_toggle, and set its scripts.
-	-------------------------------------------------------------------------------
+	-- ----------------------------------------------------------------------------
 	do
 		local filter_toggle = _G.CreateFrame("Button", nil, MainPanel)
 		filter_toggle:SetWidth(24)
@@ -875,9 +873,9 @@ function private.InitializeFrame()
 		MainPanel.filter_toggle = filter_toggle
 	end	-- do-block
 
-	-------------------------------------------------------------------------------
+	-- ----------------------------------------------------------------------------
 	-- Sort-mode toggle button.
-	-------------------------------------------------------------------------------
+	-- ----------------------------------------------------------------------------
 	local sort_toggle = _G.CreateFrame("Button", nil, MainPanel)
 	sort_toggle:SetWidth(24)
 	sort_toggle:SetHeight(24)
@@ -912,9 +910,9 @@ function private.InitializeFrame()
 		end
 	end
 
-	-------------------------------------------------------------------------------
+	-- ----------------------------------------------------------------------------
 	-- Sort By buttons.
-	-------------------------------------------------------------------------------
+	-- ----------------------------------------------------------------------------
 	do
 		local name_button, skill_button
 
@@ -965,9 +963,9 @@ function private.InitializeFrame()
 		end)
 	end -- do-block
 
-	-------------------------------------------------------------------------------
+	-- ----------------------------------------------------------------------------
 	-- Create MainPanel.progress_bar and set its scripts
-	-------------------------------------------------------------------------------
+	-- ----------------------------------------------------------------------------
 	do
 		local progress_bar = _G.CreateFrame("StatusBar", nil, MainPanel)
 		progress_bar:SetWidth(216)
@@ -1001,9 +999,9 @@ function private.InitializeFrame()
 		MainPanel.progress_bar = progress_bar
 	end	-- do
 
-	-------------------------------------------------------------------------------
+	-- ----------------------------------------------------------------------------
 	-- Create the close button, and set its scripts.
-	-------------------------------------------------------------------------------
+	-- ----------------------------------------------------------------------------
 	local close_button = _G.CreateFrame("Button", ("%s_CloseButton"):format(FOLDER_NAME), MainPanel, "UIPanelButtonTemplate")
 	close_button:SetWidth(111)
 	close_button:SetHeight(24)
@@ -1017,9 +1015,9 @@ function private.InitializeFrame()
 	end)
 
 	private.SetTooltipScripts(close_button, L["CLOSE_DESC"])
-	-------------------------------------------------------------------------------
+	-- ----------------------------------------------------------------------------
 	-- Initialize components defined in other files.
-	-------------------------------------------------------------------------------
+	-- ----------------------------------------------------------------------------
 	private.InitializeListFrame()
 	private.InitializeTabs()
 

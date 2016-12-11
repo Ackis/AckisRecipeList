@@ -1,7 +1,6 @@
--------------------------------------------------------------------------------
+-- ----------------------------------------------------------------------------
 -- Localized Lua API.
--------------------------------------------------------------------------------
-local _G = getfenv(0)
+-- ----------------------------------------------------------------------------
 
 local math = _G.math
 local table = _G.table
@@ -10,9 +9,9 @@ local pairs = _G.pairs
 local select = _G.select
 local tostring = _G.tostring
 
--------------------------------------------------------------------------------
+-- ----------------------------------------------------------------------------
 -- AddOn namespace.
--------------------------------------------------------------------------------
+-- ----------------------------------------------------------------------------
 local FOLDER_NAME, private = ...
 
 local LibStub = _G.LibStub
@@ -21,29 +20,29 @@ local L = LibStub("AceLocale-3.0"):GetLocale(private.addon_name)
 local QTip = LibStub("LibQTip-1.0")
 local Dialog = LibStub("LibDialog-1.0")
 
--------------------------------------------------------------------------------
+-- ----------------------------------------------------------------------------
 -- Imports.
--------------------------------------------------------------------------------
+-- ----------------------------------------------------------------------------
 local BASIC_COLORS = private.BASIC_COLORS
 
--------------------------------------------------------------------------------
+-- ----------------------------------------------------------------------------
 -- Constants
--------------------------------------------------------------------------------
+-- ----------------------------------------------------------------------------
 local NUM_RECIPE_LINES	= 25
 local SCROLL_DEPTH	= 5
 local LISTFRAME_WIDTH	= 295
 local LIST_ENTRY_WIDTH	= 286
 
--------------------------------------------------------------------------------
+-- ----------------------------------------------------------------------------
 -- Upvalues
--------------------------------------------------------------------------------
+-- ----------------------------------------------------------------------------
 local ListItem_ShowTooltip
 
 local acquire_tip
 
--------------------------------------------------------------------------------
+-- ----------------------------------------------------------------------------
 -- Dialogs.
--------------------------------------------------------------------------------
+-- ----------------------------------------------------------------------------
 Dialog:Register("ARL_NotScanned", {
 	text = L["NOTSCANNED"],
 	buttons = {
@@ -108,9 +107,9 @@ function private.DismissDialogs()
 end
 
 
--------------------------------------------------------------------------------
+-- ----------------------------------------------------------------------------
 -- Frame creation and anchoring
--------------------------------------------------------------------------------
+-- ----------------------------------------------------------------------------
 local SpellTooltip = _G.CreateFrame("GameTooltip", "AckisRecipeList_SpellTooltip", _G.UIParent, "GameTooltipTemplate")
 
 function private.InitializeListFrame()
@@ -136,9 +135,9 @@ function private.InitializeListFrame()
 	MainPanel.list_frame = ListFrame
 	private.list_frame = ListFrame
 
-	-------------------------------------------------------------------------------
+	-- ----------------------------------------------------------------------------
 	-- Scroll bar.
-	-------------------------------------------------------------------------------
+	-- ----------------------------------------------------------------------------
 	local ScrollBar = _G.CreateFrame("Slider", nil, ListFrame)
 
 	ScrollBar:SetPoint("TOPLEFT", ListFrame, "TOPRIGHT", 5, -11)
@@ -320,9 +319,9 @@ function private.InitializeListFrame()
 		ListFrame:Update(nil, true)
 	end
 
-	-------------------------------------------------------------------------------
+	-- ----------------------------------------------------------------------------
 	-- The state and entry buttons and the container frames which hold them.
-	-------------------------------------------------------------------------------
+	-- ----------------------------------------------------------------------------
     local ListEntryButtonContainers = {}
     ListFrame.entries = {}
 	ListFrame.ListEntryButtons = {}
@@ -422,18 +421,18 @@ function private.InitializeListFrame()
 		return insert_index
 	end
 
-	-------------------------------------------------------------------------------
+	-- ----------------------------------------------------------------------------
 	-- Filter flag data and functions for ListFrame:Initialize()
-	-------------------------------------------------------------------------------
+	-- ----------------------------------------------------------------------------
 		function ListFrame:Initialize(expand_mode)
 			for i = 1, #self.entries do
 				private.ReleaseTable(self.entries[i])
 			end
 			table.wipe(self.entries)
 
-			-------------------------------------------------------------------------------
+			-- ----------------------------------------------------------------------------
 			-- Update recipe filters.
-			-------------------------------------------------------------------------------
+			-- ----------------------------------------------------------------------------
 			local general_filters = addon.db.profile.filters.general
 			local professionRecipes = private.CurrentProfession.Recipes
 			local recipes_known, recipes_known_filtered = 0, 0
@@ -481,10 +480,10 @@ function private.InitializeListFrame()
 			player.recipes_total_filtered = recipes_total_filtered
 			player.recipes_known_filtered = recipes_known_filtered
 
-			-------------------------------------------------------------------------------
+			-- ----------------------------------------------------------------------------
 			-- Mark all exclusions in the recipe database to not be displayed, and update
 			-- the player's known and unknown counts.
-			-------------------------------------------------------------------------------
+			-- ----------------------------------------------------------------------------
 			local known_count = 0
 			local unknown_count = 0
 
@@ -501,9 +500,9 @@ function private.InitializeListFrame()
 			player.excluded_recipes_known = known_count
 			player.excluded_recipes_unknown = unknown_count
 
-			-------------------------------------------------------------------------------
+			-- ----------------------------------------------------------------------------
 			-- Initialize the expand button and entries for the current tab.
-			-------------------------------------------------------------------------------
+			-- ----------------------------------------------------------------------------
             local currentTab = MainPanel.tabs[addon.db.profile.current_tab]
             local professionExpandButton = currentTab["expand_button_" .. private.CurrentProfession:LocalizedName()]
 
@@ -520,9 +519,9 @@ function private.InitializeListFrame()
 			end
 			local recipe_count = currentTab:Initialize(expand_mode)
 
-			-------------------------------------------------------------------------------
+			-- ----------------------------------------------------------------------------
 			-- Update the progress bar display.
-			-------------------------------------------------------------------------------
+			-- ----------------------------------------------------------------------------
 			local profile = addon.db.profile
 			local max_value = profile.includefiltered and player.recipes_total or (player.recipes_total_filtered + (player.recipes_known - player.recipes_known_filtered))
 			local cur_value = player.recipes_known	-- Current value will always be what we know regardless of filters.
@@ -741,9 +740,9 @@ function private.InitializeListFrame()
 	end
 end	-- InitializeListFrame()
 
--------------------------------------------------------------------------------
+-- ----------------------------------------------------------------------------
 -- Tooltip functions and data.
--------------------------------------------------------------------------------
+-- ----------------------------------------------------------------------------
 -- Font Objects needed for acquire_tip
 local narrowFont
 local normalFont
@@ -809,11 +808,11 @@ do
         acquire_tip:SetCellTextColor(line, 1, leftColor.r, leftColor.g, leftColor.b)
     end
 
-	-------------------------------------------------------------------------------
+	-- ----------------------------------------------------------------------------
 	-- Public API function for displaying a recipe's acquire data.
 	-- * The addline_func paramater must be a function which accepts the same
 	-- * arguments as ARL's ttAdd function.
-	-------------------------------------------------------------------------------
+	-- ----------------------------------------------------------------------------
 	function addon:DisplayAcquireData(recipeSpellID, acquireTypeID, localizedLocationName, addline_func)
 		local recipe = private.recipe_list[recipeSpellID]
 		if not recipe then
@@ -836,9 +835,9 @@ do
 		end
 	end
 
-	-------------------------------------------------------------------------------
+	-- ----------------------------------------------------------------------------
 	-- Main tooltip function.
-	-------------------------------------------------------------------------------
+	-- ----------------------------------------------------------------------------
 	local function InitializeTooltips(recipe)
 		local spellTooltipAnchor = addon.db.profile.spelltooltiplocation
 		local acquireTooltipAnchor = addon.db.profile.acquiretooltiplocation
