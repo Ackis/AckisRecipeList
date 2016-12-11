@@ -28,6 +28,7 @@ function addon:InitWorldEvents()
 	AddWorldEvent("MIDSUMMER", _G.GetCategoryInfo(161))
 	AddWorldEvent("PILGRIMS_BOUNTY", _G.GetCategoryInfo(14981))
 	AddWorldEvent("DAY_OF_THE_DEAD", L["Day of the Dead"])
+	AddWorldEvent("DARKMOON_FAIRE", _G.GetCategoryInfo(15101))
 
 	self.InitWorldEvents = nil
 end

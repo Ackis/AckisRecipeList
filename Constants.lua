@@ -510,13 +510,17 @@ private.BOSS_NAMES = {
 	ILGYNOTH__HEART_OF_CORRUPTION = _G.EJ_GetEncounterInfo(1738),
 	GRAND_MAGISTRIX_ELISANDE = _G.EJ_GetEncounterInfo(1743),
 	ELERETHE_RENFERAL = _G.EJ_GetEncounterInfo(1744),
+	NITHOGG = _G.EJ_GetEncounterInfo(1749),
 	CENARIUS = _G.EJ_GetEncounterInfo(1750),
 	SPELLBLADE_ALURIEL = _G.EJ_GetEncounterInfo(1751),
 	HIGH_BOTANIST_TELARN = _G.EJ_GetEncounterInfo(1761),
 	TICHONDRIUS = _G.EJ_GetEncounterInfo(1762),
+	LEVANTUS = _G.EJ_GetEncounterInfo(1769),
 	CALAMIR = _G.EJ_GetEncounterInfo(1774),
 	NAZAK_THE_FIEND = _G.EJ_GetEncounterInfo(1783),
+	DRUGON_THE_FROSTBLOOD = _G.EJ_GetEncounterInfo(1789),
 	ANA_MOUZ = _G.EJ_GetEncounterInfo(1790),
+	GUARM = _G.EJ_GetEncounterInfo(1830),
 }
 
 constants.BOSS_NAMES = private.BOSS_NAMES
