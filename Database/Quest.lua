@@ -38,7 +38,7 @@ function addon:InitQuest()
 			faction = faction,
 			identifier = questID,
 			item_list = {},
-			location = zoneName,
+			locationName = zoneName,
 			name = nil, -- Handled by memoizing table above.
 		})
 	end
