@@ -1022,7 +1022,6 @@ L["Narv Hidecrafter"] = true
 L["Nasmara Moonsong"] = true
 L["Nat Pagle"] = true
 L["Nata Dawnstrider"] = true
-L["Na'zak the Fiend"] = true
 L["Neal Allen"] = true
 L["Necklace"] = true
 L["Nedric Sallow"] = true
