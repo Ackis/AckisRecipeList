@@ -1386,6 +1386,7 @@ L["Text Dump"] = true
 L["Text Dump Options"] = true
 L["Thaddeus Webb"] = true
 L["Thamner Pol"] = true
+L["Thanid Glowergold"] = true
 L["Tharynn Bouden"] = true
 L["Thaurissan Firewalker"] = true
 L["The Chef"] = true
