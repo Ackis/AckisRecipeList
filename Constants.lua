@@ -440,6 +440,7 @@ private.BOSS_NAMES = {
 	RIBBLY_SCREWSPIGOT = _G.EJ_GetEncounterInfo(382),
 	PLUGGER_SPAZZRING = _G.EJ_GetEncounterInfo(383),
 	QUARTERMASTER_ZIGRIS = _G.EJ_GetEncounterInfo(393),
+	OVERLORD_WYRMTHALAK = _G.EJ_GetEncounterInfo(396),
 	SOLAKAR_FLAMEWREATH = _G.EJ_GetEncounterInfo(398),
 	GENERAL_DRAKKISATH = _G.EJ_GetEncounterInfo(401),
 	MAGISTER_KALENDRIS = _G.EJ_GetEncounterInfo(408),
