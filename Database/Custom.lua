@@ -59,6 +59,7 @@ function addon:InitCustom()
 	AddCustom("ARCHAEOLOGY_HIGHBORNE")
 	AddCustom("WITHERED_ARMY")
 	AddCustom("TIMELOSTCHEST",		Z.SEARING_GORGE)
+	AddCustom("BOON_OF_THE_BUILDER",	Z.DALARAN_BROKENISLES,		38.6, 25.0)
 
 	self.InitCustom = nil
 end

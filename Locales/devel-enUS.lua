@@ -154,6 +154,7 @@ L["BOA_DESC"] = "Recipes that make Bind to Account items should be included in t
 L["BOEFilter"] = "Item Bind on Equip"
 L["BOE_DESC"] = "Recipes that make Bind on Equip items should be included in the scan."
 L["BOPFilter"] = "Item Bind on Pickup"
+L["BOON_OF_THE_BUILDER"] = "Available randomly from Sprocket Containers - do the 'Boon of the Builder' quest, and use the shoulder enchant on your shoulders for these containers to drop."
 L["BOP_DESC"] = "Recipes that make Bind on Pickup items should be included in the scan."
 L["BRD_MAIL"] = "There are four spawn spots in Blackrock Depths: just before entering the Manufactory, in Golem Lord Arglemach's room, in the Manufactory on a bench, or in the Mold Foundry."
 L["BRD_SHOULDERS"] = "There is one rare spawn spot in Blackrock Depths: the room just after the shadowforge lock and just before the arena, in the corner on some bunk beds."
