@@ -54,6 +54,7 @@ function addon:InitMob()
 	AddMob(103769,	BN.XAVIUS,			Z.THE_EMERALD_NIGHTMARE,			0, 0) -- Enchanting, Inscription
 	AddMob(104218,	BN.ADVISOR_MELANDRUS,		Z.COURT_OF_STARS,				0, 0) -- Alchemy, Enchanting, Jewelcrafting, Leatherworking
 	AddMob(104636,	BN.CENARIUS,			Z.THE_EMERALD_NIGHTMARE,			0.0, 0.0) -- Alchemy, Inscription
+	AddMob(105503,	BN.GULDAN,			Z.THE_NIGHTHOLD,				0.0, 0.0) -- Inscription, Leatherworking
 	AddMob(107544,	BN.NITHOGG,			Z.STORMHEIM,					0, 0) -- Inscription
 	AddMob(108829,	BN.LEVANTUS,			Z.AZSUNA,					42.7, 66.0) -- Inscription
 	AddMob(110321,	BN.NAZAK_THE_FIEND,		Z.SURAMAR,					18.0, 46.0)
