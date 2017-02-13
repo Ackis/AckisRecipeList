@@ -1,4 +1,4 @@
-## Author: Ackis, Torhal
+## Author: Ackis, Torhal, Ressy
 
 ## Interface: 70100
 ## Version: @project-version@
