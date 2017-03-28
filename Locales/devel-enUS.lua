@@ -254,6 +254,7 @@ L["Catarina Stanford"] = true
 L["Catherine Leland"] = true
 L["Cauldron"] = true
 L["Caz Twosprocket"] = true
+L["Celea"] = true
 L["Celie Steelwing"] = true
 L["Chapman"] = true
 L["Charles Worth"] = true
