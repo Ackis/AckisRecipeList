@@ -122,6 +122,13 @@ do
 				return
 			end
 			addon:DumpZones(input)
+		end,
+		categories = function(input)
+			if not input then
+				addon:Print("Type the Category.")
+				return
+			end
+			addon:DumpCategory(input)
 		end
 	}
 
@@ -253,6 +260,24 @@ do
 		end
 		output:Display()
 	end
+
+	function addon:DumpCategory(name)
+		output:Clear()
+
+		for category_id = 1, 20000 do
+			local category_name = _G.GetCategoryInfo(category_id)
+
+			if category_name and (not name or category_name:lower():find(name:lower())) then
+				output:AddLine(("[%d] = \"%s\","):format(category_id, TableKeyFormat(category_name)))
+			end
+		end
+
+		if output:Lines() == 0 then
+			output:AddLine("Nothing to display.")
+		end
+		output:Display()
+	end
+
 
 --[=[
 		private.ZONE_NAME_LIST = {}
