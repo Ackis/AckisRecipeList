@@ -100,7 +100,7 @@ This is the functionality that occurs when you click on a recipe.
 Please use the bug reporting feature to submit bug reports.  Do not contact us via Curse PM.  Do not submit bug reports in comments.
 
 ===IRC
-Feel free to join us on irc at [[irc://irc.freenode.net:6667|Freenode]] in the channel #arl
+Feel free to join us on irc at [[irc://irc.freenode.net:6667 | Freenode]] in the channel #arl
 
 ====Freenode Webchat
 Freenode has come up with their alternative to Mibbit.
