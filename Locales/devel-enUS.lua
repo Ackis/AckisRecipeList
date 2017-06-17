@@ -792,6 +792,7 @@ L["Juno Dufrain"] = true
 L["Jutak"] = true
 L["K. Lee Smallfry"] = true
 L["K'huta"] = true
+L["KISS_SYAITH"] = "Go to 49.0, 55.8 in Broken Shore, go through the Portal, then /kiss Syaith to learn this recipe."
 L["KNOWN_DESC"] = "Include all known recipes in the scan."
 L["KTC Train-a-Tron Deluxe"] = true
 L["KUNG"] = "Visit the Washed Up Mage in the Dalaran Sewers once you complete The Taste Test quest"

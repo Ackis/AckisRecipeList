@@ -520,6 +520,7 @@ private.BOSS_NAMES = {
 	DRUGON_THE_FROSTBLOOD = _G.EJ_GetEncounterInfo(1789),
 	ANA_MOUZ = _G.EJ_GetEncounterInfo(1790),
 	GUARM = _G.EJ_GetEncounterInfo(1830),
+	KILJAEDEN = _G.EJ_GetEncounterInfo(1898),
 }
 
 constants.BOSS_NAMES = private.BOSS_NAMES
