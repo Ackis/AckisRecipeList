@@ -958,7 +958,7 @@ do
 		local invalisRecipesCount = 0
 
 		for recipeID, recipe in pairs(profession.Recipes) do
-			if not recipe.isValidated then
+			if not recipe.isValidated and not recipe:RequiredFaction() then
 				invalidRecipesList = invalidRecipesList or {}
 				invalidRecipesList[recipeID] = true
 
