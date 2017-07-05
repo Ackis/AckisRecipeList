@@ -253,8 +253,6 @@ function private.InitializeFrame()
 				self.filter_reset:Hide()
 				self.filter_menu:Hide()
 
-				_G.PlaySound("igCharacterInfoClose")
-
 				self:SetWidth(self.normal_width)
 				self:SetHitRectInsets(0, 35, 0, 53)
 				self:SetClampRectInsets(0, -35, 0, 53)
@@ -291,8 +289,6 @@ function private.InitializeFrame()
 					MainPanel.filter_menu:Show()
 				end
 				MainPanel.filter_reset:Show()
-
-				_G.PlaySound("igCharacterInfoOpen")
 
 				self:SetWidth(self.expanded_width)
 				self:SetHitRectInsets(0, 90, 0, 53)
@@ -401,25 +397,11 @@ function private.InitializeFrame()
                     end
                 end
 
-                _G.PlaySound("igCharacterNPCSelect")
-
-                -- If not shown, save the current sound effects setting then set it to 0.
-                local cVarSfx
-                local isPanelShown = addon.scan_button:GetParent():IsVisible()
-                if not isPanelShown then
-                    cVarSfx = tonumber(_G.GetCVar("Sound_EnableSFX"))
-                    _G.SetCVar("Sound_EnableSFX", 0)
-                end
-
-				local activationSpellName = availableProfessions[currentProfessionIndex]:ActivationSpellName()
+		local activationSpellName = availableProfessions[currentProfessionIndex]:ActivationSpellName()
 
                 _G.CastSpellByName(activationSpellName)
-				_G.C_Timer.After(0.1, ScanCurrentProfession)
+		_G.C_Timer.After(0.1, ScanCurrentProfession)
 
-                if not isPanelShown then
-                    _G.CloseTradeSkill()
-                    _G.SetCVar("Sound_EnableSFX", cVarSfx)
-				end
             end
 		end)
 	end -- do-block
