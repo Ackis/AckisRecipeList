@@ -1,6 +1,6 @@
 ## Author: Ackis, Torhal, Ressy
 
-## Interface: 70200
+## Interface: 70300
 ## Version: @project-version@
 ## X-Revision: @project-abbreviated-hash@
 ## X-Date: @file-date-iso@
