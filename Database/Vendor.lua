@@ -142,6 +142,8 @@ function addon:InitVendor()
 	AddVendor(107379,	L["Marin Bladewing"],			Z.AZSUNA,			48.2,	73.8,	"Neutral") -- Inscription, Jewelcrafting, Engineering, First Aid
 	AddVendor(107760,	L["Strap Bucklebolt"],			Z.DALARAN_BROKENISLES,		66.4,	81.4,	"Neutral") -- Blacksmithing, Leatherworking, Tailoring
 	AddVendor(115736,	L["First Arcanist Thalyssra"],		Z.SURAMAR,			36.8,	46.6,	"Neutral") -- Enchanting, Tailoring, Alchemy
+	AddVendor(127120,	L["Vindicator Jaelaana"],		Z.ARGUS,			0.0,	0.0,	"Neutral") --Needs updating  -- Jewelcrafting, Blacksmithing, Tailoring
+	AddVendor(127151,	L["Toraan the Revered"],		Z.ANTORAN_WASTES,		0.0,	0.0,	"Neutral") --Needs updating  -- Inscription, Alchemy, Enchanting
 
 	self.InitVendor = nil
 end
