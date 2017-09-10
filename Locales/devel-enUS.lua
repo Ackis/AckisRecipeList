@@ -730,6 +730,7 @@ L["Innkeeper Biribi"] = true
 L["Innkeeper Fizzgrimble"] = true
 L["Innkeeper Grilka"] = true
 L["Inscription"] = true
+L["Inquisitor Vethroz"] = true
 L["Iranis Shadebloom"] = true
 L["Iron Rune-Shaper"] = true
 L["Ironus Coldsteel"] = true
