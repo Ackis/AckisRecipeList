@@ -11,6 +11,8 @@ local ipairs, pairs = _G.ipairs, _G.pairs
 local tonumber = _G.tonumber
 local tostring = _G.tostring
 
+local SOUNDKIT = SOUNDKIT
+
 -- ----------------------------------------------------------------------------
 -- AddOn namespace.
 -- ----------------------------------------------------------------------------
@@ -253,7 +255,7 @@ function private.InitializeFrame()
 				self.filter_reset:Hide()
 				self.filter_menu:Hide()
 
-				_G.PlaySound("igCharacterInfoClose")
+				_G.PlaySound(SOUNDKIT.IG_CHARACTER_INFO_CLOSE, "Master")
 
 				self:SetWidth(self.normal_width)
 				self:SetHitRectInsets(0, 35, 0, 53)
@@ -292,7 +294,7 @@ function private.InitializeFrame()
 				end
 				MainPanel.filter_reset:Show()
 
-				_G.PlaySound("igCharacterInfoOpen")
+				_G.PlaySound(SOUNDKIT.IG_CHARACTER_INFO_OPEN, "Master")
 
 				self:SetWidth(self.expanded_width)
 				self:SetHitRectInsets(0, 90, 0, 53)
@@ -401,7 +403,7 @@ function private.InitializeFrame()
                     end
                 end
 
-                _G.PlaySound("igCharacterNPCSelect")
+				_G.PlaySound(SOUNDKIT.IG_CHARACTER_NPC_SELECT, "Master")
 
                 -- If not shown, save the current sound effects setting then set it to 0.
                 local cVarSfx

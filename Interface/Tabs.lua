@@ -1,7 +1,6 @@
 -- ----------------------------------------------------------------------------
 -- Localized Lua globals.
 -- ----------------------------------------------------------------------------
-
 local table = _G.table
 
 local pairs, ipairs = _G.pairs, _G.ipairs
@@ -45,11 +44,12 @@ local function Tab_OnClick(self, button, down)
 			tab:ToBack()
 		end
 	end
+
 	addon.db.profile.current_tab = tabID
 	MainPanel.current_tab = MainPanel.tabs[tabID]
-
 	MainPanel.list_frame:Update(nil, false)
-	_G.PlaySound("igCharacterInfoTab")
+
+	_G.PlaySound(_G.SOUNDKIT.IG_CHARACTER_INFO_TAB, "Master")
 end
 
 local function CreateTab(id_num, text, ...)
