@@ -709,6 +709,7 @@ L["Himmik"] = true
 L["Hiwahi Three-Feathers"] = true
 L["Hobart Grapplehammer"] = true
 L["Hotoppik Copperpinch"] = true
+L["Hrul Sharphoof"] = true
 L["Hula'mahi"] = true
 L["Humphry"] = true
 L["Hurnak Grimmord"] = true
