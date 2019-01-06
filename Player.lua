@@ -143,7 +143,7 @@ do
 	function Player:UpdateProfessions()
 		table.wipe(self.professions)
 
-		known.prof1, known.prof2, known.archaeology, known.fishing, known.cooking, known.firstaid = _G.GetProfessions()
+		known.prof1, known.prof2, known.archaeology, known.fishing, known.cooking = _G.GetProfessions()
 
 		for profession, index in pairs(known) do
 			local name, icon, rank, maxrank, numspells, spelloffset, skillline = _G.GetProfessionInfo(index)

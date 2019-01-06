@@ -55,11 +55,11 @@ function addon:InitVendor()
 	AddVendor(5758,		L["Leo Sarn"],				Z.SILVERPINE_FOREST,		53.9,	82.3,	"Horde") -- Enchanting, Tailoring
 	AddVendor(9499,		BN.PLUGGER_SPAZZRING,			Z.BLACKROCK_DEPTHS,		0,	0,	"Neutral") -- Alchemy, Leatherworking
 	AddVendor(9636,		L["Kireena"],				Z.DESOLACE,			51.0,	53.5,	"Horde") -- Cooking, Jewelcrafting, Tailoring
-	AddVendor(10856,	L["Argent Quartermaster Hasana"],	Z.TIRISFAL_GLADES,		83.2,	68.1,	"Neutral") -- Alchemy, Blacksmithing, Enchanting, FirstAid, Leatherworking, Tailoring
-	AddVendor(10857,	L["Argent Quartermaster Lightspark"],	Z.WESTERN_PLAGUELANDS,		42.8,	83.8,	"Neutral") -- Alchemy, Blacksmithing, Enchanting, FirstAid, Leatherworking, Tailoring
+	AddVendor(10856,	L["Argent Quartermaster Hasana"],	Z.TIRISFAL_GLADES,		83.2,	68.1,	"Neutral") -- Alchemy, Blacksmithing, Enchanting, Leatherworking, Tailoring
+	AddVendor(10857,	L["Argent Quartermaster Lightspark"],	Z.WESTERN_PLAGUELANDS,		42.8,	83.8,	"Neutral") -- Alchemy, Blacksmithing, Enchanting, Leatherworking, Tailoring
 	AddVendor(11189,	L["Qia"],				Z.WINTERSPRING,			59.6,	49.2,	"Neutral") -- Enchanting, Jewelcrafting, Leatherworking, Tailoring
 	AddVendor(11278,	L["Magnus Frostwake"],			Z.WESTERN_PLAGUELANDS,		68.1,	77.6,	"Neutral") -- Alchemy, Blacksmithing
-	AddVendor(11536,	L["Quartermaster Miranda Breechlock"],	Z.EASTERN_PLAGUELANDS,		75.8,	54.1,	"Neutral") -- Alchemy, Blacksmithing, Enchanting, FirstAid, Leatherworking, Tailoring
+	AddVendor(11536,	L["Quartermaster Miranda Breechlock"],	Z.EASTERN_PLAGUELANDS,		75.8,	54.1,	"Neutral") -- Alchemy, Blacksmithing, Enchanting, Leatherworking, Tailoring
 	AddVendor(11557,	L["Meilosh"],				Z.FELWOOD,			65.7,	2.9, 	"Neutral") -- Alchemy, Blacksmithing, Enchanting, Leatherworking, Tailoring
 	AddVendor(12022,	L["Lorelae Wintersong"],		Z.MOONGLADE,			48.3,	40.1,	"Neutral") -- Enchanting, Tailoring
 	AddVendor(12944,	L["Lokhtos Darkbargainer"],		Z.BLACKROCK_DEPTHS,		0,	0,	"Neutral") -- Alchemy, Blacksmithing, Enchanting, Leatherworking, Tailoring
@@ -139,7 +139,7 @@ function addon:InitVendor()
 	AddVendor(106904,	L["Valdemar Stormseeker"],		Z.STORMHEIM,			60.2,	51.2,	"Neutral") -- Leatherworking, Blacksmithing
 	AddVendor(107109,	L["Xur'ios"],				Z.DALARAN_BROKENISLES,		48.8,	13.5,	"Neutral") -- Leatherworking, Engineering, Blacksmithing, Enchanting, Inscription
 	AddVendor(107376,	L["Veridis Fallon"],			Z.AZSUNA,			46.9,	41.4,	"Neutral") -- Inscriptions, Tailoring
-	AddVendor(107379,	L["Marin Bladewing"],			Z.AZSUNA,			48.2,	73.8,	"Neutral") -- Inscription, Jewelcrafting, Engineering, First Aid
+	AddVendor(107379,	L["Marin Bladewing"],			Z.AZSUNA,			48.2,	73.8,	"Neutral") -- Inscription, Jewelcrafting, Engineering
 	AddVendor(107760,	L["Strap Bucklebolt"],			Z.DALARAN_BROKENISLES,		66.4,	81.4,	"Neutral") -- Blacksmithing, Leatherworking, Tailoring
 	AddVendor(115736,	L["First Arcanist Thalyssra"],		Z.SURAMAR,			36.8,	46.6,	"Neutral") -- Enchanting, Tailoring, Alchemy
 	AddVendor(127120,	L["Vindicator Jaelaana"],		Z.ARGUS,			0.0,	0.0,	"Neutral") --Needs updating  -- Jewelcrafting, Blacksmithing, Tailoring

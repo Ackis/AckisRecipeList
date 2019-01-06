@@ -950,8 +950,6 @@ local RECIPE_TYPES = {
 	["formula: "] = true,
 	-- Engineering
 	["schematic: "] = true,
-	-- First Aid
-	["manual: "] = true,
 	-- Inscription
 	["technique: "] = true,
 	["alchemy: "] = true,
@@ -959,7 +957,6 @@ local RECIPE_TYPES = {
 	["cooking: "] = true,
 	["enchanting: "] = true,
 	["engineering: "] = true,
-	["first aid: "] = true,
 	["inscription: "] = true,
 	["jewelcrafting: "] = true,
 	["leatherworking: "] = true,

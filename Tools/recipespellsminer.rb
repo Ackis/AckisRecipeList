@@ -4,7 +4,6 @@ require "wowdb_recipes"
 
 list = WoWDBRecipes.new
 
-$fa = false
 $alch = false
 $bs = false
 $cook = false
@@ -15,26 +14,6 @@ $jc = false
 $lw = false
 $mine = false
 $tailor = false
-
-if $fa
-
-	puts("\t--First Aid")
-
-	recipe = list.get_firstaid_list
-	ordered = Hash.new
-
-	recipe.each_pair do |name,data|
-	  list.add_recipe_details(data)
-	  if data[:spellid] != data[:id]
-		ordered[data[:spellid]] = data[:id]
-	  end
-	end
-
-	ordered.sort.each do |id|
-	  puts("\t[#{id[0]}] = #{id[1]},")
-	end
-
-end
 
 if $alch
 
