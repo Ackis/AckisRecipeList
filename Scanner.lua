@@ -115,7 +115,7 @@ do
 		for index = 1, trainerServicesCount, 1 do
 			ARLDatamineTT:SetTrainerService(index)
 
-			local spellName, spellRank, spellID = ARLDatamineTT:GetSpell()
+			local spellName, spellID, spellRank = ARLDatamineTT:GetSpell()
 			local itemID = private.ItemLinkToID(_G.GetTrainerServiceItemLink(index))
 			local _, skillLevel = _G.GetTrainerServiceSkillReq(index)
 
