@@ -1028,7 +1028,9 @@ do
 			if not L[vendorName] then
 				L[vendorName] = true
 			end
-			_G.SetMapToCurrentZone() -- Make sure were are looking at the right zone
+
+			local mapID = _G.C_Map.GetBestMapForUnit("player")
+			_G.WorldMapFrame:SetMapID(mapID) -- Make sure were are looking at the right zone
 
 			vendorAcquireType:AddEntity(addon, {
 				coord_x = vendorX,
