@@ -88,6 +88,7 @@ private.GAME_VERSION_NAMES = {
 	"MOP",
 	"WOD",
 	"LEGION",
+	"BFA",
 }
 
 constants.GAME_VERSION_NAMES = private.GAME_VERSION_NAMES
@@ -113,6 +114,7 @@ private.EXPANSION_LOGOS = {
 	[_G.LE_EXPANSION_MISTS_OF_PANDARIA] = { texture = [[Interface\Glues\Common\Glues-WoW-MPLogo]] },
 	[_G.LE_EXPANSION_WARLORDS_OF_DRAENOR] = { texture = [[Interface\Glues\Common\GLUES-WOW-WODLOGO]] },
 	[_G.LE_EXPANSION_LEGION] = { atlas = "Glues-WoW-LegionLogo" },
+	[_G.LE_EXPANSION_BATTLE_FOR_AZEROTH] = { atlas = "Glues-WoW-LegionLogo" },
 }
 
 -- ----------------------------------------------------------------------------
@@ -332,6 +334,10 @@ private.EXPANSION6_REPUTATIONS = {
 	"VALARJAR",
 	"ARMY_OF_THE_LIGHT",
 	"ARGUSSIAN_REACH",
+}
+
+private.EXPANSION7_REPUTATIONS = {
+
 }
 
 private.LOCALIZED_FACTION_STRINGS_FROM_LABEL = {
