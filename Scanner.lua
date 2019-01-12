@@ -131,9 +131,11 @@ do
 		local trainerID = private.MobGUIDToIDNum(_G.UnitGUID("target"))
 		local trainerName = _G.UnitName("target")
 		local trainer_entry = private.AcquireTypes.Trainer:GetEntity(trainerID)
-		local trainer_x, trainer_y = _G.GetPlayerMapPosition("player")
-		trainer_x = ("%.2f"):format(trainer_x * 100)
-		trainer_y = ("%.2f"):format(trainer_y * 100)
+		local trainerzone = _G.C_Map.GetMapInfo(_G.C_Map.GetBestMapForUnit("player")).name
+
+		local trainer = _G.C_Map.GetPlayerMapPosition(_G.C_Map.GetBestMapForUnit("player"), "player")
+		trainer_x = ("%.2f"):format(trainer.x * 100)
+		trainer_y = ("%.2f"):format(trainer.y * 100)
 
 		local output = private.TextDump
 		output:Clear()
@@ -1009,9 +1011,10 @@ do
 		end
 
 		local vendor = vendorAcquireType:GetEntity(vendorID)
-		local vendorX, vendorY = _G.GetPlayerMapPosition("player")
-		vendorX = ("%.2f"):format(vendorX * 100)
-		vendorY = ("%.2f"):format(vendorY * 100)
+
+		local vendorcoords = _G.C_Map.GetPlayerMapPosition(_G.C_Map.GetBestMapForUnit("player"), "player")
+		vendorX = ("%.2f"):format(vendorcoords.x * 100)
+		vendorY = ("%.2f"):format(vendorcoords.y * 100)
 
 		if vendor then
 			if vendor.coord_x ~= vendorX or vendor.coord_y ~= vendorY then
