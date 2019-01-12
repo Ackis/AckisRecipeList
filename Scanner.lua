@@ -147,8 +147,8 @@ do
 				trainer_entry.coord_y = trainer_y
 			end
 		else
-			output:AddLine(("%s was not found in the trainer list - a trainer dump for %s will fix this. (Dump localization phrases as well.)"):format(trainerName, trainerProfession))
-			_G.SetMapToCurrentZone() -- Make sure were are looking at the right zone
+			local mapID = C_Map.GetBestMapForUnit("player")
+			_G.WorldMapFrame:SetMapID(mapID) -- Make sure were are looking at the right zone
 
 			L[trainerName] = trainerName
 			addon:AddTrainer(trainerID, trainerName, _G.GetRealZoneText(), trainer_x, trainer_y, private.Player.faction)
