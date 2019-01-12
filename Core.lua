@@ -418,7 +418,7 @@ function addon:OnEnable()
 
 	self:RegisterEvent("TRADE_SKILL_SHOW")
 	self:RegisterEvent("TRADE_SKILL_CLOSE")
-	self:RegisterEvent("TRADE_SKILL_UPDATE")
+	self:RegisterEvent("TRADE_SKILL_LIST_UPDATE")
 
 	if addon.db.profile.scantrainers then
 		self:RegisterEvent("TRAINER_SHOW")
@@ -611,7 +611,7 @@ do
 		end
 	end)
 
-	function addon:TRADE_SKILL_UPDATE()
+	function addon:TRADE_SKILL_LIST_UPDATE()
 		if not self.Frame or not self.Frame:IsVisible() then
 			return
 		end
@@ -621,6 +621,7 @@ do
 			updater:Show()
 		end
 	end
+
 end
 
 -- ----------------------------------------------------------------------------
