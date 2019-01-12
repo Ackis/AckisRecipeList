@@ -226,14 +226,14 @@ do
 			local zone_name = _G.GetMapNameByID(input)
 
 			if zone_name then
-				output:AddLine(("%s = _G.GetMapNameByID(%d),"):format(TableKeyFormat(zone_name), input))
+				output:AddLine(("%s = _G.GetMapInfo(%d).name,"):format(TableKeyFormat(zone_name), input))
 			end
 		else
 			for index = 1, 100000 do
 				local zone_name = _G.GetMapNameByID(index)
 
 				if zone_name and zone_name:lower():find(input:lower()) then
-					output:AddLine(("%s = _G.GetMapNameByID(%d),"):format(TableKeyFormat(zone_name), index))
+					output:AddLine(("%s = _G.GetMapInfo(%d).name,"):format(TableKeyFormat(zone_name), index))
 				end
 			end
 		end
