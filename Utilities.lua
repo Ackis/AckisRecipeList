@@ -223,17 +223,17 @@ do
 		output:Clear()
 
 		if type(input) == "number" then
-			local zone_name = _G.GetMapNameByID(input)
+			local zone_name = _G.C_Map.GetMapInfo(input).name
 
 			if zone_name then
 				output:AddLine(("%s = _G.GetMapInfo(%d).name,"):format(TableKeyFormat(zone_name), input))
 			end
 		else
 			for index = 1, 100000 do
-				local zone_name = _G.GetMapNameByID(index)
+				local zone_name = _G.C_Map.GetMapInfo(index).name
 
 				if zone_name and zone_name:lower():find(input:lower()) then
-					output:AddLine(("%s = _G.GetMapInfo(%d).name,"):format(TableKeyFormat(zone_name), index))
+					output:AddLine(("%s = _G.C_Map.GetMapInfo(%d).name,"):format(TableKeyFormat(zone_name), index))
 				end
 			end
 		end
