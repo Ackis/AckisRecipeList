@@ -252,7 +252,7 @@ private.FACTION_LABELS_FROM_ID = {
 	-- ----------------------------------------------------------------------------
 	-- Warlords of Draenor
 	-- ----------------------------------------------------------------------------
-	[1849]	= "ORDER_OF_THE_AWAKENED",
+
 	-- ----------------------------------------------------------------------------
 	-- Legion
 	-- ----------------------------------------------------------------------------
@@ -321,9 +321,7 @@ private.EXPANSION4_REPUTATIONS = {
 	"THE_TILLERS",
 }
 
-private.EXPANSION5_REPUTATIONS = {
-	"ORDER_OF_THE_AWAKENED",
-}
+private.EXPANSION5_REPUTATIONS = {}
 
 private.EXPANSION6_REPUTATIONS = {
 	"HIGHMOUNTAIN_TRIBE",
