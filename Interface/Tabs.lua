@@ -463,8 +463,11 @@ local function InitializeLocationTab()
 
 				local listEntry = CreateListEntry("header")
                 listEntry:SetLocation(location)
+--              private.Debug("location: %s", location)
+--			local currentMapID = _G.C_Map.GetBestMapForUnit("player")
+--			_G.WorldMapFrame:SetMapID(mapID)
 
-				if localizedLocationName == _G.GetRealZoneText() then
+				if localizedLocationName == GetRealZoneText() then
 					listEntry:Emphasize(true)
 					listEntry:SetText("%s (%d)",
 						SetTextColor(private.DIFFICULTY_COLORS.optimal.hex, localizedLocationName),

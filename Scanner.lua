@@ -128,30 +128,35 @@ do
 		ARLDatamineTT:Hide()
 
 		-- Dump out trainer info
+		local mapID = _G.C_Map.GetBestMapForUnit("player")
+		_G.WorldMapFrame:SetMapID(mapID)
+
 		local trainerID = private.MobGUIDToIDNum(_G.UnitGUID("target"))
 		local trainerName = _G.UnitName("target")
 		local trainer_entry = private.AcquireTypes.Trainer:GetEntity(trainerID)
-		local trainerzone = _G.C_Map.GetMapInfo(_G.C_Map.GetBestMapForUnit("player")).name
+		local trainerzone = _G.C_Map.GetMapInfo(mapID).name
 
-		local trainer = _G.C_Map.GetPlayerMapPosition(_G.C_Map.GetBestMapForUnit("player"), "player")
-		trainer_x = ("%.2f"):format(trainer.x * 100)
-		trainer_y = ("%.2f"):format(trainer.y * 100)
+		local trainer_x, trainer_y = _G.C_Map.GetPlayerMapPosition(mapID, "player"):GetXY()
+
+		trainer_x = ("%.2f"):format(trainer_x * 100)
+		trainer_y = ("%.2f"):format(trainer_y * 100)
 
 		local output = private.TextDump
 		output:Clear()
 
 		if trainer_entry then
 			if trainer_entry.coord_x ~= trainer_x or trainer_entry.coord_y ~= trainer_y then
-				output:AddLine(("%s appears to have different coordinates (%s, %s) than those in the database (%s, %s) - a trainer dump for %s will fix this."):format(trainerName, trainer_entry.coord_x, trainer_entry.coord_y, trainer_x, trainer_y, trainerProfession))
+				output:AddLine(("%s appears to have different coordinates (%s, %s) than those in the database (%s, %s) - a trainer dump for %s will fix this."):format(trainerName, trainer_x, trainer_y, trainer_entry.coord_x, trainer_entry.coord_y, trainerProfession))
 				trainer_entry.coord_x = trainer_x
 				trainer_entry.coord_y = trainer_y
 			end
 		else
-			local mapID = C_Map.GetBestMapForUnit("player")
-			_G.WorldMapFrame:SetMapID(mapID) -- Make sure were are looking at the right zone
-
 			L[trainerName] = trainerName
-			addon:AddTrainer(trainerID, trainerName, _G.GetRealZoneText(), trainer_x, trainer_y, private.Player.faction)
+			private.Debug("TrainerID: %d", trainerID)
+			private.Debug("Trainer x: %d", trainer_x)
+			private.Debug("Trainer y: %d", trainer_y)
+			private.Debug("Trainer faction: %s", private.Player.faction)
+			addon:AddTrainer(trainerID, trainerName, GetRealZoneText(), trainer_x, trainer_y, private.Player.faction)
 		end
 
 		table.wipe(MissingSpellIDs)
@@ -1012,9 +1017,12 @@ do
 
 		local vendor = vendorAcquireType:GetEntity(vendorID)
 
-		local vendorcoords = _G.C_Map.GetPlayerMapPosition(_G.C_Map.GetBestMapForUnit("player"), "player")
-		vendorX = ("%.2f"):format(vendorcoords.x * 100)
-		vendorY = ("%.2f"):format(vendorcoords.y * 100)
+		local mapID = _G.C_Map.GetBestMapForUnit("player")
+		_G.WorldMapFrame:SetMapID(mapID) -- Make sure were are looking at the right zone
+
+		local vendorcoords_x, vendorcoords_y = _G.C_Map.GetPlayerMapPosition(mapID, "player"):GetXY()
+		vendorX = ("%.2f"):format(vendorcoords_x * 100)
+		vendorY = ("%.2f"):format(vendorcoords_y * 100)
 
 		if vendor then
 			if vendor.coord_x ~= vendorX or vendor.coord_y ~= vendorY then
@@ -1029,15 +1037,12 @@ do
 				L[vendorName] = true
 			end
 
-			local mapID = _G.C_Map.GetBestMapForUnit("player")
-			_G.WorldMapFrame:SetMapID(mapID) -- Make sure were are looking at the right zone
-
 			vendorAcquireType:AddEntity(addon, {
 				coord_x = vendorX,
 				coord_y = vendorY,
 				faction = _G.UnitFactionGroup("target") or "Neutral",
 				identifier = vendorID,
-				Location = private.LocationsByLocalizedName[_G.GetRealZoneText()],
+				Location = private.LocationsByLocalizedName[GetRealZoneText()],
 				name = L[vendorName],
 			})
 		end
@@ -2270,7 +2275,7 @@ NO_ROLE_FLAG = {
 	[156576] =	true,	[156581] =	true,	[156582] =	true,	[156584] =	true,	[162403] =	true,
 	[175853] =	true,	[175865] =	true,	[175866] =	true,	[175867] =	true,	[175868] =	true,
 	[175869] =	true,	[175880] =	true,	[188297] =	true,	[188299] =	true,	[188301] =	true,
-	[188304] =	true,
+	[188304] =	true,	[23787] = 	true,
 
 	-- ------------------------------------------------------------------------------------
 	-- ENGINEERING

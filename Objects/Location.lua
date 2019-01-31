@@ -17,12 +17,27 @@ local FOLDER_NAME, private = ...
 -- Location data.
 -- ----------------------------------------------------------------------------
 local ZONE_MAP_IDS = {
---	UNKNOWN = -1,
+
+	-------------------------------------------------------------------------------
+	-- Continents
+	-------------------------------------------------------------------------------
+	KALIMDOR = 12,
+	EASTERN_KINGDOMS = 13,
+	OUTLAND = 101,
+	NORTHREND = 113,
+	PANDARIA = 424,
+	DRAENOR = 572,
+	BROKEN_ISLES = 619,
+	ZANDALAR = 875,
+	KUL_TIRAS = 876,
+	ARGUS = 905,
+	COSMIC = 946,
+	AZEROTH = 947,
+	THE_MAELSTROM = 948,
+
 	DUROTAR = 1,
 	MULGORE = 7,
 	NORTHERN_BARRENS = 10,
-	KALIMDOR = 12,
-	EASTERN_KINGDOMS = 13,
 	ARATHI_HIGHLANDS = 14,
 	BADLANDS = 15,
 	BLASTED_LANDS = 17,
@@ -32,7 +47,7 @@ local ZONE_MAP_IDS = {
 	EASTERN_PLAGUELANDS = 23,
 	HILLSBRAD_FOOTHILLS = 25,
 	THE_HINTERLANDS = 26,
-	DUN_MOROGH = { 27, 939 },
+	DUN_MOROGH = 27,
 	SEARING_GORGE = 32,
 	BURNING_STEPPES = 36,
 	ELWYNN_FOREST = 37,
@@ -114,8 +129,6 @@ local ZONE_MAP_IDS = {
 	THE_LOST_ISLES = 174,
 	GILNEAS = 179,
 	THE_FORGE_OF_SOULS = 183,
-	PIT_OF_SARON = 184,
-	HALLS_OF_REFLECTION = 185,
 	ICECROWN_CITADEL = 186,
 	KEZAN = 194,
 	MOUNT_HYJAL = 198,
@@ -156,7 +169,6 @@ local ZONE_MAP_IDS = {
 	MANA_TOMBS = 272,
 	THE_BLACK_MORASS = 273,
 	OLD_HILLSBRAD_FOOTHILLS = 274,
-	LOST_CITY_OF_THE_TOLVIR = 277,
 	WAILING_CAVERNS = 279,
 	BLACKWING_DESCENT = 285,
 	BLACKWING_LAIR = 287,
@@ -232,7 +244,7 @@ local ZONE_MAP_IDS = {
 	WARSPEAR = 624,
 	HELLFIRE_CITADEL = 661,
 
-	DALARAN_BROKENISLES = 501,
+	DALARAN_BROKENISLES = 625,
 	AZSUNA = 630,
 	STORMHEIM = 1190,
 	VALSHARAH = 641,
@@ -243,7 +255,7 @@ local ZONE_MAP_IDS = {
 	VAULT_OF_THE_WARDENS = 677,
 	SURAMAR = 680,
 	HELMOUTH_CLIFFS = 706,
-	EYE_OF_AZSHARA = 713,
+	EYE_OF_AZSHARA = 790,
 	NELTHARIONS_LAIR = 731,
 	VIOLET_HOLD = 732,
 	DARKHEART_THICKET = 733,
@@ -277,32 +289,44 @@ local ZONE_MAP_IDS = {
 	BORALUS = 1161,
 	DAZARALOR = 1163,
 
-	-------------------------------------------------------------------------------
-	-- Continents
-	-------------------------------------------------------------------------------
 
-	OUTLAND = 101,
-	NORTHREND = 113,
-	THE_MAELSTROM = 725,
-	PANDARIA = 424,
-	DRAENOR = 572,
-	BROKEN_ISLES = 619,
-	ARGUS = 905,
-	ZANDALAR = 875,
-	KUL_TIRAS = 876,
+
+}
+
+-- Hard code this because I so don't want to change up the coding that much
+local mapContinentData = {
+	12,
+	"Kalimdor",
+	13,
+	"Eastern Kingdoms",
+	101,
+	"Outland",
+	113,
+	"Northrend",
+	424,
+	"Pandaria",
+	572,
+	"Draenor",
+	619,
+	"Broken Isles",
+	875,
+	"Zandalar",
+	876,
+	"Kul Tiras",
+	905,
+	"Argus",
+--	946,
+--	"Cosmic",
+	947,
+	"Azeroth",
+	948,
+	"The Maelstrom",
 }
 
 local ZONE_NAMES = {}
 local ZONE_PARENTS = {}
 for zoneLabel, mapID in pairs(ZONE_MAP_IDS) do
 	ZONE_NAMES[zoneLabel] = _G.C_Map.GetMapInfo(type(mapID) == "table" and mapID[1] or mapID).name or _G.UNKNOWN
-	private.Debug("Setting map id %d to %s - %s", mapID, zoneLabel, ZONE_NAMES[zoneLabel])
-
-	if _G.C_Map.GetMapInfo(type(mapID) == "table" and mapID[1] or mapID).parentMapID > 0 then
-		ZONE_PARENTS[zoneLabel] = _G.C_Map.GetMapInfo(_G.C_Map.GetMapInfo(type(mapID) == "table" and mapID[1] or mapID).parentMapID).name or _G.UNKNOWN
-	else
-		ZONE_PARENTS[zoneLabel] = "Cosmic"
-	end
 end
 
 private.ZONE_NAMES = ZONE_NAMES
@@ -336,36 +360,28 @@ end
 -- These map IDs aren't tied to a continent, for whatever reason, so need to be added as special cases.
 -- Instanced dungeons typically need to be added here.
 local COSMIC_MAP_IDS = {
-	THE_BLACK_MORASS = 733,
-	OLD_HILLSBRAD_FOOTHILLS = 734,
-	HYJAL_SUMMIT = 775,
-	THE_WANDERING_ISLE = 808,
-	DARKMOON_ISLAND = 823,
-	IRON_DOCKS = 987,
-	BLACKROCK_FOUNDRY = 988,
-	SKYREACH = 989,
-	UPPER_BLACKROCK_SPIRE = 995,
-	VAULT_OF_THE_WARDENS = 1032,
-	HALLS_OF_VALOR = 1041,
-	HELMOUTH_CLIFFS = 1042,
-	EYE_OF_AZSHARA = 1046,
-	NELTHARIONS_LAIR = 1065,
-	VIOLET_HOLD = 1066,
-	DARKHEART_THICKET = 1067,
-	THE_ARCWAY = 1079,
-	BLACK_ROOK_HOLD = 1081,
-	COURT_OF_STARS = 1087,
-	THE_NIGHTHOLD = 1088,
-	THE_EMERALD_NIGHTMARE = 1094,
-	TRIAL_OF_VALOR = 1114,
-	TOMB_OF_SARGERAS = 1147,
+	THE_BLACK_MORASS = 273,
+	OLD_HILLSBRAD_FOOTHILLS = 274,
+	HYJAL_SUMMIT = 329,
+--	THE_WANDERING_ISLE = 378,
+--	DARKMOON_ISLAND = 407,
+--	NELTHARIONS_LAIR = 731,
+--	DARKHEART_THICKET = 733,
 }
 
 local COSMIC_MAP_LOCATION_PARENT_MAPPING = {
 	THE_BLACK_MORASS = ZONE_NAMES.TANARIS,
 	OLD_HILLSBRAD_FOOTHILLS = ZONE_NAMES.TANARIS,
 	HYJAL_SUMMIT = ZONE_NAMES.TANARIS,
+	MOLTEN_CORE = ZONE_NAMES.BURNING_STEPPES,
+	NORTHERN_BARRENS = ZONE_NAMES.KALIMDOR,
+	SOUTHERN_BARRENS = ZONE_NAMES.KALIMDOR,
+
+--	STORMSHIELD = ZONE_NAMES.ASHRAN,
+--	WARSPEAR = ZONE_NAMES.ASHRAN,
+--	THE_OCULUS = ZONE_NAMES.BOREAN_TUNDRA,
 }
+
 
 -- Coordinates are relative to the instance's parent location.
 local INSTANCE_ENTRANCE_COORDINATES = {
@@ -386,6 +402,7 @@ local INSTANCE_ENTRANCE_COORDINATES = {
 	KARAZHAN = "46.85:74.66",
 	MAGISTERS_TERRACE = "61.20:30.89",
 	MANA_TOMBS = "39.64:57.65",
+	MOLTEN_CORE = "20.72:36.94",
 	OLD_HILLSBRAD_FOOTHILLS = "0:0",
 	ONYXIAS_LAIR = "0:0",
 	RUINS_OF_AHNQIRAJ = "0:0",
@@ -513,6 +530,10 @@ local function AddLocation(continentID, mapID, parentLocation)
 		LocationsByLocalizedName[localizedName] = location
 		LocationsByMapID[mapID] = location
 
+		private.Debug("ContinentID: %d", continentID)
+		private.Debug("MapID: %d", mapID)
+		private.Debug("localizedName: %s", localizedName)
+
 		if parentLocation then
 			parentLocation._childLocations = parentLocation._childLocations or {}
 			parentLocation._childLocations[zoneName] = location
@@ -524,21 +545,21 @@ local function AddLocation(continentID, mapID, parentLocation)
 		return location
 		-- Uncomment for debugging purposes when adding new map IDs
 		              else
-		                    private.Debug("No entry in ZONE_LABELS_FROM_MAP_ID for mapID %s (%s)", mapID or "nil", _G.C_Map.GetMapInfo(mapID).name)
+		--                    private.Debug("No entry in ZONE_LABELS_FROM_MAP_ID for mapID %s (%s)", mapID or "nil", _G.C_Map.GetMapInfo(mapID).name)
 	end
 end
-
+--[[
 local function AddSubzoneLocations(parentLocation)
-	local zoneData = { _G.GetMapSubzones(parentLocation._mapID) }
-	for zoneDataIndex = 1, #zoneData, 2 do
-		local zone = AddLocation(parentLocation._continentID, zoneData[zoneDataIndex], parentLocation)
+	local zoneData = { _G.C_Map.GetMapChildrenInfo(parentLocation) }
+	for zoneDataIndex = 1, #zoneData do
+		local zone = AddLocation(parentLocation._continentID, zoneData[zoneDataIndex].mapID, parentLocation)
 		if zone then
 			AddSubzoneLocations(zone)
 		end
 	end
 end
+]]--
 
-local mapContinentData = { _G.GetMapContinents() }
 for dataIndex = 1, #mapContinentData do
 	if dataIndex % 2 == 0 then
 		local continentID = dataIndex / 2
@@ -547,23 +568,62 @@ for dataIndex = 1, #mapContinentData do
 
 		if continent then
 			ContinentLocationByID[continentID] = continent
-			AddSubzoneLocations(continent)
+		--	AddSubzoneLocations(continentID)
 
-			local zoneData = { _G.GetMapZones(continentID) }
+			local zoneData = { _G.C_Map.GetMapChildrenInfo(continentMapID) }
 			for zoneDataIndex = 1, #zoneData, 2 do
 				local zone = AddLocation(continentID, zoneData[zoneDataIndex], continent)
 				if zone then
-					AddSubzoneLocations(zone)
+				--	AddSubzoneLocations(zone)
 				end
 			end
 		end
 	end
 end
 
-local cosmicMap = AddLocation(_G.WORLDMAP_COSMIC_ID, _G.WORLDMAP_COSMIC_ID)
-ContinentLocationByID[_G.WORLDMAP_COSMIC_ID] = cosmicMap
+
+local cosmicMap = AddLocation(946, 946)
+ContinentLocationByID[946] = cosmicMap
 
 for label, mapID in pairs(COSMIC_MAP_IDS) do
 	local parentLocation = LocationsByLocalizedName[COSMIC_MAP_LOCATION_PARENT_MAPPING[label]] or cosmicMap
 	AddLocation(parentLocation._continentID, mapID, parentLocation)
+end
+
+local function GetContinentZones(continentmapID)
+	local zoneData, TotalZones
+		TotalZones = #_G.C_Map.GetMapChildrenInfo(continentmapID)
+		for zoneDataIndex = 1, TotalZones do
+			private.Debug("zoneDataIndex %d", zoneDataIndex)
+			private.Debug("TotalZones %d", TotalZones)
+
+			zoneData = zoneData + "%d, %s", _G.C_Map.GetMapChildrenInfo[zoneDataIndex](continentmapID).mapID, _G.C_Map.GetMapChildrenInfo[zoneDataIndex](continentmapID).name
+			if zoneDataIndex == TotalZones then
+				return zoneData
+			else
+				zoneData = zoneData + ", "
+			end
+		end
+end
+
+local function AddSubzoneLocations(parentLocation)
+--	private:Debug("AddSubzoneLocations: parentLocation %s", parentLocation)
+--	local zoneData = { _G.C_Map.GetMapChildrenInfo(parentLocation._mapID).mapID, _G.C_Map.GetMapChildrenInfo(parentLocation._mapID).name }
+
+	for zoneDataIndex = 1, #zoneData, 2 do
+	private.Debug("ZoneData %d: %s", zoneDataIndex, zoneData[zoneDataIndex])
+		local zone = AddLocation(parentLocation._continentID, zoneData[zoneDataIndex], parentLocation)
+		if zone then
+			AddSubzoneLocations(zone)
+		end
+	end
+end
+
+local function GetRealZoneText(mapID)
+	if not mapID then
+		mapID = _G.C_Map.GetBestMapForUnit("player")
+	end
+	_G.WorldMapFrame:SetMapID(mapID)
+	local mapname = _G.C_Map.GetMapInfo(mapID).name
+	return mapname
 end
