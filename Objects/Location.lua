@@ -531,10 +531,6 @@ local function AddLocation(continentID, mapID, parentLocation)
 		LocationsByLocalizedName[localizedName] = location
 		LocationsByMapID[mapID] = location
 
-		private.Debug("ContinentID: %d", continentID)
-		private.Debug("MapID: %d", mapID)
-		private.Debug("localizedName: %s", localizedName)
-
 		if parentLocation then
 			parentLocation._childLocations = parentLocation._childLocations or {}
 			parentLocation._childLocations[zoneName] = location
@@ -546,12 +542,12 @@ local function AddLocation(continentID, mapID, parentLocation)
 		return location
 		-- Uncomment for debugging purposes when adding new map IDs
 		              else
-		--                    private.Debug("No entry in ZONE_LABELS_FROM_MAP_ID for mapID %s (%s)", mapID or "nil", _G.C_Map.GetMapInfo(mapID).name)
+		--                private.Debug("No entry in ZONE_LABELS_FROM_MAP_ID for mapID %s (%s)", mapID or "nil", _G.C_Map.GetMapInfo(mapID).name)
 	end
 end
---[[
+
 local function AddSubzoneLocations(parentLocation)
-	local zoneData = { _G.C_Map.GetMapChildrenInfo(parentLocation) }
+	local zoneData =  _G.C_Map.GetMapChildrenInfo(parentLocation._mapID)
 	for zoneDataIndex = 1, #zoneData do
 		local zone = AddLocation(parentLocation._continentID, zoneData[zoneDataIndex].mapID, parentLocation)
 		if zone then
@@ -559,7 +555,6 @@ local function AddSubzoneLocations(parentLocation)
 		end
 	end
 end
-]]--
 
 for dataIndex = 1, #mapContinentData do
 	if dataIndex % 2 == 0 then
@@ -569,19 +564,18 @@ for dataIndex = 1, #mapContinentData do
 
 		if continent then
 			ContinentLocationByID[continentID] = continent
-		--	AddSubzoneLocations(continentID)
+			AddSubzoneLocations(continent)
 
-			local zoneData = { _G.C_Map.GetMapChildrenInfo(continentMapID) }
-			for zoneDataIndex = 1, #zoneData, 2 do
-				local zone = AddLocation(continentID, zoneData[zoneDataIndex], continent)
+			local zoneData =  _G.C_Map.GetMapChildrenInfo(continentMapID)
+			for zoneDataIndex = 1, #zoneData do
+				local zone = AddLocation(continentID, zoneData[zoneDataIndex].mapID, continent)
 				if zone then
-				--	AddSubzoneLocations(zone)
+					AddSubzoneLocations(zone)
 				end
 			end
 		end
 	end
 end
-
 
 local cosmicMap = AddLocation(946, 946)
 ContinentLocationByID[946] = cosmicMap
@@ -589,42 +583,4 @@ ContinentLocationByID[946] = cosmicMap
 for label, mapID in pairs(COSMIC_MAP_IDS) do
 	local parentLocation = LocationsByLocalizedName[COSMIC_MAP_LOCATION_PARENT_MAPPING[label]] or cosmicMap
 	AddLocation(parentLocation._continentID, mapID, parentLocation)
-end
-
-local function GetContinentZones(continentmapID)
-	local zoneData, TotalZones
-		TotalZones = #_G.C_Map.GetMapChildrenInfo(continentmapID)
-		for zoneDataIndex = 1, TotalZones do
-			private.Debug("zoneDataIndex %d", zoneDataIndex)
-			private.Debug("TotalZones %d", TotalZones)
-
-			zoneData = zoneData + "%d, %s", _G.C_Map.GetMapChildrenInfo[zoneDataIndex](continentmapID).mapID, _G.C_Map.GetMapChildrenInfo[zoneDataIndex](continentmapID).name
-			if zoneDataIndex == TotalZones then
-				return zoneData
-			else
-				zoneData = zoneData + ", "
-			end
-		end
-end
-
-local function AddSubzoneLocations(parentLocation)
---	private:Debug("AddSubzoneLocations: parentLocation %s", parentLocation)
---	local zoneData = { _G.C_Map.GetMapChildrenInfo(parentLocation._mapID).mapID, _G.C_Map.GetMapChildrenInfo(parentLocation._mapID).name }
-
-	for zoneDataIndex = 1, #zoneData, 2 do
-	private.Debug("ZoneData %d: %s", zoneDataIndex, zoneData[zoneDataIndex])
-		local zone = AddLocation(parentLocation._continentID, zoneData[zoneDataIndex], parentLocation)
-		if zone then
-			AddSubzoneLocations(zone)
-		end
-	end
-end
-
-local function GetRealZoneText(mapID)
-	if not mapID then
-		mapID = _G.C_Map.GetBestMapForUnit("player")
-	end
-	_G.WorldMapFrame:SetMapID(mapID)
-	local mapname = _G.C_Map.GetMapInfo(mapID).name
-	return mapname
 end

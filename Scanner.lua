@@ -152,11 +152,7 @@ do
 			end
 		else
 			L[trainerName] = trainerName
-			private.Debug("TrainerID: %d", trainerID)
-			private.Debug("Trainer x: %d", trainer_x)
-			private.Debug("Trainer y: %d", trainer_y)
-			private.Debug("Trainer faction: %s", private.Player.faction)
-			addon:AddTrainer(trainerID, trainerName, GetRealZoneText(), trainer_x, trainer_y, private.Player.faction)
+			addon:AddTrainer(trainerID, trainerName, trainerzone, trainer_x, trainer_y, private.Player.faction)
 		end
 
 		table.wipe(MissingSpellIDs)
@@ -1020,6 +1016,7 @@ do
 		local mapID = _G.C_Map.GetBestMapForUnit("player")
 		_G.WorldMapFrame:SetMapID(mapID) -- Make sure were are looking at the right zone
 
+		local vendorZone = _G.C_Map.GetMapInfo(mapID).name
 		local vendorcoords_x, vendorcoords_y = _G.C_Map.GetPlayerMapPosition(mapID, "player"):GetXY()
 		vendorX = ("%.2f"):format(vendorcoords_x * 100)
 		vendorY = ("%.2f"):format(vendorcoords_y * 100)
@@ -1042,7 +1039,7 @@ do
 				coord_y = vendorY,
 				faction = _G.UnitFactionGroup("target") or "Neutral",
 				identifier = vendorID,
-				Location = private.LocationsByLocalizedName[GetRealZoneText()],
+				Location = private.LocationsByLocalizedName[vendorZone],
 				name = L[vendorName],
 			})
 		end

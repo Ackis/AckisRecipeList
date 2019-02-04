@@ -463,9 +463,9 @@ local function InitializeLocationTab()
 
 				local listEntry = CreateListEntry("header")
                 listEntry:SetLocation(location)
---              private.Debug("location: %s", location)
---			local currentMapID = _G.C_Map.GetBestMapForUnit("player")
---			_G.WorldMapFrame:SetMapID(mapID)
+			local currentMapID = _G.C_Map.GetBestMapForUnit("player")
+			_G.WorldMapFrame:SetMapID(currentMapID)
+			local PlayerZone = _G.C_Map.GetMapInfo(currentMapID).name
 
 				if localizedLocationName == GetRealZoneText() then
 					listEntry:Emphasize(true)
