@@ -114,7 +114,7 @@ private.EXPANSION_LOGOS = {
 	[_G.LE_EXPANSION_MISTS_OF_PANDARIA] = { texture = [[Interface\Glues\Common\Glues-WoW-MPLogo]] },
 	[_G.LE_EXPANSION_WARLORDS_OF_DRAENOR] = { texture = [[Interface\Glues\Common\GLUES-WOW-WODLOGO]] },
 	[_G.LE_EXPANSION_LEGION] = { atlas = "Glues-WoW-LegionLogo" },
-	[_G.LE_EXPANSION_BATTLE_FOR_AZEROTH] = { atlas = "Glues-WoW-LegionLogo" },
+	[_G.LE_EXPANSION_BATTLE_FOR_AZEROTH] = { texture = [[Interface\Glues\Common\Glues-WoW-BattleforAzerothLogo]] },
 }
 
 -- ----------------------------------------------------------------------------
