@@ -511,7 +511,7 @@ function addon:TRADE_SKILL_SHOW()
 				addon:ClearWaypoints()
 				--@debug@
 			elseif isControlKeyDown then
-				local professionID, localizedProfessionName = _G.C_TradeSkillUI.GetTradeSkillLine()
+				local professionID, _, _, _, _, _, localizedProfessionName = _G.C_TradeSkillUI.GetTradeSkillLine()
 
 				if not isAltKeyDown then
 					if isShiftKeyDown then
@@ -523,8 +523,8 @@ function addon:TRADE_SKILL_SHOW()
 				--@end-debug@
 			elseif not isShiftKeyDown and not isAltKeyDown and not isControlKeyDown then
 				local mainPanel = addon.Frame
-				local professionID, localizedProfessionName = _G.C_TradeSkillUI.GetTradeSkillLine()
 
+				local professionID, _, _, _, _, _, localizedProfessionName = _G.C_TradeSkillUI.GetTradeSkillLine()
 				if mainPanel and mainPanel:IsVisible() and private.CurrentProfession:LocalizedName() == localizedProfessionName then
 					mainPanel:Hide()
 				else
@@ -578,7 +578,7 @@ function addon:TRADE_SKILL_SHOW()
 		scanButton:SetWidth(scanButton:GetTextWidth() + 10)
 	end
 
-	local professionID, localizedProfessionName = _G.C_TradeSkillUI.GetTradeSkillLine()
+	local _, localizedProfessionName = _G.C_TradeSkillUI.GetTradeSkillLine()
 
 	if private.LOCALIZED_PROFESSION_NAME_TO_MODULE_NAME_MAPPING[localizedProfessionName] then
 		scanButton:Show()
@@ -602,7 +602,7 @@ do
 		last_update = last_update + elapsed
 
 		if last_update >= 0.5 then
-			local professionID, localizedProfessionName = _G.C_TradeSkillUI.GetTradeSkillLine()
+			local _, localizedProfessionName = _G.C_TradeSkillUI.GetTradeSkillLine()
 
 			if localizedProfessionName ~= "UNKNOWN" then
 				addon:Scan(false, true)
@@ -837,7 +837,7 @@ do
 	-- @param isTextDump Boolean indicating if we want the output to be a text dump, or if we want to use the ARL GUI
 	-- @return A frame with either the text dump, or the ARL frame
 	function addon:Scan(isTextDump, isRefresh)
-		local professionID, localizedProfessionName, professionRank = _G.C_TradeSkillUI.GetTradeSkillLine()
+		local professionID, _, professionRank, _, _, _, localizedProfessionName = _G.C_TradeSkillUI.GetTradeSkillLine()
 		if localizedProfessionName == _G.UNKNOWN then
 			self:Print(L["OpenTradeSkillWindow"])
 			return
