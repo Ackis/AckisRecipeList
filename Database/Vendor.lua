@@ -144,6 +144,19 @@ function addon:InitVendor()
 	AddVendor(115736,	L["First Arcanist Thalyssra"],		Z.SURAMAR,			36.8,	46.6,	"Neutral") -- Enchanting, Tailoring, Alchemy
 	AddVendor(127120,	L["Vindicator Jaelaana"],		Z.ARGUS,			0.0,	0.0,	"Neutral") --Needs updating  -- Jewelcrafting, Blacksmithing, Tailoring
 	AddVendor(127151,	L["Toraan the Revered"],		Z.ANTORAN_WASTES,		0.0,	0.0,	"Neutral") --Needs updating  -- Inscription, Alchemy, Enchanting
+	AddVendor(131287,	L["Natal'hakata"],			Z.DAZARALOR,			65.2,	71.2,	"Horde")
+	AddVendor(134345,	L["Collector Kojo"],			Z.ZULDAZAR,			71.4,	30.2,	"Neutral")
+	AddVendor(135446,	L["Vindicator Jaelaana"],		Z.BORALUS,			69.0,	24.7,	"Alliance") -- Alchemy, Blacksmithing, Enchanting, Engineering, Jewelcrafting)
+	AddVendor(135447,	L["Ransa Greyfeather"],			Z.ZULDAZAR,			58.0,	62.6,	"Horde") -- Alchemy, Blacksmithing, Enchanting, Engineering, Jewelcrafting)
+	AddVendor(135459,	L["Provisioner Lija"],			Z.NAZMIR,			39.0,	79.4,	"Horde")
+	AddVendor(135793,	L["Collector Kojo"],			Z.STORMSONG_VALLEY,		40.4,	36.4,	"Neutral")
+	AddVendor(135800,	L["Sister Lilyana"],			Z.STORMSONG_VALLEY,		59.2,	69.4,	"Alliance")
+	AddVendor(135804,	L["Hoarder Jena"],			Z.VOLDUN,			56.6,	49.8,	"Horde")
+	AddVendor(135808,	L["Provisioner Fray"],			Z.BORALUS,			67.6,	21.9,	"Alliance") -- Alchemy,
+	AddVendor(135815,	L["Quartermaster Alcorn"],		Z.DRUSTVAR,			37.8,	49.0,	"Alliance")
+	AddVendor(142552,	L["Ozgrom Ragefang"],			Z.ZULDAZAR,			52.6,	58.2,	"Horde")
+	AddVendor(142564,	L["Leedan Gustaf"],			Z.BORALUS,			56.3,	27.2,	"Alliance") -- PvP vendor with plans for all professions
+
 
 	self.InitVendor = nil
 end

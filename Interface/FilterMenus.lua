@@ -469,7 +469,7 @@ function private.InitializeFilterPanel()
 			reputation	= { tt = L["REPUTATION_DESC"],	text = private.AcquireTypes.Reputation:Name(),	row = 6, col = 2 },
 			worlddrop	= { tt = L["WORLD_DROP_DESC"],	text = L["World Drop"],				row = 7, col = 1 },
 			worldevent	= { tt = L["SEASONAL_DESC"],	text = private.AcquireTypes.WorldEvent:Name(),  row = 7, col = 2 },
-			tradeskill      = { tt = _G.TRADE_SKILLS,       text = private.AcquireTypes.TradeSkill:Name(), row = 8, col = 1 },
+			tradeskill      = { tt = _G.TRADE_SKILLS,       text = private.AcquireTypes.TradeSkill:Name(), 	row = 8, col = 1 },
 		}
 
 		local acquire_panel = _G.CreateFrame("Frame", nil, obtain_frame)

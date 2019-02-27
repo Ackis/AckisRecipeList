@@ -2,10 +2,13 @@
 <Ui xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.blizzard.com/wow/ui/" xsi:schemaLocation="http://www.blizzard.com/wow/ui/
 ..\FrameXML\UI.xsd">
 
+<!--@non-debug@
     <Script file="libs\LibStub\LibStub.lua"/>
     <Include file="libs\CallbackHandler-1.0\CallbackHandler-1.0.xml"/>
+@end-non-debug@-->
 
     <!--Ace3 Libraries-->
+<!--@non-debug@
     <Include file="libs\AceAddon-3.0\AceAddon-3.0.xml"/>
     <Include file="libs\AceEvent-3.0\AceEvent-3.0.xml"/>
     <Include file="libs\AceDB-3.0\AceDB-3.0.xml"/>
@@ -15,8 +18,10 @@
     <Include file="libs\AceGUI-3.0\AceGUI-3.0.xml"/>
     <Include file="libs\AceConfig-3.0\AceConfig-3.0.xml"/>
     <Include file="libs\AceTimer-3.0\AceTimer-3.0.xml"/>
+@end-non-debug@-->
 
     <!--Libraries-->
+<!--@non-debug@
     <Include file="libs\LibBabble-Boss-3.0\lib.xml"/>
     <Include file="libs\LibAboutPanel\lib.xml"/>
     <Include file="libs\LibSharedMedia-3.0\lib.xml"/>
@@ -24,4 +29,5 @@
     <Include file="libs\LibToast-1.0\lib.xml"/>
     <Include file="libs\LibDialog-1.0\lib.xml"/>
     <Include file="libs\LibTextDump-1.0\lib.xml"/>
+@end-non-debug@-->
 </Ui>

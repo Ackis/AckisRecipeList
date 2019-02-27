@@ -265,6 +265,18 @@ private.FACTION_LABELS_FROM_ID = {
 	[2165]	= "ARMY_OF_THE_LIGHT",
 	[2170]	= "ARGUSSIAN_REACH",
 
+	-- ----------------------------------------------------------------------------
+	-- Battle for Azeroth
+	-- ----------------------------------------------------------------------------
+	[2103]  = "ZANDALARI_EMPIRE",
+	[2156]  = "TALANJIS_EXPEDITION",
+	[2157]	= "THE_HONORBOUND",
+	[2158]  = "VOLDUNAI",
+	[2159]	= "SEVENTH_LEGION",
+	[2160]  = "PROUDMOORE_ADMIRALTY",
+	[2161]  = "ORDER_OF_EMBERS",
+	[2162]  = "STORMS_WAKE",
+	[2163]  = "TORTOLLAN_SEEKERS",
 }
 
 -- The expansionX_reputations tables are ordered alphabetically (ignoring leading "THE"). These are used for
@@ -335,7 +347,15 @@ private.EXPANSION6_REPUTATIONS = {
 }
 
 private.EXPANSION7_REPUTATIONS = {
-
+	"ZANDALARI_EMPIRE",
+	"TALANJIS_EXPEDITION",
+	"THE_HONORBOUND",
+	"VOLDUNAI",
+	"SEVENTH_LEGION",
+	"PROUDMOORE_ADMIRALTY",
+	"ORDER_OF_EMBERS",
+	"STORMS_WAKE",
+	"TORTOLLAN_SEEKERS",
 }
 
 private.LOCALIZED_FACTION_STRINGS_FROM_LABEL = {
@@ -533,7 +553,10 @@ private.BOSS_NAMES = {
 	FELHOUNDS_OF_SARGERAS = _G.EJ_GetEncounterInfo(1987),
 	GAROTHI_WORLDBREAKER = _G.EJ_GetEncounterInfo(1992),
 	ANTORAN_HIGH_COMMAND = _G.EJ_GetEncounterInfo(1997),
-
+	RAAL_THE_GLUTTONOUS = _G.EJ_GetEncounterInfo(2127),
+	DOOMS_HOWL = _G.EJ_GetEncounterInfo(2213),
+	HIGH_TINKER_MEKKATORQUE = _G.EJ_GetEncounterInfo(2334),
+	KING_RASTAKHAN = _G.EJ_GetEncounterInfo(2335),
 }
 
 constants.BOSS_NAMES = private.BOSS_NAMES

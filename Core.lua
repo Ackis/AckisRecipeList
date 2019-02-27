@@ -42,7 +42,7 @@ private.TextDump = LibStub("LibTextDump-1.0"):New(private.addon_name)
 -- ----------------------------------------------------------------------------
 -- Constants.
 -- ----------------------------------------------------------------------------
-local SUPPORTED_MODULE_VERSION = 2
+local SUPPORTED_MODULE_VERSION = 3
 
 -- ----------------------------------------------------------------------------
 -- Dialogs.

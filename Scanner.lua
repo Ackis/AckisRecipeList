@@ -152,7 +152,15 @@ do
 			end
 		else
 			L[trainerName] = trainerName
-			addon:AddTrainer(trainerID, trainerName, trainerzone, trainer_x, trainer_y, private.Player.faction)
+
+			output:AddLine(("Trainer not in Database."))
+			output:AddLine(("AddTrainer(%s, \"%s\", Z.%s, %s, %s, \"%s\")"):format(trainerID,
+						trainerName,
+						trainerzone,
+						trainer_x,
+						trainer_y,
+						private.Player.faction))
+		--	addon:AddTrainer(trainerID, trainerName, trainerzone, trainer_x, trainer_y, private.Player.faction)
 		end
 
 		table.wipe(MissingSpellIDs)
@@ -1033,6 +1041,12 @@ do
 			if not L[vendorName] then
 				L[vendorName] = true
 			end
+			output:AddLine(("AddVendor(%s, [\"%s\"], Z.%s, %s, %s, \"%s\")"):format(vendorID,
+						vendorName,
+						vendorZone,
+						vendorX,
+						vendorY,
+						private.Player.faction))
 
 			vendorAcquireType:AddEntity(addon, {
 				coord_x = vendorX,
@@ -1489,20 +1503,20 @@ do
     }
 
 	local OBTAIN_FILTERS = {
-        ACHIEVEMENT = true,
-        CUSTOM = true,
-        DISC = true,
-        INSTANCE = true,
+        	ACHIEVEMENT = true,
+        	CUSTOM = true,
+        	DISC = true,
+        	INSTANCE = true,
 		MOB_DROP = true,
 		PVP = true,
 		QUEST = true,
 		RAID = true,
 		REPUTATION = true,
 		TRAINER = true,
-        VENDOR = true,
-        WORLD_DROP = true,
-        WORLD_EVENT = true,
-    }
+        	VENDOR = true,
+        	WORLD_DROP = true,
+        	WORLD_EVENT = true,
+   	 }
 
 	-- Prints out the results of the tooltip scan.
 	local function ProcessScanData()
@@ -1995,6 +2009,7 @@ NO_ROLE_FLAG = {
 	[195933] = 	true,	[195936] = 	true,	[195938] = 	true,	[195940] = 	true,	[195941] = 	true,
 	[195942] = 	true,	[195943] = 	true,	[209606] =	true,	[209607] =	true,	[209609] = 	true,
 	[209610] = 	true,
+	[256512] =	true,
 
 	-- ------------------------------------------------------------------------------------
 	-- COOKING
@@ -2147,6 +2162,7 @@ NO_ROLE_FLAG = {
 	[166669] =	true,	[167950] =	true,	[175186] =	true,	[177045] =	true,	[178248] =	true,
 	[178249] =	true,	[178448] =	true,	[181420] =	true,	[181421] =	true,	[182154] =	true,
 	[182155] =	true,	[182156] =	true,	[182157] =	true,	[182158] =	true,	[225550] =	true,
+	[256277] =	true,
 
 	-- ------------------------------------------------------------------------------------
 	-- ENCHANTING
@@ -2182,7 +2198,8 @@ NO_ROLE_FLAG = {
 	[158903] =	true,	[158909] =	true,	[158910] =	true,	[158911] =	true,	[158916] =	true,
 	[158917] =	true,	[158918] =	true,	[159236] =	true,	[159672] =	true,	[159673] =	true,
 	[159674] =	true,	[162948] =	true,	[173323] =	true,	[177043] =	true,	[190995] =	true,
-	[190997] =	true,	[190999] =	true,	[191078] =	true,	[217655] =	true,
+	[190997] =	true,	[190999] =	true,	[191078] =	true,	[217655] =	true,	[255100] =	true,
+	[255112] =	true,	[268903] =	true,
 
 	-- ------------------------------------------------------------------------------------
 	-- TAILORING
@@ -2272,7 +2289,8 @@ NO_ROLE_FLAG = {
 	[156576] =	true,	[156581] =	true,	[156582] =	true,	[156584] =	true,	[162403] =	true,
 	[175853] =	true,	[175865] =	true,	[175866] =	true,	[175867] =	true,	[175868] =	true,
 	[175869] =	true,	[175880] =	true,	[188297] =	true,	[188299] =	true,	[188301] =	true,
-	[188304] =	true,	[23787] = 	true,
+	[188304] =	true,	[23787] = 	true,	[252343] =	true,	[252356] =	true,	[252378] =	true,
+	[252387] =	true,	[252384] =	true,
 
 	-- ------------------------------------------------------------------------------------
 	-- ENGINEERING
@@ -2326,6 +2344,6 @@ NO_ROLE_FLAG = {
 	[173309] =	true,	[176732] =	true,	[177054] =	true,	[177363] =	true,	[177364] =	true,
 	[181422] =	true,	[181423] =	true,	[198979] =	true,	[198999] =	true,	[199001] =	true,
 	[199002] =	true,	[199003] =	true,	[199004] =	true,
-	[199013] =	true,	[199015] =	true,	[199018] =	true,
-	[225539] =	true,
+	[199013] =	true,	[199015] =	true,	[199018] =	true,	[255409] =	true,
+	[225539] =	true,	[256084] =	true,	[256156] =	true,	[272063] =	true,	[283915] =	true,
 }

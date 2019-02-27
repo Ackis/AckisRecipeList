@@ -64,5 +64,6 @@ function addon:InitMob()
 	AddMob(114344,	BN.GUARM,			Z.TRIAL_OF_VALOR,				0, 0) -- Inscription
 	AddMob(114537, 	BN.HELYA,			Z.TRIAL_OF_VALOR,				0, 0) -- Inscription
 
+
 	self.InitMob = nil
 end

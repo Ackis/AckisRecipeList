@@ -283,15 +283,15 @@ local ZONE_MAP_IDS = {
 	TIRAGARDE_SOUND = 895,
 	DRUSTVAR = 896,
 	FREEHOLD = 936,
-	STORMSONG_VALLEY = 972,
+	STORMSONG_VALLEY = 942,
 	KINGS_REST = 1004,
+	THE_MOTHERLODE = 1010,
 	WAYCREST_MANOR = 1015,
 	THE_UNDERROT = 1042,
+	ULDIR = { 1148, 1149, 1150, 1151, 1152, 1153, 1154, 1155 },
 	BORALUS = 1161,
 	DAZARALOR = { 1163, 1164, 1165 },
-
-
-
+	BATTLE_OF_DAZARALOR = 1352,
 
 }
 
@@ -319,8 +319,8 @@ local mapContinentData = {
 	"Argus",
 --	946,
 --	"Cosmic",
-	947,
-	"Azeroth",
+--	947,  -- Must not be included, or the headings in Location tab only show Azeroth, Outland & Draenor, since everything else is a child of Azeroth
+--	"Azeroth",
 	948,
 	"The Maelstrom",
 }
@@ -365,10 +365,10 @@ local COSMIC_MAP_IDS = {
 	THE_BLACK_MORASS = 273,
 	OLD_HILLSBRAD_FOOTHILLS = 274,
 	HYJAL_SUMMIT = 329,
---	THE_WANDERING_ISLE = 378,
---	DARKMOON_ISLAND = 407,
---	NELTHARIONS_LAIR = 731,
---	DARKHEART_THICKET = 733,
+	THE_WANDERING_ISLE = 378,
+	DARKMOON_ISLAND = 407,
+	NELTHARIONS_LAIR = 731,
+	DARKHEART_THICKET = 733,
 }
 
 local COSMIC_MAP_LOCATION_PARENT_MAPPING = {
