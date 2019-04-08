@@ -554,9 +554,11 @@ private.BOSS_NAMES = {
 	GAROTHI_WORLDBREAKER = _G.EJ_GetEncounterInfo(1992),
 	ANTORAN_HIGH_COMMAND = _G.EJ_GetEncounterInfo(1997),
 	RAAL_THE_GLUTTONOUS = _G.EJ_GetEncounterInfo(2127),
+	MOTHER = _G.EJ_GetEncounterInfo(2167),
 	DOOMS_HOWL = _G.EJ_GetEncounterInfo(2213),
 	HIGH_TINKER_MEKKATORQUE = _G.EJ_GetEncounterInfo(2334),
 	KING_RASTAKHAN = _G.EJ_GetEncounterInfo(2335),
+	LADY_JAINA_PROUDMOORE = _G.EJ_GetEncounterInfo(2343),
 }
 
 constants.BOSS_NAMES = private.BOSS_NAMES
