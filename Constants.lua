@@ -555,6 +555,7 @@ private.BOSS_NAMES = {
 	ANTORAN_HIGH_COMMAND = _G.EJ_GetEncounterInfo(1997),
 	RAAL_THE_GLUTTONOUS = _G.EJ_GetEncounterInfo(2127),
 	MOTHER = _G.EJ_GetEncounterInfo(2167),
+	ZUL_REBORN = _G.EJ_GetEncounterInfo(2195),
 	DOOMS_HOWL = _G.EJ_GetEncounterInfo(2213),
 	HIGH_TINKER_MEKKATORQUE = _G.EJ_GetEncounterInfo(2334),
 	KING_RASTAKHAN = _G.EJ_GetEncounterInfo(2335),

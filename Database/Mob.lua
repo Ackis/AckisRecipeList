@@ -63,7 +63,7 @@ function addon:InitMob()
 	AddMob(114263,	BN.ODYN,			Z.TRIAL_OF_VALOR,				0, 0) -- Inscription
 	AddMob(114344,	BN.GUARM,			Z.TRIAL_OF_VALOR,				0, 0) -- Inscription
 	AddMob(114537, 	BN.HELYA,			Z.TRIAL_OF_VALOR,				0, 0) -- Inscription
-
+	AddMob(138967,	BN.ZUL_REBORN,			Z.ULDIR,					0, 0) -- Inscription & Tailoring
 
 	self.InitMob = nil
 end
