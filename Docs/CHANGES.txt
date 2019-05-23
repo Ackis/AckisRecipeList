@@ -4,6 +4,20 @@ NOTE: Always remove the folder for old versions and install a fresh copy when up
 == Known Issues
 === Due to a change Blizzard made long ago, it is no longer possible to post an alt's profession link via Ackis Recipe List. It seems this functionality won't be returning.
 
+== 8.1.5.2
+=== Functionality
+* Fix localizations
+* Waypoints are (mostly) working again! Due to limitations with libraries and odd phasing, its better to not set waypoints to Lunarfall, Frostwall & Darnassus.
+
+== 8.1.5.1
+=== Functionality
+* Add 8.1.5 info
+* Fix localizations
+
+== 8.1.1
+=== Functionality
+* Add 8.1 info
+
 == 3.0.14
 === Functionality
 * Add 6.1 info, vendors, etc
