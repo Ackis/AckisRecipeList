@@ -162,7 +162,7 @@ function addon:AddWaypoint(recipe, targetAcquireType, location, npcID)
             entity.acquire_type = nil
             entity.reference_id = nil
 
-            if entityLocation:MapID() == 590 or entityLocation:MapID() == 582 or entityLocation:MapID() == 89 then
+            if entityLocation:MapID() == 590 or entityLocation:MapID() == 582 or entityLocation:MapID() == 89 or entityLocation:MapID() == 90 or entityLocation:MapID() == 57 then
                 self:Print(waypointName)
             else
                 local coordX = entity.coord_x
