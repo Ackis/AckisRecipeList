@@ -408,6 +408,7 @@ L["Dawn-Seeker Rilak"] = true
 L["Dawn-Seeker Skariss"] = true
 L["Dawn-Seeker Verroak"] = true
 L["Day of the Dead"] = true
+L["Dazzerian"] = true
 L["Dazzik \"Proudmoore\""] = true
 L["Deadwind Warlock"] = true
 L["Deadwood Shaman"] = true

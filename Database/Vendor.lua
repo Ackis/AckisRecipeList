@@ -154,8 +154,12 @@ function addon:InitVendor()
 	AddVendor(135804,	L["Hoarder Jena"],			Z.VOLDUN,			56.6,	49.8,	"Horde")
 	AddVendor(135808,	L["Provisioner Fray"],			Z.BORALUS,			67.6,	21.9,	"Alliance") -- Alchemy,
 	AddVendor(135815,	L["Quartermaster Alcorn"],		Z.DRUSTVAR,			37.8,	49.0,	"Alliance")
-	AddVendor(142552,	L["Ozgrom Ragefang"],			Z.ZULDAZAR,			52.6,	58.2,	"Horde")
+	AddVendor(142552,	L["Ozgrom Ragefang"],			Z.ZULDAZAR,			52.6,	58.2,	"Horde") -- PvP vendor with plans for all professions
 	AddVendor(142564,	L["Leedan Gustaf"],			Z.BORALUS,			56.3,	27.2,	"Alliance") -- PvP vendor with plans for all professions
+	AddVendor(153512,	L["Finder Pruc"],			Z.NAZJATAR,			 0.0,	0.0,	"Horde") -- Alchemy, Cooking, Enchanting, Inscription
+	AddVendor(154140,	L["Speaker Utia"],			Z.NAZJATAR,			38.0,	55.7,	"Alliance") -- Alchemy, Cooking, Enchanting, Inscription
+	AddVendor(154652,	L["Dazzerian"],				Z.NAZJATAR,			 0.0,	0.0,	"Horde") -- PvP vendor
+	AddVendor(154653,	L["Crafticus Mindbender"],		Z.NAZJATAR,			38.1,	55.4,	"Alliance") -- PvP vendor
 
 
 	self.InitVendor = nil
