@@ -162,49 +162,56 @@ function addon:AddWaypoint(recipe, targetAcquireType, location, npcID)
             entity.acquire_type = nil
             entity.reference_id = nil
 
-            local coordX = entity.coord_x
-            local coordY = entity.coord_y
-            local waypointLocation = entityLocation
+            if entityLocation:MapID() == 590 or entityLocation:MapID() == 582 or entityLocation:MapID() == 89 or entityLocation:MapID() == 90 or entityLocation:MapID() == 57 then
+                self:Print(waypointName)
+            else
+                local coordX = entity.coord_x
+                local coordY = entity.coord_y
+                local waypointLocation = entityLocation
 
-            local entranceX, entranceY = entityLocation:EntranceCoordinates()
-            if entranceX > 0 and entranceY > 0 then
-                waypointLocation = entityLocation:Parent()
-                coordX = entranceX
-                coordY = entranceY
-            end
-
-            if coordX and coordY then
-                --@debug@
-                if coordX == 0 and coordY == 0 then
-                    self:Debug("Location is \"0, 0\" for recipe %s (ID %d). Location: %s.", recipe:LocalizedName(), recipe:SpellID(), entityLocation:Name())
-                elseif ((coordX < -100) or (coordX > 100)) or ((coordY < -100) or (coordY > 100)) then
-                    self:Debug("Invalid location coordinates (%s, %s) for recipe %s (ID %d). Location: %s.", coordX, coordY, recipe:LocalizedName(), recipe:SpellID(), entityLocation:Name())
-                    coordX = nil
-                    coordY = nil
+                local entranceX, entranceY = entityLocation:EntranceCoordinates()
+                if entranceX > 0 and entranceY > 0 then
+                    waypointLocation = entityLocation:Parent()
+                    coordX = entranceX
+                    coordY = entranceY
                 end
-                --@end-debug@
 
-                local waypoint = _G.TomTom:AddMFWaypoint(waypointLocation:MapID(), nil, coordX / 100, coordY / 100, {
-                    crazy = true,
-                    title = waypointName,
-                })
+                if coordX and coordY then
+                    --@debug@
+                    if coordX == 0 and coordY == 0 then
+                        self:Debug("Location is \"0, 0\" for recipe %s (ID %d). Location: %s.", recipe:LocalizedName(), recipe:SpellID(), entityLocation:Name())
+                    elseif ((coordX < -100) or (coordX > 100)) or ((coordY < -100) or (coordY > 100)) then
+                        self:Debug("Invalid location coordinates (%s, %s) for recipe %s (ID %d). Location: %s.", coordX, coordY, recipe:LocalizedName(), recipe:SpellID(), entityLocation:Name())
+                        coordX = nil
+                        coordY = nil
+                    end
+                    --@end-debug@
 
-                if waypoint then
-                    table.insert(ActiveWaypoints, waypoint)
+                    local waypoint = _G.TomTom:AddWaypoint(waypointLocation:MapID(), coordX / 100, coordY / 100, {
+                        crazy = true,
+                        title = waypointName,
+                        persistent = nil,
+                        minimap = true,
+                        world = true
+                    })
 
-                    SetWaypointIcon(waypoint, _G.Minimap:GetChildren())
+                    if waypoint then
+                        table.insert(ActiveWaypoints, waypoint)
 
-                    if _G.TomTomMapOverlay then
-                        SetWaypointIcon(waypoint, _G.TomTomMapOverlay:GetChildren())
+                        SetWaypointIcon(waypoint, _G.Minimap:GetChildren())
+
+                        if _G.TomTomMapOverlay then
+                            SetWaypointIcon(waypoint, _G.TomTomMapOverlay:GetChildren())
+                        end
+                    else
+                        self:Debug("No waypoint provided by TomTom.")
                     end
                 else
-                    self:Debug("No waypoint provided by TomTom.")
+                    addon:Debug("No coordinates provided for recipe %s (ID %d).", recipe:LocalizedName(), recipe:SpellID())
                 end
-            else
-                addon:Debug("No coordinates provided for recipe %s (ID %d).", recipe:LocalizedName(), recipe:SpellID())
             end
         else
-            self:Debug("No location match for recipe %s (ID %d).", recipe:LocalizedName(), recipe:SpellID())
+                self:Debug("No location match for recipe %s (ID %d).", recipe:LocalizedName(), recipe:SpellID())
         end
     end
 end
