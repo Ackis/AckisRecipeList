@@ -1,6 +1,6 @@
 ## Author: Ackis, Torhal, Ressy
 
-## Interface: 80100
+## Interface: 80200
 ## Version: @project-version@
 ## X-Revision: @project-abbreviated-hash@
 ## X-Date: @file-date-iso@
