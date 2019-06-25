@@ -560,6 +560,7 @@ L["Fendrig Redbeard"] = true
 L["Fera Palerunner"] = true
 L["Festive Recipes"] = true
 L["Feyden Darkin"] = true
+L["Feylana the Handler"] = true
 L["Fimble Finespindle"] = true
 L["Finbus Geargrind"] = true
 L["Finder Palta"] = true
