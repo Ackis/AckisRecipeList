@@ -277,6 +277,11 @@ private.FACTION_LABELS_FROM_ID = {
 	[2161]  = "ORDER_OF_EMBERS",
 	[2162]  = "STORMS_WAKE",
 	[2163]  = "TORTOLLAN_SEEKERS",
+	[2164]	= "CHAMPIONS_OF_AZEROTH",
+	[2373]  = "UNSHACKLED",
+	[2391]  = "RUSTBOLT_RESISTANCE",
+	[2400]  = "ANKOAN",
+
 }
 
 -- The expansionX_reputations tables are ordered alphabetically (ignoring leading "THE"). These are used for
@@ -356,6 +361,10 @@ private.EXPANSION7_REPUTATIONS = {
 	"ORDER_OF_EMBERS",
 	"STORMS_WAKE",
 	"TORTOLLAN_SEEKERS",
+	"CHAMPIONS_OF_AZEROTH",
+	"UNSHACKLED",
+	"RUSTBOLT_RESISTANCE",
+	"ANKOAN",
 }
 
 private.LOCALIZED_FACTION_STRINGS_FROM_LABEL = {

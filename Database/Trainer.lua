@@ -51,8 +51,11 @@ function addon:InitTrainer()
 	AddTrainer(57620, "Whittler Dewei", 		Z.THE_WANDERING_ISLE, 	63.0, 41.4, 	"Neutral")
 	AddTrainer(65043, "Elder Oakpaw", 		Z.THE_WANDERING_ISLE, 	50.6, 58.6, 	"Neutral")
 	AddTrainer(153811, "Instructor Okanu",		Z.NAZJATAR,		38.0, 53.2,	"Alliance")
-	AddTrainer(154257, "Instructor Ulooaka",	Z.NAZJATAR,		38.0, 53.0,	"Alliance")
 	AddTrainer(153817, "Instructor Alikana",	Z.NAZJATAR,		38.0, 53.6,	"Alliance")
+	AddTrainer(154257, "Instructor Ulooaka",	Z.NAZJATAR,		38.0, 53.0,	"Alliance")
+	AddTrainer(154321, "Jada",			Z.NAZJATAR,		49.0, 61.4,	"Horde")
+	AddTrainer(154393, "Narv",			Z.NAZJATAR,		49.0, 61.4,	"Horde")
+	AddTrainer(154408, "Rolm",			Z.NAZJATAR,		49.2, 61.8,	"Horde")
 
 	self.InitTrainer = nil
 end
