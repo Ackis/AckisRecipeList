@@ -63,6 +63,7 @@ function addon:InitCustom()
 	AddCustom("BOON_OF_THE_BUILDER",	Z.DALARAN_BROKENISLES,		38.6, 25.0)
 	AddCustom("KISS_SYAITH",		Z.BROKEN_SHORE,			49.0, 55.8)
 	AddCustom("HUMBLE_FLYER")
+	AddCustom("HONEYBACK_HIVE",	Z.STORMSONG_VALLEY)
 
 	self.InitCustom = nil
 end

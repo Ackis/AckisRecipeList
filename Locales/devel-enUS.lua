@@ -703,6 +703,7 @@ L["Guron Twaintail"] = true
 L["Guy Fireeye"] = true
 L["HEROIC"] = "Drops in 25 man Heroic version of this raid."
 L["HIDEPOPUP_DESC"] = "Prevents pop-ups notifying you why the scan window is empty from showing.  Pop-ups will always show for the first time after a new version has been added."
+L["HONEYBACK_HIVE"] = "Available randomly from farming Jelly for Honeyback Hive rep."
 L["HUMBLE_FLYER"] = "Requires 150 Inscription. Visit Grumpy Grimble (Tiragarde Sound 49.8 36.8) or Old Jen'tay (Zuldazar 76.2 39.8). Complete the conversation to learn."
 L["Haalrun"] = true
 L["Haferet"] = true
