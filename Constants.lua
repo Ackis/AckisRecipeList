@@ -281,7 +281,8 @@ private.FACTION_LABELS_FROM_ID = {
 	[2373]  = "UNSHACKLED",
 	[2391]  = "RUSTBOLT_RESISTANCE",
 	[2400]  = "ANKOAN",
-
+	[2415]	= "RAJANI",
+	[2417]	= "ULDUM_ACCORD",
 }
 
 -- The expansionX_reputations tables are ordered alphabetically (ignoring leading "THE"). These are used for
@@ -365,6 +366,8 @@ private.EXPANSION7_REPUTATIONS = {
 	"UNSHACKLED",
 	"RUSTBOLT_RESISTANCE",
 	"ANKOAN",
+	"RAJANI",
+	"ULDUM_ACCORD",
 }
 
 private.LOCALIZED_FACTION_STRINGS_FROM_LABEL = {
@@ -569,6 +572,7 @@ private.BOSS_NAMES = {
 	HIGH_TINKER_MEKKATORQUE = _G.EJ_GetEncounterInfo(2334),
 	KING_RASTAKHAN = _G.EJ_GetEncounterInfo(2335),
 	LADY_JAINA_PROUDMOORE = _G.EJ_GetEncounterInfo(2343),
+	NZOTH_THE_CORRUPTOR = _G.EJ_GetEncounterInfo(2375),
 }
 
 constants.BOSS_NAMES = private.BOSS_NAMES
