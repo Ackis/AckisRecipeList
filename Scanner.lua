@@ -129,7 +129,7 @@ do
 
 		-- Dump out trainer info
 		local mapID = _G.C_Map.GetBestMapForUnit("player")
-		_G.WorldMapFrame:SetMapID(mapID)
+--		_G.WorldMapFrame:SetMapID(mapID)
 
 		local trainerID = private.MobGUIDToIDNum(_G.UnitGUID("target"))
 		local trainerName = _G.UnitName("target")
@@ -1022,7 +1022,7 @@ do
 		local vendor = vendorAcquireType:GetEntity(vendorID)
 
 		local mapID = _G.C_Map.GetBestMapForUnit("player")
-		_G.WorldMapFrame:SetMapID(mapID) -- Make sure were are looking at the right zone
+--		_G.WorldMapFrame:SetMapID(mapID) -- Make sure were are looking at the right zone
 
 		local vendorZone = _G.C_Map.GetMapInfo(mapID).name
 		local vendorcoords_x, vendorcoords_y = _G.C_Map.GetPlayerMapPosition(mapID, "player"):GetXY()

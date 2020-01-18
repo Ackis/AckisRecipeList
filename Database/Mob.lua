@@ -64,8 +64,8 @@ function addon:InitMob()
 	AddMob(114344,	BN.GUARM,			Z.TRIAL_OF_VALOR,				0, 0) -- Inscription
 	AddMob(114537, 	BN.HELYA,			Z.TRIAL_OF_VALOR,				0, 0) -- Inscription
 	AddMob(138967,	BN.ZUL_REBORN,			Z.ULDIR,					0, 0) -- Inscription & Tailoring
-	AddMob(153910,	L["Cultist of N'Zoth"],		Z.ULDUM,					0, 0) -- All professions
-	AddMob(162245,	L["Cultist of N'Zoth"],		Z.VALE_OF_ETERNAL_BLOSSOMS,			0, 0) -- All professions
+	AddMob(153910,	L["Cultist of N'Zoth"],		Z.ULDUM_INVASION,				0, 0) -- All professions
+	AddMob(162245,	L["Cultist of N'Zoth"],		Z.VALE_OF_ETERNAL_BLOSSOMS_INVASION,		0, 0) -- All professions
 
 	self.InitMob = nil
 end

@@ -464,7 +464,7 @@ local function InitializeLocationTab()
 				local listEntry = CreateListEntry("header")
                 listEntry:SetLocation(location)
 			local currentMapID = _G.C_Map.GetBestMapForUnit("player")
-			_G.WorldMapFrame:SetMapID(currentMapID)
+--			_G.WorldMapFrame:SetMapID(currentMapID)
 			local PlayerZone = _G.C_Map.GetMapInfo(currentMapID).name
 
 				if localizedLocationName == GetRealZoneText() then
