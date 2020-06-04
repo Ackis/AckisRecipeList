@@ -28,7 +28,7 @@ function addon:InitVendor()
 	end
 
 	AddVendor(66,		L["Tharynn Bouden"],			Z.ELWYNN_FOREST,		41.9,	67.1,	"Alliance") -- Cooking, Tailoring
-	AddVendor(777,		L["Amy Davenport"],			Z.REDRIDGE_MOUNTAINS,		29.1,	47.5,	"Alliance") -- Leatherworking, Tailoring
+	AddVendor(777,		L["Amy Davenport"],			Z.REDRIDGE_MOUNTAINS,		28.2,	43.6,	"Alliance") -- Leatherworking, Tailoring
 	AddVendor(843,		L["Gina MacGregor"],			Z.WESTFALL,			57.6,	54.0,	"Alliance") -- Leatherworking, Tailoring
 	AddVendor(989,		L["Banalash"],				Z.SWAMP_OF_SORROWS,		46.6,	56.9,	"Horde") -- Cooking, Enchanting, Jewelcrafting
 	AddVendor(1148,		L["Nerrist"],				Z.NORTHERN_STRANGLETHORN,	39.2,	51.0,	"Horde") -- Cooking, Jewelcrafting
@@ -116,6 +116,8 @@ function addon:InitVendor()
 	AddVendor(46572,	L["Goram"],				Z.ORGRIMMAR,			48.2,	75.6,	"Horde") -- Alchemy, Cooking
 	AddVendor(46602,	L["Shay Pressler"],			Z.STORMWIND_CITY,		64.6,	76.8,	"Alliance") -- Alchemy, Cooking
 	AddVendor(51495,	L["Steeg Haskell"],			Z.IRONFORGE,			36.3,	85.8,	"Alliance") -- Alchemy, Cooking
+	AddVendor(51496,	L["Kim Horn"],				Z.UNDERCITY,			69.6,	43.8,	"Horde") -- Alchemy, Cooking
+	AddVendor(51503,	L["Randah Songhorn"],			Z.THUNDER_BLUFF,		37.6,	62.8,	"Horde") -- Alchemy, Cooking
 	AddVendor(51512,	L["Mirla Silverblaze"],			Z.DALARAN_NORTHREND,		52.6,	56.6,	"Neutral") -- Alchemy, Cooking
 	AddVendor(53214,	L["Damek Bloombeard"],			Z.MOLTEN_FRONT,			47.0,	90.6,	"Neutral") -- Blacksmithing, Engineering
 	AddVendor(53410,	L["Lissah Spellwick"],			Z.DUSTWALLOW_MARSH,		66.0,	49.7,	"Alliance") -- Enchanting, Tailoring
