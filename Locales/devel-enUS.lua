@@ -729,6 +729,7 @@ L["Heartwood Doe"] = true
 L["Heartwood Stag"] = true
 L["Heldan Galesong"] = true
 L["Helenia Olden"] = true
+L["Hessir"] = true
 L["Hgarth"] = true
 L["Hide Pop-Up"] = true
 L["High Admiral \"Shelly\" Jorrik"] = true
