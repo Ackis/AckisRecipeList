@@ -479,54 +479,6 @@ function private.InitializeFilterPanel()
 		acquire_panel:SetPoint("RIGHT", obtain_frame, "RIGHT")
 
 		private.GenerateCheckBoxes(obtain_frame, acquire_buttons, acquire_panel)
-
-		-- ----------------------------------------------------------------------------
-		-- Create the Version toggle and CheckButtons
-		-- ----------------------------------------------------------------------------
-		local version_toggle = _G.CreateFrame("Button", nil, obtain_frame)
-		version_toggle:SetWidth(105)
-		version_toggle:SetHeight(20)
-		version_toggle:SetNormalFontObject("QuestTitleFont")
-		version_toggle:SetHighlightFontObject("QuestTitleFontBlackShadow")
-		version_toggle:SetText(_G.GAME_VERSION_LABEL .. ":")
-		version_toggle:SetPoint("TOP", acquire_panel, "BOTTOM", 0, 0)
-		version_toggle:RegisterForClicks("LeftButtonUp", "RightButtonUp")
-
-		private.SetTooltipScripts(version_toggle, L["GROUP_TOGGLE_FORMAT"]:format(_G.GAME_VERSION_LABEL))
-
-		version_toggle:SetScript("OnClick", function(self, button)
-			local filters = addon.db.profile.filters.obtain
-			local toggle = (button == "LeftButton") and true or false
-
-			for filter in pairs(filters) do
-				if filter:match("expansion") then
-					filters[filter] = toggle
-					obtain_frame[filter]:SetChecked(toggle)
-				end
-			end
-			MainPanel:UpdateTitle()
-			MainPanel.list_frame:Update(nil, false)
-		end)
-
-		local function ExpansionDesc(expansion_text)
-			return L["EXPANSION_DESC_FORMAT"]:format(expansion_text)
-		end
-		obtain_frame.version_toggle = version_toggle
-
-		local version_buttons = {}
-		for index = 1, #private.GAME_VERSION_NAMES do
-			local expansion_name = _G[("EXPANSION_NAME%d"):format(index - 1)]
-			version_buttons[("expansion%d"):format(index - 1)]  = { tt = ExpansionDesc(expansion_name), text = expansion_name, row = index, col = 1 }
-		end
-
-		local version_panel = _G.CreateFrame("Frame", nil, obtain_frame)
-		version_panel:SetHeight(60)
-		version_panel:SetPoint("TOP", version_toggle, "BOTTOM")
-		version_panel:SetPoint("LEFT", obtain_frame, "LEFT")
-		version_panel:SetPoint("RIGHT", obtain_frame, "RIGHT")
-
-		private.GenerateCheckBoxes(obtain_frame, version_buttons, version_panel)
-		ExpansionDesc = nil
 	end	-- do-block
 
 	-- ----------------------------------------------------------------------------
@@ -571,12 +523,60 @@ function private.InitializeFilterPanel()
 		}
 
 		local binding_panel = _G.CreateFrame("Frame", nil, binding_frame)
-		binding_panel:SetHeight(50)
+		binding_panel:SetHeight(60)
 		binding_panel:SetPoint("TOP", binding_toggle, "BOTTOM")
 		binding_panel:SetPoint("LEFT", binding_frame, "LEFT")
 		binding_panel:SetPoint("RIGHT", binding_frame, "RIGHT")
 
 		private.GenerateCheckBoxes(binding_frame, binding_buttons, binding_panel)
+
+		-- ----------------------------------------------------------------------------
+		-- Create the Version toggle and CheckButtons
+		-- ----------------------------------------------------------------------------
+		local version_toggle = _G.CreateFrame("Button", nil, binding_frame)
+		version_toggle:SetWidth(105)
+		version_toggle:SetHeight(20)
+		version_toggle:SetNormalFontObject("QuestTitleFont")
+		version_toggle:SetHighlightFontObject("QuestTitleFontBlackShadow")
+		version_toggle:SetText(_G.GAME_VERSION_LABEL .. ":")
+		version_toggle:SetPoint("TOP", binding_panel, "BOTTOM", 0, -30)
+		version_toggle:RegisterForClicks("LeftButtonUp", "RightButtonUp")
+
+		private.SetTooltipScripts(version_toggle, L["GROUP_TOGGLE_FORMAT"]:format(_G.GAME_VERSION_LABEL))
+
+		version_toggle:SetScript("OnClick", function(self, button)
+			local filters = addon.db.profile.filters.obtain
+			local toggle = (button == "LeftButton") and true or false
+
+			for filter in pairs(filters) do
+				if filter:match("expansion") then
+					filters[filter] = toggle
+					binding_frame[filter]:SetChecked(toggle)
+				end
+			end
+			MainPanel:UpdateTitle()
+			MainPanel.list_frame:Update(nil, false)
+		end)
+
+		local function ExpansionDesc(expansion_text)
+			return L["EXPANSION_DESC_FORMAT"]:format(expansion_text)
+		end
+		binding_frame.version_toggle = version_toggle
+
+		local version_buttons = {}
+		for index = 1, #private.GAME_VERSION_NAMES do
+			local expansion_name = _G[("EXPANSION_NAME%d"):format(index - 1)]
+			version_buttons[("expansion%d"):format(index - 1)]  = { tt = ExpansionDesc(expansion_name), text = expansion_name, row = index, col = 1 }
+		end
+
+		local version_panel = _G.CreateFrame("Frame", nil, binding_frame)
+		version_panel:SetHeight(60)
+		version_panel:SetPoint("TOP", version_toggle, "BOTTOM")
+		version_panel:SetPoint("LEFT", binding_frame, "LEFT")
+		version_panel:SetPoint("RIGHT", binding_frame, "RIGHT")
+
+		private.GenerateCheckBoxes(binding_frame, version_buttons, version_panel)
+		ExpansionDesc = nil
 	end	-- do-block
 
 	-- ----------------------------------------------------------------------------
@@ -959,7 +959,7 @@ function private.InitializeFilterPanel()
 	-- ---------------------------------------------------------------------------------------------
 	for expansionIndex = 1, #private.GAME_VERSION_NAMES do
 		local expansionName = ("expansion%d"):format(expansionIndex - 1)
-		FilterPanel.value_map[expansionName] = { cb = FilterPanel.obtain[expansionName], svroot = filterdb.obtain }
+		FilterPanel.value_map[expansionName] = { cb = FilterPanel.binding[expansionName], svroot = filterdb.obtain }
 
 		local reputations = private[("EXPANSION%d_REPUTATIONS"):format(expansionIndex - 1)]
 		for reputationIndex = 1, #reputations do
