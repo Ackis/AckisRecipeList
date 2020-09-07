@@ -595,7 +595,7 @@ end
 
 do
 	local last_update = 0
-	local updater = _G.CreateFrame("Frame", nil, _G.UIParent)
+	local updater = _G.CreateFrame("Frame", nil, _G.UIParent, BackdropTemplateMixin and "BackdropTemplate")
 	updater:Hide()
 
 	updater:SetScript("OnUpdate", function(self, elapsed)

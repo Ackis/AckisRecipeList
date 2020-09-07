@@ -34,6 +34,7 @@ local ZONE_MAP_IDS = {
 	COSMIC = 946,
 	AZEROTH = 947,
 	THE_MAELSTROM = 948,
+	THE_SHADOWLANDS = 1550,
 
 	DUROTAR = 1,
 	MULGORE = 7,
@@ -303,6 +304,13 @@ local ZONE_MAP_IDS = {
 	THE_ETERNAL_PALACE = 1512,
 	NYALOTHA = 1580,
 
+	-- SHADOWLANDS
+	REVENDRETH = 1525,
+	BASTION = 1533,
+	MALDRAXXUS = 1536,
+	THE_MAW = 1543,
+	ARDENWEALD = 1565,
+	ORIBOS = 1670,
 }
 
 -- Hard code this because I so don't want to change up the coding that much
@@ -333,6 +341,8 @@ local mapContinentData = {
 --	"Azeroth",
 	948,
 	"The Maelstrom",
+	1550,
+	"The Shadowlands",
 }
 
 local ZONE_NAMES = {}

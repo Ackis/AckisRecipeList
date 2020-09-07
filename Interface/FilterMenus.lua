@@ -195,7 +195,7 @@ function private.InitializeFilterPanel()
 	-- ----------------------------------------------------------------------------
 	-- Main filter_menu frame.
 	-- ----------------------------------------------------------------------------
-	local FilterPanel = _G.CreateFrame("Frame", nil, MainPanel)
+	local FilterPanel = _G.CreateFrame("Frame", nil, MainPanel, BackdropTemplateMixin and "BackdropTemplate")
 	FilterPanel:SetWidth(FILTERMENU_WIDTH)
 	FilterPanel:SetHeight(FILTERMENU_HEIGHT)
 	FilterPanel:SetFrameStrata("MEDIUM")
@@ -222,13 +222,13 @@ function private.InitializeFilterPanel()
 	-- ----------------------------------------------------------------------------
 	-- Create the seven buttons for opening/closing the filter menus
 	-- ----------------------------------------------------------------------------
-	local toggle_container = _G.CreateFrame("Frame", nil, MainPanel)
+	local toggle_container = _G.CreateFrame("Frame", nil, MainPanel, BackdropTemplateMixin and "BackdropTemplate")
 	toggle_container:SetSize(283, 22)
 	toggle_container:SetPoint("BOTTOM", MainPanel.filter_menu, "TOP", 0, 5)
 
 	local function CreateFilterMenuButton(button_texture, category)
 		local button_size = 22
-		local button = _G.CreateFrame("CheckButton", nil, toggle_container)
+		local button = _G.CreateFrame("CheckButton", nil, toggle_container, UICheckButtonTemplate)
 		button:Hide()
 		button:SetSize(button_size, button_size)
 		button:SetMotionScriptsWhileDisabled(true)
@@ -410,7 +410,7 @@ function private.InitializeFilterPanel()
 		demonhunter	= { tt = L["CLASS_DESC"],	text = _G.LOCALIZED_CLASS_NAMES_MALE["DEMONHUNTER"],	row = 6, col = 2 },
 	}
 
-	local class_panel = _G.CreateFrame("Frame", nil, general_frame)
+	local class_panel = _G.CreateFrame("Frame", nil, general_frame, BackdropTemplateMixin and "BackdropTemplate")
 	class_panel:SetHeight(110)
 	class_panel:SetPoint("TOP", class_toggle, "BOTTOM")
 	class_panel:SetPoint("LEFT", general_frame, "LEFT")
@@ -519,7 +519,7 @@ function private.InitializeFilterPanel()
 			version_buttons[("expansion%d"):format(index - 1)]  = { tt = ExpansionDesc(expansion_name), text = expansion_name, row = index, col = 1 }
 		end
 
-		local version_panel = _G.CreateFrame("Frame", nil, obtain_frame)
+		local version_panel = _G.CreateFrame("Frame", nil, obtain_frame, BackdropTemplateMixin and "BackdropTemplate")
 		version_panel:SetHeight(60)
 		version_panel:SetPoint("TOP", version_toggle, "BOTTOM")
 		version_panel:SetPoint("LEFT", obtain_frame, "LEFT")
@@ -570,7 +570,7 @@ function private.InitializeFilterPanel()
 			recipe_bind_on_pickup	= { tt = L["RECIPE_BOP_DESC"],	text = L["RecipeBOPFilter"],	row = 4, col = 1 },
 		}
 
-		local binding_panel = _G.CreateFrame("Frame", nil, binding_frame)
+		local binding_panel = _G.CreateFrame("Frame", nil, binding_frame, BackdropTemplateMixin and "BackdropTemplate")
 		binding_panel:SetHeight(50)
 		binding_panel:SetPoint("TOP", binding_toggle, "BOTTOM")
 		binding_panel:SetPoint("LEFT", binding_frame, "LEFT")
@@ -645,7 +645,7 @@ function private.InitializeFilterPanel()
 			epic		= { tt = QualityDesc(_G.ITEM_QUALITY4_DESC),	text = _G.ITEM_QUALITY4_DESC,	row = 2, col = 2 },
 		}
 
-		local quality_panel = _G.CreateFrame("Frame", nil, quality_frame)
+		local quality_panel = _G.CreateFrame("Frame", nil, quality_frame, BackdropTemplateMixin and "BackdropTemplate")
 		quality_panel:SetHeight(50)
 		quality_panel:SetPoint("TOP", quality_toggle, "BOTTOM")
 		quality_panel:SetPoint("LEFT", quality_frame, "LEFT")
@@ -695,7 +695,7 @@ function private.InitializeFilterPanel()
 			caster	= { tt = L["ROLE_DESC_FORMAT"]:format(_G.DAMAGER),	text = _G.DAMAGER,	row = 2, col = 2 },
 		}
 
-		local role_panel = _G.CreateFrame("Frame", nil, player_frame)
+		local role_panel = _G.CreateFrame("Frame", nil, player_frame, BackdropTemplateMixin and "BackdropTemplate")
 		role_panel:SetHeight(50)
 		role_panel:SetPoint("TOP", role_toggle, "BOTTOM")
 		role_panel:SetPoint("LEFT", player_frame, "LEFT")
@@ -829,7 +829,7 @@ function private.InitializeFilterPanel()
 	-- Create FilterPanel.rep.expansionX, and set its scripts.
 	-- ----------------------------------------------------------------------------
 	local function CreateExpansionFrame(expansion_num)
-		local expansion_frame = _G.CreateFrame("Frame", nil, FilterPanel.rep)
+		local expansion_frame = _G.CreateFrame("Frame", nil, FilterPanel.rep, BackdropTemplateMixin and "BackdropTemplate")
 		expansion_frame:SetWidth(200)
 		expansion_frame:SetHeight(FILTERMENU_HEIGHT)
 		expansion_frame:EnableMouse(true)
@@ -852,7 +852,7 @@ function private.InitializeFilterPanel()
 		end
 		private.GenerateCheckBoxes(expansion_frame, expansion_buttons)
 
-		local expansion_toggle = _G.CreateFrame("Button", nil, expansion_frame)
+		local expansion_toggle = _G.CreateFrame("Button", nil, expansion_frame, "UIPanelButtonTemplate")
 		expansion_toggle:SetWidth(105)
 		expansion_toggle:SetHeight(20)
 		expansion_toggle:SetNormalFontObject("QuestTitleFont")
@@ -876,7 +876,7 @@ function private.InitializeFilterPanel()
 	-- ----------------------------------------------------------------------------
 	-- Miscellaneous Filter Menu
 	-- ----------------------------------------------------------------------------
-	FilterPanel.misc = _G.CreateFrame("Frame", "ARL_FilterMenu_Misc", FilterPanel)
+	FilterPanel.misc = _G.CreateFrame("Frame", "ARL_FilterMenu_Misc", FilterPanel, BackdropTemplateMixin and "BackdropTemplate")
 	FilterPanel.misc:SetWidth(FILTERMENU_WIDTH)
 	FilterPanel.misc:SetHeight(280)
 	FilterPanel.misc:EnableMouse(true)

@@ -89,6 +89,7 @@ private.GAME_VERSION_NAMES = {
 	"WOD",
 	"LEGION",
 	"BFA",
+	"SHA"
 }
 
 constants.GAME_VERSION_NAMES = private.GAME_VERSION_NAMES
@@ -115,6 +116,8 @@ private.EXPANSION_LOGOS = {
 	[_G.LE_EXPANSION_WARLORDS_OF_DRAENOR] = { texture = [[Interface\Glues\Common\GLUES-WOW-WODLOGO]] },
 	[_G.LE_EXPANSION_LEGION] = { atlas = "Glues-WoW-LegionLogo" },
 	[_G.LE_EXPANSION_BATTLE_FOR_AZEROTH] = { texture = [[Interface\Glues\Common\Glues-WoW-BattleforAzerothLogo]] },
+	[_G.LE_EXPANSION_SHADOWLANDS] = { texture = [[Interface\Glues\Common\Glues-WoW-ShadowlandsLogo]] },
+
 }
 
 -- ----------------------------------------------------------------------------
@@ -368,6 +371,10 @@ private.EXPANSION7_REPUTATIONS = {
 	"ANKOAN",
 	"RAJANI",
 	"ULDUM_ACCORD",
+}
+
+private.EXPANSION8_REPUTATIONS = {
+
 }
 
 private.LOCALIZED_FACTION_STRINGS_FROM_LABEL = {

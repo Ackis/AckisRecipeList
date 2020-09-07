@@ -26,7 +26,7 @@ function private.InitializeFrame()
 	-- ----------------------------------------------------------------------------
 	-- Create the MainPanel and set its values
 	-- ----------------------------------------------------------------------------
-	local MainPanel = _G.CreateFrame("Frame", "ARL_MainPanel", _G.UIParent)
+	local MainPanel = _G.CreateFrame("Frame", "ARL_MainPanel", _G.UIParent, BackdropTemplateMixin and "BackdropTemplate")
 
 	-- The panel width changes when contracting and expanding - store it for later use.
 	MainPanel.normal_width = 384
@@ -969,7 +969,7 @@ function private.InitializeFrame()
 	-- Create MainPanel.progress_bar and set its scripts
 	-- ----------------------------------------------------------------------------
 	do
-		local progress_bar = _G.CreateFrame("StatusBar", nil, MainPanel)
+		local progress_bar = _G.CreateFrame("StatusBar", nil, MainPanel, BackdropTemplateMixin and "BackdropTemplate")
 		progress_bar:SetWidth(216)
 		progress_bar:SetHeight(18)
 		progress_bar:SetPoint("BOTTOMLEFT", MainPanel, 17, 80)
