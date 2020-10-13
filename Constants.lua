@@ -286,6 +286,16 @@ private.FACTION_LABELS_FROM_ID = {
 	[2400]  = "ANKOAN",
 	[2415]	= "RAJANI",
 	[2417]	= "ULDUM_ACCORD",
+
+	-- ----------------------------------------------------------------------------
+	-- Shadowlands
+	-- ----------------------------------------------------------------------------
+	[2407]  = "THE_ASCENDED",
+	[2410]	= "THE_UNDYING_ARMY",
+	[2413]	= "COURT_OF_HARVESTERS",
+	[2422]	= "THE_WILD_HUNT",
+	[2439]	= "THE_AVOWED",
+
 }
 
 -- The expansionX_reputations tables are ordered alphabetically (ignoring leading "THE"). These are used for
@@ -376,6 +386,16 @@ private.EXPANSION7_REPUTATIONS = {
 private.EXPANSION8_REPUTATIONS = {
 
 }
+
+private.EXPANSION9_REPUTATIONS = {
+	"THE_ASCENDED",
+	"THE_AVOWED",
+	"COURT_OF_HARVESTERS",
+	"THE_UNDYING_ARMY",
+	"THE_WILD_HUNT",
+
+}
+
 
 private.LOCALIZED_FACTION_STRINGS_FROM_LABEL = {
 	NEUTRAL	= _G.FACTION_STANDING_LABEL4,
