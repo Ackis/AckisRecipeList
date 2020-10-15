@@ -55,7 +55,7 @@ externals:
   url: svn://svn.wowace.com/wow/libsharedmedia-3-0/mainline/trunk
   tag: latest
  libs/LibQTip-1.0:
-  url: svn://svn.wowace.com/wow/libqtip-1-0/mainline/trunk
+  url: https://repos.wowace.com/wow/libqtip-1-0
  libs/LibToast-1.0:
   url: http://hg.curseforge.net/wow/libtoast-1-0/mainline
   tag: latest
