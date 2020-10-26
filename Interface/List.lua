@@ -114,7 +114,7 @@ local SpellTooltip = _G.CreateFrame("GameTooltip", "AckisRecipeList_SpellTooltip
 
 function private.InitializeListFrame()
 	local MainPanel	= addon.Frame
-	local ListFrame = _G.CreateFrame("Frame", nil, MainPanel)
+	local ListFrame = _G.CreateFrame("Frame", nil, MainPanel, BackdropTemplateMixin and "BackdropTemplate")
 	ListFrame:SetSize(LISTFRAME_WIDTH, 335)
 	ListFrame:SetPoint("TOPLEFT", MainPanel, "TOPLEFT", 22, -75)
 	ListFrame:SetBackdrop({

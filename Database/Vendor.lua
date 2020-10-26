@@ -123,7 +123,7 @@ function addon:InitVendor()
 	AddVendor(53410,	L["Lissah Spellwick"],			Z.DUSTWALLOW_MARSH,		66.0,	49.7,	"Alliance") -- Enchanting, Tailoring
 	AddVendor(53881,	L["Ayla Shadowstorm"],			Z.MOLTEN_FRONT,			44.8,	86.6,	"Neutral") -- Leatherworking, Tailoring
 	AddVendor(59908,	L["Jaluu the Generous"],		Z.VALE_OF_ETERNAL_BLOSSOMS,	74.2,	42.6,	"Neutral") -- Leatherworking, Tailoring
-	AddVendor(64032,	L["Sage Whiteheart"],			Z.SHRINE_OF_SEVEN_STARS,	84.6,	63.6,	"Alliance") -- Enchanting, Tailoring
+	AddVendor(64032,	L["Sage Whiteheart"],			Z.VALE_OF_ETERNAL_BLOSSOMS,	0.0,	0.0,	"Alliance") -- Enchanting, Tailoring  -- Needs updating
 	AddVendor(90894,	L["Alexi Hackercam"],			Z.LUNARFALL,			34.6,	33.0,	"Alliance") -- Blacksmithing, Engineering, Jewelcrafting
 	AddVendor(91030,	L["Trixxy Volt"],			Z.FROSTWALL,			40.8,	54.8,	"Horde") -- Blacksmithing, Engineering, Jewelcrafting
 	AddVendor(91031,	L["Nicholas Mitrik"],			Z.FROSTWALL,			40.8,	54.8,	"Horde") -- Alchemy, Inscription
@@ -164,6 +164,12 @@ function addon:InitVendor()
 	AddVendor(154652,	L["Dazzerian"],				Z.NAZJATAR,			48.6,	60.8,	"Horde") -- PvP vendor
 	AddVendor(154653,	L["Crafticus Mindbender"],		Z.NAZJATAR,			38.1,	55.4,	"Alliance") -- PvP vendor
 	AddVendor(150716,	L["Stolen Royal Vendorbot"],		Z.MECHAGON_ISLAND,		73.7,	36.9,	"Neutral")
+	AddVendor(156822,	L["Mistress Mihaela"],			Z.REVENDRETH,			61.4,	63.8,	"Neutral")
+	AddVendor(158556,	L["Aithlyn"],				Z.ARDENWEALD,		60.2,	35.2,	"Neutral") --Wild Hunt Quartermaster
+	AddVendor(160470,	L["Adjutant Nikos"],			Z.BASTION,			52.2,	47.1,	"Neutral") --Ascended Quartermaster
+	AddVendor(173003,	L["Nalcorn Talsen"],			Z.MALDRAXXUS,			50.6,	53.4,	"Neutral") --Undying Army Quartermaster
+	AddVendor(173705,	L["Archivist Janeera"],			Z.REVENDRETH,			73.0,	52.0,	"Neutral") --Avowed Quartermaster
+	AddVendor(174914,	L["Elwyn"],				Z.ARDENWEALD,		59.4,	33.0,	"Neutral") --Renown Quartermaster
 
 	self.InitVendor = nil
 end

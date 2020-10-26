@@ -36,6 +36,7 @@ local recipeMetatable = {
 
 -- Defined at the bottom of the file.
 local BLACKLISTED_RECIPE_IDS
+local REUSED_RECIPE_IDS
 
 -----------------------------------------------------------------------
 -- Helpers.
@@ -71,7 +72,7 @@ function addon:AddRecipe(module, recipeData)
 	local recipeList = private.recipe_list
 	local existingRecipe = recipeList[spellID]
 
-	if existingRecipe then
+	if existingRecipe and not REUSED_RECIPE_IDS[spellID] then
 		self:Debug("Duplicate recipe from %s: %d - %s", module.Name, spellID, existingRecipe:LocalizedName())
 		return
 	end
@@ -1028,6 +1029,11 @@ BLACKLISTED_RECIPE_IDS = {
 	[156589] = true, 	[156590] = true, 	[156592] = true, 	[156593] = true,
 	[168042] = true,
 
+	-- Shadowlands
+	[338190] = true,	[338191] = true,	[338192] = true,	[338194] = true,
+	[338195] = true,	[338196] = true,	[338198] = true,	[338199] = true,
+	[338200] = true,	[338202] = true,	[338203] = true,	[338204] = true,
+
 	-- ------------------------------------------------------------------------------------
 	---BLACKSMITHING
 	-- ------------------------------------------------------------------------------------
@@ -1063,13 +1069,25 @@ BLACKLISTED_RECIPE_IDS = {
 	[184336] = true,	[184337] = true,	[184338] = true,	[184339] = true,
 	[184340] = true,	[184341] = true,	[184342] = true,	[184343] = true,
 	[184344] = true,	[184345] = true,	[184403] = true,	[184404] = true,
-	[184405] = true,	[184407] = true,	[184408] = true,
+	[184405] = true,	[184407] = true,	[184408] = true,	[248864] = true,
+	[248867] = true,	[248869] = true,	[248870] = true,
+
+	-- Shadowlands
+	[337374] = true,	[337426] = true,	[337427] = true,	[337619] = true,
+	[337621] = true,	[337626] = true,	[338088] = true,	[338090] = true,
+	[338091] = true,	[338094] = true,	[338095] = true,	[338096] = true,
+	[338097] = true,
 
 	-- ------------------------------------------------------------------------------------
 	----COOKING
 	-- ------------------------------------------------------------------------------------
 	[145167] = true,	[145170] = true,	[145197] = true,	[169693] = true,
 	[169696] = true,	[169699] = true,
+
+	--Shadowlands
+	[338100] = true,	[338101] = true,	[338102] = true,	[338105] = true,
+	[338106] = true,	[338107] = true,	[338110] = true,	[338113] = true,
+	[338115] = true,	[338116] = true,	[338117] = true,
 
 	-- ------------------------------------------------------------------------------------
 	----ENCHANTING
@@ -1082,6 +1100,9 @@ BLACKLISTED_RECIPE_IDS = {
 	[173732] = true,	[174979] = true,	[175070] = true,	[175071] = true,
 	[175072] = true,	[175074] = true,	[175076] = true,	[175078] = true,
 	[175085] = true,	[175086] = true,	[177355] = true,	[181870] = true,
+	-- Shadowlands
+	[338121] = true,	[338123] = true,	[338125] = true,
+
 
 	-- ------------------------------------------------------------------------------------
 	----ENGINEERING
@@ -1089,19 +1110,26 @@ BLACKLISTED_RECIPE_IDS = {
 	[12900] = true,		[30342] = true,		[30343] = true,		[43676] = true,
 	[162208] = true,	[169077] = true,	[177364] = true,	[178242] = true,
 	[181422]= true,		[181423] = true,
+	-- Shadowlands
+	[338210] = true,	[338212] = true,	[338214] = true,	[338216] = true,
+	[338218] = true,	[338219] = true,	[338222] = true,	[338223] = true,
 
 	-- ------------------------------------------------------------------------------------
 	----INSCRIPTION
 	-- ------------------------------------------------------------------------------------
 	[127391] = true,	[127475] = true,	[127481] = true,	[128922] = true,
 	[130407] = true,	[176513] = true,	[178240] = true,	[178550] = true,
-	[225557] = true,	[227561] = true,	[227562] = true,
+	[225557] = true,	[227561] = true,	[227562] = true,	[338225] = true,
+	[338226] = true,	[338227] = true,	[338228] = true,	[338229] = true,
+	[338230] = true,	[338231] = true,	[338232] = true,	[338233] = true,
+	[338234] = true,	[338235] = true,	[338236] = true,
 
 	-- --------------------------------------------------------------------------------------
 	---JEWELCRAFTING
 	-- --------------------------------------------------------------------------------------
 	[25614] = true, 	[26918] = true, 	[26920] = true, 	[32810] = true,
-	[73233] = true, 	[73259] = true, 	[170832] = true,
+	[73233] = true, 	[73259] = true, 	[170832] = true,	[248937] = true,
+	[248938] = true,	[248939] = true,	[248940] = true,
 
 	-- --------------------------------------------------------------------------------------
 	---LEATHERWORKING
@@ -1132,4 +1160,11 @@ BLACKLISTED_RECIPE_IDS = {
 	[186763] = true,	[186764] = true,	[186799] = true,	[186801] = true,
 	[186803] = true,	[187058] = true,	[187059] = true,	[187060] = true,
 	[187064] = true,	[187065] = true,	[187066] = true,
+}
+
+
+-- List of recipe IDs which Blizzard decided to use for multiple professions starting in Shadowlands
+REUSED_RECIPE_IDS = {
+
+
 }

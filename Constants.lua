@@ -89,6 +89,7 @@ private.GAME_VERSION_NAMES = {
 	"WOD",
 	"LEGION",
 	"BFA",
+	"SHA"
 }
 
 constants.GAME_VERSION_NAMES = private.GAME_VERSION_NAMES
@@ -115,6 +116,8 @@ private.EXPANSION_LOGOS = {
 	[_G.LE_EXPANSION_WARLORDS_OF_DRAENOR] = { texture = [[Interface\Glues\Common\GLUES-WOW-WODLOGO]] },
 	[_G.LE_EXPANSION_LEGION] = { atlas = "Glues-WoW-LegionLogo" },
 	[_G.LE_EXPANSION_BATTLE_FOR_AZEROTH] = { texture = [[Interface\Glues\Common\Glues-WoW-BattleforAzerothLogo]] },
+	[_G.LE_EXPANSION_SHADOWLANDS] = { texture = [[Interface\Glues\Common\Glues-WoW-ShadowlandsLogo]] },
+
 }
 
 -- ----------------------------------------------------------------------------
@@ -283,6 +286,16 @@ private.FACTION_LABELS_FROM_ID = {
 	[2400]  = "ANKOAN",
 	[2415]	= "RAJANI",
 	[2417]	= "ULDUM_ACCORD",
+
+	-- ----------------------------------------------------------------------------
+	-- Shadowlands
+	-- ----------------------------------------------------------------------------
+	[2407]  = "THE_ASCENDED",
+	[2410]	= "THE_UNDYING_ARMY",
+	[2413]	= "COURT_OF_HARVESTERS",
+	[2422]	= "THE_WILD_HUNT",
+	[2439]	= "THE_AVOWED",
+
 }
 
 -- The expansionX_reputations tables are ordered alphabetically (ignoring leading "THE"). These are used for
@@ -369,6 +382,20 @@ private.EXPANSION7_REPUTATIONS = {
 	"RAJANI",
 	"ULDUM_ACCORD",
 }
+
+private.EXPANSION8_REPUTATIONS = {
+
+}
+
+private.EXPANSION9_REPUTATIONS = {
+	"THE_ASCENDED",
+	"THE_AVOWED",
+	"COURT_OF_HARVESTERS",
+	"THE_UNDYING_ARMY",
+	"THE_WILD_HUNT",
+
+}
+
 
 private.LOCALIZED_FACTION_STRINGS_FROM_LABEL = {
 	NEUTRAL	= _G.FACTION_STANDING_LABEL4,

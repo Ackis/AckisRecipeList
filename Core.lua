@@ -570,9 +570,9 @@ function addon:TRADE_SKILL_SHOW()
 		elseif scanButtonLocation == "TL" then
 			scanButton:SetPoint("LEFT", _G.TradeSkillFramePortrait, "RIGHT", 2, 12)
 		elseif scanButtonLocation == "BR" then
-			scanButton:SetPoint("TOP", _G.TradeSkillCancelButton, "BOTTOM", 0, -5)
+			scanButton:SetPoint("TOP", _G.TradeSkillFrame.DetailsFrame.ExitButton, "BOTTOM", 0, -5)
 		elseif scanButtonLocation == "BL" then
-			scanButton:SetPoint("TOP", _G.TradeSkillCreateAllButton, "BOTTOM", 0, -5)
+			scanButton:SetPoint("TOP", _G.TradeSkillFrame.DetailsFrame.CreateAllButton, "BOTTOM", 0, -5)
 		end
 
 		scanButton:SetWidth(scanButton:GetTextWidth() + 10)
@@ -595,7 +595,7 @@ end
 
 do
 	local last_update = 0
-	local updater = _G.CreateFrame("Frame", nil, _G.UIParent)
+	local updater = _G.CreateFrame("Frame", nil, _G.UIParent, BackdropTemplateMixin and "BackdropTemplate")
 	updater:Hide()
 
 	updater:SetScript("OnUpdate", function(self, elapsed)

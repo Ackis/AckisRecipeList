@@ -269,7 +269,7 @@ end -- do
 -- ----------------------------------------------------------------------------
 local CopyFrame
 do
-	local copy_frame = _G.CreateFrame("Frame", "ARL_DatamineCopyFrame", _G.UIParent)
+	local copy_frame = _G.CreateFrame("Frame", "ARL_DatamineCopyFrame", _G.UIParent, BackdropTemplateMixin and "BackdropTemplate")
 	copy_frame:SetSize(750, 600)
 	copy_frame:SetPoint("CENTER", _G.UIParent, "CENTER")
 	copy_frame:SetFrameStrata("DIALOG")
@@ -358,7 +358,7 @@ do
 
 	copy_frame.title = title
 
-	local drag_frame = _G.CreateFrame("Frame", nil, copy_frame)
+	local drag_frame = _G.CreateFrame("Frame", nil, copy_frame, BackdropTemplateMixin and "BackdropTemplate")
 	drag_frame:SetPoint("TOPLEFT", title)
 	drag_frame:SetPoint("BOTTOMRIGHT", title)
 	drag_frame:EnableMouse(true)
@@ -436,7 +436,7 @@ do
 
 		local bg_texture = button:CreateTexture(nil, "BACKGROUND")
 		button.bg_texture = bg_texture
-		bg_texture:SetTexture("Interface/SpellBook/UI-Spellbook-SpellBackground")
+--		bg_texture:SetTexture("Interface/SpellBook/UI-Spellbook-SpellBackground")
 		bg_texture:SetWidth(button_width + 4)
 		bg_texture:SetHeight(button_height + 6)
 		bg_texture:SetTexCoord(0, (43 / 64), 0, (43 / 64))
@@ -576,7 +576,7 @@ do
 
 	local function ProgressBar()
 		if not progressBar then
-			progressBar = _G.CreateFrame("Frame", "ARL_DatamineProgressBar", _G.UIParent)
+			progressBar = _G.CreateFrame("Frame", "ARL_DatamineProgressBar", _G.UIParent, BackdropTemplateMixin and "BackdropTemplate")
 			progressBar:SetSize(450, 30)
 			progressBar:SetPoint("CENTER", 0, -250)
 			progressBar:SetFrameStrata("DIALOG")
@@ -659,7 +659,7 @@ do
 		return progressBar
 	end
 
-	local ScannerUpdateFrame = _G.CreateFrame("Frame")
+	local ScannerUpdateFrame = _G.CreateFrame("Frame", nil, copyFrame, BackdropTemplateMixin and "BackdropTemplate")
 
 	function ScannerUpdateFrame:Cleanup()
 		self:SetScript("OnUpdate", nil)
@@ -2162,7 +2162,7 @@ NO_ROLE_FLAG = {
 	[166669] =	true,	[167950] =	true,	[175186] =	true,	[177045] =	true,	[178248] =	true,
 	[178249] =	true,	[178448] =	true,	[181420] =	true,	[181421] =	true,	[182154] =	true,
 	[182155] =	true,	[182156] =	true,	[182157] =	true,	[182158] =	true,	[225550] =	true,
-	[256277] =	true,
+	[256277] =	true,	[311424] =	true,
 
 	-- ------------------------------------------------------------------------------------
 	-- ENCHANTING
